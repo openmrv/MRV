@@ -151,7 +151,7 @@ Google Earth Engine (GEE) is a cloud platform for analyzing geospatial data. Acc
 2. Add the Python console by going to *Plugins* (top of application) -> *Python Console*
 3. Browse example code in [the plugin repository](https:/github.com/gee-community/qgis-earthengine-plugin/tree/master/examples). It's also worth getting familiar with [Google Earth Engine](https:/developers.google.com/earth-engine/guides) if you are a new user. This tutorial does not cover GEE basics and users should consult [GEE documentation](https:/developers.google.com/earth-engine/guides) for advanced usage. 
 4. In the Python Console, first load the GEE Python API:
-    ```
+    ```python
     import ee
     ```
     Your console should look like this:
@@ -159,14 +159,14 @@ Google Earth Engine (GEE) is a cloud platform for analyzing geospatial data. Acc
     ![](figures/m1.2/m1.2.2/gee1.JPG) 
 5. Load the *Map* function from the ee_plugin module and test if it is working properly:
 
-    ```
+    ```python
     from ee_plugin import Map
     print(ee.String('The plugin is working!').getInfo())
     ```
 
 6. Set the map view to the boundary of Colombia.
 
-    ```
+    ```python
     countries = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017")
     colombia = countries.filter(ee.Filter.eq('country_na', 'Colombia'))
     Map.centerObject(colombia, 8)
@@ -174,7 +174,7 @@ Google Earth Engine (GEE) is a cloud platform for analyzing geospatial data. Acc
 
 7. Create a Sentinel-2 composite for 2019 and add it to the map.
 
-    ```
+    ```python
     s1_collection = ee.ImageCollection("COPERNICUS/S2_SR")
 
     s1_composite = s1_collection.filterBounds(colombia) \
@@ -192,7 +192,7 @@ Google Earth Engine (GEE) is a cloud platform for analyzing geospatial data. Acc
 
 8. Now let's try it again when applying the cloud mask prior to making the mosaic:
 
-    ```
+    ```python
     def maskS2clouds(image):
         return image.updateMask(image.select('QA60').eq(0))
 
@@ -278,7 +278,7 @@ Here, our goal is to ensure that our 'Forest' class contains examples of differe
 2. Load the [Google Earth Engine](#gee) plugin.
 3. Open the *Python Console* by navigating to 'Plugins' -> 'Python Console'. 
 4. Use the instructions in [3.3.3](#gee) to load the required modules and navigate to Mozambique. If you need a refresher, the code to do so can be found below. 
-    ```
+    ```python
     import ee
     from ee_plugin import Map
     countries = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017")
@@ -286,22 +286,22 @@ Here, our goal is to ensure that our 'Forest' class contains examples of differe
     Map.centerObject(mozambique, 8)
     ```
 5. Create a function to calculate NDVI using the Red (B4) and NIR (B8) bands of Sentinel-2 imagery. We will also need the cloud masking function introduced in 3.3.3.  
-    ```
+    ```python
     def doNDVI(image):
-	return image.normalizedDifference(['B4','B8']).rename('NDVI')
+        return image.normalizedDifference(['B4','B8']).rename('NDVI')
 
     def maskS2clouds(image):
-	return image.updateMask(image.select('QA60').eq(0))
+        return image.updateMask(image.select('QA60').eq(0))
     ```
 6. Now, we can filter the Sentinel-2 collection into two groups: images during the peak of the dry season, and images during the peak of the rainy season. We can then [map](https:/developers.google.com/earth-engine/guides/ic_mapping) over the collections to apply the cloud masks and calculate NDVI.
-    ```
+    ```python
     s1_collection = ee.ImageCollection("COPERNICUS/S2_SR").map(maskS2clouds)
 
     dry_season = s1_collection.filterBounds(mozambique).filterDate('2019-09-01','2019-11-01').map(doNDVI)
     rainy_season = s1_collection.filterBounds(mozambique).filterDate('2019-01-01','2019-04-01').map(doNDVI)
     ```
 7. To calculate seasonal variability, we can then combine these two collections and calculate the per-pixel NDVI variance using a [reducer](https:/developers.google.com/earth-engine/guides/reducers_intro). 
-    ```
+    ```python
     combined = rainy_season.merge(dry_season)
     variance = combined.reduce(ee.Reducer.variance())
 
@@ -311,7 +311,7 @@ Here, our goal is to ensure that our 'Forest' class contains examples of differe
     ![](figures/m1.2/m1.2.2/mozambique_ndvi_var.JPG)
 8. The map that is loaded is the seasonal variance in NDVI, in which red indicates less variability and green indicates more. 
 9. One further step we can do to help in the identification of forests is to use an ancillary tree cover dataset to mask non-forest pixels. The UMD-Hansen global tree cover, loss, and gain dataset is perfect for this purpose. While it is not recommened to use this dataset directly as training data, it is a good tool for identifying possible forest or forest change locations. Here we will use the 'Tree Cover 2000' layer to mask our NDVI variance layer in pixels that were under 30% tree canopy cover in 2000. 
-    ``` 
+    ```python
     umd_hansen = ee.Image("UMD/hansen/global_forest_change_2019_v1_7").select('treecover2000')
     mask = umd_hansen.gt(30)
     variance_masked = variance.updateMask(mask)
