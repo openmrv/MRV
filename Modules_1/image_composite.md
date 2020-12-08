@@ -30,7 +30,7 @@ It is encouraged that you follow the steps below by writing the scripts on your 
 
 ### 1.3 Videos
 
-The [Open MRV YouTube channel](https://www.youtube.com/channel/UCdPooUCxF3HRIWdEh4pwrqQ) contains videos that walk you through some sections of this and other modules. For this module, a video was created for each subsection of Section 4. Creating a composite. Please note that the script development in the videos might not be exactly the same as demonstrated in each step of the tutorial (i.e., order of code lines and variable names might differ, etc.), and that each video will built upon previous ones. In any case, the same outputs are produced. You can find in each section below a hyperlink to its corresponding video. It is recommended to read the each section before watching the videos.
+The [Open MRV YouTube channel](https://www.youtube.com/channel/UCdPooUCxF3HRIWdEh4pwrqQ) contains videos that walk you through some sections of this and other modules. For this module, a video was created for each subsection of Section 4. Creating a composite. Please note that the script development in the videos might not be exactly the same as demonstrated in each step of the tutorial (i.e., order of code lines and variable names might differ, etc.), and that each video is built upon previous ones. In any case, the same outputs are produced. You can find in each section below a hyperlink to its corresponding video. It is recommended to go through each section before watching the videos.
 
 ## 2 Learning objectives
 
@@ -229,7 +229,7 @@ You will see that this new composite looks slightly better than the previous one
 
 Try adjusting the `CLOUD_COVER` threshold to different percentages and checking results. Example: with 20% set as the threshold, you can see that many parts of the country have image gaps. Additionally, some tiles, even with a cloud filter, still present large area cover of clouds.
 
-![](figures/m1.1/l820cloudthreshold3.png)
+![](figures/m1.1/l820cloudthreshold2.png)
 
 This is due to persistent cloud cover in some regions of Colombia. We can apply a Cloud Mask to improve the results. The Landsat 8 collections contains a ["Quality Assessment (QA)" band](https://www.usgs.gov/core-science-systems/nli/landsat/landsat-collection-1-level-1-quality-assessment-band?qt-science_support_page_related_con=0#qt-science_support_page_related_con) called `pixel_qa` that provides useful information of certain conditions within the data, and allows users to apply per pixel filters. Each pixel in the QA band contains unsigned integers that represent bit-packed combinations of surface, atmospheric, and sensor conditions. Of particular interest here, are Bits 3 and 5 that represent cloud shadow, and cloud, respectively. 
 
@@ -270,7 +270,7 @@ Map.addLayer(l8compositeMasked,
 > * [Left shift operator in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Left_shift)
 > * [GEE `bitwiseAnd` function](https://developers.google.com/earth-engine/apidocs/ee-image-bitwiseand)
 
-![](figures/m1.1/l8masked3.png)
+![](figures/m1.1/l8masked2.png)
 
 The resulting composite shows masked clouds and is a great improvement compared to previous composites. However, data gaps are still an issue due to cloud cover. If you do not specifically need an annual composite, you can create a two-year composite to try mitigating the missing data issue. We will try this next.
 
@@ -318,7 +318,7 @@ var l8TwoYearComposite = l8.filterBounds(country)
 Map.addLayer(l8TwoYearComposite,{bands:['B4','B3','B2'],min:0,max:2000},'Landsat 8 Two-Year composite');
 ```
 
-![](figures/m1.1/twoYearComposite3.png)
+![](figures/m1.1/twoYearComposite2.png)
 
 The resultant image has substantially fewer gaps. Again, if the time period is not a constraint for the creation of your composite, you can incorporate more images from a third year, and so on.
 
@@ -444,7 +444,7 @@ Map.addLayer(l78composite,{bands:['B4','B3','B2'],min:0,max:2000},
 
 You should see an image composite that looks like this:
 
-![](figures/m1.1/mergedComposite3.png)
+![](figures/m1.1/mergedComposite2.png)
 
 Compared to the previous Landsat 8-only composite, you can see that some of the gaps have been filled. However, due to the general mosaicking/compositing nature, and Landsat 7's  SLC error, you can also see some artifacts in some regions. Example at centroid Latitude: 1.46, Longitude: -69.99. Landsat 8-only composite (left) and Landsat 7 and 8 composite (right) for 2019:
 
@@ -479,7 +479,7 @@ Map.addLayer(l78compositeFill,{bands:['B4','B3','B2'],min:0,
 
 You should see a composite like the one below. In this particular case, it might be worth not applying this method since it "created" new pixels that look like clouds and the previous method does a better job. However, for other regions, with less cloud cover, this additional step might be of use.
 
-![](figures/m1.1/focalMean3.png)
+![](figures/m1.1/focalMean4.png)
 
 #### 4.2.6 Medoid Composite
 
@@ -507,7 +507,7 @@ var l78medoidComposite = l78.map(function(image) {
 Map.addLayer(l78medoidComposite,{bands:['B4','B3','B2'],min:0,max:2000},'L7&8 Medoid composite 2019');
 ```
 
-![](figures/m1.1/LandsatMedoid3.png)
+![](figures/m1.1/LandsatMedoid2.png)
 
 
 
@@ -577,7 +577,7 @@ Map.addLayer(s2composite,{bands:['B4','B3','B2'],min:0.02,max:0.3,
                           gamma:1.5},'Sentinel-2 2019 composite');
 ```
 
-![](figures/m1.1/s2composite3.png)
+![](figures/m1.1/s2composite2.png)
 
 > Additional: You can try a different band combination to show the Sentinel-2 composite. Try the false color combination below using the SWIR 1, NIR, and Blue bands. This band combination is mostly used to monitor the health of crops because of how it uses short-wave and near-infrared. Both these bands are particularly good at highlighting dense vegetation which appears as dark green. [This page](https://gisgeography.com/sentinel-2-bands-combinations/) explains different Sentinel-2 band combinations.
 >
@@ -587,7 +587,7 @@ Map.addLayer(s2composite,{bands:['B4','B3','B2'],min:0.02,max:0.3,
 >              'Sentinel-2 2019 composite SWIR/NIR/Blue');
 > ```
 >
-> ![](figures/m1.1/s2compositeFalseColor3.png)
+> ![](figures/m1.1/s2compositeFalseColor2.png)
 
 #### Warning: Surface Reflectance vs. Top-of-Atmosphere products
 
@@ -595,7 +595,7 @@ The European Space Agency did not produce Sentinel-2 Level-2 data (Bottom-of-Atm
 
 The Top-of-Atmosphere products have not been atmospherically corrected, therefore, a TOA composite will present differences compared to a BOA since it will represent influences from the atmosphere. An image of the 2019 median composite from Sentinel-2 L1 product is shown below together with the produced 2019 median composite from the L2 product for comparison.
 
-![](figures/m1.1/TOA_BOAComparison2.png)
+![](figures/m1.1/TOA_BOAComparison3.png)
 
 You can notice the blueish effect on the TOA composite. For more information about Sentinel-2 Processing Levels please check [this page](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels) (and subpages [Level-0](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels/level-0), [Level-1](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels/level-1), and [Level-2](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels/level-2)). Other resources about the differences between Radiance, Reflectance, and Top-of-Atmosphere are:
 
@@ -804,6 +804,6 @@ Sofia Garcia, Guatemala, Ministry of Environment and Natural Resources
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
 
 Attribution  
-Nicolau, A. P. 2020. Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+Nicolau, Andrea P. 2020. Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](figures/m1.1/wb.png)![](figures/m1.1/gfoi.png)
