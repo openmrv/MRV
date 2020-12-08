@@ -4,7 +4,7 @@
 
 Training data is instrumental to supervised image classification. The training dataset is a labeled set of data that is used to inform or "train" a classifier. The trained classifier can then be applied to new data to create a classification. For example, land cover training data will contain examples of each class in the study's legend, and based on these labels the classifier can be used to predict the most likely land cover class for each pixel in an image. This is an example of a categorical classification and the training labels are therefore categorical. By contrast, a continuous variable (e.g. percent tree cover) can be predicted using continuous training labels.
 
-This tutorial will demonstrate how to collect categorical training data for land cover classification using QGIS. Users should adjust the various components to match their project objectives. Here, the process is demonstrated for the country of Colombia and for a simple legend of four land cover classes: Forest, Water, Herbaceous, and Developed.  
+This tutorial will demonstrate how to collect categorical training data for land cover classification using QGIS. Users should adjust the various components to match their project objectives. Here, the process is demonstrated for the countries of Colombia, Mozambique, and Cambodia, and for a simple legend of four land cover classes: Forest, Water, Herbaceous, and Developed.  
 
 
 ### 1.1 QGIS
@@ -79,9 +79,8 @@ Users should consider the options below and decide a source of reference data th
 **Important Note:** We suggest users starting first with QuickMap Services, as it does not require an external account and is the most straightforward to install. Use of Planet and Google Earth Engine provides more flexible reference data, however the plugins are experimental and require accounts with both Earth Engine and Planet. If users cannot install any plugins, we suggest they switch to [Module 1.2.2 Training Data Collection Using Google Earth Engine](Tenneson_TrainingData_GEE.md). 
 
 # <a name="quickmap"></a>
-#### 3.3.1 QuickMap Services
- \
- \
+#### 3.3.1 QuickMap Services  
+
 **Who**: [NextGIS](https:/nextgis.com/)
 
 **What**: High quality basemaps (Google, ESRI, Mapbox, etc)
@@ -124,11 +123,8 @@ The Planet constellation of satellites offer daily high-resolution imagery in 3-
 ![](figures/m1.2/m1.2.2/planetexplorer.JPG)
 
 # <a name="gee"></a>
-#### 3.3.3 Google Earth Engine
+#### 3.3.3 Google Earth Engine (Advanced Usage)  
 
-**Advanced Usage**
- \
- \
 **Who**: [Google Earth Engine](https:/earthengine.google.com/) and Gennadii Donchyts. 
 
 **What**: Most open access earth observation data (e.g. Landsat, Sentinel and MODIS). 
