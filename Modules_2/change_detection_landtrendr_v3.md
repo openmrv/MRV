@@ -140,11 +140,11 @@ Note that this GUI requires access to two libraries of utility functions: One th
 
 ### 3.2.2 Basic orientation to the GUI
 
-The LT GUI consists of three panels:  A control panel on the left, a reporting panel on the right, and a map panel in the center (Figure G1)
+The LT GUI consists of three panels:  A control panel on the left, a reporting panel on the right, and a map panel in the center.
 
 ![_figG1_overviewGUI](./figures/_figG1_overviewGUI.png)
 
-Figure G1: The basic LandTrendr Graphical User Interface (GUI).  
+A video showing basic orientation to the GUI is here:  https://youtu.be/tdpuxV7Ad8g
 
 Using the expanding menus in the Control Panel, the user sets parameters for the LandTrendr runs, displays images and maps in the center panel, or generates charts in the reporting panel.  Expanding windows are controlled by clicking on the double-arrows next to each heading: 
 
@@ -161,6 +161,8 @@ To access the point-mode, select the "Pixel Time Series Options" menu. You shoul
 ![_fig_time_series](./figures/_fig_time_series.png)
 
 You can either click on a point on the map and wait patiently, or type coordinates and then click on the "Submit Pixel" button. 
+
+A video showing basic point mode operation is here: https://youtu.be/RdQvxTbi37E
 
 ### 3.3.1 Examine a forest disturbance pixel
 
@@ -398,6 +400,8 @@ Let's try it for the study area of interest.  Open the RGB change mapper menu in
 
 If in the future you want to run the RGB mapper in different ways, however, note that you can set the center point and a box around it, or you can delineate your own arbitrary geography. 
 
+A basic video showing the RGB tool is here: https://youtu.be/VSeia3NRa3c
+
 
 
 ![_fig_rgb_menu_instructions](./figures/_fig_rgb_menu_instructions.png)
@@ -508,7 +512,9 @@ Thus, we have further evidence that the image window chosen for the default run 
 
 Up to now, we've been relying on the "default" parameters to run the LT algorithm:  the date windows of the year to build image collections, and the fitting parameters to control the algorithm.  And we have seen evidence that these may not be good enough for our new situation in Colombia! 
 
-To improve this, we must define the basic imagery that will be provided to the algorithm and the fitting parameters to control the algorithm.  These occur in the "LandTrendr Options" expanding menu of the  GUI (Figure Y1).  
+To improve this, we must define the basic imagery that will be provided to the algorithm and the fitting parameters to control the algorithm.  These occur in the "LandTrendr Options" expanding menu of the  GUI.  
+
+A basic video showing this process is here: https://youtu.be/TNQOdHIg24s
 
 ### 3.5.1 Change values in the menu
 
@@ -673,6 +679,8 @@ These are items that can be set in the "Change Filter" menu:
 ![_fig_change_filter_menu](./figures/_fig_change_filter_menu.png)
 
 Assuming you still have the ColombiaRectangle set as the first asset in the Asset Manager tool,  when you click on "Add Filtered Disturbance Imagery", the algorithm will run LT on each pixel, use your fitting imagery and parameter guides, and then add these to the map.  As with the RGB imagery, it will take a bit to calculate and load (This is why we limited ourselves to a relatively small region for training!). 
+
+A basic video showing this set up is here:  https://youtu.be/f8xPDzEknQg
 
 The disturbance mapper adds three layers to the map:  Year of Detection, Magnitude, and Duration.  Below is an overview of the Year and Magnitude layers for our focal area:
 
@@ -1358,6 +1366,58 @@ Kennedy, Robert E.; Ohmann, Janet; Gregory, Matt; Roberts, Heather; Yang, Zhiqia
 Powell, S.L.; Cohen, W.B.; Healey, S.P.; Kennedy, R.E.; Moisen, G.G.; Pierce, K.B.; Pierce, K.B.; Ohmann, J.L., 2010, Quantification of live aboveground forest biomass dynamics with Landsat time-series and field inventory data: A comparison of empirical modelling approaches. __Remote Sens. Environ.__ **2010**, 114: 1053–1068.
 
 Roy, D.P., Kovalskyy, V., Zhang, H.K., Vermote, E.F., Yan, L., Kumar, S.S, Egorov, A., 2016, Characterization of Landsat-7 to Landsat-8 reflective wavelength and normalized difference vegetation index continuity, Remote Sensing of Environment, 185, 57-70.(http://dx.doi.org/10.1016/j.rse.2015.12.024)
+
+
+
+
+
+------
+
+[
+![img](https://lh4.googleusercontent.com/FlTik_kVMvlZvBAPQuX5ijx5rwSVC_7T0zZbh48d415FxyqXrp-ZM_w2TLvmmICTyJVbii4VQJurxJt5-cKnSOOeNQ3-j3BdlK5XNwg4SKDAlVBLoVH25_ssaOgeL6xgLrwvZxjo)](http://creativecommons.org/licenses/by-sa/4.0/)
+
+This work is licensed under a [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) 
+
+
+
+Copyright 2021, World Bank 
+
+
+
+This work was developed by Robert E Kennedy under World Bank contract with GRH Consulting, LLC for the development of new -and collection of existing- Measurement, Reporting, and Verification related resources to support countries’ MRV implementation. 
+
+
+
+Material reviewed by:
+
+Foster Mensah  / Center for Remote Sensing and Geographic Information Services, Ghana
+
+Jennifer Juliana Escamilla Valdez / Minsiterio de Medio Ambiente y Recursos Naturales, El Salvador
+
+Raja Ram Aryal /  Ministry of Forests and Environment, Nepal
+
+KONAN Yao Eric Landry / REDD+ Permanent Executive Secretariat, Cote d'Ivoire
+
+Carole Andrianirina / BNCCREDD+, Madagascar
+
+Tatiana Nana / REDD+ National Coordination MINEPDED Ministry of Environment, Cameroon
+
+
+
+Attribution
+
+Kennedy, Robert E . 2021. Change detection with LandTrendr in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+
+ 
+
+  
+
+
+![img](https://lh4.googleusercontent.com/6NE8qSB-n0jdUuIJhOi1KCswEq3JTZvc0o-pudDvv_myoESveXmgjnEu2GoRj5wT86x1KNWEVGsvmkpkKfWLUKCx5ThiShCstxc4nrov894b2IC_6-MUNQNG374JiLRnJTi7Stjz)![img](https://lh5.googleusercontent.com/cWpru05JISJZrVmeHUr1bP0abbQL4IRCRotcA2hYICrcOAAYFFG5NkbQ9piU3OLrWnjEWBMQ1bBZKqABIghoz0--lAXlvuxrhMh8icTMJPoDYi4fjWfeODRkRbKduPRcM601lRWh)
+
+
+
+
 
 
 
