@@ -644,12 +644,15 @@ CODED can be modified using three parameters: These parameters are displayed aft
 
 
 
-*   The second button on the map control panel (Figure 1, C) will add and remove the time series viewer from the map.
+*   The second button on the map control panel ("Toggle time series viewer") will add and remove the time series viewer from the map.
 
 ![alt_text](images/CODED/img22.png "image_tooltip")
 
 *   The time series with the model fit can be displayed for any location by clicking on the map. In the example above, the change date layer from Landsat/CODED is shown on the map for a location in the Democratic Republic of the Congo. 
 *   To view the image for a specific data value on the chart on the map, simply click on it in the time series viewer.
+*   **Notes**
+    * It may take a while for the chart to generate. The window will note that it is processing with the message "Processing, please wait". 
+    * If the chart does not display that message nor update, it may be that your cursor is still in a geometry editing mode - make sure to turn off geometry editing and try clicking on the map again. 
 
 **Interpreting the Map**
 
@@ -659,6 +662,10 @@ CODED can be modified using three parameters: These parameters are displayed aft
   <tr>
    <td>
 <strong>Break Date</strong>
+<br>
+Green: Forest 
+<br>
+Black: Non-Forest
 <br>
 Yellow (Start Date) -> Red (End Date)
    </td>
@@ -704,14 +711,14 @@ Yellow: Unclassified Disturbance
 ![alt_text](images/CODED/img25.png "image_tooltip")
 
 
-4. The panel that appears next to the map allows for the selection of a language. Choose your preferred language. Currently, the only options are English and French. 
+4. The panel that appears next to the map allows for the selection of a language. Choose your preferred language. Currently, the only options are English, Spanish, and French. 
 
 ![alt_text](images/CODED/img26.png "image_tooltip")
 
 
 **Parameterization**
 
-The following are a recommendation of parameters to use based on previous experience. Everything can and should be tuned for local analysis, and details on parameters can be found in the Application Guidebook. 
+The following are a recommendation of parameters to use based on previous experience. Everything can and should be tuned for local analysis. 
 
 
 - **Start and End date:** Change the start and end dates to ‘2000-01-01’ and ‘2020-01-01, respectively. 
@@ -722,16 +729,16 @@ The following are a recommendation of parameters to use based on previous experi
 - **Change Attribution:** _Sample_ will automatically sample the Forest/Non-Forest map for change attribution. After a change is detected, the subsequent land covers classified as non-forest will be labeled _Deforestation_, while a disturbance in a forest that remains forest will be labeled _Degradation_
 - **Post-Processing:** Use the default post-processing parameters, which performs no post-processing. 
 - **Visualization:** Enable _Verbose_ to read information in the Console. 
-- **Export:** Export the default (_Stratification_). Since we are operating on a relatively small study area, you can leave the option to export using a grid unchecked. 
+- **Export:** _Stratification_. Since we are operating on a relatively small study area, you can leave the option to export using a grid unchecked. 
 
 **Study Area**
 
 
 
 1. You can specify a path to an Earth Engine Table, the boundary of which will be used as the study area. 
-2. Click the button that says “Use Asset for Study Area”. 
-3. Enter the path to the table in the box right below the textbox under the button: users/ramblingrek/ColombiaRectangle
-4. After entering the path to the Table, it should load on the map after clicking on the map or pressing ‘Enter’.
+2. On the left side of the map, click the button that says “Use Asset for Study Area” (see figure below)
+3. Enter the path to the table in the box right below the textbox under the button: users/openmrv/MRV/ColombiaRectangle
+4. After entering the path to the Table, it should load on the map after clicking on the map or pressing ‘Enter’.  If you want to confirm the asset has loaded, manually move your map to Colombia and zoom to the area of the black rectangle. 
 
 ![alt_text](images/CODED/img27.png "image_tooltip")
  
@@ -740,9 +747,9 @@ The following are a recommendation of parameters to use based on previous experi
 
 
 
-1. Execute the script to display the results. The default options will display the forest change date and stratification. 
+1. Click on the “Run!” button on control panel on the right to execute the script to display the results. The default options will display the forest change date and stratification. 
 2. The change date layer is displayed from the start of the study period to the end, corresponding to yellow to red in the map. 
-3. The stratification has the following legend:
+3. The stratification has the following legend (palette):
     - Green: Stable forest
     - Black: Non-forest
     - Red: Deforestation
@@ -763,17 +770,17 @@ The following are a recommendation of parameters to use based on previous experi
 ![alt_text](images/CODED/img30.png "image_tooltip")
 
 
-7. If you ever run into an issue with the results loading on the map, or loading too slow, you can export the ‘Stratification’ layer using a task and add it back to the map.
-    - Submit a task (‘Export_Stratification’) to create the single-layer stratification in step 5.
+7. If you ever run into an issue with the results loading on the map, or loading too slowly, you can export the ‘Stratification’ layer using a task and add it back to the map.
+    - Submit a task (‘Export_Stratification’) to create the single-layer stratification (as decsribed above in in step 5).
     - When the task is complete it will turn blue in the ‘Task’ tab.   
     ![alt_text](images/CODED/img31.png "image_tooltip")  
     - Click on the question mark on the right of the blue task box and click ‘View Asset.  
     ![alt_text](images/CODED/img32.png "image_tooltip")  
     - Copy the path to the saved asset.  
 ![alt_text](images/CODED/img33.png "image_tooltip")  
-    - Under “Visualization”, paste the path in the box next to “Asset path” and click “Load asset”. Three layers should be added to the map: one for all pixels mapped as degradation, one for all pixels mapped as deforestation, and the stratification as styled with the palette in step 3.   
+    - Under “Visualization”, paste the path in the box next to “Asset path” and click “Load asset”. Three layers should be added to the map: one for all pixels mapped as degradation, one for all pixels mapped as deforestation, and the stratification as styled with the palette for the legend in step 3 above.   
     ![alt_text](images/CODED/img34.png "image_tooltip")  
-    - Select the ‘Toggle time series viewer’ to enable clicking on the map and viewing the respective NDFI time series. 
+    - Select the ‘Toggle time series viewer’ to enable clicking on the map to view the NDFI time series.     
     - To start to evaluate the results, try clicking on the map for a pixel mapped as degradation (blue) or deforestation (red). The time series for that pixel should load on the plot at the bottom of the screen. Optionally, use the ‘Y axis min/max’ textboxes to change the y-axis. A few extra layers get added to the map including a box indicating where you clicked, the image collection used to create the plot, and the regression model coefficients.   
     ![alt_text](images/CODED/img35.png "image_tooltip")
 
@@ -816,7 +823,7 @@ Export.table.toAsset({
       description: ‘cambodia’
 })
 ```
-
+Now that you have the asset created, you can use the next step to constrain the mapping to that asset’s boundary area. 
 
 #### Parameterization
 
@@ -849,14 +856,14 @@ In the ‘Forest Disturbance Mapping GUI’, define the study area using the ass
 ![alt_text](images/CODED/img37.png "image_tooltip")  
     - **Note:** This dataset is not perfect, and may omit non-stand replacing tree cover loss events. However, it serves well for exploratory purposes. 
 
-5. Add the time series viewer to the map wth _Toggle time series viewer_. Change the min/max of the y-axis to -1 to 1.5. 
+5. Add the time series viewer to the map with _Toggle time series viewer_. Change the min/max of the y-axis to -1 to 1.5. 
 6. Spend some time clicking on areas mapped as tree cover loss and visualizing the time series. This is a good opportunity for changing the _Consecutive Obs_ and _chiSquareProbability_ parameters. 
    . The example below can be found at Latitude, Longitude 13.307, 104.587. You can add this point to the map in the same manner as the global forest watch layer using the asset path ‘users/openmrv/MRV/Cambodia_Example_Point’. Note the dramatic decrease in NDFI that is not picked up as a change.
 
 ![alt_text](images/CODED/img38.png "image_tooltip")  
 The disturbance can be seen by clicking on the observation in the plot next to the error indicating the error of omission. Note that the missing data is due to the scanline corrector issue with Landsat 7.  
 ![alt_text](images/CODED/img39.png "image_tooltip")  
-Experiment with different values for _Consecutive Obs_ and _chiSquaredProbability_ to try to detect this change correctly. After changing a parameter, click _Run_ for them to go into effect. Make sure that _Reset Map_ and _Center Zoom_ are not checked under _Visualization_. This way you can change the parameters without any of the layers of the map being reset or the map view changing. 
+Experiment with different values for _Consecutive Obs_ and _chiSquareProbability_ to try to detect this change correctly. Typical ranges for _Consecutive Obs_ are from 3 (more change) to 8 (less change), while _chiSquareProbability_ typically should range from .9 (more change) to .999 (less change). After changing a parameter, click _Run_ for them to go into effect. Make sure that _Reset Map_ and _Center Zoom_ are not checked under _Visualization_. This way you can change the parameters without any of the layers of the map being reset or the map view changing. 
     - Notice that changing the _Consecutive Obs_ threshold from 4 to 3 led to the correct detection of the change:  
 ![alt_text](images/CODED/img40.png "image_tooltip")  
 It’s unrealistic to determine the perfect set of parameters for an entire country. However, this exercise can be used to determine a set of parameters that works well given the data availability of your study domain.   
