@@ -965,14 +965,39 @@ Finally, the tool allows you to specify some visualization parameters. This step
 # FAQs
 
 **Can CCDC be performed using other data sources?**
-
 Technically, yes. Although CCDC was designed for Landsat data, it is technically data agnostic and could therefore be performed using any data source with a dense time series record. 
 
-**Can CCDC be performed using annual imagery?**
+**Where can I find the most recent versions of the CCDC applications?**
+The most recent versions of the GUIs and API can be found here: https://gee-ccdc-tools.readthedocs.io
 
-**Where can I find the most recent versions of the CCDC applications? **
+**Can CCDC be analyzed without the API or GUIs?**
+Yes, CCDC can be performed using only the Javascript API. However, the complexity of the inputs and calculated outputs has proven to be a challenge to new (and even advanced) users. Therefore, we created the API and applications to make the analysis easier. 
 
-**Can CCDC be analyzed without the API or GUIs? **
+**Who should be credited for creating CCDC?**
+CCDC was originally introduced in Zhu and Woodcock (2014). The GEE implementation was written by Noel Gorelick and Yang Zhiqiang. There have been many other contributors to the CCDC algorithm and the applications used here, notably the ![USGS LCMAP Program](https://github.com/repository-preservation/lcmap-pyccd), the ![Global Environmental Remote Sensing Laboratory](https://gerslab.uconn.edu/), and the ![Global Land Cover mapping and Estimation project](http://sites.bu.edu/measures/). The GUIs and API are primary written and managed by Paulo Arévalo and Eric Bullock.  
 
-**What are other applications for CCDC outside of land cover change monitoring? **
+**The change coefficients are failing to export, what should I do?**
+The calculation of the change coefficients is the most computationally intensive part of CCDC. That is why the kind folks at Google have created a global coefficient dataset. Although it uses one default set of change parameters for the globe, the parameters have been proven to perform relatively well across different environments. Therefore, it should be considered as a useful alternative to user-created coefficients. 
 
+## 9.0 References
+
+- Zhu, Z., Woodcock, C.E., 2014. Continuous change detection and classification of land cover using all available Landsat data. Remote Sens. Environ. 144, 152–171. https://doi.org/10.1016/j.rse.2014.01.011
+
+
+![](images/CODED/cc.png)  
+This work is licensed under a [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
+
+Copyright 2020, World Bank 
+
+This work was developed by Eric Bullock under World Bank contract with GRH Consulting, LLC for the development of new -and collection of existing- Measurement, Reporting, and Verification related resources to support countries’ MRV implementation. 
+
+Material reviewed by:  
+Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services
+Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministerio de Medio Ambiente y Recursos Naturales
+KONAN Yao Eric Landry, Cote d'Ivoire, REDD+ Executive Permanent Secretariat
+Adrianirina Carole, Madagascar, BNCCREDD+
+
+Attribution
+Bullock, E. 2020. Continuous Change Detection and Classification (CCDC). © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)  
+![](images/CODED/WB_FCPF2.png)![](images/CODED/GFOI2.png)
