@@ -1,16 +1,16 @@
 # Module 2.2 Continuous Change Detection and Classification (CCDC)
 
-# 1.0 Background
+## 1.0 Background
 
 
-## 1.1 Land change monitoring
+#### 1.1 Land change monitoring
 
 Land cover changes affect natural and anthropogenic environments and is regarded as an Essential Climate Variable by the Global Climate Observing System. For example, desertification is causing a land cover transition from vegetative ecosystems to desert, deforestation results in the conversion of forest to human-modified land uses, and urban development can transition a natural environment to one covered in buildings and roads. In order to understand the impact of these transitions it is essential to quantify them at the national-to-regional scale, which is achievable through remote sensing analysis. 
 
 Land change monitoring using remote sensing data requires methodologies for transforming imagery into useful information about changes on the landscape. One such approach that has been widely applied is Continuous Change Detection and Classification (CCDC; Zhu and Woodcock 2014). This tutorial will demonstrate how CCDC can be applied on Google Earth Engine for the purpose of land change monitoring. 
 
 
-## 1.2 Learning objectives
+#### 1.2 Learning objectives
 
 By the end of this tutorial, users should be able to:
 
@@ -22,10 +22,10 @@ By the end of this tutorial, users should be able to:
 *   Visualize CCDC model coefficients and relate them to properties of the land surface. 
 
 
-# 2.0 Continuous Change Detection and Classification (CCDC)
+## 2.0 Continuous Change Detection and Classification (CCDC)
 
 
-## 2.1 Algorithm description
+#### 2.1 Algorithm description
 
 
 
@@ -96,7 +96,7 @@ The regression models are fit with coefficients representing model intercept, sl
 ![alt_text](images/CCDC/image4.jpg "image_tooltip")
 
 
-The residuals of the observations in the study region are used to calculate a test statistic that follows a chi-squared distribution. If every observation in the monitoring window exceeds the _chiSquaredProbability _parameter in the test statistic then a change is detected. If there are enough observations remaining in the time series then a new training model is fit and the process repeats until the end of the time series. 
+The residuals of the observations in the study region are used to calculate a test statistic that follows a chi-squared distribution. If every observation in the monitoring window exceeds the _chiSquaredProbability_ parameter in the test statistic then a change is detected. If there are enough observations remaining in the time series then a new training model is fit and the process repeats until the end of the time series. 
 
 The parameters used to control the change detection can be found below:
 
@@ -195,7 +195,7 @@ The parameters used to control the change detection can be found below:
 </table>
 
 
-At the end of the time series, each pixel trajectory will be segmented into temporally-congruent model parameters (e.g. slope and intercept). These segments are separated by _spectral changes_, which may or may not reflect land cover or condition changes. Without classifying the segments or model breaks it is not possible to know whether these _spectral changes_ are meaningful. It should be noted that “meaningful” change varies by context. For example, a drought can cause spectral change due to dry vegetation. While this is a real change occurring on the landscape, it may not always be relevant under differing project objectives. Therefore, the _spectral changes_ and or _model segments _must be classified according to the objectives of the study at hand. 
+At the end of the time series, each pixel trajectory will be segmented into temporally-congruent model parameters (e.g. slope and intercept). These segments are separated by _spectral changes_, which may or may not reflect land cover or condition changes. Without classifying the segments or model breaks it is not possible to know whether these _spectral changes_ are meaningful. It should be noted that “meaningful” change varies by context. For example, a drought can cause spectral change due to dry vegetation. While this is a real change occurring on the landscape, it may not always be relevant under differing project objectives. Therefore, the _spectral changes_ and or _model segments_ must be classified according to the objectives of the study at hand. 
 
 **Try it yourself**
 
@@ -248,14 +248,14 @@ Land covers can be classified using regression coefficients due to differences i
 
 
 
-# 3.0 Tutorials
+## 3.0 Tutorials
 
 CCDC can be run using Google Earth Engine. Other implementations of CCDC can be accessed [here](https://github.com/GERSL/CCDC) and includes implementations in C, Python, and MATLAB. To facilitate analysis in GEE, Arevalo et al (2020) released an API and collection of applications that will be demonstrated [here](https://gee-ccdc-tools.readthedocs.io/en/latest/). 
 
-This tutorial will use CCDC implementation in GEE, hence a GEE account is needed. Please refer to Module 1 for additional information on GEE. In the first example, the process is demonstrated using the CCDC API in Cambodia. In the second example the process is demonstrated in Mozambique using the graphic user interfaces. Finally, the process is performed in Colombia in a video tutorial using both the GUI and Javascript APIs. 
+This tutorial will use CCDC implementation in GEE, hence a GEE account is needed. Please refer to Module 1 for additional information on GEE. In the first example, the process is demonstrated using the CCDC API in Cambodia. In the second example the process is demonstrated in Mozambique using the graphic user interfaces. Finally, the process is performed in Colombia to create a stratification of forest loss and gain. 
 
 
-## 3.1 Cambodia: CCDC API
+#### 3.1 Cambodia: CCDC API
 
 The test case in Cambodia will be demonstrated here using the CCDC API. This same process can be performed in the GUIs using the instructions described below in the example in Mozambique. 
 
@@ -290,7 +290,7 @@ Map.centerObject(studyRegion)
 ```
 
 
-The ‘getLandsat’ function of the CCDC API can then be used to obtain all  Landsat data for Cambodia, mask using the ‘pixel_qa’ band, and convert to units of reflectance. 
+The [getLandsat](https://gee-ccdc-tools.readthedocs.io/en/latest/api/api.html#getLandsat) function of the CCDC API can then be used to obtain all  Landsat data for Cambodia, mask using the ‘pixel_qa’ band, and convert to units of reflectance. 
 
 
 ```javascript
@@ -347,7 +347,7 @@ Export.image.toAsset({
 ```
 
 
-**Tip** If your study area is large, the previous step may not ever complete. One way to address this is to split up the export into smaller tasks and rejoin them later. The following code uses the ‘makeAutoGrid’ function to create a grid overlapping the study area. A browser-side Javascript loop is then used to submit a different task for each.
+**Tip** If your study area is large, the previous step may not ever complete. One way to address this is to split up the export into smaller tasks and rejoin them later. The following code uses the [makeAutoGrid](https://gee-ccdc-tools.readthedocs.io/en/latest/api/api.html##makeAutoGrid) function to create a grid overlapping the study area. A browser-side Javascript loop is then used to submit a different task for each.
 
 ```javascript
 var grid = utils.Inputs.makeAutoGrid(studyRegion.geometry().bounds().buffer(150000), 2)
@@ -356,7 +356,7 @@ var grid = utils.Inputs.makeAutoGrid(studyRegion.geometry().bounds().buffer(1500
 
 
 grid.size().evaluate(function(s) {
-  print('# of grids: ', s)
+  print('## of grids: ', s)
   for (var i = 0; i < s; i++) {
     var outGeo = ee.Feature(grid.get(i)).geometry()
       .intersection(studyRegion.geometry()) // Subset to study region
@@ -473,9 +473,9 @@ trainingData  = trainingData.map(function(feat) {
 
 **Build image and extract predictor data for training**
 
-We need to extract predictor data for each training point before we can apply a classifier. We can do this either manually right before submitting the classification, or we can extract the predictors in advance and store them as properties of each of the training points. For this tutorial we will use the second way, because it enables a faster classification that will load “on the fly”. This is useful for testing classification parameters. The function to do this is called ‘getTrainingCoefsAtDate’. First, however, we need to construct the CCDC coefficient image to sample from. Basically, this step converts the array image into a multi-band image in which each pixel has the same number of bands. 
+We need to extract predictor data for each training point before we can apply a classifier. We can do this either manually right before submitting the classification, or we can extract the predictors in advance and store them as properties of each of the training points. For this tutorial we will use the second way, because it enables a faster classification that will load “on the fly”. This is useful for testing classification parameters. The function to do this is called [getTrainingCoefsAtDate](https://gee-ccdc-tools.readthedocs.io/en/latest/api/api.html##getTrainingCoefsAtDate). First, however, we need to construct the CCDC coefficient image to sample from. Basically, this step converts the array image into a multi-band image in which each pixel has the same number of bands. 
 
-The ‘buildCcdImage’ function takes three parameters: the change result array image, a list of bands, the number of segments to convert into bands, and the name of the spectral bands or indices. The variable ‘changeResults’ can be defined based on the output of the change detection, or can also be a global set of CCDC coefficients clipped to your study region, as demonstrated here. If the user was not able to export a coefficient image they should use Option A below.  If the user exported the coefficient images in the previous step as a single image, they should use Option B below, if they exported with multiple images they should use Option C. 
+The [buildCcdImage](https://gee-ccdc-tools.readthedocs.io/en/latest/api/api.html#buildCcdImage) function takes three parameters: the change result array image, a list of bands, the number of segments to convert into bands, and the name of the spectral bands or indices. The variable ‘changeResults’ can be defined based on the output of the change detection, or can also be a global set of CCDC coefficients clipped to your study region, as demonstrated here. If the user was not able to export a coefficient image they should use Option A below.  If the user exported the coefficient images in the previous step as a single image, they should use Option B below, if they exported with multiple images they should use Option C. 
 
 
 ```javascript
@@ -510,10 +510,10 @@ Map.addLayer(studyRegion, {color: 'black'},'Cambodia')
 
 
 // Add the first segment break date to the map.
-Map.addLayer(ccdImage.select('S1_tBreak').selfMask(), {min: 2000, max: 2020, palette: ['#8c510a','#d8b365','#f6e8c3','#f5f5f5','#c7eae5','#5ab4ac','#01665e']}, 'Segment 1 Break Dates')
+Map.addLayer(ccdImage.select('S1_tBreak').selfMask(), {min: 2000, max: 2020, palette: ['##8c510a','##d8b365','##f6e8c3','##f5f5f5','##c7eae5','##5ab4ac','##01665e']}, 'Segment 1 Break Dates')
 
 // Add the first segment NIR RMSE
-Map.addLayer(ccdImage.select('S1_NIR_RMSE'), {min: 0, max: .05, palette: ['#ffffcc','#d9f0a3','#addd8e','#78c679','#41ab5d','#238443','#005a32']}, 'Segment 1 NIR RMSE')
+Map.addLayer(ccdImage.select('S1_NIR_RMSE'), {min: 0, max: .05, palette: ['##ffffcc','##d9f0a3','##addd8e','##78c679','##41ab5d','##238443','##005a32']}, 'Segment 1 NIR RMSE')
 ```
 
 <table>
@@ -540,7 +540,7 @@ Segment 1 NIR RMSE (Light Green -> Dark Green)
 </table>
 
 
-Next we want to load ancillary topographic and climate data with the [getAncillary](https://gee-ccdc-tools.readthedocs.io/en/latest/api/api.html#getAncillary) function and the obtain CCDC coefficients at each of the training points using the [getTrainingCoefsAtDate](getTrainingCoefsAtDate) function. 
+Next we want to load ancillary topographic and climate data with the [getAncillary](https://gee-ccdc-tools.readthedocs.io/en/latest/api/api.html##getAncillary) function and the obtain CCDC coefficients at each of the training points using the [getTrainingCoefsAtDate](getTrainingCoefsAtDate) function. 
 
 
 ```javascript
@@ -568,7 +568,7 @@ You should now see in the feature attributes all of the predictor data that can 
 
 **Add unique IDs as attributes**
 
-Another optional, but recommended, step is assigning each sample with a unique ID as an attribute. EE gives each point an ID, but they can be long and seemingly random. The [assignIDs](https://gee-ccdc-tools.readthedocs.io/en/latest/api/api.html#assignIds) function in our API will shuffle the sample and assign a unique ID to a given attribute name. 
+Another optional, but recommended, step is assigning each sample with a unique ID as an attribute. EE gives each point an ID, but they can be long and seemingly random. The [assignIDs](https://gee-ccdc-tools.readthedocs.io/en/latest/api/api.html##assignIds) function in our API will shuffle the sample and assign a unique ID to a given attribute name. 
 
 
 ```javascript
@@ -637,7 +637,7 @@ Note the differences in intercepts between bands. Water samples have low interce
 
 **Classify segments**
 
-The model segments can now be classified with the [classifySegments](https://gee-ccdc-tools.readthedocs.io/en/latest/api/api.html#classifySegments) function from the API. The following code first defines the parameters of a Random Forest classifier, and then passes the classifier, training data, and model segments to the [classifySegments](https://gee-ccdc-tools.readthedocs.io/en/latest/api/api.html#classifySegments) function. The first segment’s classification is added to the map in which green is forest, brown is herbaceous, blue is water, and black is settlements. Note that this code can be found in the Open MRV repo in the script ‘CCDC/Cambodia_4’. 
+The model segments can now be classified with the [classifySegments](https://gee-ccdc-tools.readthedocs.io/en/latest/api/api.html##classifySegments) function from the API. The following code first defines the parameters of a Random Forest classifier, and then passes the classifier, training data, and model segments to the [classifySegments](https://gee-ccdc-tools.readthedocs.io/en/latest/api/api.html##classifySegments) function. The first segment’s classification is added to the map in which green is forest, brown is herbaceous, blue is water, and black is settlements. Note that this code can be found in the Open MRV repo in the script ‘CCDC/Cambodia_4’. 
 
 
 ```javascript
@@ -655,7 +655,7 @@ var results = utils.Classification.classifySegments(
   .clip(studyRegion)
 
 
-Map.addLayer(results.select(0), {min: 1, max: 4, palette: ['#a6d854','#386cb0','#e5c494','black']}, 'Seg1 Classification')
+Map.addLayer(results.select(0), {min: 1, max: 4, palette: ['##a6d854','##386cb0','##e5c494','black']}, 'Seg1 Classification')
 
 
 ```
@@ -668,28 +668,32 @@ Map.addLayer(results.select(0), {min: 1, max: 4, palette: ['#a6d854','#386cb0','
 ![alt_text](images/CCDC/image16.png "image_tooltip")
 
 
-Finally, classifications at specific dates can be obtained using the ‘getLcAtDate’ function. The following code snippet first creates a classification for the arbitrary date of March 27, 2014, and then calculates deforestation between 2000 and 2018.
+Finally, classifications at specific dates can be obtained using the [getLcAtDate](https://gee-ccdc-tools.readthedocs.io/en/latest/api/api.html#getLcAtDate) function. The following code snippet first creates a classification for the arbitrary date of March 27, 2014, and then calculates deforestation between 2000 and 2018. In the training data, the value 1 represents forest, 2 is herbaceous, 3 is water, and 4 is settlement. Therefore, substituting the different class values would create maps of change for the other respective classes. 
 
 
 ```javascript
 // Create classification for March 27, 2014 and add it to the map
 var dateOfClassification = '2014-03-27'
 var matchingDate = utils.Classification.getLcAtDate(results, dateOfClassification)
-Map.addLayer(matchingDate, {min: 1, max: 4, palette: ['#a6d854','#386cb0','#e5c494','black']}, 'Classification ' + dateOfClassification)
+Map.addLayer(matchingDate, {min: 1, max: 4, palette: ['##a6d854','##386cb0','##e5c494','black']}, 'Classification ' + dateOfClassification)
 
 // Create classification for Jan 1 2000 and 2018
 var class2000 = utils.Classification.getLcAtDate(results,'2000-01-01')
 var class2018 = utils.Classification.getLcAtDate(results,'2018-01-01')
 
-// Deforestation is where it's forest in 2000 and not forest in 2018
+// Deforestation is where it's forest (1) in 2000 and not forest in 2018. 
 var deforestation = class2000.eq(1).and(class2018.neq(1))
+
+// A map of settlement gain can be calculated in a similar manner:
+var settlementGain = class2000.neq(4).and(class2018.eq(4))
+
 
 Map.addLayer(deforestation.selfMask(), {palette: 'red'}, 'Deforestation')
 
 // Mask the 2018 classification to only contain the 2018 land cover label for pixels undergoing deforestation
 var postDefClass = class2018.updateMask(deforestation)
 
-Map.addLayer(postDefClass, {min: 1, max: 4, palette: ['#a6d854','#386cb0','#e5c494','black']}, 'Post-Deforestation Class')
+Map.addLayer(postDefClass, {min: 1, max: 4, palette: ['##a6d854','##386cb0','##e5c494','black']}, 'Post-Deforestation Class')
 ```
 
 
@@ -779,13 +783,13 @@ var postDefClass = class2018.updateMask(deforestation)
 
 // Add results to map
 Map.addLayer(deforestation.selfMask(), {palette: 'red'}, 'Deforestation')
-Map.addLayer(postDefClass, {min: 1, max: 4, palette: ['#a6d854','#386cb0','#e5c494','black']}, 'Post-Deforestation Class')
-Map.addLayer(matchingDate, {min: 1, max: 4, palette: ['#a6d854','#386cb0','#e5c494','black']}, 'Classification ' + dateOfClassification)
+Map.addLayer(postDefClass, {min: 1, max: 4, palette: ['##a6d854','##386cb0','##e5c494','black']}, 'Post-Deforestation Class')
+Map.addLayer(matchingDate, {min: 1, max: 4, palette: ['##a6d854','##386cb0','##e5c494','black']}, 'Classification ' + dateOfClassification)
 ```
 
 
 
-## 3.2 Mozambique: CCDC GUIs
+#### 3.2 Mozambique: CCDC GUIs
 
 To facilitate easy access to our API we have created a series of graphical user interfaces (GUIs) that require no coding by the user. Detailed descriptions of these tools can be found in [Arevalo et al., 2020](https://doi.org/10.3389/fclim.2020.576740). 
 
@@ -843,9 +847,9 @@ In this tutorial you will:
 *   Calculate land cover change between two or more dates
 
 
-## Classify time series segments
+#### Classify time series segments
 
-This result of this part of the tutorial will be an image with bands corresponding to the pixel’s _nth _land cover label for _n_-bands. In other words, band 1 is the first segment’s classification, band 2 is the second, and so on. Theoretically, a pixel can have dozens of segments. That is very rare, however, since the changes correspond to land change occurring within that pixel. Thus, to reduce computational intensity we limit the number of segments that are classified in this application to 6 per pixel.
+This result of this part of the tutorial will be an image with bands corresponding to the pixel’s _n_ th land cover label for _n_-bands. In other words, band 1 is the first segment’s classification, band 2 is the second, and so on. Theoretically, a pixel can have dozens of segments. That is very rare, however, since the changes correspond to land change occurring within that pixel. Thus, to reduce computational intensity we limit the number of segments that are classified in this application to 6 per pixel.
 
 The first step is to load the [app](https://code.earthengine.google.com/?scriptPath=users%2Fparevalo_bu%2Fgee-ccdc-tools%3AAPPS%2Fclassify_app), you should see a panel like this appear:
 
@@ -860,7 +864,7 @@ Next, the user must load the CCDC coefficients. If coefficients were created usi
 
 These first few parameters describe the format of the CCDC results. First, are they saved as a single image or a collection? Next is the path to the CCDC results. If using results from the previous section, select ‘Image’ for the result type and add the path to the asset in the textbox. Alternatively the global results can be loaded using the result type ‘Image Collection’ and path ‘projects/CCDC/v3’. Finally, you must specify the date format that the results were run with. For the global dataset and default value from the change detection application the format is fractional years (1). Click Load.
 
-You should see the _Predictor Variables _panel populate like in the following figure. Uncheck any bands, coefficients, or ancillary data that you do not wish to be used as inputs to classification. The terrain inputs are from the[ 30m SRTM global DEM](https://doi.org/10.1029/2005RG000183), while the climate inputs are from the[ WorldClim BIO Variables V1](https://doi.org/10.1002/joc.1276). Above the predictor variables is an option to choose a machine learning classifier for performing the classification. Generally, Random Forest performs well in the CCDC context. 
+You should see the _Predictor Variables_ panel populate like in the following figure. Uncheck any bands, coefficients, or ancillary data that you do not wish to be used as inputs to classification. The terrain inputs are from the[ 30m SRTM global DEM](https://doi.org/10.1029/2005RG000183), while the climate inputs are from the[ WorldClim BIO Variables V1](https://doi.org/10.1002/joc.1276). Above the predictor variables is an option to choose a machine learning classifier for performing the classification. Generally, Random Forest performs well in the CCDC context. 
 
 
 
@@ -912,9 +916,9 @@ The final set of parameters relate to the training data. The training data requi
 
 
 *   An example training dataset, as developed in Module 1.2.2, can be found in the asset ‘users/openmrv/MRV/mozambique_training’. 
-*   Assuming the training data comes from within your study region, you can use the default option of _Within Output Extent. _
+*   Assuming the training data comes from within your study region, you can use the default option of _Within Output Extent_. 
 *   The _Training Year_ corresponds to the year of the training labels (e.g. what year is a sample labeled as ‘Forest’ actually forest?). For this dataset, the year is 2018. 
-*   The _Training Attribute _corresponds to the attribute name in each feature that contains the land cover label. For this dataset it is _landcover._
+*   The _Training Attribute_ corresponds to the attribute name in each feature that contains the land cover label. For this dataset it is _landcover_. 
 
 
 
@@ -928,7 +932,7 @@ Note, the classification runs quicker if the predictor data for each training po
 Finally, when you click ‘Run Classification’, the classification corresponding to the first segment period gets displayed on the map. In this case, the models correspond to ~1999. The full classification stack can be exported as a task that should appear with the description “classification_segments”.
 
 
-## Create Land Cover and Land Cover Change Maps
+#### Create Land Cover and Land Cover Change Maps
 
 Once the task has completed processing, we can use it to make landcover maps at any date in time for the study region. This asset can be used directly in the[ Landcover Application](https://code.earthengine.google.com/?scriptPath=users%2Fparevalo_bu%2Fgee-ccdc-tools%3AAPPS%2Flandcover_app). This application is relatively simple - all you need to do is specify the path to the segment image created above and a list of dates and voilà! An example output created using the steps above can be found in: ‘users/openmrv/MRV/Mozambique_CCDC_Segments’. 
 
@@ -941,7 +945,7 @@ The dates should be entered in the format ‘YYYY-MM-DD’ and separated by comm
 ![alt_text](images/CCDC/image26.png "image_tooltip")
 
 
-This app also has the function to add a change between that represents conversion from one or multiple classes at a specified date to a specified class or group of classes. You must first specify the starting and ending dates and the land cover class # labels for the corresponding dates. For example, the following examples show the pixels (red) that are class 1 (forest) in 2001-01-01, and are either class 2, 3, or 4 in 2018-01-01. In other words, deforestation from January 2001 to January 2018. Switching the “From” and “To” classes for the Change band will calculate the inverse of deforestation, or forest growth.
+This app also has the function to add a change between that represents conversion from one or multiple classes at a specified date to a specified class or group of classes. You must first specify the starting and ending dates and the land cover class values for the corresponding dates. For example, the following examples show the pixels (red) that are class 1 (forest) in 2001-01-01, and are either class 2, 3, or 4 in 2018-01-01. In other words, deforestation from January 2001 to January 2018. Switching the “From” and “To” classes for the Change band will calculate the inverse of deforestation, or forest growth.
 
 
 
@@ -960,9 +964,152 @@ Finally, the tool allows you to specify some visualization parameters. This step
 
 ![alt_text](images/CCDC/image28.png "image_tooltip")
 
+#### 3.3 Colombia: CCDC API for Forest Change Stratification
+
+The final tutorial will demonstrate the use of the API to create a forest change stratification in Colombia. The code is modified from that in the Mozambique tutorial and uses the global CCDC coefficient dataset. The script can be found in the Open MRV repository in the script 'CCDC/Colombia_1'. 
+
+For the output stratification, we want classes that represent:
+
+1. Stable Forest
+2. Stable Non-Forest
+3. Forest Gain
+4. Forest Loss
+
+For the sake of this exercise, we are also going to assume we do not care about conversion from Forest to Water. While this assumption might not be valid for all purposes, it is often true that natural conversions are less important than conversion to human-modified classes such as Settlements or Herbaceous. Furthermore, we are going to create it for a two year time period (2016-2018). The dates can be modified by changing the 'startDate' and 'endDate' parameters. 
+  
+Like in the Mozambique tutorial, we need to first load the CCDC API, define a study region, and define a few simple parameters. Note that for most applications these parameters do not need to be adjusted. However, users should ensure the _yearProperty_, lcClasses, and numericClasses match their training data. 
+
+```javascript
+// Load CCDC API
+var utils = require('projects/GLANCE:ccdcUtilities/api')
+
+// Parameters, assets, and study region 
+var studyRegion = ee.FeatureCollection('USDOS/LSIB_SIMPLE/2017')
+  .filterMetadata('country_na','equals','Colombia').union()
+
+// Parameters
+var bands = ['BLUE','GREEN','RED','NIR','SWIR1','SWIR2']
+var coefs = ["INTP", "SLP","COS", "SIN","RMSE","COS2","SIN2","COS3","SIN3"]
+var segs = ["S1", "S2", "S3", "S4", "S5", "S6"]
+var yearProperty = 'year'
+var lcClasses = ['forest','water','herbaceous','settlement']
+var numericClasses = [1, 2, 3, 4]
+var classifier = ee.Classifier.smileRandomForest({
+  numberOfTrees: 150,
+  variablesPerSplit: null,
+  minLeafPopulation: 1,
+  bagFraction: 0.5,
+  maxNodes: null
+})
+```
+
+Unlike in the Mozambique tutorial, we should specify a start and an end date for the stratification. Note that the global coefficient dataset goes from 1999 to 2020. 
+```javascript
+var startDate = '2016-01-01'
+var endDate = '2018-01-01'
+```
+
+Next we will want to load the training data, turn the string landcover attribute to numeric, and provide a year for the training data. The path to the training data can be found in '/users/openmrv/MRV/colombia_training', and the year of the training labels is 2018. 
+
+```javascript
+var trainingData = ee.FeatureCollection('users/openmrv/MRV/colombia_training')
+  .map(function(feat) {
+  return feat.set(yearProperty,2018,'lc_numeric',feat.get('lc_string'))})
+  .remap(lcClasses, numericClasses,'lc_numeric')
+  
+```
+
+To perform the classification, we will need to load the global CCDC coefficients, and optionally provide ancillary datasets to use in the classification. The optional ancillary layers that are loaded with the [getAncillary](https://gee-ccdc-tools.readthedocs.io/en/latest/api/api.html#getAncillary) function can be seen in the table below.
+
+| Layer Name       | GEE Collection                            |
+|------------------|-------------------------------------------|
+| ELEVATION        | USGS/SRTMGL1_003                          |
+| DEM_SLOPE        | USGS/SRTMGL1_003                          |
+| ASPECT           | USGS/SRTMGL1_003                          |
+| TEMPERATURE      | WORLDCLIM/V1/BIO                          |
+| RAINFALL         | WORLDCLIM/V1/BIO                          |
+| POPULATION       | WorldPop/GP/100m/pop                      |
+| WATER_OCCURRENCE | JRC/GSW1_1/GlobalSurfaceWater             |
+| TREE_COVER       | UMD/hansen/global_forest_change_2018_v1_6 |
+| NIGHT_LIGHTS     | NOAA/VIIRS/DNB/MONTHLY_V1/VCMCFG          |
+
+For this example, we will select only the topographic layers ('ELEVATION','DEM_SLOPE', and 'ASPECT'). 
+
+```javascript
+
+// Get inputs from global coefficients and ancillary topographic and climate data 
+var globalResults = ee.ImageCollection('projects/CCDC/v3').mosaic()
+var changeResults = globalResults.clip(studyRegion)
+var ccdImage = utils.CCDC.buildCcdImage(changeResults, segs.length, bands)
+var ancillary = utils.Inputs.getAncillary().select(['ELEVATION','DEM_SLOPE','ASPECT'])
+
+// Get training coefficients at sample points
+var trainingData = utils.Classification.getTrainingCoefsAtDate(
+  trainingData, coefs, bands, yearProperty, ancillary, ccdImage, segs)
+var testBand = bands[0] + '_' + coefs[0]
+trainingData = trainingData.filter(ee.Filter.notNull([testBand]))
+```
+
+Extract the predictor data for the training data and perform the classification.
+
+```javascript
+// Get training coefficients at sample points
+var trainingData = utils.Classification.getTrainingCoefsAtDate(
+  trainingData, coefs, bands, yearProperty, ancillary, ccdImage, segs)
+var testBand = bands[0] + '_' + coefs[0]
+trainingData = trainingData.filter(ee.Filter.notNull([testBand]))
 
 
-# FAQs
+// Land cover classification
+var results = utils.Classification.classifySegments(
+  ccdImage, segs.length, bands, null, [], trainingData, classifier, studyRegion, 'landcover', coefs)
+  .clip(studyRegion)
+```
+
+Next, we can use the CCDC API functionality to extract land cover maps at the start and end dates of our analysis (or the startDate and endDate parameters). 
+
+```javascript
+// Calculate maps at the beginning and end of the study period
+var classStart = utils.Classification.getLcAtDate(results,startDate)
+var classEnd = utils.Classification.getLcAtDate(results,endDate)
+
+// Create forest loss and gain maps. 
+var forestLoss = classStart.eq(1).and(classEnd.neq(1))
+var forestGain = classStart.neq(1).and(classEnd.eq(1))
+```
+
+Next, we can use raster manipulation to create our stratification. Note that the 'remap' function is used to create a 'Non-Forest' class from the 3 classes in our training data (Herbaceous, Settlement, and Water), and the 'where' function is then used to change the value of the layer to 3 in pixels of Deforestation and 4 in Forest Gain.  
+
+```javascript
+// Initiate stratification image. The EE function Image.remap is used to turn all non-forest classes to 2. 
+var stratification = classStart.remap([1,2,3,4],[1,2,2,2])
+
+// Use the EE function Image.where to turn deforestation to 3 and forest gain to 4. 
+stratification = stratification.where(forestLoss, 3).where(forestGain, 4)
+```
+
+Finally, we can use the 'where' function again to change all pixels labeled as Water to a non-change class and add the results to the map. 
+
+```javascript
+// Turn conversion to water to a non-change class to omit it from the 'Forest Loss' stratum. Note in this dataset the value of 2 indicates water.  
+stratification = stratification.where(classEnd.eq(2), 2)
+
+Map.addLayer(stratification, {min: 1, max: 4, palette: ['green','black','red','cyan']}, 'Stratification')
+```
+
+In the following example, the legend palette is:
+- Green: Stable Forest
+- Black: Non-Forest
+- Red: Forest Loss
+- Cyan: Forest Gain
+
+![alt_text](images/CCDC/image29.png "image_tooltip")
+
+**Note:** The area of Forest Loss is small, and the area of Forest Gain is even smaller. That is to be expected! Our study period is only two years, and there is relatively little forest change that has occurred in Colombia in recent years. Using the previous code as reference, how do the results change when using a longer study period (for example, 2000 to 2018)?  
+
+
+
+## FAQs
 
 **Can CCDC be performed using other data sources?**
 Technically, yes. Although CCDC was designed for Landsat data, it is technically data agnostic and could therefore be performed using any data source with a dense time series record. 
@@ -974,12 +1121,13 @@ The most recent versions of the GUIs and API can be found here: https://gee-ccdc
 Yes, CCDC can be performed using only the Javascript API. However, the complexity of the inputs and calculated outputs has proven to be a challenge to new (and even advanced) users. Therefore, we created the API and applications to make the analysis easier. 
 
 **Who should be credited for creating CCDC?**
-CCDC was originally introduced in Zhu and Woodcock (2014). The GEE implementation was written by Noel Gorelick and Yang Zhiqiang. There have been many other contributors to the CCDC algorithm and the applications used here, notably the ![USGS LCMAP Program](https://github.com/repository-preservation/lcmap-pyccd), the ![Global Environmental Remote Sensing Laboratory](https://gerslab.uconn.edu/), and the ![Global Land Cover mapping and Estimation project](http://sites.bu.edu/measures/). The GUIs and API are primary written and managed by Paulo Arévalo and Eric Bullock.  
+CCDC was originally introduced in Zhu and Woodcock (2014). The GEE implementation was written by Noel Gorelick and Yang Zhiqiang. There have been many other contributors to the CCDC algorithm and the applications used here, notably the [USGS LCMAP Program](https://github.com/repository-preservation/lcmap-pyccd), the [Global Environmental Remote Sensing Laboratory](https://gerslab.uconn.edu/), and the [Global Land Cover mapping and Estimation project](http://sites.bu.edu/measures/). The GUIs and API are primary written and managed by Paulo Arévalo and Eric Bullock.  
 
 **The change coefficients are failing to export, what should I do?**
 The calculation of the change coefficients is the most computationally intensive part of CCDC. That is why the kind folks at Google have created a global coefficient dataset. Although it uses one default set of change parameters for the globe, the parameters have been proven to perform relatively well across different environments. Therefore, it should be considered as a useful alternative to user-created coefficients. 
 
-## 9.0 References
+
+#### 4.0 References
 
 - Zhu, Z., Woodcock, C.E., 2014. Continuous change detection and classification of land cover using all available Landsat data. Remote Sens. Environ. 144, 152–171. https://doi.org/10.1016/j.rse.2014.01.011
 
