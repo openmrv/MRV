@@ -381,7 +381,7 @@ grid.size().evaluate(function(s) {
 ![alt_text](images/CCDC/image10.png "image_tooltip")
 
 
-**Note: **If you cannot export CCDC coefficients, you can also use the global CCDC coefficients created by Gorelick et al., (Unpublished research). These data were created to overcome the bottleneck in using CCDC that comes from creating the initial coefficients. As of January of 2021, these results can be loaded using the following code:
+**Important Note:** If you cannot export CCDC coefficients, you can also use the global CCDC coefficients created by Gorelick et al., (Unpublished research). These data were created to overcome the bottleneck in using CCDC that comes from creating the initial coefficients. As of January of 2021, these results can be loaded using the following code:
 
 
 ```javascript
