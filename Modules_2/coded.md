@@ -1079,7 +1079,7 @@ This indicates that a link to an external library is broken. Please refer to [ht
 - Zhu, Z., Woodcock, C.E., 2014. Continuous change detection and classification of land cover using all available Landsat data. Remote Sens. Environ. 144, 152–171. https://doi.org/10.1016/j.rse.2014.01.011
 
 
-![](../Module_1/figures/m1.2/m1.2.2/cc.png)  
+![](images/CODED/cc.png)  
 This work is licensed under a [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
 Copyright 2020, World Bank 
@@ -1094,4 +1094,4 @@ Jennifer Juliana Escamilla Valdez, El Salvador, Ministerio de Medio Ambiente y R
 
 Attribution
 Bullock, E. 2020. Continuous Degradation Detection (CODED). © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)  
-![](../Module_1/figures/m1.2/m1.2.2/WB_FCPF2.png)![](../Module_1/figures/m1.2/m1.2.2/GFOI2.png)
+![](images/CODED/WB_FCPF2.png)![](images/CODED/GFOI2.png)
