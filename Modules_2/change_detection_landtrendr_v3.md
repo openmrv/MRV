@@ -1371,6 +1371,58 @@ Roy, D.P., Kovalskyy, V., Zhang, H.K., Vermote, E.F., Yan, L., Kumar, S.S, Egoro
 
 
 
+------
+
+[
+![img](https://lh4.googleusercontent.com/FlTik_kVMvlZvBAPQuX5ijx5rwSVC_7T0zZbh48d415FxyqXrp-ZM_w2TLvmmICTyJVbii4VQJurxJt5-cKnSOOeNQ3-j3BdlK5XNwg4SKDAlVBLoVH25_ssaOgeL6xgLrwvZxjo)](http://creativecommons.org/licenses/by-sa/4.0/)
+
+This work is licensed under a [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) 
+
+
+
+Copyright 2021, World Bank 
+
+
+
+This work was developed by Robert E Kennedy under World Bank contract with GRH Consulting, LLC for the development of new -and collection of existing- Measurement, Reporting, and Verification related resources to support countries’ MRV implementation. 
+
+
+
+Material reviewed by:
+
+Foster Mensah  / Center for Remote Sensing and Geographic Information Services, Ghana
+
+Jennifer Juliana Escamilla Valdez / Minsiterio de Medio Ambiente y Recursos Naturales, El Salvador
+
+Raja Ram Aryal /  Ministry of Forests and Environment, Nepal
+
+KONAN Yao Eric Landry / REDD+ Permanent Executive Secretariat, Cote d'Ivoire
+
+Carole Andrianirina / BNCCREDD+, Madagascar
+
+Tatiana Nana / REDD+ National Coordination MINEPDED Ministry of Environment, Cameroon
+
+
+
+Attribution
+
+Kennedy, Robert E . 2021. Change detection with LandTrendr in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+
+ 
+
+  
+
+
+![img](https://lh4.googleusercontent.com/6NE8qSB-n0jdUuIJhOi1KCswEq3JTZvc0o-pudDvv_myoESveXmgjnEu2GoRj5wT86x1KNWEVGsvmkpkKfWLUKCx5ThiShCstxc4nrov894b2IC_6-MUNQNG374JiLRnJTi7Stjz)![img](https://lh5.googleusercontent.com/cWpru05JISJZrVmeHUr1bP0abbQL4IRCRotcA2hYICrcOAAYFFG5NkbQ9piU3OLrWnjEWBMQ1bBZKqABIghoz0--lAXlvuxrhMh8icTMJPoDYi4fjWfeODRkRbKduPRcM601lRWh)
+
+
+
+
+
+
+
+
+
 
 
 
