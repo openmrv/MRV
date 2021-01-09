@@ -94,8 +94,6 @@ The CODED methodology has three primary components (see Bullock et al., 2020 for
 2. Change detection using regression-based break detection. 
 3. Change attribution into deforestation or degradation using training data and machine learning classifier. 
 
-[Video Placeholder]
-
 
 ![alt_text](images/CODED/img5.png "image_tooltip")
 
@@ -297,8 +295,6 @@ Map.onClick(function(coords) {
 })
 
 ```
-[Video Placeholder]
-
 
 To help in understanding the response of NDFI to different degradation events, we have been building a library of example points across the globe. These examples will continue to be updated, and demonstrate what the NDFI time series of different degradation events look like in different environments. 
 
@@ -370,8 +366,6 @@ Disturbances are attributed as deforestation or degradation based on the land co
 CODED can be run using a graphic user interface (GUI) named the ‘Forest Disturbance  Mapping GUI’, which can be found in the Open MRV repository. Note that the version in the repo is a “snapshot” in time and the most recent version can be found here: [https://coded.readthedocs.io](https://coded.readthedocs.io). 
 
 **Note:** The tool also depends on external libraries. If you receive an error “Cannot find required repo” that indicates that a link to a repository is broken. If that is the case, please refer to the CODED ReadTheDocs page. 
-
-[Video Placeholder]
 
 This section provides an overview of the application and its functionality, and the following section demonstrates examples of using the application. Note that users should use this section as reference, and follow along with the examples in Colombia, Cambodia, and Mozambique. 
 
