@@ -249,7 +249,7 @@ Longitude:  -74.06598, Latitude:  2.692711
 
 And you should see this trajectory: 
 
-![pixel_river_dist_rec](/Users/rkennedy/Dropbox/marble/world_bank/06_landtrendr_change_detection/figures/pixel_river_dist_rec.png)
+![pixel_river_dist_rec](./figures/pixel_river_dist_rec.png)
 
 Notable features: In the source signal, we see a multi-year decline in the NBR signal from roughly 1990 to 1997 or 1998, following a short quick recovery and a longer, slower recovery from roughly 1999 to the present. The end of the time series, we might expect to see a well-recovery canopy.  
 
@@ -259,7 +259,7 @@ Note that the fitted-segment showing loss of vegetation begins in 1990 and conti
 
 The high resolution image from the recent era shows very little evidence of disturbance any more.  Although the spectral trajectory is unambiguous in its depiction of change, it would require interpretation of the spatial patterns of historical imagery itself to confirm the type of change. 
 
-![pixel_river_dist_rec_airphoto](/Users/rkennedy/Dropbox/marble/world_bank/06_landtrendr_change_detection/figures/pixel_river_dist_rec_airphoto.png)
+![pixel_river_dist_rec_airphoto](./figures/pixel_river_dist_rec_airphoto.png)
 
 
 
@@ -656,7 +656,7 @@ Let's dig into how forest disturbance can be mapped.
 
 Consider a segmented trajectory of the NBR index that is relatively stable through the year 2006, then drops precipitously to a low value in 2007 because the forest has been cleared (disturbance), and eventually returns to a moderate value some years later (see figure below).  
 
-![dm1](/Users/rkennedy/Dropbox/marble/world_bank/06_landtrendr_change_detection/figures/_fig_distsegments.png)
+![dm1](./figures/_fig_distsegments.png)
 
 The vertex years on the x-axis and NBR values on the y-axis are stored in the image array that is returned by the LT algorithm. The fitted trajectory (red line) is represented by vertices corresponding to the endpoints of the straightline segments, and the change in spectral index can be calculated for each segment (here shown in the "Delta NBR" column).   
 
@@ -1240,7 +1240,7 @@ With the RGB image as a background, consider the temporal dimensions of change i
 
 Zooming in on the central zone of the study area shown above, we see a rich variety of change processes occurring in this landscape.  Recall that any location that is not on the black-grey-white scale is an area that appears to have experienced change. Again, consult the color-interpretation guidelines given in Section 3.4 above.  In the RGB image below, we see areas of growth (blue tones) and various types of disturbance (reds, oranges, yellows) and disturbance with possible regrowth (magentas and purples). 
 
-![_fig_moz_traj_examples](/Users/rkennedy/Dropbox/marble/world_bank/06_landtrendr_change_detection/figures/_fig_moz_traj_examples.png)
+![_fig_moz_traj_examples](./figures/_fig_moz_traj_examples.png)
 
 For users interested in looking at the details of the above locations, their information is here: 
 
