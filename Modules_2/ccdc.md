@@ -19,7 +19,6 @@ By the end of this tutorial, users should be able to:
 *   Describe the key components of CCDC including the different algorithm parameters. 
 *   Run CCDC using both a “point and click” interface and through scripting with the Javascript programming language. 
 *   Create maps of spectral and land cover change.
-*   Visualize CCDC model coefficients and relate them to properties of the land surface. 
 
 
 ## 2.0 Continuous Change Detection and Classification (CCDC)
@@ -975,9 +974,9 @@ For the output stratification, we want classes that represent:
 3. Forest Gain
 4. Forest Loss
 
-For the sake of this exercise, we are also going to assume we do not care about conversion from Forest to Water. While this assumption might not be valid for all purposes, it is often true that natural conversions are less important than conversion to human-modified classes such as Settlements or Herbaceous. Furthermore, we are going to create it for a two year time period (2016-2018). The dates can be modified by changing the 'startDate' and 'endDate' parameters. 
+For the sake of this exercise, we are also going to assume we do not care about conversion from Forest to Water. While this assumption might not be valid for all purposes, for national greenhouse gas inventories it is often true that natural conversions are less important than conversion to human-modified classes such as Settlements or Herbaceous. Furthermore, we are going to create it for a two year time period (2016-2018). The dates can be modified by changing the 'startDate' and 'endDate' parameters. 
   
-Like in the Mozambique tutorial, we need to first load the CCDC API, define a study region, and define a few simple parameters. Note that for most applications these parameters do not need to be adjusted. However, users should ensure the _yearProperty_, lcClasses, and numericClasses match their training data. 
+Like in the Cambodia tutorial, we need to first load the CCDC API, define a study region, and define a few simple parameters. Note that for most applications these parameters do not need to be adjusted. However, users should ensure the _yearProperty_, _lcClasses_, and _numericClasses_ match their training data. 
 
 ```javascript
 // Load CCDC API
@@ -1003,7 +1002,7 @@ var classifier = ee.Classifier.smileRandomForest({
 })
 ```
 
-Unlike in the Mozambique tutorial, we should specify a start and an end date for the stratification. Note that the global coefficient dataset goes from 1999 to 2020. 
+Unlike in the Cambodia tutorial, we should specify a start and an end date for the stratification. Note that the global coefficient dataset goes from 1999 to 2020. 
 ```javascript
 var startDate = '2016-01-01'
 var endDate = '2018-01-01'
@@ -1066,7 +1065,7 @@ var results = utils.Classification.classifySegments(
   .clip(studyRegion)
 ```
 
-Next, we can use the CCDC API functionality to extract land cover maps at the start and end dates of our analysis (or the startDate and endDate parameters). 
+Next, we can use the CCDC API functionality to extract land cover maps at the start and end dates of our analysis (or the startDate and endDate parameters). Note that the 'Image.eq()' function creates a binary image where the image given to the function (classStart or classEnd) equals the pixel value parameter (1). Similarly, the 'Image.neq()' function creates the opposite (e.g. Image.neq(1) is 1 where classStart or classEnd does not equal 1). 
 
 ```javascript
 // Calculate maps at the beginning and end of the study period
@@ -1078,7 +1077,7 @@ var forestLoss = classStart.eq(1).and(classEnd.neq(1))
 var forestGain = classStart.neq(1).and(classEnd.eq(1))
 ```
 
-Next, we can use raster manipulation to create our stratification. Note that the 'remap' function is used to create a 'Non-Forest' class from the 3 classes in our training data (Herbaceous, Settlement, and Water), and the 'where' function is then used to change the value of the layer to 3 in pixels of Deforestation and 4 in Forest Gain.  
+Next, we can use raster manipulation to create our stratification. Note that the 'remap' function is used to create a 'Non-Forest' class from the 3 Non-Forest classes in our training data (Herbaceous, Settlement, and Water), and the 'where' function is then used to change the value of the layer to 3 in pixels of Deforestation and 4 in Forest Gain.  
 
 ```javascript
 // Initiate stratification image. The EE function Image.remap is used to turn all non-forest classes to 2. 
@@ -1129,7 +1128,7 @@ The calculation of the change coefficients is the most computationally intensive
 
 #### 4.0 References
 
-- Zhu, Z., Woodcock, C.E., 2014. Continuous change detection and classification of land cover using all available Landsat data. Remote Sens. Environ. 144, 152–171. https://doi.org/10.1016/j.rse.2014.01.011
+Zhu, Z., Woodcock, C.E., 2014. Continuous change detection and classification of land cover using all available Landsat data. Remote Sens. Environ. 144, 152–171. https://doi.org/10.1016/j.rse.2014.01.011
 
 
 ![](images/CODED/cc.png)  
@@ -1140,11 +1139,11 @@ Copyright 2020, World Bank
 This work was developed by Eric Bullock under World Bank contract with GRH Consulting, LLC for the development of new -and collection of existing- Measurement, Reporting, and Verification related resources to support countries’ MRV implementation. 
 
 Material reviewed by:  
-Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services
-Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
-Jennifer Juliana Escamilla Valdez, El Salvador, Ministerio de Medio Ambiente y Recursos Naturales
-KONAN Yao Eric Landry, Cote d'Ivoire, REDD+ Executive Permanent Secretariat
-Adrianirina Carole, Madagascar, BNCCREDD+
+Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services  
+Tatiana Nana, Cameroon, REDD+ Technical Secretariat    
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministerio de Medio Ambiente y Recursos Naturales  
+KONAN Yao Eric Landry, Cote d'Ivoire, REDD+ Executive Permanent Secretariat  
+Adrianirina Carole, Madagascar, BNCCREDD+  
 
 Attribution
 Bullock, E. 2020. Continuous Change Detection and Classification (CCDC). © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)  
