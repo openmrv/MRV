@@ -111,7 +111,7 @@ The SMA model used in CODED transforms reflectance into the pixel-scale proporti
 
 **Try it yourself**
 
-Before diving into the more complex usage of CODED, it is worth looking at the fractional image results from SMA on individual images. The following Javascript code can be used in Google Earth Engine. The full code for SMA can be found in the Open-MRV repo in the file 'CODED/Unmix'. 
+Before diving into the more complex usage of CODED, it is worth looking at the fractional image results from SMA on individual images. The following Javascript code can be used in Google Earth Engine. The full code for SMA can be found in the Open-MRV repo in the file 'CODED/Unmix'. You can also find more information on interpreting the layers created in this step in the complementary [YouTube Video Instruction](https://youtu.be/lOv88wkyEnY). 
 
 First, load a Landsat 8 image for a study region in Colombia and add it to the map. The study area is defined as a feature collection  in the 'studyArea' variable. 
 
@@ -242,7 +242,7 @@ Finally, we see in the following figure an example of a forest affected by fire.
 
 It is relatively straightforward to plot the temporal trajectories of NDFI on Google Earth Engine. This can be a useful exercise to understand the land use history of a location in addition to the spectral response to landscape changes. To do so, it is necessary to first calculate NDFI for an entire image collection, and then define a function for plotting NDFI at location selected on the map. 
 
-**Note**: This code can be found in the Open MRV repo in the script "CODED/Unmix Time Series". 
+**Note**: This code can be found in the Open MRV repo in the script "CODED/Unmix Time Series". A complementary video demonstrating this process can be found on [YouTube here](https://youtu.be/chr626cFl78).  
 
 ```javascript
 // Define a function for SMA and calculate or NDFI
@@ -363,7 +363,7 @@ Disturbances are attributed as deforestation or degradation based on the land co
 
 ## 3.0 Running CODED with a Graphical User Interface
 
-CODED can be run using a graphic user interface (GUI) named the ‘Forest Disturbance  Mapping GUI’, which can be found in the Open MRV repository. Note that the version in the repo is a “snapshot” in time and the most recent version can be found here: [https://coded.readthedocs.io](https://coded.readthedocs.io). 
+CODED can be run using a graphic user interface (GUI) named the ‘Forest Disturbance  Mapping GUI’, which can be found in the Open MRV repository. Note that the version in the repo is a “snapshot” in time and the most recent version can be found here: [https://coded.readthedocs.io](https://coded.readthedocs.io). Video instructions on using the Forest Disturbance Mapping GUI can be found [on YouTube](https://youtu.be/crUTTZS1faI). 
 
 **Note:** The tool also depends on external libraries. If you receive an error “Cannot find required repo” that indicates that a link to a repository is broken. If that is the case, please refer to the CODED ReadTheDocs page. 
 
