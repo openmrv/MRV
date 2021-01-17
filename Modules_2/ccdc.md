@@ -792,18 +792,29 @@ Map.addLayer(matchingDate, {min: 1, max: 4, palette: ['##a6d854','##386cb0','##e
 
 To facilitate easy access to our API we have created a series of graphical user interfaces (GUIs) that require no coding by the user. Detailed descriptions of these tools can be found in [Arevalo et al., 2020](https://doi.org/10.3389/fclim.2020.576740). 
 
-
 <table>
   <tr>
    <td><strong>Name and Link</strong>
    </td>
    <td><strong>Description</strong>
    </td>
+   <td><strong>Video Demonstration</strong>
+   </td>
   </tr>
   <tr>
-   <td><a href="https://code.earthengine.google.com/?scriptPath=users%2Fparevalo_bu%2Fgee-ccdc-tools%3AAPPS%2Ftstools_advanced">Time Series Viewer</a>
+   <td><a href="https://code.earthengine.google.com/?scriptPath=users%2Fparevalo_bu%2Fgee-ccdc-tools%3AAPPS%2Ftstools_basic">Simple Time Series Viewer</a>
    </td>
-   <td>Visualize pixel-trajectory CCDC time series and experiment with  model parameters
+   <td>Visualize pixel time series and CCDC model fits
+   </td>
+   <td><a href="https://youtu.be/3qHTAa7ptaA">Link</a>
+   </td>
+  </tr>
+  <tr>
+   <td><a href="https://code.earthengine.google.com/?scriptPath=users%2Fparevalo_bu%2Fgee-ccdc-tools%3AAPPS%2Ftstools_advanced">Advanced Time Series Viewer</a>
+   </td>
+   <td>Visualize pixel time series and CCDC model fits and experiment with model parameters
+   </td>
+   <td><a href="https://youtu.be/1moyd9qWwcw">Link</a>
    </td>
   </tr>
   <tr>
@@ -811,11 +822,15 @@ To facilitate easy access to our API we have created a series of graphical user 
    </td>
    <td>Calculate CCDC coefficients and spectral change information
    </td>
+   <td><a href="https://youtu.be/AInNpBc4OnY">Link</a>
+   </td>
   </tr>
   <tr>
    <td><a href="https://code.earthengine.google.com/?scriptPath=users%2Fparevalo_bu%2Fgee-ccdc-tools%3AAPPS%2Fvisualize_ccdc">Visualize CCDC</a>
    </td>
    <td>Visualize CCDC coefficients and spectral change information
+   </td>
+   <td><a href="https://youtu.be/xAkrE8b6sZ0">Link</a>
    </td>
   </tr>
   <tr>
@@ -823,11 +838,15 @@ To facilitate easy access to our API we have created a series of graphical user 
    </td>
    <td>Perform land cover classification of CCDC coefficients
    </td>
+   <td><a href="https://youtu.be/y1h7SMDP8zc">Link</a>
+   </td>
   </tr>
   <tr>
    <td><a href="https://code.earthengine.google.com/?scriptPath=users%2Fparevalo_bu%2Fgee-ccdc-tools%3AAPPS%2Flandcover_app">Land Cover and Change</a>
    </td>
    <td>Create maps of land cover and land cover change
+   </td>
+   <td><a href="https://www.youtube.com/watch?v=CnLqENvBnvE">Link</a>
    </td>
   </tr>
 </table>
