@@ -1,3 +1,12 @@
+---
+title: Continuous Degradation Detection (CODED)
+summary: This a tutorial describing CODED.
+authors: ['Eric Bullock','Other Person (Example)']
+date: 2020-03-04
+more_info: coded.readthedocs.io
+tags: ['CODED','OpenMRV','Change Detection','Landsat']
+---
+
 # Module 2.3 Continuous Degradation Detection (CODED)
 
 ## 1.0 Background
