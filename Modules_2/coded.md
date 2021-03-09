@@ -823,7 +823,7 @@ Map.addLayer(cambodia)
 Export.table.toAsset({ 
       collection: cambodia,
       assetId: 'Cambodia_Extent',
-      description: ‘cambodia’
+      description: 'cambodia'
 })
 ```
 Now that you have the asset created, you can use the next step to constrain the mapping to that asset’s boundary area. 
