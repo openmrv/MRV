@@ -29,17 +29,17 @@ At the end of this module, you will be able to:
 
 
 
-*   Identify common drivers of forest degradation in moderate-to-high resolution satellite imagery. 
-*   Perform spectral mixture analysis with optical imagery and calculate the Normalized Difference Fraction Index (NDFI). 
-*   Parameterize CODED to target different disturbance dynamics, forest types, and date availability. 
-*   Use CODED to create maps of degradation and deforestation.
+*   Identify common drivers of forest degradation in moderate-to-high resolution satellite imagery 
+*   Perform spectral mixture analysis with optical imagery and calculate the Normalized Difference Fraction Index (NDFI) 
+*   Parameterize CODED to target different disturbance dynamics, forest types, and date availability 
+*   Use CODED to create maps of degradation and deforestation
 
 Advanced usage will also include:
 
 
 
-*   Post-processing of results from CODED to increase change detection accuracy.
-*   Application of a modified version of CODED to use Sentinel-1 radar imagery. 
+*   Post-processing of results from CODED to increase change detection accuracy
+*   Application of a modified version of CODED to use Sentinel-1 radar imagery 
 
 
 ## 2.0 Continuous Degradation Detection (CODED)
@@ -84,11 +84,11 @@ Time series approaches to change monitoring have greatly benefited from a few de
 
 
 
-*   Free and open data access from agencies such as the USGS, NASA, ESA, and JAXA.
-*   Consistent and repeated data archives spanning multiple years or decades.
-*   High performance cloud computing environments such as Google Earth Engine and Amazon Web Services.
-*   Novel change detection methodologies based on dense time series data.
-*   Standardized pre-processing in support of data collections. 
+*   Free and open data access from agencies such as the USGS, NASA, ESA, and JAXA
+*   Consistent and repeated data archives spanning multiple years or decades
+*   High performance cloud computing environments such as Google Earth Engine and Amazon Web Services
+*   Novel change detection methodologies based on dense time series data
+*   Standardized pre-processing in support of data collections 
 
 Notable early applications of time series analysis for land change monitoring include LandTrendr (Kennedy e tal., 2010), BFAST (Verbesselt et al., 2010), Vegetation Change Tracker<sup> </sup>(Huang et al., 2010), and Continuous Change Detection and Classification<sup> </sup>(Zhu and Woodcock, 2014). These approaches have their unique advantages and helped to lay the groundwork for the CODED.
 
@@ -99,9 +99,9 @@ Notable early applications of time series analysis for land change monitoring in
 The CODED methodology has three primary components (see Bullock et al., 2020 for more information):
 
 
-1. Pre-processing of optical imagery to mask clouds and transform reflectance into spectral endmember fraction images. 
-2. Change detection using regression-based break detection. 
-3. Change attribution into deforestation or degradation using training data and machine learning classifier. 
+1. Pre-processing of optical imagery to mask clouds and transform reflectance into spectral endmember fraction images 
+2. Change detection using regression-based break detection 
+3. Change attribution into deforestation or degradation using training data and machine learning classifier 
 
 
 ![alt_text](images/CODED/img5.png "image_tooltip")
