@@ -440,7 +440,7 @@ A forest mask can be used that determines the valid pixels for mapping forest di
 
 
 
-*   The first option allows you to use an existing image asset as a Forest/Non-Forest mask Specify the path to the image in the textbox that appears after selecting ‘Asset’ in the ‘Forest Mask’ dropdown widget. 
+*   The first option allows you to use an existing image asset as a Forest/Non-Forest mask. Specify the path to the image in the textbox that appears after selecting ‘Asset’ in the ‘Forest Mask’ dropdown widget. 
 *   The FNF mask asset must have values of 1 indicating valid (forest) pixels, and zero or null indicating invalid (non-forest) pixels. 
 *   By default, this option uses the image geometry as the study region. The study area can be manually overridden using the study area selection widget. 
 
