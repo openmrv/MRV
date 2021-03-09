@@ -446,7 +446,7 @@ A forest mask can be used that determines the valid pixels for mapping forest di
 
 **Global Forest Watch (GFW)**
 
-*   The second option uses the 2000 tree cover percentage layer of the Hansen et al (2013)/Global Forest Watch dataset. This option requires you to manually define the study area (next section). 
+*   The second option uses the 2000 tree cover percentage layer of the Hansen et al. (2013) Global Forest Watch dataset. This option requires you to manually define the study area (next section). 
 *   The GFW layer is in units of percent tree cover for the year 2000. After selecting ‘GFW’ in the dropdown menu, specify the minimum tree cover to be labeled as forest. All pixels not meeting this threshold are assigned to the non-forest class. 
 *   There is an option to ‘Mask Prior to Start Date’. This masking is performed using the GFW tree cover loss and year layers. The purpose is to turn all pixels mapped as “Tree Cover Loss” prior to the “Start Date” to non-forest. In other words, if your start date is 2005, and the GFW dataset maps change between 2000 and 2005, then those pixels will not be included in the forest mask. 
 
