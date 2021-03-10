@@ -1,12 +1,14 @@
 ---
 title: Land Cover and Land Use Classification in Google Earth Engine
-summary: This tutorial will demonstrate how to perform a land cover and land use classification in Google Earth Engine. Users will learn how to apply both unsupervised and supervised classification methods, as well as learn how to handle masking issues, and misclassifications. The process is demonstrated for the country of Colombia and the sample data for the classification is based on the previous tutorials.
+summary: This tutorial will demonstrate how to perform a land cover and land use classification in Google Earth Engine. Users will learn how to apply both unsupervised and supervised classification methods, as well as learn how to handle masking issues, and misclassifications. The process is demonstrated for the country of Colombia, Mozambique, and Cambodia. Sample data for the classification is based on the previous tutorials.
 author: Robert E Kennedy
-creation date:
+creation date:  December, 2020
 language: English
 publisher and license: Copyright 2020, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
 
 tags:
+[REK says:  Please add:  randomforests, classification and regression tree, k-means]
+
 - OpenMRV
 - Landsat
 - Sentinel 2
