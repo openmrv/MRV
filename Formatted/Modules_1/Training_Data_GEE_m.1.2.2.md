@@ -23,9 +23,6 @@ tags:
 - Sample design
 - Sampling design
 - Sample selection
-- Reference data
-- Reference classification
-- Reference observations
 - Colombia
 - Mozambique
 - Cambodia
