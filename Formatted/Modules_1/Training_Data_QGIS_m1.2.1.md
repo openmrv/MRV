@@ -1,3 +1,51 @@
+---
+title: Training Data Collection Using QGIS
+summary: This tutorial will demonstrate how to collect categorical training data for land cover classification using QGIS. Users should adjust the various components to match their project objectives. Here, the process is demonstrated for the countries of Colombia, Mozambique, and Cambodia, and for a simple legend of four land cover classes - Forest, Water, Herbaceous, and Developed.
+author: Eric Bullock
+creation date:
+language: English
+publisher and license: Copyright 2020, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+
+tags:
+- OpenMRV
+- Landsat
+- Sentinel 2
+- Planet Labs
+- MODIS
+- QGIS
+- GEE
+- Cloud cover
+- Optical sensors
+- High resolution
+- Remote sensing
+- Composite
+- Mosaic
+- Land cover mapping
+- Forest mapping
+- Sample
+- Sample design
+- Sampling design
+- Sample selection
+- Reference data
+- Reference classification
+- Reference observations
+- Colombia
+- Mozambique
+- Cambodia
+
+group:
+- category: Composite (Median)
+  stage: Composite creation/Pre-process
+- category: Landsat
+  stage: Inputs
+- category: Sentinel-2
+  stage: Inputs
+- category: MODIS
+  stage: Inputs
+- category: QGIS
+  stage: Training data collection
+---
+
 # 1.2.1 Training Data Collection Using QGIS
 
 ## 1 Background
