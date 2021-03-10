@@ -1,3 +1,49 @@
+---
+title: Land Cover and Land Use Classification in Google Earth Engine
+summary: This tutorial will demonstrate how to perform a land cover and land use classification in Google Earth Engine. Users will learn how to apply both unsupervised and supervised classification methods, as well as learn how to handle masking issues, and misclassifications. The process is demonstrated for the country of Colombia and the sample data for the classification is based on the previous tutorials.
+author: Robert E Kennedy
+creation date:
+language: English
+publisher and license: Copyright 2020, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+
+tags:
+- OpenMRV
+- Landsat
+- Sentinel 2
+- GEE
+- Cloud cover
+- Optical sensors
+- Remote sensing
+- Composite
+- Mosaic
+- Supervised Classification
+- Unsupervised Classification
+- Land cover mapping
+- Forest mapping
+- Sample
+- Sample design
+- Sampling design
+- Sample selection
+- Accuracy
+- Accuracy assessment
+- Bias
+- Colombia
+- Mozambique
+- Cambodia
+
+group:
+- category: Composite (Median)
+  stage: Composite creation/Pre-process
+- category: Landsat
+  stage: Inputs
+- category: Sentinel-2
+  stage: Inputs
+- category: GEE
+  stage: Training data collection
+- category: Random Forest
+  stage: Classification
+---
+
 # 1.3 Land Cover and Land Use Classification in Google Earth Engine
 
 
@@ -305,7 +351,7 @@ Applied to the country of Colombia, the map appears as follows:
 
 ![Image of classified map for all of Colombia](./figures/m1.3/CART_classification_countrywide.png)
 
-It is worth reiterating that the training points used to build this map were not intended to be useed in creation of high quality maps. Thus, the map created here is simply an exercise, and is not meant as an actual map of land cover cover in Colombia.  However, we will use it to show steps for evaluating and improving it. 
+It is worth reiterating that the training points used to build this map were not intended to be used in creation of high quality maps. Thus, the map created here is simply an exercise, and is not meant as an actual map of land cover cover in Colombia.  However, we will use it to show steps for evaluating and improving it. 
 
 ### 3.7 Evaluating and improving maps
 
