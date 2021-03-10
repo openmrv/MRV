@@ -54,7 +54,7 @@ This tutorial will demonstrate how to collect categorical training data for land
 
 ### 1.1 QGIS
 
-Quantum GIS (QGIS) is an open source GIS software that runs on Windows, Linux, and Mac OS X. Users should consult the [QGIS webpage](https:/qgis.org/en/site/forusers/alldownloads.html) for background information and installation instructions. Since there are many different ways to install QGIS, depending on your operating system, installation instructions will not be detailed here. If users are not able to install QGIS we recommend switching to [Module 1.2.2 Training Data Collection Using Google Earth Engine](Tenneson_TrainingData_GEE.md). 
+Quantum GIS (QGIS) is an open source GIS software that runs on Windows, Linux, and Mac OS X. Users should consult the [QGIS webpage](https:/qgis.org/en/site/forusers/alldownloads.html) for background information and installation instructions. Since there are many different ways to install QGIS, depending on your operating system, installation instructions will not be detailed here. If users are not able to install QGIS we recommend switching to [Module 1.2.2 Training Data Collection Using Google Earth Engine](Training_Data_GEE_m.1.2.2.md). 
 
 This tutorial is based on the longterm release [Version 3.10.10](https:/docs.qgis.org/3.10/en/docs/user_manual/). For the core features of this tutorial, users will only need QGIS installed and an internet connection. For use of all the plugins described in this tutorial, users will need accounts with [Google Earth Engine](https:/signup.earthengine.google.com/#!/) and [Planet](https:/www.planet.com/login/?mode=signup) 
 
@@ -121,7 +121,7 @@ The following plugins offer access to reference imagery. Each plugin works with 
 Users should consider the options below and decide a source of reference data that matches the time period and geographic extent of your study region. Here, the process is demonstrated for Colombia and for the year 2018.  
 
 
-**Important Note:** We suggest users starting first with QuickMap Services, as it does not require an external account and is the most straightforward to install. Use of Planet and Google Earth Engine provides more flexible reference data, however the plugins are experimental and require accounts with both Earth Engine and Planet. If users cannot install any plugins, we suggest they switch to [Module 1.2.2 Training Data Collection Using Google Earth Engine](Tenneson_TrainingData_GEE.md). 
+**Important Note:** We suggest users starting first with QuickMap Services, as it does not require an external account and is the most straightforward to install. Use of Planet and Google Earth Engine provides more flexible reference data, however the plugins are experimental and require accounts with both Earth Engine and Planet. If users cannot install any plugins, we suggest they switch to [Module 1.2.2 Training Data Collection Using Google Earth Engine](Training_Data_GEE_m.1.2.2.md). 
 
 #### 3.3.1 QuickMap Services  
 
