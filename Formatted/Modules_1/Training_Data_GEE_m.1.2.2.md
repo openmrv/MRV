@@ -1,3 +1,46 @@
+---
+title: Training Data Collection Using Google Earth Engine
+summary: This tutorial will demonstrate how to collect categorical training data for land cover classification using Google Earth Engine. Users should adjust the various components to match their project objectives. Here, the process is demonstrated for the country of Colombia and for a simple legend of four land cover classes - Forest, Water, Herbaceous, and Developed.
+author: Karis Tenneson
+creation date:
+language: English
+publisher and license: Copyright 2020, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+
+tags:
+- OpenMRV
+- Landsat
+- Sentinel 2
+- GEE
+- Cloud cover
+- Optical sensors
+- High resolution
+- Remote sensing
+- Composite
+- Mosaic
+- Land cover mapping
+- Forest mapping
+- Sample
+- Sample design
+- Sampling design
+- Sample selection
+- Reference data
+- Reference classification
+- Reference observations
+- Colombia
+- Mozambique
+- Cambodia
+
+group:
+- category: Composite (Median)
+  stage: Composite creation/Pre-process
+- category: Landsat
+  stage: Inputs
+- category: Sentinel-2
+  stage: Inputs
+- category: GEE
+  stage: Training data collection
+---
+
 # 1.2.2 Training Data Collection Using Google Earth Engine 
 
 ## 1 Background
@@ -364,12 +407,7 @@ Kelsey Herndon, University of Alabama in Huntsville
 
 
 Attribution
-Tenneson, Karis. 2020. Training Data Collecting Using Google Earth Engine. � World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)
+Tenneson, Karis. 2020. Training Data Collecting Using Google Earth Engine. © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)
 
 ![](figures/m1.2/m1.2.2/WB_FCPF.png)
 ![](figures/m1.2/m1.2.2/GFOI.png)
-
-
-```
-
-```
