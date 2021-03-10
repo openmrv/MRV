@@ -1049,7 +1049,7 @@ Activity data can be derived from the CODED-based maps directly or in a sampling
 
 **What to do if the accuracy of the results is low?**
 
-The process is meant to be iterative. We suggest starting with a small study area, then running the default parameters, then looking at the map results and time series examples, and trying a new set of parameters. Furthermore, if the results are used in a sampling framework for statistical estimation, it does not matter too much how accurate the map is. In this context, map errors are accommodate using an unbiased statistical estimator. 
+The process is meant to be iterative. We suggest starting with a small study area, then running the default parameters, then looking at the map results and time series examples, and trying a new set of parameters. Furthermore, if the results are used in a sampling framework for statistical estimation, the accuracy of the map does not matter too much. In this context, map errors are accommodated using an unbiased statistical estimator. 
 
 #### 8.1 Debugging Guide
 
