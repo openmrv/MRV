@@ -2,7 +2,7 @@
 title: Training Data Collection Using QGIS
 summary: This tutorial will demonstrate how to collect categorical training data for land cover classification using QGIS. Users should adjust the various components to match their project objectives. Here, the process is demonstrated for the countries of Colombia, Mozambique, and Cambodia, and for a simple legend of four land cover classes - Forest, Water, Herbaceous, and Developed.
 author: Eric Bullock
-creation date:
+creation date: December, 2020
 language: English
 publisher and license: Copyright 2020, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
 
@@ -491,5 +491,6 @@ KONAN Yao Eric Landry, Cote d'Ivoire, REDD+ Permanent Executive Secretariat
 Paula Andrea Paz, Colombia, International Center for Tropical Agriculture  
 
 Attribution
-Bullock, E. 2020. Training Data Collection Using QGIS. © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)  
-![](figures/m1.2/m1.2.2/WB_FCPF2.png)![](figures/m1.2/m1.2.2/GFOI2.png)
+Bullock, E. 2020. Training Data Collection Using QGIS. © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO) 
+
+![](figures/m1.1/wb.png)![](figures/m1.1/gfoi.png)
