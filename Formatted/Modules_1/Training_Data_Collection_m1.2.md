@@ -1,7 +1,9 @@
 ---
 title: Training Data Collection
 summary: This tutorial will demonstrate how to collect categorical training data for land cover classification using QGIS or Google Earth Engine. Users should adjust the various components to match their project objectives. Here, the process is demonstrated for the countries of Colombia, Mozambique, and Cambodia, and for a simple legend of four land cover classes - Forest, Water, Herbaceous, and Developed.
-author: Eric Bullock and Karis Tenneson
+author:
+- Eric Bullock
+- Karis Tenneson
 creation date: December, 2020
 language: English
 publisher and license: Copyright 2020, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
