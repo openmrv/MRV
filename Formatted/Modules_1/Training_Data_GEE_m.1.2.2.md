@@ -1,6 +1,6 @@
 ---
 title: Training Data Collection Using Google Earth Engine
-summary: This tutorial will demonstrate how to collect categorical training data for land cover classification using Google Earth Engine. Users should adjust the various components to match their project objectives. Here, the process is demonstrated for the country of Colombia and for a simple legend of four land cover classes - Forest, Water, Herbaceous, and Developed.
+summary: This tutorial will demonstrate how to collect categorical training data for land cover classification using Google Earth Engine. Users should adjust the various components to match their project objectives. Here, the process is demonstrated for the countries of Colombia, Mozambique, and Cambodia, and for a simple legend of four land cover classes - Forest, Water, Herbaceous, and Developed.
 author: Karis Tenneson
 creation date:
 language: English
