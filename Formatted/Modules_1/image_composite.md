@@ -2,7 +2,7 @@
 title: Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine
 summary: This tutorial will walk you through how to create a composite using Landsat and/or Sentinel-2 imagery on a national level in Google Earth Engine (GEE). The process is demonstrated for the country of Colombia, Mozambique, and Cambodia. The tutorial is accompanied by a GEE repository, and a series of videos that walk you through some of the sections. The scripts enable you to create a composite that can be used in subsequent sections of this training.
 author: Andrea Puzzi Nicolau
-creation date:
+creation date: December, 2020
 language: English
 publisher and license: Copyright 2020, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
 
