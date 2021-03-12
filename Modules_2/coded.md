@@ -252,7 +252,7 @@ Finally, we see in the following figure an example of a forest affected by fire.
 
 It is relatively straightforward to plot the temporal trajectories of NDFI on Google Earth Engine. This can be a useful exercise to understand the land use history of a location in addition to the spectral response to landscape changes. To do so, it is necessary to first calculate NDFI for an entire image collection, and then define a function for plotting NDFI at location selected on the map. 
 
-**Note**: This code can be found in the Open MRV repo in the script "CODED/Unmix Time Series". A complementary video demonstrating this process can be found on [YouTube here](https://youtu.be/chr626cFl78).  
+**Note**: This code can be found in the Open MRV repo in the script "CODED/Unmix Time Series" (Link???). A complementary video demonstrating this process can be found on [YouTube here](https://youtu.be/chr626cFl78).  
 
 ```javascript
 // Define a function for SMA and calculate or NDFI
