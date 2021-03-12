@@ -177,12 +177,12 @@ var endmembers = {
 // Define color palettes for visualization
 
 var palettes = {
-  gv: ['##ffffcc','##c2e699','##78c679','##31a354','##006837'],
-  shade: ['##f7f7f7','##cccccc','##969696','##636363','##252525'],
-  npv: ['##ffffb2','##fecc5c','##fd8d3c','##f03b20','##bd0026'],
-  soil: ['##ffffd4','##fed98e','##fe9929','##d95f0e','##993404'],
-  cloud: ['##ffffcc','##a1dab4','##41b6c4','##2c7fb8','##253494'],
-  ndfi: ['##d73027','##fc8d59','##fee08b','##ffffbf','##d9ef8b','##91cf60','##1a9850']
+  gv: ['#ffffcc','#c2e699','#78c679','#31a354','#006837'],
+  shade: ['#f7f7f7','#cccccc','#969696','#636363','#252525'],
+  npv: ['#ffffb2','#fecc5c','#fd8d3c','#f03b20','#bd0026'],
+  soil: ['#ffffd4','#fed98e','#fe9929','#d95f0e','#993404'],
+  cloud: ['#ffffcc','#a1dab4','#41b6c4','#2c7fb8','#253494'],
+  ndfi: ['#d73027','#fc8d59','#fee08b','#ffffbf','#d9ef8b','#91cf60','#1a9850']
 }
 
 // Perform unmixing on Landsat 8 image. 
@@ -198,7 +198,7 @@ Map.addLayer(unmixedImage.select('Shade'), {min: 0, max: .6, palette: palettes.s
 Map.addLayer(unmixedImage.select('NPV'), {min: 0, max: .6, palette: palettes.npv}, 'NPV')
 Map.addLayer(unmixedImage.select('Soil'), {min: 0, max: .6, palette: palettes.soil}, 'Soil')
 
-Finally, we can calculate NDFI on the endmember fraction images and add the NDFI data to the map. 
+//Finally, we can calculate NDFI on the endmember fraction images and add the NDFI data to the map. 
 
 var ndfi = unmixedImage.expression(
   '((GV / (1 - SHADE)) - (NPV + SOIL)) / ((GV / (1 - SHADE)) + NPV + SOIL)',
@@ -210,7 +210,7 @@ var ndfi = unmixedImage.expression(
 
 Map.addLayer(ndfi, {min: 0, max: 1, palette: palettes.ndfi}, 'NDFI')
 
-The example below is a zoom-in the results that can be navigated to by defining the image boundary as a geometry:
+//The example below is a zoom-in the results that can be navigated to by defining the image boundary as a geometry:
 
 
 var geo = ee.Geometry.Polygon(
@@ -223,6 +223,7 @@ Map.centerObject(geo)
 ```
 
 Note the disturbed patch of land in the middle of the geometry. The clearly non-forest pixels have a high NDFI (red), low Shade (white), high NPV (red) and moderate GV (light green), while the damaged forest pixels on the right have a moderate NDFI (yellow), and dense forest has a high NDFI (green), high GV (green), and high shade (black). 
+
 
 ![alt_text](images/CODED/img7.png "image_tooltip")
 
