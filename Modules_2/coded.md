@@ -853,6 +853,7 @@ In the ‘Forest Disturbance Mapping GUI’, define the study area using the ass
     - Post-processing: _Use defaults_
     - Visualization: _Add Forest Mask Layer_ (others unchecked)
     - Export: None (all unchecked)
+    - Thenk click Run!
 4. To identify possible areas of forest change, we can add the Hansen global tree cover loss dataset (Hansen et al., 2013). 
     - Under _Visualization_, add the path ‘UMD/hansen/global_forest_change_2019_v1_7’ to the box next to _Asset path_ and click _Load asset_. The asset should be added to the map. 
     - The dataset should load on the map with the name _Added Image_ under _Layers_. 
