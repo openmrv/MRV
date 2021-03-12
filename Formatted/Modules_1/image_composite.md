@@ -76,7 +76,7 @@ It is encouraged that you follow the steps below by writing the scripts on your 
 
 ### 1.3 Videos
 
-The [Open MRV YouTube channel](https://www.youtube.com/channel/UCdPooUCxF3HRIWdEh4pwrqQ) contains videos that walk you through some sections of this and other modules. For this module, a video was created for each subsection of Section 4. Creating a composite. Please note that the script development in the videos might not be exactly the same as demonstrated in each step of the tutorial (i.e., order of code lines and variable names might differ, etc.), and that each video is built upon previous ones. In any case, the same outputs are produced. You can find in each section below a hyperlink to its corresponding video. It is recommended to go through each section before watching the videos.
+The [Open MRV YouTube channel](https://www.youtube.com/channel/UCdPooUCxF3HRIWdEh4pwrqQ) contains videos that walk you through some sections of this and other modules. For this module, a video was created for each subsection of Section 3. Tutorial: Creating a composite. Please note that the script development in the videos might not be exactly the same as demonstrated in each step of the tutorial (i.e., order of code lines and variable names might differ, etc.), and that each video is built upon previous ones. In any case, the same outputs are produced. You can find in each section below a hyperlink to its corresponding video. It is recommended to go through each section before watching the videos.
 
 ## 2 Learning objectives
 
@@ -808,7 +808,7 @@ No. Google Earth Engine is a cloud-based platform, therefore, all the processing
 
 **I got a "Script Error" on the Console but I am not sure what it means or how it affects the script.**
 
-Usually this "Script Error" will not affect your code. If the outputs are loaded correctly on the Console and the layers are added to the Map, you should not worry about this error. A real error that prevents the user to accomplish a result will show a message showing *what* the error is. For assistance debugging your code, please consult the [Debugging Guide](https://developers.google.com/earth-engine/guides/debugging) and the [How to get help](https://developers.google.com/earth-engine/help) weblinks available in Section 3. Google Earth Engine.
+Usually this "Script Error" will not affect your code. If the outputs are loaded correctly on the Console and the layers are added to the Map, you should not worry about this error. A real error that prevents the user to accomplish a result will show a message showing *what* the error is. For assistance debugging your code, please consult the [Debugging Guide](https://developers.google.com/earth-engine/guides/debugging) and the [How to get help](https://developers.google.com/earth-engine/help) weblinks available in Section 1.1 Google Earth Engine.
 
 -----
 
