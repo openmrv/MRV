@@ -404,6 +404,6 @@ Kelsey Herndon, University of Alabama in Huntsville
 
 
 Attribution
-Tenneson, Karis. 2020. Training Data Collecting Using Google Earth Engine. © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)
+Tenneson, Karis. 2020. Training Data Collecting Using Google Earth Engine. © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](figures/m1.1/wb.png)![](figures/m1.1/gfoi.png)
