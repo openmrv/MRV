@@ -996,7 +996,7 @@ Sentinel-2 RGB Composite
 
 ![alt_text](images/CODED/img53.png "image_tooltip")
 
-**Tip**: if you are finding too many errors of commission (or false changes detected), try decreasing the _Consecutive Obs_ threshold. Note the difference in the two maps below. These layers show pixels flagged as change and. are added to the map by checking the Visualization checkboxes _Add Break Date_ (to add it to the map) and _Mask Results_ (to apply the Forest/Non-Forest Mask). The Break Date layer can usually be calculated on the fly, so the change detection parameters can be adjusted without needing to export the results each time. If you uncheck the _Reset Map_ parameter, then the previous results will stay loaded on the map.   
+**Tip**: if you are finding too many errors of commission (or false changes detected), try decreasing the _Consecutive Obs_ threshold. Note the difference in the two maps below. These layers show pixels flagged as change and they are added to the map by checking the Visualization checkboxes _Add Break Date_ (to add it to the map) and _Mask Results_ (to apply the Forest/Non-Forest Mask). The Break Date layer can usually be calculated on the fly, so the change detection parameters can be adjusted without needing to export the results each time. If you uncheck the _Reset Map_ parameter, then the previous results will stay loaded on the map.   
 
 <table>
   <tr>
