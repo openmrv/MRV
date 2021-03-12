@@ -275,9 +275,11 @@ var unmixAndNDFI = function(image) {
 
 // Map over the Landsat 8 collection and calculate NDFI
 var ndfiCollection = l8Masked.map(unmixAndNDFI).select('NDFI')
+```
 
 The following code demonstrates how you can create a geometry from the location clicked on the map ("var point"), and plot the NDFI time series ("var chart") for all data intersecting that location. The plots have a callback function that will load the corresponding image to the map when an observation is selected on the plot. 
 
+```
 // Function to make an NDFI plot at the clicked location
 var makeImagePlot = function(col, region){
   var chart = ui.Chart.image.series(col, region, ee.Reducer.mean(), 30)
