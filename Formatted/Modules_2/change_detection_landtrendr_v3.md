@@ -169,7 +169,7 @@ The graphical user interface (GUI) is provided by the developers of LandTrendr i
 
 #### 3.2.1 Open the GUI
 
-In the OpenMRV common repository, find and open the script named: **LT-GEE-Vis-DownLoad-app_WB_v1.0**.  When loaded and run, this script creates a LandTrendr-GEE GUI. 
+In the [OpenMRV common repository](https://code.earthengine.google.com/?accept_repo=users/openmrv/MRV), find and open the script named: **LT-GEE-Vis-DownLoad-app_WB_v1.0**.  When loaded and run, this script creates a LandTrendr-GEE GUI. 
 
 Note that this GUI requires access to two libraries of utility functions: One that handles the image processing, and one that handles the GUI interface. Users need not change anything in the script to access these, but it is useful to recognize that these external libraries are being called. Although originally developed by the eMapR lab, for convenience, as noted above,  these libraries have been copied in late 2020 into the common repository of this training module. 
 
@@ -434,7 +434,7 @@ Click on "Add RGB Imagery", and wait patiently.  It may take a minute to fully l
 
 ![_fig_rgb_change_initial](./figures/_fig_rgb_change_initial.png)
 
-> Note:  There are some areas on the left edge of this study area that have missing data (indicated by being able to see the underlying image instead of the fitted values).  These areas do not have enough unmasked observations to run the temporal fitting (the "minimum observations needed" parameter is a user-defined quantity (Section 2 above).  It is possible that 
+> Note:  There are some areas on the left edge of this study area that have missing data (indicated by being able to see the underlying image instead of the fitted values).  These areas do not have enough unmasked observations to run the temporal fitting (the "minimum observations needed" parameter is a user-defined quantity (Section 1.2 above).  It is possible that 
 
 ##### 3.4.2.2 Interpret change as colors
 
