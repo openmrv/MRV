@@ -278,7 +278,7 @@ The test case in Cambodia will be demonstrated here using the CCDC API. This sam
 
 In the [Javascript console of Google Earth Engine](https://code.earthengine.google.com/), you should first load the CCDC API and define parameters for the change detection and study region. For this example, we will use the entire country of Cambodia as the study region.  
 
-Copy and paste the following script in GEE, or load the script in the Open MRV GEE repository called ‘CCDC/Cambodia_1’: 
+Copy and paste the following script in GEE, or load the script in the [Open MRV GEE repository](https://code.earthengine.google.com/?accept_repo=users/openmrv/MRV) called ‘CCDC/Cambodia_1’: 
 
 
 ```javascript
