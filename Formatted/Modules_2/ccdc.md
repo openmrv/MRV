@@ -1,6 +1,6 @@
 ---
 title: Continuous Change Detection and Classification (CCDC)
-summary: This tutorial will walk you throught the Continuous Change Detection and Classification (CCDC) algorithm. You will learn the key components and parameters of CCDC, how to use the algorithm in Google Earth Engine, and create maps of land change. Examples are demonstrated for the countries of Mozambique, Cambodia, and Colombia
+summary: This tutorial will walk you through the Continuous Change Detection and Classification (CCDC) algorithm. You will learn the key components and parameters of CCDC, how to use the algorithm in Google Earth Engine, and create maps of land change. Examples are demonstrated for the countries of Mozambique, Cambodia, and Colombia
 author: Eric Bullock
 creation date: January, 2021
 language: English
