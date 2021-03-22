@@ -70,6 +70,25 @@ Advanced usage will also include:
 *   Post-processing of results from CODED to increase change detection accuracy
 *   Application of a modified version of CODED to use Sentinel-1 radar imagery 
 
+### 2.1 Pre-requisites for this module
+
+* Google Earth Engine (GEE) concepts (please refer to Section 1.1 of Module 1.1 Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine for useful GEE resources)
+  * Getting a user account
+  * Image handling in GEE
+  * Basic syntax of functions
+  * Basic image processing, including choice of imagery, cloud-screening, mosaicking and compositing
+* It is highly recommended that you finish the previous tutorials:
+  * Module 1
+    * 1.1 Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine
+    * 1.2 Training Data Collection
+      * 1.2.1 Training Data Collection Using QGIS, or
+      * 1.2.2 Training Data Collection Using Google Earth Engine
+    * 1.3 Land Cover and Land Use Classification in Google Earth Engine
+  * Module 2
+    * 2.1 Basics of Change Detection methods
+    * 2.2 LandTrendr
+    * 2.3 Continuous Change Detection and Classification (CCDC)
+
 ## 3 Tutorial: Continuous Degradation Detection (CODED)
 
 ### 3.1 Motivation
