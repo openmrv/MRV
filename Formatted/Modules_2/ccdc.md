@@ -62,6 +62,24 @@ By the end of this tutorial, users should be able to:
 *   Run CCDC using both a “point and click” interface and through scripting with the Javascript programming language. 
 *   Create maps of spectral and land cover change.
 
+### 2.1 Pre-requisites for this module
+
+* Google Earth Engine (GEE) concepts (please refer to Section 1.1 of Module 1.1 Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine for useful GEE resources)
+  * Getting a user account
+  * Image handling in GEE
+  * Basic syntax of functions
+  * Basic image processing, including choice of imagery, cloud-screening, mosaicking and compositing
+* It is highly recommended that you finish the previous tutorials:
+  * Module 1
+    * 1.1 Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine
+    * 1.2 Training Data Collection
+      * 1.2.1 Training Data Collection Using QGIS, or
+      * 1.2.2 Training Data Collection Using Google Earth Engine
+    * 1.3 Land Cover and Land Use Classification in Google Earth Engine
+  * Module 2
+    * 2.1 Basics of Change Detection methods
+    * 2.2 LandTrendr
+
 ## 3 Tutorial: Continuous Change Detection and Classification (CCDC)
 
 CCDC can be run using Google Earth Engine. Other implementations of CCDC can be accessed [here](https://github.com/GERSL/CCDC) and includes implementations in C, Python, and MATLAB. To facilitate analysis in GEE, Arevalo et al (2020) released an API and collection of applications that will be demonstrated [here](https://gee-ccdc-tools.readthedocs.io/en/latest/). 
