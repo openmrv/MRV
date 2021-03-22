@@ -434,7 +434,7 @@ Click on "Add RGB Imagery", and wait patiently.  It may take a minute to fully l
 
 ![_fig_rgb_change_initial](./figures/_fig_rgb_change_initial.png)
 
-> Note:  There are some areas on the left edge of this study area that have missing data (indicated by being able to see the underlying image instead of the fitted values).  These areas do not have enough unmasked observations to run the temporal fitting (the "minimum observations needed" parameter is a user-defined quantity (Section 1.2 above).  It is possible that 
+> Note:  There are some areas on the left edge of this study area that have missing data (indicated by being able to see the underlying image instead of the fitted values).  These areas do not have enough unmasked observations to run the temporal fitting, as determined by the "minimum observations needed" parameter set by the user (Section 1.2 above). If there really are fewer than six observations (the default for the parameter), then running the algorithm is likely to result in overfitting or poor fits, as there are simply too few observations. Thus, rather than reducing that parameter value to allow more areas to be run with the algorithm, it is advisable instead to investigate why so few valid observations exist.  If there truly are few valid observations, then other approaches may need to be undertaken in these regions, or they may need to be explicitly withheld from reporting.
 
 ##### 3.4.2.2 Interpret change as colors
 
