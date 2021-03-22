@@ -1061,7 +1061,7 @@ The calculation of the change coefficients is the most computationally intensive
 
 ## 5 References
 
-Zhu, Z., Woodcock, C.E., 2014. Continuous change detection and classification of land cover using all available Landsat data. Remote Sens. Environ. 144, 152–171. https://doi.org/10.1016/j.rse.2014.01.011
+Zhu, Z. and Woodcock, C.E., 2014. Continuous change detection and classification of land cover using all available Landsat data. Remote sensing of Environment, 144, pp.152-171. https://doi.org/10.1016/j.rse.2014.01.011
 
 -----
 
