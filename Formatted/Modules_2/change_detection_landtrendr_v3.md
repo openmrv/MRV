@@ -150,12 +150,20 @@ Additionally, advanced users will be able to:
 
 ### 2.1 Pre-requisites for this module
 
-* Google Earth Engine (GEE) concepts
+* Google Earth Engine (GEE) concepts (please refer to Section 1.1 of Module 1.1 Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine for useful GEE resources)
 	* Getting a user account
 	* Image handling in GEE
 	* Basic syntax of functions
 	* Basic image processing, including choice of imagery, cloud-screening, mosaicking and compositing
-
+* It is highly recommended that you finish the previous tutorials:
+  * Module 1
+    * 1.1 Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine
+    * 1.2 Training Data Collection
+      * 1.2.1 Training Data Collection Using QGIS, or
+      * 1.2.2 Training Data Collection Using Google Earth Engine
+    * 1.3 Land Cover and Land Use Classification in Google Earth Engine
+  * Module 2
+    * 2.1 Basics of Change Detection methods
 
 ## 3 Tutorial: Quickstart LandTrendr via GUI on GEE
 
