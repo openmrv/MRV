@@ -1334,19 +1334,19 @@ Mixing sensor types can be very challenging. It requires pre-processing that pla
 
 ## 8 References
 
-Crist, E. P. 1985, A TM tasseled cap equivalent transformation for re􏰝flectance factor data. __Remote Sensing of Environment__, 17: 301–306.
+Crist, E.P., 1985. A TM tasseled cap equivalent transformation for reflectance factor data. *Remote Sensing of Environment*, *17*(3), pp.301-306. https://doi.org/10.1016/0034-4257(85)90102-6
 
-Kennedy, Robert E.; Yang, Zhiqiang; Cohen, Warren B.  2010, Detecting trends in forest disturbance and recovery using yearly Landsat time series: 1. LandTrendr - Temporal segmentation algorithms. **Remote Sensing of Environment** 114(12): 2897-2910.
+Kennedy, R.E., Yang, Z. and Cohen, W.B., 2010. Detecting trends in forest disturbance and recovery using yearly Landsat time series: 1. LandTrendr—Temporal segmentation algorithms. *Remote Sensing of Environment*, *114*(12), pp.2897-2910. https://doi.org/10.1016/j.rse.2010.07.008
 
-Cohen, Warren B; Yang, Zhiqiang; Kennedy, Robert E.  2010, Detecting trends in forest disturbance and recovery using yearly Landsat time series: 2. TimeSync - Tools for calibration and validation. **Remote Sensing of Environment** 114(12): 2911-2924.
+Cohen, W.B., Yang, Z. and Kennedy, R., 2010. Detecting trends in forest disturbance and recovery using yearly Landsat time series: 2. TimeSync—Tools for calibration and validation. *Remote Sensing of Environment*, *114*(12), pp.2911-2924. https://doi.org/10.1016/j.rse.2010.07.010
 
-Cohen, Warren B; Yang, Zhiqiang; Healey, Sean P.; Kennedy, Robert E.; Gorelick, Noel. 2018, A LandTrendr multispectral ensemble for forest disturbance detection. **Remote Sensing of Environment** 205: 131-140. 
+Cohen, W.B., Yang, Z., Healey, S.P., Kennedy, R.E. and Gorelick, N., 2018. A LandTrendr multispectral ensemble for forest disturbance detection. *Remote sensing of environment*, *205*, pp.131-140. https://doi.org/10.1016/j.rse.2017.11.015
 
-Kennedy, Robert E.; Ohmann, Janet; Gregory, Matt; Roberts, Heather; Yang, Zhiqiang; Bell, David M.; Hughes, M. Joseph; Cohen, Warren B.; Powell, Scott. 2018, An empirical, integrated forest biomass monitoring system. __Environ. Res. Lett.__ 13: 025004
+Kennedy, R.E., Ohmann, J., Gregory, M., Roberts, H., Yang, Z., Bell, D.M., Kane, V., Hughes, M.J., Cohen, W.B., Powell, S. and Neeti, N., 2018. An empirical, integrated forest biomass monitoring system. *Environmental Research Letters*, *13*(2), p.025004. https://doi.org/10.1088/1748-9326/aa9d9e
 
-Powell, S.L.; Cohen, W.B.; Healey, S.P.; Kennedy, R.E.; Moisen, G.G.; Pierce, K.B.; Pierce, K.B.; Ohmann, J.L., 2010, Quantification of live aboveground forest biomass dynamics with Landsat time-series and field inventory data: A comparison of empirical modelling approaches. __Remote Sens. Environ.__ **2010**, 114: 1053–1068.
+Powell, S.L., Cohen, W.B., Healey, S.P., Kennedy, R.E., Moisen, G.G., Pierce, K.B. and Ohmann, J.L., 2010. Quantification of live aboveground forest biomass dynamics with Landsat time-series and field inventory data: A comparison of empirical modeling approaches. *Remote Sensing of Environment*, *114*(5), pp.1053-1068. https://doi.org/10.1016/j.rse.2009.12.018
 
-Roy, D.P., Kovalskyy, V., Zhang, H.K., Vermote, E.F., Yan, L., Kumar, S.S, Egorov, A., 2016, Characterization of Landsat-7 to Landsat-8 reflective wavelength and normalized difference vegetation index continuity, Remote Sensing of Environment, 185, 57-70.(http://dx.doi.org/10.1016/j.rse.2015.12.024)
+Roy, D.P., Kovalskyy, V., Zhang, H.K., Vermote, E.F., Yan, L., Kumar, S.S. and Egorov, A., 2016. Characterization of Landsat-7 to Landsat-8 reflective wavelength and normalized difference vegetation index continuity. *Remote sensing of Environment*, *185*, pp.57-70. http://dx.doi.org/10.1016/j.rse.2015.12.024
 
 -----
 
