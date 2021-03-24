@@ -183,9 +183,9 @@ var l8Masked = landsat8.map(maskL8sr)
 ```
 
 To find a relatively cloud-free image to apply SMA, we can sort the collection by the 'CLOUD_COVER' metadata property and use the first image in the collection (i.e. the image with the lowest value for 'CLOUD_COVER'). 
-var l8Image = l8Masked.sort('CLOUD_COVER',true).first()
 
 ```javascript
+var l8Image = l8Masked.sort('CLOUD_COVER',true).first()
 Map.addLayer(l8Image.select(['RED','GREEN','BLUE']), {min: 0, max: .14}, 'RGB Image')
 ```
 
