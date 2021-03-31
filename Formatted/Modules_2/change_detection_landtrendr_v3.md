@@ -1,6 +1,6 @@
 ---
 title: LandTrendr
-summary: This tutorial introduces the LandTrendr algorithms which were originally developed for detecting change in forest cover using time-series Landsat imagery. In this tutorial, you will learn how to identify real change in land cover, to choose best fitting parameters, and to implement LandTrendr disturbance mapping scripts through a graphical user interface. Examples are demonstrated for the countries of Mozambique, Cambodia, and Colombia
+summary: This tutorial introduces an approach for mapping forest change called LandTrendr. The LandTrendr algorithms were originally developed for detecting change in forest cover using annual time-series Landsat imagery. In this tutorial, you will learn how to identify real change in land cover, to choose best fitting parameters, and to implement LandTrendr disturbance mapping scripts through a graphical user interface. Examples are demonstrated for the countries of Mozambique, Cambodia, and Colombia
 author: Robert E Kennedy
 creation date: January, 2021
 language: English
