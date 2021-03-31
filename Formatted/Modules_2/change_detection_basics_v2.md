@@ -1,6 +1,7 @@
 ---
 title: Basics of Change Detection methods
-summary: This tutorial will give an overview of the basics of change detection methods, and introduce three different algorithms (LandTrendr, CCDC, and CODED) for monitoring landscape changes.
+summary: This tutorial will give an overview of the basics of change detection methods, and introduce three different algorithms (LandTrendr, CCDC, and CODED) for monitoring landscape changes. There are in-depth tutorials for all three of these algorithms if you want to know more or to try landcover change detection yourself. 
+
 author:
 - Robert E Kennedy
 - Eric Bullock
