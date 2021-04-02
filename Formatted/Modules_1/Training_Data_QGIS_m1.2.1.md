@@ -1,6 +1,6 @@
 ---
 title: Training Data Collection Using QGIS
-summary: This tutorial will demonstrate how to collect categorical training data for land cover classification using QGIS. Users should adjust the various components to match their project objectives. Here, the process is demonstrated for the countries of Colombia, Mozambique, and Cambodia, and for a simple legend of four land cover classes - Forest, Water, Herbaceous, and Developed.
+summary: This tutorial will demonstrate how to collect categorical training data for land cover classification using QGIS. Users should adjust the various components to match their project objectives. Here, the process is demonstrated for the countries of Colombia, Mozambique, and Cambodia, and for a simple legend of four land cover classes - Forest, Water, Herbaceous, and Developed. [Documentation on QGIS](https://docs.qgis.org/3.10/en/docs/user_manual/) is available here for further reference.
 author: Eric Bullock
 creation date: December, 2020
 language: English
