@@ -1044,18 +1044,23 @@ In the following example, the legend palette is:
 ## 4 Frequently Asked Questions (FAQs)
 
 **Can CCDC be performed using other data sources?**
+
 Technically, yes. Although CCDC was designed for Landsat data, it is technically data agnostic and could therefore be performed using any data source with a dense time series record. 
 
 **Where can I find the most recent versions of the CCDC applications?**
+
 The most recent versions of the GUIs and API can be found here: https://gee-ccdc-tools.readthedocs.io
 
 **Can CCDC be analyzed without the API or GUIs?**
+
 Yes, CCDC can be performed using only the Javascript API. However, the complexity of the inputs and calculated outputs has proven to be a challenge to new (and even advanced) users. Therefore, we created the API and applications to make the analysis easier. 
 
 **Who should be credited for creating CCDC?**
+
 CCDC was originally introduced in Zhu and Woodcock (2014). The GEE implementation was written by Noel Gorelick and Yang Zhiqiang. There have been many other contributors to the CCDC algorithm and the applications used here, notably the [USGS LCMAP Program](https://github.com/repository-preservation/lcmap-pyccd), the [Global Environmental Remote Sensing Laboratory](https://gerslab.uconn.edu/), and the [Global Land Cover mapping and Estimation project](http://sites.bu.edu/measures/). The GUIs and API are primary written and managed by Paulo Arévalo and Eric Bullock.  
 
 **The change coefficients are failing to export, what should I do?**
+
 The calculation of the change coefficients is the most computationally intensive part of CCDC. That is why the kind folks at Google have created a global coefficient dataset. Although it uses one default set of change parameters for the globe, the parameters have been proven to perform relatively well across different environments. Therefore, it should be considered as a useful alternative to user-created coefficients. 
 
 
