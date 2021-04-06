@@ -453,11 +453,55 @@ The CSV file, which can be opened in Excel, tabulates all of the data that has b
 
 ## Frequently Asked Questions (FAQs)
 
+**When should I use CE?**
+
+Use when you want to work offline (CE), and if you need more options for data export than .csv (CE).
+
+**How do I install CE?**
+
+Navigate to [http://www.openforis.org/tools/collect.html](http://www.openforis.org/tools/collect.html). Here you can download the “Collect” application by clicking on “Download last version” and selecting the correct version. Download and install Collect to your computer. If needed, please see the installation help available at [http://www.openforis.org/tools/collect/tutorials/installation.html](http://www.openforis.org/tools/collect/tutorials/installation.html).
+
+**What rules are there for naming my survey?**
+
+Your title must be all lowercase with no spaces, the tool will automatically convert caps to lowercase and spaces to underscores (_). 
+
+**How often should I save my project?**
+
+Anytime you make a change that affects your survey, consider saving. Alternatively, consider saving every few minutes while actively working.
+
+**If my session times out, how do I return to my survey window?**
+
+If your session times out or you accidentally close the window, you can return to the Edit survey window by clicking Survey Designer -> List of surveys -> click on the name of your survey -> Edit survey.
+
+**Are there any rules for code list names?**
+
+Any name for any code list you create MUST be all lowercase and have no spaces.
+
+**Are there any rules for importing an existing sampling design?**
+
+The csv file should contain the following categories in the following order:
+*  levelX_code columns: 1 column for each level X (maximum 3 levels, e.g. if you have 2 levels, cluster and plot, you will have a column "level1_code" with cluster id value and a column "level2_code" for plot id value);
+*  x: easting, in the same CoordinateReference Systems settings of the survey;
+*  y: northing, in the same CoordinateReference Systems settings of the survey; 
+*  srs_id: id of the coordinate reference system, the same used as in the Coordinate Reference Systems settings of the survey; and
+*  Any additional columns (to a maximum of 10) can be added to the csv file in order to record additional information related to the sampling points (eg. slope , administrative units, etc.)
+
+**What are some imagery interpretation tips?**
+
+Here are some image interpretation tips:
+* Seasonality issues can occur when different land uses appear different between seasons. For example, a grassland might be bright green in spring but look brown in the summer. If you saw just the brown imagery, you might think the brown is dirt and incorrectly classify the grassland as barren dirt.
+* Zooming in and out to gather contextual clues from the landscape is important for multiple land use and land cover types. For example:
+  - Water in larger water bodies often appears black or dark until you zoom out.
+  - Tree plantations may look like forests until you zoom out and see the regular pattern of planted trees.
+
+**Where can I find additional help?**
 
 For further support using Collect Earth, go to openforis.org and click “Community Support” in the upper navigation bar. 
+
 ![](figures/openforis_community_support.png)
 
 Here you can create an account and ask a question and it will reach OpenForis directly or others in the OpenForis community can help.
+
 ![](figures/openforis_community_support1.JPG)
 
 -----
