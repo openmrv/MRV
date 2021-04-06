@@ -816,6 +816,46 @@ You will use this downloaded data in future modules to perform the area estimati
 
 ## 4 Frequently Asked Questions (FAQs)
 
+**When should I use CEO?**
+
+Use CEO if you will have multiple data collectors (CEO), and if you want an easier setup for your survey questions (CEO).
+
+**Where can I find help within CEO?**
+
+There is a purple ? in the top right corner of the screen. Clicking on this will bring up the help interface, which provides information about CEO's features. These help interfaces are available for the Home page, for Data Collection and for Project Creation.
+
+**When should I use a project template?**
+
+This feature is used to copy all the information-including project info, area, and sampling design-from an existing published project to a new project. This is useful if you have an existing project you want to duplicate for another year or location, or if you are iterating through project design.
+
+**What should I put in the project Description?**
+
+You should keep the Description short but informative. Users will see these if they click on the project's pin on the map on the home page. You will also see this when you are administering your project.
+
+**Is there anything to keep in mind for paid imagery sources?**
+
+If you have a commercial license for PlanetMonthly, PlanetDaily, and SecureWatch, they do not allow for large area data pulls, so it should not be your default basemap (users will just see a white box). If you want to work with these feeds, we recommend that you set a different default basemap and have your data collectors switch to PlanetDaily once they have zoomed in on a plot to interpret.
+
+**How many plots and samples are allowed with .csv and .shp files?**
+
+Using .csv and .shp files, the maximum number of plots is 50,000 and the total sample point limit is 350,000. You must use WGS84 EPSG:4326 format for coordinates in both .csv and .shp files.
+
+**How many plots and samples are allowed with CEO generated projects?**
+
+CEO will provide an estimate of how many plots will be generated for your project based on your sampling design. Using CEO's sampling, the maximum number of plots for a project is 5,000. For gridded sampling, you may need to increase the space between plots to avoid exceeding 5,000 plots.
+
+**What are some tips for creating survey questions?**
+
+Here are some tips:
+* You can delete a question by clicking the red [X]. Deleting a parent question with children will delete the children questions as well. 
+* You can collapse a survey card by clicking the [-] symbol in the upper left.
+* You can change the order of the Survey Cards by clicking the blue up & down arrows in the top right.
+* Try to keep your question below 45 characters.
+
+**Where can I find more information about CEO and creating CEO projects?**
+
+Please refer to the [Collect Earth Online Institution and Project Creation Manual](https://collect.earth/support).
+
 
 ## 5 References
 Souza Jr, C.M., Roberts, D.A. and Cochrane, M.A., 2005. Combining spectral and spatial information to map canopy damage from selective logging and forest fires. *Remote Sensing of Environment*, *98*(2-3), pp.329-343. https://doi.org/10.1016/j.rse.2005.07.013
