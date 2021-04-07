@@ -873,7 +873,7 @@ This work was developed by Karis Tenneson and Karen Dyson under World Bank contr
 Material reviewed by:   
 Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources  
 Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
-Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources 
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
 
 Attribution
