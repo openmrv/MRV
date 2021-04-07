@@ -63,7 +63,7 @@ In the previous tutorial, we designed a sample by choosing a selection protocol 
 
 ## 2 Learning Objectives
 
-Upon completion of the tutorial, the user should be able to sample an arbitrary study area under either SYS, SRS or STR. The user should be able to draw a sample in QGIS under SYS or SRS, and a sample in GEE/AREA2 under STR
+Upon completion of the tutorial, the user should be able to sample an arbitrary study area under either SYS, SRS or STR. The user should be able to draw a sample in QGIS under SYS or SRS, and a sample in GEE/AREA2 under STR.
 * Learn how to sample an arbitrary study area under either SYS, SRS or STR
 * Draw a sample in QGIS under SYS or SRS
 * Draw a sample in GEE/AREA2 under STR
