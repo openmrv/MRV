@@ -85,7 +85,7 @@ QGIS provides support for sampling populations defined by vector data. Hence, if
 3. Vector > Research Tools > Random Points Inside Polygons
 4. Specify the Colombia border as input layer, Points count as sampling strategy and the total sample size under Point count; leave min. distance "Save to a file and click Run to draw the sample.
 
-![](figures/SRS_QGIS.png)
+![](figures/SRS_QGIS.PNG)
 
 #### Systematic sampling 
 Drawing a sample under SYS in QGIS has the drawback that the population has to be rectangular which makes it harder to draw an exact number of units for a non-rectangular area. We can simply clip the sample units for the Colombia border but that will result in a smaller sample size  than specified. A workaround is to set a distance between based on the size of the study area. For example, if the study area is *x* km^2^, setting a the spacing between units to x/100  would result in a sample of 100 units   
@@ -94,7 +94,7 @@ Drawing a sample under SYS in QGIS has the drawback that the population has to b
 3. Specify a Point spacing or Point count -- if using the former, check the box "Use point spacing" 
 4. Save to a file and click Run to draw the sample.
 
-![](figures/SYS_QGIS.png)
+![](figures/SYS_QGIS.PNG)
 
 ### 3.2 Stratified random sampling in Google Earth Engine/AREA2
 In the sampling design script we estimated a sample size required to reach a 25% margin of error of the forest disturbance area estimate, and we allocated the sample in strata for the purpose of area estimation. That gave use the following sample size:
