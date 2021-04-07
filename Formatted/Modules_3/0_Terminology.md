@@ -1,6 +1,6 @@
 ---
 title: Terminology relevant to the sampling techniques
-summary: This tutorial will introduce the terminology relevant to the sampling techniques for estimation of area and map accuracy. More information on terminology can be found in the AREA2 documentation: https://area2.readthedocs.io/en/latest/definitions.html
+summary: This tutorial will introduce the terminology relevant to the sampling techniques for estimation of area and map accuracy. More information on terminology can be found in the AREA2 documentation - https://area2.readthedocs.io/en/latest/definitions.html
 author: Pontus Olofsson
 creation date: February, 2021
 language: English
