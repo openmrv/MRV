@@ -517,8 +517,8 @@ This work was developed by Justine Bui and Karen Dyson under World Bank contract
 Material reviewed by:   
 Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources  
 Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
-Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources 
-Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD) 
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
+Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)   
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
 
 Attribution
