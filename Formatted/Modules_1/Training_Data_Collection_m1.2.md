@@ -53,7 +53,7 @@ group:
 
 Training data is instrumental to supervised image classification. The training dataset is a labeled set of data that is used to inform or "train" a classifier. The trained classifier can then be applied to new data to create a classification. For example, land cover training data will contain examples of each class in the study's legend, and based on these labels the classifier can be used to predict the most likely land cover class for each pixel in an image. This is an example of a categorical classification and the training labels are therefore categorical. By contrast, a continuous variable (e.g. percent tree cover) can be predicted using continuous training labels.
 
-This tutorial will demonstrate how to collect categorical training data for land cover classification using QGIS or Google Earth Engine. Users should the option that they are more familiar with (QGIS or Google Earth Engine), and should adjust the various components to match their project objectives. Here, the process is demonstrated for the countries of Colombia, Mozambique, and Cambodia, and for a simple legend of four land cover classes: Forest, Water, Herbaceous, and Developed.  
+This tutorial will demonstrate how to collect categorical training data for land cover classification using QGIS or Google Earth Engine. Users should choose the option that they are more familiar with (QGIS or Google Earth Engine), and should adjust the various components to match their project objectives. Here, the process is demonstrated for the countries of Colombia, Mozambique, and Cambodia, and for a simple legend of four land cover classes: Forest, Water, Herbaceous, and Developed.  
 
 ### 1.2 Tutorials
 
