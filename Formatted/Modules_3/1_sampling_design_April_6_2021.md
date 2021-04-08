@@ -64,7 +64,7 @@ group:
   stage: Area Estimation/Accuracy assessment
 ---
 
-# 3.2 Sampling design for estimation of area and map accuracy 
+# Sampling design for estimation of area and map accuracy 
 
 ## 1 Background
 
@@ -80,9 +80,9 @@ The objective of this tutorial is to provide the user an understanding of the va
 * Choose a sample selection method -- SYS, SRS or STR based on estimation objectives
 * Determine sample size, and allocate the sample to strata, based on estimation objectives
 
-### 2.1 Pre-requisites for this module
-* Review of the relevant terminology for sampling techniques in tutorial 3.1 Terminology
-* It is highly recommended that you have an understanding of the previous tutorials in Modules 1 and 2
+### 2.1 Pre-requisites
+* Relevant terminology for sampling techniques can be found at the end of this document 
+* It is highly recommended that you have an understanding of Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine, Training Data Collection, Land Cover and Land Use Classification in Google Earth Engine, and Basics of Change Detection methods
 
 ## 3 Tutorial: Sampling design for estimation of area and map accuracy
 
@@ -320,7 +320,35 @@ Certain programs specify a desired or required precision; the Forest Carbon Part
 
 It is hard to provide recommendations as the size of the buffer will depend on the situations. A larger buffer will probably "capture" more omission errors but will have a larger stratum weights. A larger buffer is recommended in situations of a small class of interest in the presence of a large stable stratum (such as stable forest). Examples in the literature range from 1 to 3 pixels. A more detailed exploration of the impact of buffer size is presented in Olofsson et al. (2020). 
 
-## 5 References
+## 5 Terminology
+
+A list of terms relevant to the sampling and inference techniques are provided in the AREA2 documentation: https://area2.readthedocs.io/en/latest/definitions.html  Below are a few additional terms not included in the AREA2 documentation.  
+
+### 5.1 Response design
+
+Defined by (Stehman and Czaplewski, 1998):  “The reference or ‘true’ classification is obtained for each sampling unit based on interpreting aerial photography or videography, a ground visit, or a combination of these sources. The methods used to determine this reference classification are called the ‘response design.’ The response design includes procedures to collect information pertaining to the reference land-cover determination, and rules for assigning one or more reference [labels] to each sampling unit.” Referred to as “measurement plan” by Särndal et al. (1992).
+
+### 5.2 Sample
+
+A subset of population units selected from the population.
+
+### 5.3 Sample design
+
+Synonymous with sampling design, which is the preferred term in the seminal literature (Cochran, 1977, Särndal et al., 1992). The term occurs in Rice (1995) who uses both “sampling design” and “sample design”. 
+
+### 5.4 Sampling design
+
+“The sampling design is the protocol by which the reference sample units are selected.” (Stehman and Czaplewski, 1998). “Sampling design” is also used by Cochran (1977) and Särndal et al. (1992) - the former also uses “sampling plan”. 
+
+### 5.5 Survey
+
+Särndal et al. (1992) defines a survey as a “partial investigation of a finite population”, and further that “that the terms ‘survey’ and ‘sample survey’ are used to denote statistical investigations with the following methodological features: [...] probability sampling [...] measurement plan [and] estimation”
+
+### 5.6 Survey design
+
+A “total survey design” defines the procedures for “obtaining the possible precision in the survey estimates while striking a balance between sampling and non-sampling errors [...] The survey design gives rise to survey operations” such as sample selection (Särndal et al., 1992). Lohr (1999) describes a total survey design as “A philosophy of survey design for minimizing nonsampling as well as sampling errors.” Also, in Lohr (1999) “survey design” is synonymous with sampling design. 
+
+## 6 References
 
 Cochran, W.G., 1977. *Sampling Techniques*, John Wiley & Sons, New York, NY.
 
@@ -334,7 +362,11 @@ Olofsson, P., Foody, G.M., Herold, M., Stehman, S.V., Woodcock, C.E. and Wulder,
 
 Potapov, P.V., Dempewolf, J., Talero, Y., Hansen, M.C., Stehman, S.V., Vargas, C., Rojas, E.J., Castillo, D., Mendoza, E., Calderón, A. and Giudice, R., 2014. National satellite-based humid tropical forest change assessment in Peru in support of REDD+ implementation. Environmental Research Letters, 9(12), p.124012. https://doi.org/10.1088/1748-9326/9/12/124012
 
+Rice, J.A., 1995. Mathematical Statistics and Data Analysis (2nd ed.), Duxbury Press, Belmont, CA.
+
 Sannier, C., McRoberts, R.E., Fichet, L.V. and Makaga, E.M.K., 2014. Using the regression estimator with Landsat data to estimate proportion forest cover and net proportion deforestation in Gabon. Remote Sensing of Environment, 151, pp.138-148. https://doi.org/10.1016/j.rse.2013.09.015
+
+Särndal, C.E., Svensson, B.H., & Wretman, J.H., 1992. Model assisted survey sampling, Springer Science & Business Media, New York, NY.
 
 Stehman, S.V., 2009. Sampling designs for accuracy assessment of land cover. International Journal of Remote Sensing, 30(20), pp.5243-5272. https://doi.org/10.1080/01431160903131000
 
