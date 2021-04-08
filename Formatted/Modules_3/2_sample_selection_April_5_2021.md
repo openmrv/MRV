@@ -71,7 +71,7 @@ Upon completion of the tutorial, the user should be able to sample an arbitrary 
 ### 2.1 Pre-requisites for this module
 
 * Relevant terminology for sampling techniques can be found at the end of this document
-* It is highly recommended that you have an understanding of Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine, Training Data Collection, Land Cover and Land Use Classification in Google Earth Engine, and Basics of Change Detection methods
+* It is highly recommended that you have an understanding of Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine, Training Data Collection, Land Cover and Land Use Classification in Google Earth Engine, Basics of Change Detection methods, and Sampling design for estimation of area and map accuracy
 
 ## 3 Tutorial: Sample selection for estimation of area and map accuracy
 
