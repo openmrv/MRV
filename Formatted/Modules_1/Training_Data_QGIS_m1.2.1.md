@@ -317,7 +317,7 @@ Here, our goal is to ensure that our 'Forest' class contains examples of differe
 1. First, create a new Shapefile layer using the instructions in [3.2 Creating a new layer](#creating-a-new-layer).
 2. Load the [Google Earth Engine](#gee) plugin.
 3. Open the *Python Console* by navigating to 'Plugins' -> 'Python Console'. 
-4. Use the instructions in [3.3.3](#gee) to load the required modules and navigate to Mozambique. If you need a refresher, the code to do so can be found below. 
+4. Use the instructions in section 3.3.3 to load the required modules and navigate to Mozambique. If you need a refresher, the code to do so can be found below. 
 
     ```python
     import ee
