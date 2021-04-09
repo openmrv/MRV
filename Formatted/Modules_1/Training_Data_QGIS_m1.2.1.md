@@ -43,7 +43,7 @@ group:
   stage: Training data collection
 ---
 
-Training Data Collection Using QGIS
+# Training Data Collection Using QGIS
 
 ## 1 Background
 
