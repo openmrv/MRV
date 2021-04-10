@@ -837,4 +837,4 @@ Tatiana Nana, Cameroon, REDD+ Technical Secretariat
 Attribution  
 Nicolau, Andrea P. 2020. Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
-![](figures/m1.1/wb_logo.png)![](figures/m1.1/FCPF_logo.png)![](figures/m1.1/gfoi.png)
+![](figures/m1.1/WBG-FCFP-GFOI.png)
