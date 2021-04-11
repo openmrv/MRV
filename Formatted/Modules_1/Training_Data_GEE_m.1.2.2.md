@@ -133,7 +133,7 @@ Critical to the collection of training data is reference data, and for most purp
 
 There is a basemap of high resolution reference imagery available directly within GEE. The downside is that this is a mosaic of high resolution images, with no information available on the date of acquisition.
 
-To augment the information available in these high resolution image mosaics, it is suggested that you also load the image mosaic that you will use to run the supervised classification. This can be the image you created if you went through the tutorial Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine here on OpenMRV that can be found in process "Pre-processing" and tool "GEE". Then you can toggle between the available high resolution imagery and the imagery composite for the date of interest to ensure that no land cover changes have occurred between the dates of the two image acquisitions. 
+To augment the information available in these high resolution image mosaics, it is suggested that you also load the image mosaic that you will use to run the supervised classification. Tutorials under process "Pre-processing" and tool "GEE" here on OpenMRV show how to create an image composite/mosaic. Then you can toggle between the available high resolution imagery and the imagery composite for the date of interest to ensure that no land cover changes have occurred between the dates of the two image acquisitions. 
 
 Remember, you want the reference data to match the time period and geographic extent of your study region. Here, the process is demonstrated for Colombia and for the year 2019. 
 
