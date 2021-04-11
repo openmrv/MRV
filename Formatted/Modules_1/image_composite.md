@@ -1,6 +1,6 @@
 ---
 title: Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine
-summary: This tutorial will walk you through how to create a composite using Landsat and/or Sentinel-2 imagery on a national level in Google Earth Engine (GEE). The process is demonstrated for the countries of Colombia, Mozambique, and Cambodia. The tutorial is accompanied by a GEE repository, and a series of videos that walk you through some of the sections. The scripts enable you to create a composite that can be used in subsequent sections of this training. If you are new to GEE, helpful resources are provided.
+summary: This tutorial will walk you through how to create a composite using Landsat and/or Sentinel-2 imagery on a national level in Google Earth Engine (GEE). The process is demonstrated for the countries of Colombia, Mozambique, and Cambodia. The tutorial is accompanied by a GEE repository, and a series of videos that walk you through some of the sections. The scripts enable you to create a composite that can be used in other tutorials here on OpenMRV. If you are new to GEE, helpful resources are provided.
 author: Andrea Puzzi Nicolau
 creation date: December, 2020
 language: English
@@ -31,11 +31,11 @@ group:
   stage: Inputs
 ---
 
-# 1.1 Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine
+# Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine
 
 ## 1 Background
 
-This tutorial will walk you through how to create a composite using Landsat and/or Sentinel-2 imagery on a national level in Google Earth Engine (GEE). Here, the process is demonstrated for the country of Colombia. The tutorial is accompanied by a GEE repository that contains three scripts, and a series of videos that walk you through some of the sections. The scripts enable you to create a composite that can be used in subsequent sections of this training. 
+This tutorial will walk you through how to create a composite using Landsat and/or Sentinel-2 imagery on a national level in Google Earth Engine (GEE). Here, the process is demonstrated for the country of Colombia. The tutorial is accompanied by a GEE repository that contains three scripts, and a series of videos that walk you through some of the sections. The scripts enable you to create a composite that can be used in other tutorials here on OpenMRV. 
 
 ### 1.1 Google Earth Engine
 
@@ -76,7 +76,7 @@ It is encouraged that you follow the steps below by writing the scripts on your 
 
 ### 1.3 Videos
 
-The [Open MRV YouTube channel](https://www.youtube.com/channel/UCdPooUCxF3HRIWdEh4pwrqQ) contains videos that walk you through some sections of this and other modules. For this module, a video was created for each subsection of Section 3. Tutorial: Creating a composite. Please note that the script development in the videos might not be exactly the same as demonstrated in each step of the tutorial (i.e., order of code lines and variable names might differ, etc.), and that each video is built upon previous ones. In any case, the same outputs are produced. You can find in each section below a hyperlink to its corresponding video. It is recommended to go through each section before watching the videos.
+The [Open MRV YouTube channel](https://www.youtube.com/channel/UCdPooUCxF3HRIWdEh4pwrqQ) contains videos that walk you through some sections of this and other tutorials here on OpenMRV. For this tutorial, a video was created for each subsection of Section 3. Tutorial: Creating a composite. Please note that the script development in the videos might not be exactly the same as demonstrated in each step of the tutorial (i.e., order of code lines and variable names might differ, etc.), and that each video is built upon previous ones. In any case, the same outputs are produced. You can find in each section below a hyperlink to its corresponding video. It is recommended to go through each section before watching the videos.
 
 ## 2 Learning objectives
 
@@ -85,7 +85,7 @@ The [Open MRV YouTube channel](https://www.youtube.com/channel/UCdPooUCxF3HRIWdE
 * Become familiar with a variety of options that include: selecting dates, sensors, and mosaicking methods
 * Learn how to export the mosaic/composite
 
-### 2.1 Pre-requisites for this module
+### 2.1 Pre-requisites
 
 * Basic to intermediate understanding of remote sensing concepts
   * You may refer to [NASA ARSET's Fundamentals of Remote Sensing](https://appliedsciences.nasa.gov/join-mission/training/english/fundamentals-remote-sensing) training. This includes basics of satellite remote sensing, including satellite orbits, types, resolutions, sensors, and processing levels. It is on demand and anyone can take it (available only in English)
@@ -713,7 +713,7 @@ Export.image.toCloudStorage({
 ```
 
 ## 4 Additional Examples: Mozambique and Cambodia
-In this tutorial, we have created and exported different composites for the country of Colombia. Now, you can test creating composites for the country of your choice. The scripts are designed in a way that all you need to do is change few lines of code. We will see examples for Mozambique and Cambodia. In all cases, the general process is the same as that demonstrated in Colombia. However, for other countries, some considerations might need to be taken into account when performing a land cover classification or detecting change in the landscape. Some considerations you will see in the following modules will be: 
+In this tutorial, we have created and exported different composites for the country of Colombia. Now, you can test creating composites for the country of your choice. The scripts are designed in a way that all you need to do is change few lines of code. We will see examples for Mozambique and Cambodia. In all cases, the general process is the same as that demonstrated in Colombia. However, for other countries, some considerations might need to be taken into account when performing a land cover classification or detecting change in the landscape. Some considerations you will see in other tutorials of OpenMRV will be: 
 
 * Accounting for Seasonality - Seasonal variability can present a challenge when performing land cover classification. In a dry season image over Mozambique, a deciduous forest could potentially be confused with herbaceous or non-forest land cover classes due to low vegetative greenness during a leaf-off period. Therefore, you might need to create separate composites for dry and wet seasons. You can achieve this by changing the `startDate` and `endDate` variables on the scripts.
 * Accounting for Topography - Many of the remaining forests in Cambodia are located on hilly or mountainous terrain. Because topographic features cast a shadow, the reflectance of the landscape within the shadow can be lower than a similar non-shadowed landscape. Therefore, topography can also introduce a challenge to land cover classification or detecting change in the landscape.
@@ -786,7 +786,7 @@ var countryName = 'Cambodia';
 
 As mentioned above in the Mozambique example, you can adjust any other user variable desired. E.g., zoom level, start and end dates, visualization parameters, and focal mean parameters.
 
-Congratulations, you have reached the end of this module. In the next modules, you will learn how to collect training data using QGIS and GEE.
+Congratulations, you have reached the end of this tutorial.
 
 ## 5 Frequently Asked Questions (FAQs)
 
@@ -816,7 +816,7 @@ Usually this "Script Error" will not affect your code. If the outputs are loaded
 
 This work is licensed under a [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/).
 
-Copyright 2020, World Bank
+Copyright 2021, World Bank
 
 This work was developed by Andrea Puzzi Nicolau under World Bank contract with GRH Consulting, LLC for the development of new- and collection of existing- Measurement, Reporting, and Verification related resources to support countries' MRV implementation.
 
@@ -835,6 +835,6 @@ Sofia Garcia, Guatemala, Ministry of Environment and Natural Resources
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
 
 Attribution  
-Nicolau, Andrea P. 2020. Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+Nicolau, Andrea P. 2021. Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](figures/m1.1/wb_fcfc_gfoi.png)
