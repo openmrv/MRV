@@ -1,6 +1,6 @@
 ---
 title: Basics of Change Detection methods
-summary: This tutorial will give an overview of the basics of change detection methods, and introduce three different algorithms (LandTrendr, CCDC, and CODED) for monitoring landscape changes. There are in-depth tutorials for all three of these algorithms if you want to know more or to try landcover change detection yourself. 
+summary: This tutorial will give an overview of the basics of change detection methods, and introduce three different algorithms (LandTrendr, CCDC, and CODED) for monitoring landscape changes. There are in-depth tutorials here on OpenMRV under process "Change detection" for all three of these algorithms if you want to know more or to try landcover change detection yourself. 
 
 author:
 - Robert E Kennedy
@@ -50,11 +50,11 @@ group:
   stage: Change Detection
 ---
 
-# 2.1 Basics of Change Detection methods
+# Basics of Change Detection methods
 
 ## 1 Background
 
-The goal of image-based change detection is to identify and map when and where interesting changes happen on the Earth's surface. The methods described in the following sections of this module (LandTrendr, CCDC, and CODED) all rely on a simple principle to do this: Change on the surface is expected to cause a change in the spectral reflectance that is distinct enough that it can be captured by an algorithm. 
+The goal of image-based change detection is to identify and map when and where interesting changes happen on the Earth's surface. The methods described here on OpenMRV under process "Change detection" and tools "GEE", "LandTrendr", "CCDC", and "CODED" all rely on a simple principle to do this: Change on the surface is expected to cause a change in the spectral reflectance that is distinct enough that it can be captured by an algorithm. 
 
 Implicit in the goal of change detection are several issues that users should consider as they embark on a change detection exercise.  
 
@@ -88,13 +88,7 @@ The more we understand a pixel's motion in spectral space under "normal conditio
 
 ![random_vs_interesting_movement](./figures/intro/random_vs_interesting_movement.png)
 
-The three algorithms described in subsequent sections all leverage this latter concept to recognize when an interesting change has occurred.
-
-### 1.4 Tutorials
-
-* [2.2 LandTrendr](change_detection_landtrendr_v3.md)
-* [2.3 Continuous Change Detection and Classification (CCDC)](ccdc.md)
-* [2.4 Continuous Degradation Detection (CODED)](coded.md)
+The algorithms described here on OpenMRV under process "Change detection" and tools "GEE", "LandTrendr", "CCDC", and "CODED" all leverage this latter concept to recognize when an interesting change has occurred.
 
 -----
 
@@ -107,6 +101,6 @@ Copyright 2021, World Bank
 This work was developed by Robert E Kennedy and Eric Bullock under World Bank contract with GRH Consulting, LLC for the development of new- and collection of existing- Measurement, Reporting, and Verification related resources to support countries' MRV implementation.
 
 Attribution  
-Kennedy, Robert E., Bullock, E. 2021. Basics of Change Detection methods. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+Kennedy, R. E., Bullock, E. 2021. Basics of Change Detection methods. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
-![](figures/wb.png)![](figures/gfoi.png)
+![](figures/wb_fcfc_gfoi.png)
