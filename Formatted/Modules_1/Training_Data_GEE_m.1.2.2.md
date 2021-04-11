@@ -393,11 +393,14 @@ Copyright 2021, World Bank
 This work was developed by Karis Tenneson under World Bank contract with GRH Consulting, LLC for the development of new -and collection of existing- Measurement, Reporting, and Verification related resources to support countries' MRV implementation. 
 
 Material reviewed by:
-Kenset Rosales, Guatemalan Ministry of Environment 
-Tatiana Nana, Cameroon, REDD+ Technical Secretariat
-Justine Bui, Spatial Informatics Group LLC
-Kelsey Herndon, University of Alabama in Huntsville
-
+Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
+Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS)  
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
+Kenset Rosales, Guatemala, Ministry of Environment and Natural Resources  
+Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat     
+Paula Andrea Paz, Colombia, International Center for Tropical Agriculture (CIAT)  
+Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)   
+Raja Ram Aryal, Nepal, Forest Research and Training Centre   
 
 Attribution
 Tenneson, K. 2021. Training Data Collecting Using Google Earth Engine. © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
