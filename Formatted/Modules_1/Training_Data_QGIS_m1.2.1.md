@@ -66,7 +66,7 @@ At the end of this exercise, you will be able to:
 - Load multiple sources of high resolution imagery to use as reference.
 - Collect training data for a categorical classification. 
 
-### 2.1 Pre-requisites for this module
+### 2.1 Pre-requisites
 
 * QGIS concepts
   * Installation
