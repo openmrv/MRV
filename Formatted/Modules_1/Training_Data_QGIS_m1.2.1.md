@@ -54,9 +54,9 @@ This tutorial will demonstrate how to collect categorical training data for land
 
 ### 1.1 QGIS
 
-Quantum GIS (QGIS) is an open source GIS software that runs on Windows, Linux, and Mac OS X. Users should consult the [QGIS webpage](https:/qgis.org/en/site/forusers/alldownloads.html) for background information and installation instructions. Since there are many different ways to install QGIS, depending on your operating system, installation instructions will not be detailed here. If users are not able to install QGIS we recommend switching to Tennesson (2021). 
+Quantum GIS (QGIS) is an open source GIS software that runs on Windows, Linux, and Mac OS X. Users should consult the [QGIS webpage](https://qgis.org/en/site/forusers/alldownloads.html) for background information and installation instructions. Since there are many different ways to install QGIS, depending on your operating system, installation instructions will not be detailed here. If users are not able to install QGIS we recommend switching to Tennesson (2021). 
 
-This tutorial is based on the longterm release [Version 3.10.10](https:/docs.qgis.org/3.10/en/docs/user_manual/). For the core features of this tutorial, users will only need QGIS installed and an internet connection. For use of all the plugins described in this tutorial, users will need accounts with [Google Earth Engine](https:/signup.earthengine.google.com/#!/) and [Planet](https:/www.planet.com/login/?mode=signup) 
+This tutorial is based on the longterm release [Version 3.10.10](https://docs.qgis.org/3.10/en/docs/user_manual/). For the core features of this tutorial, users will only need QGIS installed and an internet connection. For use of all the plugins described in this tutorial, users will need accounts with [Google Earth Engine](https://signup.earthengine.google.com/#!/) and [Planet](https://www.planet.com/login/?mode=signup) 
 
 ## 2 Learning Objectives 
 
@@ -125,7 +125,7 @@ Users should consider the options below and decide a source of reference data th
 
 #### 3.3.1 QuickMap Services  
 
-**Who**: [NextGIS](https:/nextgis.com/)
+**Who**: [NextGIS](https://nextgis.com/)
 
 **What**: High quality basemaps (Google, ESRI, Mapbox, etc)
 
@@ -145,7 +145,7 @@ QuickMap Services is a service for accessing and sharing geospatial data. This p
 
 #### 3.3.2 Planet Explorer  
 
-**Who**: [Planet](https:/www.planet.com/)
+**Who**: [Planet](https://www.planet.com/)
 
 **What**: Daily imagery, monthly mosaics, biannual mosaics
 
@@ -157,7 +157,7 @@ The Planet constellation of satellites offer daily high-resolution imagery in 3-
 
 **To use**:
 
-1. Detailed instructions for installing the plugin can be found [on the Planet webpage](https:/developers.planet.com/docs/integrations/qgis/quickstart/). 
+1. Detailed instructions for installing the plugin can be found [on the Planet webpage](https://developers.planet.com/docs/integrations/qgis/quickstart/). 
 2. If you have not already done so, sign up for [Level 1 User Access here](https://www.planet.com/nicfi/).
 3. Add the plugin panel by going to *Web* -> *Planet Explorer* -> *Planet Explorer*.
 4. Select *Mosaic Series* in the plugin panel next to the Planet icon. 
@@ -167,7 +167,7 @@ The Planet constellation of satellites offer daily high-resolution imagery in 3-
 
 #### 3.3.3 Google Earth Engine (Advanced Usage)  
 
-**Who**: [Google Earth Engine](https:/earthengine.google.com/) and Gennadii Donchyts. 
+**Who**: [Google Earth Engine](https://earthengine.google.com/) and Gennadii Donchyts. 
 
 **What**: Most open access earth observation data (e.g. Landsat, Sentinel and MODIS). 
 
@@ -175,7 +175,7 @@ The Planet constellation of satellites offer daily high-resolution imagery in 3-
 
 [Video Instructions](https://www.youtube.com/watch?v=-6mEL2VQtYw)
 
-Google Earth Engine (GEE) is a cloud platform for analyzing geospatial data. Access to GEE is provided through a Javascript and Python API. While Google does not currently provide a QGIS plugin, recently Gennadii Donchyts released a beta plugin based on the Python API. This plugin allows for the incredible processing power and data storage of GEE with the user interface of QGIS. However it is also experimental and users should consult the [Github repository](https:/github.com/gee-community/qgis-earthengine-plugin) prior to use. 
+Google Earth Engine (GEE) is a cloud platform for analyzing geospatial data. Access to GEE is provided through a Javascript and Python API. While Google does not currently provide a QGIS plugin, recently Gennadii Donchyts released a beta plugin based on the Python API. This plugin allows for the incredible processing power and data storage of GEE with the user interface of QGIS. However it is also experimental and users should consult the [Github repository](https://github.com/gee-community/qgis-earthengine-plugin) prior to use. 
 
 **Prerequisites**
 
@@ -185,9 +185,9 @@ Google Earth Engine (GEE) is a cloud platform for analyzing geospatial data. Acc
 
 **To use**:
 
-1. Install the plugin using the [User Guide](https:/gee-community.github.io/qgis-earthengine-plugin/). 
+1. Install the plugin using the [User Guide](https://gee-community.github.io/qgis-earthengine-plugin/). 
 2. Add the Python console by going to *Plugins* (top of application) -> *Python Console*
-3. Browse example code in [the plugin repository](https:/github.com/gee-community/qgis-earthengine-plugin/tree/master/examples). It's also worth getting familiar with [Google Earth Engine](https:/developers.google.com/earth-engine/guides) if you are a new user. This tutorial does not cover GEE basics and users should consult [GEE documentation](https:/developers.google.com/earth-engine/guides) for advanced usage. 
+3. Browse example code in [the plugin repository](https://github.com/gee-community/qgis-earthengine-plugin/tree/master/examples). It's also worth getting familiar with [Google Earth Engine](https://developers.google.com/earth-engine/guides) if you are a new user. This tutorial does not cover GEE basics and users should consult [GEE documentation](https://developers.google.com/earth-engine/guides) for advanced usage. 
 4. In the Python Console, first load the GEE Python API:
 
     ```python
@@ -314,8 +314,8 @@ Seasonal variability can present a challenge when performing land cover classifi
 
 Here, our goal is to ensure that our 'Forest' class contains examples of different forest types, as indicated by their seasonal trajectories. There are many ways of doing this, and here we are going to use Google Earth Engine to look at intra-annual variability in NDVI.  
 
-1. First, create a new Shapefile layer using the instructions in [3.2 Creating a new layer](#creating-a-new-layer).
-2. Load the [Google Earth Engine](#gee) plugin.
+1. First, create a new Shapefile layer using the instructions in 3.2 Creating a new layer.
+2. Load the Google Earth Engine plugin.
 3. Open the *Python Console* by navigating to 'Plugins' -> 'Python Console'. 
 4. Use the instructions in section 3.3.3 to load the required modules and navigate to Mozambique. If you need a refresher, the code to do so can be found below. 
 
@@ -337,7 +337,7 @@ Here, our goal is to ensure that our 'Forest' class contains examples of differe
         return image.updateMask(image.select('QA60').eq(0))
     ```
 
-6. Now, we can filter the Sentinel-2 collection into two groups: images during the peak of the dry season, and images during the peak of the rainy season. We can then [map](https:/developers.google.com/earth-engine/guides/ic_mapping) over the collections to apply the cloud masks and calculate NDVI.
+6. Now, we can filter the Sentinel-2 collection into two groups: images during the peak of the dry season, and images during the peak of the rainy season. We can then [map](https://developers.google.com/earth-engine/guides/ic_mapping) over the collections to apply the cloud masks and calculate NDVI.
 
     ```python
     s1_collection = ee.ImageCollection("COPERNICUS/S2_SR").map(maskS2clouds)
@@ -347,7 +347,7 @@ Here, our goal is to ensure that our 'Forest' class contains examples of differe
     rainy_season = s1_collection.filterBounds(mozambique).filterDate('2019-01-01','2019-04-01').map(doNDVI)
     ```
 
-7. To calculate seasonal variability, we can then combine these two collections and calculate the per-pixel NDVI variance using a [reducer](https:/developers.google.com/earth-engine/guides/reducers_intro). 
+7. To calculate seasonal variability, we can then combine these two collections and calculate the per-pixel NDVI variance using a [reducer](https://developers.google.com/earth-engine/guides/reducers_intro). 
 
     ```python
     combined = rainy_season.merge(dry_season)
@@ -377,11 +377,11 @@ Here, our goal is to ensure that our 'Forest' class contains examples of differe
     - An easy and preliminary way to accomodate seasonality in a classification is by providing representative training data.
     - GEE allows us to easily identify seasonal forests based on the variance in NDVI values over a year.
     - The UMD-Hansen dataset helps in training data collection by masking non-forest pixels.
-11. It is necessary to add a standard basemap in addition to the NDVI layer. Any of the examples above can be used, with the simplest being the [QuickMap Services](#quickmap). Make sure that you can identify your classes in the imagery you use. If you cannot, try other sources of reference imagery or consider simplifying your classes. Below are examples of the classes used here in the ESRI Imagery available in QuickMap Services.
+11. It is necessary to add a standard basemap in addition to the NDVI layer. Any of the examples above can be used, with the simplest being the QuickMap Services. Make sure that you can identify your classes in the imagery you use. If you cannot, try other sources of reference imagery or consider simplifying your classes. Below are examples of the classes used here in the ESRI Imagery available in QuickMap Services.
 
     ![](figures/m1.2/m1.2.2/lc_examples.jpeg)
 
-12. Using the directions described [above](#collection), go class by class collecting training points. For the Forest class, occasionally overlay the training points on the map of NDVI variance. There's no need to do any detailed assessment, but it is worth visually ensuring that the training samples represent the seasonal and non-seasonal forests. This can be done by simply alternating between red, green, and yellow areas on the NDVI variability layer, and flipping back and forth between that layer and the reference image to make sure the locations are actually forest. Note in the following example how there are training points (blue) in forests with differing seasonal variability (or NDVI variance).
+12. Using the directions described above, go class by class collecting training points. For the Forest class, occasionally overlay the training points on the map of NDVI variance. There's no need to do any detailed assessment, but it is worth visually ensuring that the training samples represent the seasonal and non-seasonal forests. This can be done by simply alternating between red, green, and yellow areas on the NDVI variability layer, and flipping back and forth between that layer and the reference image to make sure the locations are actually forest. Note in the following example how there are training points (blue) in forests with differing seasonal variability (or NDVI variance).
 
     ![](figures/m1.2/m1.2.2/moz_forest_exs.png)
 
@@ -398,7 +398,7 @@ The final example of training data collection in QGIS is for the country of Camb
 Many of the remaining forests in Cambodia are located on hilly or mountainous terrain. Topography, however, can introduce a challenge to land cover classification. Because topographic features cast a shadow, the reflectance of the landscape within the shadow can be lower than a similar non-shadowed landscape. To reduce this effect, it is important to collect training data that is representative of the different topographic conditions of a study region. This example will demonstrate how to do just that. 
 
 1. First, create a new Shapefile layer using the instructions in 3.2 Creating a new layer.
-2. We will use a terrain map in addition to reference imagery when collecting training data in this example. Using [QuickMap Services](#quickmap) search for two basemaps and add them to the map: Esri Imagery and Google Terrain Hybrid. 
+2. We will use a terrain map in addition to reference imagery when collecting training data in this example. Using QuickMap Services search for two basemaps and add them to the map: Esri Imagery and Google Terrain Hybrid. 
 3. Next, we will adjust the layer rendering parameters to "blend" these two layers together. Ultimately, the goal is to have a high resolution image that has exaggerated and visually apparent topographic features. 
 4. In the *Layers* panel, make sure that the Esri Imagery layer is located above the Google Terrain Hybrid layer. The arrangement of the layers can be adjusted by selecting the layer with your mouse and dragging it to a new location within the panel. 
 5. Open the *Layer Properties* panel for the Esri Imagery layer by either double clicking in its name in the *Layers* panel or right clicking and selecting 'Properties...'.
@@ -469,7 +469,7 @@ Don't worry! This same tutorial is available here on OpenMRV for training data c
 
 ## 6 References
 
-Tenneson, Karis. 2021. Training Data Collecting Using Google Earth Engine. World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)
+Tenneson, K. 2021. Training Data Collecting Using Google Earth Engine. World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)
 
 -----
 
