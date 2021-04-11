@@ -6,7 +6,7 @@ author:
 - Karis Tenneson
 creation date: December, 2020
 language: English
-publisher and license: Copyright 2020, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
@@ -47,7 +47,7 @@ group:
   stage: Training data collection
 ---
 
-# 1.2 Training Data Collection
+# Training Data Collection
 
 ## 1 Background
 
@@ -57,8 +57,8 @@ This tutorial will demonstrate how to collect categorical training data for land
 
 ### 1.2 Tutorials
 
-* For training data collection using **QGIS** please refer to [1.2.1 Training Data Collection Using QGIS](Training_Data_QGIS_m1.2.1.md)
-* For training data collection using **Google Earth Engine**, please refer to [1.2.2 Training Data Collection Using Google Earth Engine](Training_Data_GEE_m.1.2.2.md)
+* For training data collection using **QGIS** please refer to process "Training Data Collection" and tool "QGIS"
+* For training data collection using **Google Earth Engine**, please refer to process "Training Data Collection" and tool "GEE"
 
 -----
 
@@ -66,11 +66,11 @@ This tutorial will demonstrate how to collect categorical training data for land
 
 This work is licensed under a [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/).
 
-Copyright 2020, World Bank
+Copyright 2021, World Bank
 
 This work was developed by Eric Bullock and Karis Tenneson under World Bank contract with GRH Consulting, LLC for the development of new- and collection of existing- Measurement, Reporting, and Verification related resources to support countries' MRV implementation.
 
 Attribution  
-Bullock, E., Tenneson, K. 2020. Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+Bullock, E., Tenneson, K. 2021. Training Data Collection. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
-![](figures/m1.1/wb.png)![](figures/m1.1/gfoi.png)
+![](figures/m1.1/wb_fcfc_gfoi.png)
