@@ -1,10 +1,10 @@
 ---
 title: Land Cover and Land Use Classification in Google Earth Engine
-summary: This tutorial will demonstrate how to perform a land cover and land use classification in Google Earth Engine. Users will learn how to apply both unsupervised and supervised classification methods, as well as learn how to handle masking issues, and misclassifications. The process is demonstrated for the countries of Colombia, Mozambique, and Cambodia. Sample data for the classification is based on the previous tutorials.
+summary: This tutorial will demonstrate how to perform a land cover and land use classification in Google Earth Engine. Users will learn how to apply both unsupervised and supervised classification methods, as well as learn how to handle masking issues, and misclassifications. The process is demonstrated for the countries of Colombia, Mozambique, and Cambodia. Sample data for the classification is based on the tutorials here on OpenMRV under "Training data collection".
 author: Robert E Kennedy
 creation date:  December, 2020
 language: English
-publisher and license: Copyright 2020, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
@@ -47,7 +47,7 @@ group:
   stage: Classification
 ---
 
-# 1.3 Land Cover and Land Use Classification in Google Earth Engine
+# Land Cover and Land Use Classification in Google Earth Engine
 
 
 ## 1 Background
@@ -84,14 +84,14 @@ Fundamentals of Remote Sensing|ARSET (NASA Applied Science)|https://appliedscien
 
 ## 2 Learning objectives
 
-At the end of this module, you will be able to: 
+At the end of this tutorial, you will be able to: 
 
 - Describe how spectral space or data space are used in multivariate classification
 - Apply and compare three commonly-used classification algorithms
 - Assess possible sources of error in the classification process arising from pre-processing, sensor choice, and training sample design
 
 
-### 2.1 Pre-requisites for this module
+### 2.1 Pre-requisites
 
 * Google Earth Engine (GEE) concepts
   * Getting a user account
@@ -99,7 +99,7 @@ At the end of this module, you will be able to:
   * Basic syntax of functions
   * Basic image processing, including choice of imagery, cloud-screening, mosaicking and compositing
 
-> NOTE:  These topics are covered in Module 1.1: Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine
+> NOTE: Refer to process "Pre-processing" and tool "GEE" for more information and resources for working in Google Earth Engine.
 
 
 * Basic remote sensing concepts
@@ -124,16 +124,16 @@ Graphically, the steps are as follows.
 
 ![Workflow of classification](./figures/m1.3/WB_graphs_v2-03.png)
 
-This creates a map.  You will then need to evaluate how accurate that map is. This is covered in the later module on accuracy assessment.
+This creates a map.  You will then need to evaluate how accurate that map is. This is covered here on OpenMRV under process "Area estimation / Accuracy Assessment".
 
-We will work through a simple example with the components noted below, and then illustrate variants on it. These instructions presume that you have an account on GEE, and are familiar with the setup, data formats, and functions in GEE.  If you need help with these steps, please go back to Module 1.1.
+We will work through a simple example with the components noted below, and then illustrate variants on it. These instructions presume that you have an account on GEE, and are familiar with the setup, data formats, and functions in GEE.  If you need help with these steps, please see process "Pre-processing" and tool "GEE" here on OpenMRV.
 
 
-**Classification component**|**Item used here**|**Module**
-:-----:|:-----:|:-----:|
-Image|Landsat 8 composite from a single year|Module 1.1
-Training data|Point data|Module 1.2
-Classifier|CART|Current Module
+**Classification component**|**Item used here**|**Process on OpenMRV**|**Tool on OpenMRV**
+:-----:|:-----:|:-----:|:-----:|
+Image|Landsat 8 composite from a single year|Pre-processing|GEE
+Training data|Point data|Training data collection|GEE
+Classifier|CART|Classification (current tutorial)|GEE (current tutorial)
 
 #### 3.1.1 Get set up:  Load the script
 
@@ -155,13 +155,13 @@ GEE works through scripts.  As noted above, we assume that you are familiar with
 
 ### 3.2 Build image composite
 
-The first chunk of code builds from the prior module on image compositing methods.  We build a Landsat 8 surface reflectance image collection from 2019, filtered by cloud cover, applied a median value, and clipped to the bounds of the country.  
+We build a Landsat 8 surface reflectance image collection from 2019, filtered by cloud cover, applied a median value, and clipped to the bounds of the country.  
 
-> Note:  The details of image compositing are covered in Module 1.1. If you'd like more review, consider going back to that module. 
+> Note: The details of image compositing can be found here on OpenMRV under the process "Pre-processing" and tool "GEE". 
 
 If you are copying and pasting chunks of the code from the Master Script into a new script, this section is labeled "Section 3.2" in the Master Script.  
 
-Rather than replicate the entire script here, we highlight the core chunk of code. You should be familiar with this code from Module 1.1 on compositing. 
+Rather than replicate the entire script here, we highlight the core chunk of code. 
 
 ```javascript
 var l8compositeMasked = l8.filterBounds(country)
@@ -185,7 +185,7 @@ Training data are the observations that we will use to build the classification.
 
 If you're copying and pasting code, add "Section 3.3" in the Master Script to the code in your existing training script.  For this first example of adding to an existing script, consult [this short video.]( https://youtu.be/r2jJrSYgtA8 )  
 
-For this exercise, we will use training data collected under the methods described in the modules on reference data collection (Module 1.2).  Again, rather than replicating all of the code here, we focus only on the key chunk of code: 
+For this exercise, we will use training data collected under the methods described here on OpenMRV under process "Training data collection" and tool "QGIS":
 
 ```javascript
 var training = ee.FeatureCollection(
@@ -195,7 +195,7 @@ var training = ee.FeatureCollection(
 >Terminology:  In GEE, datasets such as these training points are defined as a "FeatureCollection".  For users familiar with the concepts of shapefiles or similar vector representations of geospatial data, the two are essentially the same. In GEE, vector data have a "geometry," which contains the geographic position of the points, lines, and polygons of a vector object, as well as the attributes that record the information about those geometries. Taken together, these make up a single "Feature", such as a single point or polygon.  Many of these together are considered a "FeatureCollection".  
 
 
-For reference, we defined the class codes and labels in the prior module as follows: 
+For reference, we defined the class codes and labels for this training dataset as follows: 
 
 **Class code**|**Class label**
 :-----:|:-----:
@@ -219,7 +219,7 @@ The colors are in hexadecimal code, the standard approach for color coding on mo
 
 > **Advanced usage:**  For later interpretation, it is useful to color code these these classes.  See the code for an approach to color each interpreted point according to a color scheme defined using hexadecimal codes. 
 
-![The training points from Module 1.2.1 displayed in the code editor of GEE.](./figures/m1.3/training_points_colombia.png)
+![The training points displayed in the code editor of GEE.](./figures/m1.3/training_points_colombia.png)
 
 
 ### 3.4 Associate training points with spectral values
@@ -249,7 +249,7 @@ var training_extract = l8compositeMasked.select(bands_to_use).sampleRegions({
 
 ***Parsing the code:***  
 ```javascript
-	var bands_to_use = ['B2', 'B3', 'B4', 'B5', 'B6', 'B7']
+var bands_to_use = ['B2', 'B3', 'B4', 'B5', 'B6', 'B7']
 ```
 The band names can be found in the description of the original image source, here Landsat 8.  Note that the names are specified as a list of string values. 
 
@@ -257,7 +257,7 @@ The band names can be found in the description of the original image source, her
 ```javascript
 var landcover_labels = 'landcover'
 ```
-This specifies which attribute in the FeatureCollection holds the labeled values.  As noted in Module 1.2, this label must be a numeric code. 
+This specifies which attribute in the FeatureCollection holds the labeled values. This label must be a numeric code. 
 
 
 ```javascript
@@ -358,7 +358,7 @@ It is worth reiterating that the training points used to build this map were not
 
 ### 3.7 Evaluating and improving maps
 
-Ultimately, the accuracy of the map will be evaluated using a design-based sample with a process described in later modules.  However, it is often worthwhile to evaluate a map visually to find egregious errors and iteratively improve on the map before taking the time to build a robust accuracy sample. [We provide a short video to get you started]( https://youtu.be/A7TEZMi_0cc ) on evaluating outputs from classification. 
+Ultimately, the accuracy of the map will be evaluated using a design-based sample with a process described here on OpenMRV under process "Sampling design".  However, it is often worthwhile to evaluate a map visually to find egregious errors and iteratively improve on the map before taking the time to build a robust accuracy sample. [We provide a short video to get you started]( https://youtu.be/A7TEZMi_0cc ) on evaluating outputs from classification. 
 
 Several problematic issues are evident in the CART map shown here. 
 
@@ -646,7 +646,7 @@ First, we need to specify the appropriate spatial bounds.  Because the dataset d
 var country = countries.filter(ee.Filter.eq('country_na', 'Mozambique'));
 ```
 
-Second, we identify the appropriate training data, here the version developed in the earlier module on training data using QGIS. 
+Second, we identify the appropriate training data, here the version developed on OpenMRV under process "Training data collection" and tool "QGIS". 
 
 ```javascript
 var training_points = ee.FeatureCollection('users/openmrv/MRV/mozambique_training');
@@ -721,32 +721,24 @@ Indeed, the examples used in this tutorial are limited to a very simple and smal
 However, in developing more complex class labeling schemes, it is important to remember that 1) for a classifier based on spectral data to distinguish among pixels in different classes, those classes must be separable in some portion of their signal domain, and 2) the finer the data space is split up into many classes, the less accurate any given class is expected to be.  
 
 ------
-
-[
-![img](https://lh4.googleusercontent.com/FlTik_kVMvlZvBAPQuX5ijx5rwSVC_7T0zZbh48d415FxyqXrp-ZM_w2TLvmmICTyJVbii4VQJurxJt5-cKnSOOeNQ3-j3BdlK5XNwg4SKDAlVBLoVH25_ssaOgeL6xgLrwvZxjo)](http://creativecommons.org/licenses/by-sa/4.0/)
+![](figures/m1.1/cc.png)
 
 This work is licensed under a [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) 
 
-Copyright 2020, World Bank 
+Copyright 2021, World Bank 
 
 This work was developed by Robert E Kennedy under World Bank contract with GRH Consulting, LLC for the development of new -and collection of existing- Measurement, Reporting, and Verification related resources to support countries’ MRV implementation. 
 
-Material reviewed by:
-
-Kenset Rosales  & Sofia Garcia / Ministry of Environment and Natural Resources, Guatemala
-
-Jennifer Juliana Escamilla Valdez / Minsiterio de Medio Ambiente y Recursos Naturales, El Salvador
-
-Raja Ram Aryal /  Ministry of Forests and Environment, Nepal
-
-KONAN Yao Eric Landry / REDD+ Permanent Executive Secretariat, Cote d'Ivoire
-
-Carole Andrianirina / BNCCREDD+, Madagascar
-
-Phoebe Odour / RCMRD, Kenya
+Material reviewed by:  
+Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
+Kenset Rosales, Guatemala, Ministry of Environment and Natural Resources  
+Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat    
+Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)   
+Raja Ram Aryal, Nepal, Forest Research and Training Centre  
+Sofia Garcia, Guatemala, Ministry of Environment and Natural Resources  
 
 Attribution
+Kennedy, R. E. 2021. Land Cover and Land Use Classification in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
-Kennedy, Robert E . 2020. Land Cover and Land Use Classification in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
-
-![img](https://lh4.googleusercontent.com/6NE8qSB-n0jdUuIJhOi1KCswEq3JTZvc0o-pudDvv_myoESveXmgjnEu2GoRj5wT86x1KNWEVGsvmkpkKfWLUKCx5ThiShCstxc4nrov894b2IC_6-MUNQNG374JiLRnJTi7Stjz)![img](https://lh5.googleusercontent.com/cWpru05JISJZrVmeHUr1bP0abbQL4IRCRotcA2hYICrcOAAYFFG5NkbQ9piU3OLrWnjEWBMQ1bBZKqABIghoz0--lAXlvuxrhMh8icTMJPoDYi4fjWfeODRkRbKduPRcM601lRWh)
+![](figures/m1.1/wb_fcfc_gfoi.png)
