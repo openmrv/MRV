@@ -1,10 +1,10 @@
 ---
 title: Training Data Collection Using Google Earth Engine
-summary: This tutorial will demonstrate how to collect categorical training data for land cover classification using Google Earth Engine. Users should adjust the various components to match their project objectives. Here, the process is demonstrated for the countries of Colombia, Mozambique, and Cambodia, and for a simple legend of four land cover classes - Forest, Water, Herbaceous, and Developed. Refer to Module 1.1 Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine for more information and resources for working in this environment.
+summary: This tutorial will demonstrate how to collect categorical training data for land cover classification using Google Earth Engine. Users should adjust the various components to match their project objectives. Here, the process is demonstrated for the countries of Colombia, Mozambique, and Cambodia, and for a simple legend of four land cover classes - Forest, Water, Herbaceous, and Developed. Refer to process "Pre-processing" and tool "GEE" for more information and resources for working in this environment.
 author: Karis Tenneson
-creation date:
+creation date: December, 2020
 language: English
-publisher and license: Copyright 2020, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
@@ -38,7 +38,7 @@ group:
   stage: Training data collection
 ---
 
-# 1.2.2 Training Data Collection Using Google Earth Engine 
+# Training Data Collection Using Google Earth Engine 
 
 ## 1 Background
 
@@ -49,7 +49,7 @@ This tutorial will demonstrate how to collect categorical training data for land
 
 ### 1.1 Google Earth Engine
 
-We will be digitizing training data in Google Earth Engine. Refer to Module 1.1 Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine for more information and resources for working in this environment.
+We will be digitizing training data in Google Earth Engine. Refer to process "Pre-processing" and tool "GEE" for more information and resources for working in this environment.
 
 ## 2 Learning Objectives 
 
@@ -59,11 +59,10 @@ At the end of this exercise, you will be able to:
 - Load your Landsat or Sentinel composite to use as background imagery to use as reference.
 - Collect and export training data for a categorical classification. 
 
-### 2.1 Pre-requisites for this module
+### 2.1 Pre-requisites
 
 * Google Earth Engine
-  * Have a GEE account.
-  * Completed Module 1.1 Image mosaic/composite creation for Landsat and Sentinel-2
+  * Have a GEE account
 
 * Remote sensing concepts
   * Basic understanding on theories involved in image classification.
@@ -76,7 +75,7 @@ At the end of this exercise, you will be able to:
 The process for collecting training data in GEE are detailed in the steps below. The process can be generally described as three primary steps:
 
 1. Creating a new feature class for each land cover to store the training data.
-2. Loading a basemap using what you learned in Module 1.1 Image mosaic/composite creation for Landsat and Sentinel-2.
+2. Loading a basemap
 3. Collecting the training data by manually defining training points. 
 4. Exporting the training data.
 
@@ -84,7 +83,7 @@ The process for collecting training data in GEE are detailed in the steps below.
 
 ### 3.2 Creating new Feature Collections
 
-As can be seen in Module 1.2.1 Training Data Collection Using QGIS, training data can be created in a variety of platforms. In this tutorial, you will create training data as using Feature Collections of points with unique land cover labels identified with a 'label' attribute. For example, forests can have a 'label' attribute of 1, agriculture as 2, and so on. One simple method to develop training data is to simply create a Feature Collection for each land cover using the data and imagery available in Google Earth Engine. This tutorial will demonstrate how to create training data that are point geometries. A similar process can be used with polygon data. 
+Training data can be created in a variety of platforms. In this tutorial, you will create training data as using Feature Collections of points with unique land cover labels identified with a 'label' attribute. For example, forests can have a 'label' attribute of 1, agriculture as 2, and so on. One simple method to develop training data is to simply create a Feature Collection for each land cover using the data and imagery available in Google Earth Engine. This tutorial will demonstrate how to create training data that are point geometries. A similar process can be used with polygon data. 
 
 To start, open a web browser and navigate to [Google Earth Engine](https://code.earthengine.google.com/). 
 
@@ -134,8 +133,7 @@ Critical to the collection of training data is reference data, and for most purp
 
 There is a basemap of high resolution reference imagery available directly within GEE. The downside is that this is a mosaic of high resolution images, with no information available on the date of acquisition.
 
-To augment the information available in these high resolution image mosaics, it is suggested that you also load the image mosaic that you will use to run the supervised classification. This is the image you created in Module 1.1 Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth
-Engine. Then you can toggle between the available high resolution imagery and the imagery composite for the date of interest to ensure that no land cover changes have occurred between the dates of the two image acquisitions. 
+To augment the information available in these high resolution image mosaics, it is suggested that you also load the image mosaic that you will use to run the supervised classification. This can be the image you created if you went through the tutorial Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine here on OpenMRV that can be found in process "Pre-processing" and tool "GEE". Then you can toggle between the available high resolution imagery and the imagery composite for the date of interest to ensure that no land cover changes have occurred between the dates of the two image acquisitions. 
 
 Remember, you want the reference data to match the time period and geographic extent of your study region. Here, the process is demonstrated for Colombia and for the year 2019. 
 
@@ -236,8 +234,7 @@ The final step is to merge each land cover feature class into one final feature 
     });
     ```
 
-3. Then click Run to execute. This will allow you to go to the Tasks tab and run the export. If you need a refresher on how to complete the export process, revisit Module 1.1 Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth
-Engine.
+3. Then click Run to execute. This will allow you to go to the Tasks tab and run the export. Additional information about how to export data in GEE can be found [here](https://developers.google.com/earth-engine/guides/exporting).
 
 ## 4 Additional Examples: Mozambique and Cambodia 
 Now let's try to replicate the same process as above in new study regions: Mozambique and Cambodia. This section is optional and will allow you to practice collecting data in different study regions. The general process is the same as that demonstrated in Colombia. 
@@ -387,12 +384,11 @@ If the training data were collected opportunistically, or in other words *not* u
 
 -----
 
-[
-![img](https://lh4.googleusercontent.com/FlTik_kVMvlZvBAPQuX5ijx5rwSVC_7T0zZbh48d415FxyqXrp-ZM_w2TLvmmICTyJVbii4VQJurxJt5-cKnSOOeNQ3-j3BdlK5XNwg4SKDAlVBLoVH25_ssaOgeL6xgLrwvZxjo)](http://creativecommons.org/licenses/by-sa/4.0/)
+![](figures/m1.1/cc.png)
 
 This work is licensed under a [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) 
 
-Copyright 2020, World Bank 
+Copyright 2021, World Bank 
 
 This work was developed by Karis Tenneson under World Bank contract with GRH Consulting, LLC for the development of new -and collection of existing- Measurement, Reporting, and Verification related resources to support countries' MRV implementation. 
 
@@ -404,6 +400,6 @@ Kelsey Herndon, University of Alabama in Huntsville
 
 
 Attribution
-Tenneson, Karis. 2020. Training Data Collecting Using Google Earth Engine. © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+Tenneson, K. 2021. Training Data Collecting Using Google Earth Engine. © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
-![](figures/m1.1/wb.png)![](figures/m1.1/gfoi.png)
+![](figures/m1.1/wb_fcfc_gfoi.png)
