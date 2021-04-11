@@ -4,7 +4,7 @@ summary: This tutorial will demonstrate how to collect categorical training data
 author: Eric Bullock
 creation date: December, 2020
 language: English
-publisher and license: Copyright 2020, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
@@ -397,7 +397,7 @@ The final example of training data collection in QGIS is for the country of Camb
 
 Many of the remaining forests in Cambodia are located on hilly or mountainous terrain. Topography, however, can introduce a challenge to land cover classification. Because topographic features cast a shadow, the reflectance of the landscape within the shadow can be lower than a similar non-shadowed landscape. To reduce this effect, it is important to collect training data that is representative of the different topographic conditions of a study region. This example will demonstrate how to do just that. 
 
-1. First, create a new Shapefile layer using the instructions in [3.2 Creating a new layer](#creating-a-new-layer).
+1. First, create a new Shapefile layer using the instructions in 3.2 Creating a new layer.
 2. We will use a terrain map in addition to reference imagery when collecting training data in this example. Using [QuickMap Services](#quickmap) search for two basemaps and add them to the map: Esri Imagery and Google Terrain Hybrid. 
 3. Next, we will adjust the layer rendering parameters to "blend" these two layers together. Ultimately, the goal is to have a high resolution image that has exaggerated and visually apparent topographic features. 
 4. In the *Layers* panel, make sure that the Esri Imagery layer is located above the Google Terrain Hybrid layer. The arrangement of the layers can be adjusted by selecting the layer with your mouse and dragging it to a new location within the panel. 
@@ -465,18 +465,18 @@ If you cannot get one of the plugins to load simply use one of the others. There
 
 **What do I do if I cannot install QGIS or get any of the plugins to load?**
 
-Don't worry! This same tutorial is provided on Google Earth Engine in Tenneson (2021), which does not require any installation. 
+Don't worry! This same tutorial is available here on OpenMRV for training data collection Using Google Earth Engine located under the process "Training Data Collection" and tool "GEE", (Tenneson, 2021)  and it does not require any installation. 
 
 ## 6 References
 
-Tenneson, Karis. 2020. Training Data Collecting Using Google Earth Engine. World Bank.
+Tenneson, Karis. 2021. Training Data Collecting Using Google Earth Engine. World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)
 
 -----
 
-![](figures/m1.2/m1.2.2/cc.png)  
+![](figures/m1.1/cc.png)  
 This work is licensed under a [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
-Copyright 2020, World Bank 
+Copyright 2021, World Bank 
 
 This work was developed by Eric Bullock under World Bank contract with GRH Consulting, LLC for the development of new -and collection of existing- Measurement, Reporting, and Verification related resources to support countries’ MRV implementation. 
 
@@ -491,10 +491,10 @@ Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Servi
 Ana Mirian Villalobos, El Salvador, Ministerio de Medio Ambiente y Recursos Naturales  
 Carole Andrianirina, Madagascar, Bureau National de Coordination REDD+  
 Phoebe Oduor, Kenya, Regional Center For Mapping of Resources for Development  
-KONAN Yao Eric Landry, Cote d'Ivoire, REDD+ Permanent Executive Secretariat  
+Konan Yao Eric Landry, Cote d'Ivoire, REDD+ Permanent Executive Secretariat  
 Paula Andrea Paz, Colombia, International Center for Tropical Agriculture  
 
 Attribution
-Bullock, E. 2020. Training Data Collection Using QGIS. © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO) 
+Bullock, E. 2021. Training Data Collection Using QGIS. © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO) 
 
-![](figures/m1.1/wb.png)![](figures/m1.1/gfoi.png)
+![](figures/m1.1/wb_fcfc_gfoi.png)
