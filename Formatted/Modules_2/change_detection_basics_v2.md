@@ -62,7 +62,7 @@ First, the definition of what makes a change "interesting" depends on the goal o
 
 Second, the definitions of "when" and "where" a change is mapped depend on the sensor and algorithm configuration. The temporal resolution to identify change using optical sensors is constrained by the sensor repeat cadence and cloud cover conditions near the surface. Additionally, the depth of historical imagery imposes a limit on the first time that change can be tracked. The "where" of change mapping depends on the spatial resolution of the sensor. If the sensor spatial resolution is large relative to the footprint of the change process of interest, the actual area mapped as change may by a relatively poor rendering of the actual surface change. Consider mapping the building of a new road into a forest with the the 30 by 30m pixels common in Landsat imagery:  While the spectral properties of a road much narrower than 30m may still make it apparent that the pixel has changed, the area of that change cannot be resolved to units smaller than the size of the whole pixel.  
 
-A basic understanding of the spectral underpinnings of change will aid users in interpreting how these factors are handled by the different change algorithms that follow. 
+A basic understanding of the spectral underpinnings of change will aid users in interpreting how these factors are handled by different change algorithms that can be found here on OpenMRV under process "Change detection" and tools "GEE", "LandTrendr", "CCDC", and "CODED". 
 
 ### 1.1  Change is movement in spectral space
 
