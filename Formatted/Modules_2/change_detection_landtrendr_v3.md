@@ -192,7 +192,7 @@ Additionally, advanced users will be able to:
   * Basic syntax of functions
   * Basic image processing, including choice of imagery, cloud-screening, mosaicking and compositing
 
-> NOTE: Refer to process "Pre-processing" and tool "GEE" for more information and resources for working in Google Earth Engine.
+> NOTE: Refer to process "Pre-processing" and tool "GEE" for more information and resources for working in Google Earth Engine and image composites.
 
 ## 3 Tutorial: Quickstart LandTrendr via GUI on GEE
 
@@ -1396,6 +1396,6 @@ Raja Ram Aryal, Nepal, Forest Research and Training Centre
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
 
 Attribution  
-Kennedy, Robert E. 2021. LandTrendr. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+Kennedy, R. E. 2021. LandTrendr. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](figures/wb_fcfc_gfoi.png)
