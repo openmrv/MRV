@@ -44,8 +44,6 @@ tags:
 - Reference classification
 - Reference observations
 - Colombia
-- Mozambique
-- Cambodia
 
 group:
 - category: Stratified
