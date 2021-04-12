@@ -12,6 +12,8 @@ tags:
 - Sentinel 2
 - Sentinel 1
 - GEE
+- QGIS
+- AREA2
 - Cloud cover
 - Optical sensors
 - Remote sensing
