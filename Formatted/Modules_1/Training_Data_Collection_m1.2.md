@@ -57,8 +57,8 @@ This tutorial will demonstrate how to collect categorical training data for land
 
 ### 1.2 Tutorials
 
-* For training data collection using **QGIS** please refer to process "Training Data Collection" and tool "QGIS"
-* For training data collection using **Google Earth Engine**, please refer to process "Training Data Collection" and tool "GEE"
+* For training data collection using **QGIS** please refer to process "Training Data Collection" and tool "QGIS" here on OpenMRV
+* For training data collection using **Google Earth Engine**, please refer to process "Training Data Collection" and tool "GEE" here on OpenMRV
 
 -----
 
