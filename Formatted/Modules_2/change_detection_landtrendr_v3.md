@@ -41,7 +41,7 @@ group:
   stage: Change Detection
 ---
 
-# 2.2 LandTrendr
+# LandTrendr
 
 ## 1 Background
 
