@@ -263,7 +263,7 @@ SEPAL/CEO has built-in support for estimating sample size as explained in [this 
 Similar to SEPAL is this spreadsheet developed by the World Bank which also calculates the sample size required to meet a precision of overall accuracy: https://onedrive.live.com/view.aspx?resid=9815683804F2F2C7!37340&ithint=file%2cxlsx&authkey=!ANcP-Xna7Knk_EE
 
 ### 3.5 Selecting the sample
-The final step of the sampling design is to physically draw the sample from the study area, which is covered here on OpenMRV under process "Sample selection" and tools "QGIS", "GEE", "AREA2".
+The final step of the sampling design is to physically draw the sample from the study area, which is covered here on OpenMRV under process "Sampling design" and tools "QGIS", "GEE", "AREA2".
 
 ## 4 Frequently Asked Questions (FAQs)
 **I don't understand the qh variable that is used to calculate the sample size under STR -- what does it mean?**
