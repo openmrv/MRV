@@ -45,43 +45,7 @@ group:
 
 ## 1 Background
 
-The goal of image-based change detection is to identify and map when and where interesting changes happen on the Earth's surface. The methods described here on OpenMRV under process "Change detection" and tools "GEE", "LandTrendr", "CCDC", and "CODED" all rely on a simple principle to do this: Change on the surface is expected to cause a change in the spectral reflectance that is distinct enough that it can be captured by an algorithm.
-
-Implicit in the goal of change detection are several issues that users should consider as they embark on a change detection exercise.
-
-First, the definition of what makes a change "interesting" depends on the goal of a project. For a project focused on detecting forest change and degradation, the interesting change on the surface is removal of or damage to trees. Less interesting are things such as phenological change, vigor changes associated with year-to-year rainfall variation, or the conditions of the atmosphere above the forest.
-
-Second, the definitions of "when" and "where" a change is mapped depend on the sensor and algorithm configuration. The temporal resolution to identify change using optical sensors is constrained by the sensor repeat cadence and cloud cover conditions near the surface. Additionally, the depth of historical imagery imposes a limit on the first time that change can be tracked. The "where" of change mapping depends on the spatial resolution of the sensor. If the sensor spatial resolution is large relative to the footprint of the change process of interest, the actual area mapped as change may by a relatively poor rendering of the actual surface change. Consider mapping the building of a new road into a forest with the the 30 by 30m pixels common in Landsat imagery: While the spectral properties of a road much narrower than 30m may still make it apparent that the pixel has changed, the area of that change cannot be resolved to units smaller than the size of the whole pixel.
-
-A basic understanding of the spectral underpinnings of change will aid users in interpreting how these factors are handled by different change algorithms that can be found here on OpenMRV under process "Change detection" and tools "GEE", "LandTrendr", "CCDC", and "CODED".
-
-### 1.1 Change is movement in spectral space
-
-The core concept of spectral-based change detection is that movement in spectral space corresponds to change in conditions on the ground. "Spectral space" is the *n*-dimensional data space defined by the reflectance measured in different spectral bands. Materials with different spectral signatures occupy different parts of this spectral space. A change in location in this spectral space implies that the spectral signature has changed, and thus that the material itself (the conditions that define the spectral signature) has somehow changed.  
-
-Thus, a pixel that begins in one portion of spectral space at time 1 and moves to a different part of spectral space at time 2 is implied to have changed surface condition. If we simply compare the location in spectral space of a pixel at two different times, we can determine if change has occurred. 
-
-![change_in_spectral_space](./figures/intro/change_in_spectral_space.png)
-
-### 1.2 Uninteresting change causes movement in spectral space
-
-Unfortunately, pixels can move their location in spectral space for reasons other than those of interest to the user. For example, atmospheric conditions at the time of acquisition of imagery may cause the entire spectral space to shift. If the numeric position in the spectral space is used to define movement and thus change, then all of the pixels in the image will be considered change.  Unless we are interested in atmospheric effects, we hope to develop an algorithm that distinguishes this uninteresting change from actual change occurring on the ground. 
-
-
-
-![atmospheric_effects](./figures/intro/atmospheric_effects.png)
-
-Similarly, if vegetation has a phenological change in reflectance, a pixel will exhibit motion in spectral space. Most pixels will also exhibit some motion in spectral space because of change in sun angle or illumination.  
-
-### 1.3 Separating interesting and uninteresting change
-
-The more we understand a pixel's motion in spectral space under "normal conditions", the better we can determine when something interesting happens.  The motion under normal conditions can be visualized as "random motion" in the spectral space. When a pixel emerges from that region of normal motion into a different portion of spectral space, we have greater evidence that something interesting has happened to it. 
-
-![random_vs_interesting_movement](./figures/intro/random_vs_interesting_movement.png)
-
-In this tutorial we will see how LandTrendr leverages this latter concept to recognize when an interesting change has occurred.
-
-### 1.4  LandTrendr Conceptual Foundation
+### 1.1  LandTrendr Conceptual Foundation
 
 As biophysical, ecological, and anthropogenic processes act on the land surface, the spectral reflectance of the surface changes over time. Over time, the temporal trajectory of spectral reflectance evolves into a shape that is indicative of the processes that are acting: vegetative growth and decline, disturbance, and landcover transition all affect the temporal progression of spectral values in distinctive ways. The strategy of the LandTrendr algorithm is to distill a multi-year spectral trajectory into sequential straight-line segments that adequately capture the character of those progressive changes, and then to leverage that simplified rendition of the time-series to extract useful information. 
 
@@ -97,17 +61,17 @@ Once the time-series is segmented into distinct parts, the start-and-end points 
 
 Once a segment of interest has been identified for each pixel, key characteristics can then be rendered spatially to produce maps of interest. To map the year at which disturbance occurs, for example, all pixels with segments that precipitously lose vegetation can be identified and the tagged with year of the segment's drop. To map magnitude of recovery, the change in the spectral value from start vertex to end vertex can mapped.  
 
-#### 1.4.1 A note on sensors
+#### 1.1.1 A note on sensors
 
 The LandTrendr algorithm was built to use imagery from the Landsat family of sensors, and all of the examples in this training use these sensors: Landsat 5, 7, and 8. With imagery from those three sensors, the Landsat series provides a potentially unbroken record back to 1984.  
 
 While the algorithm was built with Landsat data in mind, it can be presented time-series of any numeric sequence, whether from Landsat sensors, other satellite sensors, or an entirely different source. However, when using other data types, several considerations are important to consider. The algorithm assumes that there is one entry per year;  if you use a different time step, you will need to "trick" the algorithm into thinking it is looking at yearly data. The algorithm assumes that durable change in the values over time corresponds to a change of interest, and that there are enough data to parse actual change from noise.  If there are not enough observations over time from a given sensor, it will not be appropriate for LandTrendr. As a rule of thumb, there should be roughly three to four  times as many observations as the maximum number of periods you wish the algorithm to discriminate. Since capturing a single disturbance requires three segments:  a pre-disturbance segment, the change segment, and a post-disturbance segment, then it is advisable to never attempt LandTrendr with fewer than 10-12 reliably good observations per pixel. 
 
-#### 1.4.2 The LandTrendr-GEE GitHub resource
+#### 1.1.2 The LandTrendr-GEE GitHub resource
 
 We have developed a manual for general implementation of the LT-GEE (LandTrendr Google Earth Engine) algorithms: https://github.com/eMapR/LT-GEE. Interested readers may find additional and complementary descriptions of the logic of the fitting, as well some other features of the LT-GEE implementation that may be of interest. 
 
-### 1.5 LandTrendr Fitting Logic
+### 1.2 LandTrendr Fitting Logic
 
 The underlying logic of the LandTrendr temporal-segmentation algorithms is to impose linear trend-segments onto a time-series of observations to minimize residual error. This achieved in two broad steps: a breakpoint identification step, and a model-fitting step. The details of these steps are not necessary for most users to know, and are described in detailed in the first publication on the algorithm (Kennedy et al. 2010: Remote Sensing of Environment 114(12): 2897-2910). However, a brief overview of the highlights of the process is useful when choosing parameters for fitting (Table 1).
 
@@ -138,9 +102,9 @@ If no good models can be found using these criteria based on the *p*-value param
 
 The best model is initially considered to be the one with the best *p*-value. However, because the pesudo-*f*-statistic penalizes more complicated models (i.e. models with more segments), it can often choose a non-disturbance model over a model that accurately captures disturbance but has a slightly poorer score. Thus, an adjustment can be made that will allow a model with more segments to be chosen as long as it is within a defined proportion of the best-scoring model. That proportion is set by the the *best model proportion* parameter.  As an example, a *best model proportion* value of 0.75 would allow a more complicated model to be chosen if its score were greater than 75% that of the best model.  
 
-### 1.6 LandTrendr Outputs
+### 1.3 LandTrendr Outputs
 
-#### 1.6.1 Standard outputs
+#### 1.3.1 Standard outputs
 
 The output from a run of the LandTrendr algorithm on GEE is an "array image" with at least two bands. Array images are somewhat abstract representations of data:  think of each pixel being a container of objects which happen to be called "bands".  Each "band" can be data of a variety of types, and different bands in the need not have the same size or type. The array images themselves cannot be represented as geospatial images, but the bands (within them) can be unpacked, reshaped, and represented.  
 
@@ -148,7 +112,7 @@ The first band is called 'LandTrendr' and is of most interest. It is an array of
 
 The second band is a scalar that corresponds to the overall root-mean-square-error of the fitting -- the residual between the original source spectral values and the fitted values. 
 
-#### 1.6.2 Optional outputs
+#### 1.3.2 Optional outputs
 
 Optionally, a user may pass more than one band to the LandTrendr segmentation algorithm. The first band is always used for the segmentation process:  finding vertices and fitting the best segmentation model.  For all additional bands passed to the algorithm, only the second half of the segmentation process is undertaken: Vertex years from the fitting of the first index are used to constrain a linear-segmentation process of the additional bands.  
 
@@ -156,7 +120,7 @@ In this manner, an index that is sensitive to change may be used to best charact
 
 This process is referred to as fitting-to-vertices, or FTV. Although the FTV process is beyond the scope of this tutorial, advanced users can take advantage of the resultant images to build time-series landcover classification algorithms, as described in Kennedy et al. (2018). 
 
-### 1.7 LandTrendr Application 
+### 1.4 LandTrendr Application 
 
 Applying the LandTrendr algorithms in GEE involves several steps. Users specify parameters that control  the construction of image stacks, the temporal segmentation process in LandTrendr, and the post-processing of segmented outputs into disturbance and recovery maps.  
 
@@ -471,7 +435,7 @@ Click on "Add RGB Imagery", and wait patiently.  It may take a minute to fully l
 
 ![_fig_rgb_change_initial](./figures/_fig_rgb_change_initial.png)
 
-> Note:  There are some areas on the left edge of this study area that have missing data (indicated by being able to see the underlying image instead of the fitted values).  These areas do not have enough unmasked observations to run the temporal fitting, as determined by the "minimum observations needed" parameter set by the user (Section 1.5 above). If there really are fewer than six observations (the default for the parameter), then running the algorithm is likely to result in overfitting or poor fits, as there are simply too few observations. Thus, rather than reducing that parameter value to allow more areas to be run with the algorithm, it is advisable instead to investigate why so few valid observations exist.  If there truly are few valid observations, then other approaches may need to be undertaken in these regions, or they may need to be explicitly withheld from reporting.
+> Note:  There are some areas on the left edge of this study area that have missing data (indicated by being able to see the underlying image instead of the fitted values).  These areas do not have enough unmasked observations to run the temporal fitting, as determined by the "minimum observations needed" parameter set by the user (Section 1.2 above). If there really are fewer than six observations (the default for the parameter), then running the algorithm is likely to result in overfitting or poor fits, as there are simply too few observations. Thus, rather than reducing that parameter value to allow more areas to be run with the algorithm, it is advisable instead to investigate why so few valid observations exist.  If there truly are few valid observations, then other approaches may need to be undertaken in these regions, or they may need to be explicitly withheld from reporting.
 
 ##### 3.4.2.2 Interpret change as colors
 
@@ -573,13 +537,13 @@ In Section 3.5, we first describe the logic for each component and provide recom
 
 ![_figY1_landtrendr_options](./figures/_figY1_landtrendr_options.png)
 
-As noted in the workflow diagram (Section 1.7), the first step in the LandTrendr workflow is to process image archives into annual composites.  Compositing reduces noise in the time series;  in the standard LandTrendr libraries, we utilize a medoid compositing approach (Described in Section 5 below). 
+As noted in the workflow diagram (Section 1.4), the first step in the LandTrendr workflow is to process image archives into annual composites.  Compositing reduces noise in the time series;  in the standard LandTrendr libraries, we utilize a medoid compositing approach (Described in Section 5 below). 
 
 Two groups of values need to be determined:  the range of years to draw from for segmentation, and the seasonal date-range within each year from which to calculate composites. 
 
 ##### Image years
 
-As noted in Section 1.4.1, the LandTrendr algorithm is designed to work with data from the Landsat family of sensors reaching back to 1984.  In practice, many tropical areas of the world do not have enough image availability in early years of the Landsat archive to provide reasonable image composites. 
+As noted in Section 1.1.1, the LandTrendr algorithm is designed to work with data from the Landsat family of sensors reaching back to 1984.  In practice, many tropical areas of the world do not have enough image availability in early years of the Landsat archive to provide reasonable image composites. 
 
 If there are no images early in the time series, the algorithm will simply start the temporal segmentation process at whatever year first has unmasked data.  Thus, it is reasonable to begin a segmentation process with the early year set to 1984 and the last year set to the most current year. 
 
@@ -810,7 +774,7 @@ var lt = ltgee.runLT(startYear, endYear, startDay, endDay, aoi, index, [], runPa
 
 Note that the `ltgee` library is the one just imported.  Advanced users can scrutinize that library to track the steps in the call to the LandTrendr algorithm (See Section 5 below). 
 
-The LT-GEE algorithm returns an object called an image, but which is not an image in the sense we typically consider:  It cannot be mapped easily.  Rather, it is of the form described above in Section 1.6.1 above.  To map disturbance, we need to repackage that output.  Thus, a second function takes care of that process: 
+The LT-GEE algorithm returns an object called an image, but which is not an image in the sense we typically consider:  It cannot be mapped easily.  Rather, it is of the form described above in Section 1.3.1 above.  To map disturbance, we need to repackage that output.  Thus, a second function takes care of that process: 
 
 ```javascript
 var changeImg = ltgee.getChangeMap(lt, changeParams);
@@ -1042,7 +1006,7 @@ ee.Algorithms.TemporalSegmentation.LandTrendr(runParams);
 
 where the `annualLTcollection` is the collection of univariate values calculated as described in Section 5.2.2.  
 
-As noted in Section 1.6 above, the output from the call to the core LandTrendr algorithm in GEE is an image array.  The next section describes the `ltgee` function that can be used to convert that image array into a disturbance (or recovery) map. 
+As noted in Section 1.3 above, the output from the call to the core LandTrendr algorithm in GEE is an image array.  The next section describes the `ltgee` function that can be used to convert that image array into a disturbance (or recovery) map. 
 
 ### 5.3 Disturbance mapping
 
@@ -1089,7 +1053,7 @@ var segInfo = getSegmentData(lt, changeParams.index, changeParams.delta);
 
 To understand how vertex information is translated to segment information, consider that each segment is bounded by two vertices. The character of the segment itself is described by starting vertex year and spectral value (the "pre-change" condition), the ending vertex year and spectral value (the "post-change" condition), as well as by the difference in time between the bounding vertices (the "duration") and the difference in the spectral value of the bounding vertices (the "magnitude").  Thus, to build information on the segments, we must consider characteristics of both of the individual vertices on either end of the segment, as well as the relationships between them.  This achieved through a series of array manipulations of the vertex information returned by the LT algorithm in the LT object. 
 
-As noted in Section 1.6.1, the LT object returned by the LT function is at least a two-band image per pixel. The first band is called the "LandTrendr" band, and is itself an array of size 4 x *n*, where *n* is the number of years in the time series. The second band is a scalar representing the total root-mean-square-error (RMSE) of the fitting. An optional third band arises if the user has passed data for the FTV process;  we do not treat this third band here.  
+As noted in Section 1.3.1, the LT object returned by the LT function is at least a two-band image per pixel. The first band is called the "LandTrendr" band, and is itself an array of size 4 x *n*, where *n* is the number of years in the time series. The second band is a scalar representing the total root-mean-square-error (RMSE) of the fitting. An optional third band arises if the user has passed data for the FTV process;  we do not treat this third band here.  
 
 The translation of vertex information into segment operation focuses on the 4 x *n* LandTrendr band of the LT Object. The full code is replicated here, with comments describing each piece.  Briefly, the vertices are extracted from the vertex row, and then converted into two lists of vertices (`leftList` and `rightList`), one shifted relative to the other. These are then manipulated to derive our desired outputs.  
 
