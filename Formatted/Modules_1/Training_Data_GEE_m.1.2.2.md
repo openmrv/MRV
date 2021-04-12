@@ -1,6 +1,6 @@
 ---
 title: Training Data Collection Using Google Earth Engine
-summary: This tutorial will demonstrate how to collect categorical training data for land cover classification using Google Earth Engine. Users should adjust the various components to match their project objectives. Here, the process is demonstrated for the countries of Colombia, Mozambique, and Cambodia, and for a simple legend of four land cover classes - Forest, Water, Herbaceous, and Developed. Refer to process "Pre-processing" and tool "GEE" for more information and resources for working in this environment.
+summary: This tutorial will demonstrate how to collect categorical training data for land cover classification using Google Earth Engine. Users should adjust the various components to match their project objectives. Here, the process is demonstrated for the countries of Colombia, Mozambique, and Cambodia, and for a simple legend of four land cover classes - Forest, Water, Herbaceous, and Developed. Refer to process "Pre-processing" and tool "GEE" here on OpenMRVfor more information and resources for working in this environment.
 author: Karis Tenneson
 creation date: December, 2020
 language: English
@@ -49,7 +49,7 @@ This tutorial will demonstrate how to collect categorical training data for land
 
 ### 1.1 Google Earth Engine
 
-We will be digitizing training data in Google Earth Engine. Refer to process "Pre-processing" and tool "GEE" for more information and resources for working in this environment.
+We will be digitizing training data in Google Earth Engine. Refer to process "Pre-processing" and tool "GEE" here on OpenMRV for more information and resources for working in this environment.
 
 ## 2 Learning Objectives 
 
