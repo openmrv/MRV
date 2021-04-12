@@ -24,6 +24,9 @@ tags:
 - Deforestation mapping
 - Degradation mapping
 - Forest degradation mapping
+- QGIS
+- GEE
+- AREA2
 - Sampling design
 - Sample design
 - Sample selection
@@ -42,8 +45,6 @@ tags:
 - Reference classification
 - Reference observations
 - Colombia
-- Mozambique
-- Cambodia
 
 group:
 - category: Stratified
