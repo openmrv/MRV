@@ -11,7 +11,6 @@ tags:
 - Landsat
 - Sentinel 2
 - Sentinel 1
-- GEE
 - Cloud cover
 - Optical sensors
 - Remote sensing
