@@ -109,6 +109,6 @@ Copyright 2021, World Bank
 
 This work was developed by Pontus Olofsson under World Bank contract with GRH Consulting, LLC for the development of new -and collection of existing- Measurement, Reporting, and Verification related resources to support countries’ MRV implementation. 
 
-Attribution
+Attribution  
 Olofsson, P. 2021. Terminology relevant to the sampling techniques. © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)  
 ![](figures/wb_fcfc_gfoi.png)
