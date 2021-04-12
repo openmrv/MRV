@@ -42,7 +42,7 @@ group:
   stage: Change Detection
 ---
 
-# 2.3 Continuous Change Detection and Classification (CCDC)
+# Continuous Change Detection and Classification (CCDC)
 
 ## 1 Background
 
@@ -62,29 +62,21 @@ By the end of this tutorial, users should be able to:
 *   Run CCDC using both a “point and click” interface and through scripting with the Javascript programming language. 
 *   Create maps of spectral and land cover change.
 
-### 2.1 Pre-requisites for this module
+### 2.1 Pre-requisites
 
-* Google Earth Engine (GEE) concepts (please refer to Section 1.1 of Module 1.1 Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine for useful GEE resources)
+* Google Earth Engine (GEE) concepts
   * Getting a user account
   * Image handling in GEE
   * Basic syntax of functions
   * Basic image processing, including choice of imagery, cloud-screening, mosaicking and compositing
-* It is highly recommended that you finish the previous tutorials:
-  * Module 1
-    * 1.1 Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine
-    * 1.2 Training Data Collection
-      * 1.2.1 Training Data Collection Using QGIS, or
-      * 1.2.2 Training Data Collection Using Google Earth Engine
-    * 1.3 Land Cover and Land Use Classification in Google Earth Engine
-  * Module 2
-    * 2.1 Basics of Change Detection methods
-    * 2.2 LandTrendr
+
+> NOTE: Refer to process "Pre-processing" and tool "GEE" here on OpenMRV for more information and resources for working in Google Earth Engine.
 
 ## 3 Tutorial: Continuous Change Detection and Classification (CCDC)
 
 CCDC can be run using Google Earth Engine. Other implementations of CCDC can be accessed [here](https://github.com/GERSL/CCDC) and includes implementations in C, Python, and MATLAB. To facilitate analysis in GEE, Arevalo et al (2020) released an API and collection of applications that will be demonstrated [here](https://gee-ccdc-tools.readthedocs.io/en/latest/). 
 
-This tutorial will use CCDC implementation in GEE, hence a GEE account is needed. Please refer to Module 1 for additional information on GEE. In the first example, the process is demonstrated using the CCDC API in Cambodia. In the second example the process is demonstrated in Mozambique using the graphic user interfaces. Finally, the process is performed in Colombia to create a stratification of forest loss and gain. 
+This tutorial will use CCDC implementation in GEE, hence a GEE account is needed. Please refer to process "Pre-processing" and tool "GEE" here on OpenMRV for additional information on GEE. In the first example, the process is demonstrated using the CCDC API in Cambodia. In the second example the process is demonstrated in Mozambique using the graphic user interfaces. Finally, the process is performed in Colombia to create a stratification of forest loss and gain. 
 
 ### 3.1 Algorithm description
 
@@ -437,7 +429,7 @@ The next step in performing land cover analysis using CCDC is collecting trainin
 *   The predictor data as attributes for each point and for the year that corresponds to the land cover label.
 *   Unique sample IDs as attributes
 
-Training data for Cambodia was collected as part of Module 1.2.2 in this series of tutorials and can be loaded here. Note the code related to loading and formatting the training data can be found in the script ‘CCDC/Cambodia_2’ in the Open MRV repository. 
+Training data for Cambodia was collected as part of tutorials here on OpenMRV under process "Training data collection" and tools "QGIS" and "GEE" and can be loaded here. Note the code related to loading and formatting the training data can be found in the script ‘CCDC/Cambodia_2’ in the Open MRV repository. 
 
 ```javascript
 var trainingData = ee.FeatureCollection('users/openmrv/MRV/cambodia_training')
@@ -868,7 +860,7 @@ Use the _Country Boundary_ method for defining an output region, and select _Moz
 
 The final set of parameters relate to the training data. The training data requires that each point has an attribute identifying the land cover label, and must also correspond to a specific year for training. You have the option to use the entire FeatureCollection or only the points that fall within the study region. 
 
-*   An example training dataset, as developed in Module 1.2.2, can be found in the asset ‘users/openmrv/MRV/mozambique_training’. 
+*   An example training dataset, built based on tutorials here on OpenMRV under process "Training data collection" and tools "QGIS" and "GEE", can be found in the asset ‘users/openmrv/MRV/mozambique_training’. 
 *   Assuming the training data comes from within your study region, you can use the default option of _Within Output Extent_. 
 *   The _Training Year_ corresponds to the year of the training labels (e.g. what year is a sample labeled as ‘Forest’ actually forest?). For this dataset, the year is 2018. 
 *   The _Training Attribute_ corresponds to the attribute name in each feature that contains the land cover label. For this dataset it is _landcover_. 
@@ -1078,13 +1070,13 @@ Copyright 2021, World Bank
 
 This work was developed by Eric Bullock under World Bank contract with GRH Consulting, LLC for the development of new -and collection of existing- Measurement, Reporting, and Verification related resources to support countries’ MRV implementation. 
 
-Material reviewed by:  
-Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services  
-Tatiana Nana, Cameroon, REDD+ Technical Secretariat    
-Jennifer Juliana Escamilla Valdez, El Salvador, Ministerio de Medio Ambiente y Recursos Naturales  
-KONAN Yao Eric Landry, Cote d'Ivoire, REDD+ Executive Permanent Secretariat  
-Adrianirina Carole, Madagascar, BNCCREDD+  
+Material reviewed by:   
+Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
+Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS)  
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources 
+Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat   
+Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
 
-Attribution
+Attribution  
 Bullock, E. 2021. Continuous Change Detection and Classification (CCDC). © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)  
-![](figures/wb.png)![](figures/gfoi.png)
+![](figures/wb_fcfc_gfoi.png)
