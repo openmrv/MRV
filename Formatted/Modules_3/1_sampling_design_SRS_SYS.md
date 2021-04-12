@@ -1,5 +1,5 @@
 ---
-title: Simple random/systematic sampling design
+title: Simple random/systematic sampling
 summary: Sampling-based approaches in a remote sensing or geographical context are necessary because they allow us to estimate area bias, map accuracy and uncertainty. A sampling-based approach to estimation can be separated into three different components - sampling design, response design and analysis (Stehman & Czaplewski, 1998). The first component, sampling design, is illustrated in this tutorial for the case of simple random/systematic sampling design. Other tutorials here on OpenMRV under process "Sampling design" explore other sampling design approaches (e.g. Stratified Random Sampling).
 author: Pontus Olofsson
 creation date: February, 2021
@@ -64,7 +64,7 @@ group:
   stage: Area Estimation/Accuracy assessment
 ---
 
-# Simple random/systematic sampling design 
+# Simple random/systematic sampling 
 
 ## 1 Background
 
@@ -248,5 +248,5 @@ Rajesh Bahadur Thapa, Nepal, International Centre for Integrated Mountain Develo
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
 
 Attribution  
-Olofsson, P. 2021. Simple random/systematic sampling design. © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)  
+Olofsson, P. 2021. Simple random/systematic sampling. © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)  
 ![](figures/wb_fcfc_gfoi.png)
