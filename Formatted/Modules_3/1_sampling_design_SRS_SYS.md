@@ -84,7 +84,7 @@ The objective of this tutorial is to provide the user an understanding of the va
 * Relevant terminology for sampling techniques can be found at the end of this document 
 * Google Earth Engine (GEE) account. Please refer to process "Pre-processing" and tool "GEE" here on OpenMRV for more information about working in this environment.
 
-## 3 Tutorial: Sampling design for estimation of area and map accuracy
+## 3 Tutorial: Sampling design for estimation of area and map accuracy - Simple random/systematic sampling
 
 ### 3.1 How to choose a sampling design?
 Choosing a sampling design often involves tradeoffs among different criteria and priorities.  The desire to  provide estimates for subregions or the need to meet precision targets will need to be balanced against desirable sampling design criteria such as the ease and practicality of implementation, cost effectiveness, the ease of accommodating changes in sample size.  Stehman (2009) provides a detailed review of sampling design options, objectives, and criteria, but the decision typically boils down to three key decisions: whether to use strata, whether to use clusters, and whether to implement a systematic or simple random selection protocol. 
