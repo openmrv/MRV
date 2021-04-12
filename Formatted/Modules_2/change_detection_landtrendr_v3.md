@@ -192,7 +192,7 @@ Additionally, advanced users will be able to:
   * Basic syntax of functions
   * Basic image processing, including choice of imagery, cloud-screening, mosaicking and compositing
 
-> NOTE: Refer to process "Pre-processing" and tool "GEE" for more information and resources for working in Google Earth Engine and image composites.
+> NOTE: Refer to process "Pre-processing" and tool "GEE" here on OpenMRV for more information and resources for working in Google Earth Engine and image composites.
 
 ## 3 Tutorial: Quickstart LandTrendr via GUI on GEE
 
