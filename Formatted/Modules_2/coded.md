@@ -42,7 +42,7 @@ group:
   stage: Change Detection
 ---
 
-# 2.4 Continuous Degradation Detection (CODED)
+# Continuous Degradation Detection (CODED)
 
 ## 1 Background
 
@@ -58,7 +58,7 @@ This tutorial will introduce a methodology for monitoring forest degradation cal
 
 ## 2 Learning Objectives
 
-At the end of this module, you will be able to: 
+At the end of this tutorial, you will be able to: 
 
 *   Identify common drivers of forest degradation in moderate-to-high resolution satellite imagery 
 *   Perform spectral mixture analysis with optical imagery and calculate the Normalized Difference Fraction Index (NDFI) 
@@ -70,24 +70,14 @@ Advanced usage will also include:
 *   Post-processing of results from CODED to increase change detection accuracy
 *   Application of a modified version of CODED to use Sentinel-1 radar imagery 
 
-### 2.1 Pre-requisites for this module
+### 2.1 Pre-requisites
 
-* Google Earth Engine (GEE) concepts (please refer to Section 1.1 of Module 1.1 Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine for useful GEE resources)
+* Google Earth Engine (GEE) concepts
   * Getting a user account
   * Image handling in GEE
   * Basic syntax of functions
   * Basic image processing, including choice of imagery, cloud-screening, mosaicking and compositing
-* It is highly recommended that you finish the previous tutorials:
-  * Module 1
-    * 1.1 Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine
-    * 1.2 Training Data Collection
-      * 1.2.1 Training Data Collection Using QGIS, or
-      * 1.2.2 Training Data Collection Using Google Earth Engine
-    * 1.3 Land Cover and Land Use Classification in Google Earth Engine
-  * Module 2
-    * 2.1 Basics of Change Detection methods
-    * 2.2 LandTrendr
-    * 2.3 Continuous Change Detection and Classification (CCDC)
+> NOTE: Refer to process "Pre-processing" and tool "GEE" here on OpenMRV for more information and resources for working in Google Earth Engine 
 
 ## 3 Tutorial: Continuous Degradation Detection (CODED)
 
@@ -1032,11 +1022,11 @@ Copyright 2021, World Bank
 This work was developed by Eric Bullock under World Bank contract with GRH Consulting, LLC for the development of new -and collection of existing- Measurement, Reporting, and Verification related resources to support countries’ MRV implementation. 
 
 Material reviewed by:  
+Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)   
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
+Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat   
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
-KONAN Yao Eric Landry, Cote d'Ivoire, REDD+ Executive Permanent Secretariat
-Adrianirina Carole, Madagascar, BNCCREDD+
-Jennifer Juliana Escamilla Valdez, El Salvador, Ministerio de Medio Ambiente y Recursos Naturales
 
-Attribution
+Attribution   
 Bullock, E. 2021. Continuous Degradation Detection (CODED). © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)  
-![](figures/wb.png)![](figures/gfoi.png)
+![](figures/wb-fcfc-gfoi.png)
