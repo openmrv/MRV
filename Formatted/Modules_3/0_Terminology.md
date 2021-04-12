@@ -64,7 +64,7 @@ group:
   stage: Area Estimation/Accuracy assessment
 ---
 
-# 3.1 Terminology relevant to the sampling techniques
+# Terminology relevant to the sampling techniques
 
 ## 1 Background
 
@@ -111,4 +111,4 @@ This work was developed by Pontus Olofsson under World Bank contract with GRH Co
 
 Attribution
 Olofsson, P. 2021. Terminology relevant to the sampling techniques. © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)  
-![](figures/wb.png)![](figures/gfoi.png)
+![](figures/wb_fcfc_gfoi.png)
