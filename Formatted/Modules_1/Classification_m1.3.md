@@ -99,7 +99,7 @@ At the end of this tutorial, you will be able to:
   * Basic syntax of functions
   * Basic image processing, including choice of imagery, cloud-screening, mosaicking and compositing
 
-> NOTE: Refer to process "Pre-processing" and tool "GEE" for more information and resources for working in Google Earth Engine.
+> NOTE: Refer to process "Pre-processing" and tool "GEE" for more information and resources for working in Google Earth Engine and image composites.
 
 
 * Basic remote sensing concepts
