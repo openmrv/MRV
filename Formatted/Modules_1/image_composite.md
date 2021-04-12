@@ -835,6 +835,6 @@ Sofia Garcia, Guatemala, Ministry of Environment and Natural Resources
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
 
 Attribution  
-Nicolau, Andrea P. 2021. Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+Nicolau, A. P. 2021. Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](figures/m1.1/wb_fcfc_gfoi.png)
