@@ -822,16 +822,16 @@ This work was developed by Andrea Puzzi Nicolau under World Bank contract with G
 
 Material reviewed by:   
 Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources  
-Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
-Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS)  
-Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources 
-Kenset Rosales, Guatemala, Ministry of Environment and Natural Resources  
-Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat   
-Paula Andrea Paz, Colombia, International Center for Tropical Agriculture (CIAT)  
-Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD) 
-Raja Ram Aryal, Nepal, Forest Research and Training Centre  
-Rajesh Bahadur Thapa, Nepal, International Centre for Integrated Mountain Development (ICIMOD)  
-Sofia Garcia, Guatemala, Ministry of Environment and Natural Resources  
+Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)    
+Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS)    
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
+Kenset Rosales, Guatemala, Ministry of Environment and Natural Resources    
+Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat     
+Paula Andrea Paz, Colombia, International Center for Tropical Agriculture (CIAT)    
+Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)   
+Raja Ram Aryal, Nepal, Forest Research and Training Centre    
+Rajesh Bahadur Thapa, Nepal, International Centre for Integrated Mountain Development (ICIMOD)    
+Sofia Garcia, Guatemala, Ministry of Environment and Natural Resources    
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
 
 Attribution  
