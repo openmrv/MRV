@@ -1,6 +1,6 @@
 ---
 title: Response Design in Collect Earth Desktop
-summary: Collect Earth is a tool that enables data collection through Google Earth. Users can analyze high and very high resolution satellite imagery for a wide variety of purposes. In this tutorial you will learn how to set up Collect Earth, build a survey, generate/import a sampling grid, collect data, and export that data. Establish your sample design in Modules 3.2 and 3.3 beforehand. More information is available on the Collect Earth website (http://www.openforis.org/newwebsite/tools/collect-earth.html).
+summary: Collect Earth is a tool that enables data collection through Google Earth. Users can analyze high and very high resolution satellite imagery for a wide variety of purposes. In this tutorial you will learn how to set up Collect Earth, build a survey, generate/import a sampling grid, collect data, and export that data. More information is available on the Collect Earth website (http://www.openforis.org/newwebsite/tools/collect-earth.html).
 author:
 - Justine Bui
 - Karen Dyson
@@ -17,6 +17,9 @@ tags:
 - Remote sensing
 - Composite
 - Mosaic
+- CE
+- GEE
+- Planet Labs
 - Time series
 - Change detection
 - Land cover mapping
@@ -58,7 +61,7 @@ group:
   stage: Area Estimation/Accuracy assessment
 ---
 
-# 3.4.2 Response Design in Collect Earth Desktop 
+# Response Design in Collect Earth Desktop 
 
 ## 1 Background
 
@@ -120,7 +123,7 @@ In this tutorial you will learn how to:
 
 *   Download and install Collect and Collect Earth Desktop
 *   Build a survey in Collect
-*   [optional] Generate a sampling grid through Google Earth Engine
+*   Generate a sampling grid through Google Earth Engine
 *   Import a sampling grid to Collect
 *   Export a finalized survey from Collect 
 *   Import the survey created in Collect into Collect Earth Desktop
@@ -129,11 +132,10 @@ In this tutorial you will learn how to:
 
 Designing a project is an iterative process, and you will probably need to make multiple edits to projects in Collect and Collect Earth as you refine your goals, land use or land cover classification schemes, imagery sources, etc. These changes can be made to a project before your project is published. This means that you can create a project and collect test data in it, and edit any errors you find before publishing the project.
 
-### 2.1 Pre-requisites for this module
+### 2.1 Pre-requisites
 
-* Have an understanding of the terminology in Module 3.1, and have an established sample design, which is outlined in Modules 3.2 and 3.3
+* Relevant terminology can be found at the end of this document
 * A general understanding of image interpretation. Image interpretation is the process of looking at moderate, high, or very high spatial resolution imagery (from satellites or aerial photography) and labeling the objects of interest in your sample locations. Photo interpretation is the core skill needed to effectively execute any Collect Earth desktop project
-* It is highly recommended that you have an understanding of the previous tutorials in Modules 1 and 2
 
 ## 3 Tutorial: Collect Earth Desktop
 
@@ -150,12 +152,12 @@ Once the “Collect” application is installed, find the application in your fi
 The OpenForis Collect Control Panel window will open and will need to stay open the entire time you are using Collect. 
 
 ![](figures/collect_controlpanel.JPG)
+
 The OpenForis Collect Control Panel window will open before the actual browser with the Collect interface opens. This Control Panel window will tell you that Collect is “Running.”
 
-
 ![](figures/open_foris_collect.JPG)
-After a few minutes, a new browser window will automatically open with the Collect interface. 
 
+After a few minutes, a new browser window will automatically open with the Collect interface. 
 
 ### 3.2 Create a survey 
 
@@ -263,8 +265,8 @@ A preview of the survey questions can be seen by clicking “Preview” at the b
 ### 3.3 Add a sampling grid to Collect
 
 Collect needs a sampling grid that defines where we will collect data from the survey we just created. 
-We present two options  here:
-1. importing an existing sampling design, such as the one created in Module 3.3
+We present two options here:
+1. importing an existing sampling design (you can use one that is created in tutorials here on OpenMRV under process "Sampling design" and tools "QGIS", "AREA2", and "GEE")
 2. creating and importing a sampling grid using the Grid Generator in Google Earth Engine
 
 #### 3.3.1 Import an existing sampling design
@@ -292,7 +294,7 @@ Once you are sure the structure matches, your generated grid csv file will be re
 
 To import an existing sampling design, navigate to the “Info” tab. On the “Info” tab of your survey editor, go to the “Attached Files” section and click the green add button to attach your csv grid file. If your file is too large you may need to split it up into multiple files.  
 
-#### 3.3.2 [Optional] Creating a sampling grid for Collect Earth using the Grid Generator in Google Earth Engine
+#### 3.3.2 Creating a sampling grid for Collect Earth using the Grid Generator in Google Earth Engine
 
 The Grid Generator is a Google Earth Engine App created with the Google Earth Engine Code Editor. This tool allows you to design and generate a grid for your Collect Earth project. 
 
@@ -376,9 +378,6 @@ For this exercise, click “Export”, choose the type “Unpublished changes”
 
 The exported file will then download as a .cep file to the location you have specified. It can then be shared and will open directly into Collect Earth if you already have it downloaded. 
 
-Please refer to the next tutorial on Collect Earth Desktop Data Collection for how to collect data using a survey. 
-
-
 ### 3.5 Download and launch Collect Earth
 
 You can download Collect Earth from the Open Foris website. Visit [http://www.openforis.org/tools/collect-earth.html](http://www.openforis.org/tools/collect-earth.html). Click on Download latest version, then select the appropriate version for your operating system. Install based on your operating system. Installation instructions can be found at [http://www.openforis.org/tools/collect-earth/tutorials/installation.html](http://www.openforis.org/tools/collect-earth/tutorials/installation.html).
@@ -424,6 +423,7 @@ After investigating the imagery further, utilizing the additional maps, you can 
 If you look at the Earth Map window and investigate the data, you can see that there have been no changes in land use over the years, so within the “Land Use Change Year” dropdown you can choose “There has been no change in Land Use in the previous years”
 
 ![](figures/earthmap_1778.JPG)
+
 ![](figures/nochange.JPG)
 
 As you can see, once the required questions have been answered, the title turns from red to black. You can also include comments or tags if there is additional information you would like to include during your data collection. Once you are done with the survey, click “Send” in the bottom right corner of the pop up window. You will then see that your data was saved and the plot in the right hand plot list now has a green check mark next to it. When you press “Ok” the application will take you to the next plot. 
@@ -451,7 +451,7 @@ The CSV file, which can be opened in Excel, tabulates all of the data that has b
 
 ![](figures/collect_earth_export.JPG)
 
-## Frequently Asked Questions (FAQs)
+## 4 Frequently Asked Questions (FAQs)
 
 **When should I use CE?**
 
@@ -504,6 +504,51 @@ Here you can create an account and ask a question and it will reach OpenForis di
 
 ![](figures/openforis_community_support1.JPG)
 
+## 5 Terminology
+
+A list of terms relevant to the sampling and inference techniques are provided in the AREA2 documentation: https://area2.readthedocs.io/en/latest/definitions.html Below are a few additional terms not included in the AREA2 documentation.
+
+### 5.1 Response design
+Defined by (Stehman and Czaplewski, 1998): “The reference or ‘true’ classification is obtained for each sampling unit based on interpreting aerial photography or videography, a ground visit, or a combination of these sources. The methods used to determine this reference classification are called the ‘response design.’ The response design includes procedures to collect information pertaining to the reference land-cover determination, and rules for assigning one or more reference [labels] to each sampling unit.” Referred to as “measurement plan” by Särndal et al. (1992).
+
+### 5.2 Sample
+A subset of population units selected from the population.
+
+### 5.3 Sample design
+Synonymous with sampling design, which is the preferred term in the seminal literature (Cochran, 1977, Särndal et al., 1992). The term occurs in Rice (1995) who uses both “sampling design” and “sample design”.
+
+### 5.4 Sampling design
+“The sampling design is the protocol by which the reference sample units are selected.” (Stehman and Czaplewski, 1998). “Sampling design” is also used by Cochran (1977) and Särndal et al. (1992) - the former also uses “sampling plan”.
+
+### 5.5 Survey
+Särndal et al. (1992) defines a survey as a “partial investigation of a finite population”, and further that “that the terms ‘survey’ and ‘sample survey’ are used to denote statistical investigations with the following methodological features: [...] probability sampling [...] measurement plan [and] estimation”
+
+### 5.6 Survey design
+A “total survey design” defines the procedures for “obtaining the possible precision in the survey estimates while striking a balance between sampling and non-sampling errors [...] The survey design gives rise to survey operations” such as sample selection (Särndal et al., 1992). Lohr (1999) describes a total survey design as “A philosophy of survey design for minimizing nonsampling as well as sampling errors.” Also, in Lohr (1999) “survey design” is synonymous with sampling design.
+
+### 5.7 Reference data
+Data characterizing the most accurate available assessment of the true condition at the sample location (example: fine-resolution satellite imagery).
+
+### 5.8 Reference observations
+The most accurate available assessment of the true condition of a population unit.
+
+### 5.9 Reference classification
+The reference classification applied to the collection of all sample units.
+
+## 6 References
+
+Cochran, W.G., 1977. *Sampling Techniques*, John Wiley & Sons, New York, NY.
+
+Lohr, S.L., 1999. *Sampling: Design And Analysis,* CRC Press.
+
+Olofsson, P., Foody, G.M., Herold, M., Stehman, S.V., Woodcock, C.E. and Wulder, M.A., 2014. Good practices for estimating area and assessing accuracy of land change. Remote Sensing of Environment, 148, pp.42-57. https://doi.org/10.1016/j.rse.2014.02.015
+
+Rice, J.A., 1995. *Mathematical Statistics and Data Analysis* (2nd ed.), Duxbury Press, Belmont, CA.
+
+Särndal, C.E., Svensson, B.H., & Wretman, J.H., 1992. *Model assisted survey sampling*, Springer Science & Business Media, New York, NY.
+
+Stehman, S.V., & Czaplewski, R.L., 1998. Design and analysis for thematic map accuracy assessment: fundamental principles. *Remote Sensing of Environment*, 64(3), 331-344. https://doi.org/10.1016/S0034-4257(98)00010-8
+
 -----
 
 ![](figures/cc.png)  
@@ -521,6 +566,6 @@ Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natu
 Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)   
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
 
-Attribution
+Attribution  
 Bui, J., Dyson, K. 2021. Response Design in Collect Earth Desktop. © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)  
-![](figures/wb.png)![](figures/gfoi.png)
+![](figures/wb_fcfc_gfoi.png)
