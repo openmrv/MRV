@@ -54,7 +54,7 @@ This tutorial will demonstrate how to collect categorical training data for land
 
 ### 1.1 QGIS
 
-Quantum GIS (QGIS) is an open source GIS software that runs on Windows, Linux, and Mac OS X. Users should consult the [QGIS webpage](https://qgis.org/en/site/forusers/alldownloads.html) for background information and installation instructions. Since there are many different ways to install QGIS, depending on your operating system, installation instructions will not be detailed here. If users are not able to install QGIS we recommend switching to this same tutorial on OpenMRV for training data collection using Google Earth Engine located under the process "Training Data Collection" and tool "GEE", (Tenneson, 2021). 
+Quantum GIS (QGIS) is an open source GIS software that runs on Windows, Linux, and Mac OS X. Users should consult the [QGIS webpage](https://qgis.org/en/site/forusers/alldownloads.html) for background information and installation instructions. Since there are many different ways to install QGIS, depending on your operating system, installation instructions will not be detailed here. If users are not able to install QGIS we recommend switching to this same tutorial on OpenMRV for training data collection using Google Earth Engine located under the process "Training Data Collection" and tool "GEE". 
 
 This tutorial is based on the longterm release [Version 3.10.10](https://docs.qgis.org/3.10/en/docs/user_manual/). For the core features of this tutorial, users will only need QGIS installed and an internet connection. For use of all the plugins described in this tutorial, users will need accounts with [Google Earth Engine](https://signup.earthengine.google.com/#!/) and [Planet](https://www.planet.com/login/?mode=signup) 
 
@@ -121,7 +121,7 @@ The following plugins offer access to reference imagery. Each plugin works with 
 Users should consider the options below and decide a source of reference data that matches the time period and geographic extent of your study region. Here, the process is demonstrated for Colombia and for the year 2018.  
 
 
-**Important Note:** We suggest users starting first with QuickMap Services, as it does not require an external account and is the most straightforward to install. Use of Planet and Google Earth Engine provides more flexible reference data, however the plugins are experimental and require accounts with both Earth Engine and Planet. If users cannot install any plugins, we suggest they switch to this same tutorial here on OpenMRV for training data collection using Google Earth Engine located under the process "Training Data Collection" and tool "GEE", (Tenneson, 2021). 
+**Important Note:** We suggest users starting first with QuickMap Services, as it does not require an external account and is the most straightforward to install. Use of Planet and Google Earth Engine provides more flexible reference data, however the plugins are experimental and require accounts with both Earth Engine and Planet. If users cannot install any plugins, we suggest they switch to this same tutorial here on OpenMRV for training data collection using Google Earth Engine located under the process "Training Data Collection" and tool "GEE". 
 
 #### 3.3.1 QuickMap Services  
 
@@ -465,11 +465,7 @@ If you cannot get one of the plugins to load simply use one of the others. There
 
 **What do I do if I cannot install QGIS or get any of the plugins to load?**
 
-Don't worry! This same tutorial is available here on OpenMRV for training data collection Using Google Earth Engine located under the process "Training Data Collection" and tool "GEE", (Tenneson, 2021)  and it does not require any installation. 
-
-## 6 References
-
-Tenneson, K. 2021. Training Data Collecting Using Google Earth Engine. World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)
+Don't worry! This same tutorial is available here on OpenMRV for training data collection Using Google Earth Engine located under the process "Training Data Collection" and tool "GEE", and it does not require any installation. 
 
 -----
 
