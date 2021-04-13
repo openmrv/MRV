@@ -1,6 +1,6 @@
 ---
 title: Response Design in Collect Earth Online
-summary: Collect Earth Online is a custom built, open-source, satellite image viewing and interpretation system to collect data for use in projects that require land cover and/or land use reference information. In this tutorial you will learn how to draft, review, and publish a project in Collect Earth Online. Establish your sample design in Modules 3.2 and 3.3 beforehand. More information is available on the Collect Earth Online Support Page (https://collect.earth/support).
+summary: Collect Earth Online is a custom built, open-source, satellite image viewing and interpretation system to collect data for use in projects that require land cover and/or land use reference information. In this tutorial you will learn how to draft, review, and publish a project in Collect Earth Online. More information is available on the Collect Earth Online Support Page (https://collect.earth/support).
 author:
 - Karis Tenneson
 - Karen Dyson
@@ -20,6 +20,8 @@ tags:
 - Mosaic
 - Time series
 - GEE
+- CEO
+- Planet Labs
 - Change detection
 - Land cover mapping
 - Forest mapping
@@ -62,11 +64,11 @@ group:
   stage: Area Estimation/Accuracy assessment
 ---
 
-# 3.4.3 Response Design in Collect Earth Online
+# Response Design in Collect Earth Online
 
 ## 1 Background
 
-Reference observations are required to calculate unbiased area and uncertainty estimates from a map product. The reference observations are typically a labeled set of data, derived from an activity map (e.g. by stratified random sample) and labeled using imagery or field data. This is compared to the map strata of an activity map to estimate map accuracy and obtain unbiased area estimates. This tutorial will demonstrate how to collect reference observations with categorical labels for generating unbiased area and uncertainty estimates using Collect Earth Online. Users should adjust the various components to match their project objectives. Here, the process is demonstrated for the country of Colombia and for a simple map legend indicating the presence or absence of forest loss or degradation.  
+Reference observations are required to calculate unbiased area and uncertainty estimates from a map product. The reference observations are typically a labeled set of data, derived from an activity map (e.g. by stratified random sample) and labeled using imagery or field data. This is compared to the map strata of an activity map to estimate map accuracy and obtain unbiased area estimates. This tutorial will demonstrate how to collect reference observations with categorical labels for generating unbiased area and uncertainty estimates using Collect Earth Online (CEO). Users should adjust the various components to match their project objectives. Here, the process is demonstrated for the country of Colombia and for a simple map legend indicating the presence or absence of forest loss or degradation.  
 
 
 ### 1.1 Collect Earth Online
@@ -110,12 +112,11 @@ At the end of this exercise, you will be able to draft, review, and publish a pr
 
 * Collect and export reference observations. 
 
-### 2.1 Pre-requisites for this module
+### 2.1 Pre-requisites
 
-* Have an understanding of the terminology in Module 3.1, and have established a sample design and sample selection, which are outlined in Modules 3.2 and 3.3
+* Relevant terminology can be found at the end of this document
 * General understanding of image interpretation. Image interpretation is the process of looking at moderate, high, or very high spatial resolution imagery (from satellites or aerial photography) and labeling the objects of interest in your sample locations. Photo interpretation is the core skill needed to effectively execute any CEO project 
 * For more information, please refer to the Collect Earth Online Institution and Project Creation Manual, found at [Collect Earth Online Support Pages](https://collect.earth/support)
-* It is highly recommended that you have an understanding of the previous tutorials in Modules 1 and 2
 
 ## 3 Tutorial: Collect Earth Online
 
@@ -406,9 +407,9 @@ For this exercise, follow the instructions to upload the csv. Then, skip the sub
 
 Additional notes on working with user specified plot files: Using .csv and .shp files, the maximum number of plots is 50,000 and the total sample point limit is 350,000. You must use WGS84 EPSG:4326 format for coordinates in both .csv and .shp files.
 
-We must first adjust the formatting of the .csv file. The file you upload to specify plot centers must have these columns, in this order: LON, LAT, PLOTID.
+We must first adjust the formatting of the .csv file. The file you upload to specify plot centers must have these columns, in this order: LON, LAT, PLOTID. Here we will demonstrate the process using an existing spreadsheet file generated here on OpenMRV under process "Sample selection". Alternatively, you can use your own sample dataset.
 
-i. In a spreadsheet formatting software like Excel, open the stratified random sample file that you created in the sample selection exercise (Module 3.3). 
+i. In a spreadsheet formatting software like Excel, open the stratified random sample file that can be found here for download. 
 
 ![](figures/stratSmplRaw.JPG)
 
@@ -812,7 +813,7 @@ Once members have been added to the institution, you can share the link to the p
 
 4. Download and save the Sample data.
 
-You will use this downloaded data in future modules to perform the area estimations.
+You can use use this downloaded data in other tutorials here on OpenMRV under process "Area estimation / Accuracy Assessment" to perform area estimations and accuracy assessment.
 
 ## 4 Frequently Asked Questions (FAQs)
 
@@ -856,9 +857,52 @@ Here are some tips:
 
 Please refer to the [Collect Earth Online Institution and Project Creation Manual](https://collect.earth/support).
 
+## 5 Terminology
 
-## 5 References
+A list of terms relevant to the sampling and inference techniques are provided in the AREA2 documentation: https://area2.readthedocs.io/en/latest/definitions.html Below are a few additional terms not included in the AREA2 documentation.
+
+### 5.1 Response design
+Defined by (Stehman and Czaplewski, 1998): “The reference or ‘true’ classification is obtained for each sampling unit based on interpreting aerial photography or videography, a ground visit, or a combination of these sources. The methods used to determine this reference classification are called the ‘response design.’ The response design includes procedures to collect information pertaining to the reference land-cover determination, and rules for assigning one or more reference [labels] to each sampling unit.” Referred to as “measurement plan” by Särndal et al. (1992).
+
+### 5.2 Sample
+A subset of population units selected from the population.
+
+### 5.3 Sample design
+Synonymous with sampling design, which is the preferred term in the seminal literature (Cochran, 1977, Särndal et al., 1992). The term occurs in Rice (1995) who uses both “sampling design” and “sample design”.
+
+### 5.4 Sampling design
+“The sampling design is the protocol by which the reference sample units are selected.” (Stehman and Czaplewski, 1998). “Sampling design” is also used by Cochran (1977) and Särndal et al. (1992) - the former also uses “sampling plan”. Tutorials addressing sampling design can be found here on OpenMRV under process "Sampling design".
+
+### 5.5 Survey
+Särndal et al. (1992) defines a survey as a “partial investigation of a finite population”, and further that “that the terms ‘survey’ and ‘sample survey’ are used to denote statistical investigations with the following methodological features: [...] probability sampling [...] measurement plan [and] estimation”
+
+### 5.6 Survey design
+A “total survey design” defines the procedures for “obtaining the possible precision in the survey estimates while striking a balance between sampling and non-sampling errors [...] The survey design gives rise to survey operations” such as sample selection (Särndal et al., 1992). Lohr (1999) describes a total survey design as “A philosophy of survey design for minimizing nonsampling as well as sampling errors.” Also, in Lohr (1999) “survey design” is synonymous with sampling design.
+
+### 5.7 Reference data
+Data characterizing the most accurate available assessment of the true condition at the sample location (example: fine-resolution satellite imagery).
+
+### 5.8 Reference observations
+The most accurate available assessment of the true condition of a population unit.
+
+### 5.9 Reference classification
+The reference classification applied to the collection of all sample units.
+
+## 6 References
+
+Cochran, W.G., 1977. *Sampling Techniques*, John Wiley & Sons, New York, NY.
+
+Lohr, S.L., 1999. *Sampling: Design And Analysis,* CRC Press.
+
+Olofsson, P., Foody, G.M., Herold, M., Stehman, S.V., Woodcock, C.E. and Wulder, M.A., 2014. Good practices for estimating area and assessing accuracy of land change. Remote Sensing of Environment, 148, pp.42-57. https://doi.org/10.1016/j.rse.2014.02.015
+
+Rice, J.A., 1995. *Mathematical Statistics and Data Analysis* (2nd ed.), Duxbury Press, Belmont, CA.
+
+Särndal, C.E., Svensson, B.H., & Wretman, J.H., 1992. *Model assisted survey sampling*, Springer Science & Business Media, New York, NY.
+
 Souza Jr, C.M., Roberts, D.A. and Cochrane, M.A., 2005. Combining spectral and spatial information to map canopy damage from selective logging and forest fires. *Remote Sensing of Environment*, *98*(2-3), pp.329-343. https://doi.org/10.1016/j.rse.2005.07.013
+
+Stehman, S.V., & Czaplewski, R.L., 1998. Design and analysis for thematic map accuracy assessment: fundamental principles. *Remote Sensing of Environment*, 64(3), 331-344. https://doi.org/10.1016/S0034-4257(98)00010-8
 
 -----
 
@@ -876,6 +920,6 @@ Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)
 Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
 
-Attribution
+Attribution  
 Tenneson, K., Dyson, K. 2021. Response Design in Collect Earth Online. © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)  
-![](figures/wb.png)![](figures/gfoi.png)
+![](figures/wb_fcfc_gfoi.png)
