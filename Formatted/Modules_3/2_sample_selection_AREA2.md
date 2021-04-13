@@ -1,6 +1,6 @@
 ---
 title: Sample selection using AREA2
-summary: In sampling design methods for estimation of area and map accuracy, we design a sample by choosing a selection protocol and determining the sample size and allocation. In this tutorial we will physically draw from a study area a sample that was designed based on tutorials here on OpenMRV under process "Sampling design". Here, we illustrate how to draw a sample in AREA2.
+summary: In sampling design methods for estimation of area and map accuracy, we design a sample by choosing a selection protocol and determining the sample size and allocation. In this tutorial we will physically draw from a study area a sample that was designed based on tutorials here on OpenMRV under process "Sampling design". Here, we illustrate how to draw a sample in AREA2. For more information about AREA2 please refer to https://area2.readthedocs.io/en/latest/
 author: Pontus Olofsson
 creation date: February, 2021
 language: English
