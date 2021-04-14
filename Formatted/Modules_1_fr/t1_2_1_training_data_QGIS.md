@@ -40,7 +40,7 @@ group:
 - catégorie : MODIS
   étape : Entrées
 - catégorie : QGIS 
-  étape :Collecte des données d'entraînement 
+  étape : Collecte des données d'entraînement 
 ---
 
 # 1.2.1. Formation à la collecte de données à l'aide de QGIS 
