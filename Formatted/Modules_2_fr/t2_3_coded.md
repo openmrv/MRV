@@ -4,7 +4,7 @@ summary: Ce tutoriel présente une méthodologie de suivi de la dégradation des
 author: Eric Bullock
 creation date: Janvier 2021
 language: Français
-publisher and license:Copyright 2021, Banque mondiale. Ce travail est sous licence  Creative Commons Attribution 3.0 IGO
+publisher and license: Copyright 2021, Banque mondiale. Ce travail est sous licence  Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
