@@ -1,8 +1,8 @@
 ---
 title: Collecte de données d'entraînement à l'aide de Google Earth Engine
-summary: Ce tutoriel montre comment collecter des données d'entraînement catégorielles pour la classification de l'occupation du sol à l'aide de Google Earth Engine. Les utilisateurs doivent adapter les différentes composantes en fonction des objectifs de leur projet. Le processus est présenté ici pour les pays suivants : la Colombie, le Mozambique et le Cambodge, et pour une légende simple de quatre classes d'occupation du sol : forêt, eau, plantes herbacées et zones développées. Reportez-vous au Module 1.1 Création de mosaïques/composites d'images pour Landsat et Sentinel-2 dans Google Earth Engine pour plus d'informations et de ressources pour travailler dans cet environnement.
+summary: Ce tutoriel montre comment collecter des données d'entraînement catégorielles pour la classification de l'occupation du sol à l'aide de Google Earth Engine. Les utilisateurs doivent adapter les différentes composantes en fonction des objectifs de leur projet. Le processus est présenté ici pour les pays suivants - la Colombie, le Mozambique et le Cambodge, et pour une légende simple de quatre classes d'occupation du sol - forêt, eau, plantes herbacées et zones développées. Reportez-vous au Module 1.1 Création de mosaïques/composites d'images pour Landsat et Sentinel-2 dans Google Earth Engine pour plus d'informations et de ressources pour travailler dans cet environnement.
 author: Karis Tenneson
-creation date:décembre 2020
+creation date: décembre 2020
 language: Français
 publisher and license: Copyright 2020, Banque mondiale. Ce travail est sous licence Creative Commons Attribution 3.0 IGO
 
