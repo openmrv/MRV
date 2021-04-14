@@ -378,7 +378,7 @@ CEO's built in system enables users to create sampling designs using an easy-to-
 
 ##### **Select your AOI**
 
-For this exercise we will use the sample selection created earlier and exported as a csv. This will set the area of interest (AOI) for the project. CEO bounds the AOI around the plot locations that you upload. Therefore, skip the following instructions to manually draw the AOI. 
+Here we will demonstrate the process using an existing spreadsheet file generated here on OpenMRV under process "Sample data collection". This will set the area of interest (AOI) for the project. CEO bounds the AOI around the plot locations that you upload. Therefore, skip the following instructions to manually draw the AOI. 
 
 These steps are included below for reference.
 
@@ -401,13 +401,13 @@ ii. You can also manually enter your Boundary Coordinates into the boxes provide
 
 ##### **Plot Design**
 
-In the Plot Design section, you can specify the type and number of plots. For this exercise we will use the sample selection created earlier and exported as a csv. There are three other options to locate plots: randomly, gridded layout, and uploading a shapefile. 
+In the Plot Design section, you can specify the type and number of plots. There are three other options to locate plots: randomly, gridded layout, and uploading a shapefile. 
 
 For this exercise, follow the instructions to upload the csv. Then, skip the subsequent instructions to work with random, gridded, or shapefile options. These steps are included below for your future reference.
 
 Additional notes on working with user specified plot files: Using .csv and .shp files, the maximum number of plots is 50,000 and the total sample point limit is 350,000. You must use WGS84 EPSG:4326 format for coordinates in both .csv and .shp files.
 
-We must first adjust the formatting of the .csv file. The file you upload to specify plot centers must have these columns, in this order: LON, LAT, PLOTID. Here we will demonstrate the process using an existing spreadsheet file generated here on OpenMRV under process "Sample selection". Alternatively, you can use your own sample dataset.
+We must first adjust the formatting of the .csv file. The file you upload to specify plot centers must have these columns, in this order: LON, LAT, PLOTID. Here we will demonstrate the process using an existing spreadsheet file generated here on OpenMRV under process "Sample data collection". Alternatively, you can use your own sample dataset.
 
 i. In a spreadsheet formatting software like Excel, open the stratified random sample file that can be found here for download. 
 
