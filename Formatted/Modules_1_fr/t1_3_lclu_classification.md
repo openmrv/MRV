@@ -1,7 +1,6 @@
 ---
-​---
 title: Classification de l'occupation et de l'utilisation du sol dans Google Earth Engine
-summary: Ce tutoriel montre comment effectuer une classification de l'occupation et de l'utilisation des sols dans Google Earth Engine. Les utilisateurs apprendront à appliquer des méthodes de classification supervisée et non supervisée, ainsi qu'à gérer les problèmes de masque et les erreurs de classification. Le processus est démontré pour les pays suivants : Colombie, Mozambique et Cambodge. Les échantillons de données pour la classification sont basés sur les tutoriels précédents.
+summary: Ce tutoriel montre comment effectuer une classification de l'occupation et de l'utilisation des sols dans Google Earth Engine. Les utilisateurs apprendront à appliquer des méthodes de classification supervisée et non supervisée, ainsi qu'à gérer les problèmes de masque et les erreurs de classification. Le processus est démontré pour les pays suivants - Colombie, Mozambique et Cambodge. Les échantillons de données pour la classification sont basés sur les tutoriels précédents.
 author: Robert E Kennedy
 creation date:  Décembre 2020
 language: Français
@@ -37,17 +36,16 @@ tags:
 
 
 group:
-- catégorie: Composite (Median)
+- catégorie : Composite (Median)
   étape : Création du composite/Pré-traitement
-- catégorie: Landsat
-  étape: Entrées
+- catégorie : Landsat
+  étape : Entrées
 - catégorie: Sentinel-2
   étape: Entrées
 - catégorie: GEE
   étape: Collecte des données de d'apprentissage
 - catégorie: Random Forest (Forêt aléatoire)
   étape: Classification
-​---
 ---
 
 
