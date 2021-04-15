@@ -1,6 +1,6 @@
 ---
 title: Analysis of sample data collected under SRS/SYS
-summary: In this tutorial we will apply various estimators to a sample dataset to estimate characteristics of the population sampled -- i.e. characteristics of the study area such as the area of forest disturbance.
+summary: In this tutorial we will apply various estimators to a sample dataset to estimate characteristics of the population sampled -- i.e. characteristics of the study area such as the area of forest disturbance. This tutorial focus on sample data collected under SRS/SYS.
 author: Pontus Olofsson
 creation date: February, 2021
 language: English
@@ -45,7 +45,7 @@ The two properties, bias and variance, are important because we can ensure that 
 
 ### 3.1 Construction of SRS estimators
 
-Sample results collected under simple random sampling are the most straightforward to analyze (the same estimators are used for both simple random and systematic sampling). Because no maps/stratifications are used and because the sample mean is unbiased estimator of the population mean, the analysis of SRS/SYS sample results can easily be completed in a spreadsheet.  Stratified random sampling was  illustrated in previous tutorials, and only dummy data are provided here to illustrate the construction of SRS/SYS estimators. Let's assume that the data in this spreadsheet are map and reference labels at locations selected under SRS: https://docs.google.com/spreadsheets/d/1pcK-rlhUo5lvmYqibT4zIv-bR5tF4Uu8DqPwIG8mJWQ/edit?usp=sharing The sample size is *n* = 100 and a label of 1 is forest disturbance, 2 is forest, and 3 is non-forest.         
+Sample results collected under simple random sampling are the most straightforward to analyze (the same estimators are used for both simple random and systematic sampling). Because no maps/stratifications are used and because the sample mean is unbiased estimator of the population mean, the analysis of SRS/SYS sample results can easily be completed in a spreadsheet. Stratified random sampling is illustrated in another tutorial here on OpenMRV under "Sampling Design" and tools "GEE" and "AREA2", and only dummy data are provided here to illustrate the construction of SRS/SYS estimators. Let's assume that the data in this spreadsheet are map and reference labels at locations selected under SRS: https://docs.google.com/spreadsheets/d/1pcK-rlhUo5lvmYqibT4zIv-bR5tF4Uu8DqPwIG8mJWQ/edit?usp=sharing The sample size is *n* = 100 and a label of 1 is forest disturbance, 2 is forest, and 3 is non-forest.         
 
 Because the sample mean is unbiased estimator of the population mean the calculation of area proportions are straightforward; define *y_i* = 1 if forest disturbance was observed at sample location *i* and 0 otherwise; the are of forest disturbance is given by (Cochran, 1977, p. 22):
 
