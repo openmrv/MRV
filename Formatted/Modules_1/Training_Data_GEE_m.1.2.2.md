@@ -7,21 +7,16 @@ language: English
 publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
 
 tags:
-- OpenMRV
 - Landsat
 - Sentinel 2
 - GEE
 - Cloud cover
-- Optical sensors
-- High resolution
 - Remote sensing
 - Composite
 - Mosaic
 - Land cover mapping
 - Forest mapping
 - Sample
-- Sample design
-- Sampling design
 - Sample selection
 - Colombia
 - Mozambique
