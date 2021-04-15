@@ -111,18 +111,18 @@ En ausencia de un inventario de campo sólido, la única forma viable de hacerlo
 
 Si bien este problema no es exclusivo al mapeo de la degradación forestal, es importante considerar este contexto cuando se intenta automatizar un enfoque para el monitoreo de áreas extensas. A continuación, podemos ver imágenes Landsat de unos años en un bosque talado en la República Centroafricana. El objetivo aquí es extraer información significativa sobre los cambios en el bosque, a pesar de que casi todas las imágenes están parcial o totalmente cubiertas por nubes, o el mapeo de las perturbaciones en este paisaje debe adaptarse a las observaciones ruidosas y al mismo tiempo ser sensible a los cambios sutiles en el dosel del bosque.
 
-![alt_text](images/CODED/img1.gif "image_tooltip")
+![alt_text](./images/CODED/img1.gif "image_tooltip")
 
 
 Existen numerosos enfoques para tratar las observaciones ruidosas, como el filtrado, la composición y la corrección atmosférica. Sin embargo, los enfoques basados en la filtración o suavización de los datos insumos no son adecuados para detectar la degradación, ya que la degradación suele ser visible durante un breve período de tiempo y en áreas pequeñas. Observe el siguiente ejemplo de un incendio en la Amazonía brasileña. El píxel resaltado en rojo está en un bosque que se quemó alrededor del 2008. Los signos de este incendio no son visibles mucho después del evento debido a la regeneración.
 
 
-![](images/CODED/img2.png)
+![](./images/CODED/img2.png)
 
 Mirando nuevamente el ejemplo de la República Centroafricana, podemos ver además cuán efímeros pueden ser los daños causados por la degradación. Aquí, podemos ver signos de registro en imágenes de alta resolución de Planet. Sin embargo, solo unos meses después, el bosque se ha regenerado. La naturaleza efímera de la degradación implica que es necesario un monitoreo continuo en lugar de un análisis o composición de una sola fecha.
 
 
-![alt_text](images/CODED/img3.jpg "image_tooltip")
+![alt_text](./images/CODED/img3.jpg "image_tooltip")
 
 
 Además, la degradación de los bosques a menudo ocurre a una escala espacial por debajo de la escala nominal de las imágenes de satélite, lo que significa que la suavización espacial de los datos para reducir ruido puede mezclar aún más las señales de bosques estables y perturbados. Por ejemplo, a continuación se muestra un ejemplo de tala selectiva en Fiji. Si bien hay caminos de tala obvios visibles en las imágenes de alta resolución, la mayor parte del paisaje sigue siendo bosque en las imágenes de resolución moderada.
@@ -130,7 +130,7 @@ Además, la degradación de los bosques a menudo ocurre a una escala espacial po
 
 #### 
 
-![alt_text](images/CODED/img4.jpg "image_tooltip")
+![alt_text](./images/CODED/img4.jpg "image_tooltip")
 
 
 Estos ejemplos demuestran como la misma naturaleza de degradación forestal representa un desafío significativo para el mapeo usando los métodos tradicionales de análisis de teledetección. 
@@ -162,7 +162,7 @@ La metodología CODED tiene tres componentes primarios (ver Bullock et al., 2020
 3. Atribución de cambio a deforestación o degradación usando datos de entrenamiento y un clasificador de aprendizaje automático
 
 
-![alt_text](images/CODED/img5.png "image_tooltip")
+![alt_text](./images/CODED/img5.png "image_tooltip")
 
 #### 3.4 Análisis de Mezcla Espectral 
 
@@ -170,7 +170,7 @@ Durante el preprocesamiento, los datos de entrada se transforman en imágenes fr
 
 El modelo SMA utilizado en CODED transforma la reflectancia en la proporción de escala de píxeles de vegetación verde (GV por sus siglas en ingles), suelo, vegetación no fotosintética (VPN por sus siglas en ingles), sombra y nube. Estas capas se pueden utilizar para calcular el índice de fracción de diferencia normalizada (NDFI por sus siglas en ingles), que es una transformación de imagen fraccional introducida por primera vez en Souza et al. (2005) y demostró ser sensible al daño subpíxel por tala o incendios.
 
-![alt_text](images/CODED/img6.png "image_tooltip")
+![alt_text](./images/CODED/img6.png "image_tooltip")
 
 
 
@@ -281,7 +281,7 @@ Map.centerObject(geo)
 
 Note la franja de terreno perturbada en medio de la geometría. Los pixeles claramente no-forestales tienen un NDFI alto (rojo), Sombra baja (blanco), NPV alto (rojo), y GV moderado (verde claro), mientras que los pixeles de bosque dañados a mano derecha tienen un NDFI moderado (amarillo), y el bosque denso tiene un NDFI alto (verde), GV alto (verde), y Sombra alta (negro). 
 
-![alt_text](images/CODED/img7.png "image_tooltip")
+![alt_text](./images/CODED/img7.png "image_tooltip")
 
 #### 3.5 Trayectorias temporales
 
@@ -289,17 +289,17 @@ CODED realiza SMA para cada imagen de Landsat disponible en la región de estudi
 
 NDFI es alto (~1) para bosques densos, moderado (0-1) para bosques abiertos o degradados, y en lo mas bajo para paisajes no-forestales (-1 a 0). La figura siguiente demuestra una trayectoria NDFI para un evento de deforestación. En cada uno de los ejemplos siguientes, las líneas verticales rojas y verdes en la trama representan el año de deforestación o evento de degradación, respectivamente. Note que antes del evento de deforestación, NDFI tiene valor de aproximadamente 1 porque es bosque denso y estable. Después de que el bosque se convierte en pastizal, NDFI cae precipitadamente y fluye entre -1 y 1 dependiendo de la estación. 
 
-![alt_text](images/CODED/img8.png "image_tooltip")
+![alt_text](./images/CODED/img8.png "image_tooltip")
 
 
 Ahora, comparemos esto con un ejemplo de degradación debido a la tala selectiva. Tenga en cuenta que el cambio en NDFI debido a la perturbación es relativamente pequeño, y hay una clara señal de recuperación debido a la regeneración del bosque.
 
-![alt_text](images/CODED/img9.png "image_tooltip")
+![alt_text](./images/CODED/img9.png "image_tooltip")
 
 
 Finalmente, vemos en la siguiente figura un ejemplo de un bosque afectado por un incendio. Tenga en cuenta que aquí el daño al dosel fue bastante dramático, como se evidencia en la gran reducción en NDFI después de la perturbación. Sin embargo, una vez más hay una clara señal de regeneración, y se desprende de la serie de tiempo que no hubo conversión de la cobertura terrestre.
 
-![alt_text](images/CODED/img10.png "image_tooltip")
+![alt_text](./images/CODED/img10.png "image_tooltip")
 
 **Inténtelo usted mismo**
 
@@ -378,28 +378,28 @@ Para cada serie de tiempo, las series de tiempo correspondientes de NDFI y SMA s
 Al seleccionar una observación en la serie temporal, se cargará la imagen correspondiente en el mapa.
 El estiramiento de la imagen se puede cambiar usando el segundo menú desplegable.
 
-![](images/CODED/img11.png)
+![](./images/CODED/img11.png)
 
 El ejemplo anterior es el mismo que se usó en la introducción. Ésta es una señal de degradación típica en un bosque templado con muchas observaciones Landsat. Antes de la perturbación, el NDFI es muy estable con valor de alrededor de 1. Hay una disminución obvia en el NDFI durante aproximadamente un año, pero el bosque se regenera rápidamente y el NDFI parece similar al bosque anterior a la perturbación alrededor de 2012.
 
 Veamos algunos otros ejemplos de esta herramienta con un poco más de detalle. El siguiente ejemplo muestra un evento de registro selectivo. Tenga en cuenta el cambio breve y mínimo en NDFI debido a la perturbación. 
 
-![](images/CODED/img12.png)
+![](./images/CODED/img12.png)
 
 El siguiente ejemplo muestra una compensación inicial para exploración minera. Dado que los árboles en el bosque están completamente talados, la señal NDFI es dramática. Sin embargo, el píxel puede regenerarse rápidamente después del desmonte inicial y, en dos años, el NDFI vuelve a un nivel similar anterior a la perturbación.
 
-![](images/CODED/img13.png)
+![](./images/CODED/img13.png)
 
 Compare el ejemplo anterior de una mina que se regenera como bosque con el siguiente ejemplo de una mina permanente. Tenga en cuenta que en este ejemplo no hay signos de recuperación.
 
-![](images/CODED/img14.png)
+![](./images/CODED/img14.png)
 
 #### 3.6 Detección de Cambio
 
 Los modelos de regresión se utilizan para predecir observaciones dentro de una ventana móvil. Si los residuos de las observaciones en la ventana superan un valor crítico, se detecta un cambio. Observe que debajo de los triángulos son las observaciones en la ventana móvil. Los triángulos azules son las observaciones predichas, mientras que el amarillo y el rojo representan cambios de magnitud alta y baja, respectivamente. A continuación, el proceso se repite con un nuevo ajuste de regresión a las observaciones posteriores.
 
 
-![alt_text](images/CODED/img15.jpg "image_tooltip")
+![alt_text](./images/CODED/img15.jpg "image_tooltip")
 
 **Parámetros de Detección de Cambio**
 
@@ -424,7 +424,7 @@ Un *chiSquareProbability* mas bajo tiene el efecto de incrementar la sensibilida
 
 Disturbios son atribuidos como deforestación o degradación basado en la cobertura terrestre después del disturbio. Si hay una conversión de bosque a no-forestal (por ejemplo, pastizal, asentamientos, o agricultura), el disturbio es considerado deforestación. Si la regeneración comienza después del disturbio es etiquetado degradación. El proceso de atribución se puede describir generalmente de acuerdo al flujo de trabajo siguiente: 
 
-![alt_text](images/CODED/img16.png "image_tooltip")
+![alt_text](./images/CODED/img16.png "image_tooltip")
 
 
 ## 4.0 Ejecutar CODED con una Interfaz de Usuario Grafica 
@@ -438,7 +438,7 @@ Esta sección provee una visión general de la aplicación y su funcionalidad, y
 Después de agregar el repositorio,debería de ver una carpeta “coded” en su panel de “Scripts” bajo “Reader”:
 
 
-![alt_text](images/CODED/img17.png "image_tooltip")
+![alt_text](./images/CODED/img17.png "image_tooltip")
 
 
 Figura 1 es una imagen de como debería de aparecer su pantalla. Si no ve esto, navegue a la pestana de scripts en la esquina superior a mano izquierda de la interfaz GEE. Expanda la pestana Reader, y haga clic en la script llamada **Forest Disturbance Mapping GUI**. 
@@ -447,12 +447,12 @@ A continuación, es posible que deba hacer clic en Ejecutar para iniciar la secu
 
 
 
-![alt_text](images/CODED/img17_2.png "image_tooltip")
+![alt_text](./images/CODED/img17_2.png "image_tooltip")
 
 
 Luego le pedirá que elija su idioma. Una vez configurado el idioma, su navegador debe tener un aspecto similar al de la siguiente figura; sin embargo, B, D y E no aparecerán hasta después de ejecutar CODED.
 
-![alt_text](images/CODED/img18.jpg "image_tooltip")
+![alt_text](./images/CODED/img18.jpg "image_tooltip")
 
 Como se puede ver en la Figura 1, la aplicación contiene varios componentes que están etiquetados de acuerdo a las letras de los paréntesis a continuación: 
 
@@ -527,7 +527,7 @@ Se puede usar una máscara de bosque que determina los píxeles válidos para ma
 
 *   En el panel de Parámetros (Figura 1, A), puede especificar fechas de inicio y final para el análisis. Estas fechas filtraran los datos usados para la detección de cambio. El enlace  ‘Jump to date’ (brincar a fecha) permite la selección de fechas en el calendario.
 
-![alt_text](images/CODED/img21.png "image_tooltip")
+![alt_text](./images/CODED/img21.png "image_tooltip")
 
 #### 5.3 Insumos
 
@@ -656,7 +656,7 @@ CODED puede ser modificado usando tres parámetros: Estos parámetros son visual
 
 *   El segundo botón en el panel de controles de mapa ("Toggle time series viewer") agregará y eliminará el visor de serie temporal del mapa. 
 
-![alt_text](images/CODED/img22.png "image_tooltip")
+![alt_text](./images/CODED/img22.png "image_tooltip")
 
 *   La serie temporal con el ajuste del modelo se puede mostrar para cualquier ubicación haciendo clic en el mapa. En el ejemplo anterior, la capa de fecha de cambio de Landsat / CODED se muestra en el mapa para una ubicación en la República Democrática del Congo.
 * Para ver la imagen de un valor de datos específico en el gráfico en el mapa, simplemente haga clic en él en el visor de series de tiempo.
@@ -696,12 +696,12 @@ Amarillo: Disturbio No Clasificado
    <td>
 
 
-<img src="images/CODED/img23.png" width="" alt="alt_text" title="image_tooltip">
+<img src="./images/CODED/img23.png" width="" alt="alt_text" title="image_tooltip">
 
    </td>
    <td>
 
-<img src="images/CODED/img24.png" width="" alt="alt_text" title="image_tooltip">
+<img src="./images/CODED/img24.png" width="" alt="alt_text" title="image_tooltip">
 
    </td>
   </tr>
@@ -719,12 +719,12 @@ Amarillo: Disturbio No Clasificado
 2. Navegue al script titulado ‘Forest Disturbance Mapping GUI’ en la carpeta de CODED del repositorio Open MRV.
 3. Hacer clic en ‘Run’. 
 
-![alt_text](images/CODED/img25.png "image_tooltip")
+![alt_text](./images/CODED/img25.png "image_tooltip")
 
 
 4. El panel que aparece junto al mapa permite la selección de un idioma. Seleccione su idioma preferido. Hasta el momento, las únicas opciones son ingles, español, o frances. 
 
-![alt_text](images/CODED/img26.png "image_tooltip")
+![alt_text](./images/CODED/img26.png "image_tooltip")
 
 **Parametrización**
 
@@ -748,7 +748,7 @@ Las siguientes son unas recomendación acerca de los parámetros que se deben ut
 3. Ingrese la ruta a la tabla en la casilla justo debajo de la caja de texto debajo del botón: users/openmrv/MRV/ColombiaRectangle
 4. Después de ingresar la ruta a la Tabla, debe de cargarse al mapa después de hacerle clic al mapa o presionar 'Enter'. Si quiere confirmar que el asset se ha cargado, manualmente mueva el mapa a Colombia y haga zoom al área donde esta el rectángulo negro.
 
-![alt_text](images/CODED/img27.png "image_tooltip")
+![alt_text](./images/CODED/img27.png "image_tooltip")
 
 **Ejecutar el script**
 
@@ -762,31 +762,31 @@ Las siguientes son unas recomendación acerca de los parámetros que se deben ut
     - Amarillo: Disturbio no clasificado
 4. Exportaciones se pueden enviar como tareas de GEE usando la pestana 'Task': 
 
-![alt_text](images/CODED/img28.png "image_tooltip")
+![alt_text](./images/CODED/img28.png "image_tooltip")
 
 
 5. Después de hacerle clic a ‘Run’ en la pestana ‘Tasks’ para la tarea de ‘Export_Stratification’, dele un nombre al archivo de exportación y haga clic en 'Run'.
 
-![alt_text](images/CODED/img29.png "image_tooltip")
+![alt_text](./images/CODED/img29.png "image_tooltip")
 
 
 6. Después de unos minutos, debería de ver que las capas 'Change Date' y ‘Stratification’ se agreguen al mapa. La capa de Forest Mask también esta disponible en el mapa.
 
-![alt_text](images/CODED/img30.png "image_tooltip")
+![alt_text](./images/CODED/img30.png "image_tooltip")
 
 
 7. Si en algún punto tiene un problema con cargar los resultados al mapa, o que se estén cargando muy lento, puede exportar la capa de ‘Stratification’ usando una tarea y volver a agregarla al mapa. 
     - Envíe una tarea ("Export_estratificación") para crear la estratificación de una sola capa (como se describió anteriormente en el paso 5).
     - Cuando la tarea esté completa, se volverá azul en la pestaña ‘Task’.   
-      ![alt_text](images/CODED/img31.png "image_tooltip")  
+      ![alt_text](./images/CODED/img31.png "image_tooltip")  
     - Hacer clic en el signo de interrogación a la derecha de la casilla de tareas azul y haga clic en ‘View Asset.  
-    ![alt_text](images/CODED/img32.png "image_tooltip")  
+    ![alt_text](./images/CODED/img32.png "image_tooltip")  
     - Copiar la ruta al asset guardado.   
-![alt_text](images/CODED/img33.png "image_tooltip")  
+![alt_text](./images/CODED/img33.png "image_tooltip")  
     - Debajo de “Visualization”, pegue la ruta en la casilla junto a “Asset path” y haga clic en “Load asset”. Tres capas se deberían de agregar al mapa: una para los pixeles mapeados como degradación, uno para los pixeles mapeados como deforestación, y la estratificación como se estilizo con la paleta para la leyenda en paso 3 anteriormente. 
-    ![alt_text](images/CODED/img34.png "image_tooltip")  
+    ![alt_text](./images/CODED/img34.png "image_tooltip")  
     - Seleccionar ‘Toggle time series viewer’ para habilitar la acción de hacer clic en el mapa para visualizar la serie temporal NDFI. 
-    - Para comenzar a evaluar los resultados, intente hacer clic en el mapa de un píxel mapeado como degradación (azul) o deforestación (rojo). La serie de tiempo para ese píxel debería cargarse en el gráfico en la parte inferior de la pantalla. Opcionalmente, use los cuadros de texto "Eje Y mín. / Máx." para cambiar el eje Y. Se agregan algunas capas adicionales al mapa, incluido un cuadro que indica dónde hizo clic, la colección de imágenes utilizada para crear el gráfico y los coeficientes del modelo de regresión.![alt_text](images/CODED/img35.png "image_tooltip")
+    - Para comenzar a evaluar los resultados, intente hacer clic en el mapa de un píxel mapeado como degradación (azul) o deforestación (rojo). La serie de tiempo para ese píxel debería cargarse en el gráfico en la parte inferior de la pantalla. Opcionalmente, use los cuadros de texto "Eje Y mín. / Máx." para cambiar el eje Y. Se agregan algunas capas adicionales al mapa, incluido un cuadro que indica dónde hizo clic, la colección de imágenes utilizada para crear el gráfico y los coeficientes del modelo de regresión.![alt_text](./images/CODED/img35.png "image_tooltip")
 
 
 
@@ -832,7 +832,7 @@ En la GUI ‘Forest Disturbance Mapping GUI’, defina el área de estudio usand
 1. Seleccione ‘Use Asset for Study Region’ a mano izquierda de la aplicación. 
 2. Copiar y pegar la ruta al asset ‘Cambodia_Extent’ en la caja de texto justo debajo del widget ‘Use Asset for Study Region’. Después de navegar a Camboya, su pantalla debería de ensenar el área de estudio cargada al mapa: 
 
-![alt_text](images/CODED/img36.png "image_tooltip")
+![alt_text](./images/CODED/img36.png "image_tooltip")
 
 
 3. Para comenzar, defina los siguientes parámetros.  Definir estos parámetros nos permitirá visualizar la serie temporal y ajustar los parámetros. 
@@ -851,7 +851,7 @@ En la GUI ‘Forest Disturbance Mapping GUI’, defina el área de estudio usand
     - Abrir la caja de herramientas _Visualization parameter_ seleccionando la caja de engranaje junto al nombre de la capa.  
     - Cambiar la visualización a 1 banda (Greyscale), con la banda ‘lossyear’, un rango de 0-20, y una paleta de un color que resaltará bien en el mapa (en el siguiente ejemplo escogimos rojo). Hacer clic en _Apply_. 
 
-![alt_text](images/CODED/img37.png "image_tooltip")  
+![alt_text](./images/CODED/img37.png "image_tooltip")  
 
     - **Nota:** Este conjunto de datos no es perfecto, y puede omitir eventos de pérdida de cobertura de árboles que no reemplazan a rodales. Sin embargo, sirve bien para propósitos exploratorios.
 
@@ -859,18 +859,18 @@ En la GUI ‘Forest Disturbance Mapping GUI’, defina el área de estudio usand
 6. Tómese algo de tiempo haciéndole clic a las áreas clasificadas como perdida de cobertura arbórea y visualizando la serie de tiempo. Esta es una buena oportunidad para cambiar los parámetros de _Consecutive Obs_ y _chiSquareProbability_ . 
 7. El ejemplo se puede encontrar en Latitud, Longitud 13.307, 104.587. Puede agregar este punto al mapa de la misma manera que la capa de Global Forest Watch usando la ruta de asset ‘users/openmrv/MRV/Cambodia_Example_Point’. Note el declive dramático en NDFI que no se detecta como cambio. 
 
-![alt_text](images/CODED/img38.png "image_tooltip")  
+![alt_text](./images/CODED/img38.png "image_tooltip")  
 Este disturbio se puede ver haciéndole clic a la observación en el tramo junto al error indicando el error de omisión. Note que los datos faltantes son debidos al problema del corrector de línea de escaneo de Landsat 7. 
-![alt_text](images/CODED/img39.png "image_tooltip")  
+![alt_text](./images/CODED/img39.png "image_tooltip")  
 Experimente con diferentes valores para _Consecutive Obs_ y _chiSquareProbability_ para intentar detectar este cambio correctamente.  Rangos típicos para _Consecutive Obs_ son de 3 (mas cambio) a 8 (menos cambio), mientras que _chiSquareProbability_ típicamente tiene un rango de .9 (mas cambio) a .999 (menos cambio). Después de cambiar el parámetro, haga clic en _Run_ para que entren en efecto. Asegúrese de que _Reset Map_ y _Center Zoom_ no estén seleccionados bajo _Visualization_. De esta manera pueden cambiar los parámetros sin restablecer ninguna de las capas del mapa o sin cambiar el visor del mapa.
 
     - Note que cambiar el umbral _Consecutive Obs_ de 4 a 3 llevo a la detección correcta del cambio:   
-![alt_text](images/CODED/img40.png "image_tooltip")  
+![alt_text](./images/CODED/img40.png "image_tooltip")  
 No es realístico determinar el conjunto perfecto de parámetros para un país entero. Sin embargo, este ejercicio se puede usar para determinar un conjunto de parámetros que funcione bien con los datos disponibles para su área de estudio. 
 
 7. Después de determinar un conjunto de parámetros, exporte los resultados seleccionando 'Stratification' por debajo de opciones 'Export'. Ya que vamos a exportar un país entero, la exportación puede fallar si intentamos hacer el análisis en una sola tarea. Por lo tanto, seleccione la opción de Export 'Use Grid'. Esta opción dividirá los datos resultantes en cuadriculas de 5x5, lo cual drásticamente reducirá el tiempo de procesamiento y creara mapas que se pueden combinar en el próximo paso. Después de hacerle clic a ‘Run’ debería de ver dos tareas de exportación para diferentes cuadriculas de grados 5x5 que forman la región de estudio.
 
-![alt_text](images/CODED/img41.png "image_tooltip")
+![alt_text](./images/CODED/img41.png "image_tooltip")
 
 
 8. Una vez que se han procesado las dos tareas, las dos áreas de cuadricula se pueden combinar para crear una sola Estratificación para el país de Camboya. El código siguiente se puede encontrar en el script ‘Combine Grids’ en la carpeta  CODED. 
@@ -899,7 +899,7 @@ Export.image.toAsset({
 })
 ```
 
-![alt_text](images/CODED/img42.png "image_tooltip")
+![alt_text](./images/CODED/img42.png "image_tooltip")
 
 
 
@@ -937,13 +937,13 @@ Un parámetro que debe ajustarse para Mozambique es el umbral de porcentaje de c
 Sentinel-2 RGB Composite
 <p>
 
-<img src="images/CODED/img43.png" width="" alt="alt_text" title="image_tooltip">
+<img src="./images/CODED/img43.png" width="" alt="alt_text" title="image_tooltip">
 
    </td>
    <td>Threshold: 20%
 <p>
 
-<img src="images/CODED/img44.png" width="" alt="alt_text" title="image_tooltip">
+<img src="./images/CODED/img44.png" width="" alt="alt_text" title="image_tooltip">
 
    </td>
   </tr>
@@ -951,13 +951,13 @@ Sentinel-2 RGB Composite
    <td>Threshold: 40%
 <p>
 
-<img src="images/CODED/img45.png" width="" alt="alt_text" title="image_tooltip">
+<img src="./images/CODED/img45.png" width="" alt="alt_text" title="image_tooltip">
 
    </td>
    <td>Threshold: 80%
 <p>
 
-<img src="images/CODED/img46.png" width="" alt="alt_text" title="image_tooltip">
+<img src="./images/CODED/img46.png" width="" alt="alt_text" title="image_tooltip">
 
    </td>
   </tr>
@@ -969,22 +969,22 @@ Sentinel-2 RGB Composite
 *   Basado en estas pruebas, se recomienda un umbral de cobertura de dosel de 40
 *   Ahora, podemos ver un eje de una serie de tiempo de NDFI de Sentinel-2 para un pixel de bosque perturbado. Un ejemplo de un evento de cambio forestal se puede encontrar en el asset: users/openmrv/MRV/Mozambique_Example_Point
     *   Agregar el punto al mapa usando las herramientas _Asset path_ y _Load asset_. Navegue al punto en Mozambique, y defina su región de estudio alrededor del punto.
-![alt_text](images/CODED/img47.png "image_tooltip")  
+![alt_text](./images/CODED/img47.png "image_tooltip")  
     *   Agregue el viso de serie de tiempo con el _Toggle time series viewer_. 
     *   Haga clic en el punto agregado para ver la serie de tiempo de NDFI y el ajuste del modelo.
-![alt_text](images/CODED/img48.png "image_tooltip")  
+![alt_text](./images/CODED/img48.png "image_tooltip")  
     *   Note que hay variabilidad sustantiva en la serie de tiempo de NDFI antes del 2020, a pesar de que no hay rotura de modelo. Esta variabilidad podría ser causada por dos factores: 
         *   Hay un cambio en el bosque debido a perturbación o crecimiento. 
         *   Variabilidad natural y estacional en el bosque. 
     *   Es difícil de determinar a partir de este gráfico ya que los datos de Sentinel-2 para esta ubicación solo están disponibles después de 2019. Alternativamente, podemos mirar las observaciones de Landsat para este píxel de ejemplo, que el archivo GEE comienza años antes que el de Sentinel-2. Tenga en cuenta la variabilidad del paisaje en el verdor antes de 2020 y el cambio dramático debido a la alteración en el píxel de ejemplo (punto negro en el centro):
-![alt_text](images/CODED/img49.gif "image_tooltip")  
+![alt_text](./images/CODED/img49.gif "image_tooltip")  
     *   A partir de estas imágenes, vemos que existe estacionalidad debido a la fenología de la planta. La vegetación aparece marrón debido a la fenología al final de la estación seca, o alrededor de septiembre a diciembre. Podemos eliminar estas fechas del análisis en los parámetros de "Entrada" cambiando _Start DOY_ y _End DOY_ de 1 a 244 (del 1 de enero al 1 de septiembre). Observe la serie de tiempo Sentinel-2 al excluir las fechas de la estación seca:
-![alt_text](images/CODED/img50.png "image_tooltip")  
+![alt_text](./images/CODED/img50.png "image_tooltip")  
     *   Curiosamente, se encontró un cambio sin realizar el filtrado para las imágenes de la estación seca, ¡pero no después del filtrado! Esto se debe a que los modelos de regresión estacional se ajustan correctamente a la variabilidad estacional, por lo que se determinó que los valores bajos de NDFI a fines de 2019 eran la trayectoria anual "normal" de los datos. Las observaciones posteriores a la perturbación de abril del 2020 no coinciden con la “tendencia estacional normal” y, por lo tanto, se marca un cambio. Según este ejemplo, parece que filtrar por día del año hace más daño que bien.
     *   Después de explorar la serie de tiempo de diferentes ubicaciones, exporte una estratificación seleccionando la opción _Export_ para _Stratification_ y definiendo el área de estudio con _Use Asset for Study Area_ e ingresando la colección de características ('users / openmrv / MRV / MozambiqueArea').
     * Después del procesamiento, la estratificación se puede agregar al mapa copiando y pegando la ruta al activo en el cuadro de texto _Asset Path_ y seleccionando _Load asset_. El mapa debe mostrarse en el mapa.
 
-![alt_text](images/CODED/img53.png "image_tooltip")
+![alt_text](./images/CODED/img53.png "image_tooltip")
 
 **Consejo**: Si encuentra demasiados errores de comisión (o cambios falsos detectados), intente disminuir el umbral de *Consecutive Obs*. Tenga en cuenta la diferencia en los dos mapas siguientes. Estas capas muestran píxeles marcados como cambio y se agregan al mapa marcando las casillas de verificación de visualización _Add Break Date_ (para agregarlo al mapa) y _Mask Results_ (para aplicar la máscara de bosque / no forestal). La capa Break Date generalmente se puede calcular sobre la marcha, por lo que los parámetros de detección de cambios se pueden ajustar sin necesidad de exportar los resultados cada vez. Si desmarca el parámetro _Reset Map_, los resultados anteriores permanecerán cargados en el mapa. 
 
@@ -994,13 +994,13 @@ Sentinel-2 RGB Composite
 <strong><i>Consecutive obs</i> = 3</strong>
 <p>
 
-<img src="images/CODED/img51.png" width="" alt="alt_text" title="image_tooltip">
+<img src="./images/CODED/img51.png" width="" alt="alt_text" title="image_tooltip">
 
    </td>
    <td><strong><i>Consecutive obs = 5</i></strong>
 <p>
 
-<img src="images/CODED/img52.png" width="" alt="alt_text" title="image_tooltip">
+<img src="./images/CODED/img52.png" width="" alt="alt_text" title="image_tooltip">
 
    </td>
   </tr>
@@ -1081,7 +1081,7 @@ Esto indica que un enlace a una biblioteca externa esta rota. Por favor refiéra
 
 - Zhu, Z., Woodcock, C.E., 2014. Continuous change detection and classification of land cover using all available Landsat data. Remote Sens. Environ. 144, 152–171. https://doi.org/10.1016/j.rse.2014.01.011
 
-![](images/CODED/cc.png)  
+![](./images/CODED/cc.png)  
 Este trabajo tiene licencia bajo [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
 Copyright 2020, World Bank 
@@ -1096,4 +1096,4 @@ Jennifer Juliana Escamilla Valdez, El Salvador, Ministerio de Medio Ambiente y R
 
 Atribución
 Bullock, E. 2020. Continuous Degradation Detection (CODED). © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)  
-![](images/CODED/WB_FCPF2.png)![](images/CODED/GFOI2.png)
+![](./images/CODED/WB_FCPF2.png)![](./images/CODED/GFOI2.png)
