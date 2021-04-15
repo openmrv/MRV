@@ -8,21 +8,7 @@ publisher and license: Copyright 2021, World Bank. This work is licensed under a
 
 tags:
 - OpenMRV
-- Landsat
-- Sentinel 2
-- Sentinel 1
-- Cloud cover
-- Optical sensors
-- Remote sensing
-- Composite
-- Mosaic
-- Time series
-- Change detection
-- Land cover mapping
-- Forest mapping
-- Deforestation mapping
-- Degradation mapping
-- Forest degradation mapping
+
 - QGIS
 - GEE
 - AREA2
@@ -32,36 +18,14 @@ tags:
 - Sample
 - Sampling frame
 - Stratified
-- Simple Random
-- Systematic
-- Response design
-- Survey
-- Survey design
-- Accuracy
-- Accuracy assessment
-- Area Estimation
-- Reference data
-- Reference classification
-- Reference observations
 - Colombia
 
 group:
 - category: Stratified
   stage: Sampling
-- category: Simple Random
-  stage: Sampling
 - category: Cluster
   stage: Sampling
-- category: Systematic
-  stage: Sampling
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
-- category: Expansion
-  stage: Area Estimation/Accuracy assessment
-- category: Model-assisted
-  stage: Area Estimation/Accuracy assessment
-- category: Ratio
-  stage: Area Estimation/Accuracy assessment
+
 ---
 
 # Stratified random sampling 
@@ -107,7 +71,7 @@ Just as with SRS/SYS, we need to specify a precision objective and calculate usi
 
 ![](https://latex.codecogs.com/svg.latex?\Large&space;n=\left&space;[\frac{\sum_{h}W_h\textup{SD}_h}{\text{SE}(p)}\right&space;]^2)
 
-*Wh* is the weight of stratum *h*, which is simply the area of the stratum expressed as a proportion of the total study area; SD*h* is the standard deviation of stratum *h*, which is explained below. The target standard error is SE(*p*). We will demonstrate the calculation using a map from another tutorial here on OpenMRV that can be found under process "Change detection" and tool "CODED". This map is a map of disturbance, stable forest and stable non-forest. The sample size calculation under STR can be complicated so we'll use a spreadsheet from Google Sheets (or Microsoft Excel if you prefer). The spreadsheet used in this tutorial can be accessed here: https://docs.google.com/spreadsheets/d/1lmPt35SvR3X7txpn0cwd-xkgwC_4nRPL520OZZcRKX0/edit?usp=sharing  
+*Wh* is the weight of stratum *h*, which is simply the area of the stratum expressed as a proportion of the total study area; SD*h* is the standard deviation of stratum *h*, which is explained below. The target standard error is SE(*p*). We will demonstrate the calculation using a map from another tutorial here on OpenMRV that can be found under process "Change detection" and tool "CODED". This map is a map of disturbance, stable forest and stable non-forest and can be found as a GEE asset [here](https://code.earthengine.google.com/?asset=users/openmrv/MRV/CODED_Colombia_Stratification_No_Buffer). The sample size calculation under STR can be complicated so we'll use a spreadsheet from Google Sheets (or Microsoft Excel if you prefer). The spreadsheet used in this tutorial can be accessed here: https://docs.google.com/spreadsheets/d/1lmPt35SvR3X7txpn0cwd-xkgwC_4nRPL520OZZcRKX0/edit?usp=sharing  
 
 ##### Step 1 
 First we need to compute the  number of pixels of each stratum; this can be done using GDAL, QGIS, Google Earth Engine, etc.; if you went through the tool "CODED" here on OpenMRV, these areas are printed in the *Console* in Google Earth Engine. If not, or if you have an existing GEE asset, load the asset using the AREA2 Stratified Random Sampling script  (https://code.earthengine.google.com/6a0f89221d40ee039362974d303ff5aa) to compute the strata weights. Add these numbers on the first row "Area [px]". On the second row, express these areas as a proportion (in cell B3 type "=B2/sum($B2:$D2") and extend to E2). These proportions are referred to as the strata weights (*Wh*) 
