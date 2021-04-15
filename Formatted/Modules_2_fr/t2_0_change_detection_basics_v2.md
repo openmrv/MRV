@@ -93,3 +93,16 @@ Plus nous comprenons le mécanisme de déplacement d'un pixel dans l'espace spec
 
 
 Les trois algorithmes décrits dans les sections suivantes s'appuient tous sur ce dernier concept pour reconnaître quand un changement intéressant s'est produit. 
+
+
+
+This work is licensed under a Creative Commons Attribution 3.0 IGO.
+
+Copyright 2021, World Bank
+
+Ce travail a été développé par Robert E Kennedy, Eric Bullock dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte des ressources existantes - liées à la mesure, la notification et la vérification afin de soutenir la mise en œuvre du MRV par les pays. 
+
+Attribution
+Kennedy, R. E., Bullock, E. 2021. Basics of Change Detection methods. © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)
+
+
