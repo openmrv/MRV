@@ -102,7 +102,7 @@ En l'absence d'un inventaire de terrain robuste, la seule façon de le faire est
 
 Bien que ce problème ne soit pas propre à la cartographie de la dégradation des forêts, il est important de tenir compte de ce contexte lorsque l'on tente d'automatiser une approche de surveillance de grandes zones. Ci-dessous, nous pouvons voir quelques années d'images Landsat dans une forêt exploitée en République centrafricaine. L'objectif est d'extraire des informations significatives sur les changements dans la forêt, malgré le fait que presque toutes les images soient partiellement ou entièrement couvertes par des nuages ou des données manquantes. Toute approche efficace pour cartographier les perturbations dans ce paysage doit tenir compte des observations bruitées tout en étant sensible aux changements subtils de la canopée forestière. 
 
-![img1](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img1.gif)
+![img1](./images/CODED/img1.gif)
 
 
 
@@ -112,12 +112,12 @@ Bien que ce problème ne soit pas propre à la cartographie de la dégradation d
 Il existe de nombreuses approches pour traiter les observations bruitées, telles que le filtrage, la composition et la correction atmosphérique. Cependant, les approches basées sur le filtrage ou le lissage des données d'entrée ne sont pas bien adaptées à la détection de la dégradation, car celle-ci est souvent visible pendant une courte période et sur de petites zones. Notez l'exemple ci-dessous d'un incendie en Amazonie brésilienne. Le pixel surligné en rouge se trouve dans une forêt qui a brûlé vers 2008. Les signes de cet incendie ne sont pas visibles beaucoup plus tard en raison de la régénération. 
 
 
-![img2](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img2.png)
+![img2](./images/CODED/img2.png)
 
 Si l'on reprend l'exemple de la République centrafricaine, on peut voir à quel point les dommages causés par la dégradation peuvent être éphémères. Ici, nous pouvons voir des signes d'exploitation forestière sur des images haute résolution de la planète. Cependant, quelques mois plus tard, la forêt s'est régénérée. La nature éphémère de la dégradation implique qu'un suivi continu est nécessaire plutôt qu'une analyse ou une composition à une seule date.
 
 
-![img3](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img3.jpg)
+![img3](./images/CODED/img3.jpg)
 
 
 En outre, la dégradation des forêts se produit souvent à une échelle spatiale inférieure à l'échelle nominale de ces images, ce qui signifie que le lissage spatial, dans le but de réduire le bruit, peut encore mélanger des signaux de forêts stables et perturbées. Par exemple, voici un exemple d'exploitation forestière sélective aux Fidji. Bien que des chemins d'exploitation forestière soient visibles sur les images à haute résolution, la majorité du paysage reste forestière sur les images à résolution moyenne. 
@@ -125,7 +125,7 @@ En outre, la dégradation des forêts se produit souvent à une échelle spatial
 
 
 
-![img4](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img4.jpg)
+![img4](./images/CODED/img4.jpg)
 
 
 Ces exemples montrent comment la nature même de la dégradation des forêts représente un défi important pour la cartographie utilisant les approches traditionnelles de l'analyse par télédétection. 
@@ -159,7 +159,7 @@ La méthodologie du CODED comporte trois composantes principales (voir Bullock e
 2. Détection des changements à l'aide d'une détection de rupture basée sur la régression.
 3.  Attribution de changement en déforestation ou dégradation en utilisant des données de training et un classificateur d'apprentissage machine. 
 
-![img5](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img5.png)
+![img5](./images/CODED/img5.png)
 
 #### 2.4 Analyse des mixages spectraux
 
@@ -167,7 +167,7 @@ Au cours du prétraitement, les données d'entrée sont transformées en images 
 
 Le modèle SMA utilisé dans le CODED transforme la réflectance en proportion à l'échelle du pixel de la végétation verte (GV), du sol, de la végétation non photosynthétique (NPV), de l'ombre et du nuage. Ces couches peuvent ensuite être utilisées pour calculer l'indice de fraction de différence normalisé (NDFI), qui est une transformation d'image fractionnaire introduite pour la première fois dans Souza et al. (2005) et dont la sensibilité aux dommages sub-pixels causés par l'exploitation forestière ou les incendies a été démontrée. 
 
-![img6](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img6.png)
+![img6](./images/CODED/img6.png)
 
 
 
@@ -278,7 +278,7 @@ Map.centerObject(geo)
 
 Notez la parcelle  perturbée au milieu de la géométrie. Les pixels clairement non forestiers ont une forte valeur de NDFI (rouge), faible Shade (blanc),  élevée  NPV (rouge) et modérée (vert clair), tandis que les pixels de forêt dégradée sur la droite ont un indice NDFI modéré (jaune), et la forêt dense a un indice NDFI élevé (vert), un GV élevé (vert) et levée shade (black). 
 
-![img7](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img7.png)
+![img7](./images/CODED/img7.png)
 
 
 
@@ -288,17 +288,17 @@ CODED effectue un SMA pour chaque image Landsat disponible dans la région étud
 
 Le NDFI est élevé (~1) pour les forêts denses, plus faible (0-1) pour les forêts ouvertes ou dégradées, et le plus faible (-1 - 0) pour les paysages non végétaux. La figure suivante montre la trajectoire du NDFI pour un événement de déforestation. Dans chacun des exemples suivants, les lignes verticales rouges et vertes sur la parcelle représentent respectivement l'année de l'événement de déforestation ou de dégradation. Notez qu'avant l'événement de déforestation, le NDFI est d'environ 1 car il s'agit d'une forêt dense et stable. Après la conversion de la forêt en pâturage, Le NDFI chute brusquement et oscille entre -1 et 1 selon les saisons. 
 
-![img8](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img8.png)
+![img8](./images/CODED/img8.png)
 
 
 Comparons maintenant cela avec un exemple de dégradation due à l'exploitation forestière sélective. Notez que la variation de NDFI due à la perturbation est relativement faible, et qu'il y a un signal clair de reprise dû à la régénération des forêts.
 
-![img9](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img9.png)
+![img9](./images/CODED/img9.png)
 
 
 Finalement, nous voyons dans la figure suivante un exemple de forêt touchée par un incendie. Notez qu'ici, les dommages causés à la canopée ont été plutôt dramatiques, comme le montre la forte réduction du NDFI après la perturbation. Cependant, il y a une fois de plus un signal clair de régénération et il ressort clairement de la série chronologique qu'il n'y a pas eu de conversion de la couverture des sols
 
-![img10](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img10.png)
+![img10](./images/CODED/img10.png)
 
 **Essayez-le vous-même**
 
@@ -377,12 +377,12 @@ Pour chaque série chronologique, les séries chronologiques correspondantes de 
 
 
 
-![img11](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img11.png)
+![img11](./images/CODED/img11.png)
 
 L'exemple précédent est le même que celui utilisé dans l'introduction. Il s'agit d'un signal de dégradation typique dans une forêt tempérée avec de nombreuses observations Landsat. Avant la perturbation, l'indice NDFI est très stable et se situe autour de 1. Il y a une diminution évidente de l'indice NDFI pendant environ un an, mais la forêt se régénère rapidement et l'indice NDFI semble similaire à la forêt d'avant la perturbation vers 2012. 
 Examinons quelques autres exemples tirés de cet outil de manière un peu plus détaillée.  L'exemple suivant montre une exploitation forestière sélective. Notez le changement bref et minime de NDFI dû à la perturbation. 
 
-![img12](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img12.png)
+![img12](./images/CODED/img12.png)
 
 
 
@@ -390,20 +390,20 @@ L'exemple suivant montre un premier défrichement pour l'exploration minière. C
 
 
 
-![img13](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img13.png)
+![img13](./images/CODED/img13.png)
 
 
 
 Comparez l'exemple précédent d'une mine qui se régénère sous forme de forêt à l'exemple suivant d'une mine permanente. Notez que dans cet exemple, il n'y a aucun signe de régénération.
 
-![img14](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img14.png)
+![img14](./images/CODED/img14.png)
 
 #### 2.6 Détection des changements
 
 Les modèles de régression sont utilisés pour prévoir les observations dans une fenêtre mobile. Si les résidus des observations dans la fenêtre dépassent une valeur critique, alors un changement est détecté. Notez que sous les triangles se trouvent les observations dans la fenêtre mobile. Les triangles bleus sont les observations prévues, tandis que les triangles jaunes et rouges représentent respectivement les changements de faible et de forte magnitude. Le processus se répète ensuite avec un nouvel ajustement de régression aux observations suivantes. 
 
 
-![img15](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img15.jpg)
+![img15](./images/CODED/img15.jpg)
 
 
 Paramètres de détection des changements
@@ -426,7 +426,7 @@ Une *chiSquareProbability* inférieure a pour effet d'augmenter la sensibilité 
 
 Les perturbations sont attribuées à la déforestation ou à la dégradation en fonction d'occupation  des sols après la perturbation. S'il y a une conversion de la forêt en zone non forestière (par exemple, pâturages, habitats ou agriculture), la perturbation est considérée comme une déforestation. Si la régénération commence après la perturbation et qu'il n'y a pas de conversion de la couverture du sol, alors la perturbation est qualifiée de dégradation. Ce processus d'attribution peut généralement être décrit selon l'organigramme suivant :
 
-![img16](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img16.png)
+![img16](./images/CODED/img16.png)
 
 
 ## 3.0 Running CODED with a Graphical User Interface
@@ -440,7 +440,7 @@ Cette section donne un aperçu de l'application et de ses fonctionnalités, et l
 Après avoir ajouté le repo, vous devriez voir un dossier "coded" dans votre panneau "Scripts" sous "Reader" :
 
 
-![img17](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img17.png)
+![img17](./images/CODED/img17.png)
 
 
 
@@ -450,12 +450,12 @@ Vous devrez peut-être ensuite cliquer sur Exécuter pour lancer le script à ch
 
 
 
-![img17_2](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img17_2.png)
+![img17_2](./images/CODED/img17_2.png)
 
 
 Ensuite, il vous demandera de choisir votre langue. Une fois la langue choisie, votre navigateur devrait ressembler à la figure suivante, mais B, D et E ne s'afficheront qu'après l'exécution de CODED.
 
-![img18](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img18.jpg)
+![img18](./images/CODED/img18.jpg)
 
 Comme on peut le voir dans la figure 1, la demande contient divers éléments qui sont étiquetés selon les lettres entre parenthèses ci-dessous :
 
@@ -520,14 +520,14 @@ On peut utiliser un masque de forêt qui détermine les pixels valables pour la 
    <td>
 
 
-![img19](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img19.png)
+![img19](./images/CODED/img19.png)
 
    
 
 
 
 
-![img20](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img20.png)
+![img20](./images/CODED/img20.png)
 
 
 
@@ -539,7 +539,7 @@ On peut utiliser un masque de forêt qui détermine les pixels valables pour la 
 
 *   Dans le panneau des paramètres (figure 1, A), vous pouvez spécifier les dates de début et de fin de l'analyse. Ces dates permettront de filtrer les données utilisées pour la détection des changements. Le lien "Jump to date" permet de sélectionner une date sur un calendrier. 
 
-![img21](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img21.png)
+![img21](./images/CODED/img21.png)
 
 #### 4.3 Inputs
 
@@ -705,7 +705,7 @@ Le CODED peut être modifié à l'aide de trois paramètres : Ces paramètres so
 
 *   Le deuxième bouton du panneau de contrôle de la carte ("Toggle time series viewer") permet d'ajouter ou de supprimer le visualiseur de séries chronologiques de la carte.
 
-![img22](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img22.png)
+![img22](./images/CODED/img22.png)
 
 *   La série chronologique avec l'ajustement du modèle peut être affichée pour n'importe quel endroit en cliquant sur la carte. Dans l'exemple ci-dessus, la couche de changement de date de Landsat/CODED est affichée sur la carte pour un lieu en République démocratique du Congo. 
 *   Pour visualiser l'image pour une valeur de donnée spécifique sur la carte, il suffit de cliquer sur celle-ci dans la Visionneuse de séries chronologiques.
@@ -748,13 +748,13 @@ Jaune : Perturbation non classée
    <td>
 
 
-![img23](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img23.png)
+![img23](./images/CODED/img23.png)
 
    
 
 
 
-   ![img24](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img24.png)
+   ![img24](./images/CODED/img24.png)
 
 
 
@@ -768,12 +768,12 @@ Jaune : Perturbation non classée
 2. Naviguez vers le script appelé  ‘Forest Disturbance Mapping GUI’ dans le dossier CODED du répertoire Open MRV.
 3. Cliquez sur  ‘Run’. 
 
-![img25](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img25.png)
+![img25](./images/CODED/img25.png)
 
 
 4. Le panneau qui apparaît à côté de la carte permet de sélectionner une langue. Choisissez votre langue préférée. Actuellement, les seules options sont l'anglais, l'espagnol et le français. 
 
-![img26](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img26.png)
+![img26](./images/CODED/img26.png)
 
 **Paramétrage**
 
@@ -799,7 +799,7 @@ Voici une recommandation de paramètres à utiliser basée sur le retour d'expé
 3. Entrez le chemin d'accès au tableau dans la case située juste en dessous de la zone de texte sous le bouton : users/openmrv/MRV/ColombiaRectangle
 4. Après avoir entré le chemin d'accès à la table, celle-ci devrait se charger sur la carte après avoir cliqué sur la carte ou appuyé sur "Entrée".  Si vous voulez confirmer le chargement, déplacez manuellement votre carte vers la Colombie et zoomez sur la zone du rectangle noir. 
 
-![img27](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img27.png)
+![img27](./images/CODED/img27.png)
 
 **Exécuter le script**
 
@@ -813,41 +813,41 @@ Voici une recommandation de paramètres à utiliser basée sur le retour d'expé
    - Jaune : Perturbation non classée
 4. Les exportations peuvent être soumises comme une tâche GEE en utilisant l'onglet "Task" :
 
-![img28](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img28.png)
+![img28](./images/CODED/img28.png)
 
 
 5. Après avoir cliqué sur "Run" dans l'onglet "Tasks" pour la tâche "Export_Stratification", donnez au fichier un nom d'exportation et cliquez sur "Run".
 
-![img29](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img29.png)
+![img29](./images/CODED/img29.png)
 
 
 6. Après quelques minutes, vous devriez voir les couches "Change Date’" et "Stratification" ajoutées à la carte. La couche "Masque de forêt" est également disponible sur la carte.
 
-![img30](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img30.png)
+![img30](./images/CODED/img30.png)
 
 
 7. Si jamais vous rencontrez un problème avec le chargement des résultats sur la carte, ou un chargement trop lent, vous pouvez exporter la couche "Stratification" à l'aide d'une tâche et l'ajouter à la carte.
     - Soumettre une tâche ("Export_Stratification") pour créer la stratification monocouche (comme décrit ci-dessus à l'étape 5).
     
     - Lorsque la tâche est terminée, elle devient bleue dans l'onglet "Task". 
-      ![img31](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img31.png)
+      ![img31](./images/CODED/img31.png)
     
     - Cliquez sur le point d'interrogation à droite de la boîte bleue et cliquez sur "View Asset.".
 
-       ![img32](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img32.png)
+       ![img32](./images/CODED/img32.png)
     
     - Copiez le chemin d'accès  sauvegardé dans l'asset. 
-       ![img33](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img33.png)
+       ![img33](./images/CODED/img33.png)
     
     - Sous "Visualisation", collez le chemin dans la case située à côté de "Chemin de l'Asset" et cliquez sur "Charger l'Asset". Trois couches doivent être ajoutées à la carte : une pour tous les pixels cartographiés comme dégradation, une pour tous les pixels cartographiés comme déforestation, et la stratification telle que stylisée avec la palette pour la légende à l'étape 3 ci-dessus.   
-      ![img34](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img34.png)
+      ![img34](./images/CODED/img34.png)
     
     - Sélectionnez "Toggle time series viewer" pour pouvoir cliquer sur la carte afin de visualiser les séries chronologiques de NDFI.   
     
     - Pour commencer à évaluer les résultats, essayez de cliquer sur la carte pour obtenir un pixel cartographié comme dégradation (bleu) ou déforestation (rouge). La série chronologique pour ce pixel devrait se charger sur la carte au bas de l'écran. Vous pouvez également utiliser les zones de texte "Y axis min/max" pour modifier l'axe des y. Quelques couches supplémentaires sont ajoutées à la carte, notamment une case indiquant l'endroit où vous avez cliqué, la collection d'images utilisée pour créer le tracé et les coefficients du modèle de régression.    
     
     
-    ![img35](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img35.png)
+    ![img35](./images/CODED/img35.png)
 
 
 
@@ -897,7 +897,7 @@ Dans l'interface graphique "Cartographie des perturbations des forêts", défini
 1. Sélectionnez "Utiliser un atout pour la région d'études" sur le côté gauche de la demande. 
 2. Copiez et collez le chemin d'accès à l'asset "Cambodia_Extent" dans la zone de texte située juste en dessous du widget "Utiliser l'asset pour la région d'étude". Après avoir navigué jusqu'au Cambodge, votre écran devrait afficher la zone d'étude chargée sur la carte :
 
-![img36](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img36.png)
+![img36](./images/CODED/img36.png)
 
 
 3. Pour commencer, définissez les paramètres suivants. La définition de ceux-ci nous permettra de visualiser les séries chronologiques et de régler les paramètres. 
@@ -919,14 +919,14 @@ Dans l'interface graphique "Cartographie des perturbations des forêts", défini
     
     - Changez la visualisation en 1 bande (échelle de gris), avec la bande "lossyear", une gamme de 0 à 20, et une palette d'une couleur qui se distinguera bien sur la carte (dans l'exemple suivant, le rouge a été choisi). Cliquez sur  _Apply_. 
     
-      ![img37](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img37.png)
+      ![img37](./images/CODED/img37.png)
 
 
 
 5. Ajoutez le visualiseur de séries chronologiques à la carte avec _Toggle time series viewer_. Modifiez les min/max de l'axe des ordonnées de -1 à 1,5. 
 6. Passez un peu de temps à cliquer sur les zones cartographiées comme perte de couverture forestière et à visualiser les séries chronologiques. C'est une bonne occasion de modifier les paramètres _Consecutive Obs_ et _chiSquareProbability_. L'exemple ci-dessous se trouve à l'adresse suivante : Latitude, Longitude 13.307, 104.587. Vous pouvez ajouter ce point à la carte de la même manière que la couche de suivi des forêts mondiales en utilisant le chemin d'accès "users/openmrv/MRV/Cambodia_Example_Point". Notez la diminution spectaculaire de NDFI qui n'est pas prise en compte comme un changement.
 
-  ![img38](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img38.png)
+  ![img38](./images/CODED/img38.png)
 On peut voir la perturbation en cliquant sur l'observation dans le graphique à côté de l'erreur indiquant l'erreur d'omission. Notez que les données manquantes sont dues au problème du correcteur de ligne de balayage avec Landsat 7.  
 ![alt_text](images/CODED/img39.png "image_tooltip")  
 
@@ -936,13 +936,13 @@ Expérimentez avec différentes valeurs pour _Consecutive Obs_ et _chiSquareProb
 
    - Remarquez que le changement du seuil _Consecutive Obs_ de 4 à 3 a permis de détecter correctement le changement :  
 
-    ![alt_text](images/CODED/img40.png "image_tooltip")  
+    ![alt_text](./images/CODED/img40.png "image_tooltip")  
 
   Il n'est pas réaliste de déterminer l'ensemble parfait de paramètres pour un pays entier. Cependant, cet exercice peut être utilisé pour déterminer un ensemble de paramètres qui fonctionne bien compte tenu de la disponibilité des données de votre domaine d'étude. 
 
 7. Après avoir défini un ensemble de paramètres, exportez les résultats en sélectionnant "Stratification" sous les options "Exporter". Comme nous exportons un pays entier, l'exportation peut échouer si nous essayons de faire l'analyse en une seule fois. Par conséquent, sélectionnez l'option d'exportation "Utiliser la grille". Cette option divisera les données de sortie en grilles de 5x5 degrés, ce qui accélérera considérablement le temps de traitement et permettra de créer des cartes de sortie qui pourront être assemblées lors de l'étape suivante. Après avoir cliqué sur "Run", vous devriez voir deux tâches d'exportation pour différentes grilles de 5x5 degrés qui constituent la région d'étude.
 
-![alt_text](images/CODED/img41.png "image_tooltip")
+![alt_text](./images/CODED/img41.png "image_tooltip")
 
 
 8. Une fois que les deux tâches sont terminées, les deux zones de la grille peuvent être combinées pour former une seule stratification pour le pays du Cambodge. Le code suivant peut être trouvé dans le script "Combine Grids" dans le dossier CODED.
@@ -971,7 +971,7 @@ Export.image.toAsset({
 })
 ```
 
-![alt_text](images/CODED/img42.png "image_tooltip")
+![alt_text](./images/CODED/img42.png "image_tooltip")
 
 
 
@@ -1013,27 +1013,27 @@ Un paramètre qui devrait être ajusté pour le Mozambique est le seuil de couve
 Sentinel-2 RGB Composite
 <p>
 
-![img43](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img43.png)
+![img43](./images/CODED/img43.png)
 
 
 
 
 <p>
 
-![img44](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img44.png)
+![img44](./images/CODED/img44.png)
 
 
 <p>
 
 
 
-![img45](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img45.png)
+![img45](./images/CODED/img45.png)
 <p>
 
 
 
 
-![img46](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img46.png)
+![img46](./images/CODED/img46.png)
 
 
 
@@ -1043,21 +1043,21 @@ Sentinel-2 RGB Composite
 *   Sur la base de ces tests, il est recommandé d'atteindre un seuil de recouvrement des arbres de 40. 
 * Ensuite, nous pouvons examiner un exemple de série chronologique Sentinel-2 de NDFI pour un pixel de forêt perturbé.  Un exemple d'un événement de changement de forêt peut être trouvé dans l'actif : users/openmrv/MRV/Mozambique_Exemple_Point
     * Ajouter le point à la carte en utilisant les outils _Asset path_ et _Load asset_. Naviguer jusqu'au point au Mozambique, et définir la région d'étude autour du point.
-*   ![img47](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img47.png)
+*   ![img47](./images/CODED/img47.png)
     *   Ajouter le viewer de séries temporelles avec _Toggle time series viewer_. 
     *   Cliquez sur le point ajouté pour voir la série chronologique et l'ajustement du modèle du NDFI.
-    ![img48](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img48.png)
+    ![img48](./images/CODED/img48.png)
     *   Notez qu'il y a une variabilité substantielle dans les séries chronologiques des NDFI avant 2020, bien qu'il n'y ait pas de rupture de modèle. Cette variabilité pourrait être due à deux facteurs : 
         * Il y a un changement dans la forêt en raison d'une perturbation ou d'une croissance.
         * La variabilité naturelle et saisonnière de la forêt. 
-    * Il est difficile à déterminer à partir de ce graphique car les données Sentinel-2 pour cet endroit ne sont disponibles qu'après 2019. Alternativement, nous pouvons regarder les observations Landsat pour ce pixel d'exemple, que les archives GEE commencent des années avant celles de Sentinel-2. Notez la variabilité du paysage en termes de verdure avant 2020 et le changement spectaculaire dû à la perturbation dans le pixel d'exemple (point noir au centre) :![img49](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img49.gif)
+    * Il est difficile à déterminer à partir de ce graphique car les données Sentinel-2 pour cet endroit ne sont disponibles qu'après 2019. Alternativement, nous pouvons regarder les observations Landsat pour ce pixel d'exemple, que les archives GEE commencent des années avant celles de Sentinel-2. Notez la variabilité du paysage en termes de verdure avant 2020 et le changement spectaculaire dû à la perturbation dans le pixel d'exemple (point noir au centre) :![img49](.//images/CODED/img49.gif)
     *   Sur ces images, on voit qu'il y a une saisonnalité due à la phénologie des plantes. La végétation apparaît brune en raison de la phénologie à la fin de la saison sèche, soit vers septembre à décembre. Nous pouvons supprimer ces dates de l'analyse dans les paramètres "Input" en changeant les paramètres _Start DOY_ et _End DOY_ en 1 à 244 (du 1er janvier au 1er septembre). Observez les séries chronologiques de Sentinel-2 en excluant les dates de la saison sèche :
-     ![img50](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img50.png)
+     ![img50](./images/CODED/img50.png)
     *   Il est intéressant de noter qu'un changement a été trouvé sans effectuer de filtrage pour les images de la saison sèche mais pas après le filtrage ! Ceci est dû au fait que les modèles de régression saisonnière s'adaptent correctement à la variabilité saisonnière, de sorte que les faibles valeurs de l'indice NDFI à la fin de 2019 ont été déterminées comme étant la trajectoire annuelle "normale" des données. Les observations après la perturbation en avril 2020 ne correspondent pas à la "tendance saisonnière normale", et donc un changement est signalé. Sur la base de cet exemple, il apparaît que le filtrage par jour de l'année fait plus de mal que de bien. 
     * Après avoir exploré la série chronologique des différents lieux, exporter une stratification en sélectionnant l'option _Export_ option for _Stratification_, et en définissant la zone d'étude avec _Use Asset for Study Area_ et en saisissant la collection de caractéristiques ("users/openmrv/MRV/MozambiqueArea"). 
     * Après le traitement, la stratification peut être ajoutée à la carte en copiant et en collant le chemin vers l'actif dans la zone de texte _Asset path_ et en sélectionnant _Load asset_. La carte doit être affichée sur la carte. 
 
-![img53](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img53.png)
+![img53](./images/CODED/img53.png)
 
 **Conseil** : si vous trouvez trop d'erreurs de commission (ou de faux changements détectés), essayez de diminuer le seuil _Obs_ consécutif. Notez la différence dans les deux cartes ci-dessous. Ces couches montrent des pixels marqués comme changement et. sont ajoutées à la carte en cochant les cases de visualisation _Add Break Date_ (pour l'ajouter à la carte) et _Mask Results_ (pour appliquer le masque Forest/Non-Forest Mask). La couche de la date de rupture peut généralement être calculée à la volée, de sorte que les paramètres de détection des changements peuvent être ajustés sans qu'il soit nécessaire d'exporter les résultats à chaque fois. Si vous décochez le paramètre _Reset Map_, les résultats précédents resteront chargés sur la carte. 
 
@@ -1067,13 +1067,13 @@ Sentinel-2 RGB Composite
 <strong><i>Consecutive obs</i> = 3</strong>
 <p>
 
-![img51](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img51.png)
+![img51](./images/CODED/img51.png)
 
 
    <td><strong><i> Consecutive obs = 5</i></strong>
 
 <p>
- ![img52](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/img52.png)
+ ![img52](./images/CODED/img52.png)
 
 - Ce processus est censé être itératif. Une fois qu'une stratification est exportée, elle peut être chargée sur la carte et analysée à l'aide du Time Series Viewer. Il est recommandé de commencer dans une petite zone afin de pouvoir ajuster les paramètres sans qu'un temps de traitement important soit nécessaire. 
 
@@ -1150,7 +1150,7 @@ Cela indique qu'un lien vers une bibliothèque externe est rompu. Veuillez vous 
 
 - Zhu, Z., Woodcock, C.E., 2014. Continuous change detection and classification of land cover using all available Landsat data. Remote Sens. Environ. 144, 152–171. https://doi.org/10.1016/j.rse.2014.01.011
 
- ![cc](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/cc.png)
+ ![cc](./images/CODED/cc.png)
 This work is licensed under a [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
 Copyright 2020, World Bank 
@@ -1165,4 +1165,4 @@ Jennifer Juliana Escamilla Valdez, El Salvador, Ministerio de Medio Ambiente y R
 
 Attribution
 Bullock, E. 2020. Continuous Degradation Detection (CODED). © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)  
-![WB_FCPF2](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/WB_FCPF2.png)
+![WB_FCPF2](./images/CODED/WB_FCPF2.png)
