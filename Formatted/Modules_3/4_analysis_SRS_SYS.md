@@ -8,6 +8,8 @@ publisher and license: Copyright 2021, World Bank. This work is licensed under a
 
 tags:
 - OpenMRV
+- AREA2
+- GEE
 - Accuracy
 - Accuracy assessment
 - Area Estimation
@@ -114,6 +116,8 @@ Finally, in cell G1 type "Prod. acc. FD" and in G2 "=countifs(A1:A101,"1",B1:B10
 |8| 1             |    1         | 1     | 0.0737          |    | |
 |9| 2             |    1         | 1     | Margin of error |    | |
 |10| 2             |    2         | 0     | 53%            |    | |
+
+For analysis of sampled data under stratified random sampling (STR), please check a tutorial here on OpenMRV under process "Area estimation / Accuracy Assessment" and tools "GEE" and "GEE" that focus on STR estimators.
 
 ### 3.2 Software to automate the analysis of sample results 
 
