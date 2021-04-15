@@ -101,7 +101,7 @@ In our example, the proportion of disturbance in the study area is the target, w
 ##### Step 3
 Now, let's set the target of the sampling: the desired margin of error of the area of disturbance. In the formula for estimating the sample size, the target is expressed as a standard error. If again targeting a 25% margin of error, then
 
-![](https://latex.codecogs.com/svg.latex?\Large&space;MoE=\frac{1.96\times\textup{SE}(\hat{p})}{\hat{p}}\Leftrightarrow\textup{SE}(\hat{p})=\frac{MoE\times&space;\hat{p}}{1.96}=\frac{0.1\times0.01}{1.96}=0.0005)
+![](https://latex.codecogs.com/svg.latex?\Large&space;MoE=\frac{1.96\times\textup{SE}(\hat{p})}{\hat{p}}\Leftrightarrow\textup{SE}(\hat{p})=\frac{MoE\times&space;\hat{p}}{1.96}=\frac{0.25\times0.014}{1.96}=0.0017)
 
 We are here using a z-score of 1.96 which corresponds to the 95% confidence level. If we specify the MoE in cell D7, then we can calculate the target standard error in cell D8: "=(D7/100)*D3/2":
 
