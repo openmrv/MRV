@@ -1,10 +1,71 @@
 ---
-title: Module 3.3.3 Survey Form Creation and Reference Observation Collection with Collect Earth Online
-toc: true
-colorlinks: blue
+title: Response Design in Collect Earth Online
+summary: Collect Earth Online is a custom built, open-source, satellite image viewing and interpretation system to collect data for use in projects that require land cover and/or land use reference information. In this tutorial you will learn how to draft, review, and publish a project in Collect Earth Online. More information is available on the Collect Earth Online Support Page (https://collect.earth/support).
+author:
+- Karis Tenneson
+- Karen Dyson
+creation date: February, 2021
+language: English
+publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+
+tags:
+- OpenMRV
+- Landsat
+- Sentinel 2
+- Sentinel 1
+- Cloud cover
+- Optical sensors
+- Remote sensing
+- Composite
+- Mosaic
+- Time series
+- GEE
+- CEO
+- Planet Labs
+- Change detection
+- Land cover mapping
+- Forest mapping
+- Deforestation mapping
+- Degradation mapping
+- Forest degradation mapping
+- Sampling design
+- Sample design
+- Sample selection
+- Sample
+- Sampling frame
+- Stratified
+- Simple Random
+- Systematic
+- Response design
+- Survey
+- Survey design
+- Accuracy
+- Accuracy assessment
+- Area Estimation
+- Reference data
+- Reference classification
+- Reference observations
+- Colombia
+
+group:
+- category: Stratified
+  stage: Sampling
+- category: Simple Random
+  stage: Sampling
+- category: Cluster
+  stage: Sampling
+- category: Systematic
+  stage: Sampling
+- category: Collect Earth Online
+  stage: Reference data collection
+- category: Google Earth Engine
+  stage: Reference data collection
+- category: Stratified
+  stage: Area Estimation/Accuracy assessment
 ---
 
-# Module 3.3.3 Création de formulaires d'enquête et collecte d'observations de référence avec Collect Earth Onlinee
+
+# Création de formulaires d'enquête et collecte d'observations de référence avec Collect Earth Onlinee
 
 ## 1 Contexte
 
@@ -101,7 +162,7 @@ Pour cet exercice, sélectionnez cette option.
 
 11. Lorsque tous les champs sont remplis, cliquez sur [Add New Imagery].
 
-![AddS2](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/AddS2.JPG)
+![AddS2](./figures/AddS2.JPG)
 
 ### 2.2 Ajouter les données Sentinel 1 à la page de l'institution
 
@@ -118,7 +179,7 @@ Les informations de Sentinel 1 ne sont disponibles que d'avril 2014 à aujourd'h
 9. Si vous voulez ajouter cette source d'imagerie à tous les projets de votre institution, cochez la case à côté de Add Imagery to All Projects When Saving (Ajouter l'imagerie à tous les projets lors de l'enregistrement). Cochez cette case pour ajouter la source à tous les projets existants.
 10. Lorsque tous les champs sont remplis, cliquez sur [Add New Imagery].
 
-![AddS1](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/AddS1.JPG)
+![AddS1](./figures/AddS1.JPG)
 
 ### 2.3 Ajouter les images de Bing à la page de l'institution
 
@@ -193,7 +254,7 @@ Pour commencer, ouvrez un navigateur Web et accédez à [Collect Earth Online](h
 
 1. Dans l'onglet Projets de votre page Institution, cliquez sur  [Create New Project]. Vous accédez alors à l'assistant de création de projet. L'assistant comprend 6 parties, chacune étant couverte par l'une des sections ci-dessous.
 
-![Wizard](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/Wizard.png)
+![Wizard](./figures/Wizard.png)
 
 #### 3.2.1 Aperçu du projet : 
 
@@ -209,7 +270,7 @@ Cependant, pour référence, des informations sur le travail avec un template so
 
   ii.  Cliquez ensuite sur le menu déroulant sous Select Project et cliquez sur le nom du projet.
 
-![Template](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/Template.png)
+![Template](./figures/Template.png)
 
   iii. Cliquez sur le nom du projet, puis sur Load pour charger les informations du template.
 
@@ -243,7 +304,7 @@ Pour cet exercice, sélectionnez Institution.
 
 i. La première option consiste à " Afficher le lien GEE Script sur la page de collecte ". Ceci permet aux utilisateurs de Data Collection de cliquer sur un bouton intitulé Go to GEE Script pour ouvrir un nouvel onglet avec une série d'images et de graphiques de séries temporelles Landsat et Sentinel (voir image ci-dessous). Pour cet exercice, sélectionnez cette option.
 
-![GEE_script](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/GEE_script.JPG)
+![GEE_script](./figures/GEE_script.JPG)
 
 Dans l'exemple d'image du script GEE, il y a trois panneaux. À l'extrême gauche, il y a un composite Sentinel 2 des 12 derniers mois. Elle est colorée à l'aide d'un composite de couleurs infrarouges (proche infrarouge, infrarouge moyen, rouge). Au centre se trouvent les mosaïques annuelles en couleur de Landsat 8 et Landsat 7, avec un curseur permettant de choisir entre les années. À droite, les graphiques NDVI de la parcelle provenant de MODIS, Landsat 7/8 et Sentinel 2. Pour les graphiques Landsat 7/8 et Sentinel, vous pouvez cliquer sur un point des graphiques pour charger des images spécifiques dans les panneaux de gauche et du centre.
 
@@ -261,7 +322,7 @@ Pour cet exercice, sélectionnez l'option de lancement automatique de Geo-Dash (
 
 
 
-![ProjectOverview](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/ProjectOverview.JPG)
+![ProjectOverview](./figures/ProjectOverview.JPG)
 
 
 
@@ -285,7 +346,7 @@ Cliquez sur la case à cocher à côté de chaque source d'images que vous souha
 
 4. Cliquez sur " Next " (Suivant) lorsque vous avez terminé.
 
-![ImagerySelection](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/ImagerySelection.JPG)
+![ImagerySelection](./figures/ImagerySelection.JPG)
 
 #### 3.2.3  Spécification de l'échantillon : Plan d'échantillonnage
 
@@ -307,11 +368,11 @@ i. La façon la plus simple de sélectionner le périmètre d'intérêt de votre
 
   * Les cases de coordonnées se remplissent dès que la case est dessinée et que vous relâchez le bouton de la souris. Les coordonnées sont affichées en lat/long en utilisant WGS84 EPSG:4326.
 
-![AOI](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/AOI.png)
+![AOI](./figures/AOI.png)
 
 ii. Vous pouvez également saisir manuellement vos coordonnées de délimitation dans les cases prévues à cet effet.
 
-![CoordBoundingBox](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/CoordBoundingBox.png)
+![CoordBoundingBox](./figures/CoordBoundingBox.png)
 
 ##### 3.2.3.1 Plot Design
 
@@ -325,7 +386,7 @@ Nous devons d'abord ajuster le formatage du fichier .csv. Le fichier que vous t�
 
 i.Dans un tableur comme Excel, ouvrez le fichier d'échantillon aléatoire stratifié que vous avez créé dans l'exercice de sélection d'échantillon (Module 3.2). 
 
-![stratSmplRaw](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/stratSmplRaw.JPG)
+![stratSmplRaw](./figures/stratSmplRaw.JPG)
 
 
 
@@ -337,13 +398,13 @@ iv. Supprimez la colonne appelée  '.geo'.
 
 v. Sauvegardez les changements dans votre  .csv.
 
-![stratSmplMod](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/stratSmplMod.JPG)
+![stratSmplMod](./figures/stratSmplMod.JPG)
 
 
 
 Remarque : si vous ne spécifiez pas correctement les noms des colonnes (orthographe ou ordre), vous obtiendrez l'erreur suivante :
 
-![csvError](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/csvError.png)
+![csvError](./figures/csvError.png)
 
 
 
@@ -382,7 +443,7 @@ C'est ici que vous indiquerez combien de points d'échantillonnage se trouvent d
 
 Pour cet exercice, ne cochez pas cette option.
 
-![SmpDesign](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/SmpDesign.JPG)
+![SmpDesign](./figures/SmpDesign.JPG)
 
 
 
@@ -421,7 +482,7 @@ Dans l'onglet Survey Question , le panneau de gauche vous permet de saisir les q
 
 CEO offre un moyen simple de poser des questions à choix multiples. Comme c'est le type de question le plus communément utilisé, nous l'utiliserons pour cet exemple. Dans CEO, ces questions sont appelées questions "bouton-texte" car dans la collecte de données, elles s'affichent comme un bouton avec du texte.
 
-![buttonQuestion](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/buttonQuestion.png)
+![buttonQuestion](./figures/buttonQuestion.png)
 
 
 
@@ -472,7 +533,7 @@ i.  Dans l'espace Nouvelle Question en bas de l'écran, tapez 'Previous land cov
 
 ii. Ajoutez maintenant des réponses à la nouvelle question enfant en utilisant l'approche décrite à l'étape 3 ci-dessus. Utilisez les mêmes catégories de l'occupation du sol que pour notre première question :  WATER, SNOW/ICE, DEVELOPED, BARE, TREES, SHRUB, GRASSLAND, CROPS, and OTHER. 
 
-![ChildQ](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/ChildQ.JPG)
+![ChildQ](./figures/ChildQ.JPG)
 
 
 
@@ -553,13 +614,13 @@ Geo-Dash est un tableau de bord qui s'ouvre dans une deuxième fenêtre lorsque 
 
 1. Vous pouvez configurer votre tableau de bord géographique en cliquant sur [Configurer le tableau de bord géographique] à partir de la page Informations sur le projet / Révision du projet. L'écran de mise en page du Geo-Dash apparaît alors.
 
-![geoDash](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/geoDash.JPG)
+![geoDash](./figures/geoDash.JPG)
 
 2. [Copier la mise en page] vous permet de copier le Geo-Dash d'un autre projet. Cela supprimera tous les autres widgets Geo-Dash que vous avez déjà associés à votre projet.t.
 
 
 
-![copygeodash](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/copygeodash.JPG)
+![copygeodash](./figures/copygeodash.JPG)
 
 3. Vous pouvez ajouter des widgets Geo-Dash individuels en cliquant sur [Add  Widget]. Pour savoir ce que font chacun des widgets, cliquez sur [Aide Geo-Dash] pour ouvrir le centre d'aide Geo-Dash
 
@@ -567,7 +628,7 @@ Pour cet exercice, nous n'ajouterons qu'un seul des nombreux widgets Geo-dash di
 
 
 
-![geodashHelp](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/geodashHelp.JPG)
+![geodashHelp](./figures/geodashHelp.JPG)
 
 #### 3.2.8.1 Ajout d'images de ChronoSéquence au GeoDash, le widget de dégradation des forêts
 
@@ -601,13 +662,13 @@ Les utilisateurs de votre équipe qui participeront à la collecte des observati
 
 Une fois que les membres ont été ajoutés à l'institution, vous pouvez partager avec eux le lien vers le projet. Vous pouvez aussi leur demander de naviguer sur la page de votre institution et de sélectionner le projet à partir de la page d'accueil de l'institution.
 
-![FindProject](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/FindProject.JPG)
+![FindProject](./figures/FindProject.JPG)
 
 
 
 1. Une fois dans la page de collecte des données du projet, vous pouvez accéder à l'aide pour l'écran d'analyse à tout moment en cliquant sur le **?** violet dans le coin supérieur droit de l'écran. La fonction d'aide vous indiquera les caractéristiques importantes de la page de collecte des données.
 
-![HelpButton](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/HelpButton.JPG)
+![HelpButton](./figures/HelpButton.JPG)
 
 
 
@@ -669,7 +730,7 @@ Une fois que les membres ont été ajoutés à l'institution, vous pouvez partag
 
 2. Lisez la première question de l'enquête et les réponses possibles. Elle demande quelle est la couverture actuelle du sol. Pour le déterminer, faites un zoom arrière sur la parcelle jusqu'à ce que l'imagerie devienne plus claire. Le fait de dézoomer vous aidera à recueillir des indices contextuels sur le paysage.
 
-![Q1](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/Q1.JPG)
+![Q1](./figures/Q1.JPG)
 
 3. Utilisez le menu déroulant Options d'imagerie pour charger les sources d'images disponibles et déterminer quelle est la couverture du sol actuelle. 
 4. Dans l'exemple ci-dessus, il s'agit d'arbres. Pour répondre à la première question, vous pouvez simplement cliquer sur la réponse - TREES - sans avoir à sélectionner le(s) point(s) dans la placette.
@@ -687,11 +748,11 @@ Une fois que les membres ont été ajoutés à l'institution, vous pouvez partag
 * Si vous faites une erreur et attribuez une mauvaise valeur à un ou plusieurs points, vous pouvez re-sélectionner les points et changer la "réponse".
 
 
-![Q2pre](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/Q2pre.JPG)
+![Q2pre](./figures/Q2pre.JPG)
 
 5. Sélectionnez ensuite la deuxième question de l'enquête en cliquant sur "2" ou en appuyant sur la flèche de droite. Cette question demande s'il y a eu un changement dans la couverture du sol, en quelle année il s'est produit. S'il y a eu plus d'un changement, cela indique que vous devez enregistrer l'année du changement le plus récent. 
 
-![Q2](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/Q2.JPG)
+![Q2](./figures/Q2.JPG)
 
 
 
@@ -700,7 +761,7 @@ Une fois que les membres ont été ajoutés à l'institution, vous pouvez partag
 
 8. Dans cet exercice, la page GeoDash a été configurée avec un simple outil de visualisation des séries chronologiques. Il s'agit d'un graphique de séries chronologiques des valeurs mensuelles (NDFI) de janvier 2005 à janvier 2020 calculées à partir des collections d'images Landsat. Observez les changements brusques et graduels dans le graphique de la série chronologique de l'indice NDFI, illustré dans le panneau inférieur. N'oubliez pas d'examiner le graphique de la série chronologique à la recherche de tout modèle cyclique (indiquant des changements saisonniers) avant d'évaluer les valeurs inattendues. Ces schémas saisonniers sont présents dans les forêts à feuillus, mais n'indiquent pas un changement de la couverture du sol. Recherchez les changements abrupts (généralement de fortes diminutions) ou les changements graduels (généralement des augmentations graduelles). Ils indiquent des événements potentiels de dégradation et de restauration.
 
-![TimeSeries](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/TimeSeries.JPG)
+![TimeSeries](./figures/TimeSeries.JPG)
 
 
 
@@ -708,9 +769,9 @@ Une fois que les membres ont été ajoutés à l'institution, vous pouvez partag
 
 * Par exemple, dans l'image ci-dessous, il y a quelques points avec une faible valeur NDFI par rapport à la majorité des valeurs sur la période. Par exemple, dans l'image ci-dessous, il y a un creux dans les valeurs NDFI le 9 novembre 2015. Si vous cliquez sur le point de l'image avant le creux, vous voyez que le paysage semble boisé. Si vous cliquez ensuite sur le point avec une faible valeur (le 9-11-2015), l'image se charge et le paysage semble toujours boisé. Cependant, il y a un bord de nuage qui chevauche le tracé. Dans cet exemple, il semble que le changement dans la série chronologique soit dû au bruit atmosphérique plutôt qu'aux changements de la couverture du sol. Après avoir cliqué sur toutes les valeurs basses de l'indice NDFI et examiné l'image Landsat associée, il apparaît que ces baisses sont toutes dues à la couverture nuageuse à cet endroit de la parcelle. Par conséquent, pour cette placette, à la question 2, nous choisissons " No Change ".
 
-![prechange](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/prechange.png)
+![prechange](./figures/prechange.png)
 
-![Change](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/Change.png)
+![Change](./figures/Change.png)
 
 
 
@@ -722,7 +783,7 @@ Une fois que les membres ont été ajoutés à l'institution, vous pouvez partag
 
 * Une forte diminution de l'indice NDFI (souvent accompagnée d'une restauration progressive) peut indiquer une exploitation forestière sélective. Le panneau de gauche montre le paysage avant, celui de droite après. Nous pouvons voir que sur notre placette d'échantillonnage, une route a été créée. Il s'agirait d'une dégradation même autour de 2009 avec une restauration durant 2-3 ans.
 
-![road](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/road.png)
+![road](./figures/road.png)
 
 10. Cliquez entre les différentes dates sur et autour de votre événement suspect pour confirmer visuellement qu'un événement s'est produit. Si un événement s'est produit, indiquez l'année où il s'est produit. S'il n'y a eu aucun changement, sélectionnez " No Changes ". 
 
@@ -838,7 +899,7 @@ Tenneson, Karis and Dyson, Karen. 2021. Module 3.3.3 Survey Form Creation and Re
 
 License: Creative Commons Attribution license (CC BY 3.0 IGO)
 
-![WB_FCPF](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/WB_FCPF.png)
+![WB_FCPF](./figures/WB_FCPF.png)
 
-![GFOI](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/GFOI.png)
+![GFOI](./figures/GFOI.png)
 
