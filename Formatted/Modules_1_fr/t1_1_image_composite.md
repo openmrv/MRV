@@ -95,14 +95,14 @@ L'intérêt de l'utilisation de Google Earth Engine (GEE) est que GEE contient p
 
 
 
-![GEEcodeEditor](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\GEEcodeEditor.png)
+![GEEcodeEditor](./figures/m1.1/GEEcodeEditor.png)
 
 
 ## 4 Création d'un composite
 
 Le déroulement général du processus de ce tutoriel est présenté ci-dessous : 
 
-![WB_graphs_v2-02-crop](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\WB_graphs_v2-02-crop.png)
+![WB_graphs_v2-02-crop](./figures/m1.1/WB_graphs_v2-02-crop.png)
 
 
 
@@ -121,14 +121,14 @@ Pour commencer, nous devons définir notre domaine d'intérêt. Nous utiliserons
 
 Cherchez "USDOS" dans la case *Recherche* de l'éditeur de code et cliquez sur "LSIB 2017" : Large Scale International Boundary Polygons, Simplified".
 
-![searchlisb](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\searchlisb.png)
+![searchlisb](./figures/m.1.1/searchlisb.png)
 
 
 
 
 Une fenêtre popup affichera la description, le schéma du tableau (propriétés) et les conditions d'utilisation de cet ensemble de données.
 
-![lisbGEE](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\lisbGEE.png)
+![lisbGEE](./figures/m1.1/lisbGEE.png)
 
 Copiez et collez le code ci-dessous pour créer une variable pour cet ensemble de données.
 
@@ -151,7 +151,7 @@ Map.centerObject(country,5);
 Map.addLayer(country,{},'Colombia');
 ```
 
-![colombiaGEE2](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\colombiaGEE2.png)
+![colombiaGEE2](./figures/m1.1/colombiaGEE2.png)
 
 
 
@@ -201,7 +201,7 @@ Print `l8Filt` pour voir votre collection filtrée. Cliquez sur *Run* après avo
 print('L8 SR collection filtered',l8Filt);
 ```
 
-![printL8v4](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\printL8v4.png)
+![printL8v4](./figures/m1.1/printL8v4.png)
 
 Avec votre collection filtrée, créez un composite en utilisant un réducteur de médiane. Nous utiliserons la fonction `median()` pour `ee.ImageCollection` et la fonction `clip()` pour découper le composite dans la zone d'intérêt. 
 
@@ -235,11 +235,11 @@ print('L8 composite 2019',composite);
 > * Min et max : définit la gamme d'étirement des couleurs. L'étendue dépend du type de données. Par exemple, les images 16 bits non signées ont une plage totale de 0 à 65 536. Cette option vous permet de régler l'affichage sur un sous-ensemble de cette plage. Dans ce cas, nous définissons un minimum de 300 et un maximum de 3000 et ceux-ci correspondent aux valeurs de réflectance de la surface.
 > * Palette : spécifie la palette de couleurs utilisée pour afficher les informations. Non utilisée dans ce cas.
 >
-> Vous pouvez tester les paramètres de visualisation en cliquant sur l'icône de l'engrenage![gear](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\gear.png) à côté de la couche "Composite 2019" et en jouant avec les options d'étirement.
+> Vous pouvez tester les paramètres de visualisation en cliquant sur l'icône de l'engrenage![gear](./figures/m1.1/gear.png) à côté de la couche "Composite 2019" et en jouant avec les options d'étirement.
 >
-> ![visParams2](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\visParams2.png)
+> ![visParams2](./figure/m1.1/visParams2.png)
 >
-> ![l8cloudycomposite](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\l8cloudycomposite.png)
+> ![l8cloudycomposite](./figures/m1.1/l8cloudycomposite.png)
 >
 > 
 
@@ -262,13 +262,13 @@ print('L8 composite 2019 pre cloud filter',composite2);
 
 Vous verrez que ce nouveau composite est légèrement meilleur que le précédent mais reste très nuageux. Dans la Console, notez également que la nouvelle collection compte 454 images contre 956 dans la précédente non filtrée par le nuage.
 
-![l8cloudycompositev2](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\l8cloudycompositev2.png)
+![l8cloudycompositev2](./figures/m1.1/l8cloudycompositev2.png)
 
 
 
 Essayez d'ajuster le seuil de `CLOUD_COVER` à différents pourcentages et vérifiez les résultats. Exemple : avec 20% comme seuil, vous pouvez voir que de nombreuses régions du pays ont des lacunes en matière d'image. De plus, certaines tuiles, même avec un filtre de nuages, présentent encore une couverture nuageuse de grande surface.
 
-![l820cloudthreshold2](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\l820cloudthreshold2.png)
+![l820cloudthreshold2](./figures/m1.1/l820cloudthreshold2.png)
 
 
 
@@ -311,7 +311,7 @@ Map.addLayer(l8compositeMasked,
 > * [Opérateur du quart de gauche en JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Left_shift)
 > * [fonction GEE `bitwiseAnd`] (https://developers.google.com/earth-engine/apidocs/ee-image-bitwiseand)
 
-![l8masked2](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\l8masked2.png)
+![l8masked2](./figures/m1.1/l8masked2.png)
 
 
 
@@ -360,7 +360,7 @@ var l8TwoYearComposite = l8.filterBounds(country)
 Map.addLayer(l8TwoYearComposite,{bands:['B4','B3','B2'],min:0,max:2000},'Landsat 8 Two-Year composite');
 ```
 
-![twoYearComposite2](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\twoYearComposite2.png)s
+![twoYearComposite2](./figures/m1.1/twoYearComposite2.png)s
 
 L'image qui en résulte présente beaucoup moins de lacunes. Encore une fois, si la période de temps n'est pas une contrainte pour la création de votre composite, vous pouvez incorporer plus d'images à partir d'une troisième année, et ainsi de suite.
 
@@ -414,13 +414,13 @@ Map.addLayer(l7compositeMasked,{bands:['B3','B2','B1'],min:0,
 
 > NOTE : Nous avons utilisé des "bandes : [B3], [B2], [B1]" cette fois-ci parce que Landsat 7 a des désignations de bandes différentes. Les capteurs à bord de chacun des satellites Landsat ont été conçus pour acquérir des données dans différentes gammes de fréquences le long du spectre électromagnétique. Alors que pour Landsat 8, les bandes rouge, verte et bleue sont respectivement B4, B3 et B2, pour Landsat 7, ces mêmes bandes sont respectivement B3, B2 et B1. Pour plus d'informations, veuillez consulter [cette page](https://www.usgs.gov/faqs/what-are-band-designations-landsat-satellites?qt-news_science_products=0#qt-news_science_products)
 
-![l7composite](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\l7composite.png)
+![l7composite](./figures/m1.1/l7composite.png)
 
 
 
 Vous devriez voir une image avec de nombreuses lacunes comme celle ci-dessus. Landsat 7 a été lancé en 1999, mais depuis 2003, le capteur a acquis et livré des données avec des lacunes causées par la défaillance du correcteur de ligne de balayage (SLC). Sans SLC opérationnel, la ligne de visée du capteur trace un motif en zigzag le long de la trace au sol du satellite, et, par conséquent, la zone imagée est dupliquée. Lorsque les données de niveau 1 sont traitées, les zones dupliquées sont supprimées, ce qui laisse des lacunes dans les données. Pour plus d'informations sur Landsat 7 et l'erreur SLC, veuillez vous référer à [cette page] (https://www.usgs.gov/core-science-systems/nli/landsat/landsat-7?qt-science_support_page_related_con=0#qt-science_support_page_related_con).
 
-![SLC](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\SLC.jpg)
+![SLC](./figures/m1.1/SLC.jpg)
 
 
 
@@ -453,7 +453,7 @@ print('L7 SR collection renamed',l7FiltMaskedRenamed);
 
 > NOTE : Si vous vérifiez les bandes des premières images des collections `l7FiltMasked` et `l7FiltMaskedRenamed`, vous verrez que les noms des bandes ont été renommés, et que toutes les bandes n'ont pas été copiées (`sr_atmos_opacity`, `sr_cloud_qa`, `pixel_qa`, `radsat_qa`, et `B6`). Pour copier ces bandes supplémentaires, il suffit de les ajouter à la fonction de renommage (pour `B6`, vous devrez le renommer afin qu'il n'ait pas le même nom que la nouvelle bande 5). L'image ci-dessous montre les bandes de la première image de la collection Landsat 7 sur la gauche, et les bandes de la première image de la collection Landsat 7 renommée sur la droite.
 >
-> ![rename2](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\rename2.png)
+> ![rename2](./figures/m1.1/rename2.png)
 >
 > 
 
@@ -465,7 +465,7 @@ var l78 = l7FiltMaskedRenamed.merge(l8FiltMasked);
 print('Merged collections',l78);
 ```
 
-![mergedCollection2](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\mergedCollection2.png)
+![mergedCollection2](./figures/m1.1/mergedCollection2.png)
 
 
 
@@ -480,7 +480,7 @@ Map.addLayer(l78composite,{bands:['B4','B3','B2'],min:0,max:2000},
 
 
 
-![tileError3](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\tileError3.png)
+![tileError3](/figure/m1.1/tileError3.png)
 
 
 
@@ -500,11 +500,11 @@ Map.addLayer(l78composite,{bands:['B4','B3','B2'],min:0,max:2000},
 
 Vous devriez voir une image composite qui ressemble à ceci :
 
-![mergedComposite2](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\mergedComposite2.png)
+![mergedComposite2](./figures/m1.1/mergedComposite2.png)
 
 Par rapport au précédent composite Landsat 8 uniquement, vous pouvez constater que certaines lacunes ont été comblées. Cependant, en raison de la nature générale de la mosaïque et du composite, et de l'erreur SLC de Landsat 7, vous pouvez également voir quelques artefacts dans certaines régions. Exemple au centroïde Latitude : 1,46, Longitude : -69,99. Composite Landsat 8 uniquement (à gauche) et composite Landsat 7 et 8 (à droite) pour 2019 :
 
-![l8andMergedComparison](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\l8andMergedComparison.png)
+![l8andMergedComparison](./figures/m1./l8andMergedComparison.png)
 
 
 
@@ -519,7 +519,7 @@ Nous pouvons essayer de combler les lacunes en utilisant une fonction de moyenne
 > NOTE : La fonction `focal_mean` contient 5 arguments d'entrée : 'Rayon', 'Type de noyau', 'Unités', 'Itérations' et 'Noyau'. Vous pouvez trouver des informations sur chacun d'eux en recherchant la moyenne focale dans l'onglet *Docs* (et sur toute fonction GEE). Pour cet exemple, nous avons défini un rayon de 1,5, un type de noyau carré, un noyau de pixels, et 2 itérations. Vous pouvez tester avec différentes variables. Plus ces valeurs sont grandes, plus les données sont floues.
 >
 
-![focalMeanDocs](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\focalMeanDocs.png)
+![focalMeanDocs](./figures/m1.1/focalMeanDocs.png)
 
 ```javascript
 // Fonction permettant de combler les lacunes de l'erreur SLC en utilisant la moyenne focale  
@@ -540,7 +540,7 @@ Map.addLayer(l78compositeFill,{bands:['B4','B3','B2'],min:0,
 
 Vous devriez voir un composite comme celui ci-dessous. Dans ce cas particulier, il peut être utile de ne pas appliquer cette méthode car elle "crée" de nouveaux pixels qui ressemblent à des nuages et la méthode précédente fait un meilleur travail. Cependant, pour d'autres régions, où la couverture nuageuse est moins importante, cette étape supplémentaire pourrait être utile.
 
-![focalMean4](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\focalMean4.png)
+![focalMean4](./figures/m1.1/focalMean4.png)
 
 #### 4.2.6 Composite Médoïde
 
@@ -579,11 +579,11 @@ var l78medoidComposite = l78.map(function(image) {
 Map.addLayer(l78medoidComposite,{bands:['B4','B3','B2'],min:0,max:2000},'L7&8 Medoid composite 2019');
 ```
 
-![LandsatMedoid2](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\LandsatMedoid2.png)
+![LandsatMedoid2](./figures/m1.1/LandsatMedoid2.png)
 
 Vous devriez voir une image comme celle ci-dessus. À première vue, vous pourriez penser qu'il n'y a pas beaucoup de différence par rapport à la médiane composite. Cependant, le composite médian peut montrer des améliorations significatives pour certains pixels. Voir l'exemple ci-dessous pour le point (2,86, -74,73) où les zones nuageuses de la médiane sont mieux représentées dans le composite de la médiane.
 
-![MedoidComparison](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\MedoidComparison.png)
+![MedoidComparison](./figures/m1.1/MedoidComparison.png)
 
 
 
@@ -651,7 +651,7 @@ Map.addLayer(s2composite,{bands:['B4','B3','B2'],min:0.02,max:0.3,
                           gamma:1.5},'Sentinel-2 2019 composite');
 ```
 
-![s2composite2](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\s2composite2.png)
+![s2composite2](./figures/m1.1/s2composite2.png)
 
 
 
@@ -663,7 +663,7 @@ Map.addLayer(s2composite,{bands:['B4','B3','B2'],min:0.02,max:0.3,
 >           'Sentinel-2 2019 composite SWIR/NIR/Blue');
 > ```
 >
-> ![s2compositeFalseColor2](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\s2compositeFalseColor2.png)
+> ![s2compositeFalseColor2](./figures/m1.1/s2compositeFalseColor2.png)
 >
 > 
 
@@ -673,7 +673,7 @@ L'Agence spatiale européenne n'a pas produit de données Sentinel-2 de niveau 2
 
 Les produits Top-of-Atmosphere n'ont pas été corrigés pour tenir compte de l'atmosphère. Par conséquent, un composite TOA présentera des différences par rapport à un BOA puisqu'il représentera les influences de l'atmosphère. Une image du composite médian de 2019 du produit L1 de Sentinel-2 est présentée ci-dessous, ainsi que le composite médian de 2019 du produit L2 pour comparaison.
 
-![s2compositeFalseColor3](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\s2compositeFalseColor3.png)
+![s2compositeFalseColor3](./figures/m1.1/s2compositeFalseColor3.png)
 
 Vous pouvez remarquer l'effet bleuâtre sur le composite TOA. Pour plus d'informations sur les niveaux de traitement Sentinel-2, veuillez consulter [cette page](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels) (et les sous-pages [Niveau 0](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels/level-0), [Niveau 1](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels/level-1), et [Niveau 2](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels/level-2)). D'autres ressources sur les différences entre la radiance, la réflectance et la couche supérieure de l'atmosphère sont disponibles :
 
@@ -703,7 +703,7 @@ Export.image.toDrive({
 });
 ```
 
-![taskProcess](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\taskProcess.png)
+![taskProcess](./figures/m1.1/taskProcess.png)
 
 
 
@@ -716,17 +716,17 @@ Export.image.toDrive({
 >
 > NOTE 2 : Si vous essayez d'exporter une image qui contient des bandes avec différents types de données, vous verrez une erreur. Toutes les bandes d'une image Sentinel-2 sont "non signées int16", par conséquent, vous ne rencontrerez pas d'erreur. Cependant, pour les images Landsat, vous devrez sélectionner des bandes spécifiques en utilisant la fonction "select" ou bien couler les bandes dans le même type de données puisque les types de données varient pour les différentes bandes (voir ci-dessous). Nous ne rencontrerons pas ce problème puisque notre composite Landsat combiné ne contient que les bandes B2-7 qui ont été sélectionnées précédemment, mais pour les collections Landsat séparées, vous devez appliquer la fonction "select".
 >
-> ![landsatDataType3](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\landsatDataType3.png)
+> ![landsatDataType3](./figures/m1.1/landsatDataType3.png)
 >
 > 
 
 Comme nous exportons un composite pour l'ensemble du pays, votre exportation prendra plusieurs minutes, voire des heures. Une fois l'exportation terminée, vous remarquerez que dans le dossier que vous avez spécifié, le composite est décomposé en fichiers GeoTiff séparés. Par exemple : l78composite2019-0000000000-0000000000.tif, l78composite2019-0000000000-000000xxxx.tif (avec xxxx étant des numéros différents), etc.
 
-> NOTE : pour vérifier le statut d'une tâche, passez la souris sur l'exportation et cliquez sur l'icône ![question2](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\question2.png)
+> NOTE : pour vérifier le statut d'une tâche, passez la souris sur l'exportation et cliquez sur l'icône ![question2](./figures/m1.1/question2.png)
 >
 > . Une fenêtre s'affiche alors avec les détails :
 >
-> ![taskDetails2](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\taskDetails2.png)
+> ![taskDetails2](./figures/m1.1/taskDetails2.png)
 >
 > 
 >
@@ -865,7 +865,7 @@ Non. Google Earth Engine est une plateforme basée sur le cloud, par conséquent
 
 En général, cette "erreur de script" n'affecte pas votre code. Si les sorties sont chargées correctement sur la console et que les couches sont ajoutées à la carte, vous ne devriez pas vous inquiéter de cette erreur. Une erreur réelle qui empêche l'utilisateur d'accomplir un résultat affichera un message indiquant *quelle* est l'erreur. Pour obtenir de l'aide afin de débugguer votre code, veuillez consulter le [Guide de débuggage] (https://developers.google.com/earth-engine/guides/debugging) et les liens internet [Comment obtenir de l'aide] (https://developers.google.com/earth-engine/help) disponibles dans la section 3. Google Earth Engine.
 
-![cc](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\cc.png)
+![cc](./figures/m1.1/cc.png)
 
 Ce travail est sous licence [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/).
 
@@ -893,7 +893,7 @@ Nicolau, Andrea P. 2020. Création de mosaïques/composites d'images pour Landsa
 
 
 
-![wb](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\wb.png)![gfoi](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\gfoi.png)
+![wb](./figures/m1.1/gfoi.png)
 
 
 
