@@ -1,10 +1,67 @@
 ---
-title: Module 3.3.2 How to create surveys in Collect and collect data using Collect Earth Desktop
-toc: true
-colorlinks: blue
+title: Response Design in Collect Earth Desktop
+summary: Collect Earth is a tool that enables data collection through Google Earth. Users can analyze high and very high resolution satellite imagery for a wide variety of purposes. In this tutorial you will learn how to set up Collect Earth, build a survey, generate/import a sampling grid, collect data, and export that data. More information is available on the Collect Earth website (http://www.openforis.org/newwebsite/tools/collect-earth.html).
+author:
+- Justine Bui
+- Karen Dyson
+creation date: February, 2021
+language: English
+publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+
+tags:
+- OpenMRV
+- Landsat
+- Sentinel 2
+- Cloud cover
+- Optical sensors
+- Remote sensing
+- Composite
+- Mosaic
+- CE
+- GEE
+- Planet Labs
+- Time series
+- Change detection
+- Land cover mapping
+- Forest mapping
+- Deforestation mapping
+- Degradation mapping
+- Forest degradation mapping
+- Sampling design
+- Sample design
+- Sample selection
+- Sample
+- Sampling frame
+- Stratified
+- Simple Random
+- Systematic
+- Response design
+- Survey
+- Survey design
+- Accuracy
+- Accuracy assessment
+- Area Estimation
+- Reference data
+- Reference classification
+- Reference observations
+- Colombia
+
+group:
+- category: Stratified
+  stage: Sampling
+- category: Simple Random
+  stage: Sampling
+- category: Cluster
+  stage: Sampling
+- category: Systematic
+  stage: Sampling
+- category: Collect Earth
+  stage: Reference data collection
+- category: Stratified
+  stage: Area Estimation/Accuracy assessment
 ---
 
-# Módulo 3.3.2 Como crear encuestas en Collect y colectar datos usando Collect Earth Desktop 
+#  Como crear encuestas en Collect y colectar datos usando Collect Earth Desktop 
 
 ## 1 Contexto
 
@@ -12,7 +69,7 @@ colorlinks: blue
 
 Collect es la herramienta usada para manejar datos y crear encuestas. Provee una manera fácil y flexible de configurar una encuesta con un interfaz de usuario amigable. Collect puede manejar múltiples tipos de datos y reglas de validación complejas, todo en un entorno multilingüe. Esta aplicación es completamente gratuita. 
 
-![](figures/collect_openforis.JPG)
+![](./figures/collect_openforis.JPG)
 
 
 ### 1.2 Collect Earth
@@ -87,7 +144,7 @@ El proceso para crear una encuesta en Recopilar y recopilar datos con Collect Ea
 3. Exportar la encuesta (archivo .cep) de Collect Survey Designer y abrirla en Collect Earth Desktop
 4. Recopilar los datos en Collect Earth Desktop
 
-![](figures/CE_workflow.png)
+![](./figures/CE_workflow.png)
 
 ## 2 Descargar e instalar Collect 
 
@@ -95,16 +152,16 @@ El primer paso es descargar “Collect” del sitio de OpenForis ([http://openfo
 
 Navegar a [http://www.openforis.org/tools/collect.html](http://www.openforis.org/tools/collect.html). Aquí puede descargar la aplicación “Collect” si hace clic en “Download last version” y seleccionar la versión correcta. Descargue e instale Collect a su computadora. Si necesita, por favor vea la ayuda de instalación disponible en [http://www.openforis.org/tools/collect/tutorials/installation.html](http://www.openforis.org/tools/collect/tutorials/installation.html).
 
-![](figures/download_collect.JPG)
+![](./figures/download_collect.JPG)
 
 Una vez que la aplicación de “Collect” esta instalada, encuentre la aplicación en su explorador de archivos y haga clic en “Open Foris Collect” para empezar la aplicación. 
 
 La ventana del Panel de Control de OpenForis Collect Control Panel se abrirá y necesitara estar abierta durante todo el tiempo que este usando Collect.  
 
-![](figures/collect_controlpanel.JPG)
+![](./figures/collect_controlpanel.JPG)
 La ventana del Panel de Control de OpenForis Collect Control Panel se abrirá antes que el navegador con la interfaz de Collect se abre. La ventana del Panel de Control le dirá que Collect esta activo.
 
-![](figures/open_foris_collect.JPG)
+![](./figures/open_foris_collect.JPG)
 Después de algunos minutos, un navegador nuevo se abrirá automáticamente en la interfaz de Collect. 
 
 
@@ -116,7 +173,7 @@ En esta sección, demostraremos cómo crear una encuesta y modificarla para que 
 
 Navegue al Diseñador de Encuestas (“Survey Designer”) a mano izquierda de la pantalla y haga clic en “New Survey” (Nueva Encuesta).  
 
-![](figures/collect_survey_designer.JPG)
+![](./figures/collect_survey_designer.JPG)
 
 Hay cuatro campos que deberá completar para crear una nueva encuesta. Primero, proporcione un título para su encuesta, por ejemplo: "training_survey". Su título debe ser todo en minúsculas sin espacios; la herramienta convertirá automáticamente mayúsculas a minúsculas y espacios a guiones bajos (_). 
 
@@ -124,7 +181,7 @@ El campo "Template" (Plantilla) tiene cuatro opciones: Blank (En blanco), Biophy
 
 Finalmente, escoja su idioma preferido y para su grupo de usuario (User Group), escoja "Default Public Group" (Grupo Publico Predeterminado). Haga clic en “New”.
 
-![](figures/collect_new_survey.JPG)
+![](./figures/collect_new_survey.JPG)
 
 A continuación, se le llevará al editor de encuestas (Edit survey). Hay tres pestañas en la parte superior de la página: Información, Code Lists (Listas de códigos), y Schema (Esquema). También hay un menú desplegable para cambiar el idioma de la Encuesta y el menú desplegable del icono de Configuración con funcionalidad de importación y exportación.
 
@@ -144,13 +201,13 @@ Collect Earth - Otras configuraciones le permiten abrir fuentes de imágenes adi
 
 Asegúrese de guardar su encuesta usando el botón "Save" en la parte inferior de su pantalla. Si le interesa aprender mas acerca de diseñar una encuesta, mas información esta disponible en http://www.openforis.org/tools/collect/tutorials/survey-designer.html](http://www.openforis.org/tools/collect/tutorials/survey-designer.html).
 
-![](figures/collect_edit_survey.JPG)
+![](./figures/collect_edit_survey.JPG)
 
 ### 3.2 Agregar listas de código 
 
 Ahora navegue a la pestaña de “Code lists”. A mano izquierda puede ver las listas de código predeterminados incluyendo elevación, orientación, y pendiente.          
 
-![](figures/collect_code_lists.JPG)       
+![](./figures/collect_code_lists.JPG)       
 
 Para esta encuesta hay listas de código adicionales que queremos incluir, incluyendo cobertura de suelo y cambio de cobertura de suelo por año. Para agregar una lista de código, haga clic en "Add list" (agregar lista) en la parta inferior de la pagina a mano izquierda.
 
@@ -166,7 +223,7 @@ Finalmente agregaremos una lista de código de confianza. Nombre la lista 'confi
 
 Si comete un error, puede editar los elementos de la lista existente. También puede hacer clic y arrastrar los elementos de la lista en un orden diferente. Vuelva a la lista de códigos "land_cover_change_yr" e intente arrastrar la opción "no_change" a la parte superior de la lista.
 
-![](figures/collect_add_list_yr.jpg) 
+![](./figures/collect_add_list_yr.jpg) 
 
 *NOTA: Si ya tiene una lista creada en una hoja de Excel, haga clic en "Importar" en la parte inferior de la página. También puede exportar su lista de códigos cuando haya terminado con ella como una hoja de Excel o un archivo CSV.*
 
@@ -176,17 +233,17 @@ Una vez que haya creado sus listas de códigos adicionales, asegúrese de Guarda
 
 Ahora haga clic en la pestaña "Schema". La pestaña "Schema" es donde definirá la estructura de la encuesta y qué datos se recopilarán. Debido a que usamos la plantilla Collect Earth, la encuesta ya tendrá definida la "parcela" como el Sampling Unit (la Unidad de Muestreo). En el futuro, si desea diseñar una encuesta diferente, hay más información disponible en [http://www.openforis.org/tools/collect/tutorials/survey-designer.html](http://www.openforis.org/tools/collect/tutorials/survey-designer.html) bajo Schema. 
 
-![](figures/collect_schema.JPG)
+![](./figures/collect_schema.JPG)
 
 Usaremos esta pestaña para agregar preguntas sobre la cobertura terrestre y el año del cambio.
 
 Para crear una nueva pregunta de encuesta, haga clic con el botón derecho en la unidad de muestreo "Plot" (Trazar) y seleccione "Agregar atributo". En la lista que aparece, elija "Código". Agregar un atributo de Código le permitirá usar cualquiera de sus listas de Código creadas previamente e ingresarlas como opciones para las preguntas de su encuesta.
 
-![](figures/collect_add_attribute.JPG)         
+![](./figures/collect_add_attribute.JPG)         
 
 El formulario de atributo de código aparecerá en la columna de la derecha. En el campo "Nombre", escriba "current_land_cover", tenga en cuenta que no puede poner números al comienzo de este campo. Agregue una etiqueta en la sección "Etiqueta" como "Cobertura terrestre actual" y luego agregue una descripción en la sección "Texto de información sobre herramientas", por ejemplo "Clases de cobertura terrestre 2020". A continuación, para la lista de códigos, seleccione su lista de códigos "land_cover". De forma predeterminada, se requerirá la pregunta de la encuesta. Deje esta configuración como predeterminada. Puede agregar texto de información sobre herramientas, como "¿Cuál es la cobertura terrestre de 2020?"
 
-![](figures/collect_code_attribute.JPG)          
+![](./figures/collect_code_attribute.JPG)          
 
 Ahora repetiremos esto para la lista de código de cambio de cobertura de suelo. En el campo de Nombre, escriba “land_cover_change”, agregue una descripción, y seleccione la lista de código “land_cover_change_yr”. agregue texto de información, por ejemplo “No cambio o indicar ano de cambio.”
 
@@ -198,18 +255,18 @@ Para las parcelas donde hay un cambio de cobertura terrestre, necesitamos agrega
 
 Solo queremos que esta pregunta aparezca cuando ha ocurrido un cambio en cobertura de suelo. Junto a “Relevant”, haga clic en “Only when expression is verified” (Solo cuando la expresión esta verificada). En la casilla de función, escriba `land_cover_change != 'no_change'`. Si desea obtener más información sobre estas funciones, haga clic en el icono de función a la derecha del cuadro de texto. Queremos ocultar esta pregunta cuando no sea relevante, así que también haga clic en "Hide when not relevant" (Ocultar cuando no sea relevante). Esto significa que la pregunta NO aparecerá si la pregunta del año de cambio de la cobertura terrestre se indica como “Sin cambios” porque si no ha habido cambios, entonces no es necesario identificar la cobertura terrestre anterior.
 
-![](figures/collect_code_attribute_prev_lc.jpg) 
+![](./figures/collect_code_attribute_prev_lc.jpg) 
 
 También queremos agregar una regla de validación a esta pregunta. Queremos crear un error si la cobertura terrestre actual y la anterior son las mismas, ya que eso significa que no hay cambios. Desplácese hacia abajo y expanda "Verificaciones (reglas de validación)". Haga clic en el botón verde con el signo más y seleccione "Custom" (Personalizado).
 
-![](figures/checks_validation_rules.jpg) 
+![](./figures/checks_validation_rules.jpg) 
 
 Para esta encuesta, agregue hasta tres pasos de tiempo. Esto significa agregar listas de código adicionales (“land_cover_change2” and “land_cover_change3”) con años de cambio de cobertura de suelo y crear reglas de validación adicionales para cada una de estas listas.
 
 Se puede ver una vista previa de las preguntas de la encuesta haciendo clic en "Preview" (Vista previa) en la parte inferior derecha de la página. Asegúrese de continuar con Guardar su trabajo en la parte inferior de la página.
 
-![](figures/collect_preview.JPG)
-![](figures/collect_preview2.jpg)
+![](./figures/collect_preview.JPG)
+![](./figures/collect_preview2.jpg)
 
 ## 4. Agregar una cuadricula de muestreo a Collect
 
@@ -252,9 +309,9 @@ El Grid Generator, o generador de cuadriculas, es una aplicación de Google Eart
 
 Para acceder el generador de cuadriculas de GEE, visite este sitio ([http://www.openforis.org/tools/collect-earth/tutorials/grid-generation-through-google-earth-engine.html](http://www.openforis.org/tools/collect-earth/tutorials/grid-generation-through-google-earth-engine.html)) y haga clic en “Generated Grid through GEE”. Este sitio también tiene mas tutoriales que puedan ser útiles para usar esta aplicación. 
 
-![](figures/gee_grid_generator_page.JPG)
+![](./figures/gee_grid_generator_page.JPG)
 
-![](figures/gee_grid_generator.JPG)
+![](./figures/gee_grid_generator.JPG)
 
 El generador de cuadrícula de Google Earth Engine ofrece diferentes formas de generar una cuadrícula: puede usar una colección de características cargando un archivo de forma a los assets de GEE y usando su ID de asset de GEE, seleccionar manualmente el área usando la herramienta de dibujo de polígonos/rectángulos, o seleccionar un país de la lista. En este caso, seleccionaremos el país de Colombia.
 
@@ -272,9 +329,9 @@ Por último, puede agregar columnas en el archivo .csv de cuadrícula generado d
 
 Después de definir todo, haga clic en "Generar cuadrícula" en la parte inferior y se generará la cuadrícula. Una vez que haya hecho clic aquí, aparecerá una nueva ventana en la parte superior derecha de la página. Luego haga clic en “CLICK TO DOWNLOAD GRID” para descargar el archivo csv generado. También puede descargar datos solo para el país o las provincias, y si los datos terminan siendo demasiado grandes, puede generar la cuadrícula a través del Editor de código de Google Earth Engine en su lugar.
 
-![](figures/gee_download_grid.JPG)
+![](./figures/gee_download_grid.JPG)
 
-![](figures/colombia_excel.JPG)
+![](./figures/colombia_excel.JPG)
 
 A continuación, la estructura del archivo csv deberá adaptarse a la estructura de la encuesta Collect. Se puede encontrar un archivo de demostración del formato csv de Collect en Open Foris Collect Survey Designer. Para encontrar este archivo de demostración:
 
@@ -285,11 +342,11 @@ A continuación, la estructura del archivo csv deberá adaptarse a la estructura
 5. Seleccionar "Cuadrícula" en el menú desplegable "Tipo" y aparecerá un botón a la izquierda que dice "Descargar plantilla".
 6. Hacer clic en "Descargar plantilla" para descargar el archivo csv de demostración y saber cómo adaptar su archivo csv de cuadrícula generado para que coincida con la estructura de la encuesta Collect.
 
-![](figures/sample_grid_template.JPG)
+![](./figures/sample_grid_template.JPG)
 
 En el archivo csv de demostración, las columnas están nombradas “id”, “YCoordinate”, “XCoordinate”, “elevation”, “slope”, y “aspect”. 
 
-![](figures/colombia_excel_6000.JPG)
+![](./figures/colombia_excel_6000.JPG)
 
 En la cuadrícula generada para Colombia, puede ver que las columnas están etiquetadas de manera diferente. Ahora necesitará editar su cuadrícula generada para que coincida con la estructura de la encuesta Collect. Para hacer esto debes:
 
@@ -303,15 +360,15 @@ En la cuadrícula generada para Colombia, puede ver que las columnas están etiq
 Puede reorganizar o eliminar el resto de las columnas según sus preferencias siempre que las columnas de la A a la F tengan el mismo formato que el archivo csv de demostración. Una vez que esté seguro de que la estructura coincide, su archivo csv de cuadrícula generado estará listo para usar en el Diseñador de Encuestas de Collect.
 
 En la pestaña “Info” de su editor de encuestas, vaya a la sección “Attached Files” y haga clic en el botón verde para adjuntar su archivo de csv. 
-![](figures/collect_earth_grid_template.JPG)
+![](./figures/collect_earth_grid_template.JPG)
 
-![](figures/attach_grid_file.JPG)
+![](./figures/attach_grid_file.JPG)
 
-![](figures/attached_files.JPG)
+![](./figures/attached_files.JPG)
 
 Si su archivo tiene más de 4000 puntos de parcela, será demasiado grande para cargarlo, por lo que es posible que deba dividirlo en varios archivos csv. Para hacerlo, abra Collect Earth, vaya al menú desplegable "Herramientas" en el Panel de control, haga clic en "Utilidades" y luego en "Dividir archivos de trazado CSV grandes". Desde aquí puede dividir su archivo CSV grande y prepararlo para importarlo a Collect Survey Designer.
 
-![](figures/divide_csv.png)
+![](./figures/divide_csv.png)
 
 Ahora que completó las preguntas de la encuesta y adjuntó los archivos de cuadrícula para indicar la ubicación de su recopilación de datos, ahora puede exportar y compartir su encuesta Collect Earth, que se describe en la siguiente sección.
 
@@ -320,9 +377,9 @@ Ahora que completó las preguntas de la encuesta y adjuntó los archivos de cuad
 
 Para compartir su encuesta Collect Earth, vaya a la "List of Surveys" (Lista de encuestas) y haga clic en "Export". Hay varias formas de exportar la encuesta. Por ejemplo, si desea utilizar la encuesta en Collect Earth, deberá cambiar el modo de exportación a "Collect Earth". Si desea crear una copia de seguridad de la información, seleccione “Collect Desktop (backup)” (copia de seguridad) como modo de exportación.
 
-![](figures/collect_survey_export.JPG)
+![](./figures/collect_survey_export.JPG)
 
-![](figures/collect_survey_export1.JPG)
+![](./figures/collect_survey_export1.JPG)
 
 Para este ejercicio, haga clic en "Exportar", elija el tipo "Unpublished Changes" (Cambios no publicados) si aún no ha publicado su encuesta. Utilice el modo de exportación "Collect Earth" y elija el idioma para su encuesta. Las opciones de idioma incluyen inglés, español y francés.
 
@@ -337,15 +394,15 @@ Puede descargar Collect Earth del sitio de Open Foris. Visite [http://www.openfo
 
 Inicie Collect Earth haciendo clic en el acceso directo o navegando a la carpeta Collect Earth y haciendo doble clic en el archivo por lotes titulado CollectEarth-launcher.exe.
 
-![](figures/collect_earth_launch.JPG)
+![](./figures/collect_earth_launch.JPG)
 
 En la ventana principal de Collect Earth, configure su nombre de operador. Cuando ejecuta Collect Earth, debe establecer el nombre de su operador, que es una forma de filtrar posteriormente los datos recopilados por la persona (operador) que recopiló los datos. Simplemente ponga su nombre o lo que quiera para identificarse en el campo de texto. Luego haga clic en actualizar. Recuerde utilizar un nombre de operador coherente que tenga entre 6 y 50 caracteres.
 
-![](figures/operator_name.JPG)
+![](./figures/operator_name.JPG)
 
 Collect Earth iniciará automáticamente Google Earth. Collect Earth junto con Google Earth proporcionan una manera fácil de revisar sistemáticamente imágenes de satélite y evaluar el uso de la tierra.
 
-![](figures/google_earth_pro.JPG)
+![](./figures/google_earth_pro.JPG)
 
 ## 7 Colectar Datos
 
@@ -353,38 +410,38 @@ Collect Earth iniciará automáticamente Google Earth. Collect Earth junto con G
 
 En la ventana principal de Collect Earth, navegue a "File" (Archivo) y haga clic en "Import CEP file" (Importar archivo CEP) para importar una encuesta de recopilación de datos realizada anteriormente. Busque la encuesta que acaba de exportar desde la aplicación Collect.
 
-![](figures/import_cep_file.JPG)
+![](./figures/import_cep_file.JPG)
 
 Una vez que su archivo .cep se abra en Google Earth Pro, haga clic en un punto de parcela en la ventana de la derecha y el mapa navegará hasta el punto de parcela. Luego haga clic en el punto de la parcela real en el mapa. Las preguntas de la encuesta aparecerán además de los mapas en su navegador que fueron elegidos previamente durante el diseño de la encuesta.
 
-![](figures/colombia_plot_point.JPG)
+![](./figures/colombia_plot_point.JPG)
 
 En este caso, Collect Earth Plot Imagery and Statistics, mapas base de NICFI Planet y Earth Map se abren automáticamente en su navegador. Inicie sesión en estos mapas en consecuencia y utilice estos mapas para responder a las preguntas de su encuesta. Recopile imágenes y estadísticas de Earth Plot y los mapas base de NICFI Planet se abrirán automáticamente. Earth Map te permitirá iniciar sesión o continuar como invitado. No se requieren cuentas para estos sitios. Estos mapas lo ayudarán a comprender mejor los cambios que ocurrieron en el uso de la tierra para ese punto particular de la parcela.
 
-![](figures/collect_earth_maps.JPG)
+![](./figures/collect_earth_maps.JPG)
 
 Para analizar un punto en la parcela, use los mapas que aparecen y sus datos correspondientes para determinar el tipo de cobertura de suelo y que cambios han ocurrido ahí.
 
 Por ejemplo, estamos analizando el numero de parcela COLOMBIA_1778 aquí. 
 
-![](figures/colombia_1778.JPG)
+![](./figures/colombia_1778.JPG)
 
 Después de investigar más las imágenes, utilizando los mapas adicionales, puede concluir que esta área tiene una mezcla de especies de árboles. En el menú desplegable de "Current Land Use" (Uso actual de la tierra), puede elegir "TREES: Mixed" (ÁRBOLES: Mixtos). La pregunta de sí o no de “Confidence Current LU" (Confianza actual LU) quiere saber si confía en su elección de uso de la tierra. En este caso, podemos elegir "Yes" porque estamos bastante seguros de que esta imagen muestra una mezcla de especies de árboles.
 
-![](figures/trees_mixed.JPG)
+![](./figures/trees_mixed.JPG)
 
 Si mira la ventana de Earth Map e investiga los datos, puede ver que no han habido cambios en el uso de suelo en los anos, así que dentro del menú desplegable "Land Use Change Year" puede seleccionar “There has been no change in Land Use in the previous years” (No han habido cambios en Uso de Suelo en los anos previos).
 
-![](figures/earthmap_1778.JPG)
-![](figures/nochange.JPG)
+![](./figures/earthmap_1778.JPG)
+![](./figures/nochange.JPG)
 
 Como puede ver, una vez que se han respondido las preguntas requeridas, el título cambia de rojo a negro. También puede incluir comentarios o etiquetas si hay información adicional que le gustaría incluir durante su recopilación de datos. Una vez que haya terminado con la encuesta, haga clic en "Send" (Enviar) en la esquina inferior derecha de la ventana emergente. A continuación, verá que sus datos se guardaron y el gráfico de la lista de gráficos de la derecha ahora tiene una marca de verificación verde al lado. Cuando presiona "Ok", la aplicación lo llevará al siguiente gráfico.
 
-![](figures/datawassaved.JPG)
+![](./figures/datawassaved.JPG)
 
 Continúe con el resto de los puntos de la trama de esta manera. Habrá completado su encuesta una vez que toda la lista de parcelas de la derecha tenga una marca de verificación verde al lado de cada parcela.
 
-![](figures/colombia_completed_plot.JPG)
+![](./figures/colombia_completed_plot.JPG)
 
 #### Consejos para Interpretación de Imágenes
 
@@ -400,7 +457,7 @@ Cuando haya completado su recopilación de datos y desee exportar sus datos de C
 
 El archivo CSV, que se puede abrir en Excel, tabula todos los datos que se han ingresado en Collect Earth, incluidos los datos que no se han guardado y validado activamente. También se proporcionan algunos metadatos, como las coordenadas de la parcela y el nombre del operador. La exportación de datos a Fusion Table también genera un archivo CSV, pero se diferencia de la exportación CSV normal en que contiene una columna adicional con las coordenadas completas de cada gráfico. XML es el único formato que está configurado para guardar los metadatos de Collect Earth además de los datos ingresados manualmente por los usuarios.
 
-![](figures/collect_earth_export.JPG)
+![](./figures/collect_earth_export.JPG)
 
 ## Preguntas Frecuentes
 
@@ -470,5 +527,5 @@ Tatiana Nana, Cameroon, REDD+ Technical Secretariat
 
 Atribución Bui, Justine and Dyson, Karen. 2021. Module 3.3.2 How to create surveys in Collect and collect data using Collect Earth Desktop. World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)
 
-![](figures/WB_FCPF.png)
-![](figures/GFOI.png)
+![](./figures/WB_FCPF.png)
+![](./figures/GFOI.png)
