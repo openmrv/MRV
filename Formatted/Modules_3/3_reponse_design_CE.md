@@ -9,38 +9,22 @@ language: English
 publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
 
 tags:
-- OpenMRV
-- Landsat
-- Sentinel 2
-- Cloud cover
-- Optical sensors
 - Remote sensing
-- Composite
-- Mosaic
 - CE
-- GEE
-- Planet Labs
 - Time series
 - Change detection
 - Land cover mapping
-- Forest mapping
-- Deforestation mapping
-- Degradation mapping
-- Forest degradation mapping
-- Sampling design
 - Sample design
 - Sample selection
 - Sample
 - Sampling frame
 - Stratified
-- Simple Random
 - Systematic
 - Response design
 - Survey
 - Survey design
 - Accuracy
 - Accuracy assessment
-- Area Estimation
 - Reference data
 - Reference classification
 - Reference observations
@@ -49,16 +33,12 @@ tags:
 group:
 - category: Stratified
   stage: Sampling
-- category: Simple Random
-  stage: Sampling
 - category: Cluster
   stage: Sampling
 - category: Systematic
   stage: Sampling
 - category: Collect Earth
   stage: Reference data collection
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
 ---
 
 # Response Design in Collect Earth Desktop 
