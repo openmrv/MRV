@@ -88,7 +88,7 @@ Le processus de collecte des données d'entraînement dans QGIS est détaillé d
 2. Chargement d'un fond de carte à l'aide d'un plugin QGIS. 
 3. Rassembler les données d'entraînement en définissant manuellement les points d'entraînement.  
 
-![WB_graphs_v2-05](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\WB_graphs_v2-05.png)
+![WB_graphs_v2-05](./figures/m1.2/m1.2.2/WB_graphs_v2-05.png)
 
 
 
@@ -111,7 +111,7 @@ Pour commencer, nous devrons définir une nouvelle couche de shapefile.
 
 Votre panel devrait ressembler à ceci : 
 
-![new_shapefile](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\new_shapefile.JPG)
+![new_shapefile](./figures/m1.2/m1.2.2/new_shapefile.JPG)
 
 
 
@@ -156,7 +156,7 @@ QuickMap Services est un service d'accès et de partage de données géospatiale
 
 3. Dans le panneau qui apparaît sur la droite de l'écran, recherchez "Satellite" et choisissez un ensemble de données en sélectionnant *Add*. La carte de base sera ajoutée à la carte. Dans cet exemple, la couche "ESRI Satellite" a été sélectionnée. Vous pouvez naviguer sur la carte à l'aide de votre souris, et faire un zoom avant ou arrière avec la barre de défilement de la souris.   
 
-   ![quickservice](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\quickservice.JPG)
+   ![quickservice](./figures/m1.2/m1.2.2/quickservice.JPG)
 
  # <a name="planet-explorer"></a> 
 
@@ -186,7 +186,7 @@ La constellation de satellites Planète offre des images quotidiennes à haute r
 
 5. Double-cliquez sur l'une des mosaïques semestrielles ou mensuelles pour l'ajouter à la carte. 
 
-![planetexplorer](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\planetexplorer.JPG)
+![planetexplorer](./figures/m1.2/m1.2.2/planetexplorer.JPG)
 
  #  
 
@@ -229,7 +229,7 @@ Google Earth Engine (GEE) est une plateforme en ligne d'analyse de données géo
 
 Votre console devrait ressembler à ceci : 
 
-![gee1](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\gee1.JPG)
+![gee1](./figures/m1.2/m1.2.2/gee1.JPG)
 
 5. Chargez la fonction *Map* du module ee_plugin et testez si elle fonctionne correctement : 
 
@@ -274,7 +274,7 @@ Map.addLayer(s1_composite, vis, 'Sentinel 2 2019')
 
     Vous devriez voir sur la carte,  une image très nuageuse
 
-  ![gee2](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\gee2.JPG)
+  ![gee2](./figures/m1.2/m1.2.2/gee2.JPG)
 
 
 8. Maintenant, essayons à nouveau d'appliquer le masque de nuage avant de réaliser la mosaïque: 
@@ -303,7 +303,7 @@ Map.addLayer(s1_composite_masked, vis, 'Sentinel 2 2019 Masked')
 
 
 
-  ![gee3](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\gee3.JPG)
+  ![gee3](./figures/m1.2/m1.2.2/gee3.JPG)
 
 ### 3.4 Collecter les données d'entraînement
 
@@ -319,13 +319,13 @@ Une fois que vous avez choisi les images de référence, il est temps de commenc
 
 1. Sélectionnez la couche de données de formation dans le panneau *Layers*. 
 
-2. Activez l'édition des couches en sélectionnant le bouton qui ressemble à un crayon, *Toggle Editing* ![toggle](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\toggle.JPG). 
+2. Activez l'édition des couches en sélectionnant le bouton qui ressemble à un crayon, *Toggle Editing* ![toggle](./figures/m1.2/m1.2.2/toggle.JPG). 
 
-3. Sélectionnez l'icône *Add Point Feature* ![addpoint](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\addpoint.JPG)
+3. Sélectionnez l'icône *Add Point Feature* ![addpoint](./figures/m1.2/m1.2.2/addpoint.JPG)
 
 4. Définissez un code de classe numérique. Ici, nous utiliserons 1 pour Forêt, 2 pour Eau, 3 pour Herbacé, et 4 pour Développé.   
 
-    ![examples_colombia](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\examples_colombia.png)
+    ![examples_colombia](./figures/m1.2/m1.2.2/examples_colombia.png)
 
     
 
@@ -333,15 +333,15 @@ Une fois que vous avez choisi les images de référence, il est temps de commenc
 
     
 
-    ![point1](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\point1.JPG)
+    ![point1](./figures/m1.2/m1.2.2/point1.JPG)
 
 6. Sélectionnez *OK* pour enregistrer le point d’entrainement. 
 
 7. Répétez l'opération pour de nombreux échantillons de forêt dans votre région d'étude. Il est conseillé de sauvegarder la couche pendant le processus en sélectionnant le bouton *Save Layer Edits*.  
 
-    ![save](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\save.JPG)
+    ![save](./figures/m1.2/m1.2.2/save.JPG)
 
-8. Les unités d'échantillons peuvent être supprimées en les sélectionnant d'abord avec le bouton *Select Feature(s)* ![select](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\select.JPG) et en cliquant sur une caractéristique ou en faisant glisser une case pour en sélectionner plusieurs, puis en cliquant sur le bouton *Delete*  ![trash](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\trash.JPG)
+8. Les unités d'échantillons peuvent être supprimées en les sélectionnant d'abord avec le bouton *Select Feature(s)* ![select](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\select.JPG) et en cliquant sur une caractéristique ou en faisant glisser une case pour en sélectionner plusieurs, puis en cliquant sur le bouton *Delete*  ![trash](./figures/m1.2/m1.2.2/trash.JPG)
 
 9. Continuez ce processus pour chaque classe de carte cible.  
 
@@ -356,7 +356,7 @@ Une fois que vous avez recueilli les données de formation pour chaque classe, i
 
 2. Dans la partie gauche du panneau *Properties*, sélectionnez *Symbology*  
 
-    ![symbology](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\symbology.JPG)
+    ![symbology](./figures/m1.2/m1.2.2/symbology.JPG)
 
 3. Sélectinnez *Categorized* pour le type de symbole.  
 
@@ -366,7 +366,7 @@ Une fois que vous avez recueilli les données de formation pour chaque classe, i
 
 6. Cochez les valeurs de la *Legend* pour qu'elles correspondent à notre légende. Votre tableau devrait ressembler à ceci : 
 
-    ![style](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\style.JPG)
+    ![style](./figures/m1.2/m1.2.2/style.JPG)
 
  7. Sélectionnez *OK* pour appliquer le style. 
 
@@ -374,7 +374,7 @@ Une fois que vous avez recueilli les données de formation pour chaque classe, i
 
     
    
-    ![samples](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\samples.JPG)
+    ![samples](./figures/m1.2/m1.2.2/samples.JPG)
 
 
 ### 3.6 Ajout d'une identification unique 
@@ -385,15 +385,15 @@ Il est utile d'avoir un identifiant unique pour chaque point d'entrainement. Cel
 
 2. Ajoutez une nouvelle colonne en sélectionnant *Open field calculator*. 
 
-    ![attribute](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\attribute.JPG)
+    ![attribute](./figures/m1.2/m1.2.2/attribute.JPG)
 
 3. Sous *Output field name*, écrivez "ID".  
 
 4. Double-cliquez sur le sélecteur "row_number". Votre panneau devrait ressembler à ceci : 
 
-    ![id](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\id.JPG)
+    ![id](./figures/m1.2/m1.2.2/id.JPG)
 
-5. Cliquez sur "Ok" et terminez l'édition en utilisant le bouton "Toggle editing mode" ![toggle](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\toggle.JPG)
+5. Cliquez sur "Ok" et terminez l'édition en utilisant le bouton "Toggle editing mode" ![toggle](./figures/m1.2/m1.2.2/toggle.JPG)
 
     
 
@@ -410,7 +410,7 @@ Le Mozambique est un pays écologiquement diversifié qui se compose d'un mélan
 
 Pour illustrer ce point, observez la variabilité temporelle de l'indice de végétation par différence normalisée (NDVI) au cours d'une année pour un pixel Landsat de 30 mètres dans une forêt saisonnière au Mozambique. Le NDVI est une transformation spectrale qui est couramment utilisée pour analyser la végétation photosynthétiquement active. La saison des pluies au Mozambique s'étend de novembre à mai environ. La figure de gauche montre le Mozambique avec un pixel surligné en rouge, et l'image du milieu dans le même sens mais avec un zoom. La droite montre toutes les valeurs NDVI Landsat disponibles pour le pixel. Notez dans le graphique ci-dessous comment le NDVI est considérablement plus élevé pendant la saison des pluies que pendant la saison sèche en raison de la variabilité saisonnière de la forêt.  
 
-![mo_ndvi_doy_map](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\mo_ndvi_doy_map.jpeg)
+![mo_ndvi_doy_map](./figures/m1.2/m1.2.2/mo_ndvi_doy_map.jpeg)
 
 La variabilité saisonnière peut représenter un défi lors de la classification de la couverture terrestre. Par exemple, si nous devions classifier une image de saison sèche au Mozambique, une forêt de feuillus pourrait potentiellement être confondue avec des classes de couverture terrestre herbacée ou non forestière en raison de la faible intensité du vert de la végétation pendant une période de feuillaison. Pour éviter toute confusion dans le processus de classification, il est essentiel que les données d'entrainement soient représentatives de la variabilité au sein de la classe (c'est-à-dire la variabilité saisonnière des forêts ou d'autres classes végétatives). En d'autres termes, s'il existe des zones importantes de forêts à feuilles caduques et à feuilles persistantes, les données d'entraînement pour une classe "Forêt" plus large doivent contenir des exemples des deux.  
 
@@ -474,7 +474,7 @@ combined = rainy_season.merge(dry_season)
     
     
     
-    ![mozambique_ndvi_var](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\mozambique_ndvi_var.JPG)
+    ![mozambique_ndvi_var](./figures/m1.2/m1.2.2/mozambique_ndvi_var.JPG)
 
 8. La carte qui est chargée est la variance saisonnière de l'NDVI, dans laquelle le rouge indique une variabilité moindre et le vert une variabilité plus importante.   
 
@@ -488,7 +488,7 @@ variance_masked = variance.updateMask(mask)
 
     ```
 
-    ![mozambique_ndvi_var_masked](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\mozambique_ndvi_var_masked.JPG)
+    ![mozambique_ndvi_var_masked](./figures/m1.2/m1.2.2/mozambique_ndvi_var_masked.JPG)
 
 10. Maintenant que nous collectons des données de formation pour la classe "Forêt", il est important de référencer cette couche pour s'assurer que les données de formation tiennent compte des différences de variabilité spectrale saisonnière dans les forêts. Tout d'abord, voyons pourquoi il pourrait être avantageux d'effectuer les étapes énumérées ci-dessus :   
 
@@ -504,11 +504,11 @@ variance_masked = variance.updateMask(mask)
 
 11. Il est nécessaire d'ajouter une carte de base standard en plus de la couche NDVI. Tous les exemples ci-dessus peuvent être utilisés, le plus simple étant le [QuickMap Services] (#quickmap). Assurez-vous que vous pouvez identifier vos classes dans l'imagerie que vous utilisez. Si vous ne le pouvez pas, essayez d'autres sources d'imagerie de référence ou envisagez de simplifier vos classes. Vous trouverez ci-dessous des exemples de classes utilisées ici dans l'imagerie ESRI disponible dans les services QuickMap. 
 
-    ![lc_examples](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\lc_examples.jpeg)
+    ![lc_examples](./figures/m1.2/m1.2.2/lc_examples.jpeg)
 
 12. En suivant les instructions décrites [ci-dessus] (#collection), allez classe par classe pour collecter des points d'entraînement. Pour la classe Forest, superposez occasionnellement les points d'entraînement sur la carte de variance de l'NDVI. Il n'est pas nécessaire de faire une évaluation détaillée, mais il vaut la peine de s'assurer visuellement que les échantillons d'entraînement représentent les forêts saisonnières et non saisonnières. Pour ce faire, il suffit d'alterner les zones rouges, vertes et jaunes sur la couche de variabilité de l'NDVI et de basculer entre cette couche et l'image de référence pour s'assurer que les endroits sont bien des forêts. Notez dans l'exemple suivant comment il y a des points d'entraînement (bleu) dans les forêts ayant une variabilité saisonnière différente (ou variance NDVI). 
 
-    ![moz_forest_exs](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\moz_forest_exs.png)
+    ![moz_forest_exs](./figures/m1.2/m1.2.2/moz_forest_exs.png)
 
 13. N'oubliez pas de sauvegarder la fréquence en sélectionnant le bouton *Save Layer Edits*.   
 
@@ -518,7 +518,7 @@ variance_masked = variance.updateMask(mask)
 
 
 
-![moz_td](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\moz_td.JPG)
+![moz_td](./figures/m1.2/m1.2.2/moz_td.JPG)
 
 ## 5. Le Cambodge : Prise en compte de la topographie 
 
@@ -542,19 +542,19 @@ La plupart des forêts restantes au Cambodge sont situées sur des terrains vall
 
  Notez la différence avant et après le mélange de la couche Esri Imagery avec la couche Google Terrain Hybrid :   
 
-![terrain1](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\terrain1.jpeg)
+![terrain1](./figures/m1.2/m1.2.2/terrain1.jpeg)
 
 
 
 8. L'objectif est simplement de faciliter la visualisation des caractéristiques topographiques dans l'imagerie de référence, afin qu'elle puisse être utilisée comme information complémentaire lors de la collecte des données de référence. Veillez à recueillir des échantillons d'entraînement pour les forêts qui varient en fonction de leur disposition topographique. Par exemple, les échantillons doivent être collectés sur des terrains qui diffèrent par leur pente et leur aspect. Il n'est pas nécessaire d'être précis, et cela peut être fait facultativement pour n'importe quelle couverture terrestre. Une façon simple d'observer les différences de terrain est de se baser sur l'ombre de 
 
-    ![training_terrain](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\training_terrain.JPG)
+    ![training_terrain](./figures/m1.2/m1.2.2/training_terrain.JPG)
 
 9. Utilisez l'image de référence composite pour collecter au moins 100 échantillons d'entraînement par classe. N'oubliez pas d'en enregistrer fréquemment. Lorsque vous avez terminé, terminez l'édition en sélectionnant le bouton *Toggle Editing*.   
 
     
 
-    ![cam_td](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\cam_td.JPG)
+    ![cam_td](./figures/m1.2/m1.2.2/cam_td.JPG)
 
 ## 6. Foire aux questions
 
@@ -598,7 +598,7 @@ Si vous ne parvenez pas à charger l'un des plugins, utilisez simplement l'un de
 
 Ne vous inquiétez pas ! Ce même tutoriel est fourni sur le  Google EarthEngine dans le module 1.2.2, qui ne nécessite aucune installation.  
 
-![cc](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\cc.png)
+![cc](./figures/m1.2/m1.2.2/cc.png)
 
 Ce travail est sous licence [Creative Commons Attribution 3.0 IGO] (https://creativecommons.org/licenses/by/3.0/igo/) 
 
@@ -638,5 +638,5 @@ Bullock, E. 2020. Training Data Collection Using QGIS. © World Bank. License: C
 
 
 
-![WB_FCPF2](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\WB_FCPF2.png)![GFOI2](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\GFOI2.png)
+![WB_FCPF2](./figures/m1.2/m1.2.2/GFOI2.png)
 
