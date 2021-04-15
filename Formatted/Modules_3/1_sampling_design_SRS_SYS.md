@@ -8,60 +8,24 @@ publisher and license: Copyright 2021, World Bank. This work is licensed under a
 
 tags:
 - OpenMRV
-- Landsat
-- Sentinel 2
-- Sentinel 1
 - GEE
 - QGIS
 - AREA2
-- Cloud cover
-- Optical sensors
-- Remote sensing
-- Composite
-- Mosaic
-- Time series
-- Change detection
-- Land cover mapping
-- Forest mapping
-- Deforestation mapping
-- Degradation mapping
-- Forest degradation mapping
 - Sampling design
 - Sample design
-- Sample selection
 - Sample
 - Sampling frame
-- Stratified
 - Simple Random
 - Systematic
-- Response design
-- Survey
-- Survey design
-- Accuracy
-- Accuracy assessment
-- Area Estimation
-- Reference data
-- Reference classification
-- Reference observations
-- Colombia
 
 group:
-- category: Stratified
-  stage: Sampling
 - category: Simple Random
   stage: Sampling
 - category: Cluster
   stage: Sampling
 - category: Systematic
   stage: Sampling
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
-- category: Expansion
-  stage: Area Estimation/Accuracy assessment
-- category: Model-assisted
-  stage: Area Estimation/Accuracy assessment
-- category: Ratio
-  stage: Area Estimation/Accuracy assessment
+
 ---
 
 # Simple random/systematic sampling 
@@ -127,7 +91,7 @@ which gives a sample size of
 
 ![](https://latex.codecogs.com/svg.latex?\Large&space;n=\frac{\hat{p}(1-\hat{p})}{\hat{V}(\hat{p})}=\frac{0.8(1-0.8)}{0.0004}=400)
 
-Even though estimation of overall accuracy was illustrated in Olofsson et al. (2014), specifying a margin of error of the overall map accuracy is not intuitive and rarely an estimation objective. A more realistic example would be the  estimation of the area of deforestation or forest degradation with a certain precision. In another tutorial here on OpenMRV under process "Change detection" and tool "CODED", a map of deforestation, forest degradation, forest and non-forest was created for Colombia, and we will use it as an example; for the sake of simplicity, let's lump the deforestation and forest degradation into a single forest disturbance class, which was mapped as 1.4% of the country from 2010 to 2020. Note, for estimation of activity data within REDD+ (and other initiatives), it is recommended to estimate deforestation and degradation separately -- and hence use a deforestation stratum and a degradation stratum -- rather than combining the two classes into a single forest disturbance class. Here, we are using a combined disturbance class to facilitate the illustration of the workflow and calculations.  Let's assume we want to estimate the area of forest disturbance (again, combined deforestation and degradation) with a 25% margin of error. Note that 25% is used here simply to illustrate the workflow -- the target error will depend on the circumstances of the study. First, a 25% margin of error is equivalent to a variance of  
+Even though estimation of overall accuracy was illustrated in Olofsson et al. (2014), specifying a margin of error of the overall map accuracy is not intuitive and rarely an estimation objective. A more realistic example would be the  estimation of the area of deforestation or forest degradation with a certain precision. In another tutorial here on OpenMRV under process "Change detection" and tool "CODED", a map of deforestation, forest degradation, forest and non-forest was created for Colombia, and we will use it as an example (https://code.earthengine.google.com/?asset=users/openmrv/MRV/CODED_Colombia_Stratification_No_Buffer); for the sake of simplicity, let's lump the deforestation and forest degradation into a single forest disturbance class, which was mapped as 1.4% of the country from 2010 to 2020. Note, for estimation of activity data within REDD+ (and other initiatives), it is recommended to estimate deforestation and degradation separately -- and hence use a deforestation stratum and a degradation stratum -- rather than combining the two classes into a single forest disturbance class. Here, we are using a combined disturbance class to facilitate the illustration of the workflow and calculations.  Let's assume we want to estimate the area of forest disturbance (again, combined deforestation and degradation) with a 25% margin of error. Note that 25% is used here simply to illustrate the workflow -- the target error will depend on the circumstances of the study. First, a 25% margin of error is equivalent to a variance of  
 
 ![](https://latex.codecogs.com/svg.latex?\Large&space;\hat{V}(\hat{p})=(\frac{MoE\times&space;\hat{p}}{2})^2=(\frac{0.25\times0.014}{2})^2=0.000003)
 
