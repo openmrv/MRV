@@ -31,7 +31,7 @@ Pour commencer, sous "Interprétation de l'échantillon", spécifiez "1" et appu
 
 Above the time series data is the outline of the sample unit draped on top of the default GEE satellite imagery -- click "KML" to display high resolution data in Google Earth at sample locations.
 
- [image: AREA2_ref_collector.png]
+ ![](./figures/AREA2_ref_collector.png)
 
 Pour l'instant, nous recommandons à l'utilisateur de noter les étiquettes de référence dans une feuille de calcul séparée, car la mise en œuvre de la sauvegarde des étiquettes de référence dans une collection unique de caractéristiques est en cours. Des vidéos illustrant la manière d'observer les conditions de référence en examinant les données de référence sont fournies ici (les vidéos font partie du projet NASA MEaSUREs GLanCE à l'Université de Boston
 
