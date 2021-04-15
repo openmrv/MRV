@@ -84,7 +84,7 @@ Dans le script du plan d'échantillonnage, nous avons estimé la taille de l'éc
 
 Pour sélectionner cet échantillon, utilisons AREA2 pour sélectionner un échantillon sous échantillonnage aléatoire stratifié : [https://code.earthengine.google.com/?accept_repo=users%2Fopenmrv%2FMRV&scriptPath=projects%2FAREA2%2Fpublic%3A1.%20Sampling%20Design%2FStratified%20Random%20Sampling](https://code.earthengine.google.com/?accept_repo=users%2Fopenmrv%2FMRV&scriptPath=projects%2FAREA2%2Fpublic%3A1. Sampling Design%2FStratified Random Sampling) et spécifions le chemin d'accès à la carte de la Colombie basée sur le CODED (https://code.earthengine.google.com/?asset=users/olofsson76/Open_MRV/Open_MRV_Col_strat_buffer) avec un tampon sous "Spécifier la stratification/l'image pour définir la zone d'étude" ; utilisez les autres arguments par défaut ; cliquez sur "Charger l'image", ce qui affichera les zones de strates dans la Console (NOTE : cela prendra un certain temps). Sélectionnez une taille d'échantillon arbitraire sous "Determine sample size", et spécifiez sous "Allocate sample size to strata" : 275, 200, 30, 30. Cliquez sur "Create sample" -- note : ne cliquez qu'une seule fois ; il semble que GEE ne réagisse pas mais il dessine l'échantillon après que vous ayez cliqué. En cliquant sur "Add to map", les unités de l'échantillon s'afficheront sous forme de points rouges dans l'affichage de la carte. La dernière étape consiste à exporter l'échantillon : cliquez sur l'onglet Tâches, puis sur Exporter l'échantillon dans la boîte de dialogue - deux entrées nommées "sample_asset" et "sample_CSV" apparaîtront dans Tâches. Elles sont identiques, mais l'une sert à exporter l'échantillon sous forme de fichier CSV, l'autre à l'enregistrer sous forme de fichier GEE Asset à utiliser dans Google Earth Engine. Cliquez sur le bouton Exécuter juste à côté des entrées et enregistrez en tant que GEE Asset et CSV (ce dernier devrait être enregistré dans votre Google Drive). Utilisez le nom "STR_sample_Col" pour GEE Asset et le fichier CSV.
 
-[image: STR_AREA2.png]
+![](figures/STR_AREA2.png)
 
 ## 4 Foire aux questions (FAQs)
 
@@ -142,7 +142,7 @@ Stehman, S.V. and Wickham, J.D., 2011. Pixels, blocks of pixels, and polygons: C
 
 -----
 
-![](figures/cc.png)  
+![](./figures/cc.png)  
 
 Ce travail est autorisé sous une licence [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
@@ -152,4 +152,4 @@ Matériel révisé par : Ana Mirian Villalobos, El Salvador, Ministry of Environ
 
 Attribution: Olofsson, P. (2021). *Open MRV: Sample Selection*. World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)
 
-![](figures/wb_fcfc_gfoi.png)
+![](./figures/wb_fcfc_gfoi.png)
