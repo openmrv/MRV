@@ -30,7 +30,7 @@ Para comenzar, en "Interpretación de la muestra", especifique "1" y presione en
 
 Encima de los datos de la serie temporal está el contorno de la unidad de muestra colocada encima de las imágenes de satélite GEE predeterminadas; haga clic en "KML" para mostrar datos de alta resolución en Google Earth en ubicaciones de muestra.
 
- [image: AREA2_ref_collector.png]
+![](./figures/AREA2_ref_collector.png)
 
 Por ahora, recomendamos al usuario que anote las etiquetas de referencia en una hoja de cálculo separada, ya que la implementación de guardar las etiquetas de referencia en una única colección de características está en curso. Aquí se proporcionan videos que ilustran cómo observar las condiciones de referencia mediante el examen de los datos de referencia (los videos son parte del proyecto de [NASA MEaSUREs GLanCE project en Boston University](http://sites.bu.edu/measures/)):  
 https://drive.google.com/file/d/1Y_D49kE_oiXxGEJEcPGT8FavrzdMj2qh/view?usp=sharing
