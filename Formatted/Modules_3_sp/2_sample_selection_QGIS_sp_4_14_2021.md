@@ -1,5 +1,5 @@
 ---
-​---
+
 title: Sample selection using QGIS
 summary: In sampling design methods for estimation of area and map accuracy, we design a sample by choosing a selection protocol and determining the sample size and allocation. In this tutorial we will physically draw from a study area a sample that was designed based on tutorials here on OpenMRV under process "Sampling design". Here, we illustrate how to draw a sample in QGIS.
 author: Pontus Olofsson
@@ -54,7 +54,7 @@ group:
   stage: Area Estimation/Accuracy assessment
 - category: Ratio
   stage: Area Estimation/Accuracy assessment
-​---
+
 ---
 
 # Sample selection using QGIS
@@ -83,7 +83,7 @@ QGIS proporciona soporte para el muestreo de poblaciones definidas por datos vec
 3. Vector > Research Tools > "Random Points Inside Polygons"
 4. Especifique que la frontera de Colombia es la capa de insumo, seleccione "Points count as sampling strategy and the total sample size under Point count"; deje la distancia mínima automática, y seleccione "Save to a file" y hacer clic en Run para dibujar la muestra.
 
-[image: SRS_QGIS.png]
+![](./figures/SRS_QGIS.png)
 
 ### 3.2 Muestreo sistemático
 
@@ -94,7 +94,7 @@ Dibujar una muestra bajo SYS en QGIS tiene el inconveniente de que la población
 3. Especifique el espacio de los puntos (Point spacing) o la cantidad de puntos (Point count) -- si usa el espacio, active la cajilla "Use point spacing"
 4. Guarde esto a un archivo y haga clic en Run para visualizar la muestra.
 
-[image: SYS_QGIS.png]
+![](./figures/SYS_QGIS.png)
 
 ## 4 Preguntas Frecuentes
 
@@ -152,7 +152,7 @@ Stehman, S.V. and Wickham, J.D., 2011. Pixels, blocks of pixels, and polygons: C
 
 -----
 
-![](figures/cc.png)  
+![](./figures/cc.png)  
 
 Este trabajo tiene licencia bajo un [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
@@ -164,4 +164,4 @@ Material revisado por: Ana Mirian Villalobos, El Salvador, Ministry of Environme
 
 Atribución: Olofsson, P. 2021. Sample selection using QGIS. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
-![](figures/wb_fcfc_gfoi.png)
+![](./figures/wb_fcfc_gfoi.png)
