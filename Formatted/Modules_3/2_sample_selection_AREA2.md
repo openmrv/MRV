@@ -8,34 +8,13 @@ publisher and license: Copyright 2021, World Bank. This work is licensed under a
 
 tags:
 - OpenMRV
-- Landsat
-- Sentinel 2
 - GEE
 - AREA2
-- Cloud cover
-- Optical sensors
-- Remote sensing
-- Composite
-- Mosaic
-- Time series
 - Sampling design
 - Sample design
 - Sample selection
 - Sample
 - Sampling frame
-- Stratified
-- Simple Random
-- Systematic
-- Response design
-- Survey
-- Survey design
-- Accuracy
-- Accuracy assessment
-- Area Estimation
-- Reference data
-- Reference classification
-- Reference observations
-- Colombia
 
 group:
 - category: Stratified
@@ -46,14 +25,6 @@ group:
   stage: Sampling
 - category: Systematic
   stage: Sampling
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
-- category: Expansion
-  stage: Area Estimation/Accuracy assessment
-- category: Model-assisted
-  stage: Area Estimation/Accuracy assessment
-- category: Ratio
-  stage: Area Estimation/Accuracy assessment
 ---
 
 # Sample selection using AREA2
