@@ -9,14 +9,9 @@ publisher and license: Copyright 2021, World Bank. This work is licensed under a
 tags:
 - OpenMRV
 - Landsat
-- Sentinel 2
-- Sentinel 1
 - GEE
-- Cloud cover
 - Optical sensors
 - Remote sensing
-- Composite
-- Mosaic
 - CODED
 - Time series
 - Change detection
@@ -30,14 +25,6 @@ tags:
 - Cambodia
 
 group:
-- category: Composite (Median)
-  stage: Composite creation/Pre-process
-- category: Landsat
-  stage: Inputs
-- category: Sentinel-2
-  stage: Inputs
-- category: Sentinel-1
-  stage: Inputs
 - category: CODED
   stage: Change Detection
 ---
