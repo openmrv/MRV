@@ -1,5 +1,5 @@
 ---
-​---
+
 title: Stratified random sampling
 summary: Sampling-based approaches in a remote sensing or geographical context are necessary because they allow us to estimate area bias, map accuracy and uncertainty. A sampling-based approach to estimation can be separated into three different components - sampling design, response design and analysis (Stehman & Czaplewski, 1998). The first component, sampling design, is illustrated in this tutorial for the case of stratified random sampling design. Other tutorials here on OpenMRV under process "Sampling design" explore other sampling design approaches (e.g. Simple random/systematic sampling design).
 author: Pontus Olofsson
@@ -47,23 +47,22 @@ tags:
 - Colombia
 
 group:
-- category: Stratified
-  stage: Sampling
-- category: Simple Random
-  stage: Sampling
-- category: Cluster
-  stage: Sampling
-- category: Systematic
-  stage: Sampling
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
-- category: Expansion
-  stage: Area Estimation/Accuracy assessment
-- category: Model-assisted
-  stage: Area Estimation/Accuracy assessment
-- category: Ratio
-  stage: Area Estimation/Accuracy assessment
-​---
+- category : Stratified
+  stage : Sampling
+- category : Simple Random
+  stage : Sampling
+- category : Cluster
+  stage : Sampling
+- category : Systematic
+  stage : Sampling
+- category : Stratified
+  stage : Area Estimation/Accuracy assessment
+- category : Expansion
+  stage : Area Estimation/Accuracy assessment
+- category : Model-assisted
+  stage : Area Estimation/Accuracy assessment
+- category : Ratio
+  stage : Area Estimation/Accuracy assessment
 ---
 
 # Stratified random sampling
@@ -350,7 +349,7 @@ Stehman, S.V., & Czaplewski, R.L., 1998. Design and analysis for thematic map ac
 
 -----
 
-![](figures/cc.png)  
+![](./figures/cc.png)  
 
 Cette œuvre est soumise à une licence [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
