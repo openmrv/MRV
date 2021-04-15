@@ -187,7 +187,7 @@ En el repositorio común de OpenMRV, busque y abra el script llamado: ** LT-GEE-
 
 La GUI de LT consta de tres paneles: un panel de control a la izquierda, un panel de informes a la derecha y un panel de mapa en el centro.
 
-`! [_ figG1_overviewGUI] (./ figures / _figG1_overviewGUI.png)`
+`! [_ figG1_overviewGUI] (./figures/_figG1_overviewGUI.png)`
 
 Un video que muestra la orientación básica de la GUI está aquí: https://youtu.be/tdpuxV7Ad8g
 
@@ -201,7 +201,7 @@ La forma de inicio más sencilla para comprender LandTrendr es aplicar los algor
 
 Para acceder al modo de puntos, seleccione el menú "Opciones de serie temporal de píxeles". Debería ver una ventana similar a esta:
 
-`! [_ fig_time_series] (./ figures / _fig_time_series.png)`
+`! [_ fig_time_series] (./figures/_fig_time_series.png)`
 
 Puede hacer clic en un punto del mapa y esperar pacientemente, o escribir coordenadas y luego hacer clic en el botón "Enviar píxel".
 
@@ -215,7 +215,7 @@ Longitud: -74.43198, Latitud: 2.73876
 
 Debería ver algo como esto:
 
-`! [_ fig_time_series_example1] (./ figures / _fig_time_series_example1.png)`
+`! [_ fig_time_series_example1] (./figures/_fig_time_series_example1.png)`
 
 El gráfico de series de tiempo a la derecha es la clave para aprender a interpretar. Muestra exactamente lo que está haciendo el algoritmo y se basa en las teorías señaladas anteriormente en las secciones introductorias.
 
@@ -270,7 +270,7 @@ Aunque la alteración del bosque como la que se muestra en nuestro ejemplo inici
 
 Longitud: -74.45873, 2.65730
 
-`! [pixel_degrade_maybe] (./ figures / pixel_degrade_maybe.png)`
+`! [pixel_degrade_maybe] (./figures/pixel_degrade_maybe.png)`
 
 Características notables: la caída en los valores de origen a mediados de la década de 2000 ocurre durante más de dos años y fue precedida por una disminución lenta aún más prolongada desde el comienzo del registro, lo que sugiere una pérdida persistente de pequeñas cantidades de vegetación. El segmento que muestra un aumento de varios años a partir de aproximadamente 2007 es constante en el tiempo (es decir, no es ruidoso) y persistente (muestra un patrón constante durante varios años). Cuando estos se observan después de una disminución como la observada en el período 2004-2006, es una evidencia que respalda que la disminución fue real y no un artefacto.
 
@@ -290,7 +290,7 @@ Longitud: -74.06598, Latitud: 2.692711
 
 Y deberías ver esta trayectoria:
 
-`![pixel_river_dist_rec] (./ figures / pixel_river_dist_rec.png)`
+`![pixel_river_dist_rec] (./figures/pixel_river_dist_rec.png)`
 
 Características notables: En la señal de origen, vemos una disminución de varios años en la señal NBR desde aproximadamente 1990 a 1997 o 1998, luego de una breve recuperación rápida y una recuperación más prolongada y lenta desde aproximadamente 1999 hasta el presente. Al final de la serie temporal, podríamos esperar ver un dosel en recuperación.
 
@@ -312,7 +312,7 @@ En la GUI, puede ejecutar LandTrendr usando muchos índices. Echemos un vistazo 
 
 Sin cambiar la Longitud o Latitud, simplemente haga clic en las casillas de verificación junto a "NDVI" y "B5", y haga clic en el cuadro "Submit Pixel", como se muestra aquí:
 
-! [timeseries_menu_with_ndvi_and_b5] (./ figures / timeseries_menu_with_ndvi_and_b5.png)
+! [timeseries_menu_with_ndvi_and_b5] (./figures/timeseries_menu_with_ndvi_and_b5.png)
 
 Ahora debería ver dos gráficos más en el panel de informes de la derecha, con el siguiente aspecto:
 
