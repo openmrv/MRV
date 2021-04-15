@@ -8,7 +8,6 @@ publisher and license: Copyright 2021, World Bank. This work is licensed under a
 
 tags:
 - OpenMRV
-
 - QGIS
 - GEE
 - AREA2
