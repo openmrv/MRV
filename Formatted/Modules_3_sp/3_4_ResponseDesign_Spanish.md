@@ -1,4 +1,68 @@
-# 3.4 Diseño de Respuesta
+---
+title: Response design
+summary: This tutorial introduces the concept of response design, lists relevant terms, and highlights different tools that can be used for the collection of reference observations in the context of area estimation and map accuracy. More tutorials can be found here on OpenMRV under process "Sample data collection" and tools "GEE", "AREA2", "CE", and "CEO".
+author: Pontus Olofsson
+creation date: February, 2021
+language: English
+publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+
+tags:
+- OpenMRV
+- Landsat
+- Sentinel 2
+- Cloud cover
+- Optical sensors
+- Remote sensing
+- Composite
+- Mosaic
+- GEE
+- AREA2
+- CEO
+- CE
+- Time series
+- Change detection
+- Land cover mapping
+- Forest mapping
+- Deforestation mapping
+- Degradation mapping
+- Forest degradation mapping
+- Sampling design
+- Sample design
+- Sample selection
+- Sample
+- Sampling frame
+- Stratified
+- Simple Random
+- Systematic
+- Response design
+- Survey
+- Survey design
+- Accuracy
+- Accuracy assessment
+- Area Estimation
+- Reference data
+- Reference classification
+- Reference observations
+- Colombia
+- Mozambique
+- Cambodia
+
+group:
+- category: Stratified
+  stage: Sampling
+- category: Simple Random
+  stage: Sampling
+- category: Cluster
+  stage: Sampling
+- category: Systematic
+  stage: Sampling
+- category: Collect Earth
+  stage: Reference data collection
+- category: Stratified
+  stage: Area Estimation/Accuracy assessment
+---
+
+# Diseño de Respuesta
 
 ## 1 Contexto
 
