@@ -246,7 +246,7 @@ A preview of the survey questions can be seen by clicking “Preview” at the b
 
 Collect needs a sampling grid that defines where we will collect data from the survey we just created. 
 We present two options here:
-1. importing an existing sampling design (you can use one that is created in tutorials here on OpenMRV under process "Sample data collection" and tools "QGIS", "AREA2", and "GEE")
+1. importing an existing sampling design (you can use one that is created in tutorials here on OpenMRV under process "Sample data collection" and tools "QGIS", "AREA2", and "GEE". One is made available [here](https://drive.google.com/file/d/1D56RnNziNVROjeGro1uwvJAH1DCQceck/view?usp=sharing) as an example)
 2. creating and importing a sampling grid using the Grid Generator in Google Earth Engine
 
 #### 3.3.1 Import an existing sampling design
