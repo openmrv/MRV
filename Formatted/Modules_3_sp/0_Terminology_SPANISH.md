@@ -1,3 +1,69 @@
+---
+title: Terminology relevant to the sampling techniques
+summary: This tutorial will introduce the terminology relevant to the sampling techniques for estimation of area and map accuracy. More information on terminology can be found in the AREA2 documentation - https://area2.readthedocs.io/en/latest/definitions.html
+author: Pontus Olofsson
+creation date: February, 2021
+language: English
+publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+
+tags:
+- OpenMRV
+- Landsat
+- Sentinel 2
+- Sentinel 1
+- GEE
+- Cloud cover
+- Optical sensors
+- Remote sensing
+- Composite
+- Mosaic
+- Time series
+- Change detection
+- Land cover mapping
+- Forest mapping
+- Deforestation mapping
+- Degradation mapping
+- Forest degradation mapping
+- Sampling design
+- Sample design
+- Sample selection
+- Sample
+- Sampling frame
+- Stratified
+- Simple Random
+- Systematic
+- Response design
+- Survey
+- Survey design
+- Accuracy
+- Accuracy assessment
+- Area Estimation
+- Reference data
+- Reference classification
+- Reference observations
+- Colombia
+- Mozambique
+- Cambodia
+
+group:
+- category: Stratified
+  stage: Sampling
+- category: Simple Random
+  stage: Sampling
+- category: Cluster
+  stage: Sampling
+- category: Systematic
+  stage: Sampling
+- category: Stratified
+  stage: Area Estimation/Accuracy assessment
+- category: Expansion
+  stage: Area Estimation/Accuracy assessment
+- category: Model-assisted
+  stage: Area Estimation/Accuracy assessment
+- category: Ratio
+  stage: Area Estimation/Accuracy assessment
+---
+
 # Terminología relevante para las técnicas de muestreo 
 
 Una lista de términos relevantes para las técnicas de muestreo e inferencia esta provista en la documentación de AREA2: https://area2.readthedocs.io/en/latest/definitions.html. Abajo hay algunos términos adicionales que no están incluidos en la documentación. 
