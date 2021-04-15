@@ -89,7 +89,7 @@ Especifiquemos una ruta al mapa de Colombia basado en CODED (https://code.earthe
 
 Hacerle clic a "Add to map" (Agregar al mapa) visualizará las unidades de muestra como puntos rojos en el mapa. El paso final es exportar la muestra: haga clic en pestaña Tasks (Tareas), y luego exporte la muestra en el Dialog – dos entradas nombradas “sample_asset” y "sample_CSV" pueden aparecer en tareas. Estas son idénticas pero una es para exportar la muestra como un archivo CSV, una para guardar como asset de GEE Asset para uso en Google Earth Engine. Haga clic en el botón "Run" junto a las entradas y guárdelas como un asset de GEE y CSV (el ultimo se guardará en su Google Drive). Use el nombre “STR_sample_Col” para el asset de GEE y el archivo CSV.
 
-[image: STR_AREA2.png]
+![](./figures/STR_AREA2.png)
 
 ## 4 Preguntas Frecuentes
 
@@ -149,7 +149,7 @@ Stehman, S.V. and Wickham, J.D., 2011. Pixels, blocks of pixels, and polygons: C
 
 -----
 
-![](figures/cc.png)  
+![](./figures/cc.png)  
 
 Este trabajo tiene licencia bajo un [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
@@ -161,4 +161,4 @@ Material revisado por: Ana Mirian Villalobos, El Salvador, Ministry of Environme
 
 Atribución: Olofsson, P. 2021. Sample selection using AREA2. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
-![](figures/wb_fcfc_gfoi.png)
+![](./figures/wb_fcfc_gfoi.png)
