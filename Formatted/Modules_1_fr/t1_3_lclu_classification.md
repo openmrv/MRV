@@ -82,17 +82,17 @@ Avant de se lancer dans un exercice de classification d'images, il est important
 
 L'imagerie géospatiale en télédétection, qu'elle provienne de capteurs passifs ou actifs, réagit aux propriétés physiques et chimiques de la surface de la terre.  La réflectance et l'absorption  de l'énergie électromagnétique sont enregistrées dans différentes bandes d'un capteur, et les valeurs numériques enregistrées dans ces bandes définissent un espace spectral (ou plus largement, un espace de données à n dimensions). Tous les pixels d'une image sont placés dans cet espace de données en raison de leur réflectance mesurée dans chaque bande spectrale du capteur. 
 
-![Vue schématique d'un espace de données spectral bidimensionnel défini par deux bandes spectrales.  Chaque point représente un seul pixel dans une image. L'emplacement de chaque pixel dans l'espace bidimensionnel est défini par ses valeurs de réflectance dans les deux bandes.](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\spectral_data_space.png){ width=50% }
+![Vue schématique d'un espace de données spectral bidimensionnel défini par deux bandes spectrales.  Chaque point représente un seul pixel dans une image. L'emplacement de chaque pixel dans l'espace bidimensionnel est défini par ses valeurs de réflectance dans les deux bandes.](./figures/m1.3/spectral_data_space.png){ width=50% }
 
 La plupart des algorithmes de classification fonctionnent entièrement dans cet espace de données. Les classificateurs tentent de séparer l'espace en régions délimitées dans lesquelles tous les pixels appartiennent à une classe étiquetée.  Certains classificateurs considèrent que les limites entre les régions sont difficiles, tandis que d'autres sont plus floues, traitant l'appartenance à une classe comme une probabilité.  
 
-![spectral_data_space_and_classes](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\spectral_data_space_and_classes.png)
+![spectral_data_space_and_classes](./figures/m1.3/spectral_data_space_and_classes.png)
 
 Espace spectral classifié. Chaque pixel de la figure précédente a été étiqueté selon un schéma de classification défini par l'analyste.  Dans un cas idéal tel que celui présenté ici, tous les pixels de chaque classe peuvent être regroupés en régions délimitées]
 
 Une fois que les limites de la classe ont été définies dans l'espace spectral, tous les autres pixels de l'image peuvent être étiquetés en fonction de la zone dans laquelle ils atterrissent. 
 
-![Un pixel de l'image dont les valeurs spectrales le placent à l'endroit indiqué par le "Pixel D" atterrit dans les limites de la classe 3, et sera donc étiqueté Classe 3.](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\spectral_space_classifier_new_pixel.png){ width=50% }
+![Un pixel de l'image dont les valeurs spectrales le placent à l'endroit indiqué par le "Pixel D" atterrit dans les limites de la classe 3, et sera donc étiqueté Classe 3.](./figures/m1.3/\spectral_space_classifier_new_pixel.png){ width=50% }
 
 ## 2.2 Occupation et utilisation du sol
 
@@ -122,7 +122,7 @@ Bien que les spécificités des étapes varient selon le classificateur,  [les �
 
 Graphiquement, les étapes sont les suivantes. 
 
-![WB_graphs_v2-03](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\WB_graphs_v2-03.png)
+![WB_graphs_v2-03](./figures/m1.3/WB_graphs_v2-03.png)
 
 Cela permet de créer une carte.  Vous devrez ensuite évaluer la précision de cette carte. Cette question est traitée dans le dernier module sur l'évaluation de la précision.
 
@@ -142,7 +142,7 @@ GEE fonctionne par le biais de scripts.  Comme indiqué ci-dessus, nous supposon
 1. Connectez-vous à l'éditeur de code Javascript du GEE à l'adresse suivante : code.earthengine.google.com
 2. *Facultatif* Mettre en place un nouveau répertoire pour votre travail  
 
-![GEE_new_repo](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\GEE_new_repo.png)
+![GEE_new_repo](./figures/m1.3/GEE_new_repo.png)
 
 3. Si vous êtes un lecteur sur le groupe openMRV, vous verrez le script dans "users/openmrv/MRV/LCLUC/cls_landsat_v2_colombia".  Vous pouvez également y accéder directement en utilisant le lien [GEE script](https://code.earthengine.google.com/549b29a5d53880813d9b8f07b839bbb5)
    1. Nous appellerons ce script le "script maître", car il exécute toutes les étapes du tutoriel.  
@@ -150,7 +150,7 @@ GEE fonctionne par le biais de scripts.  Comme indiqué ci-dessus, nous supposon
 
 > Conseil : vous devrez apporter une modification au fichier pour pouvoir l'enregistrer sous un nom local.  Ajoutez un espace quelque part dans le script, puis utilisez la fonction "Enregistrer sous". 
 
-![GEE_save_as](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\GEE_save_as.png)
+![GEE_save_as](./figures/m1.3/GEE_save_as.png)
 
 ## 3.2 Construire une image composite
 
@@ -177,7 +177,7 @@ Vous trouverez ci-dessous une image d'une petite zone de la Colombie dans la ré
 
 Notez qu'il y a des zones en gris pour lesquelles aucun pixel valide n'a été trouvé -- ce sont des zones de nébulosité persistante. 
 
-![landsat8_composite](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\landsat8_composite.png)
+![landsat8_composite](./figures/m1.3/landsat8_composite.png)
 
 
 ## 3.3 Charger les données d'entraînement
@@ -221,7 +221,7 @@ Les couleurs sont en code hexadécimal, l'approche standard pour le codage des c
 > * **Utilisation avancée**:  Pour une interprétation ultérieure, il est utile de coder en couleur ces classes.  Voir le code pour une approche de la coloration de chaque point interprété selon un schéma de couleurs défini à l'aide de codes hexadécimaux. 
 >   Les points de formation du module 1.2.1 affichés dans l'éditeur de code de GEE.
 
-![training_points_colombia](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\training_points_colombia.png)
+![training_points_colombia](./figures/m1.3/training_points_colombia.png)
 
 ## 3.4 Associer les points d'entrainement aux valeurs spectrales
 
@@ -274,7 +274,7 @@ A la fin de cette étape, la fonction `training_extract` (un tableau ) contient 
 
 Pour confirmer que l'objet possède ces propriétés, vous pouvez utiliser la commande `print(training_extract)` pour voir dans la console les propriétés de l'objet. Un exemple est présenté ci-dessous : 
 
-![feature_collection_with_loandcover_and_bands](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\feature_collection_with_loandcover_and_bands.png)
+![feature_collection_with_loandcover_and_bands](./figures/m1.3/feature_collection_with_loandcover_and_bands.png)
 
 La FeatureCollection a autant de caractéristiques que les données d'entraînement originales, mais notez que chaque caractéristique a maintenant des attributs pour les bandes spectrales que vous avez spécifiées avec la variable `bands_to_use`.  
 
@@ -289,7 +289,7 @@ Graphiquement, les arbres de classification identifient les lignes qui divisent 
 
 Un exemple d'une approche arborescente de la classification. Le classificateur identifie une valeur sur l'un des deux axes qui sépare le mieux les classes, avec des divisions successives qui isolent encore plus les points d'entraînement en classes.
 
-![CART_classification_cartoon](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\CART_classification_cartoon.png)
+![CART_classification_cartoon](./figures/m1.3/CART_classification_cartoon.png)
 
 Si vous ajoutez des éléments à votre propre script, faites un copier-coller dans la section 3.5 du script principal. 
 
@@ -304,7 +304,7 @@ La variable `trained_CART` est un classificateur qui peut ensuite être appliqu�
 
 En visualisant l'objet à l'aide de la fonction `print()` dans GEE, les caractéristiques de base de l'objet peuvent être confirmées : 
 
-![classifier_console](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\classifier_console.png)
+![classifier_console](./figures/m1.3/classifier_console.png)
 
 ## 3.6 Appliquer le classificateur à l'image
 
@@ -351,7 +351,7 @@ Conseil : notez que nous devons garder la trace des numéros de code de classe p
 
 Appliquée au pays de la Colombie, la carte apparaît comme suit :
 
-![CART_classification_countrywide](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\CART_classification_countrywide.png)
+![CART_classification_countrywide](./figures/m1.3/CART_classification_countrywide.png)
 
 Il est utile de rappeler que les points d'entraînement utilisés pour construire cette carte n'étaient pas destinés à être utilisés pour la création de cartes de haute qualité. Ainsi, la carte créée ici est simplement un exercice, et ne se veut pas une véritable carte d'occupation du sol en Colombie.  Cependant, nous l'utiliserons pour montrer les étapes de son évaluation et de son amélioration. 
 
@@ -363,7 +363,7 @@ Plusieurs problèmes sont évidents dans la carte CART présentée ici.
 
 
 
-![classification_problems](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\classification_problems.png)
+![classification_problems](./figures/m1.3/classification_problems.png)
 
 1. Pixels manquants causés par la présence des nuages
 Comme indiqué ci-dessus, l'image composite de cette région en 2019 comportait une zone importante où le masquage des pixels pour les nuages n'a pas permis d'obtenir des pixels valables pour l'image composite. Ces zones ne peuvent pas être classées, car elles n'ont pas de valeurs spectrales sur lesquelles appliquer le classificateur. 
@@ -390,7 +390,7 @@ Dans la première partie de la section 3.7 (jusqu'à 3.7.1.1 dans le script prin
 
 - En omettant le filtre de métadonnées de 50% de couverture nuageuse, on obtient la carte suivante : 
 
-![CART_image_after_removing_image_cloud_filter](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\CART_image_after_removing_image_cloud_filter.png)
+![CART_image_after_removing_image_cloud_filter](./figures/m1.3/CART_image_after_removing_image_cloud_filter.png)
 
 
 Cela améliore considérablement la situation, mais ne la résout pas entièrement. 
@@ -463,7 +463,7 @@ La fusion d'ensembles de données commence avec un ensemble de données (ici `l8
 
 L'image résultante présente beaucoup moins de gaps. 
 
-![comparing_two_year_composite](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\comparing_two_year_composite.png)
+![comparing_two_year_composite](./figures/m1.3/comparing_two_year_composite.png)
 
 Il y a encore des gaps près de la côte et à haute altitude. Il est peut-être nécessaire de passer à une troisième année, ou d'envisager une approche pour faire venir d'autres sources d'images. 
 
@@ -487,7 +487,7 @@ Des mises à jour similaires se produisent lors de la construction du classifica
 
 En utilisant le composite de deux ans et en relançant le classificateur CART, le schéma spatial des classes montre moins d'artefacts d'image. 
 
-![cart_classifier_with_two_year_composite](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\cart_classifier_with_two_year_composite.png)
+![cart_classifier_with_two_year_composite](./figures/m1.3/cart_classifier_with_two_year_composite.png)
 
 ### 3.7.2 Gérer les erreurs de classification
 
@@ -495,11 +495,11 @@ Comme indiqué ci-dessus, l'évaluation visuelle de la classification originale 
 
 L'image en fausses couleurs (bande SWIR en rouge, bande NIR en vert, bande rouge en bleu) sur la gauche montre des zones de végétation herbacée clairsemée avec une quantité importante de sol ou de sable visible également. Ces zones claires occupent une portion de l'espace spectral similaire à celle de la classe développée, ce qui donne une classification avec une abondance d'étiquettes de développé
 
-![figure_zoom_of_guajira](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\figure_zoom_of_guajira.png)
+![figure_zoom_of_guajira](./figures/m1.3/figure_zoom_of_guajira.png)
 
 De même façon, une évaluation minutieuse des plaines de l'est et du nord-est du pays, près de la rivière Meta, montre une sur-classification des zones développées, apparemment causée par des zones à la végétation clairsemée. 
 
-![figure_overclass_developed_plains](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\figure_overclass_developed_plains.png)
+![figure_overclass_developed_plains](./figures/m1.3/figure_overclass_developed_plains.png)
 
 #### 3.7.2.1. Options pour traiter les erreurs de classification
 
@@ -513,7 +513,7 @@ En utilisant le dessin animé simple présenté plus haut pour le classificateur
 
 Deux cas de mauvaise classification. Dans le cas 1, un nouveau pixel (noté avec un symbole carré) qui devrait être étiqueté avec la classe orange atterrit au milieu des représentants de la classe verte. Dans le cas 2, un nouveau pixel de la classe Orange atterrit en dehors du domaine des classes déjà définies, mais parce qu'il se trouve du "côté vert" de la première division, il est étiqueté comme vert.
 
-![misclassification](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\misclassification.png)
+![misclassification](./figures/m1.3/misclassification.png)
 
 Il existe au moins trois recours pour le cas 1 : 
 - Donner plus de dimensionnalité à l'espace des données spectrales.  Les points qui ne peuvent pas être séparés dans un plan bidimensionnel peuvent être séparés le long d'un troisième axe, par exemple.  Cela nécessite l'ajout d'informations spectrales au début du processus de classification.  Les chances de succès s'améliorent si cette nouvelle dimension des données est censée saisir une caractéristique qu'un expert pourrait identifier comme séparant les types confondus.  Par exemple, l'ajout d'une composante qui saisit la saisonnalité peut séparer deux types de forêts qui diffèrent par le moment ou la durée de l'état des feuilles. 
@@ -563,13 +563,13 @@ Une inspection de certains des domaines mentionnés ci-dessus suggère que l'alg
 
 Le résultat du classificateur Random Forest appliqué au composite de deux ans pour la même zone indiqué ci-dessus.  Notez la réduction substantielle des zones classées comme développées
 
-![randomforests_classifier](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\randomforests_classifier.png)
+![randomforests_classifier](./figures/m1.3/randomforests_classifier.png)
 
 La zone de la péninsule de Guajira reste encore largement mal classée.  Cela suggère que les données d'entraînement ne permettent pas d'échantillonner correctement l'espace spectral de cette classe, et qu'il serait bénéfique de recueillir davantage de données d'entraînement dans cette région. 
 
 La classification Random Forests de la péninsule de Guajira, montrant que la classe développée reste surestimée.
 
-![guajira_rf](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\guajira_rf.png)
+![guajira_rf](./figures/m1.3/guajira_rf.png)
 
 
 # 4.0 Classification non supervisée
@@ -615,7 +615,7 @@ Map.addLayer(unsup.randomVisualizer(), {}, '10 Clusters')
 Notez que les couleurs des classes ne sont liées à aucune quantité significative, donc une visualisation aléatoire est utilisée. Les couleurs des classes ne sont pas significatives, mais sont simplement utilisées pour distinguer les classes. 
 Une sortie classifiée de l'algorithme de classification non supervisé *k*-mean. Notez que les couleurs sont attribuées de manière aléatoire, et n'ont donc aucune signification inhérente.
 
-![figure_kmeans_examples](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\figure_kmeans_examples.png)
+![figure_kmeans_examples](./figures/m1.3/figure_kmeans_examples.png)
 
 
 ## 4.3 Evaluation
@@ -661,7 +661,7 @@ var training_points = ee.FeatureCollection('users/openmrv/MRV/mozambique_trainin
 
 Pour que le Script principal fonctionne dans son intégralité, ces deux modifications doivent être apportées à la fois à la section 3.2 et à la section 3.7.  Un échantillon des cartes et des images de l'ensemble du pays illustre le fait que l'application des mêmes approches de classification peut être réalisée (figure M1).
 
-![_fig_moz_initial_class](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\_fig_moz_initial_class.png)
+![_fig_moz_initial_class](./figures/m1.3/_fig_moz_initial_class.png)
 
 Figure M1.  Exemples de cartes générées par un simple transfert du script de classification de la Colombie au Mozambique.
 
@@ -677,7 +677,7 @@ Il n'est pas surprenant que les nuages soient moins problématiques au Mozambiqu
 
 Dans un environnement plus sec, les espèces ligneuses du Mozambique introduisent différents défis à la classification.  Chacune des approches de classification diffère des autres par la quantité et la distribution de la classe "forêt" : les composites simples diffèrent des composites à deux ans utilisant le même classificateur, et les différents classificateurs diffèrent également.  Le défi est particulièrement évident lorsque les cartes sont comparées à une échelle fine (figure M2). Bien que les données de formation ne soient pas ici destinées à être utilisées pour la cartographie sanctionnée, cette variabilité indique un problème important.  Les améliorations pourraient inclure une résolution plus fine des définitions des classes de forêts ou une plus grande densité d'échantillons d'entraînement. 
 
-![_fig_m2_zoom](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\_fig_m2_zoom.png)
+![_fig_m2_zoom](./figures/m1.3/_fig_m2_zoom.png)
 
 Figure M2.  Comparaison de trois variantes de classification dans le système de classification supervisé.  Notez que la variabilité du schéma spatial des labels forestiers parmi les trois est plus prononcée aux niveaux intermédiaires du couvert forestier. 
 
@@ -693,7 +693,7 @@ Au Cambodge comme au Mozambique, seuls quelques changements sont nécessaires po
 
 Bien que le Cambodge n'ait pas les régions semi-arides du Mozambique, il est moins affecté par les nuages que la Colombie :  Le composite d'une année utilisant le criblage des nuages au niveau du pixel ne montre aucune zone importante de données manquantes.  Comme auparavant, l'application du modèle des forêts aléatoires diminue la sur-classification des zones urbaines dans des zones autrement herbacées ou à faible végétation, mais ne supprime pas complètement le problème (figure C1).
 
-![fig_camb_fourmaps](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.3\fig_camb_fourmaps.png)
+![fig_camb_fourmaps](./figures/m1.3/fig_camb_fourmaps.png)
 
 
 # 6.0 FAQs
