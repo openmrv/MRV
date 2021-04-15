@@ -11,11 +11,8 @@ tags:
 - Landsat
 - Sentinel 2
 - Planet Labs
-- MODIS
 - QGIS
 - GEE
-- Cloud cover
-- Optical sensors
 - High resolution
 - Remote sensing
 - Composite
@@ -23,22 +20,11 @@ tags:
 - Land cover mapping
 - Forest mapping
 - Sample
-- Sample design
-- Sampling design
-- Sample selection
 - Colombia
 - Mozambique
 - Cambodia
 
 group:
-- category: Composite (Median)
-  stage: Composite creation/Pre-process
-- category: Landsat
-  stage: Inputs
-- category: Sentinel-2
-  stage: Inputs
-- category: MODIS
-  stage: Inputs
 - category: QGIS
   stage: Training data collection
 ---
