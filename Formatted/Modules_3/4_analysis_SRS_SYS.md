@@ -176,7 +176,7 @@ Lohr, S.L., 1999. *Sampling: Design And Analysis,* CRC Press.
 
 Rice, J.A., 1995. *Mathematical Statistics and Data Analysis* (2nd ed.), Duxbury Press, Belmont, CA.
 
-Stehman, S.V., 2014. Estimating area and map accuracy for stratified random sampling when the strata are different from the map classes. International Journal of Remote Sensing, 35(13), pp.4923-4939. https://doi.org/10.1080/01431161.2014.930207
+Stehman, S.V., 2014. Estimating area and map accuracy for stratified random sampling when the strata are different from the map classes. *International Journal of Remote Sensing*, 35(13), pp.4923-4939.
 
 -----
 
