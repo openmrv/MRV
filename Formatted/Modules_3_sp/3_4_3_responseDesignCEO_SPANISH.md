@@ -1,10 +1,70 @@
 ---
-title: Module 3.3.3 Survey Form Creation and Reference Observation Collection with Collect Earth Online
-toc: true
-colorlinks: blue
+title: Response Design in Collect Earth Online
+summary: Collect Earth Online is a custom built, open-source, satellite image viewing and interpretation system to collect data for use in projects that require land cover and/or land use reference information. In this tutorial you will learn how to draft, review, and publish a project in Collect Earth Online. More information is available on the Collect Earth Online Support Page (https://collect.earth/support).
+author:
+- Karis Tenneson
+- Karen Dyson
+creation date: February, 2021
+language: English
+publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+
+tags:
+- OpenMRV
+- Landsat
+- Sentinel 2
+- Sentinel 1
+- Cloud cover
+- Optical sensors
+- Remote sensing
+- Composite
+- Mosaic
+- Time series
+- GEE
+- CEO
+- Planet Labs
+- Change detection
+- Land cover mapping
+- Forest mapping
+- Deforestation mapping
+- Degradation mapping
+- Forest degradation mapping
+- Sampling design
+- Sample design
+- Sample selection
+- Sample
+- Sampling frame
+- Stratified
+- Simple Random
+- Systematic
+- Response design
+- Survey
+- Survey design
+- Accuracy
+- Accuracy assessment
+- Area Estimation
+- Reference data
+- Reference classification
+- Reference observations
+- Colombia
+
+group:
+- category: Stratified
+  stage: Sampling
+- category: Simple Random
+  stage: Sampling
+- category: Cluster
+  stage: Sampling
+- category: Systematic
+  stage: Sampling
+- category: Collect Earth Online
+  stage: Reference data collection
+- category: Google Earth Engine
+  stage: Reference data collection
+- category: Stratified
+  stage: Area Estimation/Accuracy assessment
 ---
 
-# Módulo 3.3.3 Creación de Forma de Encuesta y Colección de Observaciones de Referencia con Collect Earth Online
+# Creación de Forma de Encuesta y Colección de Observaciones de Referencia con Collect Earth Online
 
 ## 1 Contexto
 
@@ -98,7 +158,7 @@ Para este ejercicio, seleccione esta opción.
 
 11. Cuando todos los campos estén llenos, haga clic en [Add New Imagery].
 
-![](figures/AddS2.JPG)
+![](./figures/AddS2.JPG)
 
 ### 2.2 Agregar datos de Sentinel 1 a pagina de Institución
 
@@ -131,7 +191,7 @@ Para este ejercicio, seleccione '0.4'. (Unidades de coeficientes de retrodispers
 
 10. Cuando todos los campos estén llenos, haga clic en [Add New Imagery].
 
-![](figures/AddS1.JPG)
+![](./figures/AddS1.JPG)
 
 ### 2.3 Agregar imágenes de Bing a la pagina de Institución 
 
@@ -201,7 +261,7 @@ Para comenzar, abra un navegador de web y navegue a [Collect Earth Online](https
 
 1. En la pestaña de Projects en la página de su institución, haga clic en [Create New Project]. Esto lo llevará al wizard (asistente) de creación de proyectos. El asistente consiste de 6 partes, cada una explicada próximamente. 
 
-![](figures/Wizard.png)
+![](./figures/Wizard.png)
 
 #### 3.2.1 Resumen del Proyecto: 
 
@@ -217,7 +277,7 @@ Sin embargo, información acerca de como trabajar con una plantilla se incluye p
 
   ii. Luego haga clic en el menú desplegable abajo de "Select Project" y hacer clic en el nombre del proyecto. 
 
-![](figures/Template.png)
+![](./figures/Template.png)
 
   iii. Haga clic en el nombre del proyecto, y luego haga clic en "Load" para cargar la información de la plantilla. 
 
@@ -254,7 +314,7 @@ i. La primera opción es "Show GEE Script Link on the Collection Page" (Mostrar 
 
 I. La primera opción es 'Show GEE Script Link on the Collection Page' (Mostrar enlace al Script de GEE en la página de Colección). Esto permite que los usuarios en Data Collection hagan clic en un botón etiquetado [Ir a GEE Script para abrir una nueva pestaña con una serie de imágenes y gráficos de series de tiempo de Landsat y Sentinel] (ver imagen abajo). Para este ejercicio, seleccione esta opción.
 
-![](figures/GEE_script.JPG)
+![](./figures/GEE_script.JPG)
 
 En el ejemplo de imagen del script GEE hay tres paneles. En el extremo izquierdo, hay una composición de Sentinel 2 de los últimos 12 meses. Se colorea utilizando un compuesto de color infrarrojo (infrarrojo cercano, infrarrojo medio, rojo). En el centro están los mosaicos Landsat 8 y Landsat 7 Color Yearly, con un control deslizante para que pueda elegir entre años. A la derecha están los gráficos NDVI del gráfico de MODIS, Landsat 7/8 y Sentinel 2. Para los gráficos Landsat 7/8 y Sentinel, puede hacer clic en un punto de los gráficos para cargar imágenes específicas en los paneles izquierdo y central.
 
@@ -270,7 +330,7 @@ Para este ejercicio, seleccione lanzamiento automático de Geo-Dash.
 
 5. Su pantalla debería de verse similar a la imagen siguiente. Haga clic en "Next" para llegar al panel de selección de imágenes. 
 
-![](figures/ProjectOverview.JPG)
+![](./figures/ProjectOverview.JPG)
 
 #### 3.2.2 Selección de Imágenes 
 
@@ -292,7 +352,7 @@ Active la casilla a un lado de cada fuente de imágenes que quiere que este disp
 
 4. Haga clic en "Next" cuando haya terminado.
 
-![](figures/ImagerySelection.JPG)
+![](./figures/ImagerySelection.JPG)
 
 #### 3.2.3 Especificación de Muestra: Diseño de Parcela
 
@@ -314,11 +374,11 @@ i. La manera mas fácil de seleccionar el área de interés de su proyecto es di
 
   * Las cajas de coordenadas se poblaran una vez que la caja este dibujada y suelte el botón del mouse. Las coordenadas se muestran en formato lat/long usando WGS84 EPSG:4326.
 
-![](figures/AOI.png)
+![](./figures/AOI.png)
 
 ii. Puede incluir manualmente las coordenadas de límites en las cajas provistas. 
 
-![](figures/CoordBoundingBox.png)
+![](./figures/CoordBoundingBox.png)
 
 ##### 3.2.3.1 Diseño de Parcela 
 
@@ -332,7 +392,7 @@ Primero debemos de ajustar el formato del archivo .csv. El archivo que suba para
 
 i. En un software para el formato de hojas de calculo como Excel, abra el archivo de muestra aleatoria estratificada que creo en el ejercicio de selección de muestra (Modulo 3.2). 
 
-![](figures/stratSmplRaw.JPG)
+![](./figures/stratSmplRaw.JPG)
 
 ii. Copiar y pegar las columnas alrededor para que la primera contenga las coordenadas de longitud, seguida por coordenadas de latitud, y luego el ID de la parcela.
 
@@ -342,11 +402,11 @@ iv. Borre la columna llamada '.geo'.
 
 v. Guarde los cambios a su .csv.
 
-![](figures/stratSmplMod.JPG)
+![](./figures/stratSmplMod.JPG)
 
 Nota: si no especifica los nombres de columnas correctamente (deletreando o en orden), recibirá el siguiente error: 
 
-![](figures/csvError.png)
+![](./figures/csvError.png)
 
 Longitud debe de estar entre -180 and 180, y latitud debe de estar entre -90 and 90. Si los confunde, puede obtener un error si su longitud es mas grande que 90 o menos que -90 (cuando esto se confunde con latitud, esta "por encima" del polo). Revise bien estos valores. 
 
@@ -383,7 +443,7 @@ Aquí es donde especificara cuantos puntos de muestra están dentro de cada parc
 
 Para este ejercicio, puede dejar esa opción sin activar.
 
-![](figures/SmpDesign.JPG)
+![](./figures/SmpDesign.JPG)
 
 3. Haga clic en Next.
 
@@ -468,7 +528,7 @@ i. En el campo de Nueva Pregunta, escriba 'Cobertura de suelo previa'. Luego hag
 
 ii. Ahora agregue respuestas a la nueva pregunta hijo usando el método explicado en paso 3 arriba. Lo puede hacer usando las mismas categorías de cobertura de suelo que usamos en la primera pregunta: Agua, Hielo/nieve, desarrollado, desnudo, arboles, arbustos, pastizales, cultivos, y otro. 
 
-![](figures/ChildQ.JPG)
+![](./figures/ChildQ.JPG)
 
 8. Puede repetir este proceso para preguntar si hubo cambios antes del evento de cambio mas reciente. Agregue hasta tres opciones de eventos de cambios.
 
@@ -548,17 +608,17 @@ Geo-Dash es un tablero que se abre en una segunda ventana cuando los usuarios co
 
 1. Puede configurar su Geo-Dash haciendo clic en [Configure Geo-Dash] de la página de información de proyecto. Esto abrirá la pantalla de layout de Geo-Dash.
 
-![](figures/geoDash.JPG)
+![](./figures/geoDash.JPG)
 
 2. [Copy Layout] le permitirá copiar el Geo-Dash de otro proyecto. Esto borrará otros widgets de Geo-Dash que posiblemente ya haya asociado con su proyecto.
 
-![](figures/copygeodash.JPG)
+![](./figures/copygeodash.JPG)
 
 3. Puede agregar widgets de Geo-Dash individuales con [Add Widget]. Para entender el propósito de cada widget, haga clic en [Geo-Dash Help] para abrir el Centro de Ayuda de  Geo-Dash. 
 
 Para este ejercicio, solo agregaremos uno de los muchos widgets Geo-Dash disponibles. Sin embargo, si desea obtener más información sobre estas opciones, consulte el manual [Collect Earth Online Institution and Project Creation Manual](https://collect.earth/support).
 
-![](figures/geodashHelp.JPG)
+![](./figures/geodashHelp.JPG)
 
 #### 3.2.8.1 Agregando Imágenes ChronoSequence al Geo-Dash, el Widget de Degradación Forestal
 
@@ -592,11 +652,11 @@ Los usuarios de su equipo que ayudarán a recopilar las observaciones de referen
 
 Una vez que se han agregado miembros a la institución, puede compartir el enlace al proyecto con ellos. O pídales que naveguen a la página de su institución y seleccionen el proyecto en la página de inicio de la institución.
 
-![](figures/FindProject.JPG)
+![](./figures/FindProject.JPG)
 
 1. Una vez en la página de recopilación de datos del proyecto, puede acceder a la ayuda para la pantalla de análisis en cualquier momento haciendo clic en el signo de interrogación púrpura en la esquina superior derecha de la pantalla. La función de ayuda señalará características importantes de la página de recopilación de datos.
 
-![](figures/HelpButton.JPG)
+![](./figures/HelpButton.JPG)
 
 2. Primero asegúrese de hacer clic en el botón [Go to first plot] (Ir a la primera parcela) en la esquina superior a mano derecha.
 
@@ -660,7 +720,7 @@ Una vez que se han agregado miembros a la institución, puede compartir el enlac
 
 2. Lea la primera pregunta de encuesta y las respuestas posibles. Está preguntando cual es la cobertura de suelo actual. Para determinar esto, aléjese de la parcela con zoom hasta que las imágenes se vean mas claras. Esto le permitirá conseguir mas pistas de contexto del paisaje.
 
-![](figures/Q1.JPG)
+![](./figures/Q1.JPG)
 
 3. Use el menú desplegable de 'Imagery Options' para cargar fuentes de imágenes disponibles y determinar cual es la cobertura de suelo actual. 
 
@@ -679,25 +739,25 @@ Una vez que se han agregado miembros a la institución, puede compartir el enlac
 * Si comete un error y asigna un valor incorrecto a un punto o puntos, puede volver a seleccionar los puntos y cambiar la "respuesta".
 
 
-![](figures/Q2pre.JPG)
+![](./figures/Q2pre.JPG)
 
 5. A continuación, seleccione la segunda pregunta de la encuesta haciendo clic en "2" o presione la flecha hacia la derecha. Esta pregunta es preguntar si ha habido un cambio en la cobertura del suelo, en qué año ocurrió. Si hubo más de un cambio, indica que debe registrar el año del evento de cambio más reciente.
 
-![](figures/Q2.JPG)
+![](./figures/Q2.JPG)
 
 6. Para determinar el historial del paisaje en esta parcela, es útil revisar los datos en Google Earth Pro, GEE Script y en la pestaña Geo-Dash. Primero, abra la pestaña Geo-Dash (es probable que sea la pestaña inmediatamente a la derecha de la pestaña de recopilación de datos. Es posible que deba hacer clic en el botón Geo-Dash si la pestaña aún no está abierta.
 7. Haga clic en Descargar Plot KML para descargar un archivo .kml y verlo en Google Earth. Google Earth tiene varias fuentes de imágenes históricas y actuales que pueden ayudar a identificar una trama. Necesitará tener Google Earth Pro instalado en su computadora. Puede hacer clic en el archivo .kml descargado para abrirlo en Google Earth o importarlo manualmente en Google Earth. Luego, haga clic en el control deslizante de la serie temporal para alternar entre las imágenes disponibles para diferentes fechas.
 8. En este ejercicio, la página Geo-Dash se ha configurado con solo una herramienta de visualización de series de tiempo. Esto incluye un gráfico de series de tiempo de los valores mensuales (NDFI) de enero de 2005 a enero de 2020 calculados a partir de las colecciones de imágenes de Landsat. Busque cambios bruscos y graduales en el gráfico de series de tiempo NDFI, que se muestra en el panel inferior. Recuerde examinar el gráfico de series de tiempo en busca de patrones cíclicos (que indiquen cambios estacionales) antes de evaluar valores inesperados. Estos patrones estacionales están presentes en los bosques caducifolios, pero no indican un cambio en la cobertura del suelo. Busque cambios abruptos (generalmente desengrasados bruscos) o cambios graduales (generalmente aumentos graduales). Estos indican posibles eventos de degradación y recuperación.
 
-![](figures/TimeSeries.JPG)
+![](./figures/TimeSeries.JPG)
 
 9. Si identifica lo que parece un cambio del valor esperado, puede hacer clic en un punto del gráfico para cargar esa imagen Landsat en la ventana del mapa. Haga clic en una fecha individual (círculo azul) en el gráfico para que aparezcan las imágenes de ese período de tiempo. Es posible que deba esperar a que se carguen las imágenes.
 
 * Por ejemplo, en la imagen de abajo hay un par de puntos con un valor NDFI bajo en comparación con la mayoría de los valores en el rango de tiempo. Por ejemplo, en la imagen de abajo hay una caída en los valores de NDFI el 9 de noviembre de 2015. Si hace clic en el punto de la imagen antes de la caída, verá que el paisaje parece arbolado. Si luego hace clic en el punto con un valor bajo (el 9-11-2015), la imagen se carga y el paisaje todavía parece arbolado. Sin embargo, hay un borde de nube que se superpone a la trama. En este ejemplo, parece que el cambio en la serie temporal se debe al ruido atmosférico en lugar de a los cambios en la cobertura del suelo. Después de hacer clic en todos los valores bajos de NDFI y examinar la imagen Landsat asociada, parece que todas estas caídas se deben a la cobertura de nubes en esta ubicación de la parcela. Por lo tanto, para este gráfico de la pregunta 2, seleccionaríamos 'Sin cambios'.
 
-![](figures/prechange.png)
+![](./figures/prechange.png)
 
-![](figures/Change.png)
+![](./figures/Change.png)
 
 * Al hacer clic en los puntos del gráfico, las imágenes a veces tardan un momento en cargarse.
 
@@ -707,7 +767,7 @@ Una vez que se han agregado miembros a la institución, puede compartir el enlac
 
 * Un declive fuerte de NDFI (frecuentemente acompañado por una recuperación pequeña) puede indicar tala selectiva. El panel a mano izquierda muestra el paisaje antes; a la derecha es el después. Podemos ver que en nuestra parcela de muestras, se ha construido una carretera. Esto se registraría como una degradación aun en el 2009 con una recuperación durando aproximadamente 2-3 años. 
 
-![](figures/road.png)
+![](./figures/road.png)
 
 10. Haga clic en diferentes fechas en y alrededor de su evento sospechado para confirmar visualmente que si ocurrió un evento. Si ocurrió un evento, indique en que año ocurrió. Si no hubo cambios, seleccione 'No Changes'. 
 
@@ -820,6 +880,6 @@ Tenneson, Karis and Dyson, Karen. 2021. Module 3.3.3 Survey Form Creation and Re
 
 License: Creative Commons Attribution license (CC BY 3.0 IGO)
 
-![](figures/WB_FCPF.png)
-![](figures/GFOI.png)
+![](./figures/WB_FCPF.png)
+![](./figures/GFOI.png)
 
