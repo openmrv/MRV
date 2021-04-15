@@ -80,7 +80,7 @@ Le processus de collecte des données d'entraînement dans GEE est détaillé da
 3. Collecte des données d'entraînement en définissant manuellement les points d'entraînement. 
 4. Exportation des données d'entraînement.
 
-![diagramGEE](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\diagramGEE.JPG)
+![diagramGEE](./figures/m1.2/m1.2.2/diagramGEE.JPG)
 
 ### 3.2 Création de nouvelles collections d'éléments
 
@@ -92,15 +92,15 @@ Ensuite, vous devrez définir une nouvelle classe d'éléments pour chaque occup
 
 1. Lorsque vous êtes dans le Earth Engine, naviguez vers les outils de dessin dans le coin supérieur gauche de la fenêtre de la carte. Cliquez sur l'icône pour ajouter des marqueurs de points. 
 
-![AddMarker](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\AddMarker.jpg)
+![AddMarker](./figures/m1.2/m1.2.2/AddMarker.jpg)
 
 2. Cela ajoutera un nouveau panneau *Geometry Imports* dans votre fenêtre de carte, avec une étiquette pour les nouvelles propriétés. Vous pouvez maintenant dessiner dans la fenêtre de carte. Le nom par défaut de cette nouvelle couche est "geometry".
 
-![GeometryImports](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\GeometryImports.JPG)
+![GeometryImports](./figures/m1.2/m1.2.2/GeometryImports.JPG)
 
 3. Maintenez votre curseur sur le nom "geometry" dans ce panneau jusqu'à ce qu'une icône d'engrenage apparaisse sur le côté droit de l'étiquette. Cliquez sur l'engrenage pour ouvrir le panneau afin de modifier la configuration de la couche.
 
-![Settings](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\Settings.JPG)
+![Settings](./figures/m1.2/m1.2.2/Settings.JPG)
 
 4. Donnez ensuite à la couche un nom lié à l'occupation du sol qui vous intéresse, par exemple "forêt". 
 
@@ -119,13 +119,13 @@ Pour ce tutoriel, nous vous recommandons d'utiliser cette clé de classification
 
 Votre panel devrait ressembler à ceci :
 
-![GeomSettings](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\GeomSettings.jpg)
+![GeomSettings](./figures/m1.2/m1.2.2/GeomSettings.jpg)
 
 
 
 10. De retour à la fenêtre de la carte, passez votre souris sur les importations de la géomérie et cliquez sur l'option *+ new layer*.
 
-![NewGeom](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\NewGeom.jpg)
+![NewGeom](./figures/m1.2/m1.2.2/NewGeom.jpg)
 
 11. Répétez les étapes 3 à 10 jusqu'à ce qu'une collection éléments soit établie pour chaque type de classe d'occupation des sols.
 
@@ -165,13 +165,13 @@ N'oubliez pas que vous voulez que les données de référence correspondent à l
    Map.addLayer(s1_composite_masked, vis, 'Sentinel 2 2019 Masked');
    ```
 
-![gee](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\gee.JPG)
+![gee](./figures/m1.2/m1.2.2/gee.JPG)
 
 
 
 2. Il existe également une autre façon de charger des images dans GEE, cette deuxième option consiste à charger une image à partir de l'onglet Actifs. Si vous avez exporté une image composite dans votre dossier GEE Asset, vous pouvez l'importer en naviguant dans le dossier Assets. Ensuite, passez votre souris sur le nom de l'image composite et sélectionnez la flèche à importer dans l'éditeur de code. Assurez-vous que l'image que vous chargez à partir de votre dossier Asset est définie comme "image" afin que le code GEE fonctionne. 
 
-![import](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\import.jpg)
+![import](./figures/m1.2/m1.2.2/import.jpg)
 
 
 3. Copiez ensuite le texte suivant dans l'éditeur de code pour le charger dans la fenêtre de la carte et cliquez sur *Run*.
@@ -198,7 +198,7 @@ Une fois que vous avez décidé de l'imagerie de référence, il est temps de co
 1. Sélectionnez la couche d'occupation de sol dans le panneau *Importations géométriques* de la fenêtre de la carte.
 2. Sélectionnez le marqueur de points et cliquez dans la carte pour ajouter des points de cette occupation du sol (voici une brève [vidéo](https://youtu.be/tJx7plJLqW4) pour illustrer la manière de procéder). Vous pouvez activer et désactiver l'image composite dans le panneau des couches. Vous pouvez également basculer entre la carte et le composite satellite dans le coin supérieur droit de la fenêtre de la carte.
 
-![ToggleImage](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\ToggleImage.jpg)
+![ToggleImage](./figures/m1.2/m1.2.2/ToggleImage.jpg)
 
 3. Si vous laissez tomber un point par accident, vous pouvez le déplacer ou le supprimer en utilisant la main panoramique, sélectionner le point et le modifier en le faisant glisser pour le déplacer ou le supprimer (voici une brève [vidéo](https://youtu.be/Q6QElHXYOT0) pour illustrer la manière de procéder). Cliquez sur *Exit* pour quitter les points d'édition.
 
@@ -311,7 +311,7 @@ Poursuivez maintenant la formation à partir d'ici, en commençant par la sectio
 
    
 
-![MozambiqueNDVI](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\MozambiqueNDVI.JPG)
+![MozambiqueNDVI](./figures/m1.2/m1.2.2/MozambiqueNDVI.JPG)
 
 La carte qui est chargée est la variance saisonnière de NDVI, dans laquelle le rouge indique une variabilité moindre et le vert une variabilité plus importante. 
 
@@ -326,7 +326,7 @@ La carte qui est chargée est la variance saisonnière de NDVI, dans laquelle le
 
    
 
-![MozambiqueNDVImasked](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\MozambiqueNDVImasked.JPG)
+![MozambiqueNDVImasked](./figures/m1.2/m1.2.2/MozambiqueNDVImasked.JPG)
 
 6. Maintenant que nous collectons des données d'entraînement pour la classe "Forêt", il est important de référencer cette couche pour s'assurer que les données d'entraînement tiennent compte des différences de variabilité spectrale saisonnière dans les forêts. Tout d'abord, voyons pourquoi il pourrait être avantageux d'effectuer les étapes énumérées ci-dessus : 
     - Certaines forêts ont des modèles saisonniers de productivité. 
@@ -371,11 +371,11 @@ La plupart des forêts restantes au Cambodge sont situées sur des terrains vall
 
 2. Naviguez jusqu'au bouton 'Map / Satellite' situé sur le côté droit de l'écran et cliquez sur "Satellite". Cela vous permettra de voir la carte de terrain qui facilitera la visualisation des caractéristiques topographiques dans l'imagerie de référence, afin qu'elle puisse être utilisée comme information supplémentaire lors de la collecte des données de référence. Veillez à collecter des échantillons d'entraînement pour les forêts qui varient en fonction de leur disposition topographique. Par exemple, les échantillons doivent être collectés sur un terrain qui diffère par sa pente et son aspect. Il n'est pas nécessaire d'être précis, et cela peut être fait de manière optionnelle pour n'importe quelle occupation du sol. 
 
-![MapSatellite](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\MapSatellite.JPG)
+![MapSatellite](./figures/m1.2/m1.2.2/MapSatellite.JPG)
 
 3. Vous pouvez également modifier la transparence des couches que vous créez en cliquant sur "Layers" sur le côté droit de l'écran et en ajustant la couche, comme le montre l'image ci-dessous. 
 
-![LayerTransparency](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\LayerTransparency.JPG)
+![LayerTransparency](./figures/m1.2/m1.2.2/LayerTransparency.JPG)
 
 4. N'oubliez pas de sauvegarder fréquemment.
 
@@ -422,9 +422,9 @@ Tenneson, Karis. 2020. Formation à la collecte de données à l'aide de Google 
 
 
 
-![WB_FCPF](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\WB_FCPF.png)
+![WB_FCPF](./figures/m1.2/m1.2.2/WB_FCPF.png)
 
-![GFOI](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\GFOI.png)
+![GFOI](./figures/m1.2/m1.2.2/GFOI.png)
 
 
 
