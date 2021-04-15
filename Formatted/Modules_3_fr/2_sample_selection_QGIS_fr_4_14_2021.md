@@ -1,5 +1,4 @@
 ---
-​---
 title: Sample selection using QGIS
 summary: In sampling design methods for estimation of area and map accuracy, we design a sample by choosing a selection protocol and determining the sample size and allocation. In this tutorial we will physically draw from a study area a sample that was designed based on tutorials here on OpenMRV under process "Sampling design". Here, we illustrate how to draw a sample in QGIS.
 author: Pontus Olofsson
@@ -38,23 +37,23 @@ tags:
 - Colombia
 
 group:
-- category: Stratified
-  stage: Sampling
-- category: Simple Random
-  stage: Sampling
-- category: Cluster
-  stage: Sampling
-- category: Systematic
-  stage: Sampling
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
-- category: Expansion
-  stage: Area Estimation/Accuracy assessment
-- category: Model-assisted
-  stage: Area Estimation/Accuracy assessment
-- category: Ratio
-  stage: Area Estimation/Accuracy assessment
-​---
+- category : Stratified
+  stage : Sampling
+- category : Simple Random
+  stage : Sampling
+- category : Cluster
+  stage : Sampling
+- category : Systematic
+  stage : Sampling
+- category : Stratified
+  stage : Area Estimation/Accuracy assessment
+- category : Expansion
+  stage : Area Estimation/Accuracy assessment
+- category : Model-assisted
+  stage : Area Estimation/Accuracy assessment
+- category : Ratio
+  stage : Area Estimation/Accuracy assessment
+
 ---
 
 # Sample selection using AREA2
@@ -83,7 +82,7 @@ QGIS prend en charge l'échantillonnage de populations définies par des donnée
 3. Vectoriel > Outils de recherche > Points aléatoires à l'intérieur des polygones
 4. Spécifiez la limite de la Colombie comme couche d'entrée, le nombre de points comme stratégie d'échantillonnage et la taille totale de l'échantillon sous Nombre de points ; laissez la distance minimale " Enregistrer dans un fichier et cliquez sur Exécuter pour obtenir l'échantillon.
 
-[image: SRS_QGIS.png]
+![](./figures/SRS_QGIS.PNG)
 
 #### 3.2 Échantillonnage systématique
 
@@ -94,7 +93,7 @@ Le tracé d'un échantillon sous SYS dans QGIS présente l'inconvénient que la 
 3. Spécifiez l'espacement des points ou le nombre de points -- si vous utilisez le premier, cochez la case "Utiliser l'espacement des points".
 4. Enregistrez dans un fichier et cliquez sur Exécuter pour dessiner l'échantillon.
 
-[image: SYS_QGIS.png]
+![](./figures/SYS_QGIS.png)
 
 ## 4 Foire aux questions (FAQs)
 
@@ -152,7 +151,7 @@ Stehman, S.V. and Wickham, J.D., 2011. Pixels, blocks of pixels, and polygons: C
 
 -----
 
-![](figures/cc.png)  
+![](./figures/cc.png)  
 
 Ce travail est autorisé sous une licence [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
@@ -162,4 +161,4 @@ Matériel révisé par : Ana Mirian Villalobos, El Salvador, Ministry of Environ
 
 Attribution: Olofsson, P. 2021. Sample selection using QGIS. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
-![](figures/wb_fcfc_gfoi.png)
+![](./figures/wb_fcfc_gfoi.png)
