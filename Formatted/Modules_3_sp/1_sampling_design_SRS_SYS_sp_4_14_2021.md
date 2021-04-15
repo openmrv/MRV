@@ -237,7 +237,7 @@ Stehman, S.V., & Czaplewski, R.L., 1998. Design and analysis for thematic map ac
 
 -----
 
-![](figures/cc.png)  
+![](./figures/cc.png)  
 
 Este trabajo tiene licencia bajo [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
@@ -247,4 +247,4 @@ Material revisado por: Ana Mirian Villalobos, El Salvador, Ministry of Environme
 
 Atribución: Olofsson, P. 2021. Simple random/systematic sampling. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
-![](figures/wb_fcfc_gfoi.png)
+![](./figures/wb_fcfc_gfoi.png)
