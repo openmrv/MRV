@@ -10,13 +10,10 @@ tags:
 - OpenMRV
 - Landsat
 - Sentinel 2
-- Sentinel 1
 - GEE
 - Cloud cover
 - Optical sensors
 - Remote sensing
-- Composite
-- Mosaic
 - CCDC
 - Time series
 - Change detection
@@ -24,20 +21,11 @@ tags:
 - Forest mapping
 - Deforestation mapping
 - Degradation mapping
-- Forest degradation mapping
 - Colombia
 - Mozambique
 - Cambodia
 
 group:
-- category: Composite (Median)
-  stage: Composite creation/Pre-process
-- category: Landsat
-  stage: Inputs
-- category: Sentinel-2
-  stage: Inputs
-- category: Sentinel-1
-  stage: Inputs
 - category: CCDC
   stage: Change Detection
 ---
