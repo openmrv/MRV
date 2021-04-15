@@ -9,19 +9,13 @@ language: English
 publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
 
 tags:
-- OpenMRV
-- Landsat
 - Sentinel 2
 - Sentinel 1
 - Cloud cover
 - Optical sensors
-- Remote sensing
 - Composite
-- Mosaic
 - Time series
-- GEE
 - CEO
-- Planet Labs
 - Change detection
 - Land cover mapping
 - Forest mapping
@@ -39,9 +33,6 @@ tags:
 - Response design
 - Survey
 - Survey design
-- Accuracy
-- Accuracy assessment
-- Area Estimation
 - Reference data
 - Reference classification
 - Reference observations
@@ -58,10 +49,6 @@ group:
   stage: Sampling
 - category: Collect Earth Online
   stage: Reference data collection
-- category: Google Earth Engine
-  stage: Reference data collection
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
 ---
 
 # Response Design in Collect Earth Online
