@@ -24,7 +24,7 @@ Olofsson, P., Foody, G.M., Herold, M., Stehman, S.V., Woodcock, C.E. and Wulder,
 
 ------
 
-[![img](https://github.com/openmrv/MRV/raw/main/Formatted/Modules_3/figures/cc.png)](https://github.com/openmrv/MRV/blob/main/Formatted/Modules_3/figures/cc.png)
+[![img](./figures/cc.png)](./figures/cc.png)
 
 Cette œuvre est soumise à une licence [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/).
 
