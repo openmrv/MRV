@@ -235,7 +235,7 @@ Stehman, S.V., & Czaplewski, R.L., 1998. Design and analysis for thematic map ac
 
 -----
 
-![](figures/cc.png)  
+![](./figures/cc.png)  
 
 Cette œuvre est soumise à une licence [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
