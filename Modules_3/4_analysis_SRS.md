@@ -1,4 +1,4 @@
-# Analysis of sample data  collected under SRS/SYS
+# Analysis of sample data  collected under simple random and systematic sampling
 
 ## 1. Background
 
@@ -102,7 +102,9 @@ This work is licensed under a [Creative Commons Attribution 3.0 IGO](https://cre
 
 Copyright 2020, World Bank. This work was developed by Pontus Olofsson under World Bank contract with GRH Consulting, LLC for the development of new -and collection of existing- Measurement, Reporting, and Verification related resources to support countries' MRV implementation. 
 
-Attribution: Olofsson, P. (2021). *Open MRV: Analysis of sample data*. World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)
+License: Creative Commons Attribution license (CC BY 3.0 IGO)
+
+Attribution: Olofsson, P. (2021). *Open MRV: Analysis of sample data under simple random and systematic sampling*. World Bank. 
 
 Work reviewed by:
 Ana Mirian Villalobos
