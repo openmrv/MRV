@@ -82,11 +82,11 @@ Comme les processus biophysiques, écologiques et anthropiques agissent sur la s
 
 Lorsqu'ils sont visualisés graphiquement, les changements spectraux observés montrent à la fois les effets des processus de changement souhaités et ceux des changements non ciblés. Avec le temps sur l'axe X et la réflectance spectrale mesurée sur l'axe Y, la forme sous-jacente d'un processus de changement devient évidente, mais avec une variabilité d'une observation à l'autre.  Cette variabilité est causée par les aléas de la date d'acquisition des images, les effets résiduels des nuages et de l'atmosphère, les effets de l'angle du soleil, la phénologie et éventuellement d'autres bruits de traitement ou de système.  Reproduit graphiquement, l'algorithme LandTrendr tente d'isoler la forme sous-jacente de la trajectoire tout en supprimant le bruit.  Nous appelons ce processus "segmentation temporelle".
 
-![_fig_intro_temporal_segmentation_v2](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_intro_temporal_segmentation_v2.png)
+![_fig_intro_temporal_segmentation_v2](./figures/_fig_intro_temporal_segmentation_v2.png)
 
 Deux composantes des courbes spectrales doivent être prises en compte pour déduire le processus à partir de la segmentation temporelle : la <u>magnitude</u> et la <u>durée</u> du changement spectral.  La <u>magnitude</u> du changement fait référence au changement de la quantité numérique des propriétés spectrales.  Plus la surface est modifiée, plus il est probable que les propriétés spectrales changent et donc que l'ampleur de la modification change avec le temps. Cependant, deux contraintes contrôlent ce processus. Premièrement, la propriété spectrale suivie doit en fait être sensible au processus de changement qui nous intéresse.  Deuxièmement, l'ampleur du changement spectral doit être mesurable et se distinguer des changements de valeur spectrale non ciblés qui se produisent en raison de la variabilité de la phénologie, de l'angle du soleil, des effets atmosphériques résiduels, etc. <u>La durée</u> du processus fait référence à la période temporelle pendant laquelle le processus de changement entraîne un changement cohérent de la propriété spectrale. Certains processus, tels que la croissance végétative, se produisent continuellement pendant de nombreuses années à la fois, et provoquent donc un changement continu de la réflectance spectrale. Après la segmentation temporelle, ce processus sera noté par des segments dont les extrémités sont distantes de plusieurs années. D'autres processus, tels que le défrichement, sont brusques et provoquent un changement important entre deux périodes d'observation seulement, avec des sommets qui se succèdent immédiatement. 
 
-![_fig_example_dist_rec_v2](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_example_dist_rec_v2.png)
+![_fig_example_dist_rec_v2](./figures/_fig_example_dist_rec_v2.png)
 
 Une fois que la série chronologique est segmentée en parties distinctes, les points de début et de fin peuvent être interrogés pour identifier les segments correspondant au type de processus de changement souhaité. Si l'objectif est d'identifier les défrichements causés par l'homme, alors la trajectoire segmentée peut être interrogée pour trouver des segments dont les sommets se succèdent directement et dont le changement de direction de la valeur spectrale est cohérent avec la perte de végétation.  Si l'objectif est de trouver des zones de repousse à long terme après une perturbation, il faut en revanche rechercher des segments qui présentent des changements spectraux cohérents avec la croissance de la végétation sur de nombreuses années.  
 
@@ -157,7 +157,7 @@ L'application des algorithmes LandTrendr dans GEE comporte plusieurs étapes. Le
 
 
 
-![_fig_workflow_v2](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_workflow_v2.png)
+![_fig_workflow_v2](./figures/_fig_workflow_v2.png)
 
 Pour déterminer correctement les paramètres d'utilisation appropriés, chaque fois que LandTrendr doit être appliqué dans une nouvelle région, il est conseillé de suivre la séquence d'étapes suivante : 
 
@@ -194,13 +194,13 @@ Notez que cette interface graphique nécessite l'accès à deux bibliothèques d
 
 Le LT GUI se compose de trois panneaux :  Un panneau de contrôle à gauche, un panneau de rapport à droite et un panneau de carte au centre.
 
-![_figG1_overviewGUI](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_figG1_overviewGUI.png)
+![_figG1_overviewGUI](./figures/_figG1_overviewGUI.png)
 
 Une vidéo expliquant les principes de base de l'interface utilisateur graphique est disponible ici : https://youtu.be/tdpuxV7Ad8g
 
 En utilisant les menus déroulants du panneau de contrôle, l'utilisateur définit les paramètres des parcours LandTrendr, affiche des images et des cartes dans le panneau central ou génère des graphiques dans le panneau de rapport.  L'expansion des fenêtres est contrôlée en cliquant sur les doubles flèches situées à côté de chaque rubrique : 
 
-![_figG2_arrows_for_expanding_windows](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_figG2_arrows_for_expanding_windows.png)
+![_figG2_arrows_for_expanding_windows](./figures/_figG2_arrows_for_expanding_windows.png)
 
 
 
@@ -210,7 +210,7 @@ La façon la plus simple de commencer à comprendre LandTrendr est d'appliquer l
 
 Pour accéder au mode point, sélectionnez le menu "Pixel Time Series Options". Vous devriez voir une fenêtre comme celle-ci : 
 
-![_fig_time_series](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_time_series.png)
+![_fig_time_series](./figures/_fig_time_series.png)
 
 Vous pouvez soit cliquer sur un point de la carte et attendre patiemment, soit saisir des coordonnées et cliquer ensuite sur le bouton "Soumettre le pixel". 
 
@@ -224,13 +224,13 @@ Longitude: -74.43198, Latitude: 2.73876
 
 Vous devriez voir quelque chose comme ça :  
 
-![_fig_time_series_example1](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_time_series_example1.png)
+![_fig_time_series_example1](./figures/_fig_time_series_example1.png)
 
 Le tableau des séries chronologiques sur la droite est l'élément clé pour apprendre à interpréter.  Il montre exactement ce que fait l'algorithme, et s'appuie sur les théories mentionnées dans les sections d'introduction précédentes. 
 
 Orientez-vous sur la disposition et la signification des éléments du tableau ci-dessous : 
 
-![_fig_interpret_time_series](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_interpret_time_series.png)
+![_fig_interpret_time_series](./figures/_fig_interpret_time_series.png)
 
 L'interprétation principale est la différence entre la ligne grise et la ligne rouge. 
 
@@ -263,7 +263,7 @@ Lorsque la forêt est relativement mature (c'est-à-dire qu'il ne s'agit pas d'u
 
 Longitude:  74.40033, 2.6399 
 
-![pixel_stable_forest](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/pixel_stable_forest.png)
+![pixel_stable_forest](./figures/pixel_stable_forest.png)
 
 
 
@@ -271,7 +271,7 @@ Particularités remarquables :   Le signal de la source ne dévie pas beaucoup d
 
 Voici à quoi ressemble une photo aérienne de cette région :
 
-![pixel_stable_forest_airphoto](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/pixel_stable_forest_airphoto.png)
+![pixel_stable_forest_airphoto](./figures/pixel_stable_forest_airphoto.png)
 
 
 
@@ -287,7 +287,7 @@ Caractéristiques importantes :  La chute des valeurs de la source au milieu des
 
 En regardant la photo aérienne de la région, nous voyons des preuves de l'activité humaine tout autour et y compris le point lui-même.  La forêt dans la zone du pixel semble avoir été défrichée par petites parcelles, et le schéma d'enlèvement suggère que les humains ont participé activement au processus d'enlèvement. La raison spécifique de cette dégradation nécessiterait une meilleure connaissance des facteurs locaux et des incitations à l'abattage des forêts. 
 
-![pixel_degradation_maybe_airphoto](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/pixel_degradation_maybe_airphoto.png)
+![pixel_degradation_maybe_airphoto](./figures/pixel_degradation_maybe_airphoto.png)
 
 #### 3.3.2.3 Perturbation et restauration des rives
 
@@ -299,7 +299,7 @@ Longitude:  -74.06598, Latitude:  2.692711
 
 Et vous devriez voir cette trajectoire :
 
-![pixel_river_dist_rec](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/pixel_river_dist_rec.png)
+![pixel_river_dist_rec](./figures/pixel_river_dist_rec.png)
 
 Caractéristiques importantes : Dans le signal source, nous constatons une baisse pluriannuelle du signal NBR d'environ 1990 à 1997 ou 1998, après une courte reprise rapide et une reprise plus longue et plus lente d'environ 1999 à aujourd'hui. À la fin de la série chronologique, on peut s'attendre à une bonne récupération du couvert.  
 
@@ -309,7 +309,7 @@ Notez que le segment ajusté indiquant la perte de végétation commence en 1990
 
 L'image haute résolution de la période récente ne montre plus que très peu de signes de perturbation.  Bien que la trajectoire spectrale soit sans ambiguïté dans sa représentation du changement, il faudrait interpréter les modèles spatiaux de l'imagerie historique elle-même pour confirmer le type de changement. 
 
-![pixel_river_dist_rec_airphoto](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/pixel_river_dist_rec_airphoto.png)
+![pixel_river_dist_rec_airphoto](./figures/pixel_river_dist_rec_airphoto.png)
 
 
 
@@ -323,13 +323,13 @@ Dans l'interface graphique, vous pouvez faire tourner LandTrendr en utilisant de
 
 Sans changer la longitude ou la latitude, il suffit de cliquer sur les cases à cocher à côté de "NDVI" et "B5", et de cliquer sur la case "Soumettre le pixel", comme indiqué ici : 
 
-![timeseries_menu_with_ndvi_and_b5](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/timeseries_menu_with_ndvi_and_b5.png)
+![timeseries_menu_with_ndvi_and_b5](./figures/timeseries_menu_with_ndvi_and_b5.png)
 
 Vous devriez maintenant voir deux autres graphiques sur le volet de droite, qui ressemblent à ceux-ci : 
 
-![pixel_river_dist_rec_NDVI](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/pixel_river_dist_rec_NDVI.png)
+![pixel_river_dist_rec_NDVI](./figures/pixel_river_dist_rec_NDVI.png)
 
-![pixel_river_dist_rec_band5](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/pixel_river_dist_rec_band5.png)
+![pixel_river_dist_rec_band5](./figures/pixel_river_dist_rec_band5.png)
 
 N'oubliez pas qu'il s'agit de cartes du même pixel que la première, mais vues avec des indices spectraux différents.  Les différences sont considérables ! 
 
@@ -351,7 +351,7 @@ Considérez ce point :Longitude: -74.41916, Latitude:  2.70914
 
 
 
-![pixel_miss_noisy_beginning_year_off](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/pixel_miss_noisy_beginning_year_off.png)
+![pixel_miss_noisy_beginning_year_off](./figures/pixel_miss_noisy_beginning_year_off.png)
 
 Caractéristiques remarquables :  Bien que certaines périodes présentent une relative cohérence (de la fin des années 1990 au milieu des années 2000, et les cinq dernières années et plus du relevé), il existe plusieurs périodes où les données sources sont assez variables.  
 
@@ -363,7 +363,7 @@ Entre 2007 et 2010 environ, les données sources ont connu des variations très 
 
 Mais comme le suggère la photo de ce point, il est peu probable que cette zone soit de type dynamique.  En fait, il semble que ce soit une forêt assez stable ! 
 
-![pixel_miss_noisy_beginning-year_off_photo](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/pixel_miss_noisy_beginning-year_off_photo.png)
+![pixel_miss_noisy_beginning-year_off_photo](./figures/pixel_miss_noisy_beginning-year_off_photo.png)
 
 Que pourrait-il se passer ?  Étant donné que nous travaillons dans une région nuageuse du monde, la réponse la plus probable est qu'il y a des nuages ou des ombres nuageuses qui ont passé l'étape du filtrage des images et qui polluent le signal spectral dans ces années intermédiaires de la série temporelle. La valeur faible de la première année de la série chronologique suggère également un problème éphémère, probablement aussi des nuages.  
 
@@ -377,7 +377,7 @@ Considérez ce point :
 
 Longitude: 74.43843, Latitude:  2.67350
 
-![pixel_miss_long_decline_pasture](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/pixel_miss_long_decline_pasture.png)
+![pixel_miss_long_decline_pasture](./figures/pixel_miss_long_decline_pasture.png)
 
 Caractéristiques importantes :   Le signal de la source semble relativement stable, voire en augmentation jusqu'à l'an 2000 environ, puis en déclin pendant deux décennies.  Rien qu'à partir de ce signal, il semble que la végétation perde très lentement de sa vigueur au fil du temps, mais la cause n'est pas claire.  La zone semble se trouver dans un pâturage (non représenté ici), et il se peut que le changement de la vigueur de la végétation reflète un changement dans la gestion, le pâturage ou les pratiques de récolte. 
 
@@ -389,7 +389,7 @@ Un autre exemple de mauvais ajustement peut être trouvé ici :
 
 Longitude: -74.4236, Latitude:  2.6939
 
-![pixel_miss_bad_timing](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/pixel_miss_bad_timing.png)
+![pixel_miss_bad_timing](./figures/pixel_miss_bad_timing.png)
 
 Caractéristiques importantes :  Les données sources sont plus variables que certains des exemples ci-dessus, mais néanmoins la forme de la trajectoire est probablement interprétable. Bien qu'elle diminue et se rétablisse rapidement, la chute brutale de 2007 à 2009 est probablement une perturbation.  La période précédant la perturbation (jusqu'à 2006 environ) est relativement stable, et se situe à un plateau de valeurs spectrales distinct du début de la montée post-perturbation en 2010. 
 
@@ -427,7 +427,7 @@ Examinons l'outil de visualisation RGB.
    
       
 
-![_figP1_asset_overlay](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_figP1_asset_overlay.png)
+![_figP1_asset_overlay](./figures/_figP1_asset_overlay.png)
 
 
 
@@ -439,7 +439,7 @@ Lorsque vous avez effectué ces étapes, la limite de la zone d'intérêt doit a
 
 > NOTE : Vous pouvez utiliser ce même outil de gestion des actifs pour charger une zone de délimitation différente de votre choix.  La seule contrainte est qu'il doit s'agir d'un actif GEE que vous avez le droit de visualiser.  
 
-![_fig_colombia_rectangle](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_colombia_rectangle.png)
+![_fig_colombia_rectangle](./figures/_fig_colombia_rectangle.png)
 
 
 
@@ -459,11 +459,11 @@ Une vidéo de base montrant l'outil RGB se trouve ici : https://youtu.be/VSeia3N
 
 
 
-![_fig_rgb_menu_instructions](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_rgb_menu_instructions.png)
+![_fig_rgb_menu_instructions](./figures/_fig_rgb_menu_instructions.png)
 
 Cliquez sur "Add RGB Imagery", et attendez patiemment.  Le chargement complet de la zone que nous avons choisie peut prendre une minute.  Quand ce sera fait, vous devriez voir quelque chose comme ceci : 
 
-![_fig_rgb_change_initial](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_rgb_change_initial.png)
+![_fig_rgb_change_initial](./figures/_fig_rgb_change_initial.png)
 
 
 
@@ -475,33 +475,33 @@ Comment interpréter les couleurs ?  Supposons que nous travaillons avec un indi
 
 Tout d'abord, considérons ce qu'est une zone sans couleur, c'est-à-dire une zone qui est noire, blanche ou grise entre les deux.  Si une zone est noire ou blanche, la trajectoire des valeurs spectrales est stable au fil des ans.  Dans le schéma ci-dessous, les lignes noires horizontales représentent trois trajectoires de pixels différentes, toutes parfaitement planes (c'est-à-dire stables dans le temps) :
 
-![rgb_interp_stable](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/rgb_interp_stable.png)
+![rgb_interp_stable](./figures/rgb_interp_stable.png)
 
 
 
 Si nous avons une perturbation entre les années verte et bleue, cela signifie que l'indice sera élevé dans les couleurs rouge et verte, mais faible dans le bleu.  Selon la théorie de la couleur additive (voir https://en.wikipedia.org/wiki/Additive_color), cela se traduirait par une couleur jaune. 
 
-![rgb_interp_yellow](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/rgb_interp_yellow.png)
+![rgb_interp_yellow](./figures/rgb_interp_yellow.png)
 
 Si, en revanche, la perturbation s'est produite avant l'année verte et qu'il n'y a pas eu beaucoup de reprise avant l'année bleue, nous aurions des valeurs élevées, principalement en rouge. 
 
-![rgb_interp_red](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/rgb_interp_red.png)
+![rgb_interp_red](./figures/rgb_interp_red.png)
 
 
 
 S'il y avait une régénération au moment de l'année bleue, alors il y aurait beaucoup de rouge et de bleu, ce qui donnerait une certaine nuance de violet ou de magenta
 
-![rgb_interp_purple](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/rgb_interp_purple.png)
+![rgb_interp_purple](./figures/rgb_interp_purple.png)
 
 Quelques autres variantes sont couramment observées et méritent d'être examinées.  
 
 Si une zone voit une croissance constante de la végétation au fil des ans, elle aura un rouge relativement faible, un vert légèrement plus élevé et un bleu plus élevé, ce qui donne une forme de cyan à bleu.
 
-![rgb_interp_cyan](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/rgb_interp_cyan.png)
+![rgb_interp_cyan](./figures/rgb_interp_cyan.png)
 
 Enfin, s'il y a un déclin persistant sur toute la période, le rouge sera le plus élevé, suivi du vert puis du bleu - ce qui fait une certaine version du brun ou de l'orange. 
 
-![rgb_interp_orange](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/rgb_interp_orange.png)
+![rgb_interp_orange](./figures/rgb_interp_orange.png)
 
 #### 3.4.2.3 Utiliser un graphe au niveau du pixel avec des images RVB pour interpréter les couleurs
 
@@ -517,13 +517,13 @@ Maintenant, vous pouvez cliquer dans l'image RGB pour voir à quoi ressemblent l
 
 Tout d'abord, regardez quelques pixels dans la large bande de bleu :
 
-<img src="/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_rgb_with_blue_arrowed.png" alt="_fig_rgb_with_blue_arrowed" style="zoom:80%;" />
+<img src="./figures/_fig_rgb_with_blue_arrowed.png" alt="_fig_rgb_with_blue_arrowed" style="zoom:80%;" />
 
 
 
 Voici la série chronologique d'un de ces événements dans cette région : 
 
-<img src="/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/rgb_pixel_bluezone.png" alt="rgb_pixel_bluezone" style="zoom:100%;" />
+<img src="./figures/rgb_pixel_bluezone.png" alt="rgb_pixel_bluezone" style="zoom:100%;" />
 
 Comme le suggère notre guide d'interprétation des couleurs ci-dessus, la ligne ajustée (en rouge) augmente tout au long de la série chronologique.   Mais nous pouvons voir que cela, comme un exemple dans la section 3.3, est le résultat de l'algorithme qui a été déclenché par des problèmes apparents dans la première année de la série temporelle.  
 
@@ -537,7 +537,7 @@ Zoomez sur l'une des bandes violettes et cliquez dessus.
 
 En voici un exemple :
 
-![_fig_striping_example](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_striping_example.png)
+![_fig_striping_example](./figures/_fig_striping_example.png)
 
 Interprétation : Nous utilisons la visualisation RGB combinée avec le traceur de pixels pour évaluer les modèles spatiaux et temporels. En examinant uniquement les trajectoires spectrales supérieure et inférieure, l'imagerie source semble montrer des baisses de valeur spectrale qui persistent sur plus d'un an et qui peuvent sembler réelles.  Cependant, avec le visualiseur RGB, nous pouvons voir que le modèle spatial est disjoint du paysage sous-jacent (non représenté sur la figure ci-dessus, mais il est boisé).  De plus, le schéma de perturbation semble être horizontal et linéaire. 
 
@@ -553,7 +553,7 @@ Recherchez les zones qui présentent des motifs rouges et jaunes - il doit s'agi
 
 Voici un exemple :
 
-![_fig_distzone](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_distzone.png)
+![_fig_distzone](./figures/_fig_distzone.png)
 
 Les motifs spatiaux des zones rouge et jaune sont cohérents avec le motif du paysage sous-jacent, ce qui donne de la crédibilité à la détection de changements réels.  De plus, les données sources dans les trajectoires des pixels, bien que bruyantes, semblent être cohérentes avec le signal de perturbation. 
 
@@ -627,13 +627,13 @@ Voyons ce qu'il advient des composites RGB ajustés et des pixels individuels un
 
 Tout d'abord, ouvrez à nouveau le menu "Options de modification RGB", puis cliquez à nouveau sur le bouton "Ajouter une image RGB".  Lorsque l'image se recharge, elle devrait ressembler à ceci : 
 
- ![_fig_newparams_rgb_image](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_newparams_rgb_image.png)
+ ![_fig_newparams_rgb_image](./figures/_fig_newparams_rgb_image.png)
 
 Interprétation :  Cette version est bien meilleure que la précédente !  Pourquoi ?   Il y a beaucoup moins d'artefacts évidents associés aux nuages et à l'erreur de ligne de balayage de Landsat 7.  En fait, une grande partie de la zone boisée apparaît maintenant en tons de gris, ce qui suggère une stabilité du signal spectral ajusté. En outre, les zones de perturbation probable restent (et sont en fait plus importantes) en rouge et en jaune.  
 
 En zoomant sur la région de la moitié est de l'image, il apparaît que les problèmes liés aux nuages ont été en grande partie résolus : 
 
-![_fig_newparams_easternzone_stable](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_newparams_easternzone_stable.png)
+![_fig_newparams_easternzone_stable](./figures/_fig_newparams_easternzone_stable.png)
 
 
 
@@ -645,17 +645,17 @@ L'impact de la modification des paramètres d'ajustement de LandTrendr varie sel
 
 Avec les paramètres que nous avons définis ci-dessus, la perturbation est capturée, et une période de stabilité post-perturbation est capturée avant la repousse.  En l'absence d'une vérité de terrain substantielle, il n'est pas possible de déterminer facilement si les caractéristiques articulées dans la repousse post-perturbation sont des indications de gain et de perte réels, ou si les caractéristiques quelque peu bruyantes du signal source sont des artefacts. 
 
-![col_traj_353_startingPoint](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/col_traj_353_startingPoint.png)
+![col_traj_353_startingPoint](./figures/col_traj_353_startingPoint.png)
 
 #### De-spike
 
 La trajectoire de la source est utilisée exactement comme elle est reçue.  Dans ce pixel, la désactivation de la vérification du de-spike en la réglant sur **despike=1.0** modifie le comportement des segments post-dérèglement.
 
-![col_traj_353_despike1](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/col_traj_353_despike1.png)
+![col_traj_353_despike1](./figures/col_traj_353_despike1.png)
 
 La vérification de l'absence de parasites a supprimé des caractéristiques de la série chronologique, ce qui est souhaitable lorsque les caractéristiques sont du bruit, mais elle peut commencer à supprimer des informations réelles si elle est rendue trop agressive.  Le réglage **de-spike=0,5** supprime certaines des caractéristiques de la perturbation, et bien que la forme rappelle les réglages d'origine, elle perd certains détails. 
 
-![col_traj_353_despike05](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/col_traj_353_despike05.png)
+![col_traj_353_despike05](./figures/col_traj_353_despike05.png)
 
 #### Recovery threshold
 
@@ -663,13 +663,13 @@ Le paramètre de seuil de régénération exerce un fort impact sur l'appareilla
 
 Revenir à nos paramètres de base, puis fixer le **seuil_de_régénération=0,25** oblige à simplifier considérablement la récupération : 
 
-![col_traj_353_recovery_025](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/col_traj_353_recovery_025.png)
+![col_traj_353_recovery_025](./figures/col_traj_353_recovery_025.png)
 
 Bien qu'une grande partie des informations post-perturbation soit lissée, la synchronisation de la perturbation initiale est conservée, ce qui peut être suffisant dans les zones où le signal source est très bruyant. 
 
 Le fait de désactiver le seuil en le réglant sur **recovery_threshold=1,0** permet toutefois de faire apparaître des détails dans la trajectoire post-perturbation.  Dans certains cas, il peut s'agir de détails réalistes, mais dans d'autres, cela peut entraîner un sur-ajustement du bruit.  Pour la trajectoire présentée ici, il n'est pas clair si le saut de la valeur spectrale du NBR 2012 est en fait réel ou s'il s'agit d'un artefact.
 
-<img src="/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/col_traj_353_recovery_thre_10.png" alt="col_traj_353_recovery_thre_10" style="zoom:100%;" />
+<img src="./figures/col_traj_353_recovery_thre_10.png" alt="col_traj_353_recovery_thre_10" style="zoom:100%;" />
 
 #### P-value threshold
 
@@ -677,7 +677,7 @@ L'augmentation du seuil de la valeur p permet de saisir les ajustements qui cons
 
 Dans le cas de notre pixel test, le réglage du seuil **p-value=0,15** semble entraîner un manque d'ajustement de la profondeur de la perturbation, ainsi qu'un sur-ajustement à la fin de la période. 
 
-![col_traj_353_pval15](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/col_traj_353_pval15.png)
+![col_traj_353_pval15](./figures/col_traj_353_pval15.png)
 
 
 
@@ -685,13 +685,13 @@ Dans le cas de notre pixel test, le réglage du seuil **p-value=0,15** semble en
 
 Lorsqu'il est fixé à une valeur inférieure à 1,0, ce paramètre permet de choisir des ajustements plus complexes même s'ils n'ont pas la meilleure valeur p.  Notre valeur par défaut était de 0,75, et le fait de définir la **meilleure proportion du modèle=1,0** ne modifie pas l'ajustement de ce pixel particulier par rapport à notre point de départ :
 
-![col_traj_353_bestmodel_prop_1](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/col_traj_353_bestmodel_prop_1.png)
+![col_traj_353_bestmodel_prop_1](./figures/col_traj_353_bestmodel_prop_1.png)
 
 Dans la pratique, ce paramètre a rarement des impacts importants.  
 
 Cependant, il peut fonctionner avec d'autres paramètres pour provoquer une légère modification de l'ajustement. Par exemple, le fait de fixer le seuil de la valeur p à 0,15 et la proportion du meilleur modèle à 1,0 entraîne un ajustement légèrement différent : 
 
-![col_traj_353_bestmodel1_pval15](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/col_traj_353_bestmodel1_pval15.png)
+![col_traj_353_bestmodel1_pval15](./figures/col_traj_353_bestmodel1_pval15.png)
 
 
 
@@ -705,7 +705,7 @@ Voyons comment les perturbations des forêts peuvent être cartographiées.
 
 Considérons une trajectoire segmentée de l'indice NBR qui est relativement stable tout au long de l'année 2006, puis qui chute précipitamment à une faible valeur en 2007 parce que la forêt a été défrichée (perturbation), pour finalement revenir à une valeur modérée quelques années plus tard (voir figure ci-dessous). 
 
-![_fig_distsegments](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_distsegments.png)
+![_fig_distsegments](./figures/_fig_distsegments.png)
 
 Les années de vertex sur l'axe des x et les valeurs NBR sur l'axe des y sont stockées dans le tableau d'images qui est renvoyé par l'algorithme LT. La trajectoire ajustée (ligne rouge) est représentée par les sommets correspondant aux extrémités des segments de la ligne droite, et la variation de l'indice spectral peut être calculée pour chaque segment (ici indiqué dans la colonne "Delta NBR").   
 
@@ -719,7 +719,7 @@ Enfin, il est probable que certains pixels individuels sont encore soumis à du 
 
 Ce sont des éléments qui peuvent être définis dans le menu **Change Filter** "Modifier le filtre" : 
 
-![_fig_change_filter_menu](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_change_filter_menu.png)
+![_fig_change_filter_menu](./figures/_fig_change_filter_menu.png)
 
 En supposant que vous avez toujours le ColombiaRectangle comme premier actif dans l'outil Asset Manager, lorsque vous cliquez sur "Add Filtered Disturbance Imagery", l'algorithme exécutera LT sur chaque pixel, utilisera votre imagerie d'ajustement et vos guides de paramètres, puis les ajoutera à la carte.  Comme pour l'imagerie RGB, il faudra un peu de temps pour calculer et charger (c'est pourquoi nous nous sommes limités à une région relativement petite pour la formation !) 
 
@@ -727,17 +727,17 @@ Une vidéo de base illustrant cette installation est disponible ici :  https://y
 
 Le cartographe des perturbations ajoute trois couches à la carte :  Année de détection, Ampleur et Durée.  Vous trouverez ci-dessous un aperçu des couches Année et Magnitude pour notre zone d'intérêt :
 
-![_fig_disturbance_map](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_disturbance_map.png)
+![_fig_disturbance_map](./figures/_fig_disturbance_map.png)
 
 En zoomant suffisamment près pour voir les modèles réels de perturbation, les résultats sont prometteurs : 
 
-![_fig_zoom_disturbance](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_zoom_disturbance.png)
+![_fig_zoom_disturbance](./figures/_fig_zoom_disturbance.png)
 
 En se référant à la fois à l'année et à la magnitude de la perturbation, on peut identifier des zones suspectes de faible magnitude avec des modèles spatiaux qui peuvent ne pas être réalistes, et utiliser l'outil au niveau du pixel pour les interroger afin de voir si les valeurs seuils pourraient être améliorées. 
 
 Par exemple, l'examen des trajectoires au niveau du pixel de certaines de ces perturbations de faible amplitude suggère qu'elles sont effectivement causées par du bruit dans le signal source :
 
-![_fig_tight_zoom_disturbance](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_tight_zoom_disturbance.png)
+![_fig_tight_zoom_disturbance](./figures/_fig_tight_zoom_disturbance.png)
 
 Le seuil de changement peut être rendu plus strict afin d'éviter ces cartographies faux positifs.  Cependant, si le seuil est trop conservateur, le changement réel sera manqué (faux négatifs).  Le processus de cartographie, d'ajustement des paramètres et d'évaluation des modèles peut être itératif jusqu'à ce que ces inspections visuelles suggèrent que la carte équilibre à la fois les faux positifs et les faux négatifs. 
 
@@ -872,7 +872,7 @@ Une fois la carte des perturbations exportée, vous pouvez la télécharger sur 
 
 Dans le dossier que vous avez spécifié dans la déclaration "Export" de la section 4.2.1, vous devriez trouver le nom de fichier que vous avez indiqué.  Si le dossier n'existait pas déjà, il sera créé. Dans l'exemple ci-dessus, le fichier "colombia_distmap_rectangle.tif" a été trouvé dans le dossier "openMRV" du lecteur. 
 
-![_fig_download_gdrive_distmap](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_download_gdrive_distmap.png)
+![_fig_download_gdrive_distmap](./figures/_fig_download_gdrive_distmap.png)
 
 Démarrez QGIS (ou tout autre logiciel similaire de type SIG pouvant visualiser des images au format GeoTIFF) et chargez le fichier. 
 
@@ -880,7 +880,7 @@ Nous recommandons de visualiser le fichier une couche à la fois.  Vous trouvere
 
 
 
-![_fig_qgis_console_yod](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_qgis_console_yod.png)
+![_fig_qgis_console_yod](./figures/_fig_qgis_console_yod.png)
 
 #### Examiner l'année et le degré de perturbation 
 
@@ -889,7 +889,7 @@ En chargeant à nouveau la carte des perturbations comme une couche séparée, n
 
 > Notez que la grandeur est exprimée dans les unités de l'indice utilisé pour la segmentation temporelle.  Nous avons utilisé l'indice NBR pondéré, qui va de -1000 à +1000. 
 
-![_fig_yod_and_mag](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_yod_and_mag.png)
+![_fig_yod_and_mag](./figures/_fig_yod_and_mag.png)
 
 Sur la base de cette simple évaluation de l'année de détection, le seuil de modification de la carte a pu être modifié pour être fixé à 200 au lieu de 100, comme c'était le cas dans le paramètre "changeParams.mag" de l'exportation originale. 
 
@@ -1257,7 +1257,7 @@ map.setCenter(-75, 3, 6);  //set default center of map to Colombia
 
 Pour les besoins de ce document, nous avons délimité une simple zone d'étude au Mozambique dans laquelle une première exploration peut avoir lieu. Dans la section "Superposition des actifs" de l'interface graphique, faites en sorte que le premier actif `users/openmrv/MRV/MozambiqueArea`
 
-![_fig_moz_add_study_area](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_moz_add_study_area.png)
+![_fig_moz_add_study_area](./figures/_fig_moz_add_study_area.png)
 
 ### 6.1.2. Determine date windows
 
@@ -1269,17 +1269,17 @@ Pour évaluer, modifiez les options de la fenêtre de date LandTrendr pour qu'el
 
 > Vous pouvez également définir les paramètres d'ajustement à ceux utilisés en Colombie, ou d'autres selon votre préférence.  Les exemples ci-dessous ont été utilisé  Max Segments=8, Spike Threshold=0.9, Vertex Count Overshoot=3, Prevent One Year Recovery=true, Recovery Threshold=0.75, p-value Threshold=0.05, Best Model Proportion=0.75, Min Observations Needed=6
 
-![_fig_moz_date_range](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_moz_date_range.png)
+![_fig_moz_date_range](./figures/_fig_moz_date_range.png)
 
 Ensuite, utilisez la visualisation des changements RGB pour avoir une idée rapide de l'ajustement et des anomalies de LandTrendr.  Si vous avez cliqué sur la case de traitement dans l'onglet "Chemin vers les actifs", allez ensuite dans l'onglet **Options de modification RGB**, sélectionnez les années pour les couches Rouge, Verte et Bleue, et cliquez sur "Ajouter une image RGB".  Pour rappel, voir la section 3.4 pour obtenir de l'aide sur l'interprétation des couleurs.
 
-![_fig_moz_bad_dates](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_moz_bad_dates.png)
+![_fig_moz_bad_dates](./figures/_fig_moz_bad_dates.png)
 
 Les artefacts des nuages non masqués sont apparents sous forme de bandes vertes sans lien avec les motifs du paysage sous-jacent.  Lorsqu'un tel motif apparaît, il est probable que la fenêtre de date capture trop de nuages, et d'autres fenêtres doivent être explorées.  Rappelez-vous également que nous recherchons des fenêtres de date qui n'incluent pas une variabilité extrême de la phénologie de la végétation.  
 
 En avançant légèrement les dates dans l'année, on obtient une pile RGB ajustée avec des modèles spatiaux de couleur qui suivent plus étroitement les caractéristiques réelles du paysage. En chargeant les images après la saison des pluies, il est également plus probable que les images capturées chaque année représentent la période d'apparition des feuilles par opposition à la phase de disparition des feuilles des arbres à feuilles caduques en période de sécheresse.
 
-![_fig_moz_march_oct_RGB_studyarea](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_moz_march_oct_RGB_studyarea.png)
+![_fig_moz_march_oct_RGB_studyarea](./figures/_fig_moz_march_oct_RGB_studyarea.png)
 
 
 
@@ -1289,7 +1289,7 @@ Avec l'image RGB en arrière-plan, considérez les dimensions temporelles du cha
 
 En zoomant sur la zone centrale de la zone d'étude montrée ci-dessus, nous voyons une riche variété de processus de changement se produire dans ce paysage.  Rappelez-vous que tout endroit qui ne se trouve pas sur l'échelle noir-gris-blanc est une zone qui semble avoir subi des changements. Là encore, consultez les directives d'interprétation des couleurs données à la section 3.4 ci-dessus.  Dans l'image RGB ci-dessous, nous voyons des zones de croissance (tons bleus) et divers types de perturbations (rouges, oranges, jaunes) et de perturbations avec une éventuelle repousse (magentas et violets). 
 
-![_fig_moz_traj_examples](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_moz_traj_examples.png)
+![_fig_moz_traj_examples](./figures/_fig_moz_traj_examples.png)
 
 Pour les utilisateurs souhaitant consulter les détails des lieux ci-dessus, leurs informations sont ici : 
 
@@ -1308,11 +1308,11 @@ Nous voyons également de nombreux exemples de **perte lente de la végétation*
 
 Zoomons sur la région de Chimuara, près du bas de l'encart ci-dessus. Et, en plus d'utiliser le visualiseur RGB pour l'interprétation, nous ajouterons le changement de perturbation, mais modifierons les paramètres pour rechercher des perturbations qui ne sont PAS brusques -- qui ont une durée > 2 ans !  Ceci est réalisé dans l'interface graphique en changeant simplement l'opérateur de durée à ">" et la valeur à "2".  Cependant, avant cela, nous devons nous assurer que la fonction de cartographie des perturbations pointe vers le bon endroit -- allez dans les options de cartographie de changement RGB et réglez la Longitude et la Latitude sur la zone d'intérêt, puis allez dans les options de filtrage de changement et ajustez le filtrage de durée. 
 
-![_fig_moz_buffersetting_long_dur_settings](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_moz_buffersetting_long_dur_settings.png)
+![_fig_moz_buffersetting_long_dur_settings](./figures/_fig_moz_buffersetting_long_dur_settings.png)
 
 En considérant toutes ces couches, on constate que la lente dégradation est généralisée. Lorsque l'année de détection est précoce et que la durée est longue, cela suggère une perte de végétation longue et persistante.  Dans d'autres régions, nous constatons un changement de durée sur plusieurs années (mais pas sur plus de 20 ans). 
 
-![_fig_moz_chimuara](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_moz_chimuara.png)
+![_fig_moz_chimuara](./figures/_fig_moz_chimuara.png)
 
 L'interprétation des processus à l'origine de ces modèles serait plus facile à réaliser en consultant des experts locaux, mais il semble qu'il s'agisse d'une pression à long terme, liée à l'homme, sur la forêt, peut-être liée à une extraction de bois de faible intensité mais continue. 
 
@@ -1320,7 +1320,7 @@ Les preuves de la déforestation provoquée anthropique semblent être plus nomb
 
 
 
-![_fig_moz_nicuadala](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_moz_nicuadala.png)
+![_fig_moz_nicuadala](./figures/_fig_moz_nicuadala.png)
 
 ## 6.2 Cambodia
 
@@ -1334,7 +1334,7 @@ En raison d'une saison des pluies différente, nous avons utilisé une fenêtre 
 
 Un premier examen de l'imagerie RGB ajustée montre des zones de stabilité de la forêt (tons de gris) et de suppression substantielle (jaunes, rouges, magentas). 
 
-![_fig_camb_setting_and_rgb](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_camb_setting_and_rgb.png)
+![_fig_camb_setting_and_rgb](./figures/_fig_camb_setting_and_rgb.png)
 
 ### 6.2.2 Processus de changement du paysage
 
@@ -1342,15 +1342,15 @@ Les processus de changement de paysage à l'œuvre au Cambodge diffèrent à nou
 
 En se concentrant d'abord sur la région sud-est de la zone d'étude, on constate l'existence de divers régimes de gestion forestière.  Les concessions forestières accordées à des entreprises en dehors du Cambodge ont conduit à des plantations d'arbres pour la fibre ou l'huile.  Ces régimes se distinguent à la fois dans le domaine temporel, où la couleur magenta indique que la disparition de la forêt d'origine est suivie d'une croissance rapide en blocs réguliers (magenta), et dans le domaine spatial, où les modèles de ces signaux temporels sont réguliers et délimités de façon linéaire.  Dans les domaines cyan, nous voyons également des preuves de la plantation de forêts dans des zones peu boisées au début de l'enregistrement d'observation.  Enfin, nous voyons en jaune les zones où la déforestation s'est produite avec peu de croissance forestière ultérieure ; dans de nombreux cas, ces zones sont trop proches de la journée en cours pour savoir s'il s'agit d'une véritable déforestation ou si elles seront reboisées. 
 
-![_fig_camb_plantation_zone](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_camb_plantation_zone.png)
+![_fig_camb_plantation_zone](./figures/_fig_camb_plantation_zone.png)
 
 Dans la région plus éloignée près de Kaoh Piek sur la rivière Tonle San, nous voyons des zones de gestion forestière à plus petite échelle. Des preuves de récoltes multiples et d'une certaine déforestation sont visibles dans cette zone relativement petite. Là encore, les experts locaux pourraient fournir des informations sur les processus de conduite, mais la structure spatiale de la récolte et l'existence de récoltes multiples suggèrent que la gestion forestière est en cours et relativement stable dans toute la zone. 
 
-![_fig_camb_kaoh_piek](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_camb_kaoh_piek.png)
+![_fig_camb_kaoh_piek](./figures/_fig_camb_kaoh_piek.png)
 
 De l'autre côté de la frontière, dans la province de Steung Treng, à l'ouest-nord-ouest de la zone précédente, nous trouvons une autre zone où la gestion forestière est active et à petite échelle. On y trouve des preuves d'incursions étendues mais de faible ampleur dans la forêt. 
 
-![_fig_camb_steung_treng](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/_fig_camb_steung_treng.png)
+![_fig_camb_steung_treng](./figures/_fig_camb_steung_treng.png)
 
 Comme pour la Colombie et le Mozambique, la segmentation temporelle pourrait être transformée en cartes de l'année de perturbation, de l'ampleur de la perturbation et de la durée de la perturbation. 
 
