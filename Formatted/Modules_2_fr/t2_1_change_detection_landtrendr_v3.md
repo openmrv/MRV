@@ -42,41 +42,11 @@ group:
   stade : Détection des changements
 ---
 
-# 1.0 Learning objectives
+# LandTrendr
 
-Au terme de ce module, vous serez en mesure de:   
+## 1 Contexte
 
-- Interpréter les valeurs spectrales des séries chronologiques annuelles pour faire la distinction entre le changement réel de l'état de la d'occpuation des sols et des artefacts spectraux causés par d'autres facteurs
-- Identifier les indices spectraux et les fenêtres de saisonnalité qui capturent le mieux les régimes de perturbation souhaités
-- Choisissez les paramètres d'ajustement LandTrendr qui permettent de saisir au mieux les tendances des valeurs spectrales annuelles
-- Interpréter les composites chronologiques à trois bandes en termes de changement de l'occupation du sol et de robustesse des paramètres d'ajustement de LandTrendr
-- Mettre en œuvre les scripts de cartographie des perturbations de LandTrendr grâce à une interface utilisateur graphique
-
-De plus, les utilisateurs avancés pourront
-
-- Adapter les scripts LandTrendr GEE pour créer des cartes de perturbation et de régénération sur mesure pour les zones d'intérêt
-
-## 1.1 Pré-requis pour ce module
-
-* * Concepts de Google Earth Engine (GEE) (veuillez vous référer à la section 1.1 du module 1.1 Création de mosaïques/composites d'images pour Landsat et Sentinel-2 dans Google Earth Engine pour des ressources GEE utiles)
-	  - Obtenir un compte utilisateur
-	  - Manipulation des images dans GEE
-	  - Syntaxe de base des fonctions
-	  - Traitement de base des images, y compris le choix des images, le filtrage des nuages, la mosaïque et la composition.
-	* Il est fortement conseillé de terminer les tutoriels précédents:
-	  - Module 1
-	    - 1.1  Création de mosaïque/composite d'images pour Landsat et Sentinel-2 dans Google Earth Engine
-	    - 1.2 Collecte de données d'entraînement 
-	      - 1.2.1 Collecte de données d'entraînement avec QGIS, ou
-	      - 1.2.2 Collecte de données d'entraînement  à l'aide de Google Earth Engine
-	    - 1.3 Classification d'occupation et d'utilisation du sol dans Google Earth Engine
-	  - Module 2
-	    - 2.1 Notions de base sur les méthodes de détection des changements
-
-
-# 2.0 Contexte
-
-## 2.1 Fondement théorique de LandTrendr
+### 1.1 Fondement théorique de LandTrendr
 
 Comme les processus biophysiques, écologiques et anthropiques agissent sur la surface terrestre, la réflectance spectrale de la surface change au fil du temps.  Au fil du temps, la courbe temporelle de la réflectance spectrale prend une forme qui indique les processus qui agissent : la croissance et le déclin végétatif, les perturbations et la transition de l'occupation du sol affectent tous la courbe temporelle des valeurs spectrales de manière distincte. La stratégie de l'algorithme LandTrendr consiste à distiller une trajectoire spectrale pluriannuelle en segments linéaires séquentiels qui saisissent de manière adéquate le caractère de ces changements progressifs, puis à exploiter cette restitution simplifiée des séries chronologiques pour en extraire des informations utiles. 
 
@@ -92,17 +62,17 @@ Une fois que la série chronologique est segmentée en parties distinctes, les p
 
 Une fois qu'un segment d'intérêt a été identifié pour chaque pixel, les caractéristiques clés peuvent alors être rendues spatialement pour produire des cartes d'intérêt. Pour cartographier l'année à laquelle la perturbation se produit, par exemple, tous les pixels dont les segments perdent précipitamment de la végétation peuvent être identifiés et l'année de la chute du segment peut être indiquée.  Pour mesurer l'ampleur de la régénération, il est possible de cartographier le changement de la valeur spectrale du sommet de départ au sommet d'arrivée.
 
-### 2.1.1 Une note sur les capteurs
+#### 1.1.1 Une note sur les capteurs
 
 L'algorithme LandTrendr a été construit pour utiliser les images de la famille de capteurs Landsat, et tous les exemples de cette formation utilisent ces capteurs :   Landsat 5, 7 et 8.  Grâce à ces trois capteurs, la série Landsat fournit un enregistrement potentiellement ininterrompu depuis 1984.  
 
 Bien que l'algorithme ait été construit avec des données Landsat , il peut être présenté sous forme de séries chronologiques de n'importe quelle séquence numérique, qu'elle provienne de capteurs Landsat, d'autres capteurs satellites ou d'une source complètement différente.  Cependant, lors de l'utilisation d'autres types de données, plusieurs considérations sont importantes à prendre en compte.  L'algorithme suppose qu'il y a une entrée par an ; si vous utilisez un pas de temps différent, vous devrez " faire des astuces " l'algorithme pour qu'il pense qu'il s'agit de données annuelles.  L'algorithme suppose qu'un changement durable des valeurs dans le temps correspond à un changement d'intérêt, et qu'il y a suffisamment de données pour analyser les changements réels par rapport au bruit.  S'il n'y a pas assez d'observations dans le temps provenant d'un capteur donné, il ne sera pas approprié pour LandTrendr.    En règle générale, il devrait y avoir environ trois à quatre fois plus d'observations que le nombre maximum de périodes que vous souhaitez que l'algorithme discrimine.  Puisque la capture d'une seule perturbation nécessite trois segments : un segment pré-perturbation, le segment changement et un segment post-perturbation, il est conseillé de ne jamais essayer LandTrendr avec moins de 10-12 bonnes observations fiables par pixel. 
 
-### 2.1.2 La ressource GitHub de LandTrendr-GEE
+#### 1.1.2 La ressource GitHub de LandTrendr-GEE
 
 Nous avons élaboré un manuel pour la mise en œuvre générale des algorithmes LT-GEE (LandTrendr Google Earth Engine) :  https://github.com/eMapR/LT-GEE.   Les lecteurs intéressés peuvent trouver des descriptions supplémentaires et complémentaires de la logique de l'ajustement, ainsi que d'autres caractéristiques de l'implémentation LT-GEE qui peuvent être intéressantes. 
 
-## 2.2 Logique d'adaptation de LandTrendr
+### 1.2 Logique d'adaptation de LandTrendr
 
 La logique sous-jacente des algorithmes de segmentation temporelle LandTrendr est d'imposer des segments de tendance linéaires sur une série d'observations afin de minimiser l'erreur résiduelle. Cela se fait en deux grandes étapes : une étape d'identification des points de rupture, et une étape d'ajustement du modèle.  La plupart des utilisateurs n'ont pas besoin de connaître les détails de ces étapes, qui sont décrits en détail dans la première publication sur l'algorithme.(Kennedy et al. 2010:  Remote Sensing of Environment 114(12): 2897-2910). Toutefois, un petit aperçu des principales étapes du processus est utile pour choisir les paramètres d'ajustement (tableau 1).
 
@@ -133,9 +103,9 @@ Si aucun bon modèle ne peut être trouvé en utilisant ces critères basés sur
 
 Le meilleur modèle est d'abord considéré comme celui qui a la meilleure *p*-value. Cependant, comme la statistique pesudo -*f*-statistic pénalise les modèles plus complexes (c'est-à-dire les modèles comportant plus de segments), elle peut souvent choisir un modèle sans perturbation plutôt qu'un modèle qui saisit précisément la perturbation mais qui a un score légèrement inférieur.  Ainsi, un ajustement peut être effectué qui permettra de choisir un modèle avec plus de segments tant qu'il se situe dans une proportion définie du modèle le mieux noté.  Cette proportion est fixée par le paramètre *proportion du meilleur modèle*.  Par exemple, une valeur de 0,75 pour la *meilleure proportion de modèle* permettrait de choisir un modèle plus compliqué si son score était supérieur à 75 % de celui du meilleur modèle.  
 
-## 2.3 Résultats de LandTrendr
+### 1.3 Résultats de LandTrendr
 
-### 2.3.1 Sorties courantes
+#### 1.3.1 Sorties courantes
 
 La sortie d'une exécution de l'algorithme LandTrendr sur GEE est une "image en tableau" avec au moins deux bandes.  Les images en tableau sont des représentations quelque peu abstraites des données : imaginez que chaque pixel soit un conteneur d'objets que l'on appelle des "bandes".  Chaque "bande" peut contenir des données de différents types, et les différentes bandes n'ont pas nécessairement la même taille ou le même type.  Les images de tableau elles-mêmes ne peuvent pas être représentées comme des images géospatiales, mais les bandes (à l'intérieur de celles-ci) peuvent être déballées, remodelées et représentées.  
 
@@ -143,7 +113,7 @@ La première bande s'appelle "LandTrendr" et présente un grand intérêt.  Il s
 
 La deuxième bande est un scalaire qui correspond à la racine carrée moyenne globale de l'ajustement -- le résidu entre les valeurs spectrales source d'origine et les valeurs ajustées. 
 
-### 2.3.2 Optional outputs
+#### 1.3.2 Optional outputs
 
 En option, un utilisateur peut passer plus d'une bande à l'algorithme de segmentation LandTrendr.  La première bande est toujours utilisée pour le processus de segmentation : trouver les vertex et ajuster le meilleur modèle de segmentation.  Pour toutes les bandes supplémentaires passées à l'algorithme, seule la deuxième moitié du processus de segmentation est entreprise :   Les années de vertex à partir de l'ajustement du premier indice sont utilisées pour contraindre un processus de segmentation linéaire des bandes supplémentaires. 
 
@@ -151,7 +121,7 @@ De cette manière, un indice sensible au changement peut être utilisé pour car
 
 Ce processus est appelé "fitting-to-vertices" ou FTV. Bien que le processus FTV dépasse la portée de ce tutoriel, les utilisateurs avancés peuvent tirer parti des images résultantes pour construire des algorithmes de classification de l'occupation du sol en séries chronologiques, comme décrit dans Kennedy et al. (2018). 
 
-## 2.4  Application de LandTrendr
+### 1.4  Application de LandTrendr
 
 L'application des algorithmes LandTrendr dans GEE comporte plusieurs étapes. Les utilisateurs spécifient les paramètres qui contrôlent la construction des piles d'images, le processus de segmentation temporelle dans LandTrendr, et le post-traitement des sorties segmentées en cartes de perturbation et de récupération. 
 
@@ -167,19 +137,51 @@ Pour déterminer correctement les paramètres d'utilisation appropriés, chaque 
 
 Nous décrivons ci-dessous comment ces étapes peuvent être abordées à l'aide d'une interface utilisateur graphique (section 3), et comment la détection des changements peut ensuite être adaptée en adaptant les scripts GEE existants (section 4). 
 
+## 2 Learning objectives
 
-# 3.0 Démarrage rapide de LandTrendr via une interface graphique sur GEE 
+Au terme de ce module, vous serez en mesure de:   
+
+- Interpréter les valeurs spectrales des séries chronologiques annuelles pour faire la distinction entre le changement réel de l'état de la d'occpuation des sols et des artefacts spectraux causés par d'autres facteurs
+- Identifier les indices spectraux et les fenêtres de saisonnalité qui capturent le mieux les régimes de perturbation souhaités
+- Choisissez les paramètres d'ajustement LandTrendr qui permettent de saisir au mieux les tendances des valeurs spectrales annuelles
+- Interpréter les composites chronologiques à trois bandes en termes de changement de l'occupation du sol et de robustesse des paramètres d'ajustement de LandTrendr
+- Mettre en œuvre les scripts de cartographie des perturbations de LandTrendr grâce à une interface utilisateur graphique
+
+De plus, les utilisateurs avancés pourront
+
+- Adapter les scripts LandTrendr GEE pour créer des cartes de perturbation et de régénération sur mesure pour les zones d'intérêt
+
+### 2.1 Pré-requis pour ce module
+
+* * Concepts de Google Earth Engine (GEE) (veuillez vous référer à la section 1.1 du module 1.1 Création de mosaïques/composites d'images pour Landsat et Sentinel-2 dans Google Earth Engine pour des ressources GEE utiles)
+	  - Obtenir un compte utilisateur
+	  - Manipulation des images dans GEE
+	  - Syntaxe de base des fonctions
+	  - Traitement de base des images, y compris le choix des images, le filtrage des nuages, la mosaïque et la composition.
+	* Il est fortement conseillé de terminer les tutoriels précédents:
+	  - Module 1
+	    - 1.1  Création de mosaïque/composite d'images pour Landsat et Sentinel-2 dans Google Earth Engine
+	    - 1.2 Collecte de données d'entraînement 
+	      - 1.2.1 Collecte de données d'entraînement avec QGIS, ou
+	      - 1.2.2 Collecte de données d'entraînement  à l'aide de Google Earth Engine
+	    - 1.3 Classification d'occupation et d'utilisation du sol dans Google Earth Engine
+	  - Module 2
+	    - 2.1 Notions de base sur les méthodes de détection des changements
 
 
-## 3.1 Overview
+
+## 3 Démarrage rapide de LandTrendr via une interface graphique sur GEE 
+
+
+### 3.1 Overview
 
 Pour évaluer les choix d'images et de paramètres de LandTrendr, l'interface graphique de LandTrendr est un excellent endroit pour travailler.  L'interface permet un retour d'information rapide sur les choix de fenêtres de date des images, sur les choix de paramètres et sur la réalisation de cartes. 
 
 
-## 3.2 Mise en place des bibliothèques et de l'interface utilisateur graphique
+### 3.2 Mise en place des bibliothèques et de l'interface utilisateur graphique
 L'interface utilisateur graphique (GUI) est fournie par les développeurs de LandTrendr dans le laboratoire eMapR (emapr.ceoas.oregonstate.edu).  Ce tutoriel utilise un snapshot (décembre 2020) de la version actuelle. 
 
-### 3.2.1 Open the GUI
+#### 3.2.1 Open the GUI
 
 Dans le répertoire commun OpenMRV, trouvez et ouvrez le script nommé : **LT-GEE-Vis-DownLoad-app_WB_v1.0**.  Une fois chargé et exécuté, ce script crée une interface graphique LandTrendr-GEE. 
 
@@ -190,7 +192,7 @@ Notez que cette interface graphique nécessite l'accès à deux bibliothèques d
 
 > Note : Les versions originales de ces bibliothèques et scripts (y compris les mises à jour probables au fil du temps) sont disponibles dans GEE via le dossier /users/emaprlab/public.  
 
-### 3.2.2 Basic orientation to the GUI
+#### 3.2.2 Basic orientation to the GUI
 
 Le LT GUI se compose de trois panneaux :  Un panneau de contrôle à gauche, un panneau de rapport à droite et un panneau de carte au centre.
 
@@ -204,7 +206,7 @@ En utilisant les menus déroulants du panneau de contrôle, l'utilisateur défin
 
 
 
-## 3.3 Explorez la configuration du système LandTrendr en mode point
+### 3.3 Explorez la configuration du système LandTrendr en mode point
 
 La façon la plus simple de commencer à comprendre LandTrendr est d'appliquer les algorithmes en mode point.  Cela vous permet de visualiser le fonctionnement de l'ajustement et la façon dont la modification de vos paramètres peut modifier l'ajustement. 
 
@@ -216,7 +218,7 @@ Vous pouvez soit cliquer sur un point de la carte et attendre patiemment, soit s
 
 Une vidéo montrant le fonctionnement de base en mode point se trouve ici: https://youtu.be/RdQvxTbi37E
 
-### 3.3.1 Analyse d'un pixel de perturbation de la forêt
+#### 3.3.1 Analyse d'un pixel de perturbation de la forêt
 
 Pour commencer, laissez tous les paramètres tels quels et tapez simplement ces chiffres dans les cases Longitude et Latitude, respectivement, et cliquez sur le bouton Soumettre le pixel.
 
@@ -251,13 +253,13 @@ Ainsi, en interprétant le graphique ci-dessus, on peut voir que les valeurs spe
 
 Examinons d'autres processus de changement. 
 
-### 3.3.2 Visite guidée de la dynamique des forêts
+#### 3.3.2 Visite guidée de la dynamique des forêts
 
 La dynamique des forêts est amusante à apprendre à travers la lentille d'une machine à remonter le temps comme les capteurs Landsat.  Avec quelques compétences de base en interprétation, vous pouvez commencer à reconnaître de nombreux types de dynamiques forestières. 
 
 Ci-dessous, nous vous donnons quelques valeurs de longitude et de latitude.  Tapez-les dans la même case que pour le premier exemple, et nous discuterons de ce que vous voyez à chaque point. 
 
-#### 3.3.2.1 Forêt stable
+##### 3.3.2.1 Forêt stable
 
 Lorsque la forêt est relativement mature (c'est-à-dire qu'il ne s'agit pas d'une jeune forêt à croissance vigoureuse, ni d'une forêt sujette à des perturbations ou à une dégradation), son signal spectral d'année en année est relativement stable.  Voici un bon exemple : 
 
@@ -275,7 +277,7 @@ Voici à quoi ressemble une photo aérienne de cette région :
 
 
 
-#### 3.3.2.2 Dégradation possible
+##### 3.3.2.2 Dégradation possible
 
 Bien que les perturbations des forêts telles que celles que nous avons montrées dans notre premier exemple soient courantes, il existe d'autres façons d'affecter la forêt sans la supprimer complètement.  Dans ce cas, le signal spectral montre souvent une réduction de plus longue durée des valeurs spectrales associées à la végétation. 
 
@@ -289,7 +291,7 @@ En regardant la photo aérienne de la région, nous voyons des preuves de l'acti
 
 ![pixel_degradation_maybe_airphoto](./figures/pixel_degradation_maybe_airphoto.png)
 
-#### 3.3.2.3 Perturbation et restauration des rives
+##### 3.3.2.3 Perturbation et restauration des rives
 
 Les humains ne sont pas les seuls agents de changement dans les forêts.  Les processus naturels peuvent éliminer la végétation, pour ensuite faire repousser la forêt.  Les rivières sont des agents notables de ce changement.  
 
@@ -315,7 +317,7 @@ L'image haute résolution de la période récente ne montre plus que très peu d
 
 
 
-### 3.3.3 Les autres indices spectraux
+#### 3.3.3 Les autres indices spectraux
 
 Dans l'interface graphique, vous pouvez faire tourner LandTrendr en utilisant de nombreux indices. Voyons à quoi ressemble cette dernière perturbation de la rivière et son rétablissement dans deux autres indices spectraux.
 
@@ -339,11 +341,11 @@ La trajectoire du B5 nécessite quelques explications.  La bande 5 fait référe
 
 En fait, certains indices permettent de mieux détecter les changements dans certains environnements que d'autres.  Pour les régions forestières, notre expérience suggère que le NBR, le NDVI et la bande 5 sont quelque peu complémentaires. 
 
-### 3.3.4  Conseils pour les problèmes
+#### 3.3.4  Conseils pour les problèmes
 
 Jusqu'à présent, nous n'avons vu que des régions où le signal source était assez clair et où l'ajustement par l'algorithme semblait avoir un sens.  Ce n'est pas toujours le cas !  En effet, jusqu'à présent, nous n'avons utilisé que les paramètres "par défaut" pour les algorithmes LandTrendr, et nous ne pouvons pas nous attendre à ce qu'ils soient optimaux pour un nouvel environnement ou une nouvelle situation.  Avant de commencer à modifier les contrôles, examinons certains domaines dans lesquels les choses ne fonctionnent pas aussi bien. 
 
-#### 3.3.4.1 Signal source bruyant
+##### 3.3.4.1 Signal source bruyant
 
 Quelquefois, le signal source est bruyant, ce qui le rend difficile à interpréter, que ce soit pour un humain ou un algorithme. 
 
@@ -369,7 +371,7 @@ Que pourrait-il se passer ?  Étant donné que nous travaillons dans une région
 
 Comment pouvons-nous y remédier ?  Dans l'interface graphique, la meilleure façon de résoudre ce problème est de modifier les fenêtres de date de la collection d'images.  Nous verrons dans une section ultérieure comment nous pourrions résoudre ces problèmes. 
 
-#### 3.3.4.2 Poor fitting
+##### 3.3.4.2 Poor fitting
 
 Il arrive que le signal source ait une forme assez évidente pour l'œil humain, mais l'algorithme ne le capte pas.  
 
@@ -399,11 +401,11 @@ Cela soulève un sujet important dans la définition des paramètres d'ajustemen
 
 Plusieurs paramètres clés peuvent être ajustés dans des situations comme celle-ci pour encourager l'algorithme à saisir ce changement (voir ci-dessous). 
 
-### 3.3.5 Découvrez par vous-même ! 
+#### 3.3.5 Découvrez par vous-même ! 
 
 La meilleure façon d'apprendre à interpréter les séries chronologiques avec les processus en jeu est d'explorer par soi-même.  En fait, vous pouvez pointer l'interface graphique n'importe où dans le monde pour explorer des endroits où vous pensez pouvoir comprendre la dynamique du changement, et expérimenter avec des indices spectraux pour voir dans quelle mesure ils capturent le processus de changement sous-jacent, puis évaluer comment l'algorithme parvient à capturer la forme de l'indice. 
 
-## 3.4 Exploration de la dynamique avec des images composites à trois couleurs
+### 3.4 Exploration de la dynamique avec des images composites à trois couleurs
 
 Si le mode point est le seul moyen de comprendre et d'évaluer pleinement la source et les valeurs ajustées, c'est un moyen inefficace d'explorer les modèles spatiaux. Nous pouvons nous trouver sur des pixels dont les valeurs sources indiquent un problème avec l'imagerie, ou dont les paramètres d'ajustement ne sont probablement pas choisis de manière appropriée, mais de telles découvertes sont le fruit du hasard.  Il serait utile de disposer d'un outil visuel rapide pour scanner le paysage et évaluer les tendances et les problèmes potentiels.   
 
@@ -411,7 +413,7 @@ L'outil de visualisation RGB de l'interface graphique de LandTrendr est conçu p
 
 Examinons l'outil de visualisation RGB. 
 
-### 3.4.1 Charger une zone d'étude à partir de la Colombie
+#### 3.4.1 Charger une zone d'étude à partir de la Colombie
 
 1. Les algorithmes de LandTrendr sont gourmands en calculs et prennent un certain temps pour fonctionner.   Pour des raisons de formation, il est utile de limiter notre analyse à un domaine géographique relativement restreint.  
 
@@ -443,7 +445,7 @@ Lorsque vous avez effectué ces étapes, la limite de la zone d'intérêt doit a
 
 
 
-### 3.4.2 Visualisation et interprétation des images ajustées en mode RGB
+#### 3.4.2 Visualisation et interprétation des images ajustées en mode RGB
 
 Que sont les images ajustées ?   Comme vous l'avez appris en mode pixel, l'algorithme LandTrendr crée des trajectoires ajustées de valeurs spectrales à l'échelle du pixel.  Chaque année de la série temporelle se voit attribuer une valeur ajustée à partir du modèle de segmentation temporelle.  Si nous devions exécuter LT pour de nombreux pixels, nous pourrions prendre un instantané des valeurs ajustées d'une année quelconque et produire une image de cet indice spectral pour cette année.  Nous pourrions faire la même chose pour deux autres années, et si nous assignons une année à chacun des canons couleur du moniteur, nous obtiendrions une image RGB combinée.  L'interprétation des couleurs de cette image nous renseigne sur la trajectoire de l'ajustement. 
 
