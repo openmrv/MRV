@@ -1022,33 +1022,32 @@ Sentinel-2 RGB Composite
 
 ![img43](./images/CODED/img43.png)
 
-
-
-
+   </td>
+   <td>Threshold: 20%
 <p>
 
 ![img44](./images/CODED/img44.png)
 
-
+   </td>
+  </tr>
+  <tr>
+   <td>Threshold: 40%
 <p>
-
-
 
 ![img45](./images/CODED/img45.png)
+ 
+   </td>
+   <td>Threshold: 80%
 <p>
-
-
-
 
 ![img46](./images/CODED/img46.png)
 
-
-
-
-
+   </td>
+  </tr>
+</table>
 
 *   Sur la base de ces tests, il est recommandé d'atteindre un seuil de recouvrement des arbres de 40. 
-* Ensuite, nous pouvons examiner un exemple de série chronologique Sentinel-2 de NDFI pour un pixel de forêt perturbé.  Un exemple d'un événement de changement de forêt peut être trouvé dans l'actif : users/openmrv/MRV/Mozambique_Exemple_Point
+*   Ensuite, nous pouvons examiner un exemple de série chronologique Sentinel-2 de NDFI pour un pixel de forêt perturbé.  Un exemple d'un événement de changement de forêt peut être trouvé dans l'actif : users/openmrv/MRV/Mozambique_Exemple_Point
     * Ajouter le point à la carte en utilisant les outils _Asset path_ et _Load asset_. Naviguer jusqu'au point au Mozambique, et définir la région d'étude autour du point.
 *   ![img47](./images/CODED/img47.png)
     *   Ajouter le viewer de séries temporelles avec _Toggle time series viewer_. 
