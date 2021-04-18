@@ -283,7 +283,7 @@ Bien que les perturbations des forêts telles que celles que nous avons montrée
 
 Longitude: -74.45873, 2.65730
 
-
+![pixel_degrade_maybe](./figures/pixel_degrade_maybe.png)
 
 Caractéristiques importantes :  La chute des valeurs de la source au milieu des années 2000 se produit sur plus de deux ans, et a été précédée d'un déclin encore plus lent depuis le début de l'enregistrement, ce qui suggère une certaine perte persistante de faibles quantités de végétation.  Le segment montrant une augmentation sur plusieurs années à partir de 2007 environ est constant dans le temps (c'est-à-dire non bruyant) et pérenne (montre une tendance constante sur plusieurs années).  Lorsqu'on les observe après un déclin comme celui observé au cours de la période 2004-2006, cela prouve que le déclin était bien réel, et non un artefact. 
 
@@ -451,7 +451,7 @@ Que sont les images ajustées ?   Comme vous l'avez appris en mode pixel, l'algo
 
 > Note : Pour une bonne description graphique de ce processus, consultez la section 8.3 du guide de l'utilisateur LT-GEE produit par le laboratoire eMapR sur Github : https://emapr.github.io/LT-GEE/ui-applications.html#ui-landtrendr-fitted-index-delta-rgb-mapper
 
-#### 3.4.2.1 Choisir une combinaison d'images RGB
+##### 3.4.2.1 Choisir une combinaison d'images RGB
 
 Essayons pour le domaine d'étude qui nous intéresse.  Ouvrez le menu RGB change mapper dans l'interface graphique. Comme nous avons chargé un actif et, dans le menu actif ci-dessus, cliqué sur la case à cocher "Utiliser le premier chemin de fichier pour traiter l'imagerie" (Vous avez coché cette case ci-dessus, n'est-ce pas ?), nous pouvons ignorer de nombreuses options ici.  
 
@@ -471,7 +471,7 @@ Cliquez sur "Add RGB Imagery", et attendez patiemment.  Le chargement complet de
 
 > Remarque : certaines zones du bord gauche de cette zone d'étude présentent des données manquantes (indiquées par la possibilité de voir l'image sous-jacente au lieu des valeurs ajustées).  Ces zones n'ont pas suffisamment d'observations non masquées pour effectuer l'ajustement temporel (le paramètre "observations minimales nécessaires" est une quantité définie par l'utilisateur (section 2 ci-dessus).  Il est possible que
 
-#### 3.4.2.1 Interprétation des changements comme des couleurs
+##### 3.4.2.1 Interprétation des changements comme des couleurs
 
 Comment interpréter les couleurs ?  Supposons que nous travaillons avec un indice tel que le NBR ou le NDVI où des valeurs élevées indiquent plus de végétation et des valeurs faibles indiquent moins de végétation. 
 
@@ -505,7 +505,7 @@ Enfin, s'il y a un déclin persistant sur toute la période, le rouge sera le pl
 
 ![rgb_interp_orange](./figures/rgb_interp_orange.png)
 
-#### 3.4.2.3 Utiliser un graphe au niveau du pixel avec des images RVB pour interpréter les couleurs
+##### 3.4.2.3 Utiliser un graphe au niveau du pixel avec des images RVB pour interpréter les couleurs
 
 Ces règles de couleur peuvent être quelque peu abstraites jusqu'à ce que vous les voyiez en action.  L'interface graphique de LandTrendr nous donne l'occasion de le faire : utilisez la carte de couleurs RGB pour sélectionner les pixels et les tracer en mode pixel-level ! 
 
@@ -563,7 +563,7 @@ Cependant, nous voyons également un exemple de perturbation violette avec un mo
 
 Ainsi, nous avons d'autres preuves que la fenêtre d'image choisie pour l'exécution par défaut de LandTrendr ici n'est pas optimale pour la Colombie !  Travaillons sur ce point. 
 
-## 3.5 Mise à jour du paramétrage de l'image et de l'appareillage
+### 3.5 Mise à jour du paramétrage de l'image et de l'appareillage
 
 Jusqu'à présent, nous nous sommes appuyés sur les paramètres "par défaut" pour exécuter l'algorithme LT : les fenêtres de dates de l'année pour construire les collections d'images, et les paramètres d'ajustement pour contrôler l'algorithme.  Et nous avons vu que ces paramètres ne sont peut-être pas suffisants pour notre nouvelle situation en Colombie ! 
 
@@ -571,9 +571,11 @@ Pour améliorer cela, nous devons définir l'imagerie de base qui sera fournie �
 
 Une vidéo de base montrant ce processus se trouve ici : https://youtu.be/TNQOdHIg24s
 
-### 3.5.1 Change values in the menu
+#### 3.5.1 Change values in the menu
 
 Dans la section 3.5, nous décrivons d'abord la logique de chaque composante et proposons des recommandations pour de nouvelles valeurs à expérimenter. 
+
+![_figY1_landtrendr_options](./figures/_figY1_landtrendr_options.png)
 
 Comme indiqué dans le diagramme de déroulement des opérations (section 2.4), la première étape du déroulement des opérations de LandTrendr consiste à transformer les archives d'images en composites annuels.  La composition réduit le bruit dans les séries chronologiques ; dans les bibliothèques LandTrendr standard, nous utilisons une approche de composition de médoïdes (décrite dans la section 5 ci-dessous). 
 
@@ -623,7 +625,7 @@ Pour cet exercice, nous nous en tiendrons au NBR. Vous êtes invités à expéri
 
 <u>Min Observations needed:</u>  Maintenir à  6. 
 
-### 3.5.2 Évaluer de nouveaux paramètres
+#### 3.5.2 Évaluer de nouveaux paramètres
 
 Voyons ce qu'il advient des composites RGB ajustés et des pixels individuels une fois que vous avez modifié les paramètres LT. 
 
@@ -639,7 +641,7 @@ En zoomant sur la région de la moitié est de l'image, il apparaît que les pro
 
 
 
-### 3.5.3 Exploring impacts of the fitting parameters
+#### 3.5.3 Exploring impacts of the fitting parameters
 
 L'impact de la modification des paramètres d'ajustement de LandTrendr varie selon les pays en raison des différences de densité des archives d'images, des conditions de nuages et de phénologie, et du type de forêt et du processus de changement de la forêt.  Par conséquent, la meilleure approche pour voir comment les paramètres d'ajustement des images fonctionnent est de simplement expérimenter la modification des paramètres et d'évaluer l'impact en utilisant le panneau d'options de séries chronologiques de pixels.  
 
@@ -649,7 +651,7 @@ Avec les paramètres que nous avons définis ci-dessus, la perturbation est capt
 
 ![col_traj_353_startingPoint](./figures/col_traj_353_startingPoint.png)
 
-#### De-spike
+##### De-spike
 
 La trajectoire de la source est utilisée exactement comme elle est reçue.  Dans ce pixel, la désactivation de la vérification du de-spike en la réglant sur **despike=1.0** modifie le comportement des segments post-dérèglement.
 
@@ -659,7 +661,7 @@ La vérification de l'absence de parasites a supprimé des caractéristiques de 
 
 ![col_traj_353_despike05](./figures/col_traj_353_despike05.png)
 
-#### Recovery threshold
+##### Recovery threshold
 
 Le paramètre de seuil de régénération exerce un fort impact sur l'appareillage.  Rappelons que le paramètre fixe la limite de la vitesse de retour de la valeur spectrale après perturbation.  
 
@@ -673,7 +675,7 @@ Le fait de désactiver le seuil en le réglant sur **recovery_threshold=1,0** pe
 
 <img src="./figures/col_traj_353_recovery_thre_10.png" alt="col_traj_353_recovery_thre_10" style="zoom:100%;" />
 
-#### P-value threshold
+##### P-value threshold
 
 L'augmentation du seuil de la valeur p permet de saisir les ajustements qui conservent plus de bruit résiduel après l'ajustement. 
 
@@ -683,7 +685,7 @@ Dans le cas de notre pixel test, le réglage du seuil **p-value=0,15** semble en
 
 
 
-#### Best-model proportion
+##### Best-model proportion
 
 Lorsqu'il est fixé à une valeur inférieure à 1,0, ce paramètre permet de choisir des ajustements plus complexes même s'ils n'ont pas la meilleure valeur p.  Notre valeur par défaut était de 0,75, et le fait de définir la **meilleure proportion du modèle=1,0** ne modifie pas l'ajustement de ce pixel particulier par rapport à notre point de départ :
 
@@ -697,7 +699,7 @@ Cependant, il peut fonctionner avec d'autres paramètres pour provoquer une lég
 
 
 
-## 3.6 Cartographie des perturbations
+### 3.6 Cartographie des perturbations
 
 Dans l'approche de segmentation temporelle, la cartographie des perturbations forestières n'est essentiellement qu'une interrogation au niveau du pixel de la trajectoire segmentée. Ainsi, une fois que vous avez identifié un ensemble de fenêtres de date d'image et de paramètres d'ajustement, une grande partie du travail est effectuée. 
 
@@ -745,17 +747,17 @@ Le seuil de changement peut être rendu plus strict afin d'éviter ces cartograp
 
 Cependant, l'étape finale de l'évaluation a lieu lorsque des données indépendantes sont utilisées pour évaluer la précision de la carte finale.  Cette question est traitée dans un module ultérieur. 
 
-# 4.0 Mise en œuvre avancée de LandTrendr en utilisant Javascript
+## 4 Mise en œuvre avancée de LandTrendr en utilisant Javascript
 
 
-## 4.1 Vue d'ensemble
+### 4.1 Vue d'ensemble
 Bien que de nombreux utilisateurs puissent trouver leurs besoins satisfaits grâce à l'interface graphique, les utilisateurs intermédiaires ou avancés peuvent souhaiter mettre en œuvre LT directement par le biais de scripts.  Cette section présente les principales fonctionnalités de LT telles qu'elles sont gérées par les scripts.    
 
-## 4.2  Le scénario de la plus grande perturbation
+### 4.2  Le scénario de la plus grande perturbation
 
 Dans cette section, nous décrivons le scénario principal qui crée les cartes de perturbations. Cependant, comme pour l'interface graphique de la section 3 de ce module, le script Greatest Disturbance que nous partageons dans cette démonstration utilise une bibliothèque Javascript LandTrendr pour effectuer une grande partie du travail en coulisses.  La bibliothèque Javascript contient des fonctions qui sont importées et utilisées dans d'autres scripts.  Bien que les bibliothèques comprennent plus de fonctions que celles utilisées ici, de nombreux composants peuvent être considérés comme des fonctionnalités de base qu'un utilisateur intermédiaire ou avancé peut vouloir exploiter ou même adapter à ses propres fins. Ces éléments sont détaillés dans la section 5.  
 
-### 4.2.1. Load script and note settings
+#### 4.2.1. Load script and note settings
 
 Le script du Greatest Disturbance Mapper peut être trouvé à l'adresse
 
@@ -860,17 +862,17 @@ Export.image.toDrive({
 
 Vous souhaiterez probablement modifier les noms de dossier (**fileNamePrefix**), de nom de fichier et de préfixe, ainsi que la description.  De plus, vous voudrez peut-être aussi changer le CRS en un système de coordonnées projeté. 
 
-### 4.2.2 Exécuter le script
+#### 4.2.2 Exécuter le script
 
 Cliquer sur le bouton "Exécuter" engage le script, mais en raison de l'étape d'exportation à la fin du script, le processus est programmé comme une tâche que l'utilisateur doit lancer.  Cliquez sur l'onglet " Tasks " à droite de l'interface GEE, et cliquez sur " Run ". 
 
 Pour le petit rectangle fourni dans les exemples jusqu'à présent, la génération de la carte de perturbation prend environ 10 minutes.  Pour une grande zone, comme le pays de la Colombie, cela peut prendre 10 heures.   
 
-### 4.2.3 Evaluer les cartes de perturbation
+#### 4.2.3 Evaluer les cartes de perturbation
 
 Une fois la carte des perturbations exportée, vous pouvez la télécharger sur une machine locale et la consulter.  Souvent, il est plus facile de revoir rapidement différentes couches sur une machine locale que sur GEE, car GEE va redonner toutes les couches lorsque vous vous déplacez ou mettez l'image à l'échelle.   Ici, nous illustrons comment la révision des cartes dans une installation locale de QGIS peut donner un aperçu de la cartographie des perturbations qui peut conduire à des améliorations dans le choix des paramètres de cartographie. 
 
-#### Télécharger et ouvrir dans QGIS
+##### Télécharger et ouvrir dans QGIS
 
 Dans le dossier que vous avez spécifié dans la déclaration "Export" de la section 4.2.1, vous devriez trouver le nom de fichier que vous avez indiqué.  Si le dossier n'existait pas déjà, il sera créé. Dans l'exemple ci-dessus, le fichier "colombia_distmap_rectangle.tif" a été trouvé dans le dossier "openMRV" du lecteur. 
 
@@ -884,7 +886,7 @@ Nous recommandons de visualiser le fichier une couche à la fois.  Vous trouvere
 
 ![_fig_qgis_console_yod](./figures/_fig_qgis_console_yod.png)
 
-#### Examiner l'année et le degré de perturbation 
+##### Examiner l'année et le degré de perturbation 
 
 Comme nous pouvons zoomer, faire un panoramique et comparer les couches facilement dans les QGIS sans avoir à attendre le rendu GEE, il est possible d'examiner les motifs et d'améliorer potentiellement notre cartographie.
 En chargeant à nouveau la carte des perturbations comme une couche séparée, nous pouvons utiliser l'option "Symbologie" dans QGIS pour sélectionner l'ampleur de la perturbation. En naviguant dans l'image, notez la présence continue de rayures près du centre inférieur de la zone d'étude.  En zoomant sur cette zone et en basculant entre Année et Ampleur, on voit qu'une grande partie de la perturbation qui semble être du bruit est en fait de faible amplitude (voir la figure ci-dessous).  
@@ -895,11 +897,11 @@ En chargeant à nouveau la carte des perturbations comme une couche séparée, n
 
 Sur la base de cette simple évaluation de l'année de détection, le seuil de modification de la carte a pu être modifié pour être fixé à 200 au lieu de 100, comme c'était le cas dans le paramètre "changeParams.mag" de l'exportation originale. 
 
-# 5.0 La bibliothèque Javascript de LandTrendr 
+## 5 La bibliothèque Javascript de LandTrendr 
 
 L'interface utilisateur graphique LandTrendr (section 3) et le script JavaScript (section 4) s'appuient tous deux sur les fonctions de la bibliothèque JavaScript LandTrendr pour réaliser toutes les étapes importantes du processus de détection des changements.  Bien qu'une connaissance détaillée des fonctions ne soit pas nécessaire pour utiliser ces deux outils, nous recommandons à la plupart des utilisateurs de développer une compréhension de base des hypothèses encapsulées dans ces fonctions, car cela aide à comprendre où la cartographie peut se tromper.  De plus, les utilisateurs avancés voudront accéder à ces fonctions pour les ajuster ou les personnaliser.  Ainsi, les sections suivantes détaillent les éléments de base des bibliothèques LandTrendr sur GEE. 
 
-## 5.1 Importation de la bibliothèque LT Javascript
+### 5.1 Importation de la bibliothèque LT Javascript
 
 La bibliothèque LT Javascript s'améliore régulièrement, mais par souci de cohérence, nous avons fourni une copie de la version de travail actuelle aux utilisateurs de la Banque mondiale.  Comme indiqué ci-dessus, l'importation de la bibliothèque se fait avec ce code :
 
@@ -911,7 +913,7 @@ Par la suite, toutes les fonctions de cette bibliothèque sont référencées av
 
 Les utilisateurs qui le souhaitent peuvent consulter les versions de développement de la bibliothèque qui se trouve sur le site GEE du laboratoire eMapR: `/users/emaprlab/public:Modules/LandTrendr.js`
 
-## 5.2  Segmentation temporelle LandTrendr
+### 5.2  Segmentation temporelle LandTrendr
 
 La segmentation temporelle est au cœur de toutes les exécutions de LandTrendr (LT), dans laquelle la trajectoire temporelle de chaque pixel est divisée en segments de ligne droite séparés par des sommets.  Cette fonction fait partie de la bibliothèque d'algorithmes GEE: `ee.Algorithms.TemporalSegmentation.LandTrendr`.  
 
@@ -923,11 +925,11 @@ Dans la mise en œuvre prévue ici, la fonction d'emballage est appelée**runLT*
 var lt = ltgee.runLT(startYear, endYear, startDay, endDay, aoi, index, [], runParams, maskThese);
 ```
 
-### 5.2.1 Les arguments de la fonction runLT
+#### 5.2.1 Les arguments de la fonction runLT
 
 Un bref traitement de chaque argument suit. 
 
-#### **Fenêtres temporelles** (**Temporal windows**)
+##### **Fenêtres temporelles** (**Temporal windows**)
 
 Les variables "startYear" et "endYear" sont des variables numériques qui définissent la période pour laquelle une collection d'images sera construite.  Le simple fait de définir ces années ne garantit pas que les images de toutes les années soient disponibles ; en effet, dans de nombreuses régions du monde, il y a des lacunes dans les archives Landsat.  Si, par exemple, votre région ne dispose pas d'images avant 1999, le fait de fixer l'année de départ à 1984 ne fera pas planter l'algorithme, mais il commencera sa série chronologique en 1999.  
 
@@ -935,7 +937,7 @@ Les variables "startDay" et "endDay" sont des chaînes de dates qui définissent
 
 La composition d'images est effectuée en utilisant la stratégie médoïde (discutée plus en détail ci-dessous) et donne une image par an à partir de la période indiquée par ces dates. 
 
-#### **Zone d'intérêt** (**Area of interest**)
+##### **Zone d'intérêt** (**Area of interest**)
 
 L'argument "aoi" est une variable correspondant à une "ee.FeatureCollection" qui définit la région géographique d'intérêt pour le traitement.  
 
@@ -945,7 +947,7 @@ La définition d'une telle variable de collection de caractéristiques à partir
 var aoi = ee.FeatureCollection('users/openmrv/MRV/ColombiaRectangle');
 ```
 
-#### **Arguments relatifs au spectre**
+##### **Arguments relatifs au spectre**
 
 La variable `index` est une chaîne de caractères qui correspond à l'un des indices spectraux définis dans la routine `calcIndex` de la bibliothèque Javascript LandTrendr.  
 
@@ -963,7 +965,7 @@ Actuellement, les indices suivants sont inclus :
 
 La variable "index" est suivie d'une variable de liste qui comprend une liste d'indices spectraux pour lesquels la stratégie "fit to vertex" (FTV) serait employée.  L'approche FTV n'est pas nécessaire pour la détection de base des changements, mais peut être utilisée pour la cartographie de la couverture terrestre.  Pour plus de détails, voir Kennedy et al. (2018).  Pour laisser la variable en blanc, utilisez la liste vide comme suit : `[]`.
 
-#### **Paramètres d'ajustement**
+##### **Paramètres d'ajustement**
 
 L'algorithme LT est contrôlé par l'ajustement des paramètres décrits à la section 3.5.1 ci-dessus.  La variable "runParams" est un objet du dictionnaire qui est défini dans le script appelant.  Un exemple dans le script LandTrendr Greatest Disturbance est le suivant : 
 
@@ -982,7 +984,7 @@ var runParams = {
 
 
 
-#### **Masking**
+##### **Masking**
 
 Lors de la constitution des collections d'images qui sont transmises à l'algorithme, différents types de conditions peuvent être signalés et masqués.  La variable "maskThese" est une liste avec des chaînes de caractères pour indiquer les types de conditions à signaler.  
 
@@ -994,7 +996,7 @@ Dans la bibliothèque Javascript LandTrendr, ces conditions sont gérées dans l
 | 'waterplus'                        | Utilise la couche "récurrence" de l'actif "JRC/GSW1_1/GlobalSurfaceWater" dans GEE ; les récurrences supérieures à 99 % seront masquées. Voir "https://storage.googleapis.com/global-surface-water/downloads_ancillary/DataUsersGuidev2.pdf" pour plus d'informations sur cette ressource. |
 | 'nonforest'                        | Utilise le produit à résolution de 100 m du Copernicus Global Land Service (CGLS) pour masquer les zones non forestières.  Si vous utilisez ce masque, vous limiterez LandTrendr aux zones définies comme forestières par ce produit. |
 
-#### **Réglages implicites***
+##### **Réglages implicites**
 
 En gérant la construction des collections d'images, la fonction `runLT` simplifie l'appel de la fonction LT.  
 
@@ -1039,6 +1041,8 @@ Certaines décisions clés sont encapsulées dans ce code :
 #### Fonctions permettant de convertir les collections d'images en entrées LT-ready
 
 Une fois la collection d'images construite, la fonction "runLT" doit ensuite la convertir en une série chronologique univariée pour la segmentation. Pour la plupart des utilisations, il s'agit simplement de calculer l'indice spectral souhaité, et cela est géré par la fonction "buildLTcollection".  Pour les utilisations avancées qui nécessitent une stabilisation temporelle en utilisant l'approche de l'ajustement au sommet (FTV), ces bandes peuvent également être passées à la même fonction. 5.2.3 Calling the core LT-GEE algorithm
+
+#### 5.2.3 Calling the core LT-GEE algorithm
 
 L'algorithme de base de la segmentation temporelle LandTrendr est accessible dans GEE en utilisant ce format :
 
@@ -1146,7 +1150,7 @@ var ltlt = lt.select('LandTrendr');          // sélectionnez la bande LandTrend
   var dsnr = mag.divide(rmse);              
 ```
 
-L'utilisateur avancé est renvoyé à un traitement détaillé de la manière d'interpréter et de manipuler les données relatives aux sommets, qui figure dans la [section 5 du guide LT-GEE GitHub] (https://emapr.github.io/LT-GEE/lt-gee-outputs.html)  
+L'utilisateur avancé est renvoyé à un traitement détaillé de la manière d'interpréter et de manipuler les données relatives aux sommets, qui figure dans la [section 5 du guide LT-GEE GitHub)(https://emapr.github.io/LT-GEE/lt-gee-outputs.html)  
 
 ##### Filtrage par perte ou gain
 
@@ -1184,13 +1188,13 @@ Chaque ligne contient autant de colonnes qu'il y a de segments qui répondent au
 
 > *NOTE : Le vertex au début d'un segment n'a pas encore subi de changement. Ainsi, par convention, nous considérons que la première année *après* le vertex est la première fois que le changement est évident pour le segment.  Pour la cartographie des perturbations brusques, cela signifie que l'année de détection sera correctement marquée comme l'année à laquelle le déclin d'un indice spectral est noté.
 
-### 5.3.2 Identifier le segment ciblé
+#### 5.3.2 Identifier le segment ciblé
 
 Comme indiqué à la section 3.5, la cartographie exige qu'un seul segment soit identifié. Comme il y a souvent plus d'un segment de perte ou de gain, nous devons identifier le segment à cibler pour la cartographie. En outre, nous souhaitons souvent ignorer les segments qui ne dépassent pas des seuils spécifiques, par exemple en ce qui concerne le moment, la durée ou l'ampleur du changement.  Les différentes caractéristiques de chaque segment peuvent être utilisées pour déterminer s'il est le plus approprié pour la cartographie.  
 
 Dans la fonction "getChangeMap", l'identification du segment cible est traitée en deux grandes étapes. Tout d'abord, le `ee.Array` renvoyé par l'appel à `getSegmentData` est trié en fonction de l'ampleur, du moment ou de la durée du segment, et le résultat le mieux classé est identifié comme étant le segment cible.  Ensuite, ce segment cible est filtré en fonction de seuils numériques.  
 
-#### triage
+##### triage
 
 L'étape de tri permet d'évaluer les segments en fonction de plusieurs caractéristiques. Un cas d'utilisation courant serait de rechercher le segment de perturbation (avec "perte") qui a eu la plus grande magnitude de changement spectral, car cela peut indiquer la perturbation la plus grave subie par le pixel.  On peut aussi s'intéresser au segment qui a connu une croissance végétative ("gain") pendant la plus longue période.  Ou encore, nous pouvons nous intéresser uniquement à la perturbation la plus récente.  Chacun de ces éléments peut être exprimé sous la forme d'un classement de magnitude ou de temps du segment, et ils sont stockés dans la variable "changeParams.sort".  Les descriptions des critères de tri saisis dans cette variable sont fournies ci-dessous. 
 
@@ -1215,7 +1219,7 @@ var distImg = ee.Image.cat(distArray.arraySlice(0,0,1).arrayProject([1]).arrayFl
 
 Ces bandes sont dérivées d'un sous-ensemble des valeurs du "ee.Array".    Les descriptions suivent celles qui sont indiquées au point 5.3.1 ci-dessus, avec "yod" remplacé par "startYear" et "preval" par "startVal".  Pour rappel, la variable "yod" n'est pas l'année du sommet au début du segment, mais plutôt cette année *plus un*, pour refléter le fait que le changement de direction du segment n'est évident qu'après qu'une année se soit écoulée depuis le sommet initial. 
 
-#### Filtrage et seuil
+##### Filtrage et seuil
 
 L'image après tri est adaptée à la cartographie si vous le souhaitez, chaque bande étant affichée séparément.  Cependant, nous souhaitons généralement filtrer davantage la carte en fonction de critères du processus de changement.  Une fois que le segment cible a été identifié et qu'une image provisoire a été produite, les étapes du "getChangeMap" peuvent être utilisées pour filtrer la carte et en définir le seuil. 
 
@@ -1223,11 +1227,11 @@ Ces étapes comprennent le filtrage par "yod", par "mag" et par "dur".  Par exem
 
 En outre, le filtre "mmu" permet de supprimer les groupes de pixels plus petits que la valeur indiquée par la valeur "mmu" (en pixels).   Les groupes de pixels sont ceux qui partagent le même "yod".   
 
-#### Sorties
+##### Sorties
 
 Le résultat de la fonction `getChangeMap` est l'image de la perturbation avec les couches notées dans la section 4 ci-dessus. 
 
-# 6.0 Mise en application de LandTrendr au Mozambique et au Cambodge
+## 6 Mise en application de LandTrendr au Mozambique et au Cambodge
 
 Lors de la mise en œuvre de la détection des changements des forêts LandTrendr dans une nouvelle zone, les mêmes questions décrites dans la section 3 ci-dessus doivent être prises en compte.  Il s'agit notamment des points suivants
 
@@ -1241,11 +1245,11 @@ Lors de la mise en œuvre de la détection des changements des forêts LandTrend
 
   
 
-## 6.1 Mozambique
+### 6.1 Mozambique
 
 Dans la phase initiale de prospection pour travailler dans un nouveau domaine, nous recommandons d'utiliser l'interface graphique LandTrendr décrite dans la section 3 ci-dessus. 
 
-### 6.1.1 Charger une zone d'étude du Mozambique dans le GUI LandTrendr
+#### 6.1.1 Charger une zone d'étude du Mozambique dans le GUI LandTrendr
 
 Voyons ce que fait LandTrendr au Mozambique. Pour rappel, trouvez et ouvrez le script nommé **LT-GEE-Vis-DownLoad-app_WB_v1.0** depuis la bibliothèque openMRV/ChangeDetection sur GEE.
 
@@ -1261,7 +1265,7 @@ Pour les besoins de ce document, nous avons délimité une simple zone d'étude 
 
 ![_fig_moz_add_study_area](./figures/_fig_moz_add_study_area.png)
 
-### 6.1.2. Determine date windows
+#### 6.1.2 Determine date windows
 
 Comme toujours, nous recherchons des fenêtres de date saisonnières qui soient suffisamment larges et chronométrées pour maximiser le changement de la recherche de pixels clairs la plupart des années, mais qui soient suffisamment étroites pour éviter une trop grande variabilité phénologique dans la fenêtre de date.  Un bon point de départ est de comprendre la saisonnalité des précipitations. 
 
@@ -1285,7 +1289,7 @@ En avançant légèrement les dates dans l'année, on obtient une pile RGB ajust
 
 
 
-### 6.1.3 Explorer les archives d'images et les mécanismes de changement
+#### 6.1.3 Explorer les archives d'images et les mécanismes de changement
 
 Avec l'image RGB en arrière-plan, considérez les dimensions temporelles du changement au Mozambique.  Nous cherchons à comprendre les modèles spatiaux de changement évidents dans l'image RGB, et vérifions que les archives d'images sont suffisantes pour la série initiale d'années d'imagerie.  L'interface "Pixel Time Series Options" est un excellent outil pour explorer ces questions. 
 
@@ -1324,11 +1328,11 @@ Les preuves de la déforestation provoquée anthropique semblent être plus nomb
 
 ![_fig_moz_nicuadala](./figures/_fig_moz_nicuadala.png)
 
-## 6.2 Cambodia
+### 6.2 Cambodia
 
 Dans la section 6.1, nous avons abordé les sujets clés du passage de notre exploration initiale en Colombie à un nouveau lieu.  Ici, nous ne mettons en évidence que les questions qui diffèrent lors d'une exploration initiale de la cartographie des perturbations au Cambodge.  
 
-### 6.2.1. Zone d'étude et paramètres de l'image
+#### 6.2.1. Zone d'étude et paramètres de l'image
 
 Comme pour la Colombie et le Mozambique, nous avons mis à disposition une petite zone d'étude pour expérimenter les réglages d'images et de paramètres.  Le chemin vers l'actif GEE est : `users/openmrv/MRV/CambodgeArea
 
@@ -1338,7 +1342,7 @@ Un premier examen de l'imagerie RGB ajustée montre des zones de stabilité de l
 
 ![_fig_camb_setting_and_rgb](./figures/_fig_camb_setting_and_rgb.png)
 
-### 6.2.2 Processus de changement du paysage
+#### 6.2.2 Processus de changement du paysage
 
 Les processus de changement de paysage à l'œuvre au Cambodge diffèrent à nouveau de ceux de la Colombie et du Mozambique. 
 
@@ -1356,8 +1360,7 @@ De l'autre côté de la frontière, dans la province de Steung Treng, à l'ouest
 
 Comme pour la Colombie et le Mozambique, la segmentation temporelle pourrait être transformée en cartes de l'année de perturbation, de l'ampleur de la perturbation et de la durée de la perturbation. 
 
-# 7.0 FAQ
-
+# 7 FAQ
 
 
 **Comment choisir les paramètres d'ajustement ?  Y a-t-il une approche automatisée ?**
@@ -1392,7 +1395,7 @@ Le mixage des types de capteurs peut être très difficile.  Il faut un prétrai
 
 
 
-## 8.0 References
+## 8 References
 
 Crist, E. P. 1985, A TM tasseled cap equivalent transformation for re􏰝flectance factor data. __Remote Sensing of Environment__, 17: 301–306.
 
@@ -1412,10 +1415,9 @@ Roy, D.P., Kovalskyy, V., Zhang, H.K., Vermote, E.F., Yan, L., Kumar, S.S, Egoro
 
 
 
-------
+-----
 
-[
-![img](https://lh4.googleusercontent.com/FlTik_kVMvlZvBAPQuX5ijx5rwSVC_7T0zZbh48d415FxyqXrp-ZM_w2TLvmmICTyJVbii4VQJurxJt5-cKnSOOeNQ3-j3BdlK5XNwg4SKDAlVBLoVH25_ssaOgeL6xgLrwvZxjo)](http://creativecommons.org/licenses/by-sa/4.0/)
+![](figures/cc.png)  
 
 This work is licensed under a [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) 
 
@@ -1428,41 +1430,17 @@ Copyright 2021, World Bank
 Ce travail a été développé par Robert E Kennedy dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte des ressources existantes - liées à la mesure, la notification et la vérification afin de soutenir la mise en œuvre du MRV par les pays. 
 
 Matériel révisé par :
-
 Foster Mensah  / Center for Remote Sensing and Geographic Information Services, Ghana
-
 Jennifer Juliana Escamilla Valdez / Minsiterio de Medio Ambiente y Recursos Naturales, El Salvador
-
 Raja Ram Aryal /  Ministry of Forests and Environment, Nepal
-
 KONAN Yao Eric Landry / REDD+ Permanent Executive Secretariat, Cote d'Ivoire
-
 Carole Andrianirina / BNCCREDD+, Madagascar
-
 Tatiana Nana / REDD+ National Coordination MINEPDED Ministry of Environment, Cameroon
 
 
 
 Attribution
-
 Kennedy, Robert E . 2021. Change detection with LandTrendr in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
- 
 
-  
-
-
-![img](https://lh4.googleusercontent.com/6NE8qSB-n0jdUuIJhOi1KCswEq3JTZvc0o-pudDvv_myoESveXmgjnEu2GoRj5wT86x1KNWEVGsvmkpkKfWLUKCx5ThiShCstxc4nrov894b2IC_6-MUNQNG374JiLRnJTi7Stjz)![img](https://lh5.googleusercontent.com/cWpru05JISJZrVmeHUr1bP0abbQL4IRCRotcA2hYICrcOAAYFFG5NkbQ9piU3OLrWnjEWBMQ1bBZKqABIghoz0--lAXlvuxrhMh8icTMJPoDYi4fjWfeODRkRbKduPRcM601lRWh)
-
-
-
-
-
-
-
-
-
-
-
-
-
+![](figures/wb_fcfc_gfoi.png)
