@@ -50,7 +50,6 @@ group:
 
 # Cobertura Terrestre y Clasificación de Uso Terrestre en Google Earth Engine
 
-
 ## 1 Contexto
 
 ### 1.1 Espacio de datos espectrales y clasificadores
@@ -59,7 +58,7 @@ Antes de comenzar un ejercicio de clasificación de imagen, es importante entend
 
 Imágenes terrestres de detección remota responden a las propiedades físicas y químicas de la superficie. La reflectancia y absortancia variadas de la energía electromagnética se registra en diferentes bandas de un sensor, y los valores numéricos grabados en esas bandas definen un espacio espectral (o más generalmente, un espacio de datos de dimensión n). Todos los pixeles en una imagen están puestos en este espacio de datos por virtud de su reflectancia medida en cada banda espectral del sensor. 
 
-![Schematic view of a 2-dimensional spectral data space defined by two spectral bands.  Each dot represents a single pixel in an image. The location in the 2-d space of each pixel is defined its reflectance values in the two bands.](C:\Users\vanes\Downloads\figures\m1.3\spectral_data_space.png){ width=50% }
+![Schematic view of a 2-dimensional spectral data space defined by two spectral bands.  Each dot represents a single pixel in an image. The location in the 2-d space of each pixel is defined its reflectance values in the two bands.](./figures/m1.3/spectral_data_space.png){ width=50% }
 
 La mayoría de algoritmos de clasificación operan enteramente en este espacio de datos. Clasificadores intentan separar este espacio en regiones con limites donde todos los pixeles pertenecen a una clase etiquetada. Algunos clasificadores consideran que los limites entre regiones son inflexibles, mientras que otros son menos rígidos y tratan con la membrecía de cada pixel en una clase como una probabilidad. 
 
