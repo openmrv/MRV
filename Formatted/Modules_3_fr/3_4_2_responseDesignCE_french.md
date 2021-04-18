@@ -116,7 +116,17 @@ Collect Earth Desktop (CE) et Collect Earth Online (CEO) sont deux outils de col
 - Toutes les données sont stockées dans le cloud dans une seule base de données. Plusieurs utilisateurs peuvent collecter simultanément des informations dans le même projet. Les utilisateurs peuvent exporter les données compilées pour une parcelle ou un échantillon. Actuellement, peu d'options pour le format des données, mais compatible avec un outil d'analyse simple dans SEPAL. L. 
 
 
-### 1.4 Objectifs d'apprentissage
+### 1.4 Description générale
+
+Le processus de création d'une étude dans Collect et de collecte de données à l'aide de Collect Earth Desktop est détaillé dans les étapes ci-dessous. Le processus peut être décrit de la manière suivantes:
+1. Insérez les paramètres et créez la structure du questionnaire dans Collect Survey Designer.
+2. Générez une grille pour l'endroit où vous souhaitez collecter les données et insérez-la dans Collect Survey Designer. 3.
+3.  Exportez le questionnaire (fichier .cep) depuis Collect Survey Designer et ouvrez-le dans Collect Earth Desktop.
+4. Collectez les données dans Collect Earth Desktop
+
+![CE_workflow](./figures/CE_workflow.png)
+
+## 2 Objectifs d'apprentissage
 
 Dans ce tutoriel, vous apprendrez à :
 
@@ -132,23 +142,15 @@ Dans ce tutoriel, vous apprendrez à :
 La conception d'un projet est un processus itératif, et vous devrez probablement apporter de nombreuses modifications aux projets dans Collect et Collect Earth à mesure que vous affinerez vos objectifs, vos schémas de classification de l'utilisation ou de la couverture du sol, vos sources d'images, etc. Ces modifications peuvent être apportées à un projet avant sa publication. Ces modifications peuvent être apportées à un projet avant qu'il ne soit publié. Cela signifie que vous pouvez créer un projet et y collecter des données de test, puis corriger les erreurs que vous trouvez avant de publier le projet.
 
 
-### 1.3 Pré-requis pour ce module
+### 2.1 Pré-requis pour ce module
 
 * Comprendre la terminologie du module 3.1 et disposer d'un plan d'échantillonnage établi, décrit dans les modules 3.2 et 3.3.
 * Une connaissance générale de l'interprétation d'images. L'interprétation d'images est le processus consistant à regarder des images à résolution spatiale modérée, élevée ou très élevée (provenant de satellites ou de photographies aériennes) et à identifier les objets d'intérêt dans vos emplacements d'échantillonnage.L'interprétation d'images est la compétence de base nécessaire à l'exécution efficace de tout projet de Collect Earth desktop . L'interprétation d'images est la compétence de base nécessaire à l'exécution efficace de tout projet de Collect Earth Desktop. 
 * Il est fortement conseillé de comprendre les tutoriels précédents des modules 1 et 2.
 
-### 1.4 Description générale
+## 3 Tutorial: Collect Earth Desktop
 
-Le processus de création d'une étude dans Collect et de collecte de données à l'aide de Collect Earth Desktop est détaillé dans les étapes ci-dessous. Le processus peut être décrit de la manière suivantes:
-1. Insérez les paramètres et créez la structure du questionnaire dans Collect Survey Designer.
-2. Générez une grille pour l'endroit où vous souhaitez collecter les données et insérez-la dans Collect Survey Designer. 3.
-3.  Exportez le questionnaire (fichier .cep) depuis Collect Survey Designer et ouvrez-le dans Collect Earth Desktop.
-4. Collectez les données dans Collect Earth Desktop
-
-![CE_workflow](./figures/CE_workflow.png)
-
-## 2 Téléchargement et installation de Collect 
+## 3.1 Téléchargement et installation de Collect 
 
 La première étape consiste à télécharger "Collect" sur le site Web d'OpenForis, à l'adresse suivante [openforis](http://openforis.org/).  Allez à [Lien de la version recente](http://www.openforis.org/tools/collect.html). Vous pouvez y télécharger l'application "Collect" en cliquant sur "Télécharger la dernière version" et en sélectionnant la bonne version. Téléchargez et installez Collect sur votre ordinateur. Si nécessaire, veuillez consulter l'aide à l'installation disponible à l'adresse suivante [Lien aide d'installation de OpenForis](http://www.openforis.org/tools/collect/tutorials/installation.html).
 
@@ -171,7 +173,7 @@ La fenêtre du panneau de configuration d'OpenForis Collect s'ouvre avant que le
 Après quelques minutes, une nouvelle fenêtre de navigateur s'ouvrira automatiquement avec l'interface Collect. 
 
 
-## 3 Création du formulaire d'enquête 
+### 3.2 Création du formulaire d'enquête 
 
 Dans cette section, nous allons vous montrer comment créer une étude et la modifier en fonction de vos besoins et du type de données que vous essayez de collecter.
 
@@ -197,7 +199,7 @@ En bas de chaque écran se trouve un bouton Enregistrer. Sauvegardez fréquemmen
 
 Si votre session se termine ou si vous fermez accidentellement la fenêtre, vous pouvez revenir à la fenêtre d'édition  en cliquant sur   **_Designer_** -> **_List of surveys_** -> **_click on the name of your survey_ **-> **_Edit survey_**.
 
-### 3.1 Ajouter des informations sur le questionnaire
+#### 3.2.1 Ajouter des informations sur le questionnaire
 
 Dans l'onglet Info, vous pouvez modifier les détails de tout le questionnaire. Ajoutez un nom de projet et une description si vous le souhaitez (par exemple,  “Training survey located in Columbia”).
 
@@ -213,7 +215,7 @@ Assurez-vous de sauvegarder votre étude en utilisant le bouton "Save" au bas de
 
 ![collect_edit_survey](./figures/collect_edit_survey.JPG)
 
-### 3.2 Ajouter des listes de codes
+#### 3.2.2 Ajouter des listes de codes
 
 Accédez maintenant à l'onglet “Code lists”. Sur la gauche, vous pouvez voir les listes de codes prédéfinies, notamment l'élévation, l'orientation et la pente.     
 
@@ -239,7 +241,7 @@ Si vous faites une erreur, vous pouvez modifier les éléments de la liste exist
 
 Une fois que vous avez créé vos listes de codes supplémentaires, assurez-vous de sauvegarder votre travail au bas de la page. 
 
-### 3.3 Ajouter des questions au questionnaire
+#### 3.2.3 Ajouter des questions au questionnaire
 
 Cliquez maintenant sur l'onglet "Schéma". L'onglet "Schéma" est l'endroit où vous allez définir la structure de tout le projet et les données qui seront collectées. Comme nous avons utilisé le modèle Collect Earth, le modèle d'enquête aura déjà défini "parcelle" comme unité d'échantillonnage. Si, à l'avenir, vous souhaitez concevoir une enquête différente, vous trouverez de plus amples informations à l'adresse suivante [Lien pour ajouter des question sur le formulaire](http://www.openforis.org/tools/collect/tutorials/survey-designer.html) . 
 
@@ -291,7 +293,7 @@ Un aperçu des questions de l'enquête peut être vu en cliquant sur "Preview" e
 
 ![collect_preview2](./figures/collect_preview2.jpg)
 
-## 4. Ajouter une grille d'échantillonnage à Collect
+### 3.3 Ajouter une grille d'échantillonnage à Collect
 
 Collect a besoin d'une grille d'échantillonnage qui définit où nous allons collecter les données que nous venons de créer. 
 Nous présentons ici deux options :
@@ -299,7 +301,7 @@ Nous présentons ici deux options :
 1. iimporter un plan d'échantillonnage existant, tel que celui créé dans le **Module 3.2**
 2. créer et importer une grille d'échantillonnage à l'aide du générateur de grille de Google Earth Engine.
 
-### 4.1  Importer un plan d'échantillonnage déjà constitué.
+#### 3.3.1  Importer un plan d'échantillonnage déjà constitué.
 
 Avant d'importer un plan d'échantillonnage existant, vous devez vérifier que le fichier csv est correctement formaté. 
 
@@ -324,7 +326,7 @@ Une fois que vous êtes sûr que la structure correspond, votre fichier csv de g
 
 Pour importer un plan d'échantillonnage existant, accédez à l'onglet "Info". Dans l'onglet "Info" de votre éditeur d'enquête, allez dans la section “Attached Files” et cliquez sur le bouton vert d'ajout pour joindre votre fichier de grille csv. Si votre fichier est trop volumineux, vous devrez peut-être le diviser en plusieurs fichiers. 
 
-### 4.2 [Optionnel] Création d'une grille d'échantillonnage pour Collect Earth à l'aide du générateur de grille dans Google Earth Engine
+#### 3.3.2 Création d'une grille d'échantillonnage pour Collect Earth à l'aide du générateur de grille dans Google Earth Engine
 
 Le générateur de grille est une application Google Earth Engine créée avec l'éditeur de code de Google Earth Engine. Cet outil vous permet de concevoir et de générer une grille pour votre projet Collect Earth. 
 
@@ -406,7 +408,7 @@ Si votre fichier contient plus de 4000 points, il sera trop volumineux pour êtr
 Maintenant que vous avez répondu aux questions de votre étude et joint les fichiers de grille pour indiquer l'emplacement de votre collecte de données, vous pouvez maintenant exporter et partager votre étude Collect Earth, ce qui est décrit dans la section suivante. 
 
 
-## 5 Exportez et partagez votre étude sur Collect Earth 
+### 3.4 Exportez et partagez votre étude sur Collect Earth 
 
 Pour partager votre étude  sur Collect Earth, allez dans la “List of surveys” et cliquez sur “Export”. Il existe plusieurs façons d'exporter. Par exemple, si vous voulez utiliser les données dans  Collect Earth, vous devez changer le mode d'exportation pour  “Collect Earth”. ISi vous souhaitez créer une sauvegarde de l'information, sélectionnez   “Collect Desktop (backup)” comme mode d'exportation. 
 
@@ -421,7 +423,7 @@ Le fichier exporté sera ensuite téléchargé sous forme de fichier .cep à l'e
 Veuillez consulter le prochain tutoriel sur la collecte de données dans Collect Earth Desktop pour savoir comment recueillir des données à l'aide d'un sondage.
 
 
-## 6 Download and launch Collect Earth
+### 3.5 Download and launch Collect Earth
 
 Vous pouvez télécharger Collect Earth sur le site Web d'Open Foris. Visitez le site [Lien site web](http://www.openforis.org/tools/collect-earth.html) .Téléchargez la dernière version, puis sélectionnez la version appropriée pour votre système d'exploitation. Installez en fonction de votre système d'exploitation. Les instructions d'installation se trouvent à l'adresse suivante  [Lien de l'adresse Web](http://www.openforis.org/tools/collect-earth/tutorials/installation.html).
 
@@ -437,7 +439,7 @@ Collect Earth lancera automatiquement Google Earth. Collect Earth et Google Eart
 
 ![google_earth_pro](./figures/google_earth_pro.JPG)
 
-## 7 Collect Data
+### 3.6 Collect Data
 
 *NOTE: En plus de ces documents, il existe également des vidéos YouTube qui montrent comment collecter des données dans Collect Earth desktop, que vous trouverez ici: [Lien Video](https://www.youtube.com/channel/UCxu8NZPvPxGBjBp0g6LCV4w)*
 
@@ -486,7 +488,7 @@ Continuez avec le reste des points  de cette façon. Vous aurez terminé votre i
 - Les plantations d'arbres peuvent ressembler à des forêts jusqu'à ce que vous fassiez un zoom arrière pour voir le motif régulier des arbres plantés.
 
 
-## 8 Exportez vos données  
+### 3.7 Exportez vos données  
 
 Lorsque vous avez terminé votre collecte de données et que vous voulez exporter vos données Collect Earth, allez à votre fenêtre principale Collect Earth et cliquez sur “Data Import/Export” dans le menu Tools menu. Vous pouvez alors exporter votre fichier au format CSV, XML, Collect Backup ou Fusion Table. Nommez et sauvez votre fichier. 
 
@@ -543,9 +545,50 @@ Voici quelques astuces pour l'interprétation des images :
 
 Pour obtenir une aide supplémentaire sur l'utilisation de Collect Earth, rendez-vous sur openforis.org et cliquez sur "Community Support" dans la barre de navigation supérieure.
 
+## 5 Terminologie relative aux techniques d'échantillonnage
+
+Une liste de termes relatifs aux techniques d'échantillonnage et d'inférence est fournie dans la documentation d'AREA2 : https://area2.readthedocs.io/en/latest/definitions.html Vous trouverez ci-dessous quelques termes supplémentaires qui ne figurent pas dans la documentation d'AREA2.
+
+### 5.1 Plan de réponse
+
+Défini par (Stehman and Czaplewski, 1998)[^fn1]: “La référence ou classe réelle est obtenue pour chaque unité d'échantillonnage sur la base de l'interprétation de photographies aériennes ou de vidéographies, d'une observation au sol ou d'une combinaison de ces sources. Les méthodes utilisées pour déterminer cette référence de classification sont appelées "plan de réponse". Le plan d'intervention comprend les procédures de collecte des informations relatives à la détermination de la occupation du sol de référence, et les règles d'attribution d'une ou plusieurs [labels] de référence à chaque unité d'échantillonnage.” Connu sous le nom de “plan de mesure” par Särndal et al. (1992)[^fn2].
+
+### 5.2 Echantillon
+
+Un sous-ensemble de la population sélectionné parmi les unités de la population.
+
+### 5.3 Plan d'échantillonnage
+
+Synonyme de plan d'échantillonnage (Sampling Design), qui est le terme préféré dans la littérature de référence (Cochran, 1977[^fn3], Särndal et al., 1992[^fn2]). Le terme apparaît chez Rice (1995)[^fn4] ui utilise à la fois “sampling design, ***plan d'echantillonnage\***” et “sample design, ***plan d'echantillon\***”.
+
+### 5.4 Plan d'échantillonnage
+
+“Le concept de plan d'échantillonnage (sampling design ) est le protocole par lequel les unités de référence de l'échantillon sont sélectionnées” (Stehman and Czaplewski, 1998)[^fn1]. Le terme “Sampling design” est également utilisé par Cochran (1977)[^fn3] and Särndal et al. (1992)[^fn2] -- Le premier utilise également “sampling plan”.
+
+### 5.5 Sondage/Enquêtee
+
+Särndal et al. (1992)[^fn2] définissent une enquête comme une “investigation partielle d'une population finie”, et précisent que “les concepts d ‘enquête’ et ‘enquête par sondage’ sont utilisés pour désigner des enquêtes statistiques présentant les caractéristiques méthodologiques suivantes: [...] échantillonnage aléatoire [...] plan de mesure [et] estimation”. de facon plus precise une enquete par sondage ou un sondage est une enquête effectuee sur une partie de la population. Cette fraction de la population constitue l'échantillon et les méthodes qui permettent de construire cet echantillon s'appellent méthode d'échantillonnage.
+
+### 5.6 Plan d'enquête
+
+UN “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992)[^fn2]. Lohr (1999)[^fn5] décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
 
 
+### 5.7 Données de référence
 
+Données caractérisant l'évaluation la plus précise possible de la condition réelle à l'emplacement de l'échantillon (exemple : imagerie satellite à haute résolution).
+
+### 5.8 Les observations de référence 
+
+L'évaluation la plus exacte possible de l'état réel d'une unité de population.
+
+### 5.9 Reference classification 
+
+La classification de référence appliquée à la collection de toutes les unités d'échantillonnage.
+
+-----
+
+![](figures/cc.png) 
 
 Ce travail est autorisé sous une licence  [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) 
 
@@ -562,5 +605,4 @@ Attribution
 
 Bui, Justine and Dyson, Karen. 2021. Module 3.3.2 How to create surveys in Collect and collect data using Collect Earth Desktop. World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)
 
-![WB_FCPF](./figures/WB_FCPF.png)
-![GFOI](./figures/GFOI.png)
+![](figures/wb_fcfc_gfoi.png)
