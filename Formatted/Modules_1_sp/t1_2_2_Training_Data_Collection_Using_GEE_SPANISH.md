@@ -39,7 +39,7 @@ group:
 
 ---
 
-# Módulo 1.2.2 Recolección de Datos de Entrenamiento Usando Google Earth Engine 
+# Recolección de Datos de Entrenamiento Usando Google Earth Engine 
 
 ## 1 Contexto
 
@@ -64,13 +64,12 @@ Al final de este ejercicio, podrá:
 
 * Google Earth Engine
   * Tener una cuenta de GEE
-  * Haber completado módulo 1.1 Creación de Imagen Compuesta/Mosaico para Landsat y Sentinel-2
 
 * Conceptos de Teledetección
   * Comprensión básica de teorías involucradas en la clasificación de imágenes
   * Entender como definir una leyenda temática
 
-## 3. Colección de Datos de Entrenamiento
+## 3 Tutorial: Training Data Collection in GEE
 
 ### 3.1 Resumen
 
@@ -249,7 +248,7 @@ Export.table.toDrive({
 
 3. Luego haga clic en Run para ejecutar. Esto le permitirá navegar a la pestaña de tarea 'Task' y completar la exportación. Si no recuerda como completar el proceso de exportación, por favor vuelva a repasar el Módulo 1.1 Creación de Imagen Compuesta/mosaico con Landsat y Sentinel-2 en Google Earth Engine. 
 
-## 4. Ejemplos: Mozambique y Camboya 
+## 4 Ejemplos: Mozambique y Camboya 
 
 Ahora intentemos replicar este mismo proceso con nuevas regiones de estudio: Mozambique y Camboya. Esta sección es opcional y le permitirá practicar el proceso de colección de datos en diferentes regiones de estudio. El proceso general es igual al que se demostró para Colombia. 
 
@@ -396,7 +395,9 @@ No hay un numero mágico para el numero de puntos de entrenamiento necesario par
 
 Si los datos de entrenamiento fueron colectados oportunistamente, o en otras palabras *sin* usar una muestra de probabilidad, no se recomienda usar estos datos para la validación ya que introducirían sesgo.
 
+-----
 
+![](figures/m1.1/cc.png)
 
 Este trabajo tiene licencia bajo un [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) 
 
@@ -412,8 +413,6 @@ Justine Bui, Spatial Informatics Group LLC
 Kelsey Herndon, University of Alabama in Huntsville
 
 Atribución
-
 Tenneson, Karis. 2020. Training Data Collecting Using Google Earth Engine. � World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)
 
-![](./figures/m1.2/m1.2.2/WB_FCPF.png)
-![](./figures/m1.2/m1.2.2/GFOI.png)
+![](figures/m1.1/wb_fcfc_gfoi.png)
