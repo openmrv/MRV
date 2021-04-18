@@ -47,7 +47,7 @@ group:
   étape : Collecte des données d'entraînement
 ---
 
-# Training Data Collection
+# Collecte des données d'apprentissage
 
 ## 1  Contexte
 
