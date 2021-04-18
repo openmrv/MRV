@@ -195,7 +195,7 @@ Con la colección filtrada, vamos a crear una imagen compuesta usando un reducto
 
 La función `median()`para `ee.ImageCollection` es lo que se conoce en GEE como un `ee.Reducer` (reductor), y estamos usando `ee.Reducer.median()` específicamente. Los reductores son la forma GEE de agregar datos a lo largo del tiempo, el espacio, las bandas, las matrices y otras estructuras de datos. La figura siguiente demuestra una colección de imágenes siendo "reducida" a una imagen individual con un `ee.Reducer`: 
 
-![](./figures/m1.1/educe_ImageCollection2.png)
+![](figures/m1.1/Reduce_ImageCollection2.png)
 
 En nuestro caso, estamos tomando el valor mediano sobre una serie temporal (nuestra colección). El resultado es computado pixel por pixel, de manera que cada pixel en el resultado esta compuesto del valor mediano de todas las imágenes en la colección sobre esa ubicación. Alternativamente, puede experimentar usando `mean()`, `min()`, etc., como reductores en lugar del valor mediano.
 
