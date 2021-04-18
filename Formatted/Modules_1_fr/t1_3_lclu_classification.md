@@ -75,14 +75,14 @@ Les propriétés physiques et chimiques de la surface sont liées à l'occupatio
 
 "Utilisation des sols" se réfère à une définition humaine (observationnelle)  de l'occupation du sol sous-jacente.  La même couverture végétale herbacée peut avoir différentes désignations d'utilisation du sol: l'herbe dans une zone urbaine peut être définie comme "espace ouvert" ou "parc", tandis que la même herbe dans une zone agricole peut être considérée comme "pâturage".  Lors de la définition des étiquettes de classification, il faut être conscient des ambiguïtés potentielles dans les propriétés spectrales des classes. 
 
-## 2.3 Autres ressources
+## 1.3 Autres ressources
 
 |          **Concept**           |          **Source**          |                                                     **Site** |
 | :----------------------------: | :--------------------------: | -----------------------------------------------------------: |
-|    Basics of remote sensing    |   Natural Resources Canada   | [Lien du Site](https://www.nrcan.gc.ca/maps-tools-publications/satellite-imagery-air-photos/tutorial-fundamentals-remote-sensing/9309) |
-| Fundamentals of Remote Sensing | ARSET (NASA Applied Science) | [Lien du Site](https://appliedsciences.nasa.gov/join-mission/training/english/fundamentals-remote-sensing) |
+|    Basics of remote sensing    |   Natural Resources Canada   | https://www.nrcan.gc.ca/maps-tools-publications/satellite-imagery-air-photos/tutorial-fundamentals-remote-sensing/9309 |
+| Fundamentals of Remote Sensing | ARSET (NASA Applied Science) | https://appliedsciences.nasa.gov/join-mission/training/english/fundamentals-remote-sensing |
 
-# 1.0 Objectifs d'apprentissage
+# 2 Objectifs d'apprentissage
 
 À la fin de ce module, vous serez en mesure de 
 
@@ -91,7 +91,7 @@ Les propriétés physiques et chimiques de la surface sont liées à l'occupatio
 - Évaluer les sources d'erreur possibles dans le processus de classification, découlant du prétraitement, du choix des capteurs et de la conception de l'échantillon de formation
 
 
-## 1.1 Pré-requis pour ce module
+## 2.1 Pré-requis pour ce module
 
 * Concepts de Google Earth Engine (GEE)
 	* Obtenir un compte d'utilisateur
@@ -110,7 +110,7 @@ Les propriétés physiques et chimiques de la surface sont liées à l'occupatio
 
 
 
-# 3.0 Classification supervisée dans Google Earth Engine
+# 3 Classification supervisée dans Google Earth Engine
 
 ## 3.1 Aperçu du flux de travail
 
