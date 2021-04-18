@@ -73,7 +73,7 @@ La surveillance des changements de sol à l'aide de données de télédétection
 
 > NOTE: Refer to process "Pre-processing" and tool "GEE" here on OpenMRV for more information and resources for working in Google Earth Engine.
 
-## 3.0 Tutoriels: Détection et classification continues des changements  (CCDC)
+## 3 Tutoriels: Détection et classification continues des changements  (CCDC)
 
 Le CCDC peut être géré à l'aide de Google Earth Engine. D'autres implémentations de CCDC sont accessibles [ici](https://github.com/GERSL/CCDC) et comprennent des implémentations en C, Python et MATLAB. Afin de faciliter l'analyse dans le cadre du GEE, Arevalo et al (2020) ont publié une API et une collection d'applications qui seront présentées [ici](https://gee-ccdc-tools.readthedocs.io/en/latest/). 
 
