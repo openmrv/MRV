@@ -96,7 +96,7 @@ Luego será necesario definir un Feature Class (Clase de Objetos) nuevo para cad
 
 2. Esto agregará un panel nuevo de *Geometry Imports* en la ventana del mapa, con una etiqueta para las propiedades nuevas que ya puede dibujar en la ventana del mapa. El nombre predeterminado de esta capa nueva es 'geometry'.
 
-![](./figures/m1.2/m1.2.2/GeometryImports.jpg)
+    ![](figures/m1.2/m1.2.2/GeometryImports.JPG)
 
 3. Sostenga su cursor sobre el nombre 'geometry' en este panel hasta que aparezca un ícono de engranaje en la maño derecha de la etiqueta. Haga clic en el ícono para abrir el panel y editar la configuración de la capa. 
 
