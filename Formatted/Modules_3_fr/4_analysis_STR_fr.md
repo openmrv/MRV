@@ -1,5 +1,4 @@
 ---
-​---
 title: Analysis of sample data collected under stratified random sampling
 summary: In this tutorial we will apply various estimators to a sample dataset to estimate characteristics of the population sampled -- i.e. characteristics of the study area such as the area of forest disturbance. This tutorial will focus on sampled data collected under stratified random sampling
 author: Pontus Olofsson
@@ -19,7 +18,6 @@ tags:
 group:
 - category: Stratified
   stage: Area Estimation/Accuracy assessment
-​---
 ---
 
 
@@ -101,7 +99,6 @@ Parce que nous avons échantillonné la Colombie selon un échantillonnage aléa
 | 16   | 15   | 2    | 2    |      |         | Buffer        |        |            |           |        |       | 0.0287 |
 | 17   | 16   | 3    | 3    |      |         | Total         |        |            |           |        |       | 1      |
 
-The estimated area proportions of a cell belonging to stratum *h* and observed in the reference data as *j* is (*h+* denotes a sum across columns; hence, *nh+* means the sample size allocated to stratum *h*)
 
 Les proportions de surface estimées d'une cellule appartenant à la strate *h* et observées dans les données de référence en tant que *j* sont (*h+* désigne une somme entre les colonnes ; par conséquent, *nh+* signifie la taille de l'échantillon alloué à la strate *h*)
 
@@ -162,7 +159,7 @@ Enfin, calculons la précision de la carte et des classes de cartes, en commenç
 | 22   | 21   | 3    | 3    |      |      | Prod. acc.  | 0.939     | 0.984     | 0.535     | 0    |      |      |
 | 23   | 22   | 2    | 2    |      |      | Over. acc.  | 0.948     |           |           |      |      |      |
 
-## 4. Estimation de la précision d'une carte différente de la stratification initiale
+### 3.2 Estimation de la précision d'une carte différente de la stratification initiale
 
 Lorsque les résultats de l'échantillon ont été collectés à l'aide d'une stratification différente de la carte que nous voulons utiliser pour l'évaluation de la précision, nous ne pouvons pas appliquer les estimateurs stratifiés classiques illustrés ci-dessus, car ils sont biaisés lorsque les lignes de la matrice d'erreur de la population ne correspondent pas aux strates utilisées pour sélectionner l'échantillon. Au lieu de cela, nous devons construire des estimateurs de ratio en utilisant des fonctions indicatrices (Stehman, 2014)[^fn4]. Pour simplifier, réduisons les résultats de notre échantillon à deux classes d'observations de référence : *h* = 1 est la perturbation de la forêt et *h* = 2 est la non perturbation ; et en outre, que nous avons construit une nouvelle carte de perturbation et de non perturbation.
 
@@ -200,7 +197,7 @@ qui permet d'utiliser facilement l'estimateur de ratio pour l'estimation de la p
 
 [![img](https://camo.githubusercontent.com/991f9011e62f3b60f85051fdb0e1d2a72ba9818e24e58ee5a1b8eaba46507c0e/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f253543647069253742313230253744253230253543686174253742502537445f312532302533442532302535436861742537425225374425323025334425323025354366726163253742253543667261632537424e5f312535452a2537442537426e5f312535452a25374425323025354373756d5f25374275253230253543696e2532306825334431253744253230795f75253545502532302b253230253543667261632537424e5f322535452a2537442537426e5f322535452a25374425323025354373756d5f25374275253230253543696e2532306825334432253744253230795f7525354550253744253742253543667261632537424e5f312535452a2537442537426e5f312535452a25374425323025354373756d5f25374275253230253543696e2532306825334431253744253230785f75253545502532302b253230253543667261632537424e5f322535452a2537442537426e5f322535452a25374425323025354373756d5f25374275253230253543696e2532306825334432253744253230785f7525354550253744)](https://camo.githubusercontent.com/991f9011e62f3b60f85051fdb0e1d2a72ba9818e24e58ee5a1b8eaba46507c0e/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f253543647069253742313230253744253230253543686174253742502537445f312532302533442532302535436861742537425225374425323025334425323025354366726163253742253543667261632537424e5f312535452a2537442537426e5f312535452a25374425323025354373756d5f25374275253230253543696e2532306825334431253744253230795f75253545502532302b253230253543667261632537424e5f322535452a2537442537426e5f322535452a25374425323025354373756d5f25374275253230253543696e2532306825334432253744253230795f7525354550253744253742253543667261632537424e5f312535452a2537442537426e5f312535452a25374425323025354373756d5f25374275253230253543696e2532306825334431253744253230785f75253545502532302b253230253543667261632537424e5f322535452a2537442537426e5f322535452a25374425323025354373756d5f25374275253230253543696e2532306825334432253744253230785f7525354550253744)
 
-## 5. Post-stratification
+### 3.3 Post-stratification
 
 Comme expliqué dans le tutoriel sur le plan d'échantillonnage, un avantage important du SRS/SYS est la possibilité de stratifier la zone d'étude après la collecte des résultats de l'échantillonnage. L'application d'une stratification après l'échantillonnage est appelée post-stratification (PSTR), ce qui est susceptible d'augmenter la précision des estimations, et il y a rarement des raisons de ne pas post-stratifier, à condition que des cartes existent sur la zone d'étude. Un autre avantage est que l'estimateur stratifié illustré à la section 3, **Estimation stratifiée** ci-dessus, est directement applicable aux données de l'échantillon SRS ou SYS lorsqu'il est croisé avec les étiquettes de la post-stratification dans une matrice d'erreurs (dans ce cas, l'estimateur stratifié est appelé estimateur post-stratifié mais la formule est exactement la même). Par conséquent, pour appliquer un estimateur PSTR, il suffit de suivre les étapes décrites dans la section 3, **Estimation stratifiée** ci-dessus.
 
@@ -269,6 +266,18 @@ Särndal et al. (1992)[^fn2] définissent une enquête comme une “investigatio
 ### 5.6 Plan d'enquête
 
 UN “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992)[^fn2]. Lohr (1999)[^fn5] décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
+
+### 5.7 Données de référence
+
+Données caractérisant l'évaluation la plus précise possible de la condition réelle à l'emplacement de l'échantillon (exemple : imagerie satellite à haute résolution).
+
+### 5.8 Les observations de référence 
+
+L'évaluation la plus exacte possible de l'état réel d'une unité de population.
+
+### 5.9 Reference classification 
+
+La classification de référence appliquée à la collection de toutes les unités d'échantillonnage.
 
 ## 6 References
 
