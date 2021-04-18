@@ -56,7 +56,7 @@ group:
 
 ---
 
-# Sample selection using AREA2
+# Sample selection using QGIS
 
 ## 1 Contexte
 
@@ -64,7 +64,7 @@ Dans le tutoriel précédent, nous avons conçu un échantillon en choisissant u
 
 ## 2 Objectifs d'apprentissage
 
-- - Upon completion of the tutorial, the user should be able to sample an arbitrary study area under either systematic sampling (SYS), or simple random sampling (SRS) using QGIS.
+Upon completion of the tutorial, the user should be able to sample an arbitrary study area under either systematic sampling (SYS), or simple random sampling (SRS) using QGIS.
     - Draw a sample in QGIS under SYS or SRS
 
 ### 2.1 Prérequis pour ce module
@@ -75,7 +75,7 @@ Dans le tutoriel précédent, nous avons conçu un échantillon en choisissant u
 
 QGIS prend en charge l'échantillonnage de populations définies par des données vectorielles. Par conséquent, si vous voulez échantillonner dans des strates définies par un raster, vous devrez d'abord vectoriser les données raster. Ceci se fait par Raster > Conversions > Polygoniser (Raster vers Vecteur). La vectorisation pour les rasters de grande taille prend beaucoup de temps et n'est pas recommandée ; utilisez plutôt les alternatives ci-dessous. Pour les zones d'étude plus petites ou pour les plans SYS et SRS, QGIS fonctionne bien. Passons en revue les étapes nécessaires pour tirer deux échantillons sous SRS et SYS du pays de la Colombie.
 
-#### 3.1 Simple random sampling
+### 3.1 Simple random sampling
 
 1. Nous avons d'abord besoin d'un fichier de format vectoriel délimite notre zone d'étude. Téléchargez un shapefile de la zone de délimitation de la Colombie ici : https://drive.google.com/file/d/1tXvczTra_5wrlXBhe00m_oKRpLK0GwwJ/view?usp=sharing
 2. Affichez le fichier dans QGIS : Calque > Ajouter un couche > Ajouter une couche vectorielle et sélectionnez le fichier de forme colombiaborder.shp pour le dessiner sur le canevas.
@@ -84,7 +84,7 @@ QGIS prend en charge l'échantillonnage de populations définies par des donnée
 
 ![](./figures/SRS_QGIS.PNG)
 
-#### 3.2 Échantillonnage systématique
+### 3.2 Échantillonnage systématique
 
 Le tracé d'un échantillon sous SYS dans QGIS présente l'inconvénient que la population doit être rectangulaire, ce qui rend plus difficile le tracé d'un nombre exact d'unités pour une zone non rectangulaire. Nous pouvons simplement découper les unités d'échantillonnage pour la frontière de la Colombie, mais cela donnera une taille d'échantillon plus petite que celle spécifiée. Une solution consiste à définir une distance entre les unités en fonction de la taille de la zone d'étude. Par exemple, si la zone d'étude est de *x* km^2^, en fixant l'espacement entre les unités à x/100, on obtient un échantillon de 100 unités.
 
@@ -93,7 +93,7 @@ Le tracé d'un échantillon sous SYS dans QGIS présente l'inconvénient que la 
 3. Spécifiez l'espacement des points ou le nombre de points -- si vous utilisez le premier, cochez la case "Utiliser l'espacement des points".
 4. Enregistrez dans un fichier et cliquez sur Exécuter pour dessiner l'échantillon.
 
-![](./figures/SYS_QGIS.png)
+![](figures/SYS_QGIS.PNG)
 
 ## 4 Foire aux questions (FAQs)
 
