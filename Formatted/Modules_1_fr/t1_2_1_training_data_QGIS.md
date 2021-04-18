@@ -43,7 +43,7 @@ group:
   étape : Collecte des données d'entraînement 
 ---
 
-# 1.2.1. Formation à la collecte de données à l'aide de QGIS 
+# Formation à la collecte de données à l'aide de QGIS 
 
 ## 1 Contexte 
 
@@ -78,7 +78,7 @@ A la fin de cet exercice, vous serez en mesure de :
   * Compréhension de base des théories impliquées dans la classification d'images.
   * Définition d'une légende thématique
 
-## 3. Collecte de données d'entrainement
+## 3 Tutorial: Training Data Collection in QGIS
 
 ### 3.1 Vue d'ensemble
 
@@ -176,9 +176,9 @@ La constellation de satellites Planète offre des images quotidiennes à haute r
 
 **Utilisation**:
 
-1. Des instructions détaillées pour l'installation du plugin se trouvent [sur la page web de la planète] (https:/developers.planet.com/docs/integrations/qgis/quickstart/). 
+1. Des instructions détaillées pour l'installation du plugin se trouvent [sur la page web de la planète](https:/developers.planet.com/docs/integrations/qgis/quickstart/). 
 
-2. Si vous ne l'avez pas encore fait, inscrivez-vous à [Accès utilisateur de niveau 1 ici] (https://www.planet.com/nicfi/). 
+2. Si vous ne l'avez pas encore fait, inscrivez-vous à [Accès utilisateur de niveau 1 ici](https://www.planet.com/nicfi/). 
 
 3. Ajoutez le panneau de plugins en allant sur *Web* -> *Planet Explorer* -> *Planet Explorer*. 
 
@@ -209,21 +209,21 @@ Google Earth Engine (GEE) est une plateforme en ligne d'analyse de données géo
 
 - [Python 3](https://www.python.org) 
 
--[API Python de Google Earth Engine installée et authentifiée](https://developers.google.com/earth-engine/guides/python_install) 
+- [API Python de Google Earth Engine installée et authentifiée](https://developers.google.com/earth-engine/guides/python_install) 
 
 **Utilisation**
 
-1. Installez le plugin en utilisant le [Guide de l'utilisateur] (https:/gee-community.github.io/qgis-earthengine-plugin/).  
+1. Installez le plugin en utilisant le [Guide de l'utilisateur](https:/gee-community.github.io/qgis-earthengine-plugin/).  
 
 2. Ajoutez la console Python en allant dans *Plugins* (en haut de l'application) -> *Console Python* 
 
-3. Parcourez les exemples de code dans [le dépôt de plugins] (https:/github.com/gee-community/qgis-earthengine-plugin/tree/master/examples). Il est également utile de se familiariser avec [Google Earth Engine](https:/developers.google.com/earth-engine/guides) si vous êtes un nouvel utilisateur. Ce tutoriel ne couvre pas les bases du GEE et les utilisateurs devraient consulter la [documentation GEE](https:/developers.google.com/earth-engine/guides) pour une utilisation avancée.  
+3. Parcourez les exemples de code dans [le dépôt de plugins](https:/github.com/gee-community/qgis-earthengine-plugin/tree/master/examples). Il est également utile de se familiariser avec [Google Earth Engine](https:/developers.google.com/earth-engine/guides) si vous êtes un nouvel utilisateur. Ce tutoriel ne couvre pas les bases du GEE et les utilisateurs devraient consulter la [documentation GEE](https:/developers.google.com/earth-engine/guides) pour une utilisation avancée.  
 
 4. Dans la console Python, commencez par charger l'API Python GEE : 
 
 ```python 
 
-    import ee 
+import ee 
 
 ```
 
@@ -272,7 +272,7 @@ Map.addLayer(s1_composite, vis, 'Sentinel 2 2019')
 
 
 
-    Vous devriez voir sur la carte,  une image très nuageuse
+  Vous devriez voir sur la carte,  une image très nuageuse
 
   ![gee2](./figures/m1.2/m1.2.2/gee2.JPG)
 
@@ -341,7 +341,7 @@ Une fois que vous avez choisi les images de référence, il est temps de commenc
 
     ![save](./figures/m1.2/m1.2.2/save.JPG)
 
-8. Les unités d'échantillons peuvent être supprimées en les sélectionnant d'abord avec le bouton *Select Feature(s)* ![select](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\select.JPG) et en cliquant sur une caractéristique ou en faisant glisser une case pour en sélectionner plusieurs, puis en cliquant sur le bouton *Delete*  ![trash](./figures/m1.2/m1.2.2/trash.JPG)
+8. Les unités d'échantillons peuvent être supprimées en les sélectionnant d'abord avec le bouton *Select Feature(s)* ![](./figures/m1.2/m1.2.2/select.JPG) et en cliquant sur une caractéristique ou en faisant glisser une case pour en sélectionner plusieurs, puis en cliquant sur le bouton *Delete*  ![](./figures/m1.2/m1.2.2/trash.JPG)
 
 9. Continuez ce processus pour chaque classe de carte cible.  
 
@@ -364,7 +364,7 @@ Une fois que vous avez recueilli les données de formation pour chaque classe, i
 
 5. Sélectionnez *Classify* pour remplir le tableau de symbologie. Vous pouvez également modifier les couleurs à votre convenance. 
 
-6. Cochez les valeurs de la *Legend* pour qu'elles correspondent à notre légende. Votre tableau devrait ressembler à ceci : 
+6. Cochez les valeurs de la *Legend* pour qu'elles correspondent à notre légende. Votre tableau devrait ressembler à ceci: 
 
     ![style](./figures/m1.2/m1.2.2/style.JPG)
 
@@ -383,9 +383,7 @@ Il est utile d'avoir un identifiant unique pour chaque point d'entrainement. Cel
 
 1. Faites un clic droit sur le nom de la couche dans le panneau *Layer* et sélectionnez *Open Attribute Table*.  
 
-2. Ajoutez une nouvelle colonne en sélectionnant *Open field calculator*. 
-
-    ![attribute](./figures/m1.2/m1.2.2/attribute.JPG)
+2. Ajoutez une nouvelle colonne en sélectionnant *Open field calculator*. ![attribute](./figures/m1.2/m1.2.2/attribute.JPG)
 
 3. Sous *Output field name*, écrivez "ID".  
 
@@ -465,42 +463,42 @@ Ici, notre objectif est de nous assurer que notre classe "Forêt" contient des e
 
 7. Pour calculer la variabilité saisonnière, nous pouvons alors combiner ces deux collections et calculer la variance NDVI par pixel en utilisant un [reducer](https:/developers.google.com/earth-engine/guides/reducers_intro).  
 
+
     ```python
-combined = rainy_season.merge(dry_season) 
-    variance = combined.reduce(ee.Reducer.variance()) 
-    viz = {'min': 0, 'max': .1, 'palette': ['red','yellow','green']} 
-    Map.addLayer(variance, viz) 
+    combined = rainy_season.merge(dry_season)
+    variance = combined.reduce(ee.Reducer.variance())
+
+    viz = {'min': 0, 'max': .1, 'palette': ['red','yellow','green']}
+    Map.addLayer(variance, viz)
     ```
-    
-    
-    
-    ![mozambique_ndvi_var](./figures/m1.2/m1.2.2/mozambique_ndvi_var.JPG)
+
+    ![](figures/m1.2/m1.2.2/mozambique_ndvi_var.JPG)
 
 8. La carte qui est chargée est la variance saisonnière de l'NDVI, dans laquelle le rouge indique une variabilité moindre et le vert une variabilité plus importante.   
 
 9. Une autre mesure que nous pouvons prendre pour aider à l'identification des forêts est d'utiliser un ensemble de données sur le couvert forestier auxiliaire pour masquer les pixels non forestiers. L'ensemble de données UMD-Hansen sur la couverture forestière, la perte et le gain des arbres est parfait à cet effet. Bien qu'il ne soit pas recommandé d'utiliser cet ensemble de données directement comme données d'entrainement, il s'agit d'un bon outil pour identifier les forêts ou les lieux de changement de forêt possibles. Ici, nous utiliserons la couche "Couverture des arbres 2000" pour masquer notre couche de variance NDVI en pixels qui étaient inférieurs à 30% de couverture de la canopée des arbres en 2000. 
 
-    ```python 
-umd_hansen = ee.Image("UMD/hansen/global_forest_change_2019_v1_7").select('treecover2000') 
-    mask = umd_hansen.gt(30) 
-variance_masked = variance.updateMask(mask) 
-    Map.addLayer(variance_masked, viz) 
-
+   
+    ```python
+    umd_hansen = ee.Image("UMD/hansen/global_forest_change_2019_v1_7").select('treecover2000')
+    mask = umd_hansen.gt(30)
+    variance_masked = variance.updateMask(mask)
+    Map.addLayer(variance_masked, viz)
     ```
 
-    ![mozambique_ndvi_var_masked](./figures/m1.2/m1.2.2/mozambique_ndvi_var_masked.JPG)
+    ![](./figures/m1.2/m1.2.2/mozambique_ndvi_var_masked.JPG)
 
 10. Maintenant que nous collectons des données de formation pour la classe "Forêt", il est important de référencer cette couche pour s'assurer que les données de formation tiennent compte des différences de variabilité spectrale saisonnière dans les forêts. Tout d'abord, voyons pourquoi il pourrait être avantageux d'effectuer les étapes énumérées ci-dessus :   
 
-     - Certaines forêts ont des modèles saisonniers de productivité.   
+    - Certaines forêts ont des modèles saisonniers de productivité.   
 
     - Nous voulons nous assurer que nos données de formation "Forêt" comprennent des exemples de tous les types de forêts dans un domaine d'étude.   
 
-   - Une façon simple et préliminaire de tenir compte de la saisonnalité dans une classification consiste à fournir des données de formation représentatives.  
+    - Une façon simple et préliminaire de tenir compte de la saisonnalité dans une classification consiste à fournir des données de formation représentatives.  
 
-        - GEE nous permet d'identifier facilement les forêts saisonnières en fonction de la variance des valeurs NDVI sur une année.  
+    - GEE nous permet d'identifier facilement les forêts saisonnières en fonction de la variance des valeurs NDVI sur une année.  
 
-   - L'ensemble de données UMD-Hansen aide à la collecte de données d'entrainement en masquant les pixels non forestiers. 
+    - L'ensemble de données UMD-Hansen aide à la collecte de données d'entrainement en masquant les pixels non forestiers. 
 
 11. Il est nécessaire d'ajouter une carte de base standard en plus de la couche NDVI. Tous les exemples ci-dessus peuvent être utilisés, le plus simple étant le [QuickMap Services] (#quickmap). Assurez-vous que vous pouvez identifier vos classes dans l'imagerie que vous utilisez. Si vous ne le pouvez pas, essayez d'autres sources d'imagerie de référence ou envisagez de simplifier vos classes. Vous trouverez ci-dessous des exemples de classes utilisées ici dans l'imagerie ESRI disponible dans les services QuickMap. 
 
@@ -520,13 +518,13 @@ variance_masked = variance.updateMask(mask)
 
 ![moz_td](./figures/m1.2/m1.2.2/moz_td.JPG)
 
-## 5. Le Cambodge : Prise en compte de la topographie 
+## 4.2 Le Cambodge : Prise en compte de la topographie 
 
 Le dernier exemple de collecte de données d'entrainement dans Qgis est celui du Cambodge. Le Cambodge a un climat de mousson tropicale avec une saison des pluies allant de mai à octobre environ. Ces dernières années, le Cambodge a connu un taux relativement élevé de changement d'occupation de sol, souvent sous la forme de déforestation.  
 
 La plupart des forêts restantes au Cambodge sont situées sur des terrains vallonnés ou montagneux. La topographie, cependant, peut introduire un défi à la classification de la couverture des terres. Comme les caractéristiques topographiques projettent une ombre, la réflectance du paysage dans l'ombre peut être inférieure à celle d'un paysage similaire non ombragé. Pour réduire cet effet, il est important de collecter des données de formation qui soient représentatives des différentes conditions topographiques d'une région d'étude. Cet exemple montrera comment procéder. 
 
-1. Tout d'abord, créez une nouvelle couche Shapefile en suivant les instructions de [3.2 Créer une nouvelle couche] (#creating-a-new-layer). 
+1. Tout d'abord, créez une nouvelle couche Shapefile en suivant les instructions de 3.2 Créer une nouvelle couche. 
 
 2. Dans cet exemple, nous utiliserons une carte de terrain en plus de l'imagerie de référence lors de la collecte des données d'entraînement. En utilisant [QuickMap Services](#quickmap), recherchez deux cartes de base et ajoutez-les à la carte : Esri Imagery et Google Terrain Hybrid.  
 
@@ -556,7 +554,7 @@ La plupart des forêts restantes au Cambodge sont situées sur des terrains vall
 
     ![cam_td](./figures/m1.2/m1.2.2/cam_td.JPG)
 
-## 6. Foire aux questions
+## 5 Foire aux questions
 
 **Pourquoi utilisons-nous des points plutôt que des polygones?** 
 
@@ -598,7 +596,10 @@ Si vous ne parvenez pas à charger l'un des plugins, utilisez simplement l'un de
 
 Ne vous inquiétez pas ! Ce même tutoriel est fourni sur le  Google EarthEngine dans le module 1.2.2, qui ne nécessite aucune installation.  
 
-![cc](./figures/m1.2/m1.2.2/cc.png)
+
+-----
+
+![](./figures/m1.1/cc.png)  
 
 Ce travail est sous licence [Creative Commons Attribution 3.0 IGO] (https://creativecommons.org/licenses/by/3.0/igo/) 
 
@@ -609,34 +610,20 @@ Ce travail a été développé par Eric Bullock dans le cadre d'un contrat de la
 Matériel examiné par : 
 
 Kenset Rosales, Guatemala, Ministry of Environment and Natural Resources   
-
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat   
-
 Rajesh Bahadur Thapai, Nepal, International Centre for Integrated Mountain Development   
-
 Kenset Rosales, Guatemala, Ministry of Environment and Natural Resources   
-
 Sofia Garcia, Guatemala, Ministry of Environment and Natural Resources   
-
 Jennifer Juliana Escamilla Valdez, El Salvador, Ministerio de Medio Ambiente y Recursos Naturales   
-
 Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services   
-
 Ana Mirian Villalobos, El Salvador, Ministerio de Medio Ambiente y Recursos Naturales   
-
 Carole Andrianirina, Madagascar, Bureau National de Coordination REDD+   
-
 Phoebe Oduor, Kenya, Regional Center For Mapping of Resources for Development   
-
 KONAN Yao Eric Landry, Cote d'Ivoire, REDD+ Permanent Executive Secretariat   
-
 Paula Andrea Paz, Colombia, International Center for Tropical Agriculture   
 
 Attribution 
-
 Bullock, E. 2020. Training Data Collection Using QGIS. © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)   
 
-
-
-![WB_FCPF2](./figures/m1.2/m1.2.2/GFOI2.png)
+![](figures/m1.1/wb_fcfc_gfoi.png)
 
