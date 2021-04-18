@@ -120,11 +120,11 @@ Para este tutorial, recomendamos el uso de una leyenda de clasificación de cobe
 
 Su panel debería de aparecer así:
 
-![](./figures/m1.2/m1.2.2/GeomSettings.JPG)
+   ![](figures/m1.2/m1.2.2/GeomSettings.jpg)
 
 10. En la ventana del mapa, sostenga su cursor sobre las importaciones de geometrías y hacer clic en la opción + *new layer* (capa nueva). 
 
-![](./figures/m1.2/m1.2.2/NewGeom.JPG)
+    ![](figures/m1.2/m1.2.2/NewGeom.jpg)
 
 11. Repetir pasos 3 a 10 hasta que tenga un Feature Collection establecido para cada tipo de cobertura terrestre.
 
@@ -167,7 +167,7 @@ Map.addLayer(s1_composite_masked, vis, 'Sentinel 2 2019 Masked');
 
 2. También hay otra manera de cargar las imágenes a GEE, puede cargar la imagen desde la pestaña Assets (Recursos). Si exportó una imagen compuesta de su carpeta de GEE Assets, también puede importar esa misma imagen. Navegue a su carpeta de Assets y sostenga su mouse sobre el nombre de la imagen compuesta y seleccione la flecha para importarla al editor de código. Asegúrese que la imagen que cargue de su carpeta Asset este definida como una imagen ("image") para que funcione el código de GEE. 
 
-![](./figures/m1.2/m1.2.2/import.JPG)
+![](figures/m1.2/m1.2.2/import.jpg)
 
 
 3. Copiar y pegar el texto siguiente en el editor de código para cargarlo en la ventana de mapa y hacer clic en *Run*.
@@ -195,7 +195,8 @@ Una vez que haya seleccionado las imágenes de referencia, es tiempo de recolect
 1. Seleccionar la capa de coberturas terrestres en el panel de  *Geometry imports* en la ventana de mapa.
 2. Seleccionar el marcador de puntos y hacer clic en el mapa para agregar puntos de esa cobertura terrestre (aquí hay un [video](https://youtu.be/tJx7plJLqW4) breve para ilustrar como hacerlo). Puede prender y apagar la imagen compuesta en el panel de Layers (Capas). También puede alternar entre el mapa y la imagen compuesta satelital en la esquina superior a la derecha de la ventana del mapa. 
 
-![](./figures/m1.2/m1.2.2/ToggleImage.JPG)
+
+    ![](figures/m1.2/m1.2.2/ToggleImage.jpg)
 
 3. Si crea un punto accidentalmente, puede moverlo o eliminarlo usando la herramienta de la mano. Seleccione el punto y arrástrelo o elimínelo (aquí hay un [video]((https://youtu.be/Q6QElHXYOT0) ) breve para ilustrar como hacerlo). 
 
@@ -226,7 +227,7 @@ var training = Forest.merge(Water)
 
    2a. Puede exportar a 'Asset' con el código siguiente: 
 
-```
+```javascript
 Export.table.toAsset({
   collection: training,
   description: 'LCsample2019',
@@ -406,6 +407,14 @@ Copyright 2020, World Bank
 Este trabajo fue desarrollado por Karis Tenneson bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionadas a la Medida, Reportaje, y Verificación para el apoyo de implementación MRV en varios países. 
 
 Material revisado por:
+Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
+Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS)  
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
+Kenset Rosales, Guatemala, Ministry of Environment and Natural Resources  
+Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat     
+Paula Andrea Paz, Colombia, International Center for Tropical Agriculture (CIAT)  
+Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)   
+Raja Ram Aryal, Nepal, Forest Research and Training Centre  
 
 Kenset Rosales, Guatemalan Ministry of Environment 
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat
