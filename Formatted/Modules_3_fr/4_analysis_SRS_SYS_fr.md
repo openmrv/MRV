@@ -163,6 +163,18 @@ Särndal et al. (1992)[^fn2] définissent une enquête comme une “investigatio
 
 UN “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992)[^fn2]. Lohr (1999)[^fn5] décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
 
+### 5.7 Données de référence
+
+Données caractérisant l'évaluation la plus précise possible de la condition réelle à l'emplacement de l'échantillon (exemple : imagerie satellite à haute résolution).
+
+### 5.8 Les observations de référence 
+
+L'évaluation la plus exacte possible de l'état réel d'une unité de population.
+
+### 5.9 Reference classification 
+
+La classification de référence appliquée à la collection de toutes les unités d'échantillonnage.
+
 ## 6 References
 
 Cochran, W.G., 1977. *Sampling Techniques*, John Wiley & Sons, New York, NY.
