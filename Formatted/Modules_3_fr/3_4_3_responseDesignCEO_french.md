@@ -276,9 +276,9 @@ Cependant, pour référence, des informations sur le travail avec un template so
 
   v. Le chargement d'un template crée deux cases à cocher sous Copy Options, Copy Template Plots and Samples et Copy Template Widgets. Elles sont cochées par défaut.
 
-    * Si la case Copy Template Plots and Samples est cochée, les sections Plot Review et Sample Design n'afficheront qu'un aperçu du nombre de parcelles, etc. Décochez cette case pour modifier ces paramètres.
+   * Si la case Copy Template Plots and Samples est cochée, les sections Plot Review et Sample Design n'afficheront qu'un aperçu du nombre de parcelles, etc. Décochez cette case pour modifier ces paramètres.
     
-    * Copy Template Widgets fait référence aux options de Geo-Dash couvertes dans la partie 6 : Mise en œuvre de Geo-Dash.
+   * Copy Template Widgets fait référence aux options de Geo-Dash couvertes dans la partie 6 : Mise en œuvre de Geo-Dash.
 
 2. Saisissez le nom et la description du projet. Le nom doit être court et sera affiché sur la page d'accueil ainsi que sur la page de collecte de données du projet. 
 
@@ -350,7 +350,7 @@ Cliquez sur la case à cocher à côté de chaque source d'images que vous souha
 
 Le système intégré de CEO permet aux utilisateurs de créer des plans d'échantillonnage en utilisant une interface facile à utiliser. Il y a deux parties clés, la sélection de l'AOI (Area of Interest) et la génération du plot.
 
-###### Sélection de votre AOI
+##### Sélection de votre AOI
 
 Pour cet exercice, nous allons utiliser la sélection d'échantillons créée précédemment et exportée sous forme de csv. Ceci définira la zone d'intérêt (AOI) pour le projet. CEO délimite la zone d'intérêt autour des emplacements des parcelles que vous téléchargez. Par conséquent, ne suivez pas les instructions suivantes pour dessiner manuellement la zone d'intérêt. 
 
@@ -372,7 +372,7 @@ ii. Vous pouvez également saisir manuellement vos coordonnées de délimitation
 
 ![CoordBoundingBox](./figures/CoordBoundingBox.png)
 
-###### Plot Design
+##### Plot Design
 
 Dans la section Conception des placettes, vous pouvez spécifier le type et le nombre de placettes. Pour cet exercice, nous utiliserons l'échantillon de sélection créé précédemment et exporté sous forme de csv. Il y a trois autres options pour localiser les placettes : aléatoirement, disposition en grille, et chargement d'un shapefile.
 
@@ -525,7 +525,7 @@ i. Nous allons ajouter une question de confiance. Dans le champ Nouvelle questio
 
 ii. Ajoutez maintenant les réponses " faible ", " moyen " et " élevé " comme options.
 
-Nous allons maintenant ajouter une question sur l'occupation du sol précédente.
+8. Nous allons maintenant ajouter une question sur l'occupation du sol précédente.
 
 i.  Dans l'espace Nouvelle Question en bas de l'écran, tapez 'Previous land cover'. Puis cliquez sur Add Survey question, en gardant le texte du bouton, en utilisant 'was there change' comme question parent, et 'Change' comme réponse parent.
 
@@ -535,10 +535,10 @@ ii. Ajoutez maintenant des réponses à la nouvelle question enfant en utilisant
 
 
 
-8. Vous pouvez répéter ce processus pour demander s'il y a eu un changement avant l'événement de changement le plus récent. Ajoutez jusqu'à trois options d'événement de changement.
-9. Une fois que vous avez rédigé toutes les questions, vous pouvez les revoir en cliquant sur les numéros du panneau d'aperçu des questions, à droite de l'écran.
+9. Vous pouvez répéter ce processus pour demander s'il y a eu un changement avant l'événement de changement le plus récent. Ajoutez jusqu'à trois options d'événement de changement.
+10. Une fois que vous avez rédigé toutes les questions, vous pouvez les revoir en cliquant sur les numéros du panneau d'aperçu des questions, à droite de l'écran.
 
-10. Lorsque vous êtes satisfait de la liste de questions, cliquez sur Suivant pour passer au Survey Rules panel (panneau Règles de l'enquête).
+11. Lorsque vous êtes satisfait de la liste de questions, cliquez sur Suivant pour passer au Survey Rules panel (panneau Règles de l'enquête).
 
 ##### Notes, conseils et astuces pour la création de questions dans CEO
 
@@ -628,7 +628,7 @@ Pour cet exercice, nous n'ajouterons qu'un seul des nombreux widgets Geo-dash di
 
 ![geodashHelp](./figures/geodashHelp.JPG)
 
-#### 3.2.8.1 Ajout d'images de ChronoSéquence au GeoDash, le widget de dégradation des forêts
+#### Ajout d'images de ChronoSéquence au GeoDash, le widget de dégradation des forêts
 
 Le widget Dégradation fournit des séries chronologiques d'informations sur la dégradation des forêts due à l'exploitation sélective, aux incendies et à d'autres perturbations, grandes ou petites. L'indice de fractionnement de la différence normalisée (NDFI) permet de mieux détecter les dommages causés à la canopée des forêts par des sources multiples, notamment l'exploitation sélective et les incendies de forêt. Il est calculé avec la méthodologie trouvée dans Souza et. al. (2005).
 
@@ -914,7 +914,7 @@ La classification de référence appliquée à la collection de toutes les unit�
 
 ## 6 References
 
-SCochran, W.G., 1977. *Sampling Techniques*, John Wiley & Sons, New York, NY.
+Cochran, W.G., 1977. *Sampling Techniques*, John Wiley & Sons, New York, NY.
 
 Lohr, S.L., 1999. *Sampling: Design And Analysis,* CRC Press.
 
