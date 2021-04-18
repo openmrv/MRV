@@ -38,7 +38,7 @@ group:
   étape : Collecte des données d'entraînement 
 ---
 
-# Module 1.2.2 Formation à la collecte de données à l'aide de Google Earth Engine 
+# Formation à la collecte de données à l'aide de Google Earth Engine 
 
 ## 1 Contexte
 
@@ -69,7 +69,7 @@ A la fin de cet exercice, vous serez en mesure de :
   * Compréhension de base sur les théories impliquées dans la classification des images.
   * Définition d'une légende thématique
 
-## 3. Collecte de données d'entraînement
+## 3 Tutorial: Training Data Collection in GEE
 
 ### 3.1 Vue d'ensemble
 
@@ -86,7 +86,7 @@ Le processus de collecte des données d'entraînement dans GEE est détaillé da
 
 Comme on peut le voir dans le module 1.2.1 Collecte de données d'entraînement à l'aide du QGIS, les données d'entraînement peuvent être créées dans une variété de plateformes. Dans ce tutoriel, vous créerez ces données en utilisant des collections de points avec des étiquettes d'occupation du sol uniques identifiées par un attribut "label". Par exemple, les forêts peuvent avoir un attribut "label" de 1, l'agriculture de 2, et ainsi de suite. Une méthode simple pour développer des données d'entraînement consiste à créer une collection d'éléments pour chaque occupation du sol en utilisant les données et l'imagerie disponibles dans Google Earth Engine. Ce tutoriel montre comment créer des données d'entraînement qui sont des géométries ponctuelles. Un processus similaire peut être utilisé avec des données de polygones. 
 
-Pour commencer, ouvrez un navigateur web et naviguez jusqu'à [Google Earth Engine] (https://code.earthengine.google.com/). 
+Pour commencer, ouvrez un navigateur web et naviguez jusqu'à [Google Earth Engine](https://code.earthengine.google.com/). 
 
 Ensuite, vous devrez définir une nouvelle classe d'éléments pour chaque occupation du sol. 
 
@@ -184,7 +184,7 @@ Map.addLayer(image, vis, 'image');
 
 
 
-Vous pouvez également consulter le site officiel [Earth Engine resources] (https://developers.google.com/earth-engine/tutorials/tutorial_api_04) pour obtenir des informations sur la recherche et l'affichage des collections d'images.
+Vous pouvez également consulter le site officiel [Earth Engine resources](https://developers.google.com/earth-engine/tutorials/tutorial_api_04) pour obtenir des informations sur la recherche et l'affichage des collections d'images.
 
 ### 3.4 Collecter des données d' entraînement
 
@@ -212,7 +212,7 @@ Une fois que vous avez recueilli les données d'entrainement pour chaque classe,
 2. Prenez le temps d'examiner votre échantillon et assurez-vous qu'il n'y a pas de "lacunes" majeures dans les données d'entraînement. 
 
 ### 3.6 Fusionner et exporter des données
-L'étape finale consiste à fusionner chaque élément de l'occupation des sols en une classe finale d'éléments avec toutes les classes d'occupation des sols regroupées. Ensuite, il faut exporter les données. Voici une brève [vidéo] (https://youtu.be/r8UBDKztBpY) pour illustrer la manière de procéder.
+L'étape finale consiste à fusionner chaque élément de l'occupation des sols en une classe finale d'éléments avec toutes les classes d'occupation des sols regroupées. Ensuite, il faut exporter les données. Voici une brève [vidéo](https://youtu.be/r8UBDKztBpY) pour illustrer la manière de procéder.
 
 1. Les éléments de formation peuvent être combinés avec la méthode de "fusion". Par exemple, pour "Forest", "Water", "Herbaceous" et "Developed", qui représentent tous des collections d'éléments, vous pouvez entrer le code suivant N'oubliez pas que JavaScript est sensible à la casse, alors vérifiez la capitalisation entre vos déclarations de fusion et vos noms de géométrie.
 
@@ -387,12 +387,12 @@ La plupart des forêts restantes au Cambodge sont situées sur des terrains vall
 Des polygones peuvent également être utilisées comme données d'entraînement, mais gardez à l'esprit que l'autocorrélation spatiale entraînera des informations redondantes dérivées de chaque polygone. Nous recommandons donc de collecter des échantillons ponctuels représentatifs de l'ensemble des données plutôt que de quelques polygones.  
 
 
-**Comment choisir les données à utiliser comme référence ?
+**Comment choisir les données à utiliser comme référence?**
 
 Les données de référence doivent recouvrir dans le temps et dans l'espace les données utilisées dans votre analyse. S'il existe plusieurs sources de données répondant à ce critère, l'utilisateur doit choisir les données qu'il trouve les plus faciles à interpréter en se basant sur la légende de sa classification. 
 
 
-**Les données relatives à la formation doivent-elles être dérivées selon un plan d'échantillonnage probabiliste ?
+**Les données relatives à la formation doivent-elles être dérivées selon un plan d'échantillonnage probabiliste?**
 
 Non, il n'est pas nécessaire d'obtenir des données d'entraînement en utilisant un plan d'échantillonnage basé sur les probabilités. Cependant, si les données de formation ont été créées de cette manière (par exemple un échantillon aléatoire simple interprété), il n'y a aucune raison pour qu'elles ne puissent pas être utilisées pour la classification. 
 
@@ -404,6 +404,10 @@ Il n'y a pas de nombre magique pour le nombre de points de formation pour chaque
 **Peut-on diviser les données d'entraînement pour en utiliser une partie pour la validation?**
 
 Si les données d'entraînement ont été collectées de manière opportuniste, ou en d'autres termes *non* en utilisant un échantillon probabiliste, alors il n'est généralement pas recommandé de les utiliser pour la validation car cela introduirait un biais. 
+
+-----
+
+![](./figures/m1.1/cc.png)
 
 Ce travail est sous licence [Creative Commons Attribution 3.0 IGO] (https://creativecommons.org/licenses/by/3.0/igo/) 
 
@@ -420,11 +424,7 @@ Kelsey Herndon, Université d'Alabama à Huntsville
 Attribution
 Tenneson, Karis. 2020. Formation à la collecte de données à l'aide de Google Earth Engine.  Banque mondiale. Licence : Licence Creative Commons Attribution (CC BY 3.0 IGO)
 
-
-
-![WB_FCPF](./figures/m1.2/m1.2.2/WB_FCPF.png)
-
-![GFOI](./figures/m1.2/m1.2.2/GFOI.png)
+![](./figures/m1.1/wb_fcfc_gfoi.png)
 
 
 
