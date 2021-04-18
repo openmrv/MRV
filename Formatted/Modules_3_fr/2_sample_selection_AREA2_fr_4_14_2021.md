@@ -96,7 +96,7 @@ Non, pas du tout ! Ce ne sont que quelques exemples et il existe de nombreuses a
 
 L'unité spatiale de l'échantillon ne doit pas nécessairement être un pixel, mais doit être de taille égale pour satisfaire aux critères de l'échantillonnage probabiliste. Les pixels sont utilisés comme unités dans ces tutoriels pour des raisons de simplicité. Pour une discussion approfondie des unités spatiales, voir Stehman et Wickham (2011).
 
-## Terminologie relative aux techniques d'échantillonnage
+## 5 Terminologie relative aux techniques d'échantillonnage
 
 Une liste de termes relatifs aux techniques d'échantillonnage et d'inférence est fournie dans la documentation d'AREA2 : https://area2.readthedocs.io/en/latest/definitions.html Vous trouverez ci-dessous quelques termes supplémentaires qui ne figurent pas dans la documentation d'AREA2.
 
