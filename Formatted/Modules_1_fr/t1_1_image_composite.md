@@ -41,7 +41,7 @@ Ce tutoriel vous explique comment créer un composite en utilisant l'imagerie La
 
 L'intérêt de l'utilisation de Google Earth Engine (GEE) est que GEE contient plusieurs pétaoctets d'images satellites et de données géospatiales permettant aux utilisateurs de calculer des analyses à grande échelle dans la plateforme basée sur le cloud. GEE contient un JavaScript (utilisé dans ce cas) et une API Python, où les utilisateurs peuvent télécharger leurs propres ensembles de données et utiliser les fonctions intégrées pour accomplir une myriade de tâches de télédétection et de géospatial à des vitesses et des échelles sans précédent. Pour plus d'informations sur GEE, veuillez consulter [la page principale sur le moteur Google Earth](https://earthengine.google.com/). Vous y trouverez des tutoriels et de la documentation utiles. Certains liens pertinents sont mis en évidence ci-dessous :
 
-* [Ensembles de données disponibles(https://developers.google.com/earth-engine/datasets/) 
+* [Ensembles de données disponibles](https://developers.google.com/earth-engine/datasets/) 
 * [FAQ](https://earthengine.google.com/faq/)
 * [Démarrer avec GEE](https://developers.google.com/earth-engine/guides/getstarted)
 * [Introduction à l'API JavaScript](https://developers.google.com/earth-engine/tutorials/tutorial_api_01)
@@ -66,19 +66,19 @@ L'intérêt de l'utilisation de Google Earth Engine (GEE) est que GEE contient p
 
 [Ce dépôt](https://code.earthengine.google.com/?accept_repo=users/openmrv/MRV) contient un sous-dossier appelé "Composite" avec des scripts qui effectuent toutes les opérations que vous apprendrez dans ce tutoriel. Les principaux scripts sont les suivants :
 
-1. L'option "Landsat_Sentinel2_Median" contient toutes les étapes dans l'ordre que vous allez suivre (sauf pour la section 4.2.6 Medoid composite) pour créer des composites médians en utilisant les collections Landsat et Sentinel-2.
-2. Landsat_Sentinel2_Median2` est une version optimisée du script ci-dessus. Il contient toutes les variables utilisateur en haut et les fonctions/codes qui n'ont pas besoin d'être modifiés en bas.
+1. L'option `Landsat_Sentinel2_Median` contient toutes les étapes dans l'ordre que vous allez suivre (sauf pour la section 4.2.6 Medoid composite) pour créer des composites médians en utilisant les collections Landsat et Sentinel-2.
+2. `Landsat_Sentinel2_Median2` est une version optimisée du script ci-dessus. Il contient toutes les variables utilisateur en haut et les fonctions/codes qui n'ont pas besoin d'être modifiés en bas.
 3. `Landsat_Medoid` contient la méthode de composition utilisant le Medoid au lieu du Median pour les collections Landsat.
 
-En outre, vous trouverez deux scripts qui sont une copie du script 2 "Landsat_Sentinel2_Median2" mais qui s'appliquent à deux autres pays : le Mozambique et le Cambodge. Dans le dépôt, ils sont appelés "Mozambique" et "Cambodia". Ils sont expliqués dans la section 6. Exemples supplémentaires.
+En outre, vous trouverez deux scripts qui sont une copie du script 2 `Landsat_Sentinel2_Median2` mais qui s'appliquent à deux autres pays : le Mozambique et le Cambodge. Dans le dépôt, ils sont appelés `Mozambique" et "Cambodia`. Ils sont expliqués dans la section 6. Exemples supplémentaires.
 
-Enfin, le script appelé "Video" est le script généré à partir de l'enregistrement des vidéos. Ce script contient toutes les étapes de ce tutoriel, mais avec peu ou pas de documentation écrite.
+Enfin, le script appelé `Video` est le script généré à partir de l'enregistrement des vidéos. Ce script contient toutes les étapes de ce tutoriel, mais avec peu ou pas de documentation écrite.
 
 Nous vous encourageons à suivre les étapes ci-dessous en écrivant vous-même les scripts afin d'avoir une meilleure expérience d'apprentissage, et à n'utiliser les scripts ci-dessus que pour les consulter pendant le tutoriel, ou après avoir compris tous les processus expliqués ici.
 
 ### 1.3 Vidéos
 
-Le [canal MRV YouTube](https://www.youtube.com/channel/UCdPooUCxF3HRIWdEh4pwrqQ) contient des vidéos qui vous guident à travers certaines sections de ce module et d'autres. Pour ce module, une vidéo a été créée pour chaque sous-section de la section 4. Création d'une vidéo composite. Veuillez noter que le développement du script dans les vidéos peut ne pas être exactement le même que celui démontré à chaque étape du tutoriel (c'est-à-dire que l'ordre des lignes de code et des noms de variables peut différer, etc. ) et que chaque vidéo est construite sur les précédentes. Dans tous les cas, les mêmes résultats sont produits. Vous trouverez dans chaque section ci-dessous un hyperlien vers la vidéo correspondante. Il est recommandé de parcourir chaque section avant de visionner les vidéos. 
+Le [canal MRV YouTube](https://www.youtube.com/channel/UCdPooUCxF3HRIWdEh4pwrqQ) contient des vidéos qui vous guident à travers certaines sections de ce module et d'autres. Pour ce module, une vidéo a été créée pour chaque sous-section de la section 3: Création d'une vidéo composite. Veuillez noter que le développement du script dans les vidéos peut ne pas être exactement le même que celui démontré à chaque étape du tutoriel (c'est-à-dire que l'ordre des lignes de code et des noms de variables peut différer, etc. ) et que chaque vidéo est construite sur les précédentes. Dans tous les cas, les mêmes résultats sont produits. Vous trouverez dans chaque section ci-dessous un hyperlien vers la vidéo correspondante. Il est recommandé de parcourir chaque section avant de visionner les vidéos. 
 
 
 ## 2 Objectif du cours
@@ -100,7 +100,7 @@ Le [canal MRV YouTube](https://www.youtube.com/channel/UCdPooUCxF3HRIWdEh4pwrqQ)
 * Le GEE fonctionne mieux avec [le navigateur Google Chrome](https://www.google.com/chrome/)
 
 
-## 4 Création d'un composite
+## 3 Création d'un composite
 
 Le déroulement général du processus de ce tutoriel est présenté ci-dessous : 
 
@@ -114,16 +114,16 @@ Sur le côté gauche de l'éditeur de code se trouve l'onglet **Docs**, qui cont
 
 Veuillez noter que dans ce tutoriel spécifique, nous allons créer un composite de la médiane de 2019 pour le pays de la Colombie à des fins de démonstration. Ce tutoriel ne garantit pas que les méthodes présentées s'adapteront parfaitement à chaque cas d'utilisateur (c'est-à-dire qu'elles produiront le meilleur composite). On peut, et on doit, tester différentes périodes de temps, différents domaines d'étude et différentes méthodes.
 
-### 4.1 Zone d'intérêt
+### 3.1 Zone d'intérêt
 
 > Les étapes suivantes sont démontrées dans le script `1_Landsat_Sentinel2_Median`.  
 > [Instructions vidéo](https://youtu.be/KoEJW1i-v_w)
 
-Pour commencer, nous devons définir notre domaine d'intérêt. Nous utiliserons le [jeu de données simplifié sur la frontière internationale à grande échelle (2017)](https://developers.google.com/earth-engine/datasets/catalog/USDOS_LSIB_SIMPLE_2017) du Département d'État américain (USDOS) qui contient des polygones pour tous les pays du monde. Dans GEE, cet ensemble de données est une "FeatureCollection", c'est-à-dire un groupe de caractéristiques. Vous pouvez considérer les caractéristiques comme vos données vectorielles. Vous pouvez trouver des informations sur la "FeatureCollection" [ici](https://developers.google.com/earth-engine/guides/feature_collections).
+Pour commencer, nous devons définir notre domaine d'intérêt. Nous utiliserons le [jeu de données simplifié sur la frontière internationale à grande échelle (2017)](https://developers.google.com/earth-engine/datasets/catalog/USDOS_LSIB_SIMPLE_2017) du Département d'État américain (USDOS) qui contient des polygones pour tous les pays du monde. Dans GEE, cet ensemble de données est une "FeatureCollection", c'est-à-dire un groupe de caractéristiques. Vous pouvez considérer les caractéristiques comme vos données vectorielles. Vous pouvez trouver des informations sur la `FeatureCollection` [ici](https://developers.google.com/earth-engine/guides/feature_collections).
 
 Cherchez "USDOS" dans la case *Recherche* de l'éditeur de code et cliquez sur "LSIB 2017" : Large Scale International Boundary Polygons, Simplified".
 
-![searchlisb](./figures/m.1.1/searchlisb.png)
+![](figures/m1.1/searchlisb.png)
 
 
 
@@ -169,9 +169,9 @@ Map.addLayer(country,{},'Colombia');
 
 
 
-### 4.2 Collection Landsat 
+### 3.2 Collection Landsat 
 
-#### 4.2.1 A commencer par Landsat 8
+#### 3.2.1 A commencer par Landsat 8
 
 > [Video Instructions](https://youtu.be/J6o6NLqsobw)
 
@@ -209,7 +209,7 @@ Avec votre collection filtrée, créez un composite en utilisant un réducteur d
 
 La fonction `median()` pour `ee.ImageCollection` est ce qu'on appelle dans GEE un `ee.Reducer`, et nous utilisons spécifiquement le réducteur `ee.Reducer.median()`. Les réducteurs sont le moyen utilisé par GEE pour agréger des données dans le temps, l'espace, les bandes, les tableaux et autres structures de données. La figure ci-dessous montre une collection d'images "reduced" à une image individuelle par un "ee.Reducer" :
 
-![Reduce_ImageCollection2](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.1\Reduce_ImageCollection2.png)
+![](figures/m1.1/Reduce_ImageCollection2.png)
 
 Dans notre cas, nous prenons la médiane sur la série chronologique (notre collection).  La sortie est calculée pixel par pixel, de sorte que chaque pixel de la sortie est composé de la valeur médiane de toutes les images de la collection à cet endroit. Vous pouvez également tester en utilisant la moyenne `mean()`, le minimum `min()`, etc, comme réducteurs au lieu de la médiane.
 
@@ -239,7 +239,8 @@ print('L8 composite 2019',composite);
 >
 > Vous pouvez tester les paramètres de visualisation en cliquant sur l'icône de l'engrenage![gear](./figures/m1.1/gear.png) à côté de la couche "Composite 2019" et en jouant avec les options d'étirement.
 >
-> ![visParams2](./figure/m1.1/visParams2.png)
+> ![](figures/m1.1/visParams2.png)
+
 >
 > ![l8cloudycomposite](./figures/m1.1/l8cloudycomposite.png)
 >
@@ -309,9 +310,9 @@ Map.addLayer(l8compositeMasked,
 
 > NOTE : Comme nous traitons de Bits, dans la fonction `maskL8srClouds(image)` nous avons utilisé l'opérateur de décalage à gauche `<<` pour décaler le premier opérande du nombre spécifié de bits vers la gauche, et la fonction `bitwiseAnd` pour calculer le bitwise AND des valeurs d'entrée. Pour plus de détails, consultez :
 >
-> * Bits : [Observatoire de la Terre - Pixels et bits de télédétection](https://earthobservatory.nasa.gov/features/RemoteSensing/remote_06.php), [NASA Earthdata - What is Remote Sensing ?](https://earthdata.nasa.gov/learn/backgrounders/remote-sensing), [National University of Singapore - Digital Image](https://crisp.nus.edu.sg/~research/tutorial/image.htm)
+> * Bits: [Observatoire de la Terre - Pixels et bits de télédétection](https://earthobservatory.nasa.gov/features/RemoteSensing/remote_06.php), [NASA Earthdata - What is Remote Sensing ?](https://earthdata.nasa.gov/learn/backgrounders/remote-sensing), [National University of Singapore - Digital Image](https://crisp.nus.edu.sg/~research/tutorial/image.htm)
 > * [Opérateur du quart de gauche en JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Left_shift)
-> * [fonction GEE `bitwiseAnd`] (https://developers.google.com/earth-engine/apidocs/ee-image-bitwiseand)
+> * [fonction GEE `bitwiseAnd`](https://developers.google.com/earth-engine/apidocs/ee-image-bitwiseand)
 
 ![l8masked2](./figures/m1.1/l8masked2.png)
 
@@ -342,7 +343,7 @@ Le composite qui en résulte montre des nuages masqués et constitue une grande 
 > 
 >NOTE 2 : Vous pouvez également régler l'argument "shown" dans les fonctions "Map.addLayer" sur "False" afin que les couches ne soient pas activées automatiquement lorsqu'elles sont ajoutées à la carte.
 
-#### 4.2.2 Ajout d'une année supplémentaire de données
+#### 3.2.2 Ajout d'une année supplémentaire de données
 
 > [Video Instructions](https://youtu.be/Q5cjLW_yf7k)
 
@@ -368,7 +369,7 @@ L'image qui en résulte présente beaucoup moins de lacunes. Encore une fois, si
 
 Une autre option pour améliorer les lacunes dans les données consiste à faire appel à des images provenant d'autres capteurs pour la période qui vous intéresse. Heureusement, la [collection Landsat couvre différentes missions] (https://www.usgs.gov/core-science-systems/nli/landsat/landsat-satellite-missions?qt-science_support_page_related_con=2#qt-science_support_page_related_con), qui ont acquis en continu des données ininterrompues depuis 1972 à différentes dates d'acquisition. Ensuite, nous allons essayer d'intégrer des images Landsat 7 de 2019 pour combler les lacunes du composite Landsat 8 de 2019, à des fins de démonstration.
 
-#### 4.2.3 Ajout de la collection Landsat 7
+#### 3.2.3 Ajout de la collection Landsat 7
 
 > [Video Instructions](https://youtu.be/vu61q6vsno8)
 
@@ -432,7 +433,7 @@ Vous devriez voir une image avec de nombreuses lacunes comme celle ci-dessus. La
 
 Cependant, même avec l'erreur SLC, nous pouvons toujours utiliser les données Landsat 7 dans notre composite. Maintenant, combinons les collections Landsat 7 et 8.
 
-#### 4.2.4 Combinaison des deux capteurs en un seul
+#### 3.2.4 Combinaison des deux capteurs en un seul
 
 > [Video Instructions](https://youtu.be/COobcYDThxo)
 
@@ -482,7 +483,8 @@ Map.addLayer(l78composite,{bands:['B4','B3','B2'],min:0,max:2000},
 
 
 
-![tileError3](/figure/m1.1/tileError3.png)
+
+![](figures/m1.1/tileError3.png)
 
 
 
@@ -506,13 +508,13 @@ Vous devriez voir une image composite qui ressemble à ceci :
 
 Par rapport au précédent composite Landsat 8 uniquement, vous pouvez constater que certaines lacunes ont été comblées. Cependant, en raison de la nature générale de la mosaïque et du composite, et de l'erreur SLC de Landsat 7, vous pouvez également voir quelques artefacts dans certaines régions. Exemple au centroïde Latitude : 1,46, Longitude : -69,99. Composite Landsat 8 uniquement (à gauche) et composite Landsat 7 et 8 (à droite) pour 2019 :
 
-![l8andMergedComparison](./figures/m1./l8andMergedComparison.png)
+![](figures/m1.1/l8andMergedComparison.png)
 
 
 
 
 
-#### 4.2.5 Tenter de combler les lacunes par des fonctions de moyenne (ou de médiane) focale
+#### 3.2.5 Tenter de combler les lacunes par des fonctions de moyenne (ou de médiane) focale
 
 > [Video Instructions](https://youtu.be/hYtoWeVwoKs)
 
@@ -544,7 +546,7 @@ Vous devriez voir un composite comme celui ci-dessous. Dans ce cas particulier, 
 
 ![focalMean4](./figures/m1.1/focalMean4.png)
 
-#### 4.2.6 Composite Médoïde
+#### 3.2.6 Composite Médoïde
 
 >  Les étapes suivantes sont démontrées dans le script `3_Landsat_Medoid`.
 >
@@ -591,7 +593,7 @@ Vous devriez voir une image comme celle ci-dessus. À première vue, vous pourri
 
 Maintenant, créons un composite médian de 2019 avec le jeu de données Copernicus Sentinel-2 de l'Agence spatiale européenne (ESA). Sentinel-2 est une mission d'imagerie multispectrale à large bande et à haute résolution qui soutient les études de surveillance des terres de Copernicus, y compris la surveillance de la végétation, du sol et de la couverture de l'eau, ainsi que l'observation des voies navigables intérieures et des zones côtières. 
 
-### 4.3 Collection Sentinel-2
+### 3.3 Collection Sentinel-2
 
 > Les étapes suivantes sont démontrées dans le script `1_Landsat_Sentinel2_Median`.
 >
@@ -675,7 +677,7 @@ L'Agence spatiale européenne n'a pas produit de données Sentinel-2 de niveau 2
 
 Les produits Top-of-Atmosphere n'ont pas été corrigés pour tenir compte de l'atmosphère. Par conséquent, un composite TOA présentera des différences par rapport à un BOA puisqu'il représentera les influences de l'atmosphère. Une image du composite médian de 2019 du produit L1 de Sentinel-2 est présentée ci-dessous, ainsi que le composite médian de 2019 du produit L2 pour comparaison.
 
-![s2compositeFalseColor3](./figures/m1.1/s2compositeFalseColor3.png)
+![](figures/m1.1/TOA_BOAComparison3.png)
 
 Vous pouvez remarquer l'effet bleuâtre sur le composite TOA. Pour plus d'informations sur les niveaux de traitement Sentinel-2, veuillez consulter [cette page](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels) (et les sous-pages [Niveau 0](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels/level-0), [Niveau 1](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels/level-1), et [Niveau 2](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels/level-2)). D'autres ressources sur les différences entre la radiance, la réflectance et la couche supérieure de l'atmosphère sont disponibles :
 
@@ -685,11 +687,11 @@ Vous pouvez remarquer l'effet bleuâtre sur le composite TOA. Pour plus d'inform
 * [présentation de l'USGS](http://www.pancroma.com/downloads/General%20Landsat.pdf)
 * Supplémentaire : [Algorithmes Landsat GEE](https://developers.google.com/earth-engine/guides/landsat) pour différents niveaux de traitement
 
-## 5 Exporter votre composite
+### 3.4 Exporter votre composite
 
 L'exportation des données de l'éditeur de code est possible grâce aux fonctions d'exportation, qui comprennent des options d'exportation pour les images, les tableaux et les vidéos. Les méthodes d'exportation prennent plusieurs arguments optionnels afin que vous puissiez contrôler les caractéristiques importantes de vos données de sortie, telles que la résolution et la région. Vous disposez de trois options pour exporter une image : 'Export.image.toDrive` pour l'exporter sur votre Google Drive, `Export.image.toAsset` pour l'exporter en tant que GEE Asset, et `Export.image.toCloudStorage` pour l'exporter sur votre Google Cloud Storage. 
 
-### 5.1 Exporter vers votre Google Drive
+#### 3.4.1 Exporter vers votre Google Drive
 
 Ajoutez la déclaration ci-dessous au bas de votre script.  Cela créera une tâche dans l'onglet *Task* que vous pourrez utiliser pour exporter votre image en cliquant sur *Run*. Le processus est démontré pour le composite médian Landsat combiné créé. Pour exporter d'autres composites, il suffit de copier et de coller le même code et de changer le nom du composite de l'image pour les fonctions d'exportation supplémentaires.
 
@@ -734,7 +736,7 @@ Comme nous exportons un composite pour l'ensemble du pays, votre exportation pre
 >
 > NOTE 2 : Pour Sentinel-2, la résolution des pixels est de 10 mètres et lors de l'exportation de grandes images (comme un composite pour l'ensemble du pays de la Colombie), vous pourriez rencontrer un problème d'exportation. Si vous rencontrez un problème de taille, augmentez l'"échelle", ou essayez de modifier les "maxPixels", ou changez la "région" en une géométrie plus petite. Ceci est valable pour tous les types de fonctions d'"exportation".
 
-### 5.2 L'exportation comme atout
+#### 3.4.2 L'exportation comme atout
 
 Comme pour la fonction ci-dessus, copiez et collez le code ci-dessous pour exporter l'image composite en tant qu'actif GEE. La différence est que `fileNamePrefix` devient `assetId`. Changez "YourPath" à côté de "assetId" pour le chemin réel de l'actif.
 
@@ -752,7 +754,7 @@ Export.image.toAsset({
 
 Pour des informations sur la gestion de vos actifs, veuillez vous référer à [cette page] (https://developers.google.com/earth-engine/guides/asset_manager).
 
-### 5.3 Exportation vers un Google Cloud Storage bucket
+#### 3.4.3 Exportation vers un Google Cloud Storage bucket
 
 Si vous utilisez le stockage dans le nuage de Google, vous pouvez utiliser le bloc de code ci-dessous. Changez "YourBucket" pour le Bucket actuel dans lequel vous voulez exporter l'image composite.
 
@@ -769,13 +771,13 @@ Export.image.toCloudStorage({
 });
 ```
 
-## 6 Autres exemples
+## 4 Autres exemples
 Dans ce tutoriel, nous avons créé et exporté différents composites pour le pays de la Colombie. Maintenant, vous pouvez tester la création de composites pour le pays de votre choix. Les scripts sont conçus de manière à ce que vous n'ayez qu'à modifier quelques lignes de code. Nous verrons des exemples pour le Mozambique et le Cambodge. Dans tous les cas, le processus général est le même que celui qui a été démontré en Colombie. Toutefois, pour d'autres pays, il peut être nécessaire de prendre en compte certaines considérations lors de la réalisation d'une classification de l'occupation des sols ou de la détection de changements dans le paysage. Certaines considérations que vous verrez dans les modules suivants le seront : 
 
 * Prise en compte de la saisonnalité - La variabilité saisonnière peut représenter un défi lors de la classification de l'occupation des sols. Dans une image de la saison sèche au Mozambique, une forêt de feuillus pourrait être confondue avec des classes de couverture terrestre herbacée ou non forestière en raison de la faible verdeur végétative pendant la période de feuillaison. Par conséquent, vous pourriez avoir besoin de créer des composites séparés pour les saisons sèches et humides. Vous pouvez y parvenir en modifiant les variables "startDate" et "endDate" des scripts.
 * Prise en compte de la topographie - La plupart des forêts restantes au Cambodge sont situées sur des terrains vallonnés ou montagneux. Parce que les caractéristiques topographiques projettent une ombre, la réflectance du paysage dans l'ombre peut être plus faible qu'un paysage similaire non ombragé. Par conséquent, la topographie peut également présenter un défi pour la classification de la couverture terrestre ou la détection des changements dans le paysage.
 
-### 6.1 Mozambique
+### 4.1 Mozambique
 
 Dans les scripts `1_Landsat_Sentinel2_Median` ou `3_Landsat_Medoid`, il suffit de changer ``Colombie`` à la ligne 15 (ou à la ligne appropriée au cas où il s'agit de votre propre script) en ``Mozambique`` et de cliquer sur *Run*.
 
@@ -827,7 +829,7 @@ var units = 'pixels';
 var iterations = 2;
 ```
 
-### 6.2 Cambodge
+### 4.2 Cambodge
 
 Dans les scripts `1_Landsat_Sentinel2_Median` ou `3_Landsat_Medoid`, il suffit de changer ``Colombie`` à la ligne 15 (ou à la ligne appropriée au cas où il s'agit de votre propre script) en ``Cambodge`` et de cliquer sur *Run*.
 
@@ -845,21 +847,21 @@ Comme mentionné ci-dessus dans l'exemple du Mozambique, vous pouvez ajuster tou
 
 Félicitations, vous avez atteint la fin de ce module. Dans les prochains modules, vous apprendrez comment collecter des données de formation en utilisant le QGIS et le GEE.
 
-## 7 FAQs
+## 5 FAQs
 
-**Pourquoi utilisons-nous [LSIB Simplifiée](https://developers.google.com/earth-engine/datasets/catalog/USDOS_LSIB_SIMPLE_2017) et non [LSIB Détaillée](https://developers.google.com/earth-engine/datasets/catalog/USDOS_LSIB_2017) ?
+**Pourquoi utilisons-nous [LSIB Simplifiée](https://developers.google.com/earth-engine/datasets/catalog/USDOS_LSIB_SIMPLE_2017) et non [LSIB Détaillée](https://developers.google.com/earth-engine/datasets/catalog/USDOS_LSIB_2017) ?**
 
 Plus un multi-polygone est détaillé, plus il a besoin de ressources de calcul. Comme nous effectuons des calculs à l'échelle nationale, nous utilisons la version simplifiée pour éviter les erreurs et/ou les retards d'exécution. L'utilisation de la version détaillée peut provoquer une erreur connue sous le nom de "capacité mémoire de Google Earth Engine dépassée" et/ou entraîner un ralentissement général du script.
 
-**J'ai tapé "colombia" pour filtrer les données de la LSIB et cela n'a pas fonctionné. Pourquoi ?
+**J'ai tapé "colombia" pour filtrer les données de la LSIB et cela n'a pas fonctionné. Pourquoi ?**
 
 Les propriétés d'un ensemble de données sont sensibles à la casse. La propriété `country_na` pour le pays de la Colombie est une chaîne qui commence par un "C" majuscule, donc, vous devez filtrer les métadonnées en utilisant `'Colombia'' et non `'colombia''.
 
-**Pourquoi utiliser le produit Landsat Surface Reflectance Tier 1 et non Tier 2** ?
+**Pourquoi utiliser le produit Landsat Surface Reflectance Tier 1 et non Tier 2? ** 
 
 Les scènes de niveau 2 adhèrent à la même norme radiométrique que les scènes de niveau 1, mais ne répondent pas aux spécifications géométriques de niveau 1 en raison d'informations orbitales moins précises (spécifiques aux anciens capteurs Landsat), d'une couverture nuageuse importante, d'un contrôle au sol insuffisant ou d'autres facteurs. Vous pouvez trouver des informations sur les différents niveaux [ici](https://www.usgs.gov/media/videos/landsat-collections-what-are-tiers) et [ici](https://www.usgs.gov/core-science-systems/nli/landsat/landsat-collection-1?qt-science_support_page_related_con=1#qt-science_support_page_related_con).
 
-**Y a-t-il des problèmes de lenteur de traitement et de visualisation dus à la capacité de traitement et à la mémoire de mon ordinateur **?
+**Y a-t-il des problèmes de lenteur de traitement et de visualisation dus à la capacité de traitement et à la mémoire de mon ordinateur? **
 
 Non. Google Earth Engine est une plateforme basée sur le cloud, par conséquent, tout le traitement est effectué dans le cloud de Google, et non dans votre machine locale. Tout ce dont vous avez besoin, c'est d'une connexion Internet.
 
@@ -867,7 +869,9 @@ Non. Google Earth Engine est une plateforme basée sur le cloud, par conséquent
 
 En général, cette "erreur de script" n'affecte pas votre code. Si les sorties sont chargées correctement sur la console et que les couches sont ajoutées à la carte, vous ne devriez pas vous inquiéter de cette erreur. Une erreur réelle qui empêche l'utilisateur d'accomplir un résultat affichera un message indiquant *quelle* est l'erreur. Pour obtenir de l'aide afin de débugguer votre code, veuillez consulter le [Guide de débuggage] (https://developers.google.com/earth-engine/guides/debugging) et les liens internet [Comment obtenir de l'aide] (https://developers.google.com/earth-engine/help) disponibles dans la section 3. Google Earth Engine.
 
-![cc](./figures/m1.1/cc.png)
+-----
+
+![](figures/m1.1/cc.png)  
 
 Ce travail est sous licence [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/).
 
@@ -895,7 +899,7 @@ Nicolau, Andrea P. 2020. Création de mosaïques/composites d'images pour Landsa
 
 
 
-![wb](./figures/m1.1/gfoi.png)
+![](figures/m1.1/wb_fcfc_gfoi.png)
 
 
 
