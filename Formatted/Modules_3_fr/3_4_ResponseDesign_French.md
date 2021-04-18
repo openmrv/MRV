@@ -80,7 +80,17 @@ UN “plan de sondage total” définit les procédures pour “obtenir la plus 
 
 ## 2 Références
 
+Cochran, W.G., 1977. *Sampling Techniques*, John Wiley & Sons, New York, NY.
+
+Lohr, S.L., 1999. *Sampling: Design And Analysis,* CRC Press.
+
 Olofsson, P., Foody, G.M., Herold, M., Stehman, S.V., Woodcock, C.E. and Wulder, M.A., 2014. Good practices for estimating area and assessing accuracy of land change. Remote Sensing of Environment, 148, pp.42-57. https://doi.org/10.1016/j.rse.2014.02.015
+
+Rice, J.A., 1995. *Mathematical Statistics and Data Analysis* (2nd ed.), Duxbury Press, Belmont, CA.
+
+Särndal, C.E., Svensson, B.H., & Wretman, J.H., 1992. *Model assisted survey sampling*, Springer Science & Business Media, New York, NY.
+
+Stehman, S.V., & Czaplewski, R.L., 1998. Design and analysis for thematic map accuracy assessment: fundamental principles. *Remote Sensing of Environment*, 64(3), 331-344. https://doi.org/10.1016/S0034-4257(98)00010-8
 
 ------
 
