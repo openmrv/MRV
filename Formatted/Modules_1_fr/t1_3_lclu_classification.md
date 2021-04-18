@@ -67,7 +67,7 @@ Espace spectral classifié. Chaque pixel de la figure précédente a été étiq
 
 Une fois que les limites de la classe ont été définies dans l'espace spectral, tous les autres pixels de l'image peuvent être étiquetés en fonction de la zone dans laquelle ils atterrissent. 
 
-![Un pixel de l'image dont les valeurs spectrales le placent à l'endroit indiqué par le "Pixel D" atterrit dans les limites de la classe 3, et sera donc étiqueté Classe 3.](./figures/m1.3/\spectral_space_classifier_new_pixel.png){ width=50% }
+![Un pixel de l'image dont les valeurs spectrales le placent à l'endroit indiqué par le "Pixel D" atterrit dans les limites de la classe 3, et sera donc étiqueté Classe 3.](./figures/m1.3/spectral_space_classifier_new_pixel.png){ width=50% }
 
 ## 1.2 Occupation et utilisation du sol
 
