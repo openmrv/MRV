@@ -145,41 +145,27 @@ ce qui donne une taille d'échantillon de
 
 La collecte d'observations sur près de cinq mille sites d'échantillonnage est rarement réalisable pour une étude spécifique. Cet exemple illustre l'un des inconvénients du SRS/SYS : comme nous n'utilisons aucune information sur la localisation de la déforestation, une très grande taille d'échantillon est nécessaire pour obtenir une grande précision. Une autre façon, plus rapide, d'estimer l'échantillon dans ce cas est de supposer que nous avons besoin d'au moins 30 unités dans les zones de déforestation, ce qui nécessiterait une taille d'échantillon de 30/0,014 = 2 142 unités, ce qui est plus acceptable mais toujours important, et nous n'échantillonnons pas pour atteindre un objectif de précision. (Faites défiler vers le bas à **4.3 Allocation** pour une explication de la raison pour laquelle 30 est le "chiffre magique".)
 
-### 3.3 Échantillonnage en deux étapes/cluster ou par grappes
 
-En raison de la complexité associée à l'échantillonnage à deux phases, il y a beaucoup moins d'exemples de ce type de plans dans la littérature que de plans STR et SRS/SYS. De plus, il n'existe pas de règles fixes pour guider la taille de l'échantillon et des unités primaires d'échantillonnage (UPE), si ce n'est de trouver un compromis entre le nombre global d'observations et un niveau raisonnable d'incertitude pour les estimations au sein des UPE (Sannier et al., 2013)[^fn9]. IAu lieu de créer des exemples, nous allons parcourir deux exemples dans la littérature.
-
-Le premier exemple est celui de Potapov et al. (2014)[^fn7] qui ont estimé la superficie de la perte de forêt 2000-2011 à travers l'Amazonie péruvienne à l'appui de REDD+. La principale source de données de référence était l'imagerie commerciale haute résolution ; une conception en deux étapes a été choisie à des fins d'économie, car le budget ne permettait d'acheter que 30 jeux de données haute résolution. Dans une conception en deux étapes, les données de référence ne sont nécessaires que pour les UPE et non pour l'ensemble de la zone d'étude. Par conséquent, la taille de l'échantillon des 30 UPE a été déterminée sur la base de raisons budgétaires et non en spécifiant une précision cible comme dans les exemples ci-dessus. La taille des PSUs de 12 × 12 km a été choisie pour s'aligner sur les images à haute résolution. Les 5 532 blocs, chacun de 12 × 12 km, couvrant la zone d'étude ont été séparés en une strate de changement forestier élevé (337 blocs) et faible (5 195 blocs), à partir desquels 21 et 9 UPE ont été sélectionnées dans le cadre de la STR. (Cette sélection a été guidée par les règles d'allocation optimale de l'échantillon de Cochran (1977)[^fn4].) Dans chacune des 30 UPE, 100 unités d'échantillonnage secondaires (UES) ont été sélectionnées dans le cadre du SRS lors de la deuxième étape de l'échantillonnage.
-
-Un deuxième exemple est fourni par Sannier et al. (2013)[^fn9] qui ont estimé la proportion de la couverture de la forêt et la déforestation nette au Gabon en utilisant un échantillonnage à deux étapes. L'échantillonnage à deux étapes a été choisi car il représentait un compromis entre la facilité de collecte des données et la distribution géographique. La zone d'étude a été divisée en 251 blocs de 20 × 20 km, chacun d'entre eux étant à son tour divisé en 100 blocs de 2 × 2 km. Lors de la première étape, une UPE de 2 × 2 km a été sélectionnée dans chacun des 251 blocs de 20 × 20 km sous SRS. Dans la deuxième étape, 50 SSU correspondant à un pixel Landsat ont été sélectionnées dans le cadre du SRS.
-
-### 3.4 Logiciel permettant d'estimer la taille de l'échantillon
+### 3.3 Logiciel permettant d'estimer la taille de l'échantillon
 
 SEPAL/CEO a un support intégré pour l'estimation de la taille de l'échantillon comme expliqué dans cette publication (défilement vers le bas jusqu'à la section 14).
 
 Similaire à SEPAL est cette feuille de calcul développée par la Banque Mondiale qui calcule également la taille de l'échantillon nécessaire pour atteindre une précision de l'exactitude globale https://onedrive.live.com/view.aspx?resid=9815683804F2F2C7!37340&ithint=file%2cxlsx&authkey=!ANcP-Xna7Knk_EE
 
-### 3.5 Sélection de l'échantillon
+### 3.4 Sélection de l'échantillon
 
 La dernière étape du plan d'échantillonnage consiste à tirer physiquement l'échantillon de la zone d'étude, ce qui est abordé dans le prochain tutoriel.
 
 ## 4 Foire aux questions (FAQs)
 
-**Je ne comprends pas la variable qh qui est utilisée pour calculer la taille de l'échantillon sous STR - qu'est-ce qu'elle signifie ?**
-
-La variable *qh* est nécessaire pour calculer l'écart-type de la strate *h* et représente la proportion de la strate *h* qui est la classe cible. Dans l'exemple ci-dessus, nous avons trois strates (avant la création de la strate tampon), *h* = 1 est forestière, *h* = 2 est non forestière, et *h* = 3 est une perturbation de type forêt, cette dernière étant la classe cible. Dans ce cas, *qh* est la proportion de perturbations de forêt dans chaque strate. Si la carte était parfaite, alors toutes les perturbations forestières de la zone d'étude seraient présentes dans la strate des perturbations forestières et donc *q3* = 1, tandis que *q1* et *q2* seraient égaux à zéro. Aucune carte n'est parfaite et nous devrons supposer un certain niveau d'erreur de classification. Notez que cette information est inconnue au stade de la conception et qu'il est nécessaire de faire des suppositions. Par exemple, si *q3* = 0,8, nous supposons que 80 % des perturbations forestières de l'étude sont présentes dans la strate des perturbations forestières. Si *q1* = 0,001, nous supposons que 0,1 % de la strate forestière est une perturbation de forêt.
-
-**Je n'ai aucune idée de la façon dont on détermine les valeurs de qh - que dois-je faire ?**
-
-La variable *qh* est essentiellement une indication de la façon dont la stratification capture la classe d'intérêt. Étant donné que des cartes sont généralement utilisées pour stratifier la zone d'étude, je vous conseille de vérifier l'exactitude des cartes précédentes de la même zone. Notez que *qh* pour *h* = la classe d'intérêt, est la précision anticipée de l'utilisateur de la classe d'intérêt.
-
 **Comment déterminer une erreur standard souhaitée?**
 
 Certains programmes spécifient une précision souhaitée ou requise ; le Forest Carbon Partnership Facility (FCPF), par exemple, stipule une marge d'erreur de 30% au niveau de confiance de 95% pour les estimations de surface des données d'activité. La marge d'erreur est égale à 1,96 fois l'erreur standard divisée par l'estimation de la superficie. Lorsque de telles exigences de précision ne sont pas spécifiées, une erreur standard cible doit être déterminée sur la base d'autres critères. Il est à noter que plus la proportion de surface de la classe recherchée est faible, plus l'échantillon doit être important pour atteindre une faible marge d'erreur. Par conséquent, pour les petites proportions de surface, la précision ciblée devra être allégée pour éviter d'avoir à sélectionner un très grand échantillon.
 
-**Si j'utilise une strate tampon, combien de pixels doit-elle avoir**
+**How do I determine a target standard error?**
 
-Il est difficile de fournir des recommandations car la taille du tampon dépendra des situations. Un tampon plus grand "capturera" probablement plus d'erreurs d'omission mais aura un poids de strate plus grand. Un tampon plus grand est recommandé dans les situations d'une petite classe d'intérêt en présence d'une grande strate stable (comme une forêt stable). Les exemples dans la littérature vont de 1 à 3 pixels. Une exploration plus détaillée de l'impact de la taille du tampon est présentée dans Olofsson et al. (2020).
+Certain programs specify a desired or required precision; the Forest Carbon Partnership Facility (FCPF) for example stipulate a margin of error of 30% at the 95% confidence level for area estimates of activity data. The margin of error is 1.96 times the standard error divided by the area estimate. When no such precision requirements are specified, a target standard error needs to be determined based on other criteria. Note that the smaller the area proportion of the target class, the larger the sample is needed to reach a small margin of error. Accordingly, for small area proportions, the target precision will need to be relaxed to avoid having to select a very large sample.  
+
 
 ## 5 Terminologie relative aux techniques d'échantillonnage
 
@@ -244,3 +230,5 @@ Copyright 2020, Banque Mondiale. Ce travail a été développé par Pontus Olofs
 Matériel révisé par : Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD) Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS) Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources Paula Andrea Paz, Colombia, International Center for Tropical Agriculture (CIAT) Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD) Rajesh Bahadur Thapa, Nepal, International Centre for Integrated Mountain Development (ICIMOD) Tatiana Nana, Cameroon, REDD+ Technical Secretariat
 
 Attribution: Olofsson, P. 2021. Simple random/systematic sampling. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+
+![](figures/wb_fcfc_gfoi.png)
