@@ -42,12 +42,11 @@ group:
   étape : Détection des changements
 ---
 
-# Module 2.3 Détection de la dégradation continue (CODED)
+# Détection de la dégradation continue (CODED)
 
-## 1.0 Contexte
+## 1 Contexte
 
-
-#### 1.1 Dégradation des forêts
+### 1.1 Dégradation des forêts
 
 Il n'existe pas de définition mondialement reconnue de la dégradation des forêts, mais elle peut généralement être définie comme une perturbation dans une forêt qui réduit la biomasse, la productivité écologique et/ou la couverture de la canopée, mais qui n'entraîne pas de conversion de la couverture du sol. 
 
@@ -58,7 +57,7 @@ Si la déforestation a fait l'objet d'un débat très intense à l'échelle mond
 Ce tutoriel présente une méthodologie de monitoring de la dégradation des forêts appelée Détection de la dégradation continue (CODED). La CODED a été créée dans le but spécifique de détecter la dégradation des forêts qui, comme nous le verrons dans les sections suivantes, s'est avérée difficile à mettre en œuvre en utilisant les approches traditionnelles de détection des changements. L'application du CODED est réalisée sur Google Earth Engine et démontrée dans le cadre d'études de cas en Colombie, au Mozambique et au Cambodge.  
 
 
-#### 1.2 Objectifs d'apprentissage
+## 2 Objectifs d'apprentissage
 
 À la fin de ce module, vous serez en mesure de 
 
@@ -93,10 +92,10 @@ L'utilisation avancée comprendra également :
     - 2.3 Détection et classification des changements continus (CCDC)
 
 
-## 2.0 Détection de la dégradation continue (CODED)
+## 3 Détection de la dégradation continue (CODED)
 
 
-#### 2.1 Motivation
+### 3.1 Motivation
 
 En l'absence d'un inventaire de terrain robuste, la seule façon de le faire est d'utiliser les images d'observation de la terre, mais la dégradation des formes qui se produit dans le paysage apporte des considérations techniques qui doivent être prises en compte. Pour commencer, toute approche automatisée de la classification de ces images satellites contiendra inévitablement des erreurs. Ces erreurs peuvent provenir de nombreux facteurs, notamment des nuages non masqués et des ombres de nuages, des données manquantes (par exemple, en raison du problème de correction des lignes de balayage de Landsat 7) et des erreurs de classification (par exemple, une mauvaise classification de la couverture du sol). Nous savons également que les tropiques humides sont particulièrement sensibles aux données manquantes ou contaminées en raison des nuages. 
 
@@ -131,7 +130,7 @@ En outre, la dégradation des forêts se produit souvent à une échelle spatial
 Ces exemples montrent comment la nature même de la dégradation des forêts représente un défi important pour la cartographie utilisant les approches traditionnelles de l'analyse par télédétection. 
 
 
-#### 2.2 Suivi du changement
+### 3.2 Suivi du changement
 
 * Ces dernières années, la communauté de suivi des modifications du sol a de plus en plus adopté l'idée que l'analyse des séries chronologiques peut atténuer bon nombre des problèmes qui se posent dans l'analyse à une seule date. Les approches par séries chronologiques permettent de suivre les tendances dans le temps, ce qui aide à distinguer les changements subtils de ceux qui sont bruités et à caractériser les changements tant abrupts que progressifs. Si le suivi des changements a une longue histoire dans des domaines tels que l'économétrie, le traitement des signaux, la reconnaissance des formes, la modélisation et les prévisions environnementales, l'application dans le domaine de la télédétection est relativement nouvelle. 
 
@@ -149,7 +148,7 @@ Ces exemples montrent comment la nature même de la dégradation des forêts rep
 Les premières applications notables de l'analyse des séries chronologiques pour la surveillance des changements  comprennent LandTrendr (Kennedy et al., 2010), BFAST (Verbesselt et al., 2010), Vegetation Change Tracker<sup> </sup>(Huang et al., 2010), and Continuous Change Detection and Classification<sup> </sup>(Zhu and Woodcock, 2014). Ces approches présentent des avantages uniques et ont contribué à jeter les bases du CODED.
 
 
-#### 2.3 Aperçu des algorithmes
+### 3.3 Aperçu des algorithmes
 
 
 La méthodologie du CODED comporte trois composantes principales (voir Bullock et al., 2020 pour plus d'informations) :
@@ -161,7 +160,7 @@ La méthodologie du CODED comporte trois composantes principales (voir Bullock e
 
 ![img5](./images/CODED/img5.png)
 
-#### 2.4 Analyse des mixages spectraux
+#### 3.4 Analyse des mixages spectraux
 
 Au cours du prétraitement, les données d'entrée sont transformées en images fractionnées des membres  (**les composantes spectrales**)à l'aide de l'analyse du mixage spectral (SMA). Il a été démontré dans divers environnements que le non-mélange spectral est sensible aux changements de sol sous le pixel, ce qui le rend idéal pour la détection des événements de dégradation à petite échelle. L'application de la SMA pour cartographier la dégradation a été démontrée en Amazonie brésilienne dans les travaux du Dr Carlos Souza Jr (par exemple, Souza et al., 2005) qui a introduit le modèle de mélange utilisé par défaut dans le CODED. 
 
@@ -282,7 +281,7 @@ Notez la parcelle  perturbée au milieu de la géométrie. Les pixels clairement
 
 
 
-#### 2.5 Trajectoires temporelles
+#### 3.5 Trajectoires temporelles
 
 CODED effectue un SMA pour chaque image Landsat disponible dans la région étudiée. Il effectue ensuite la détection des changements en utilisant les trajectoires des séries temporelles NDFI. Voyons quelques exemples de ce à quoi ressemblent les séries temporelles des NDFI pour la dégradation et la déforestation. Notez que dans ces figures, l'axe des y est mis à l'échelle de 10 000. 
 
@@ -398,7 +397,7 @@ Comparez l'exemple précédent d'une mine qui se régénère sous forme de forê
 
 ![img14](./images/CODED/img14.png)
 
-#### 2.6 Détection des changements
+#### 3.6 Détection des changements
 
 Les modèles de régression sont utilisés pour prévoir les observations dans une fenêtre mobile. Si les résidus des observations dans la fenêtre dépassent une valeur critique, alors un changement est détecté. Notez que sous les triangles se trouvent les observations dans la fenêtre mobile. Les triangles bleus sont les observations prévues, tandis que les triangles jaunes et rouges représentent respectivement les changements de faible et de forte magnitude. Le processus se répète ensuite avec un nouvel ajustement de régression aux observations suivantes. 
 
@@ -422,14 +421,14 @@ Dans laquelle *chi2 ppf* est la fonction de densité de probabilité du *chiSqua
 Une *chiSquareProbability* inférieure a pour effet d'augmenter la sensibilité du CODED au changement, ce qui permet de trouver plus de changements qu'en utilisant une *chiSquareProbability* supérieure.
 
 
-#### 2.7 Modification de l'attribution
+#### 3.7 Modification de l'attribution
 
 Les perturbations sont attribuées à la déforestation ou à la dégradation en fonction d'occupation  des sols après la perturbation. S'il y a une conversion de la forêt en zone non forestière (par exemple, pâturages, habitats ou agriculture), la perturbation est considérée comme une déforestation. Si la régénération commence après la perturbation et qu'il n'y a pas de conversion de la couverture du sol, alors la perturbation est qualifiée de dégradation. Ce processus d'attribution peut généralement être décrit selon l'organigramme suivant :
 
 ![img16](./images/CODED/img16.png)
 
 
-## 3.0 Running CODED with a Graphical User Interface
+## 4 Running CODED with a Graphical User Interface
 
 Le CODED peut être exécuté à l'aide d'une interface utilisateur graphique (GUI) appelée "Forest Disturbance Mapping GUI", qui se trouve dans le dépôt MRV ouvert. Notez que la version dans le répertoire est un "snapshot" dans le temps et la version la plus récente peut être trouvée ici : [https://coded.readthedocs.io](https://coded.readthedocs.io). 
 
@@ -485,10 +484,10 @@ Comme on peut le voir dans la figure 1, la demande contient divers éléments qu
 *   L'onglet "Tâches" est une fonction par défaut de l'interface web GEE. Il est utilisé pour soumettre les tâches à traiter. Les tâches peuvent être utilisées pour exporter des images et des collections de caractéristiques en tant qu'actifs ou vers un stockage externe tel que Google Drive..
 
 
-## 4.0 Paramétrage
+## 5 Paramétrage
 
 
-#### 4.1 Masque de forêt
+### 5.1 Masque de forêt
 
 On peut utiliser un masque de forêt qui détermine les pixels valables pour la cartographie des perturbations des forêts. Les zones définies comme non forêts n'auront aucune perturbation cartographiée. Il existe actuellement deux approches pour définir un masque forêt/non-forêt (FNF), ou vous pouvez choisir de ne pas utiliser de masque et supposer que tous les pixels de la région étudiée peuvent potentiellement contenir une perturbation. 
 
@@ -507,13 +506,13 @@ On peut utiliser un masque de forêt qui détermine les pixels valables pour la 
 *   Il existe une option permettant de "masquer avant la date de début". Ce masquage est effectué à l'aide des couches "perte de couverture de l'arbre" et "année" de GFW . L'objectif est de transformer tous les pixels cartographiés comme "perte de couverture forestière" avant la "date de début" en zones non forestières. En d'autres termes, si votre date de début est 2005, et que les cartes de l'ensemble de données de GFW changent entre 2000 et 2005, alors ces pixels ne seront pas inclus dans le masque de la forêt.  
 
 
-#### 4.2 Définir un domaine d'étude et une période de temps
+### 5.2 Définir un domaine d'étude et une période de temps
 
 
 
 *   La zone d'étude est définie en appuyant sur le bouton avec le texte "Draw Study Area’" sur le côté gauche de la carte (Figure 1). Une fois que vous avez appuyé sur ce bouton, une géométrie intitulée "StudyArea’" apparaît dans les importations de géométrie. Utilisez la carte pour dessiner une boîte de délimitation, qui sera l'étendue de l'analyse. 
 
-**Conseil **: Une grande zone d'étude peut entraîner une perte de temps dans le calcul. Si cela se produit, essayez d'exporter les résultats en soumettant une tâche (voir la section Exportation ci-dessous).
+**Conseil**: Une grande zone d'étude peut entraîner une perte de temps dans le calcul. Si cela se produit, essayez d'exporter les résultats en soumettant une tâche (voir la section Exportation ci-dessous).
 
 <table>
   <tr>
@@ -541,14 +540,14 @@ On peut utiliser un masque de forêt qui détermine les pixels valables pour la 
 
 ![img21](./images/CODED/img21.png)
 
-#### 4.3 Inputs
+### 5.3 Inputs
 
 *   Actuellement, l'application permet d'utiliser les données Landsat, Sentinel 2 ou Sentinel-1 comme base pour la détection et l'attribution des changements. Les entrées appropriées à utiliser pour votre étude dépendent des spécificités de votre étude et des données disponibles dans votre zone d'étude. De manière générale, Landsat sera plus sensible aux perturbations subtiles dans les zones disposant de données suffisantes, mais il est sujet à des données masquées ou faussées en raison des nuages.
 *   Chaque collection d'entrée peut être filtrée par jour julien (DOY). Par exemple, un "Start DOY" de 152 et une "End DOY" de 244 utiliseront toutes les images entre le 1er juin et le 1er septembre et dans les années de la période d'étude. 
 *   Les collections peuvent également être "lissées" temporellement à l'aide d'un ee.Reducer en sélectionnant les paramètres "Filtre temporel" et "Taille du filtre temporel". Par exemple, un "filtre temporel" de "moyenne" et de "taille du filtre temporel" de 2 créerait des composites sur 14 jours en calculant la moyenne de chaque pixel pour toutes les données de la période de 14 jours. 
 
 
-#### 4.4Détection des changements
+### 5.4 Détection des changements
 
 Le CODED peut être modifié à l'aide de trois paramètres : Ces paramètres sont affichés après avoir sélectionné "CODED" pour la méthode de détection des changements. 
 
@@ -582,7 +581,7 @@ Le CODED peut être modifié à l'aide de trois paramètres : Ces paramètres so
 
 
 
-#### 4.4 Changer l'attribution
+### 5.5 Changer l'attribution
 
 **Échantillonnage**
 
@@ -600,7 +599,7 @@ Le CODED peut être modifié à l'aide de trois paramètres : Ces paramètres so
 *   L'année de référence représente l'année où les lieux de référence correspondent au label d'occupation des sols associé.
 
 
-#### 4.5 Post-traitement
+### 5.6 Post-traitement
 
 
 
@@ -609,7 +608,7 @@ Le CODED peut être modifié à l'aide de trois paramètres : Ces paramètres so
 * Les unités de changement de magnitude peuvent être difficiles à comprendre, mais en général, un seuil plus élevé éliminera plus de changements, et un seuil de 0 n'éliminera aucun changement.  Par exemple, une valeur de 1 filtrera les changements de très faible amplitude, tandis qu'une valeur de 8 filtrera tout sauf les changements d'amplitude élevée.
 
 
-#### 4.6 Visualization
+### 5.7 Visualization
 
 **Ajouter une couche de masque de forêt**
 
@@ -670,7 +669,7 @@ Le CODED peut être modifié à l'aide de trois paramètres : Ces paramètres so
 
 
 
-#### 4.7 Exportation
+### 5.8 Exportation
 
 **Sortie brute (changement)**
 
@@ -697,7 +696,7 @@ Le CODED peut être modifié à l'aide de trois paramètres : Ces paramètres so
 *   Pour les grandes zones d'étude, il est utile de répartir les tâches en sous-ensembles. Cette option divisera la zone d'étude en grilles d'environ 5x5 degrés pour permettre un traitement plus rapide. Lorsqu'on travaille à l'échelle nationale, il est recommandé d'utiliser cette option pour éviter de surcharger le système GEE.. 
 
 
-#### 4.8 Interprétation des résultats
+### 5.9 Interprétation des résultats
 
 **Time Series Viewer**
 
@@ -750,15 +749,21 @@ Jaune : Perturbation non classée
 
 ![img23](./images/CODED/img23.png)
 
-   
+   </td>
+   <td>
 
 
 
    ![img24](./images/CODED/img24.png)
+   
+   </td>
+  </tr>
+</table>
 
 
+## 6 Additional Examples: Colombia, Cambodia, Mozambique
 
-## 5.0 Tutoriel : Colombie
+### 6.1 Tutoriel : Colombie
 
 **Lancement de l'application**
 
@@ -830,13 +835,15 @@ Voici une recommandation de paramètres à utiliser basée sur le retour d'expé
     - Soumettre une tâche ("Export_Stratification") pour créer la stratification monocouche (comme décrit ci-dessus à l'étape 5).
     
     - Lorsque la tâche est terminée, elle devient bleue dans l'onglet "Task". 
-      ![img31](./images/CODED/img31.png)
+     
+     ![img31](./images/CODED/img31.png)
     
     - Cliquez sur le point d'interrogation à droite de la boîte bleue et cliquez sur "View Asset.".
 
        ![img32](./images/CODED/img32.png)
     
     - Copiez le chemin d'accès  sauvegardé dans l'asset. 
+       
        ![img33](./images/CODED/img33.png)
     
     - Sous "Visualisation", collez le chemin dans la case située à côté de "Chemin de l'Asset" et cliquez sur "Charger l'Asset". Trois couches doivent être ajoutées à la carte : une pour tous les pixels cartographiés comme dégradation, une pour tous les pixels cartographiés comme déforestation, et la stratification telle que stylisée avec la palette pour la légende à l'étape 3 ci-dessus.   
@@ -852,7 +859,7 @@ Voici une recommandation de paramètres à utiliser basée sur le retour d'expé
 
 
 
-## 6.0  Tutoriel : Créer des résultats à l'échelle du pays au Cambodge
+### 6.2  Tutoriel : Créer des résultats à l'échelle du pays au Cambodge
 
 L'exemple précédent a montré comment obtenir des résultats dans une petite zone d'étude en Colombie. Bien que cela soit utile pour le paramétrage car les résultats peuvent être créés rapidement, il arrive souvent que l'analyse doive être effectuée à l'échelle nationale.
 
@@ -935,8 +942,8 @@ Expérimentez avec différentes valeurs pour _Consecutive Obs_ et _chiSquareProb
 
 
    - Remarquez que le changement du seuil _Consecutive Obs_ de 4 à 3 a permis de détecter correctement le changement :  
-
-    ![alt_text](./images/CODED/img40.png "image_tooltip")  
+ 
+ ![alt_text](images/CODED/img40.png "image_tooltip")
 
   Il n'est pas réaliste de déterminer l'ensemble parfait de paramètres pour un pays entier. Cependant, cet exercice peut être utilisé pour déterminer un ensemble de paramètres qui fonctionne bien compte tenu de la disponibilité des données de votre domaine d'étude. 
 
@@ -953,7 +960,7 @@ var im1 = ee.Image('users/openmrv/MRV/Cambodia_WB_Stratification_Grid_1')
 var im2 = ee.Image('users/openmrv/MRV/Cambodia_WB_Stratification_Grid_2')
 var geo = ee.FeatureCollection('users/openmrv/MRV/Cambodia_Extent')
 ```
-    - Combinez les deux images en une seule, ajoutez-la à la carte et enregistrez-la en tant que nouvel atout. Dans l'exemple ci-dessous, les limites de la grille sont également ajoutées à la carte en orange.  
+- Combinez les deux images en une seule, ajoutez-la à la carte et enregistrez-la en tant que nouvel atout. Dans l'exemple ci-dessous, les limites de la grille sont également ajoutées à la carte en orange.  
 
 ```javascript
 var combined = ee.ImageCollection([im1, im2]).mosaic().clip(geo)
@@ -975,7 +982,7 @@ Export.image.toAsset({
 
 
 
-## 7.0 Tutorial: CODED Using Sentinel-2 in Mozambique
+### 6.3 Tutorial: CODED Using Sentinel-2 in Mozambique
 
 Le CODED a été conçu pour utiliser les données Landsat. Cependant, les différences radiométriques entre Landsat et Sentinel-2 sont minimes, et l'extension de CODED à Sentinel-2 est donc assez simple. Sentinel-2 n'a pas de bande thermique, mais le modèle SMA utilisé ici n'en nécessite pas. Les principaux avantages de Sentinel-2 sont une fréquence de données plus élevée (après 2015), et une résolution spatiale plus élevée pour la plupart des bandes. Bien que l'application du CODED avec Sentinel-2 n'ait pas été largement testée, elle est actuellement soutenue par l'interface graphique de cartographie des perturbations forestières. 
 
