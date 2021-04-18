@@ -79,7 +79,7 @@ Le CCDC peut être géré à l'aide de Google Earth Engine. D'autres implémenta
 
 Ce tutoriel utilisera l'implémentation du CCDC dans GEE, d'où la nécessité d'un compte GEE. Veuillez vous reporter au module 1 pour de plus amples informations sur GEE. Dans le premier exemple, le processus est démontré en utilisant l'API du CCDC au Cambodge. Dans le second exemple, le processus est démontré au Mozambique en utilisant les interfaces graphiques. Enfin, le processus est réalisé en Colombie pour créer une stratification des pertes et des gains de forêts. 
 
-#### 3.1 Algorithm description
+### 3.1 Algorithm description
 
 ![image1](./images/CCDC/image1.png)
 
