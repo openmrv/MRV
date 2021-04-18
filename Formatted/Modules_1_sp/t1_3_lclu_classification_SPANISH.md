@@ -213,10 +213,10 @@ Otra pieza de código importante que se introduce aquí define los colores de la
 
 ```javascript 
 var palette_landcover = ee.List([
-  '25CF1C', // forest
-  '2E3FAC', // water
-  'EFF215',  // herbaceous
-  'FE9D02' // Developed
+  '25CF1C', // bosque
+  '2E3FAC', // agua
+  'EFF215',  // herbáceo
+  'FE9D02' // desarrollado
 ]);
 ```
 
@@ -255,7 +255,7 @@ var training_extract = l8compositeMasked.select(bands_to_use).sampleRegions({
 ***Analizando el código:***  
 
 ```javascript
-	var bands_to_use = ['B2', 'B3', 'B4', 'B5', 'B6', 'B7']
+var bands_to_use = ['B2', 'B3', 'B4', 'B5', 'B6', 'B7']
 ```
 
 Los nombres de las bandas se pueden encontrar en la descripción de la fuente original de la imagen, la cual es Landsat 8 en este caso. Note que los nombres están especificados como una lista de valores de cadena. 
@@ -702,7 +702,7 @@ Aunque Camboya no tiene las regiones semiáridas que tiene Mozambique, se ve men
 
 ![fig_camb_fourmaps](./figures/m1.3/fig_camb_fourmaps.png)
 
-# 6.0 Preguntas Frecuentes
+## 6 Preguntas Frecuentes
 
 **¿Qué sucede si hay algunas áreas que casi siempre están nubladas, sin importar cuántos años de imágenes tenga?** 
 
