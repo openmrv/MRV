@@ -58,15 +58,15 @@ Antes de comenzar un ejercicio de clasificación de imagen, es importante entend
 
 Imágenes terrestres de detección remota responden a las propiedades físicas y químicas de la superficie. La reflectancia y absortancia variadas de la energía electromagnética se registra en diferentes bandas de un sensor, y los valores numéricos grabados en esas bandas definen un espacio espectral (o más generalmente, un espacio de datos de dimensión n). Todos los pixeles en una imagen están puestos en este espacio de datos por virtud de su reflectancia medida en cada banda espectral del sensor. 
 
-![Schematic view of a 2-dimensional spectral data space defined by two spectral bands.  Each dot represents a single pixel in an image. The location in the 2-d space of each pixel is defined its reflectance values in the two bands.](./figures/m1.3/spectral_data_space.png){ width=50% }
+![Schematic view of a 2-dimensional spectral data space defined by two spectral bands.  Each dot represents a single pixel in an image. The location in the 2-d space of each pixel is defined its reflectance values in the two bands.](./figures/m1.3/spectral_data_space.png)
 
 La mayoría de algoritmos de clasificación operan enteramente en este espacio de datos. Clasificadores intentan separar este espacio en regiones con limites donde todos los pixeles pertenecen a una clase etiquetada. Algunos clasificadores consideran que los limites entre regiones son inflexibles, mientras que otros son menos rígidos y tratan con la membrecía de cada pixel en una clase como una probabilidad. 
 
-![Classified spectral space. Each pixel from the prior figure has been labeled according to a classification scheme defined by the analyst.  In an ideal case such as that shown here, all of the pixels in each class can be grouped together into bounded regions.](C:\Users\vanes\Downloads\figures\m1.3\spectral_data_space_and_classes.png){ width=50% } 
+![Classified spectral space. Each pixel from the prior figure has been labeled according to a classification scheme defined by the analyst.  In an ideal case such as that shown here, all of the pixels in each class can be grouped together into bounded regions.](./figures/m1.3/spectral_data_space_and_classes.png)
 
 Una vez que los límites de la clase hayan sido definidos en el espacio espectral, cualquier otro pixel en la imagen puede ser etiquetado de acuerdo al área en donde aterriza. 
 
-![A pixel in the image with spectral values that place it at the location indicated by "Pixel D" lands within the bounds of Class 3, and thus would be labeled Class 3.](C:\Users\vanes\Downloads\figures\m1.3\spectral_space_classifier_new_pixel.png){ width=50% }
+![A pixel in the image with spectral values that place it at the location indicated by "Pixel D" lands within the bounds of Class 3, and thus would be labeled Class 3.](./figures/m1.3/spectral_space_classifier_new_pixel.png)
 
 
 ### 1.2 Cobertura Terrestre vs. Uso Terrestre 
@@ -125,7 +125,7 @@ Aunque los pasos específicos varían en base al clasificador, el [flujo de trab
 
 Próximamente, los pasos se muestran de manera visual. 
 
-![Workflow of classification](C:\Users\vanes\Downloads\figures\m1.3\WB_graphs_v2-03.png)
+![Workflow of classification](./figures/m1.3/WB_graphs_v2-03.png)
 
 Esto crea un mapa. Luego necesitará evaluar la precisión del mapa. Este tema se desarrolla en un módulo siguiente acerca de la evaluación de precisión.
 
@@ -145,7 +145,7 @@ GEE trabaja con scripts. Como se notó arriba, asumimos que está familiarizado 
 1. Ingrese a su editor de código Javascript de GEE en [code.earthengine.google.com](code.earthengine.google.com)
 2. *Opcional* Prepare repositorio nuevo para su trabajo
 
-![This is how you do it](C:\Users\vanes\Downloads\figures\m1.3\GEE_new_repo.png)
+![This is how you do it](./figures/m1.3/GEE_new_repo.png)
 
 3. Si tiene acceso de "reader" en el grupo de openMRV, verá el script en "users/openmrv/MRV/LCLUC/cls_landsat_v2_colombia".  O puede navegar al script directamente usando este enlace al [GEE script](https://code.earthengine.google.com/549b29a5d53880813d9b8f07b839bbb5).
    1. Nos referiremos a este código como el Script Maestro, ya que ejecuta todos los pasos en este tutorial.
@@ -153,7 +153,7 @@ GEE trabaja con scripts. Como se notó arriba, asumimos que está familiarizado 
 
 > Pista: Necesitará hacer una alteración al archivo para guardarlo bajo un nombre local. Agregue un espacio en alguna parte del script, y use la función "Save As".
 
-![The Save As Function](C:\Users\vanes\Downloads\figures\m1.3\GEE_save_as.png)
+![The Save As Function](./figures/m1.3/GEE_save_as.png)
 
 
 ## 3.2 Construir Imagen Compuesta
@@ -181,7 +181,7 @@ Abajo hay una imagen de una área pequeña de Colombia, en la región alrededor 
 
 Note que hay áreas grises para las cuales no se encontraron pixeles válidos -- estas son áreas de nubes persistentes.
 
-![Image of landsat composite](C:\Users\vanes\Downloads\figures\m1.3\landsat8_composite.png)
+![Image of landsat composite](./figures/m1.3/landsat8_composite.png)
 
 
 ## 3.3 Cargar datos de entrenamiento
@@ -224,7 +224,7 @@ Los colores están en forma de código hexadecimal, el método estándar para de
 
 > **Uso avanzado:**  Para interpretación posterior, es útil definir un color para cada clase. Mire el código para ver un método para asignarle un color a cada punto interpretado de acuerdo al esquema de color definido usando códigos hexadecimales.
 
-![The training points from Module 1.2.1 displayed in the code editor of GEE.](C:\Users\vanes\Downloads\figures\m1.3\training_points_colombia.png){ width=50% }
+![The training points from Module 1.2.1 displayed in the code editor of GEE.](./figures/m1.3/training_points_colombia.png)
 
 
 ### 3.4 Asociar puntos de entrenamiento con valores espectrales 
@@ -282,7 +282,7 @@ Al final de este paso, el FeatureCollection `training_extract` contendrá los va
 
 Para confirmar que el objeto tiene estas propiedades, puede usar el comando `print(training_extract)` para ver las propiedades del objeto en la consola. Este es un ejemplo:  
 
-![An example of attributes listed in the Console of GEE for a feature collection containing the extracted values from the training points](C:\Users\vanes\Downloads\figures\m1.3\feature_collection_with_loandcover_and_bands.png){ width=50% }
+![An example of attributes listed in the Console of GEE for a feature collection containing the extracted values from the training points](./figures/m1.3/feature_collection_with_loandcover_and_bands.png)
 
 El FeatureCollection tiene la misma cantidad de objetos que los datos de entrenamiento originales, pero note que cada objeto ahora tiene atributos para las bandas espectrales que especificó usando la variable `bands_to_use`.  
 
@@ -295,7 +295,7 @@ A continuación, usaremos un clasificador CART para encontrar el mejor método q
 
 Árboles de clasificación identifican líneas que sucesivamente dividen el espacio de datos para separar los puntos de entrenamiento en sus clases respectivas. 
 
-![An example of a classification tree approach to classification. The classifier identifies a value on one of the two axes that best separates the classes, with successive splits further isolating training points into classes.](C:\Users\vanes\Downloads\figures\m1.3\CART_classification_cartoon.png){ width=50% }
+![An example of a classification tree approach to classification. The classifier identifies a value on one of the two axes that best separates the classes, with successive splits further isolating training points into classes.](./figures/m1.3/CART_classification_cartoon.png)
 
 Si está agregando a su propio script, copie y pegue la sección 3.5 del Script Maestro. 
 
@@ -358,7 +358,7 @@ Consejo:  Hay que llevar cuenta de los números de código de color para saber e
 
 Ya aplicados al país de Colombia, el mapa aparece de la siguiente manera:
 
-![Image of classified map for all of Colombia](C:\Users\vanes\Downloads\figures\m1.3\CART_classification_countrywide.png){ width=50% }
+![Image of classified map for all of Colombia](./figures/m1.3/CART_classification_countrywide.png)
 
 Vale la pena reiterar que los puntos de entrenamiento que se usaron para construir este mapa no se hicieron para crear mapas de alta calidad. Dado esto, el mapa creado aquí es simplemente un ejercicio, no hecho con la intención de servir como un mapa real de cobertura terrestre en Colombia. Sin embargo, lo usaremos para enseñar los pasos para evaluarlo y mejorarlo. 
 
@@ -368,7 +368,7 @@ La precisión del mapa será evaluada usando una muestra basada en diseño con u
 
 Varios problemas son evidentes en el mapa CART mostrado aquí: 
 
-![Examples of classification problems, including missing pixels and over-prediction of developed areas.](C:\Users\vanes\Downloads\figures\m1.3\classification_problems.png)
+![Examples of classification problems, including missing pixels and over-prediction of developed areas.](./figures/m1.3/classification_problems.png)
 
 1. Pixeles ausentes, causado por nubes
 
@@ -401,7 +401,7 @@ En la primera porción de la Sección 3.7 (y a través de 3.7.1.1 en el Script M
 - La omisión del filtro de metadatos de 50% cobertura de nubes resulta en el mapa siguiente: 
 
 
-![Image of classification without 50% cloud cover threshold](C:\Users\vanes\Downloads\figures\m1.3\CART_image_after_removing_image_cloud_filter.png){ width=50% }
+![Image of classification without 50% cloud cover threshold](./figures/m1.3/CART_image_after_removing_image_cloud_filter.png)
 
 
 Esto mejoró la situación sustancialmente, pero no la resuelve completamente.
@@ -474,7 +474,7 @@ La fusión de los conjuntos de datos comienza con un conjunto de datos (aquí,`l
 
 La imagen resultante tiene menos vacios. 
 
-![Image showing two-year composite](C:\Users\vanes\Downloads\figures\m1.3\comparing_two_year_composite.png)
+![Image showing two-year composite](./figures/m1.3/comparing_two_year_composite.png)
 
 Aun hay vacios cerca de las costas y en elevaciones altas. Puede que sea necesario agregar un tercer año, o considerar un método para traer otras fuentes de imágenes. 
 
@@ -498,7 +498,7 @@ Actualizaciones similares ocurren cuando se construye y se aplica el clasificado
 
 Usando la imagen compuesta de dos años y volviendo a ejecutar el clasificador CART, el patrón espacial de clases demuestra menos artefactos de imagen. 
 
-![Classification with two-year composite](C:\Users\vanes\Downloads\figures\m1.3\cart_classifier_with_two_year_composite.png){ width=50% }
+![Classification with two-year composite](./figures/m1.3/cart_classifier_with_two_year_composite.png)
 
 
 #### 3.7.2 Manejando errores de clasificación 
@@ -510,7 +510,7 @@ Como se notó previamente, la evaluación visual de la clasificación de CART or
 
 Similarmente, una evaluación cercana de las llanuras en el este y noreste del país cerca del Río Meta demuestra una clasificación exagerada de área "desarrollada", aparentemente causada por áreas con poca vegetación. 
 
-![Overclassification of the "developed" class near the Meta River in Northeastern Colombia. Colors and interpretation as in prior figure](C:\Users\vanes\Downloads\figures\m1.3\figure_overclass_developed_plains.png)
+![Overclassification of the "developed" class near the Meta River in Northeastern Colombia. Colors and interpretation as in prior figure](./figures/m1.3/figure_overclass_developed_plains.png)
 
 #### 3.7.2.1. Opciones para manejar errores de clasificación errónea 
 
@@ -571,11 +571,11 @@ Map.addLayer(classified_RF, {min:1, max:4,
 
 Una inspección de algunas de las áreas notadas arriba sugiere que el algoritmo RF pueda ser más robusto hacia los problemas de clasificación errónea, pero que aun existen.
 
-![The result of the random forests classifier applied to the two-year composite for the same area shown above.  Note the substantial reduction in areas classified as developed.](C:\Users\vanes\Downloads\figures\m1.3\randomforests_classifier.png)
+![The result of the random forests classifier applied to the two-year composite for the same area shown above.  Note the substantial reduction in areas classified as developed.](./figures/m1.3/randomforests_classifier.png)
 
 El área en la Península Guajira en su mayoría aun sigue clasificada de manera errónea. Esto sugiere que los datos de entrenamiento no muestrean el espacio espectral de esta clase adecuadamente, y que más datos de entrenamiento en esta región serían beneficiosos. 
 
-![The Random Forests classification of the Guajira peninsula, showing that the developed class remains overpredicted.](C:\Users\vanes\Downloads\figures\m1.3\guajira_rf.png)
+![The Random Forests classification of the Guajira peninsula, showing that the developed class remains overpredicted.](./figures/m1.3/guajira_rf.png)
 
 
 ## 4 Clasificación No Supervisada
@@ -622,7 +622,7 @@ Map.addLayer(unsup.randomVisualizer(), {}, '10 Clusters')
 
 Tenga en cuenta que los colores de las clases no están relacionados con una cantidad significativa, por lo que se utiliza un visualizador aleatorio. Los colores de las clases no son significativos, simplemente se utilizan para distinguir las clases.
 
-![A classified output from the *k*-means unsupervised classification algorithm.  Note that the colors are randomly assigned, and thus have no inherent meaning.](C:\Users\vanes\Downloads\figures\m1.3\figure_kmeans_examples.png)
+![A classified output from the *k*-means unsupervised classification algorithm.  Note that the colors are randomly assigned, and thus have no inherent meaning.](./figures/m1.3/figure_kmeans_examples.png)
 
 ### 4.3 Evaluación
 
@@ -668,7 +668,7 @@ var training_points = ee.FeatureCollection('users/openmrv/MRV/mozambique_trainin
 
 Para ejecutar el Script Maestro completo, estos dos cambios deben ocurrir tanto en la Sección 3.2 como en la Sección 3.7. Una muestra de mapas e imágenes de todo el país ilustra que se puede lograr la aplicación de los mismos métodos de clasificación (Figura M1).
 
-![_fig_moz_initial_class](C:\Users\vanes\Downloads\figures\m1.3\_fig_moz_initial_class.png)
+![_fig_moz_initial_class](./figures/m1.3/_fig_moz_initial_class.png)
 
 Figure M1.  Mapas de ejemplo generados por la simple transferencia de un script de clasificación de Colombia a Mozambique.
 
@@ -684,7 +684,7 @@ No es de extrañar que las nubes sean un desafío menor en Mozambique que en Col
 
 En un ambiente más seco, las especies leñosas en Mozambique presentan diferentes desafíos para la clasificación. Cada uno de los enfoques de clasificación difiere del otro en la cantidad y distribución de la clase "bosque": las imágenes compuestas simples difieren de las imágenes compuestas de dos años que usan el mismo clasificador, y los diferentes clasificadores también difieren. El desafío es particularmente evidente cuando los mapas se comparan a una escala fina (Figura M2). Aunque no hay intención de usar los datos de entrenamiento aquí para mapeo autorizado, esta variabilidad indica un problema importante. Las mejoras podrían incluir una resolución más precisa de las definiciones de clases de bosque o una mayor densidad de muestra de entrenamiento.
 
-![_fig_m2_zoom](C:\Users\vanes\Downloads\figures\m1.3\_fig_m2_zoom.png)
+![_fig_m2_zoom](./figures/m1.3/_fig_m2_zoom.png)
 
 Figura M2. Comparación de tres variantes de clasificación en el esquema de clasificación supervisado. Tenga en cuenta que la variabilidad en el patrón espacial de las etiquetas de los bosques entre los tres es más pronunciada en los niveles intermedios de cobertura forestal.
 
@@ -700,7 +700,7 @@ En Camboya, como en Mozambique, solo se necesitan unos pocos cambios para aplica
 
 Aunque Camboya no tiene las regiones semiáridas que tiene Mozambique, se ve menos afectada por las nubes que Colombia: el compuesto de un año que utiliza la detección de nubes a nivel de píxeles no muestra áreas importantes en las que falten datos. También como antes, la aplicación del modelo de RF disminuye la sobreclasificación de áreas urbanas en áreas herbáceas o con vegetación escasa, pero no elimina por completo el problema (Figura C1).
 
-![fig_camb_fourmaps](C:\Users\vanes\Downloads\figures\m1.3\fig_camb_fourmaps.png)
+![fig_camb_fourmaps](./figures/m1.3/fig_camb_fourmaps.png)
 
 # 6.0 Preguntas Frecuentes
 
@@ -735,7 +735,7 @@ Sin embargo, al desarrollar esquemas de etiquetado de clases más complejos, es 
 
 
 ------
-![](figures/m1.1/cc.png)
+![](./figures/m1.1/cc.png)
 
 Este trabajo tiene licencia bajo un [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) 
 
@@ -754,4 +754,4 @@ Phoebe Odour / RCMRD, Kenya
 Atribución
 Kennedy, Robert E . 2020. Land Cover and Land Use Classification in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
-![](figures/m1.1/wb_fcfc_gfoi.png) 
+![](./figures/m1.1/wb_fcfc_gfoi.png) 
