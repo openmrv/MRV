@@ -43,7 +43,7 @@ group:
   etapa: Recopilación de datos de entrenamiento
 ---
 
-# 1.2.1 Recolección de Datos de Entrenamiento Usando QGIS
+# Recolección de Datos de Entrenamiento Usando QGIS
 
 ## 1 Contexto
 
@@ -76,7 +76,7 @@ Al final de este ejercicio, podrá:
   * Conocimientos básicos de las teorías involucradas en clasificación de imágenes
   * Entender como definir una leyenda temática
 
-## 3. Recolección de Datos de Entrenamiento 
+## 3 Tutorial: Training Data Collection in QGIS
 
 ### 3.1 Resumen
 
@@ -270,13 +270,9 @@ Una vez que haya seleccionado imágenes de referencia, es hora de recolectar dat
 
 1. Seleccionar la capa de datos de entrenamiento en el panel de *Layers* (Capas). 
 
-2.  Seleccionar el botón con figura de lápiz (*Toggle Editing*) para habilitar la función de editar capas 
+2.  Seleccionar el botón con figura de lápiz (*Toggle Editing*) para habilitar la función de editar capas ![](./figures/m1.2/m1.2.2/toggle.JPG).
 
-   ![](./figures/m1.2/m1.2.2/toggle.JPG).
-
-3. Seleccionar el ícono de *Add Point* (Agregar Punto)
-
-   ![](./figures/m1.2/m1.2.2/addpoint.JPG).
+3. Seleccionar el ícono de *Add Point* (Agregar Punto) ![](./figures/m1.2/m1.2.2/addpoint.JPG).
 
 4. Definir un código numérico de clase. Aquí, usaremos 1 para Bosque, 2 para Agua, 3 para Herbáceo, y 4 para Desarrollado. 
    ![](./figures/m1.2/m1.2.2/examples_colombia.png)
@@ -289,7 +285,7 @@ Una vez que haya seleccionado imágenes de referencia, es hora de recolectar dat
 7. Repetir para varias muestras de Bosque a través de su región de estudio. Se le aconseja guardar la capa durante el proceso usando el botón *Save Layer Edits*. 
    ![](./figures/m1.2/m1.2.2/save.JPG)  
 
-8. Unidades de muestra se pueden borrar si selecciona el botón  *Select Feature(s)* ![](C:/Users/vanes/Downloads/figures/m1.2/m1.2.2/select.JPG) y hace clic en un objeto, o si arrastra una caja para seleccionar múltiples objetos, y luego hace clic al botón *Delete*  ![](C:/Users/vanes/Downloads/figures/m1.2/m1.2.2/trash.JPG). 
+8. Unidades de muestra se pueden borrar si selecciona el botón  *Select Feature(s)* ![](figures/m1.2/m1.2.2/select.JPG)  y hace clic en un objeto, o si arrastra una caja para seleccionar múltiples objetos, y luego hace clic al botón *Delete* ![](figures/m1.2/m1.2.2/trash.JPG). 
 
 9. Continúe este proceso para cada clase en el mapa. 
 
@@ -323,7 +319,7 @@ Es útil tener un identificador único para cada punto de entrenamiento. Esto se
    ![](./figures/m1.2/m1.2.2/id.JPG)
 5. Haga clic en 'Ok' y termine de editar usando el botón 'Toggle editing mode' ![](./figures/m1.2/m1.2.2/toggle.JPG). 
 
-## 4. Ejemplos: Mozambique y Camboya
+## 4 Ejemplos: Mozambique y Camboya
 
 **Uso Avanzado**
 
@@ -422,7 +418,7 @@ Aquí, nuestra meta es asegurar que nuestra clase "Bosque" contenga ejemplos de 
 15. Opcionalmente, puede visualizar los datos de entrenamiento: 
     ![](./figures/m1.2/m1.2.2/moz_td.JPG)  
 
-## 5. Camboya: Contabilizando la Topografía
+### 4.2 Camboya: Contabilizando la Topografía
 
 El ejemplo final de colección de datos de entrenamiento en QGIS es para el país de Camboya. Camboya tiene un clima tropical de monzones con una temporada de lluvia desde Mayo a Octubre. En años recientes, Camboya ha experimentado una cantidad considerable de cambio terrestre, frecuentemente en la forma de deforestación.
 
@@ -441,7 +437,7 @@ Muchos de los bosques restantes en Camboya están ubicados en terreno montañoso
 9. Use la imagen compuesta de referencia para recolectar al menos 100 muestras de entrenamiento por clase. Recuerde que debe guardar su trabajo frecuentemente. Cuando haya completado esto, seleccione el botón *Toggle Editing* para terminar de editar. 
    ![](./figures/m1.2/m1.2.2/cam_td.JPG) 
 
-## 6. Preguntas Frecuentes 
+## 5 Preguntas Frecuentes 
 
 **¿Porque estamos usando geometrías de punto en lugar de polígonos?**
 
@@ -483,7 +479,9 @@ Si no consigue que uno de los plugins se cargue, simplemente use otro. Hay múlt
 
 No se preocupe! Este mismo tutorial se provee para Google Earth Engine en el Módulo 1.2.2, el cual no requiere ni una instalación. 
 
-![](./figures/m1.2/m1.2.2/cc.png)  
+-----
+
+![](figures/m1.1/cc.png)   
 
 Este trabajo tiene licencia bajo un [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
@@ -492,7 +490,6 @@ Copyright 2020, World Bank
 Este trabajo fue desarrollado por Eric Bullock bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionadas a la Medida, Reportaje, y Verificación para el apoyo de implementación MRV en varios países. 
 
 Material revisado por:
-
 Kenset Rosales, Guatemala, Ministry of Environment and Natural Resources  
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
 Rajesh Bahadur Thapai, Nepal, International Centre for Integrated Mountain Development  
@@ -509,4 +506,4 @@ Paula Andrea Paz, Colombia, International Center for Tropical Agriculture
 Atribución
 
 Bullock, E. 2020. Training Data Collection Using QGIS. © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)  
-![](./figures/m1.2/m1.2.2/WB_FCPF2.png)![](./figures/m1.2/m1.2.2/GFOI2.png)
+![](figures/m1.1/wb_fcfc_gfoi.png)
