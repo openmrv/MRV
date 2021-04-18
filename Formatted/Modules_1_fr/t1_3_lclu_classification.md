@@ -48,6 +48,39 @@ group:
   étape: Classification
 ---
 
+# Classification de l'occupation et de l'utilisation du sol dans Google Earth Engine
+
+# 1 Contexte
+
+## 1.1  Classificateurs en dimension spectrale
+Avant de se lancer dans un exercice de classification d'images, il est important de comprendre ce qui doit être classifié. 
+
+L'imagerie géospatiale en télédétection, qu'elle provienne de capteurs passifs ou actifs, réagit aux propriétés physiques et chimiques de la surface de la terre.  La réflectance et l'absorption  de l'énergie électromagnétique sont enregistrées dans différentes bandes d'un capteur, et les valeurs numériques enregistrées dans ces bandes définissent un espace spectral (ou plus largement, un espace de données à n dimensions). Tous les pixels d'une image sont placés dans cet espace de données en raison de leur réflectance mesurée dans chaque bande spectrale du capteur. 
+
+![Vue schématique d'un espace de données spectral bidimensionnel défini par deux bandes spectrales.  Chaque point représente un seul pixel dans une image. L'emplacement de chaque pixel dans l'espace bidimensionnel est défini par ses valeurs de réflectance dans les deux bandes.](./figures/m1.3/spectral_data_space.png){ width=50% }
+
+La plupart des algorithmes de classification fonctionnent entièrement dans cet espace de données. Les classificateurs tentent de séparer l'espace en régions délimitées dans lesquelles tous les pixels appartiennent à une classe étiquetée.  Certains classificateurs considèrent que les limites entre les régions sont difficiles, tandis que d'autres sont plus floues, traitant l'appartenance à une classe comme une probabilité.  
+
+![spectral_data_space_and_classes](./figures/m1.3/spectral_data_space_and_classes.png)
+
+Espace spectral classifié. Chaque pixel de la figure précédente a été étiqueté selon un schéma de classification défini par l'analyste.  Dans un cas idéal tel que celui présenté ici, tous les pixels de chaque classe peuvent être regroupés en régions délimitées]
+
+Une fois que les limites de la classe ont été définies dans l'espace spectral, tous les autres pixels de l'image peuvent être étiquetés en fonction de la zone dans laquelle ils atterrissent. 
+
+![Un pixel de l'image dont les valeurs spectrales le placent à l'endroit indiqué par le "Pixel D" atterrit dans les limites de la classe 3, et sera donc étiqueté Classe 3.](./figures/m1.3/\spectral_space_classifier_new_pixel.png){ width=50% }
+
+## 1.2 Occupation et utilisation du sol
+
+Les propriétés physiques et chimiques de la surface sont liées à l'occupation du sol. Lors de la collecte de données d'entraînement pour construire une classification, plus les définitions de l'occupation du sol correspondent aux propriétés physiques de la surface qui contrôlent l'espace des données spectrales, plus l'exercice de classification est réussi.  
+
+"Utilisation des sols" se réfère à une définition humaine (observationnelle)  de l'occupation du sol sous-jacente.  La même couverture végétale herbacée peut avoir différentes désignations d'utilisation du sol: l'herbe dans une zone urbaine peut être définie comme "espace ouvert" ou "parc", tandis que la même herbe dans une zone agricole peut être considérée comme "pâturage".  Lors de la définition des étiquettes de classification, il faut être conscient des ambiguïtés potentielles dans les propriétés spectrales des classes. 
+
+## 2.3 Autres ressources
+
+|          **Concept**           |          **Source**          |                                                     **Site** |
+| :----------------------------: | :--------------------------: | -----------------------------------------------------------: |
+|    Basics of remote sensing    |   Natural Resources Canada   | [Lien du Site](https://www.nrcan.gc.ca/maps-tools-publications/satellite-imagery-air-photos/tutorial-fundamentals-remote-sensing/9309) |
+| Fundamentals of Remote Sensing | ARSET (NASA Applied Science) | [Lien du Site](https://appliedsciences.nasa.gov/join-mission/training/english/fundamentals-remote-sensing) |
 
 # 1.0 Objectifs d'apprentissage
 
@@ -75,37 +108,7 @@ group:
 	* Sauvegarde de la réflectance 
 
 
-# 2.0 Contexte
 
-## 2.1  Classificateurs en dimension spectrale
-Avant de se lancer dans un exercice de classification d'images, il est important de comprendre ce qui doit être classifié. 
-
-L'imagerie géospatiale en télédétection, qu'elle provienne de capteurs passifs ou actifs, réagit aux propriétés physiques et chimiques de la surface de la terre.  La réflectance et l'absorption  de l'énergie électromagnétique sont enregistrées dans différentes bandes d'un capteur, et les valeurs numériques enregistrées dans ces bandes définissent un espace spectral (ou plus largement, un espace de données à n dimensions). Tous les pixels d'une image sont placés dans cet espace de données en raison de leur réflectance mesurée dans chaque bande spectrale du capteur. 
-
-![Vue schématique d'un espace de données spectral bidimensionnel défini par deux bandes spectrales.  Chaque point représente un seul pixel dans une image. L'emplacement de chaque pixel dans l'espace bidimensionnel est défini par ses valeurs de réflectance dans les deux bandes.](./figures/m1.3/spectral_data_space.png){ width=50% }
-
-La plupart des algorithmes de classification fonctionnent entièrement dans cet espace de données. Les classificateurs tentent de séparer l'espace en régions délimitées dans lesquelles tous les pixels appartiennent à une classe étiquetée.  Certains classificateurs considèrent que les limites entre les régions sont difficiles, tandis que d'autres sont plus floues, traitant l'appartenance à une classe comme une probabilité.  
-
-![spectral_data_space_and_classes](./figures/m1.3/spectral_data_space_and_classes.png)
-
-Espace spectral classifié. Chaque pixel de la figure précédente a été étiqueté selon un schéma de classification défini par l'analyste.  Dans un cas idéal tel que celui présenté ici, tous les pixels de chaque classe peuvent être regroupés en régions délimitées]
-
-Une fois que les limites de la classe ont été définies dans l'espace spectral, tous les autres pixels de l'image peuvent être étiquetés en fonction de la zone dans laquelle ils atterrissent. 
-
-![Un pixel de l'image dont les valeurs spectrales le placent à l'endroit indiqué par le "Pixel D" atterrit dans les limites de la classe 3, et sera donc étiqueté Classe 3.](./figures/m1.3/\spectral_space_classifier_new_pixel.png){ width=50% }
-
-## 2.2 Occupation et utilisation du sol
-
-Les propriétés physiques et chimiques de la surface sont liées à l'occupation du sol. Lors de la collecte de données d'entraînement pour construire une classification, plus les définitions de l'occupation du sol correspondent aux propriétés physiques de la surface qui contrôlent l'espace des données spectrales, plus l'exercice de classification est réussi.  
-
-"Utilisation des sols" se réfère à une définition humaine (observationnelle)  de l'occupation du sol sous-jacente.  La même couverture végétale herbacée peut avoir différentes désignations d'utilisation du sol: l'herbe dans une zone urbaine peut être définie comme "espace ouvert" ou "parc", tandis que la même herbe dans une zone agricole peut être considérée comme "pâturage".  Lors de la définition des étiquettes de classification, il faut être conscient des ambiguïtés potentielles dans les propriétés spectrales des classes. 
-
-## 2.3 Autres ressources
-
-|          **Concept**           |          **Source**          |                                                     **Site** |
-| :----------------------------: | :--------------------------: | -----------------------------------------------------------: |
-|    Basics of remote sensing    |   Natural Resources Canada   | [Lien du Site](https://www.nrcan.gc.ca/maps-tools-publications/satellite-imagery-air-photos/tutorial-fundamentals-remote-sensing/9309) |
-| Fundamentals of Remote Sensing | ARSET (NASA Applied Science) | [Lien du Site](https://appliedsciences.nasa.gov/join-mission/training/english/fundamentals-remote-sensing) |
 
 # 3.0 Classification supervisée dans Google Earth Engine
 
