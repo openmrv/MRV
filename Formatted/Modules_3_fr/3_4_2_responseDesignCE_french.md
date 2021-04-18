@@ -146,11 +146,10 @@ La conception d'un projet est un processus itératif, et vous devrez probablemen
 
 * Comprendre la terminologie du module 3.1 et disposer d'un plan d'échantillonnage établi, décrit dans les modules 3.2 et 3.3.
 * Une connaissance générale de l'interprétation d'images. L'interprétation d'images est le processus consistant à regarder des images à résolution spatiale modérée, élevée ou très élevée (provenant de satellites ou de photographies aériennes) et à identifier les objets d'intérêt dans vos emplacements d'échantillonnage.L'interprétation d'images est la compétence de base nécessaire à l'exécution efficace de tout projet de Collect Earth desktop . L'interprétation d'images est la compétence de base nécessaire à l'exécution efficace de tout projet de Collect Earth Desktop. 
-* Il est fortement conseillé de comprendre les tutoriels précédents des modules 1 et 2.
 
 ## 3 Tutorial: Collect Earth Desktop
 
-## 3.1 Téléchargement et installation de Collect 
+### 3.1 Téléchargement et installation de Collect 
 
 La première étape consiste à télécharger "Collect" sur le site Web d'OpenForis, à l'adresse suivante [openforis](http://openforis.org/).  Allez à [Lien de la version recente](http://www.openforis.org/tools/collect.html). Vous pouvez y télécharger l'application "Collect" en cliquant sur "Télécharger la dernière version" et en sélectionnant la bonne version. Téléchargez et installez Collect sur votre ordinateur. Si nécessaire, veuillez consulter l'aide à l'installation disponible à l'adresse suivante [Lien aide d'installation de OpenForis](http://www.openforis.org/tools/collect/tutorials/installation.html).
 
@@ -585,6 +584,21 @@ L'évaluation la plus exacte possible de l'état réel d'une unité de populatio
 ### 5.9 Reference classification 
 
 La classification de référence appliquée à la collection de toutes les unités d'échantillonnage.
+
+## 6 References
+
+Cochran, W.G., 1977. *Sampling Techniques*, John Wiley & Sons, New York, NY.
+
+Lohr, S.L., 1999. *Sampling: Design And Analysis,* CRC Press.
+
+Olofsson, P., Foody, G.M., Herold, M., Stehman, S.V., Woodcock, C.E. and Wulder, M.A., 2014. Good practices for estimating area and assessing accuracy of land change. Remote Sensing of Environment, 148, pp.42-57. https://doi.org/10.1016/j.rse.2014.02.015
+
+Rice, J.A., 1995. *Mathematical Statistics and Data Analysis* (2nd ed.), Duxbury Press, Belmont, CA.
+
+Särndal, C.E., Svensson, B.H., & Wretman, J.H., 1992. *Model assisted survey sampling*, Springer Science & Business Media, New York, NY.
+
+Stehman, S.V., & Czaplewski, R.L., 1998. Design and analysis for thematic map accuracy assessment: fundamental principles. *Remote Sensing of Environment*, 64(3), 331-344. https://doi.org/10.1016/S0034-4257(98)00010-8
+
 
 -----
 
