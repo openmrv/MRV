@@ -1076,10 +1076,15 @@ Sentinel-2 RGB Composite
 ![img51](./images/CODED/img51.png)
 
 
-   <td><strong><i> Consecutive obs = 5</i></strong>
-
+   </td>
+   <td><strong><i>Consecutive obs = 5</i></strong>
 <p>
- ![img52](./images/CODED/img52.png)
+
+![img52](./images/CODED/img52.png)
+
+   </td>
+  </tr>
+</table>
 
 - Ce processus est censé être itératif. Une fois qu'une stratification est exportée, elle peut être chargée sur la carte et analysée à l'aide du Time Series Viewer. Il est recommandé de commencer dans une petite zone afin de pouvoir ajuster les paramètres sans qu'un temps de traitement important soit nécessaire. 
 
