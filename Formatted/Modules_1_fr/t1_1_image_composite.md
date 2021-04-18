@@ -31,48 +31,13 @@ group:
   étape : Entrées
 ---
 
-# 1.1 Création de mosaïques/composites d'images pour Landsat et Sentinel-2 dans Google Earth Engine
+# Création de mosaïques/composites d'images pour Landsat et Sentinel-2 dans Google Earth Engine
 
 ##   1 Contexte
 
 Ce tutoriel vous explique comment créer un composite en utilisant l'imagerie Landsat et/ou Sentinel-2 au niveau national dans Google Earth Engine (GEE). Ici, le processus est démontré pour le pays de la Colombie. Le tutoriel est accompagné d'un dépôt GEE qui contient trois scripts, et d'une série de vidéos qui vous guideront à travers certaines des sections. Les scripts vous permettent de créer un composite qui peut être utilisé dans les sections suivantes de cette formation. 
 
-### 1.1 Pré-requis pour ce module
-
-* Compréhension de base à intermédiaire des concepts de la télédétection
-  * Vous pouvez vous référer à la formation [NASA ARSET's Fundamentals of Remote Sensing](https://appliedsciences.nasa.gov/join-mission/training/english/fundamentals-remote-sensing). Cette formation comprend les bases de la télédétection par satellite, notamment les orbites, les types, les résolutions, les capteurs et les niveaux de traitement des satellites. Il est disponible sur demande et tout le monde peut le suivre (disponible uniquement en anglais)
-* Compte Google Earth Engine 
-  * Tout le monde peut s'inscrire à Google Earth Engine. GEE est gratuit pour une utilisation non commerciale. Pour vous inscrire, veuillez remplir [ce formulaire](https://earthengine.google.com/signup/). Une fois que vous aurez été accepté, vous recevrez un courriel contenant des informations supplémentaires
-* Connaissances de base et intermédiaires en programmation
-  * Voir les tutoriels et informations utiles sur la programmation JavaScript GEE dans la section 3 de Google Earth Engine
-* Le GEE fonctionne mieux avec [le navigateur Google Chrome](https://www.google.com/chrome/)
-
-### 1.2 Repository
-
-[Ce dépôt](https://code.earthengine.google.com/?accept_repo=users/openmrv/MRV) contient un sous-dossier appelé "Composite" avec des scripts qui effectuent toutes les opérations que vous apprendrez dans ce tutoriel. Les principaux scripts sont les suivants :
-
-1. L'option "Landsat_Sentinel2_Median" contient toutes les étapes dans l'ordre que vous allez suivre (sauf pour la section 4.2.6 Medoid composite) pour créer des composites médians en utilisant les collections Landsat et Sentinel-2.
-2. Landsat_Sentinel2_Median2` est une version optimisée du script ci-dessus. Il contient toutes les variables utilisateur en haut et les fonctions/codes qui n'ont pas besoin d'être modifiés en bas.
-3. `Landsat_Medoid` contient la méthode de composition utilisant le Medoid au lieu du Median pour les collections Landsat.
-
-En outre, vous trouverez deux scripts qui sont une copie du script 2 "Landsat_Sentinel2_Median2" mais qui s'appliquent à deux autres pays : le Mozambique et le Cambodge. Dans le dépôt, ils sont appelés "Mozambique" et "Cambodia". Ils sont expliqués dans la section 6. Exemples supplémentaires.
-
-Enfin, le script appelé "Video" est le script généré à partir de l'enregistrement des vidéos. Ce script contient toutes les étapes de ce tutoriel, mais avec peu ou pas de documentation écrite.
-
-Nous vous encourageons à suivre les étapes ci-dessous en écrivant vous-même les scripts afin d'avoir une meilleure expérience d'apprentissage, et à n'utiliser les scripts ci-dessus que pour les consulter pendant le tutoriel, ou après avoir compris tous les processus expliqués ici.
-
-### 1.3 Vidéos
-
-Le [canal MRV YouTube](https://www.youtube.com/channel/UCdPooUCxF3HRIWdEh4pwrqQ) contient des vidéos qui vous guident à travers certaines sections de ce module et d'autres. Pour ce module, une vidéo a été créée pour chaque sous-section de la section 4. Création d'une vidéo composite. Veuillez noter que le développement du script dans les vidéos peut ne pas être exactement le même que celui démontré à chaque étape du tutoriel (c'est-à-dire que l'ordre des lignes de code et des noms de variables peut différer, etc. ) et que chaque vidéo est construite sur les précédentes. Dans tous les cas, les mêmes résultats sont produits. Vous trouverez dans chaque section ci-dessous un hyperlien vers la vidéo correspondante. Il est recommandé de parcourir chaque section avant de visionner les vidéos.
-
-## 2 Objectif du cours
-
-* Apprenez à créer une mosaïque/composite d'images
-
-* Se familiariser avec diverses options, notamment : la sélection des dates, les capteurs et les méthodes de mosaïquage
-* Apprendre à exporter la mosaïque / le composite
-
-## 3 Google Earth Engine
+## 1.1 Google Earth Engine
 
 L'intérêt de l'utilisation de Google Earth Engine (GEE) est que GEE contient plusieurs pétaoctets d'images satellites et de données géospatiales permettant aux utilisateurs de calculer des analyses à grande échelle dans la plateforme basée sur le cloud. GEE contient un JavaScript (utilisé dans ce cas) et une API Python, où les utilisateurs peuvent télécharger leurs propres ensembles de données et utiliser les fonctions intégrées pour accomplir une myriade de tâches de télédétection et de géospatial à des vitesses et des échelles sans précédent. Pour plus d'informations sur GEE, veuillez consulter [la page principale sur le moteur Google Earth](https://earthengine.google.com/). Vous y trouverez des tutoriels et de la documentation utiles. Certains liens pertinents sont mis en évidence ci-dessous :
 
@@ -96,6 +61,43 @@ L'intérêt de l'utilisation de Google Earth Engine (GEE) est que GEE contient p
 
 
 ![GEEcodeEditor](./figures/m1.1/GEEcodeEditor.png)
+
+### 1.2 Repository
+
+[Ce dépôt](https://code.earthengine.google.com/?accept_repo=users/openmrv/MRV) contient un sous-dossier appelé "Composite" avec des scripts qui effectuent toutes les opérations que vous apprendrez dans ce tutoriel. Les principaux scripts sont les suivants :
+
+1. L'option "Landsat_Sentinel2_Median" contient toutes les étapes dans l'ordre que vous allez suivre (sauf pour la section 4.2.6 Medoid composite) pour créer des composites médians en utilisant les collections Landsat et Sentinel-2.
+2. Landsat_Sentinel2_Median2` est une version optimisée du script ci-dessus. Il contient toutes les variables utilisateur en haut et les fonctions/codes qui n'ont pas besoin d'être modifiés en bas.
+3. `Landsat_Medoid` contient la méthode de composition utilisant le Medoid au lieu du Median pour les collections Landsat.
+
+En outre, vous trouverez deux scripts qui sont une copie du script 2 "Landsat_Sentinel2_Median2" mais qui s'appliquent à deux autres pays : le Mozambique et le Cambodge. Dans le dépôt, ils sont appelés "Mozambique" et "Cambodia". Ils sont expliqués dans la section 6. Exemples supplémentaires.
+
+Enfin, le script appelé "Video" est le script généré à partir de l'enregistrement des vidéos. Ce script contient toutes les étapes de ce tutoriel, mais avec peu ou pas de documentation écrite.
+
+Nous vous encourageons à suivre les étapes ci-dessous en écrivant vous-même les scripts afin d'avoir une meilleure expérience d'apprentissage, et à n'utiliser les scripts ci-dessus que pour les consulter pendant le tutoriel, ou après avoir compris tous les processus expliqués ici.
+
+### 1.3 Vidéos
+
+Le [canal MRV YouTube](https://www.youtube.com/channel/UCdPooUCxF3HRIWdEh4pwrqQ) contient des vidéos qui vous guident à travers certaines sections de ce module et d'autres. Pour ce module, une vidéo a été créée pour chaque sous-section de la section 4. Création d'une vidéo composite. Veuillez noter que le développement du script dans les vidéos peut ne pas être exactement le même que celui démontré à chaque étape du tutoriel (c'est-à-dire que l'ordre des lignes de code et des noms de variables peut différer, etc. ) et que chaque vidéo est construite sur les précédentes. Dans tous les cas, les mêmes résultats sont produits. Vous trouverez dans chaque section ci-dessous un hyperlien vers la vidéo correspondante. Il est recommandé de parcourir chaque section avant de visionner les vidéos. 
+
+
+## 2 Objectif du cours
+
+* Apprenez à créer une mosaïque/composite d'images
+
+* Se familiariser avec diverses options, notamment : la sélection des dates, les capteurs et les méthodes de mosaïquage
+
+* Apprendre à exporter la mosaïque / le composite
+
+### 2.1 Pré-requis pour ce module
+
+* Compréhension de base à intermédiaire des concepts de la télédétection
+  * Vous pouvez vous référer à la formation [NASA ARSET's Fundamentals of Remote Sensing](https://appliedsciences.nasa.gov/join-mission/training/english/fundamentals-remote-sensing). Cette formation comprend les bases de la télédétection par satellite, notamment les orbites, les types, les résolutions, les capteurs et les niveaux de traitement des satellites. Il est disponible sur demande et tout le monde peut le suivre (disponible uniquement en anglais)
+* Compte Google Earth Engine 
+  * Tout le monde peut s'inscrire à Google Earth Engine. GEE est gratuit pour une utilisation non commerciale. Pour vous inscrire, veuillez remplir [ce formulaire](https://earthengine.google.com/signup/). Une fois que vous aurez été accepté, vous recevrez un courriel contenant des informations supplémentaires
+* Connaissances de base et intermédiaires en programmation
+  * Voir les tutoriels et informations utiles sur la programmation JavaScript GEE dans la section 3 de Google Earth Engine
+* Le GEE fonctionne mieux avec [le navigateur Google Chrome](https://www.google.com/chrome/)
 
 
 ## 4 Création d'un composite
