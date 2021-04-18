@@ -44,18 +44,18 @@ group:
 
 
 
-# Module 2.2 Détection et classification continues des changements  (CCDC)
+# Détection et classification continues des changements  (CCDC)
 
-## 1.0 Informations générales
+## 1 Contexte
 
 
-#### 1.1 Le suivi des changements 
+### 1.1 Le suivi des changements 
 
 Les changements de l'occupation des sols affectent les environnements naturels et anthropiques et sont considérés comme une variable climatique essentielle par le Système mondial d'observation du climat. Par exemple, la désertification entraîne une transition de la couverture terrestre des écosystèmes végétatifs vers le désert, la déforestation entraîne la conversion des forêts à des utilisations des terres modifiées par l'homme, et le développement urbain peut faire passer un environnement naturel à un environnement couvert de bâtiments et de routes. Afin de comprendre l'impact de ces transitions, il est essentiel de les quantifier à l'échelle nationale et régionale, ce qui est possible grâce à l'analyse par télédétection.
 La surveillance des changements de sol à l'aide de données de télédétection nécessite des méthodologies permettant de transformer les images en informations utiles sur les changements du paysage. L'une de ces méthodes, qui a été largement appliquée, est la détection et la classification continues des changements (CCDC ; Zhu et Woodcock 2014). Ce tutoriel démontrera comment la CCDC peut être appliquée sur Google Earth Engine pour la surveillance des changements.
 
 
-#### 1.2 Les objectifs d'apprentissage
+## 2 Les objectifs d'apprentissage
 
 À la fin de ce tutoriel, les utilisateurs devraient être en mesure de
 
@@ -65,27 +65,21 @@ La surveillance des changements de sol à l'aide de données de télédétection
 
 ### 2.1 Prérequis pour ce module
 
-- Google Earth Engine (GEE) concepts (please refer to Section 1.1 of Module 1.1 Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine for useful GEE resources)
-  - Obtenir un compte utilisateur
-  - Manipulation des images dans GEE
-  - Syntaxe de base des fonctions
-  - Traitement de base des images, y compris le choix des images, le filtrage des nuages, la mosaïque et la composition.
-- Il est fortement conseillé de terminer les tutoriels précédents:
-  - Module 1
-    - 1.1  Création de mosaïque/composite d'images pour Landsat et Sentinel-2 dans Google Earth Engine
-    - 1.2  Collecte de données d'entraînement 
-      - 1.2.1 Collecte de données d'entraînement avec QGIS, ou
-      - 1.2.2  Collecte de données d'entraînement  à l'aide de Google Earth Engine
-    - 1.3 Classification d'occupation et d'utilisation du sol dans Google Earth Engin
-  - Module 2
-    - 2.1  Notions de base sur les méthodes de détection des changements
-    - 2.2 LandTrendr
+* Google Earth Engine (GEE) concepts
+  * Getting a user account
+  * Image handling in GEE
+  * Basic syntax of functions
+  * Basic image processing, including choice of imagery, cloud-screening, mosaicking and compositing
 
+> NOTE: Refer to process "Pre-processing" and tool "GEE" here on OpenMRV for more information and resources for working in Google Earth Engine.
 
-## 2.0 Détection et classification continues des changements (CCDC)
+## 3.0 Tutoriels: Détection et classification continues des changements  (CCDC)
 
+Le CCDC peut être géré à l'aide de Google Earth Engine. D'autres implémentations de CCDC sont accessibles [ici](https://github.com/GERSL/CCDC) et comprennent des implémentations en C, Python et MATLAB. Afin de faciliter l'analyse dans le cadre du GEE, Arevalo et al (2020) ont publié une API et une collection d'applications qui seront présentées [ici](https://gee-ccdc-tools.readthedocs.io/en/latest/). 
 
-#### 2.1 Algorithm description
+Ce tutoriel utilisera l'implémentation du CCDC dans GEE, d'où la nécessité d'un compte GEE. Veuillez vous reporter au module 1 pour de plus amples informations sur GEE. Dans le premier exemple, le processus est démontré en utilisant l'API du CCDC au Cambodge. Dans le second exemple, le processus est démontré au Mozambique en utilisant les interfaces graphiques. Enfin, le processus est réalisé en Colombie pour créer une stratification des pertes et des gains de forêts. 
+
+#### 3.1 Algorithm description
 
 ![image1](./images/CCDC/image1.png)
 
@@ -285,14 +279,10 @@ Les occupation du sol peuvent être classées à l'aide de coefficients de régr
 
 
 
-## 3.0 Tutoriels
-
-Le CCDC peut être géré à l'aide de Google Earth Engine. D'autres implémentations de CCDC sont accessibles [ici](https://github.com/GERSL/CCDC) et comprennent des implémentations en C, Python et MATLAB. Afin de faciliter l'analyse dans le cadre du GEE, Arevalo et al (2020) ont publié une API et une collection d'applications qui seront présentées [ici](https://gee-ccdc-tools.readthedocs.io/en/latest/). 
-
-Ce tutoriel utilisera l'implémentation du CCDC dans GEE, d'où la nécessité d'un compte GEE. Veuillez vous reporter au module 1 pour de plus amples informations sur GEE. Dans le premier exemple, le processus est démontré en utilisant l'API du CCDC au Cambodge. Dans le second exemple, le processus est démontré au Mozambique en utilisant les interfaces graphiques. Enfin, le processus est réalisé en Colombie pour créer une stratification des pertes et des gains de forêts. 
 
 
-#### 3.1 Cambodge : API DU CCDC
+
+### 3.2 Cambodge : API DU CCDC
 
 Le cas test au Cambodge sera présenté ici en utilisant l'API du CCDC. Ce même processus peut être réalisé dans les interfaces graphiques en utilisant les instructions décrites ci-dessous dans l'exemple du Mozambique. 
 
@@ -469,7 +459,7 @@ print(trainingData.first())
 
 Dans la console, vous devriez voir des informations sur le premier point de formation. Sélectionnez l'élément, puis sélectionnez "géométrie". Assurez-vous que le "type" est "Point", comme dans la figure ci-dessous. Si c'est autre chose (comme Rectangle ou Polygone), vous devez convertir vos données en points avant de continuer.
 
-**Création d'un attribut numérique de l'occupation du sol
+**Création d'un attribut numérique de l'occupation du sol**
 
 L'étiquette d'occupation des sols doit être numérique, elle ne peut donc pas être une chaîne de caractères (comme "forêt") ou une chaîne numérique (ou un nombre écrit sous forme de chaîne). Pour vérifier le type de votre attribut, sélectionnez le bouton "JSON" sur le côté droit de la console pour développer la représentation json de l'élément. 
 
@@ -812,7 +802,7 @@ Map.addLayer(matchingDate, {min: 1, max: 4, palette: ['##a6d854','##386cb0','##e
 
 
 
-#### 3.2  Mozambique : GUI du CCDC
+### 3.3  Mozambique : GUI du CCDC
 
 Pour faciliter l'accès à notre API, nous avons créé une série d'interfaces utilisateur graphiques (GUI) qui ne nécessitent aucun codage de la part de l'utilisateur. Des descriptions détaillées de ces outils se trouvent dans [Arevalo et al., 2020](https://doi.org/10.3389/fclim.2020.576740).
 
@@ -982,7 +972,7 @@ Enfin, l'outil vous permet de spécifier certains paramètres de visualisation. 
 
 
 
-#### 3.3 Colombia: CCDC API for Forest Change Stratification
+#### 3.4 Colombia: CCDC API for Forest Change Stratification
 
 Le dernier tutoriel démontrera l'utilisation de l'API pour créer une stratification des changements forestiers en Colombie. Le code est modifié par rapport à celui du tutoriel sur le Mozambique et utilise l'ensemble des données de coefficient global du CCDC. Le script peut être trouvé dans le dépôt MRV ouvert dans le script "CCDC/Colombia_1". 
 
@@ -1127,7 +1117,7 @@ Dans l'exemple suivant, la palette de légende est :
 
 
 
-## FAQs
+## 4 FAQs
 
 **Peut-on utiliser d'autres sources de données pour le CCDC?**
 Techniquement, oui. Bien que le CCDC ait été conçu pour les données Landsat, il est techniquement agnostique et peut donc être réalisé en utilisant n'importe quelle source de données avec un important jeu de séries chronologiques. 
@@ -1145,11 +1135,14 @@ Le CCDC a été introduit à l'origine dans Zhu et Woodcock (2014). La mise en �
 Le calcul des coefficients de variation est la partie la plus intensive du CCDC en matière de calcul. C'est pourquoi les gens de Google ont créé un ensemble de données de coefficients global. Bien qu'il utilise un ensemble de paramètres de changement par défaut pour le globe, il a été prouvé que ces paramètres fonctionnent relativement bien dans différents environnements. Par conséquent, il doit être considéré comme une alternative utile aux coefficients créés par les utilisateurs. 
 
 
-#### 4.0 References
+## 5 References
 
 Zhu, Z., Woodcock, C.E., 2014. Continuous change detection and classification of land cover using all available Landsat data. Remote Sens. Environ. 144, 152–171. https://doi.org/10.1016/j.rse.2014.01.011
 
-![cc](./images/CODED/cc.png)
+-----
+
+![](figures/cc.png) 
+
 This work is licensed under a [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
 Copyright 2020, World Bank 
@@ -1168,7 +1161,7 @@ Bullock, E. 2020. Continuous Change Detection and Classification (CCDC). © Worl
 
 
 
-![WB_FCPF2](./images/CODED/WB_FCPF2.png)![GFOI2](./images/CODED/GFOI2.png)
+![](figures/wb_fcfc_gfoi.png)
 
 
 
