@@ -132,11 +132,11 @@ Cela permet de créer une carte.  Vous devrez ensuite évaluer la précision de 
 Nous travaillerons sur un exemple simple avec les éléments indiqués ci-dessous, puis nous illustrerons les variantes. Ces instructions supposent que vous avez un compte sur GEE, et que vous êtes familier avec la configuration, les formats de données et les fonctions de GEE.  Si vous avez besoin d'aide pour ces étapes, veuillez retourner au module 1.1.
 
 
-| **Composante de la classification** |           **grande ligne**            |   **Module**    |
-| :---------------------------------: | :-----------------------------------: | :-------------: |
-|                Image                | Composite Landsat 8 d'une seule année |   Module 1.1    |
-|       Données d'apprentissage       |         données de références         |   Module 1.2    |
-|           Classificateur            |                 CART                  | Module Actuelle |
+**Classification component**|**Item used here**|**Process on OpenMRV**|**Tool on OpenMRV**
+:-----:|:-----:|:-----:|:-----:|
+Image|Landsat 8 composite from a single year|Pre-processing|GEE
+Training data|Point data|Training data collection|GEE
+Classifier|CART|Classification (current tutorial)|GEE (current tutorial)
 
 ### 3.1.1 Préparez-vous :  Charger le script
 
@@ -253,7 +253,7 @@ var training_extract = l8compositeMasked.select(bands_to_use).sampleRegions({
 ***code:***  
 
 ```javascript
-	var bands_to_use = ['B2', 'B3', 'B4', 'B5', 'B6', 'B7']
+var bands_to_use = ['B2', 'B3', 'B4', 'B5', 'B6', 'B7']
 ```
 Les noms des bandes peuvent être trouvés dans la description de la source d'image originale, ici Landsat 8. Notez que les noms sont spécifiés comme une liste de valeurs de chaîne. 
 
@@ -701,7 +701,7 @@ Bien que le Cambodge n'ait pas les régions semi-arides du Mozambique, il est mo
 
 # 6.0 FAQs
 
-*Et si certaines zones sont presque toujours nuageuses, quel que soit le nombre d'années d'imagerie dont je dispose ?*
+**Et si certaines zones sont presque toujours nuageuses, quel que soit le nombre d'années d'imagerie dont je dispose?**
 
 Il y a plusieurs options :
 
@@ -709,7 +709,7 @@ Il y a plusieurs options :
 - Envisagez d'utiliser une autre source d'imagerie optique passive à la place ou en plus de votre image originale. Par exemple, il pourrait être possible de combiner l'imagerie Sentinel-2 avec l'imagerie Landsat pour inclure les chances de trouver des observations de pixels sans nuages. 
 - Envisagez d'utiliser des images provenant de capteurs Radar qui peuvent cartographier la surface terrestre même en présence de nuages.  Cependant, tous les types de capteurs ont leurs propres problèmes à prendre en compte lors de la construction de cartes, et l'imagerie radar ne fait pas exception.  Veuillez consulter le manuel SAR [citer] pour un traitement approfondi de l'imagerie SAR. 
 
-*Une fois que j'ai construit un classificateur en une année, puis-je l'appliquer à l'imagerie des autres années pour faire des cartes annuelles?*
+**Une fois que j'ai construit un classificateur en une année, puis-je l'appliquer à l'imagerie des autres années pour faire des cartes annuelles?**
 
 La réponse courte est que ce n'est pas recommandé.  L'espace de données spectrales de votre imagerie d'entraînement est particulier aux conditions dans lesquelles elle a été enregistrée : les valeurs spectrales par pixel varient en fonction des aléas des dates de visualisation des pixels, du degré d'exactitude de la correction atmosphérique, de la saisonnalité de la végétation d'une année par rapport à une autre, etc.  En première approximation, nous espérons que le lien global entre les données spectrales et les conditions du sol est solide, mais en marge des classes, ou dans les classes qui ont un degré élevé de variabilité d'une année à l'autre, les différences peuvent être assez spectaculaires.  Il y a deux façons fondamentales d'aborder cette question :  1) créer de nouvelles classifications chaque année ou 2) utiliser un outil pour stabiliser les données spectrales dans le temps.  
 
