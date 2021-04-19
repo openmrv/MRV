@@ -134,7 +134,7 @@ Särndal y col. (1992) [^ fn2] define una encuesta como una “investigación pa
 
 Un "diseño total de la encuesta" define los procedimientos para "obtener la posible precisión en las estimaciones de la encuesta mientras se logra un equilibrio entre los errores de muestreo y los no muestrales [...] El diseño de la encuesta da lugar a operaciones de encuesta" como la selección de la muestra (Särndal et al., 1992) [^ fn2]. Lohr (1999) [^ fn5] describe un diseño de encuesta total como "Una filosofía de diseño de encuesta para minimizar los errores de muestreo y de no muestreo". Además, en Lohr (1999) “diseño de encuestas” es sinónimo de diseño de muestreo.
 
-## Referencias
+## 6 Referencias
 
 Cochran, W.G., 1977. Sampling Techniques, John Wiley & Sons, New York, NY.
 
