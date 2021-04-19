@@ -42,9 +42,9 @@ group:
   etapa: Detección de cambio
 ---
 
-# Modul0 2.2 Detección y Clasificación Continua de Cambio (CCDC)
+# Detección y Clasificación Continua de Cambio (CCDC)
 
-## 1.0 Contexto
+## 1 Contexto
 
 
 #### 1.1 Monitoreo de Cambio Terrestre
@@ -54,7 +54,7 @@ Los cambios en la cobertura del suelo afectan los entornos naturales y antropog�
 El monitoreo del cambio de tierra utilizando datos de teledetección requiere metodologías para transformar las imágenes en información útil sobre los cambios en el paisaje. Uno de estos enfoques que se ha aplicado ampliamente es la detección y clasificación continua de cambios (CCDC; Zhu y Woodcock 2014). Este tutorial demostrará cómo se puede aplicar CCDC en Google Earth Engine con el propósito de monitorear el cambio de tierra.
 
 
-## 2.0 Objetivos de aprendizaje
+## 2 Objetivos de aprendizaje
 
 Al final de este tutorial, los usuarios podrán: 
 
@@ -64,28 +64,22 @@ Al final de este tutorial, los usuarios podrán:
 
 ### 2.1 Prerrequisitos para este módulo
 
-- Conceptos de Google Earth Engine (GEE) (por favor refiérase a Sección 1.1 de Modulo 1.1 Creación de mosaico/imagen compuesta para Landsat y Sentinel-2 en Google Earth Engine para encontrar recursos de GEE útiles)
-  - - Obtener una cuenta de usuario
-    - Imágenes en GEE
-    - Sintaxis básico de funciones
-    - Procesamiento básico de imágenes, incluyendo elección de imágenes, filtración de nubes, creación de mosaicos y compuestas 
-  - Es altamente recomendado que complete los tutoriales previos:
-  - Módulo 1
-    - 1.1 Creación de mosaicos/imágenes compuestas para Landsat y Sentinel-2 en Google Earth Engine
-    - 1.2 Recopilación de Datos de Entrenamiento
-      - 1.2.1 Recopilación de Datos de Entrenamiento Usando QGIS, o
-      - 1.2.2 Recopilación de Datos de Entrenamiento Usando Google Earth Engine
-    - 1.3 Clasificación de Cobertura y Uso Terrestre en Google Earth Engine
+* Google Earth Engine (GEE) concepts
+  * Getting a user account
+  * Image handling in GEE
+  * Basic syntax of functions
+  * Basic image processing, including choice of imagery, cloud-screening, mosaicking and compositing
 
-  - Módulo 2
-    - 2.1 Conceptos Básicos de Métodos de Detección de Cambio
-    - 2.2 LandTrendr
+> NOTE: Refer to process "Pre-processing" and tool "GEE" here on OpenMRV for more information and resources for working in Google Earth Engine.
 
 
-## 3.0 Detección de Cambio y Clasificación Continua (CCDC)
 
+## 3 Detección de Cambio y Clasificación Continua (CCDC)
+CCDC se puede ejecutar con Google Earth Engine. Se puede acceder a otras implementaciones de CCDC [aquí](https://github.com/GERSL/CCDC) e incluye implementaciones en C, Python y MATLAB. Para facilitar el análisis en GEE, Arévalo et al (2020) lanzaron una API y una colección de aplicaciones que se demostrarán [aquí](https://gee-ccdc-tools.readthedocs.io/en/latest/).
 
-#### 3.1 Descripción del Algoritmo
+Este tutorial utilizará la implementación de CCDC en GEE, por lo tanto, se necesita una cuenta de GEE. Consulte el Módulo 1 para obtener información adicional sobre GEE. En el primer ejemplo, el proceso se demuestra utilizando la API de CCDC en Camboya. En el segundo ejemplo, el proceso se demuestra en Mozambique utilizando las interfaces gráficas de usuario. Finalmente, el proceso se realiza en Colombia para crear una estratificación de pérdida y ganancia forestal. 
+
+### 3.1 Descripción del Algoritmo
 
 ![alt_text](./images/CCDC/image1.png "image_tooltip")
 
@@ -295,15 +289,7 @@ Coberturas terrestres pueden ser clasificadas usando coeficientes de regresión 
 </table>
 
 
-
-## 3.0 Tutoriales
-
-CCDC se puede ejecutar con Google Earth Engine. Se puede acceder a otras implementaciones de CCDC [aquí](https://github.com/GERSL/CCDC) e incluye implementaciones en C, Python y MATLAB. Para facilitar el análisis en GEE, Arévalo et al (2020) lanzaron una API y una colección de aplicaciones que se demostrarán [aquí](https://gee-ccdc-tools.readthedocs.io/en/latest/).
-
-Este tutorial utilizará la implementación de CCDC en GEE, por lo tanto, se necesita una cuenta de GEE. Consulte el Módulo 1 para obtener información adicional sobre GEE. En el primer ejemplo, el proceso se demuestra utilizando la API de CCDC en Camboya. En el segundo ejemplo, el proceso se demuestra en Mozambique utilizando las interfaces gráficas de usuario. Finalmente, el proceso se realiza en Colombia para crear una estratificación de pérdida y ganancia forestal. 
-
-
-#### 3.1 Camboya: API de CCDC
+### 3.2 Camboya: API de CCDC
 
 El caso de prueba en Camboya se demostrará aquí utilizando la API de CCDC. Este mismo proceso se puede realizar en la GUI siguiendo las instrucciones que se describen a continuación en el ejemplo de Mozambique.
 
