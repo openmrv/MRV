@@ -171,7 +171,7 @@ La GUI la proporcionan los desarrolladores de LandTrendr en el laboratorio eMapR
 
 #### 3.2.1 Open the GUI
 
-En el repositorio común de OpenMRV, busque y abra el script llamado: ** LT-GEE-Vis-DownLoad-app_WB_v1.0**. Cuando se carga y ejecuta, este script crea una GUI LandTrendr-GEE. 
+En el repositorio común de OpenMRV, busque y abra el script llamado: **LT-GEE-Vis-DownLoad-app_WB_v1.0**. Cuando se carga y ejecuta, este script crea una GUI LandTrendr-GEE. 
 
 Tenga en cuenta que esta GUI requiere acceso a dos bibliotecas de funciones de utilidad: una que maneja el procesamiento de imágenes y otra que maneja la interfaz GUI. Los usuarios no necesitan cambiar nada en el script para acceder a ellos, pero es útil reconocer que se están llamando a estas bibliotecas externas. Aunque originalmente desarrolladas por el laboratorio eMapR, por conveniencia, como se señaló anteriormente, estas bibliotecas se copiaron a fines de 2020 en el repositorio común de este módulo de capacitación.
 
@@ -181,7 +181,7 @@ Tenga en cuenta que esta GUI requiere acceso a dos bibliotecas de funciones de u
 
 La GUI de LT consta de tres paneles: un panel de control a la izquierda, un panel de informes a la derecha y un panel de mapa en el centro.
 
-`! [_ figG1_overviewGUI] (./figures/_figG1_overviewGUI.png)`
+![_figG1_overviewGUI](./figures/_figG1_overviewGUI.png)
 
 Un video que muestra la orientación básica de la GUI está aquí: https://youtu.be/tdpuxV7Ad8g
 
@@ -195,7 +195,7 @@ La forma de inicio más sencilla para comprender LandTrendr es aplicar los algor
 
 Para acceder al modo de puntos, seleccione el menú "Opciones de serie temporal de píxeles". Debería ver una ventana similar a esta:
 
-`! [_ fig_time_series] (./figures/_fig_time_series.png)`
+![_ fig_time_series](./figures/_fig_time_series.png)
 
 Puede hacer clic en un punto del mapa y esperar pacientemente, o escribir coordenadas y luego hacer clic en el botón "Enviar píxel".
 
@@ -209,7 +209,7 @@ Longitud: -74.43198, Latitud: 2.73876
 
 Debería ver algo como esto:
 
-`! [_ fig_time_series_example1] (./figures/_fig_time_series_example1.png)`
+![_ fig_time_series_example1](./figures/_fig_time_series_example1.png)
 
 El gráfico de series de tiempo a la derecha es la clave para aprender a interpretar. Muestra exactamente lo que está haciendo el algoritmo y se basa en las teorías señaladas anteriormente en las secciones introductorias.
 
@@ -264,7 +264,7 @@ Aunque la alteración del bosque como la que se muestra en nuestro ejemplo inici
 
 Longitud: -74.45873, 2.65730
 
-`! [pixel_degrade_maybe] (./figures/pixel_degrade_maybe.png)`
+![pixel_degrade_maybe](./figures/pixel_degrade_maybe.png)
 
 Características notables: la caída en los valores de origen a mediados de la década de 2000 ocurre durante más de dos años y fue precedida por una disminución lenta aún más prolongada desde el comienzo del registro, lo que sugiere una pérdida persistente de pequeñas cantidades de vegetación. El segmento que muestra un aumento de varios años a partir de aproximadamente 2007 es constante en el tiempo (es decir, no es ruidoso) y persistente (muestra un patrón constante durante varios años). Cuando estos se observan después de una disminución como la observada en el período 2004-2006, es una evidencia que respalda que la disminución fue real y no un artefacto.
 
@@ -284,7 +284,7 @@ Longitud: -74.06598, Latitud: 2.692711
 
 Y deberías ver esta trayectoria:
 
-`![pixel_river_dist_rec] (./figures/pixel_river_dist_rec.png)`
+![pixel_river_dist_rec](./figures/pixel_river_dist_rec.png)
 
 Características notables: En la señal de origen, vemos una disminución de varios años en la señal NBR desde aproximadamente 1990 a 1997 o 1998, luego de una breve recuperación rápida y una recuperación más prolongada y lenta desde aproximadamente 1999 hasta el presente. Al final de la serie temporal, podríamos esperar ver un dosel en recuperación.
 
@@ -306,7 +306,7 @@ En la GUI, puede ejecutar LandTrendr usando muchos índices. Echemos un vistazo 
 
 Sin cambiar la Longitud o Latitud, simplemente haga clic en las casillas de verificación junto a "NDVI" y "B5", y haga clic en el cuadro "Submit Pixel", como se muestra aquí:
 
-! [timeseries_menu_with_ndvi_and_b5] (./figures/timeseries_menu_with_ndvi_and_b5.png)
+![timeseries_menu_with_ndvi_and_b5](./figures/timeseries_menu_with_ndvi_and_b5.png)
 
 Ahora debería ver dos gráficos más en el panel de informes de la derecha, con el siguiente aspecto:
 
@@ -1343,23 +1343,20 @@ Mezclar tipos de sensores puede resultar muy complicado. Requiere un procesamien
 
 ## 8 Referencias
 
-Crist, E. P. 1985, A TM tasseled cap equivalent transformation for re􏰝flectance factor data. __Remote Sensing of Environment__, 17: 301–306.
 
-Kennedy, Robert E.; Yang, Zhiqiang; Cohen, Warren B.  2010, Detecting trends in forest disturbance and recovery using yearly Landsat time series: 1. LandTrendr - Temporal segmentation algorithms. **Remote Sensing of Environment** 114(12): 2897-2910.
+Crist, E.P., 1985. A TM tasseled cap equivalent transformation for reflectance factor data. *Remote Sensing of Environment*, *17*(3), pp.301-306. https://doi.org/10.1016/0034-4257(85)90102-6
 
-Cohen, Warren B; Yang, Zhiqiang; Kennedy, Robert E.  2010, Detecting trends in forest disturbance and recovery using yearly Landsat time series: 2. TimeSync - Tools for calibration and validation. **Remote Sensing of Environment** 114(12): 2911-2924.
+Kennedy, R.E., Yang, Z. and Cohen, W.B., 2010. Detecting trends in forest disturbance and recovery using yearly Landsat time series: 1. LandTrendr—Temporal segmentation algorithms. *Remote Sensing of Environment*, *114*(12), pp.2897-2910. https://doi.org/10.1016/j.rse.2010.07.008
 
-Cohen, Warren B; Yang, Zhiqiang; Healey, Sean P.; Kennedy, Robert E.; Gorelick, Noel. 2018, A LandTrendr multispectral ensemble for forest disturbance detection. **Remote Sensing of Environment** 205: 131-140. 
+Cohen, W.B., Yang, Z. and Kennedy, R., 2010. Detecting trends in forest disturbance and recovery using yearly Landsat time series: 2. TimeSync—Tools for calibration and validation. *Remote Sensing of Environment*, *114*(12), pp.2911-2924. https://doi.org/10.1016/j.rse.2010.07.010
 
-Kennedy, Robert E.; Ohmann, Janet; Gregory, Matt; Roberts, Heather; Yang, Zhiqiang; Bell, David M.; Hughes, M. Joseph; Cohen, Warren B.; Powell, Scott. 2018, An empirical, integrated forest biomass monitoring system. __Environ. Res. Lett.__ 13: 025004
+Cohen, W.B., Yang, Z., Healey, S.P., Kennedy, R.E. and Gorelick, N., 2018. A LandTrendr multispectral ensemble for forest disturbance detection. *Remote Sensing of environment*, *205*, pp.131-140. https://doi.org/10.1016/j.rse.2017.11.015
 
-Powell, S.L.; Cohen, W.B.; Healey, S.P.; Kennedy, R.E.; Moisen, G.G.; Pierce, K.B.; Pierce, K.B.; Ohmann, J.L., 2010, Quantification of live aboveground forest biomass dynamics with Landsat time-series and field inventory data: A comparison of empirical modelling approaches. __Remote Sens. Environ.__ **2010**, 114: 1053–1068.
+Kennedy, R.E., Ohmann, J., Gregory, M., Roberts, H., Yang, Z., Bell, D.M., Kane, V., Hughes, M.J., Cohen, W.B., Powell, S. and Neeti, N., 2018. An empirical, integrated forest biomass monitoring system. *Environmental Research Letters*, *13*(2), p.025004. https://doi.org/10.1088/1748-9326/aa9d9e
 
-Roy, D.P., Kovalskyy, V., Zhang, H.K., Vermote, E.F., Yan, L., Kumar, S.S, Egorov, A., 2016, Characterization of Landsat-7 to Landsat-8 reflective wavelength and normalized difference vegetation index continuity, Remote Sensing of Environment, 185, 57-70.(http://dx.doi.org/10.1016/j.rse.2015.12.024)
+Powell, S.L., Cohen, W.B., Healey, S.P., Kennedy, R.E., Moisen, G.G., Pierce, K.B. and Ohmann, J.L., 2010. Quantification of live aboveground forest biomass dynamics with Landsat time-series and field inventory data: A comparison of empirical modeling approaches. *Remote Sensing of Environment*, *114*(5), pp.1053-1068. https://doi.org/10.1016/j.rse.2009.12.018
 
-
-
-
+Roy, D.P., Kovalskyy, V., Zhang, H.K., Vermote, E.F., Yan, L., Kumar, S.S. and Egorov, A., 2016. Characterization of Landsat-7 to Landsat-8 reflective wavelength and normalized difference vegetation index continuity. *Remote Sensing of Environment*, *185*, pp.57-70. http://dx.doi.org/10.1016/j.rse.2015.12.024
 
 -----
 
@@ -1371,40 +1368,15 @@ Copyright 2020, World Bank
 
 Este trabajo fue desarrollado por Robert E Kennedy bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionadas a la Medida, Reportaje, y Verificación para el apoyo de implementación MRV en varios países. 
 
-
-
 Material revisado por:
-
 Foster Mensah  / Center for Remote Sensing and Geographic Information Services, Ghana
-
 Jennifer Juliana Escamilla Valdez / Minsiterio de Medio Ambiente y Recursos Naturales, El Salvador
-
 Raja Ram Aryal /  Ministry of Forests and Environment, Nepal
-
 KONAN Yao Eric Landry / REDD+ Permanent Executive Secretariat, Cote d'Ivoire
-
 Carole Andrianirina / BNCCREDD+, Madagascar
-
 Tatiana Nana / REDD+ National Coordination MINEPDED Ministry of Environment, Cameroon
 
-
-
 Atribución:
-
 Kennedy, Robert E . 2021. Change detection with LandTrendr in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
- 
-![](figures/wb_fcfc_gfoi.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
+ ![](figures/wb_fcfc_gfoi.png)
