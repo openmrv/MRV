@@ -144,7 +144,6 @@ El diseño de un proyecto es un proceso iterativo y probablemente necesitará re
 
 * Comprender la terminología del Módulo 3.1 y tener un diseño de muestra establecido, que se describe en los Módulos 3.2 y 3.3.
 * Un entendimiento general de la interpretación de imágenes. La interpretación de imágenes es el proceso de mirar imágenes de resolución espacial moderada, alta, o muy alta (de satélites o fotografía aérea) y etiquetar los objetos de interés en sus ubicaciones de muestra. Interpretación de imágenes es la habilidad clave para efectivamente ejecutar cualquier proyecto de Collect Earth desktop. 
-* Se recomienda que comprenda los tutoriales anteriores de los Módulos 1 y 2
 
 ## 3 Tutorial: Collect Earth Desktop
 
@@ -463,27 +462,27 @@ El archivo CSV, que se puede abrir en Excel, tabula todos los datos que se han i
 
 ## 4 Preguntas Frecuentes
 
-**¿Cuándo debería usar CE? **
+**¿Cuándo debería usar CE?**
 
 Úselo cuando desee trabajar sin conexión (CE) y si necesita más opciones para la exportación de datos que .csv (CE).
 
-**¿Cómo instalo CE? **
+**¿Cómo instalo CE?**
 
 Vaya a http://www.openforis.org/tools/collect.html. Aquí puede descargar la aplicación “Collect” haciendo clic en “Descargar última versión” y seleccionando la versión correcta. Descargue e instale Collect en su computadora. Si es necesario, consulte la ayuda de instalación disponible en http://www.openforis.org/tools/collect/tutorials/installation.html.
 
-**¿Qué reglas existen para nombrar mi encuesta? **
+**¿Qué reglas existen para nombrar mi encuesta?**
 
 Su título debe ser todo en minúsculas sin espacios, la herramienta convertirá automáticamente mayúsculas a minúsculas y espacios a guiones bajos (_).
 
-**¿Con qué frecuencia debo guardar mi proyecto? **
+**¿Con qué frecuencia debo guardar mi proyecto?**
 
 Siempre que realice un cambio que afecte a su encuesta, considere guardar. Alternativamente, considere ahorrar cada pocos minutos mientras trabaja activamente.
 
-**Si mi sesión se agota, ¿cómo regreso a la ventana de mi encuesta? **
+**Si mi sesión se agota, ¿cómo regreso a la ventana de mi encuesta?**
 
 Si su sesión se agota o si cierra la ventana accidentalmente, puede volver a la ventana Editar encuesta haciendo clic en Diseñador de encuestas -> Lista de encuestas -> haga clic en el nombre de su encuesta -> Editar encuesta.
 
-**¿Existen reglas para los nombres de las listas de códigos? **
+**¿Existen reglas para los nombres de las listas de códigos?**
 
 Cualquier nombre para cualquier lista de códigos que cree DEBE estar en minúsculas y sin espacios.
 
@@ -497,7 +496,7 @@ El archivo csv debe contener las siguientes categorías en el siguiente orden:
 - srs_id: id del sistema de referencia de coordenadas, las mismas configuraciones Coordinate Reference Systems usadas en la encuesta; y
 - cualquier columnas adicionales (hasta un máximo de 10) pueden ser agregadas a un archivo csv para registrar información adicional relacionada a los puntos de muestreo (por ejemplo pendiente, unidades administrativas, etc.)
 
-**¿Cuáles son algunos consejos para la interpretación de imágenes? **
+**¿Cuáles son algunos consejos para la interpretación de imágenes?**
 
 - A continuación se ofrecen algunos consejos para la interpretación de imágenes:
 
@@ -506,7 +505,7 @@ El archivo csv debe contener las siguientes categorías en el siguiente orden:
    - El agua en cuerpos de agua más grandes a menudo aparece negra u oscura hasta que se aleja.
    - Las plantaciones de árboles pueden parecer bosques hasta que se aleje y vea el patrón regular de árboles plantados.
 
-**¿Dónde puedo encontrar ayuda adicional? **
+**¿Dónde puedo encontrar ayuda adicional?**
 
 Para obtener más ayuda con Collect Earth, vaya a openforis.org y haga clic en "Community Support" en la barra de navegación superior.
 
@@ -546,7 +545,7 @@ Datos que caracterizan la evaluación disponible más precisa de la condición r
 
 La evaluación disponible más precisa de la verdadera condición de una unidad de población.
 
-### Clasificación de referencia 
+### 5.9 Clasificación de referencia 
 
 La clasificación de referencia aplicada a la colección de todas las unidades de muestra.
 
