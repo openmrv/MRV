@@ -1,5 +1,5 @@
 ---
-​---
+
 title: Analysis of sample data collected under stratified random sampling
 summary: In this tutorial we will apply various estimators to a sample dataset to estimate characteristics of the population sampled -- i.e. characteristics of the study area such as the area of forest disturbance. This tutorial will focus on sampled data collected under stratified random sampling
 author: Pontus Olofsson
@@ -19,12 +19,12 @@ tags:
 group:
 - category: Stratified
   stage: Area Estimation/Accuracy assessment
-​---
+
 ---
 
 # Analysis of sample data collected under stratified random sampling
 
-## 1. Contexto
+## 1 Contexto
 
 En los tutoriales anteriores, diseñamos y extrajimos una muestra del país de Colombia, y observamos y registramos las condiciones de cobertura del suelo de referencia en las ubicaciones de las unidades de muestra. La recopilación de observaciones de referencia se denomina resultados o datos de la muestra, o clasificación de referencia. En este tutorial aplicaremos varios estimadores a los datos de la muestra para estimar las características de la población que muestreamos, es decir, características del país de Colombia, como el área de perturbación forestal. Un estimador es “La regla por la cual una estimación de alguna característica de la población [es decir, parámetro] *μ* se calcula a partir de los resultados de la muestra ”(Cochran, 1977, p. 11) [^ fn1]. Tenga en cuenta que un estimador no es lo mismo que una estimación, sino que "un estimador es una función de la muestra, mientras que una estimación es el valor realizado de un estimador (es decir, un número) que se obtiene cuando una muestra es realmente tomado ”(Casella & Berger, 2002, p. 312) [^ fn2]. Un estimador tiene dos propiedades importantes: varianza y sesgo. El sesgo de un estimador *μ ^* de un parámetro de población *μ* es la diferencia entre *μ* y el valor esperado de *μ ^* en todas las muestras posibles; es decir, [![img](https://camo.githubusercontent.com/0a124237fea316e5d657b6f75cfa463307793bdf49738b559fbb5426df5f67a9/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f253543696e6c696e652673706163653b25354374657874757025374242696173253744282535436861742537422535436d75253744292673706163653b3d2673706163653b25354374657874757025374245253744282535436861742537422535436d75253744292673706163653b2d2673706163653b2535436d75)](https://camo.githubusercontent.com/0a124237fea316e5d657b6f75cfa463307793bdf49738b559fbb5426df5f67a9/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f253543696e6c696e652673706163653b25354374657874757025374242696173253744282535436861742537422535436d75253744292673706163653b3d2673706163653b25354374657874757025374245253744282535436861742537422535436d75253744292673706163653b2d2673706163653b2535436d75) (Casella & Berger, 2002, p. 330)[^fn2] Si [![img](https://camo.githubusercontent.com/e5e04116142d61c833f0e7b6448aaf64d482b730db11cb20b4661a866906ec93/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f253543696e6c696e652673706163653b25354374657874757025374242696173253744282535436861742537422535436d75253744292673706163653b3d2673706163653b25354374657874757025374245253744282535436861742537422535436d75253744292673706163653b2d2673706163653b2535436d753d30)](https://camo.githubusercontent.com/e5e04116142d61c833f0e7b6448aaf64d482b730db11cb20b4661a866906ec93/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f253543696e6c696e652673706163653b25354374657874757025374242696173253744282535436861742537422535436d75253744292673706163653b3d2673706163653b25354374657874757025374245253744282535436861742537422535436d75253744292673706163653b2d2673706163653b2535436d753d30), entonces se considera que el estimador es insesgado. Tenga en cuenta que debido a que una estimación es un número, no tiene varianza ni sesgo y, por lo tanto, no puede ser insesgado.
 
@@ -264,7 +264,19 @@ Särndal y col. (1992) [^ fn2] define una encuesta como una “investigación pa
 
 Un "diseño total de la encuesta" define los procedimientos para "obtener la posible precisión en las estimaciones de la encuesta mientras se logra un equilibrio entre los errores de muestreo y los no muestrales [...] El diseño de la encuesta da lugar a operaciones de encuesta" como la selección de la muestra (Särndal et al., 1992) [^ fn2]. Lohr (1999) [^ fn5] describe un diseño de encuesta total como "Una filosofía de diseño de encuesta para minimizar los errores de muestreo y de no muestreo". Además, en Lohr (1999) “diseño de encuestas” es sinónimo de diseño de muestreo
 
-## Referencias
+### 5.7 Datos de referencia 
+
+Datos que caracterizan la evaluación disponible más precisa de la condición real en la ubicación de la muestra (ejemplo: imágenes de satélite de resolución fina).
+
+### 5.8 Observaciones de referencia
+
+La evaluación disponible más precisa de la verdadera condición de una unidad de población.
+
+### 5.9 Clasificación de referencia 
+
+La clasificación de referencia aplicada a la colección de todas las unidades de muestra.
+
+## 6 Referencias
 
 Cochran, W.G., 1977. *Sampling Techniques*, John Wiley & Sons, New York, NY.
 
@@ -277,8 +289,6 @@ Rice, J.A., 1995. *Mathematical Statistics and Data Analysis* (2nd ed.), Duxbury
 Stehman, S.V., 2013. Estimating area from an accuracy assessment error matrix. Remote Sensing of Environment, 132, pp.202-211. https://doi.org/10.1016/j.rse.2013.01.016
 
 Stehman, S.V., 2014. Estimating area and map accuracy for stratified random sampling when the strata are different from the map classes. International Journal of Remote Sensing, 35(13), pp.4923-4939. https://doi.org/10.1080/01431161.2014.930207
-
-## 
 
 -----
 
