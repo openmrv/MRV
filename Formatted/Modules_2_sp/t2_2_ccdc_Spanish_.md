@@ -1114,29 +1114,32 @@ En el ejemplo siguiente, la paleta de colores de la leyenda es:
 
 
 
-## Preguntas Frecuentes
+## 4 Preguntas Frecuentes
 
-**¿Se puede realizar la CCDC utilizando otras fuentes de datos? **
+**¿Se puede realizar la CCDC utilizando otras fuentes de datos?**
 Técnicamente, sí. Aunque la CCDC se diseñó para datos Landsat, técnicamente es independiente de los datos y, por lo tanto, podría realizarse utilizando cualquier fuente de datos con un registro de series de tiempo denso.
 
 **¿Donde puedo encontrar las versiones mas recientes de las aplicaciones CCDC?**
 Las versiones mas recientes de las GUIs y API se pueden encontrar aquí:  https://gee-ccdc-tools.readthedocs.io
 
-**¿Se puede analizar el CCDC sin la API o GUIs? **
+**¿Se puede analizar el CCDC sin la API o GUIs?**
 Si, CCDC se puede realizar usando solo la API de de JavaScript. Sin embargo, la complejidad de los insumos y los resultados calculados han sido un desafío para usuarios nuevos (incluso usuarios avanzados). Por lo tanto, creamos la API y las aplicaciones para facilitar el análisis. 
 
-**¿A quién se le debe acreditar por crear la CCDC? **
+**¿A quién se le debe acreditar por crear la CCDC?**
 La CCDC se introdujo originalmente en Zhu y Woodcock (2014). La implementación de GEE fue escrita por Noel Gorelick y Yang Zhiqiang. Ha habido muchos otros contribuyentes al algoritmo CCDC y las aplicaciones utilizadas aquí, en particular el [Programa LCMAP del USGS](https://github.com/repository-preservation/lcmap-pyccd), el [Laboratorio de percepción remota ambiental global](https://gerslab.uconn.edu/) y el [Proyecto de estimación y cartografía de la cobertura terrestre mundial](http://sites.bu.edu/measures/). Las GUI y API son escritas y administradas principalmente por Paulo Arévalo y Eric Bullock. 
 
-**Los coeficientes de cambio no se pueden exportar, ¿qué debo hacer? **
+**Los coeficientes de cambio no se pueden exportar, ¿qué debo hacer?**
 El cálculo de los coeficientes de cambio es la parte más computacionalmente intensiva de CCDC. Es por eso que la amable gente de Google ha creado un conjunto de datos de coeficientes globales. Aunque utiliza un conjunto predeterminado de parámetros de cambio para todo el mundo, se ha demostrado que los parámetros funcionan relativamente bien en diferentes entornos. Por lo tanto, debe considerarse como una alternativa útil a los coeficientes creados por el usuario.
 
 
-#### 4.0 Referencias
+#### 5 Referencias
 
 Zhu, Z., Woodcock, C.E., 2014. Continuous change detection and classification of land cover using all available Landsat data. Remote Sens. Environ. 144, 152–171. https://doi.org/10.1016/j.rse.2014.01.011
 
-![](./images/CODED/cc.png)  
+-----
+
+![](figures/cc.png)  
+
 Este trabajo tiene licencia bajo [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
 Copyright 2020, World Bank 
@@ -1153,4 +1156,4 @@ Adrianirina Carole, Madagascar, BNCCREDD+
 
 Atribución
 Bullock, E. 2020. Continuous Change Detection and Classification (CCDC). © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)  
-![](./images/CODED/WB_FCPF2.png)![](images/CODED/GFOI2.png)
+![](figures/wb_fcfc_gfoi.png)
