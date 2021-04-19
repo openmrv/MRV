@@ -43,38 +43,6 @@ group:
 
 # LandTrendr
 
-## 2 Objetivos de aprendizaje
-
-Al final del módulo, usuarios podrán: 
-
-- Interpretar valores espectrales de series temporales anuales para discriminar entre cambio real en la condición de cobertura terrestre y artefactos espectrales causados por otros factores. 
-- Identificar índices espectrales y ventanas de temporalidad que mejor capturan regímenes de disturbios deseados. 
-- Escoger parámetros que mejor capturan los patrones en valores espectrales anuales
-- Interpretar imágenes compuestas temporales de tres bandas en términos de cambio de cobertura terrestre y la robustez de parámetros de ajuste de LandTrendr 
-- Implementar scripts de mapeo de disturbio con LandTrendr a través de la interfaz grafica de usuario (GUI por sus siglas en ingles)
-
-Adicionalmente, usuarios avanzados podrán: 
-
-- Adaptar scripts de LandTrendr GEE para crear mapas de disturbios y recuperación en áreas de interés 
-
-### 2.1 Prerrequisitos para este módulo
-
-* Conceptos de Google Earth Engine (GEE) (por favor refiérase a la Sección 1.1 de Modulo 1.1 Creación de mosaico/imagen compuesta para Landsat y Sentinel-2 en Google Earth Engine para encontrar recursos de GEE útiles)
-  - Obtener una cuenta de usuario
-  - Imágenes en GEE
-  - Sintaxis básico de funciones
-  - Procesamiento básico de imágenes, incluyendo elección de imágenes, filtración de nubes, creación de mosaicos y compuestas 
-* Es altamente recomendado que complete los tutoriales previos:
-  - Módulo 1
-    - 1.1 Creación de mosaicos/imágenes compuestas para Landsat y Sentinel-2 en Google Earth Engine
-    - 1.2 Recopilación de Datos de Entrenamiento
-      - 1.2.1 Recopilación de Datos de Entrenamiento Usando QGIS, o
-      - 1.2.2 Recopilación de Datos de Entrenamiento Usando Google Earth Engine
-    - 1.3 Clasificación de Cobertura y Uso Terrestre en Google Earth Engine
-  - Módulo 2
-    - 2.1 Conceptos Básicos de Métodos de Detección de Cambio
-
-
 # 1.0 Contexto
 
 ## 1.1  Fundamentos Conceptuales de LandTrendr
