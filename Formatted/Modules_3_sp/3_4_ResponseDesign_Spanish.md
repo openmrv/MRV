@@ -82,7 +82,7 @@ En este tutorial, determinaremos las condiciones de referencia examinando un con
 - Para diseño de respuesta usando **Collect Earth Desktop**, por favor refiérase a [3.4.2 Diseño de Respuesta en Collect Earth Desktop](https://github.com/openmrv/MRV/blob/main/Formatted/Modules_3/3_response_design_CE.md)
 - Para diseño de respuesta usando **Collect Earth Online**, por favor refiérase a [3.4.2 Diseño de Respuesta en Collect Earth Online](https://github.com/openmrv/MRV/blob/main/Formatted/Modules_3/3_response_design_CEO.md)
 
-## 5 Terminología relevante para las técnicas de muestreo
+## 1.2 Terminología relevante para las técnicas de muestreo
 
 Una lista de términos relevantes para las técnicas de muestreo e inferencia esta provista en la documentación de AREA2: https://area2.readthedocs.io/en/latest/definitions.html. Abajo hay algunos términos adicionales que no están incluidos en la documentación.
 
