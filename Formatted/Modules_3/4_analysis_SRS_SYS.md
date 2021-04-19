@@ -1,5 +1,5 @@
 ---
-title: Analysis of sample data collected under SRS/SYS
+title: Analysis of sample data collected under simple random and systematic sampling
 summary: In this tutorial we will apply various estimators to a sample dataset to estimate characteristics of the population sampled -- i.e. characteristics of the study area such as the area of forest disturbance. This tutorial focus on sample data collected under SRS/SYS.
 author: Pontus Olofsson
 creation date: February, 2021
@@ -20,7 +20,7 @@ group:
   stage: Area Estimation/Accuracy assessment
 ---
 
-# Analysis of sample data collected under SRS/SYS
+# Analysis of sample data collected under simple random and systematic sampling
 
 ## 1 Background
 
@@ -196,6 +196,6 @@ Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (R
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
 
 Attribution  
-Olofsson, P. 2021. Analysis of sample data collected under SRS/SYS. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+Olofsson, P. 2021. Analysis of sample data collected under simple random and systematic sampling. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](figures/wb_fcfc_gfoi.png)
