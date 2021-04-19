@@ -66,7 +66,7 @@ group:
 
 # Simple random/systematic sampling
 
-## 1. Contexto
+## 1 Contexto
 
 Un método de estimación basado en muestreo puede dividirse en tres componentes diferentes: diseño de muestreo, diseño de respuesta, y análisis (Stehman & Czaplewski, 1998) [^ fn1]. El primer componente, el diseño de muestreo, se ilustra en este tutorial. El diseño de muestreo define el protocolo para seleccionar el subconjunto de unidades, es decir, la muestra, de una población más grande. En nuestro caso, la población es el equivalente al área de estudio, y las características del área de estudio, como el área de una cobertura de suelo, se estiman mediante el análisis de la muestra. Los métodos basados en el muestreo en un contexto geográfico o de teledetección son necesarios porque nos permiten estimar el sesgo del área, la precisión del mapa, y la incertidumbre. Como se explica en el Documento de orientación y métodos de GFOI, simplemente contando píxeles en los mapas para la estimación de las áreas de cobertura terrestre y el cambio de cobertura terrestre producirá resultados erróneos debido a errores de clasificación (GFOI, 2016, p. 125)[^fn2]:
 
@@ -145,41 +145,27 @@ el cual nos da un tamaño de muestra de
 
 La recopilación de observaciones en casi cinco mil ubicaciones de muestra rara vez es posible para un estudio individual. El ejemplo ilustra uno de los inconvenientes de SRS / SYS: debido a que no estamos usando ninguna información sobre la ubicación de la deforestación, se requiere un tamaño de muestra muy grande para lograr una alta precisión. Otra forma más rápida de estimar la muestra en este caso es asumir que necesitamos al menos 30 unidades en áreas de deforestación, lo que requeriría un tamaño de muestra de 30 / 0.014 = 2,142 unidades que es más manejable pero aún grande, y no estamos muestreando para alcanzar un objetivo de precisión. (Baje a la sección **4.3 Asignación** para una explicación de porque 30 es el "numero mágico".)
 
-### 3.3 Muestreo en dos etapas/conglomerado
 
-Debido a la complejidad asociada con el muestreo en dos etapas, hay muchos menos ejemplos de este tipo de diseños en la literatura en comparación con STR y SRS / SYS. Además, no existen reglas fijas para guiar el tamaño de la muestra y las unidades primarias de muestreo (UPM) más que para encontrar un compromiso entre el número total de observaciones y un nivel razonable de incertidumbre para las estimaciones dentro de la UPM (Sannier et al. , 2013) [^ fn9]. En lugar de crear ejemplos, revisaremos dos ejemplos en la literatura.
-
-El primer ejemplo es Potapov et al. (2014) [^ fn7] quien estimó el área de pérdida forestal 2000-2011 en la Amazonía peruana en apoyo de REDD +. La principal fuente de datos de referencia fueron las imágenes comerciales de alta resolución. Se eligió un diseño de dos etapas para ahorrar costos, ya que el presupuesto permitía comprar solo 30 conjuntos de datos de alta resolución. En un diseño de dos etapas, los datos de referencia solo son necesarios para las UPM y no para toda el área de estudio. En consecuencia, el tamaño de la muestra de las 30 UPM se determinó sobre la base de razones presupuestarias y no especificando una precisión objetivo como en los ejemplos anteriores. Se eligió el tamaño de las unidades de suministro de energía de 12 × 12 km para alinearse con las imágenes de alta resolución. Los 5,532 bloques que cubren el área de estudio, cada uno de 12 × 12 km, se separaron en un estrato de cambio forestal alto (337 bloques) y bajo (5,195 bloques), de los cuales se seleccionaron 21 y 9 UPM bajo STR. Esta selección se guió por las reglas de asignación de muestra óptima de Cochran (1977) [^ fn4]. Dentro de cada una de las 30 UPM, se seleccionaron 100 unidades de muestreo secundarias (SSU) según el SRS en la segunda etapa del muestreo.
-
-Un segundo ejemplo se proporciona en Sannier et al. (2013) [^ fn9] quien estimó la proporción de cobertura forestal y deforestación neta en Gabón utilizando un muestreo en dos etapas. Se eligió el muestreo en dos etapas porque representaba un compromiso entre la facilidad de recopilación de datos y la distribución geográfica. El área de estudio se dividió en 251 bloques de 20 × 20 km, cada uno de los cuales se dividió en 100 bloques de 2 × 2 km. En la primera etapa, se seleccionó una PSU de 2 × 2 km en cada uno de los 251 bloques de 20 x 20 km bajo SRS. En la segunda etapa, se seleccionaron 50 SSU correspondientes a un píxel Landsat bajo SRS.
-
-### 3.4 Software que permite la estimación de tamaño de muestra
+### 3.3 Software que permite la estimación de tamaño de muestra
 
 SEPAL/CEO tiene apoyo integrado para estimar el tamaño de muestra como se explica en esta documentación siguiente (en la sección 14).
 
 Esta hoja de calculo es similar a SEPAL y fue desarrollada por el Banco Mundial. También calcula el tamaño de muestra requerido para obtener una precisión de exactitud general: https://onedrive.live.com/view.aspx?resid=9815683804F2F2C7!37340&ithint=file%2cxlsx&authkey=!ANcP-Xna7Knk_EE
 
-### 3.5 Seleccionando la muestra
+### 3.4 Seleccionando la muestra
 
 El paso final del diseño de muestreo es extraer físicamente la muestra del área de estudio, que se trata en el siguiente tutorial.
 
 ## 4 Preguntas Frecuentes
 
-**No entiendo la variable \*qh\* que se usa para calcular el tamaño de la muestra en STR, ¿qué significa?**
-
-La variable *qh* es necesaria para calcular la desviación estándar del estrato *h* y es la proporción del estrato *h* que es la clase objetivo. En el ejemplo anterior, tenemos tres estratos (antes de crear el estrato de amortiguamiento), *h* = 1 es bosque, *h* = 2 no es bosque, y *h* = 3 es perturbación del bosque, siendo este último el objetivo clase. En este caso, *qh* es la proporción de perturbación forestal en cada estrato. Si el mapa fuera perfecto, entonces toda la perturbación del bosque en el área de estudio estaría presente en el estrato de perturbación del bosque y, por lo tanto, *q3* = 1, mientras que *q1* y *q2* serían cero. Ningún mapa es perfecto y tendremos que asumir algún nivel de error de clasificación. Tenga en cuenta que esta información se desconoce en la etapa de diseño y es necesaria una conjetura educada. Por ejemplo, si *q3* = 0.8, entonces asumimos que el 80% de la perturbación del bosque en el estudio está presente en el estrato de perturbación del bosque. Si *q1* = 0.001, entonces asumimos que 0.1% del estrato forestal es perturbación forestal.
-
-**No se como determinar valores de qh --¿qué debo hacer?**
-
-La variable *qh* es, en esencia, una indicación de qué tan bien la estratificación captura la clase de interés. Debido a que los mapas se utilizan normalmente para estratificar el área de estudio, recomendaría revisar la precisión de los mapas anteriores de la misma área. Tenga en cuenta que *qh* para *h* = la clase de interés, es la precisión anticipada del usuario de la clase de interés.
-
 **¿Cómo determino un error estándar objetivo?**
 
 Ciertos programas especifican una precisión deseada o requerida; el Forest Carbon Partnership Facility (FCPF), por ejemplo, estipula un margen de error del 30% con un nivel de confianza del 95% para las estimaciones de superficie de los datos de actividad. El margen de error es 1,96 veces el error estándar dividido por el área estimada. Cuando no se especifican tales requisitos de precisión, es necesario determinar un error estándar objetivo en función de otros criterios. Tenga en cuenta que cuanto menor sea la proporción de área de la clase objetivo, mayor será la muestra necesaria para alcanzar un pequeño margen de error. En consecuencia, para proporciones de área pequeñas, la precisión del objetivo deberá relajarse para evitar tener que seleccionar una muestra muy grande.
 
-**Si utilizo un estrato de búfer, ¿cuántos píxeles debería tener?**
+**How do I know if I can use SRS or if I will need a more complex design such as STR?**
 
-Es difícil proporcionar recomendaciones ya que el tamaño del búfer dependerá de las situaciones. Un búfer más grande probablemente "capturará" más errores de omisión, pero tendrá un mayor peso de estrato. Se recomienda una zona de amortiguamiento más grande en situaciones de una clase de interés pequeña en presencia de un estrato estable grande (como un bosque estable). Los ejemplos en la literatura varían de 1 a 3 píxeles. Una exploración más detallada del impacto del tamaño de la zona de influencia se presenta en Olofsson et al. (2020).
+The easiest way to determine if simple designs such as SRS and SYS viable is to following the equations in this tutorial to determine the sample size required to reach a certain precision. If the sample size required is too large to be managable, then you might need have to use strata when sampling.
+
 
 ## 5 Terminología relevante para las técnicas de muestreo
 
