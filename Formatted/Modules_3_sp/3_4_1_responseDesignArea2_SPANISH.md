@@ -33,12 +33,15 @@ AREA2, short for Area Estimation & Accuracy Assessment, is a Google Earth Engine
 El diseño de respuesta define la "respuesta" de las unidades en una muestra. En el contexto de la inferencia basada en el diseño en un contexto geográfico, "el diseño de respuesta abarca todos los pasos del protocolo que conducen a una decisión sobre el acuerdo de las clasificaciones de referencia y mapa [y] la mejor clasificación disponible de [condiciones de la superficie terrestre] para cada unidad espacial muestreada "(Olofsson et al. 2014) [^ fn1]. De importancia los siguientes términos:
 
 **Datos de referencia**
+
 Datos que caracterizan la evaluación disponible más precisa de la condición real en la ubicación de la muestra (ejemplo: imágenes de satélite de resolución fina).
 
 **Observaciones de referencia**
+
 La evaluación disponible más precisa de la verdadera condición de una unidad de población.
 
 **Clasificación de referencia**
+
 La clasificación de referencia aplicada a la colección de todas las unidades de muestra.
 
 **Diseño de Respuesta**
@@ -128,7 +131,16 @@ Stehman, S.V., & Czaplewski, R.L., 1998. Design and analysis for thematic map ac
 
 Este trabajo tiene licencia bajo un [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) 
 
-Copyright 2020, World Bank. Este trabajo fue desarrollado por Pontus Olofsson bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionadas a la Medida, Reportaje, y Verificación para el apoyo de implementación MRV en varios países. 
+Copyright 2020, World Bank. 
+
+Este trabajo fue desarrollado por Pontus Olofsson bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionadas a la Medida, Reportaje, y Verificación para el apoyo de implementación MRV en varios países. 
+
+Material reviewed by:
+Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources
+Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources
+Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)
+Tatiana Nana, Cameroon, REDD+ Technical Secretariat
 
 Atribución: Olofsson, P. (2021). *Open MRV: Response Design*. World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)
 ![](figures/wb_fcfc_gfoi.png)
