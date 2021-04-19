@@ -114,7 +114,17 @@ Collect Earth Desktop (CE) y Collect Earth Online (CEO) son dos herramientas par
 - Todos los datos están almacenados en la nube en una base de datos. Múltiples usuarios pueden colectar información en el mismo proyecto simultáneamente. Usuarios pueden exportar datos recopilados para una trama o una muestra. En este momento, hay pocas opciones para el formato de datos, pero es compatible con la herramienta de análisis en SEPAL.
 
 
-### 1.4 Objetivos de Aprendizaje
+### 1.4 Resumen
+
+El proceso para crear una encuesta en Recopilar y recopilar datos con Collect Earth Desktop se detalla en los pasos a continuación. El proceso se puede describir generalmente como:
+1. Insertar parámetros y crear la estructura de la encuesta en Collect Survey Designer
+2. Generar una cuadrícula para el lugar donde desea recopilar los datos e insartarla en Collect Survey Designer
+3. Exportar la encuesta (archivo .cep) de Collect Survey Designer y abrirla en Collect Earth Desktop
+4. Recopilar los datos en Collect Earth Desktop
+
+![](./figures/CE_workflow.png)
+
+## 2 Objetivos de Aprendizaje
 
 En este tutorial aprenderá como:
 
@@ -130,23 +140,15 @@ En este tutorial aprenderá como:
 El diseño de un proyecto es un proceso iterativo y probablemente necesitará realizar varias ediciones en los proyectos en Collect y Collect Earth a medida que refina sus objetivos, los esquemas de clasificación de la cobertura terrestre, las fuentes de imágenes, etc. Estos cambios se le pueden hacer a un proyecto antes de que se publique. Esto significa que puede crear un proyecto y recopilar datos de prueba dentro de él, y editar cualquier error que encuentre antes de publicar el proyecto.
 
 
-### 1.3 Prerrequisitos para este modulo
+### 2.1 Prerrequisitos para este modulo
 
 * Comprender la terminología del Módulo 3.1 y tener un diseño de muestra establecido, que se describe en los Módulos 3.2 y 3.3.
 * Un entendimiento general de la interpretación de imágenes. La interpretación de imágenes es el proceso de mirar imágenes de resolución espacial moderada, alta, o muy alta (de satélites o fotografía aérea) y etiquetar los objetos de interés en sus ubicaciones de muestra. Interpretación de imágenes es la habilidad clave para efectivamente ejecutar cualquier proyecto de Collect Earth desktop. 
 * Se recomienda que comprenda los tutoriales anteriores de los Módulos 1 y 2
 
-### 1.4 Resumen
+## 3 Tutorial: Collect Earth Desktop
 
-El proceso para crear una encuesta en Recopilar y recopilar datos con Collect Earth Desktop se detalla en los pasos a continuación. El proceso se puede describir generalmente como:
-1. Insertar parámetros y crear la estructura de la encuesta en Collect Survey Designer
-2. Generar una cuadrícula para el lugar donde desea recopilar los datos e insartarla en Collect Survey Designer
-3. Exportar la encuesta (archivo .cep) de Collect Survey Designer y abrirla en Collect Earth Desktop
-4. Recopilar los datos en Collect Earth Desktop
-
-![](./figures/CE_workflow.png)
-
-## 2 Descargar e instalar Collect 
+## 3.1 Descargar e instalar Collect 
 
 El primer paso es descargar “Collect” del sitio de OpenForis ([http://openforis.org/](http://openforis.org/)).
 
@@ -165,7 +167,7 @@ La ventana del Panel de Control de OpenForis Collect Control Panel se abrirá an
 Después de algunos minutos, un navegador nuevo se abrirá automáticamente en la interfaz de Collect. 
 
 
-## 3 Crear una encuesta
+### 3.2 Crear una encuesta
 
 En esta sección, demostraremos cómo crear una encuesta y modificarla para que se adapte a sus necesidades y se adapte al tipo de datos que está tratando de recopilar.
 
@@ -189,7 +191,7 @@ En la parte inferior de cada pantalla hay un botón Guardar. Guarde sus cambios 
 
 Si su sesión se agota o si cierra la ventana accidentalmente, puede volver a la ventana Editar encuesta haciendo clic en Diseñador de encuestas -> Lista de encuestas -> haga clic en el nombre de su encuesta -> Editar encuesta.
 
-### 3.1 Agregar información de encuesta
+#### 3.2.1 Agregar información de encuesta
 
 En la pestaña de Información, puede editar los detalles de la Encuesta. Agregue un nombre de proyecto y descripción si quiere (por ejemplo "Encuesta de entrenamiento ubicada en Colombia"). 
 
@@ -203,7 +205,7 @@ Asegúrese de guardar su encuesta usando el botón "Save" en la parte inferior d
 
 ![](./figures/collect_edit_survey.JPG)
 
-### 3.2 Agregar listas de código 
+#### 3.2.2 Agregar listas de código 
 
 Ahora navegue a la pestaña de “Code lists”. A mano izquierda puede ver las listas de código predeterminados incluyendo elevación, orientación, y pendiente.          
 
@@ -229,7 +231,7 @@ Si comete un error, puede editar los elementos de la lista existente. También p
 
 Una vez que haya creado sus listas de códigos adicionales, asegúrese de Guardar su trabajo en la parte inferior de la página.
 
-### 3.3 Agregar preguntas de encuesta 
+#### 3.2.3 Agregar preguntas de encuesta 
 
 Ahora haga clic en la pestaña "Schema". La pestaña "Schema" es donde definirá la estructura de la encuesta y qué datos se recopilarán. Debido a que usamos la plantilla Collect Earth, la encuesta ya tendrá definida la "parcela" como el Sampling Unit (la Unidad de Muestreo). En el futuro, si desea diseñar una encuesta diferente, hay más información disponible en [http://www.openforis.org/tools/collect/tutorials/survey-designer.html](http://www.openforis.org/tools/collect/tutorials/survey-designer.html) bajo Schema. 
 
@@ -268,7 +270,7 @@ Se puede ver una vista previa de las preguntas de la encuesta haciendo clic en "
 ![](./figures/collect_preview.JPG)
 ![](./figures/collect_preview2.jpg)
 
-## 4. Agregar una cuadricula de muestreo a Collect
+### 3.3 Agregar una cuadricula de muestreo a Collect
 
 Collect necesita una cuadricula de muestreo que define en donde colectamos datos de la encuesta que acabamos de crear. 
 Presentamos dos opciones aquí:
@@ -276,7 +278,7 @@ Presentamos dos opciones aquí:
 1. Importar un diseño de muestreo existente, como uno creado en Modulo 3.2
 2. Creando e importando una cuadricula de muestreo usando el Generador de Cuadriculas en Google Earth Engine
 
-### 4.1 Importar un diseño existente de muestreo
+#### 3.3.1 Importar un diseño existente de muestreo
 
 Antes de importar un diseño de muestreo existente, debe revisar que el csv tenga el formato correcto. 
 
@@ -301,7 +303,7 @@ Una vez que esté seguro de que la estructura coincide, su archivo csv de cuadr�
 
 Para importar un diseño de muestreo existente, navegue hasta la pestaña "Información". En la pestaña "Información" de su editor de encuestas, vaya a la sección "Archivos adjuntos" y haga clic en el botón verde para adjuntar su archivo de cuadrícula csv. Si su archivo es demasiado grande, es posible que deba dividirlo en varios archivos.
 
-### 4.2 [Opcional] Crear una cuadricula de muestreo para Collect Earth usando el Grid Generator en Google Earth Engine
+#### 3.3.2 Crear una cuadricula de muestreo para Collect Earth usando el Grid Generator en Google Earth Engine
 
 El Grid Generator, o generador de cuadriculas, es una aplicación de Google Earth Engine creada con el Editor de Código de Google Earth Engine. Esta herramienta le permite diseñar y generar una cuadricula para su proyecto de Collect Earth. 
 
@@ -373,7 +375,7 @@ Si su archivo tiene más de 4000 puntos de parcela, será demasiado grande para 
 Ahora que completó las preguntas de la encuesta y adjuntó los archivos de cuadrícula para indicar la ubicación de su recopilación de datos, ahora puede exportar y compartir su encuesta Collect Earth, que se describe en la siguiente sección.
 
 
-## 5 Exportar y compartir su Encuesta de Collect Earth
+### 3.4 Exportar y compartir su Encuesta de Collect Earth
 
 Para compartir su encuesta Collect Earth, vaya a la "List of Surveys" (Lista de encuestas) y haga clic en "Export". Hay varias formas de exportar la encuesta. Por ejemplo, si desea utilizar la encuesta en Collect Earth, deberá cambiar el modo de exportación a "Collect Earth". Si desea crear una copia de seguridad de la información, seleccione “Collect Desktop (backup)” (copia de seguridad) como modo de exportación.
 
@@ -388,7 +390,7 @@ El archivo exportado se descargará como un archivo .cep en la ubicación que ha
 Consulte el siguiente tutorial sobre Collect Earth Desktop Data Collection para saber cómo recopilar datos mediante una encuesta.
 
 
-## 6 Descargar y lanzar Collect Earth
+### 3.5 Descargar y lanzar Collect Earth
 
 Puede descargar Collect Earth del sitio de Open Foris. Visite [http://www.openforis.org/tools/collect-earth.html](http://www.openforis.org/tools/collect-earth.html). Haga clic en "Download latest version", y luego selección la versión de descarga apropiada para su sistema operativo. Instrucciones de instalación se pueden encontrar en [http://www.openforis.org/tools/collect-earth/tutorials/installation.html](http://www.openforis.org/tools/collect-earth/tutorials/installation.html).
 
@@ -404,7 +406,7 @@ Collect Earth iniciará automáticamente Google Earth. Collect Earth junto con G
 
 ![](./figures/google_earth_pro.JPG)
 
-## 7 Colectar Datos
+### 3.6 Colectar Datos
 
 *NOTA: También hay videos de YouTube disponibles que demuestran como recopilar datos en Collect Earth desktop, los cuales se pueden encontrar aquí: [https://www.youtube.com/channel/UCxu8NZPvPxGBjBp0g6LCV4w](https://www.youtube.com/channel/UCxu8NZPvPxGBjBp0g6LCV4w)*
 
@@ -451,7 +453,7 @@ Continúe con el resto de los puntos de la trama de esta manera. Habrá completa
 - Las plantaciones de árboles pueden parecer bosques hasta que se aleje y vea el patrón regular de árboles plantados.
 
 
-## 8 Exportar sus datos 
+### 3.7 Exportar sus datos 
 
 Cuando haya completado su recopilación de datos y desee exportar sus datos de Collect Earth, vaya a la ventana principal de Collect Earth y haga clic en "Importar / Exportar datos" en el menú Herramientas. Aquí puede guardar su archivo como CSV, XML, Collect Backup o Fusion Table. Nombre y guarde su archivo.
 
@@ -459,7 +461,7 @@ El archivo CSV, que se puede abrir en Excel, tabula todos los datos que se han i
 
 ![](./figures/collect_earth_export.JPG)
 
-## Preguntas Frecuentes
+## 4 Preguntas Frecuentes
 
 **¿Cuándo debería usar CE? **
 
@@ -501,16 +503,71 @@ El archivo csv debe contener las siguientes categorías en el siguiente orden:
 
   - Los problemas de estacionalidad pueden ocurrir cuando los diferentes usos de la tierra parecen diferentes entre las estaciones. Por ejemplo, una pradera puede ser de un verde brillante en primavera pero verse marrón en verano. Si solo vio las imágenes marrones, podría pensar que el marrón es tierra y clasificar incorrectamente la pradera como tierra estéril.
   - Acercar y alejar el zoom para recopilar pistas contextuales del paisaje es importante para múltiples usos del suelo y tipos de cobertura del suelo. Por ejemplo:
-    - El agua en cuerpos de agua más grandes a menudo aparece negra u oscura hasta que se aleja.
-    - Las plantaciones de árboles pueden parecer bosques hasta que se aleje y vea el patrón regular de árboles plantados.
+   - El agua en cuerpos de agua más grandes a menudo aparece negra u oscura hasta que se aleja.
+   - Las plantaciones de árboles pueden parecer bosques hasta que se aleje y vea el patrón regular de árboles plantados.
 
 **¿Dónde puedo encontrar ayuda adicional? **
 
 Para obtener más ayuda con Collect Earth, vaya a openforis.org y haga clic en "Community Support" en la barra de navegación superior.
 
+## 5 Terminología relevante para las técnicas de muestreo
 
+Una lista de términos relevantes para las técnicas de muestreo e inferencia esta provista en la documentación de AREA2: https://area2.readthedocs.io/en/latest/definitions.html. Abajo hay algunos términos adicionales que no están incluidos en la documentación.
 
-[![img](https://github.com/openmrv/MRV/raw/main/Formatted/Modules_3/figures/cc.png)](https://github.com/openmrv/MRV/blob/main/Formatted/Modules_3/figures/cc.png)
+### 5.1 Diseño de Respuesta
+
+Definido por Stehman and Czaplewski, 1998[^fn1]: “La referencia o clasificación 'verdadera' se obtiene para cada unidad de muestreo en función de la interpretación de fotografías aéreas o videografías, una visita terrestre o una combinación de estas fuentes. Los métodos utilizados para determinar esta clasificación de referencia se denominan "diseño de respuesta". El diseño de respuesta incluye procedimientos para recopilar información relacionada con la determinación de la cobertura terrestre de referencia y reglas para asignar una o más [etiquetas] de referencia a cada unidad de muestreo ". Conocido como "plan de medición" por Särndal et al. (1992)[^fn2].
+
+### 5.2 Muestra
+
+Un subconjunto de unidades de población seleccionadas de la población.
+
+### 5.3 Diseño de Muestra
+
+Sinónimo de diseño de muestreo, que es el término preferido en la literatura fundamental (Cochran, 1977 [^ fn3], Särndal et al., 1992 [^ fn2]). El término aparece en Rice (1995) [^ fn4] que utiliza tanto "diseño de muestreo" como "diseño de muestra".
+
+### 5.4 Diseño de Muestreo
+
+"El diseño de muestreo es el protocolo mediante el cual se seleccionan las unidades de muestra de referencia". (Stehman y Czaplewski, 1998) [^ fn1]. El “diseño de muestreo” también es utilizado por Cochran (1977) [^ fn3] y Särndal et al. (1992) [^ fn2]- el primero también usa "plan de muestreo".
+
+### 5.5 Encuesta
+
+Särndal y col. (1992) [^ fn2] define una encuesta como una “investigación parcial de una población finita”, y además que “los términos 'encuesta' y 'encuesta por muestreo' se utilizan para denotar investigaciones estadísticas con las siguientes características metodológicas: [. ..] plan de medición [...] de muestreo probabilístico [y] estimación."
+
+### 5.6 Diseño de Encuesta
+
+Un "diseño total de la encuesta" define los procedimientos para "obtener la posible precisión en las estimaciones de la encuesta mientras se logra un equilibrio entre los errores de muestreo y los no muestrales [...] El diseño de la encuesta da lugar a operaciones de encuesta" como la selección de la muestra (Särndal et al., 1992) [^ fn2]. Lohr (1999) [^ fn5] describe un diseño de encuesta total como "Una filosofía de diseño de encuesta para minimizar los errores de muestreo y de no muestreo". Además, en Lohr (1999) “diseño de encuestas” es sinónimo de diseño de muestreo.
+
+### 5.7 Datos de referencia 
+
+Datos que caracterizan la evaluación disponible más precisa de la condición real en la ubicación de la muestra (ejemplo: imágenes de satélite de resolución fina).
+
+### 5.8 Observaciones de referencia
+
+La evaluación disponible más precisa de la verdadera condición de una unidad de población.
+
+### Clasificación de referencia 
+
+La clasificación de referencia aplicada a la colección de todas las unidades de muestra.
+
+## 6 Referencias
+
+Cochran, W.G., 1977. *Sampling Techniques*, John Wiley & Sons, New York, NY.
+
+Lohr, S.L., 1999. *Sampling: Design And Analysis,* CRC Press.
+
+Olofsson, P., Foody, G.M., Herold, M., Stehman, S.V., Woodcock, C.E. and Wulder, M.A., 2014. Good practices for estimating area and assessing accuracy of land change. Remote Sensing of Environment, 148, pp.42-57. https://doi.org/10.1016/j.rse.2014.02.015
+
+Rice, J.A., 1995. *Mathematical Statistics and Data Analysis* (2nd ed.), Duxbury Press, Belmont, CA.
+
+Särndal, C.E., Svensson, B.H., & Wretman, J.H., 1992. *Model assisted survey sampling*, Springer Science & Business Media, New York, NY.
+
+Stehman, S.V., & Czaplewski, R.L., 1998. Design and analysis for thematic map accuracy assessment: fundamental principles. *Remote Sensing of Environment*, 64(3), 331-344. https://doi.org/10.1016/S0034-4257(98)00010-8
+
+-----
+
+![](figures/cc.png)  
+
 
 Este trabajo tiene licencia bajo un [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) 
 
@@ -527,5 +584,4 @@ Tatiana Nana, Cameroon, REDD+ Technical Secretariat
 
 Atribución Bui, Justine and Dyson, Karen. 2021. Module 3.3.2 How to create surveys in Collect and collect data using Collect Earth Desktop. World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)
 
-![](./figures/WB_FCPF.png)
-![](./figures/GFOI.png)
+![](figures/wb_fcfc_gfoi.png)
