@@ -42,9 +42,9 @@ group:
   etapa: Detección de Cambio
 ---
 
-# Módulo 2.3 Detección de Degradación Continua (CODED)
+# Detección de Degradación Continua (CODED)
 
-## 1.0 Contexto
+## 1 Contexto
 
 
 #### 1.1 Degradación Forestal 
@@ -76,36 +76,15 @@ Uso avanzado también incluirá:
 
 - Conceptos de Google Earth Engine (GEE) (por favor refiérase a Sección 1.1 de Modulo 1.1 Creación de mosaico/imagen compuesta para Landsat y Sentinel-2 en Google Earth Engine para encontrar recursos de GEE útiles)
 
-  - - Obtener una cuenta de usuario
-    - Imágenes en GEE
-    - Sintaxis básico de funciones
-    - Procesamiento básico de imágenes, incluyendo elección de imágenes, filtración de nubes, creación de mosaicos y compuestas 
+  - Obtener una cuenta de usuario
+   - Imágenes en GEE
+   - Sintaxis básico de funciones
+   - Procesamiento básico de imágenes, incluyendo elección de imágenes, filtración de nubes, creación de mosaicos y compuestas 
 
-  - Es altamente recomendado que complete los tutoriales previos:
-
-  - Módulo 1
-
-    - 1.1 Creación de mosaicos/imágenes compuestas para Landsat y Sentinel-2 en Google Earth Engine
-    - 1.2 Recopilación de Datos de Entrenamiento
-      - 1.2.1 Recopilación de Datos de Entrenamiento Usando QGIS, o
-      - 1.2.2 Recopilación de Datos de Entrenamiento Usando Google Earth Engine
-    - 1.3 Clasificación de Cobertura y Uso Terrestre en Google Earth Engine
-
-  - Módulo 2
-
-    2.1 Conceptos Básicos de Métodos de Detección de Cambio
-
-    2.2 LandTrendr 
-
-    2.3 Detección de Cambio Continuo y Clasificación (CCDC)
+## 3 Detección de Degradación Continua (CODED)
 
 
-
-
-## 3.0 Detección de Degradación Continua (CODED)
-
-
-#### 3.1 Motivación
+### 3.1 Motivación
 
 En ausencia de un inventario de campo sólido, la única forma viable de hacerlo es utilizar imágenes de observación de la tierra, pero la degradación de la forma que se produce en el paisaje trae consigo consideraciones técnicas que deben abordarse. Para empezar, cualquier enfoque automatizado para la clasificación de imágenes de satélite inevitablemente contendrá errores. Estos errores pueden provenir de muchos factores, incluyendo nubes desenmascaradas y sombras de nubes, datos faltantes (por ejemplo, debido al problema del corrector de línea de escaneo de Landsat 7) y errores de clasificación (por ejemplo, clasificación errónea de la cobertura terrestre o cambio de clases). También sabemos que los trópicos húmedos son especialmente susceptibles a datos perdidos o contaminados debido a las nubes.
 
@@ -127,16 +106,13 @@ Mirando nuevamente el ejemplo de la República Centroafricana, podemos ver adem�
 
 Además, la degradación de los bosques a menudo ocurre a una escala espacial por debajo de la escala nominal de las imágenes de satélite, lo que significa que la suavización espacial de los datos para reducir ruido puede mezclar aún más las señales de bosques estables y perturbados. Por ejemplo, a continuación se muestra un ejemplo de tala selectiva en Fiji. Si bien hay caminos de tala obvios visibles en las imágenes de alta resolución, la mayor parte del paisaje sigue siendo bosque en las imágenes de resolución moderada.
 
-
-#### 
-
 ![alt_text](./images/CODED/img4.jpg "image_tooltip")
 
 
 Estos ejemplos demuestran como la misma naturaleza de degradación forestal representa un desafío significativo para el mapeo usando los métodos tradicionales de análisis de teledetección. 
 
 
-#### 3.2 Monitoreo de Cambio Terrestre
+### 3.2 Monitoreo de Cambio Terrestre
 
 En los últimos años, la comunidad de monitoreo del cambio de la tierra ha adoptado cada vez más la noción de que el análisis de series de tiempo puede aliviar muchos de los problemas que surgen en el análisis de una sola fecha. Los enfoques de series de tiempo pueden monitorear las tendencias a lo largo del tiempo, lo que ayuda a distinguir los cambios terrestres sutiles de los ruidosos y caracterizar los cambios abruptos y graduales. Si bien el monitoreo de cambios tiene una larga historia en campos como la econometría, el procesamiento de señales, el reconocimiento de patrones y el modelado y pronóstico ambiental, la aplicación en el dominio de la teledetección es relativamente nueva.
 
@@ -151,7 +127,7 @@ Los enfoques de series de tiempo para el monitoreo del cambio se han beneficiado
 Aplicaciones tempranas notables del análisis de serie temporal para el monitoreo de cobertura terrestre incluyen LandTrendr (Kennedy e tal., 2010), BFAST (Verbesselt et al., 2010), Vegetation Change Tracker<sup> </sup>(Huang et al., 2010), y Continuous Change Detection and Classification o CCDC <sup> </sup>(Zhu and Woodcock, 2014). Cada uno de estos métodos tienen sus ventajas únicas y han ayudado a establecer la base para el CODED.
 
 
-#### 3.3 Descripción General del Algoritmo
+### 3.3 Descripción General del Algoritmo
 
 
 La metodología CODED tiene tres componentes primarios (ver Bullock et al., 2020 para mas información):
@@ -283,7 +259,7 @@ Note la franja de terreno perturbada en medio de la geometría. Los pixeles clar
 
 ![alt_text](./images/CODED/img7.png "image_tooltip")
 
-#### 3.5 Trayectorias temporales
+### 3.5 Trayectorias temporales
 
 CODED realiza SMA para cada imagen de Landsat disponible en la región de estudio. Luego realiza la detección de cambios utilizando las trayectorias NDFI de series de tiempo. Veamos algunos ejemplos de cómo se ve la serie temporal de NDFI para la degradación y la deforestación. Tenga en cuenta que en estas figuras el eje-y se escala en 10,000.
 
@@ -394,7 +370,7 @@ Compare el ejemplo anterior de una mina que se regenera como bosque con el sigui
 
 ![](./images/CODED/img14.png)
 
-#### 3.6 Detección de Cambio
+### 3.6 Detección de Cambio
 
 Los modelos de regresión se utilizan para predecir observaciones dentro de una ventana móvil. Si los residuos de las observaciones en la ventana superan un valor crítico, se detecta un cambio. Observe que debajo de los triángulos son las observaciones en la ventana móvil. Los triángulos azules son las observaciones predichas, mientras que el amarillo y el rojo representan cambios de magnitud alta y baja, respectivamente. A continuación, el proceso se repite con un nuevo ajuste de regresión a las observaciones posteriores.
 
@@ -420,14 +396,14 @@ donde *chi2 ppf* es la función de probabilidad de densidad del  *chiSquareProba
 Un *chiSquareProbability* mas bajo tiene el efecto de incrementar la sensibilidad de CODED al cambio, por lo tanto encuentra mas cambios que cuando se usa un *chiSquareProbability* mas alto. 
 
 
-#### 3.7 Atribución de Cambio
+### 3.7 Atribución de Cambio
 
 Disturbios son atribuidos como deforestación o degradación basado en la cobertura terrestre después del disturbio. Si hay una conversión de bosque a no-forestal (por ejemplo, pastizal, asentamientos, o agricultura), el disturbio es considerado deforestación. Si la regeneración comienza después del disturbio es etiquetado degradación. El proceso de atribución se puede describir generalmente de acuerdo al flujo de trabajo siguiente: 
 
 ![alt_text](./images/CODED/img16.png "image_tooltip")
 
 
-## 4.0 Ejecutar CODED con una Interfaz de Usuario Grafica 
+## 4 Ejecutar CODED con una Interfaz de Usuario Grafica 
 
 CODED se puede ejecutar con una interfaz de usuario grafica (GUI por sus siglas en ingles) llamada ‘Forest Disturbance  Mapping GUI’ (GUI de Mapeo de Perturbaciones Forestales), la cual se puede encontrar en el repositorio Open MRV. Note que la versión en el repositorio es un momento en el tiempo y la versión mas reciente se puede encontrar aquí: [https://coded.readthedocs.io](https://coded.readthedocs.io). 
 
@@ -478,10 +454,10 @@ Como se puede ver en la Figura 1, la aplicación contiene varios componentes que
 *   La pestaña de tareas es una característica predeterminada de la interfaz web de GEE y se utiliza para enviar trabajos para su procesamiento. Las tareas se pueden utilizar para exportar imágenes y colecciones de características como activos o para almacenamiento externo como Google Drive.
 
 
-## 5.0 Parametrización
+## 5 Parametrización
 
 
-#### 5.1 Máscara de Bosque
+### 5.1 Máscara de Bosque
 
 Se puede usar una máscara de bosque que determina los píxeles válidos para mapear las perturbaciones del bosque. Las áreas definidas como no forestales no tendrán ninguna perturbación mapeada. Actualmente existen dos enfoques para definir una máscara de bosque / no-forestal (FNF por sus siglas en ingles), o puede optar por no usar una máscara y asumir que todos los píxeles en la región de estudio pueden contener potencialmente una perturbación.
 
@@ -498,7 +474,7 @@ Se puede usar una máscara de bosque que determina los píxeles válidos para ma
 *   Hay una opción para ‘Mask Prior to Start Date’ (Enmascarar antes de la fecha de inicio). Este enmascaramiento se realiza utilizando la pérdida de cobertura de árboles GFW y capas anuales. El propósito es convertir todos los píxeles mapeados como “Tree Cover Loss” (Pérdida de cobertura de árboles) antes del "StartDate" (Fecha de inicio) a no forestales. En otras palabras, si su fecha de inicio es 2005 y los mapas del conjunto de datos de GFW cambian entre 2000 y 2005, esos píxeles no se incluirán en la máscara del bosque. 
 
 
-#### 5.2 Definiendo un Área de Estudio y Periodo de Tiempo
+### 5.2 Definiendo un Área de Estudio y Periodo de Tiempo
 
 *   El área de estudio se establece presionando el botón con el texto "Dibujar área de estudio" en el lado izquierdo del mapa (Figura 1). Una vez presionada, aparece una geometría titulada "StudyArea" en Importaciones de geometría. Utilice el mapa para dibujar un cuadro delimitador, que será la extensión del análisis.
 
@@ -529,14 +505,14 @@ Se puede usar una máscara de bosque que determina los píxeles válidos para ma
 
 ![alt_text](./images/CODED/img21.png "image_tooltip")
 
-#### 5.3 Insumos
+### 5.3 Insumos
 
 *   Actualmente, la aplicación proporciona apoyo para usar datos Landsat, Sentinel 2 o Sentinel-1 como base para la detección y atribución de cambios. Las entradas apropiadas para su estudio dependen de los detalles de su estudio y los datos disponibles en su área de estudio. En términos generales, Landsat será más sensible a alteraciones sutiles en áreas con datos suficientes, pero está sujeto a datos enmascarados o defectuosos debido a las nubes.
 *   Cada colección de entrada se puede filtrar por día del año (DOY). Por ejemplo, un "Start DOY" (Inicio DOY) de 152 y un "End DOY" (Final DOY) de 244 utilizarán todas las imágenes entre el 1 de junio y el 1 de septiembre y dentro de los años del período de estudio.
 * Las colecciones también se pueden "suavizar" temporalmente usando un ee.Reducer seleccionando los parámetros "Temporal Filter" (Filtro temporal) y "Temporal Filter Size" (Tamaño del filtro temporal). Por ejemplo, un 'Filtro temporal' de 'Media' y 'Tamaño de filtro temporal' de 2 crearía imágenes compuestas de 14 días calculando la media de cada píxel para todos los datos dentro del período de 14 días.
 
 
-#### 5.4 Detección de Cambio
+### 5.4 Detección de Cambio
 
 CODED puede ser modificado usando tres parámetros: Estos parámetros son visualizados después de seleccionar ‘CODED’ para el método de Detección de Cambio.
 
@@ -568,7 +544,7 @@ CODED puede ser modificado usando tres parámetros: Estos parámetros son visual
 </table>
 
 
-#### 5.5 Atribución de Cambio
+### 5.5 Atribución de Cambio
 
 **Muestreo**
 
@@ -584,14 +560,14 @@ CODED puede ser modificado usando tres parámetros: Estos parámetros son visual
 * El año de formación representa el año en que los lugares de formación corresponden a la etiqueta de cobertura terrestre asociada.
 
 
-#### 5.6 Post-procesamiento 
+### 5.6 Post-procesamiento 
 
 *   Post-procesamiento de los resultados del mapa es una buena manera de eliminar cambios aleatorios debidos al ruido (como nubes desenmascaradas) o cambios reales que no son debidos a un disturbio.
 *   Actualmente, el único paso de post-procesamiento implementado es el uso de un umbral en la magnitud del cambio. La magnitud del cambio se relaciona con el cambio en el espacio de datos. Por ejemplo, una perturbación que causa un gran cambio en el NDFI tendrá una magnitud de cambio mayor que un cambio sutil que da como resultado un cambio menor en el NDFI. Las unidades de magnitud del cambio son los residuos durante la ventana de cambio del modelo normalizados por la raíz del error cuadrático medio del modelo.
 * Las unidades de magnitud de cambio pueden ser difíciles de entender, pero en general, un umbral más grande eliminará más cambios y un umbral de 0 no eliminará ningún cambio. Por ejemplo, un valor de 1 filtraría cambios de muy baja magnitud, mientras que un valor de 8 filtraría todo excepto los cambios de gran magnitud.
 
 
-#### 5.7 Visualización
+### 5.7 Visualización
 
 **Agregar Capa de Máscara de Bosque**
 
@@ -631,7 +607,7 @@ CODED puede ser modificado usando tres parámetros: Estos parámetros son visual
 
 #### 
 
-#### 5.8 Exportar
+### 5.8 Exportar
 
 **Resultado (de Cambio) sin Procesar**
 
@@ -650,7 +626,7 @@ CODED puede ser modificado usando tres parámetros: Estos parámetros son visual
 *   Para áreas de estudio grandes, es útil dividir las tareas en subconjuntos. Esta opción dividirá el área de estudio en cuadrículas de aproximadamente 5x5 grados para permitir un procesamiento más rápido. Cuando se trabaja a escala nacional, se recomienda utilizar esta opción para evitar la sobrecarga del sistema GEE.
 
 
-#### 5.9 Interpretando los Resultados
+### 5.9 Interpretando los Resultados
 
 **Visor de Serie Temporal**
 
@@ -708,8 +684,7 @@ Amarillo: Disturbio No Clasificado
 </table>
 
 
-
-## 6.0 Tutorial: Colombia
+## 6 Additional Examples: Colombia, Cambodia, Mozambique
 
 #### 6.1 Colombia
 
@@ -791,7 +766,7 @@ Las siguientes son unas recomendación acerca de los parámetros que se deben ut
 
 
 
-#### 6.2 Tutorial: Creando resultados nacionales en Camboya
+### 6.2 Tutorial: Creando resultados nacionales en Camboya
 
 El ejemplo anterior demostró cómo crear resultados en una pequeña área de estudio en Colombia. Si bien esto es útil para la parametrización, ya que los resultados se pueden crear rápidamente, a menudo es el caso que el análisis debe realizarse a escala nacional.
 
@@ -903,7 +878,7 @@ Export.image.toAsset({
 
 
 
-#### 6.3 Tutorial: CODED Usando Sentinel-2 en Mozambique
+### 6.3 Tutorial: CODED Usando Sentinel-2 en Mozambique
 
 CODED se diseño para ser usado con datos Landsat. Sin embargo, las diferencias radiométricas entre Landsat y Sentinel-2 son mínimas, y por lo tanto una extensión de CODED para Sentinel-2 no es complicada. Sentinel-2 no tiene banda térmica, pero el modelo SMA usado aquí no requiere una. Las ventajas principales de Sentinel-2 son frecuencia de datos mas alta (después del 2015), y resolución espacial mas alta para la mayoría de bandas. A pesar de que no se probado la aplicación de CODED con Sentinel-2 ampliamente, por el momento es apoyado en la GUI de Forest Disturbance Mapping.  
 
@@ -1010,7 +985,7 @@ Sentinel-2 RGB Composite
 
 
 
-## 7.0 Preguntas Frecuentes
+## 7 Preguntas Frecuentes
 
 **¿Cómo CODED se adapta a la estacionalidad? **
 
@@ -1062,26 +1037,28 @@ Este error es común cuando se están visualizando los resultados sobre la march
 
 Esto indica que un enlace a una biblioteca externa esta rota. Por favor refiérase a [https://coded.readthedocs.io](https://coded.readthedocs.io) para la versión mas reciente de la GUI. 
 
-## 8.0 Referencias
+## 8 Referencias
 
+Bullock, E.L., Woodcock, C.E. and Olofsson, P., 2020. Monitoring tropical forest degradation using spectral unmixing and Landsat time series analysis. *Remote Sensing of Environment*, *238*, p.110968. https://doi.org/10.1016/j.rse.2018.11.011
 
-- Bullock, E.L., Woodcock, C.E., Olofsson, P., 2020. Monitoring tropical forest degradation using spectral unmixing and Landsat time series analysis. Remote Sens. Environ. 238. https://doi.org/10.1016/j.rse.2018.11.011
+Hansen, M.C., Potapov, P.V., Moore, R., Hancher, M., Turubanova, S.A., Tyukavina, A., Thau, D., Stehman, S.V., Goetz, S.J., Loveland, T.R. and Kommareddy, A., 2013. High-resolution global maps of 21st-century forest cover change. *Science*, *342*(6160), pp.850-853. https://doi.org/10.1126/science.1244693
 
-- Hansen, M.C., Potapov, P. V., Moore, R., Hancher, M., Turubanova, S.A., Tyukavina, A., Thau, D., Stehman, S. V., Goetz, S.J., Loveland, T.R., Kommareddy, A., Egorov, A., Chini, L., Justice, C.O., Townshend, J.R.G., 2013. High-resolution global maps of 21st-century forest cover change. Science (80-. ). 342, 850–853. https://doi.org/10.1126/science.1244693
+Huang, C., Goward, S.N., Masek, J.G., Thomas, N., Zhu, Z. and Vogelmann, J.E., 2010. An automated approach for reconstructing recent forest disturbance history using dense Landsat time series stacks. *Remote Sensing of Environment*, *114*(1), pp.183-198. https://doi.org/10.1016/j.rse.2009.08.017
 
-- Huang, C., Goward, S.N., Masek, J.G., Thomas, N., Zhu, Z., Vogelmann, J.E., 2010. An automated approach for reconstructing recent forest disturbance history using dense Landsat time series stacks. Remote Sens. Environ. 114, 183–198. https://doi.org/10.1016/j.rse.2009.08.017
+Kennedy, R.E., Yang, Z. and Cohen, W.B., 2010. Detecting trends in forest disturbance and recovery using yearly Landsat time series: 1. LandTrendr—Temporal segmentation algorithms. *Remote Sensing of Environment*, *114*(12), pp.2897-2910. https://doi.org/10.1016/j.rse.2010.07.008
 
-- Kennedy, R.E., Yang, Z., Cohen, W.B., 2010. Detecting trends in forest disturbance and recovery using yearly Landsat time series: 1. LandTrendr - Temporal segmentation algorithms. Remote Sens. Environ. 114, 2897–2910. https://doi.org/10.1016/j.rse.2010.07.008
+Souza Jr, C., Firestone, L., Silva, L.M. and Roberts, D., 2003. Mapping forest degradation in the Eastern Amazon from SPOT 4 through spectral mixture models. *Remote Sensing of environment*, *87*(4), pp.494-506. https://doi.org/10.1016/j.rse.2002.08.002
 
-- Souza, C., Firestone, L., Silva, L.M., Roberts, D., 2003. Mapping forest degradation in the Eastern Amazon from SPOT 4 through spectral mixture models. Remote Sens. Environ. 87, 494–506. https://doi.org/10.1016/j.rse.2002.08.002
+Souza Jr, C.M., Roberts, D.A. and Cochrane, M.A., 2005. Combining spectral and spatial information to map canopy damage from selective logging and forest fires. *Remote Sensing of Environment*, *98*(2-3), pp.329-343. https://doi.org/10.1016/j.rse.2005.07.013
 
-- Souza, C.M., Roberts, D.A., Cochrane, M.A., 2005. Combining spectral and spatial information to map canopy damage from selective logging and forest fires. Remote Sens. Environ. 98, 329–343. https://doi.org/10.1016/j.rse.2005.07.013
+Souza Jr, C.M., Siqueira, J.V., Sales, M.H., Fonseca, A.V., Ribeiro, J.G., Numata, I., Cochrane, M.A., Barber, C.P., Roberts, D.A. and Barlow, J., 2013. Ten-year Landsat classification of deforestation and forest degradation in the Brazilian Amazon. *Remote Sensing*, *5*(11), pp.5493-5513. https://doi.org/10.3390/rs5115493
 
-- Souza, C.M., Siqueira, J. V., Sales, M.H., Fonseca, A. V., Ribeiro, J.G., Numata, I., Cochrane, M.A., Barber, C.P., Roberts, D.A., Barlow, J., 2013. Ten-year landsat classification of deforestation and forest degradation in the brazilian amazon. Remote Sens. 5, 5493–5513. https://doi.org/10.3390/rs5115493
+Zhu, Z. and Woodcock, C.E., 2014. Continuous change detection and classification of land cover using all available Landsat data. *Remote Sensing of Environment*, *144*, pp.152-171. https://doi.org/10.1016/j.rse.2014.01.011
 
-- Zhu, Z., Woodcock, C.E., 2014. Continuous change detection and classification of land cover using all available Landsat data. Remote Sens. Environ. 144, 152–171. https://doi.org/10.1016/j.rse.2014.01.011
+-----
 
-![](./images/CODED/cc.png)  
+![](figures/cc.png)  
+  
 Este trabajo tiene licencia bajo [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
 Copyright 2020, World Bank 
@@ -1096,4 +1073,5 @@ Jennifer Juliana Escamilla Valdez, El Salvador, Ministerio de Medio Ambiente y R
 
 Atribución
 Bullock, E. 2020. Continuous Degradation Detection (CODED). © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)  
-![](./images/CODED/WB_FCPF2.png)![](./images/CODED/GFOI2.png)
+
+![](figures/wb-fcfc-gfoi.png)
