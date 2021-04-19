@@ -820,11 +820,11 @@ Usara estos datos descargados en modelos futuros para ejecutar estimaciones de �
 
 ## 4 Preguntas Frecuentes
 
-**¿Cuándo debería usar CEO? **
+**¿Cuándo debería usar CEO?**
 
 Utilice CEO si tendrá varios recopiladores de datos (CEO) y si desea una configuración más sencilla para las preguntas de la encuesta (CEO).
 
-**¿Dónde puedo encontrar ayuda dentro del CEO? **
+**¿Dónde puedo encontrar ayuda dentro del CEO?**
 
 Hay un signo de interrogación violeta en la esquina superior derecha de la pantalla. Al hacer clic en esto, aparecerá la interfaz de ayuda, que proporciona información sobre las funciones del CEO. Estas interfaces de ayuda están disponibles para la página de inicio, para la recopilación de datos y para la creación de proyectos.
 
@@ -901,7 +901,7 @@ La evaluación disponible más precisa de la verdadera condición de una unidad 
 
 La clasificación de referencia aplicada a la colección de todas las unidades de muestra.
 
-## 7 Referencias
+## 6 Referencias
 
 Cochran, W.G., 1977. *Sampling Techniques*, John Wiley & Sons, New York, NY.
 
