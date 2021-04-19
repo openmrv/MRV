@@ -68,7 +68,7 @@ group:
 
 # Stratified random sampling
 
-## 1. Contexto
+## 1 Contexto
 
 Un método de estimación basado en muestreo puede dividirse en tres componentes diferentes: diseño de muestreo, diseño de respuesta, y análisis (Stehman & Czaplewski, 1998) [^ fn1]. El primer componente, el diseño de muestreo, se ilustra en este tutorial. El diseño de muestreo define el protocolo para seleccionar el subconjunto de unidades, es decir, la muestra, de una población más grande. En nuestro caso, la población es el equivalente al área de estudio, y las características del área de estudio, como el área de una cobertura de suelo, se estiman mediante el análisis de la muestra. Los métodos basados en el muestreo en un contexto geográfico o de teledetección son necesarios porque nos permiten estimar el sesgo del área, la precisión del mapa, y la incertidumbre. Como se explica en el Documento de orientación y métodos de GFOI, simplemente contando píxeles en los mapas para la estimación de las áreas de cobertura terrestre y el cambio de cobertura terrestre producirá resultados erróneos debido a errores de clasificación (GFOI, 2016, p. 125)[^fn2]:
 
