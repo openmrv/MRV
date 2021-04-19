@@ -33,7 +33,7 @@ group:
 
 # Creación de Imagen Compuesta/Mosaico para Landsat y Sentinel-2 en Google Earth Engine
 
-## 1 Contexto THIS IS A TEST
+## 1 Contexto
 
 Este tutorial le explicará como crear una imagen compuesta usando imágenes de Landsat y/o Sentinel-2 a un nivel nacional en Google Earth Engine (GEE). Aquí, el proceso es demostrado para el país de Colombia. El tutorial viene acompañado por un repositorio de GEE que contiene 3 scripts y una serie de videos que explican algunas de las secciones. Los scripts le dan la habilidad de crear una imagen compuesta que puede ser utilizada en las siguientes secciones de este entrenamiento. 
 
