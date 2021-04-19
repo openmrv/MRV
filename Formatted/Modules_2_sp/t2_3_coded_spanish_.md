@@ -46,7 +46,6 @@ group:
 
 ## 1 Contexto
 
-
 #### 1.1 Degradación Forestal 
 
 No existe una definición internacionalmente aceptada de degradación forestal, pero en general se puede definir como una perturbación en un bosque que reduce la biomasa, la productividad ecológica y / o la cubierta del dosel, pero que no da como resultado una conversión de la cubierta terrestre.
@@ -58,7 +57,7 @@ Si bien la deforestación ha sido objeto de un intenso debate a escala mundial, 
 Este tutorial presentará una metodología para monitorear la degradación forestal llamada Detección Continua de Degradación (CODED). CODED fue creado con el objetivo específico de detectar la degradación forestal que, como se describirá en las siguientes secciones, ha demostrado ser un desafío al utilizar enfoques tradicionales para la detección de cambios. La aplicación de CODED se realiza en Google Earth Engine y se demuestra para estudios de casos en Colombia, Mozambique y Camboya.
 
 
-## 2.0 Objetivos de Aprendizaje
+## 2 Objetivos de Aprendizaje
 
 Al final de este módulo, el usuario podrá: 
 
