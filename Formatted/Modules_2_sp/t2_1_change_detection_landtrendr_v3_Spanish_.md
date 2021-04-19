@@ -43,7 +43,7 @@ group:
 
 # LandTrendr
 
-# 1.0 Contexto
+# 1 Contexto
 
 ## 1.1  Fundamentos Conceptuales de LandTrendr
 
