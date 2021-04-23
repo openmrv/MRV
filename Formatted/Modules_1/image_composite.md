@@ -4,7 +4,7 @@ summary: This tutorial will walk you through how to create a composite using Lan
 author: Andrea Puzzi Nicolau
 creation date: December, 2020
 language: English
-publisher and license: Copyright 2020, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
