@@ -1,6 +1,6 @@
 ---
 title: Classification de l'occupation et de l'utilisation du sol dans Google Earth Engine
-summary: Ce tutoriel montre comment effectuer une classification de l'occupation et de l'utilisation des sols dans Google Earth Engine. Les utilisateurs apprendront à appliquer des méthodes de classification supervisée et non supervisée, ainsi qu'à gérer les problèmes de masque et les erreurs de classification. Le processus est démontré pour les pays suivants - Colombie, Mozambique et Cambodge. Les échantillons de données pour la classification sont basés sur les tutoriels précédents.
+summary: Ce tutoriel montre comment effectuer une classification de l'occupation et de l'utilisation des sols dans Google Earth Engine. Les utilisateurs apprendront à appliquer des méthodes de classification supervisée et non supervisée, ainsi qu'à gérer les problèmes de masque et les erreurs de classification. Le processus est démontré pour les pays suivants - Colombie, Mozambique et Cambodge. Les données d'échantillon pour la classification sont basées sur les tutoriels  sur OpenMRV sous "Collecte de Données d'Entraînement ".
 author: Robert E Kennedy
 creation date:  Décembre 2020
 language: Français
@@ -84,14 +84,14 @@ Les propriétés physiques et chimiques de la surface sont liées à l'occupatio
 
 # 2 Objectifs d'apprentissage
 
-À la fin de ce module, vous serez en mesure de 
+À la fin de ce tutoriel, vous serez en mesure de 
 
 - Décrire comment l'espace spectral ou l'espace de données sont utilisés dans la classification multivariée
 - Appliquer et comparer trois algorithmes de classification couramment utilisés
 - Évaluer les sources d'erreur possibles dans le processus de classification, découlant du prétraitement, du choix des capteurs et de la conception de l'échantillon de formation
 
 
-## 2.1 Pré-requis pour ce module
+## 2.1 Pré-requis 
 
 * Concepts de Google Earth Engine (GEE)
 	* Obtenir un compte d'utilisateur
@@ -127,9 +127,9 @@ Graphiquement, les étapes sont les suivantes.
 
 ![WB_graphs_v2-03](./figures/m1.3/WB_graphs_v2-03.png)
 
-Cela permet de créer une carte.  Vous devrez ensuite évaluer la précision de cette carte. Cette question est traitée dans le dernier module sur l'évaluation de la précision.
+Cela permet de créer une carte.  Vous devrez ensuite évaluer la précision de cette carte. Il est abordé ici sur OpenMRV sous le nom de "Estimation de la superficie / Évaluation de la précision".
 
-Nous travaillerons sur un exemple simple avec les éléments indiqués ci-dessous, puis nous illustrerons les variantes. Ces instructions supposent que vous avez un compte sur GEE, et que vous êtes familier avec la configuration, les formats de données et les fonctions de GEE.  Si vous avez besoin d'aide pour ces étapes, veuillez retourner au module 1.1.
+Nous travaillerons sur un exemple simple avec les éléments indiqués ci-dessous, puis nous illustrerons les variantes. Ces instructions supposent que vous avez un compte sur GEE, et que vous êtes familier avec la configuration, les formats de données et les fonctions de GEE.  Si vous avez besoin d'aide avec ces étapes, veuillez consulter le document "Pré-traitement" et l'outil "GEE" ici sur OpenMRV.
 
 
 **Classification component**|**Item used here**|**Process on OpenMRV**|**Tool on OpenMRV**
@@ -157,13 +157,13 @@ GEE fonctionne par le biais de scripts.  Comme indiqué ci-dessus, nous supposon
 
 ## 3.2 Construire une image composite
 
-La première partie du code est construit à partir du module précédent sur les méthodes de composition d'images.  Nous construisons une collection d'images Landsat 8 à réflectance de surface à partir de 2019, filtrée par la couverture nuageuse, appliquée à une valeur médiane et découpée aux limites du pays.  
+Nous construisons une collection d'images Landsat 8 à réflectance de surface à partir de 2019, filtrée par la couverture nuageuse, appliquée à une valeur médiane et découpée aux limites du pays.  
 
-> Note : Les détails de la composition d'images sont couverts dans le module 1.1. Si vous souhaitez en savoir plus, envisagez de revenir à ce module. 
+> Note : Les détails de la composition d'images peuvent être trouvés ici sur OpenMRV sous le nom de "Pré-traitement" et l'outil "GEE".
 
 Si vous copiez et collez des morceaux de code du Master Script dans un nouveau script, cette section est intitulée "Section 3.2" dans le Master Script.  
 
-Plutôt que de reproduire ici le script entier, nous mettons en évidence le morceau de code principal. Vous devriez être familier avec le code du module 1.1 sur la composition. 
+Plutôt que de reproduire ici le script entier, nous mettons en évidence le morceau de code principal. 
 
 ```javascript 
 var l8compositeMasked = l8.filterBounds(country)
@@ -188,7 +188,7 @@ Les données d'entraînement sont les observations que nous utiliserons pour con
 
 Si vous faites un copier-coller du code, ajoutez "Section 3.3" dans le Master Script au code de votre script de formation existant.  Pour ce premier exemple d'ajout à un script existant, consultez [cette courte vidéo.]( https://youtu.be/r2jJrSYgtA8 )  
 
-Pour cet exercice, nous utiliserons les données d'entraînement collectées selon les méthodes décrites dans les modules sur la collecte de données de référence (module 1.2).  Ici encore, plutôt que de reproduire l'ensemble du code, nous nous concentrons uniquement sur la partie essentielle du code : 
+nous utiliserons des données d'entraînement collectées selon les méthodes décrites ici sur OpenMRV dans le document "Collecte de Données d'Entraînement" et l'outil "QGIS" .
 
 ```javascript
 var training = ee.FeatureCollection('users/openmrv/MRV/colombia_training');
