@@ -1,6 +1,6 @@
 ---
 title: Collecte des données d'entraînement
-summary: Ce tutoriel montre comment collecter des données d'apprentissage  pour la classification de l'occupation du sol en utilisant QGIS ou Google Earth Engine. Les utilisateurs doivent adapter les différentes composantes en fonction des objectifs de leur projet. Le processus est présenté ici pour les pays suivants - Colombie, Mozambique et Cambodge, ainsi que pour une légende simple de quatre classes d'occupation du sol - forêt, eau, plantes herbacées et zones développées.
+summary: Ce tutoriel montre comment collecter des données d'entraînement  pour la classification de l'occupation du sol en utilisant QGIS ou Google Earth Engine. Les utilisateurs doivent adapter les différentes composantes en fonction des objectifs de leur projet. Le processus est présenté ici pour les pays suivants - Colombie, Mozambique et Cambodge, ainsi que pour une légende simple de quatre classes d'occupation du sol - forêt, eau, plantes herbacées et zones développées.
 author:
 - Eric Bullock
 - Karis Tenneson
