@@ -580,7 +580,7 @@ Non, il n'est pas nécessaire d'obtenir des données de formation en utilisant u
 
  Assurez-vous que la couche est chargée dans votre panneau "Layers". Si elle ne l'est pas, elle peut être ajoutée en naviguant sur *Layer* -> *Add Layer* -> *Add Vector Layer*. Si la couche se trouve dans le panneau "Layers" mais n'apparaît pas sur la carte, assurez-vous qu'elle se trouve au-dessus des données de référence qui sont chargées. 
 
-**Pourquoi vaut-il la peine de collecter des données d'entrainement pour différents types de forêts si nous ne créons qu'une seule classe de forêts ? **
+**Pourquoi vaut-il la peine de collecter des données d'entrainement pour différents types de forêts si nous ne créons qu'une seule classe de forêts ?**
 
  Ce n'est pas nécessaire, mais cela peut aider à améliorer la classification. Nous voulons que nos données d'entraînement représentent la variabilité spectrale de nos classes. Un moyen facile d'identifier les différences entre les types de forêts est leur variabilité saisonnière.  
 
