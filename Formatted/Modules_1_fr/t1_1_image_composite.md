@@ -1,6 +1,6 @@
 ---
 title: Création de mosaïques/composites d'images pour Landsat et Sentinel-2 dans Google Earth Engine
-summary: Ce tutoriel vous explique comment créer un composite à partir d'images Landsat et/ou Sentinel-2 à l'échelle nationale dans Google Earth Engine (GEE). Le processus est démontré pour les pays suivants - Colombie, Mozambique et Cambodge. Le tutoriel est accompagné d'un référentiel GEE, et d'une série de vidéos qui vous guident à travers certaines sections. Les scripts vous permettent de créer un composite qui pourra être utilisé dans les sections suivantes de cette formation. Si vous êtes débutant en matière de GEE, des ressources utiles sont fournies..
+summary: Ce tutoriel vous explique comment créer un composite à partir d'images Landsat et/ou Sentinel-2 à l'échelle d'un pays dans Google Earth Engine (GEE). Le processus est démontré pour les pays suivants - Colombie, Mozambique et Cambodge. Le tutoriel est accompagné d'un référentiel GEE, et d'une série de vidéos qui vous guident à travers certaines sections. Les scripts vous permettent de créer un composite qui pourra être utilisé dans les tutoriels suivants sur openMRV. Si vous êtes débutant en matière de GEE, des ressources utiles sont fournies..
 author: Andrea Puzzi Nicolau
 creation date: Décembre 2020
 language: Français
