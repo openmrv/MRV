@@ -1,6 +1,6 @@
 ---
 title: Collecte des données d'apprentissage
-summary: Ce tutoriel montre comment collecter des données d'apprentissage catégorielles pour la classification de l'occupation du sol en utilisant QGIS ou Google Earth Engine. Les utilisateurs doivent adapter les différentes composantes en fonction des objectifs de leur projet. Le processus est présenté ici pour les pays suivants - Colombie, Mozambique et Cambodge, ainsi que pour une légende simple de quatre classes d'occupation du sol - forêt, eau, plantes herbacées et zones développées.
+summary: Ce tutoriel montre comment collecter des données d'apprentissage  pour la classification de l'occupation du sol en utilisant QGIS ou Google Earth Engine. Les utilisateurs doivent adapter les différentes composantes en fonction des objectifs de leur projet. Le processus est présenté ici pour les pays suivants - Colombie, Mozambique et Cambodge, ainsi que pour une légende simple de quatre classes d'occupation du sol - forêt, eau, plantes herbacées et zones développées.
 author:
 - Eric Bullock
 - Karis Tenneson
@@ -57,8 +57,8 @@ Ce tutoriel montre comment collecter des données d'entraînement catégorielles
 
 ### 1.1 Tutorials
 
-* For training data collection using **QGIS** please refer to process "Training Data Collection" and tool "QGIS" here on OpenMRV
-* For training data collection using **Google Earth Engine**, please refer to process "Training Data Collection" and tool "GEE" here on OpenMRV
+* Pour la collecte de données d'entraînement  à l'aide de **QGIS**, veuillez vous référer au document "Collecte de données d'entraînement " et à l'outil "QGIS" ici sur OpenMRV.
+* Pour la collecte de données d'entraînement à l'aide de **Google Earth Engine**, veuillez vous référer au document "Collecte de données d'entraînement " et à l'outil "GEE" ici sur OpenMRV.
 
 ------
 
@@ -71,6 +71,6 @@ Copyright 2020, Banque mondiale
 Ce travail a été réalisé par Eric Bullock et Karis Tenneson dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte de ressources existantes - liées à la mesure, au rapportage et à la vérification pour soutenir la mise en œuvre du MRV dans les pays.
 
 Attribution
-Bullock, E., Tenneson, K. 2020. Création de mosaïque/composite d'images pour Landsat et Sentinel-2 dans Google Earth Engine. Banque mondiale. Licence: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+Bullock, E., Tenneson, K. 2021. collecte de données d'entraînement . Banque mondiale. Licence: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](./figures/m1.1/wb_fcfc_gfoi.png)
