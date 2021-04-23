@@ -1,8 +1,8 @@
 ---
 title: Collecte de données d'entraînement à l'aide de Google Earth Engine
-summary: Ce tutoriel montre comment collecter des données d'entraînement catégorielles pour la classification de l'occupation du sol à l'aide de Google Earth Engine. Les utilisateurs doivent adapter les différentes composantes en fonction des objectifs de leur projet. Le processus est présenté ici pour les pays suivants : la Colombie, le Mozambique et le Cambodge, et pour une légende simple de quatre classes d'occupation du sol : forêt, eau, plantes herbacées et zones développées. Reportez-vous au Module 1.1 Création de mosaïques/composites d'images pour Landsat et Sentinel-2 dans Google Earth Engine pour plus d'informations et de ressources pour travailler dans cet environnement.
+summary: Ce tutoriel montre comment collecter des données d'entraînement catégorielles pour la classification de l'occupation du sol à l'aide de Google Earth Engine. Les utilisateurs doivent adapter les différentes composantes en fonction des objectifs de leur projet. Le processus est présenté ici pour les pays suivants - la Colombie, le Mozambique et le Cambodge, et pour une légende simple de quatre classes d'occupation du sol - forêt, eau, plantes herbacées et zones développées. Reportez-vous au Module 1.1 Création de mosaïques/composites d'images pour Landsat et Sentinel-2 dans Google Earth Engine pour plus d'informations et de ressources pour travailler dans cet environnement.
 author: Karis Tenneson
-creation date:décembre 2020
+creation date: décembre 2020
 language: Français
 publisher and license: Copyright 2020, Banque mondiale. Ce travail est sous licence Creative Commons Attribution 3.0 IGO
 
@@ -38,7 +38,7 @@ group:
   étape : Collecte des données d'entraînement 
 ---
 
-# Module 1.2.2 Formation à la collecte de données à l'aide de Google Earth Engine 
+# Formation à la collecte de données à l'aide de Google Earth Engine 
 
 ## 1 Contexte
 
@@ -69,7 +69,7 @@ A la fin de cet exercice, vous serez en mesure de :
   * Compréhension de base sur les théories impliquées dans la classification des images.
   * Définition d'une légende thématique
 
-## 3. Collecte de données d'entraînement
+## 3 Tutorial: Training Data Collection in GEE
 
 ### 3.1 Vue d'ensemble
 
@@ -80,27 +80,27 @@ Le processus de collecte des données d'entraînement dans GEE est détaillé da
 3. Collecte des données d'entraînement en définissant manuellement les points d'entraînement. 
 4. Exportation des données d'entraînement.
 
-![diagramGEE](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\diagramGEE.JPG)
+![diagramGEE](./figures/m1.2/m1.2.2/diagramGEE.JPG)
 
 ### 3.2 Création de nouvelles collections d'éléments
 
 Comme on peut le voir dans le module 1.2.1 Collecte de données d'entraînement à l'aide du QGIS, les données d'entraînement peuvent être créées dans une variété de plateformes. Dans ce tutoriel, vous créerez ces données en utilisant des collections de points avec des étiquettes d'occupation du sol uniques identifiées par un attribut "label". Par exemple, les forêts peuvent avoir un attribut "label" de 1, l'agriculture de 2, et ainsi de suite. Une méthode simple pour développer des données d'entraînement consiste à créer une collection d'éléments pour chaque occupation du sol en utilisant les données et l'imagerie disponibles dans Google Earth Engine. Ce tutoriel montre comment créer des données d'entraînement qui sont des géométries ponctuelles. Un processus similaire peut être utilisé avec des données de polygones. 
 
-Pour commencer, ouvrez un navigateur web et naviguez jusqu'à [Google Earth Engine] (https://code.earthengine.google.com/). 
+Pour commencer, ouvrez un navigateur web et naviguez jusqu'à [Google Earth Engine](https://code.earthengine.google.com/). 
 
 Ensuite, vous devrez définir une nouvelle classe d'éléments pour chaque occupation du sol. 
 
 1. Lorsque vous êtes dans le Earth Engine, naviguez vers les outils de dessin dans le coin supérieur gauche de la fenêtre de la carte. Cliquez sur l'icône pour ajouter des marqueurs de points. 
 
-![AddMarker](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\AddMarker.jpg)
+![AddMarker](./figures/m1.2/m1.2.2/AddMarker.jpg)
 
 2. Cela ajoutera un nouveau panneau *Geometry Imports* dans votre fenêtre de carte, avec une étiquette pour les nouvelles propriétés. Vous pouvez maintenant dessiner dans la fenêtre de carte. Le nom par défaut de cette nouvelle couche est "geometry".
 
-![GeometryImports](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\GeometryImports.JPG)
+![GeometryImports](./figures/m1.2/m1.2.2/GeometryImports.JPG)
 
 3. Maintenez votre curseur sur le nom "geometry" dans ce panneau jusqu'à ce qu'une icône d'engrenage apparaisse sur le côté droit de l'étiquette. Cliquez sur l'engrenage pour ouvrir le panneau afin de modifier la configuration de la couche.
 
-![Settings](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\Settings.JPG)
+![Settings](./figures/m1.2/m1.2.2/Settings.JPG)
 
 4. Donnez ensuite à la couche un nom lié à l'occupation du sol qui vous intéresse, par exemple "forêt". 
 
@@ -119,13 +119,13 @@ Pour ce tutoriel, nous vous recommandons d'utiliser cette clé de classification
 
 Votre panel devrait ressembler à ceci :
 
-![GeomSettings](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\GeomSettings.jpg)
+![GeomSettings](./figures/m1.2/m1.2.2/GeomSettings.jpg)
 
 
 
 10. De retour à la fenêtre de la carte, passez votre souris sur les importations de la géomérie et cliquez sur l'option *+ new layer*.
 
-![NewGeom](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\NewGeom.jpg)
+![NewGeom](./figures/m1.2/m1.2.2/NewGeom.jpg)
 
 11. Répétez les étapes 3 à 10 jusqu'à ce qu'une collection éléments soit établie pour chaque type de classe d'occupation des sols.
 
@@ -165,13 +165,13 @@ N'oubliez pas que vous voulez que les données de référence correspondent à l
    Map.addLayer(s1_composite_masked, vis, 'Sentinel 2 2019 Masked');
    ```
 
-![gee](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\gee.JPG)
+![gee](./figures/m1.2/m1.2.2/gee.JPG)
 
 
 
 2. Il existe également une autre façon de charger des images dans GEE, cette deuxième option consiste à charger une image à partir de l'onglet Actifs. Si vous avez exporté une image composite dans votre dossier GEE Asset, vous pouvez l'importer en naviguant dans le dossier Assets. Ensuite, passez votre souris sur le nom de l'image composite et sélectionnez la flèche à importer dans l'éditeur de code. Assurez-vous que l'image que vous chargez à partir de votre dossier Asset est définie comme "image" afin que le code GEE fonctionne. 
 
-![import](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\import.jpg)
+![import](./figures/m1.2/m1.2.2/import.jpg)
 
 
 3. Copiez ensuite le texte suivant dans l'éditeur de code pour le charger dans la fenêtre de la carte et cliquez sur *Run*.
@@ -184,7 +184,7 @@ Map.addLayer(image, vis, 'image');
 
 
 
-Vous pouvez également consulter le site officiel [Earth Engine resources] (https://developers.google.com/earth-engine/tutorials/tutorial_api_04) pour obtenir des informations sur la recherche et l'affichage des collections d'images.
+Vous pouvez également consulter le site officiel [Earth Engine resources](https://developers.google.com/earth-engine/tutorials/tutorial_api_04) pour obtenir des informations sur la recherche et l'affichage des collections d'images.
 
 ### 3.4 Collecter des données d' entraînement
 
@@ -198,7 +198,7 @@ Une fois que vous avez décidé de l'imagerie de référence, il est temps de co
 1. Sélectionnez la couche d'occupation de sol dans le panneau *Importations géométriques* de la fenêtre de la carte.
 2. Sélectionnez le marqueur de points et cliquez dans la carte pour ajouter des points de cette occupation du sol (voici une brève [vidéo](https://youtu.be/tJx7plJLqW4) pour illustrer la manière de procéder). Vous pouvez activer et désactiver l'image composite dans le panneau des couches. Vous pouvez également basculer entre la carte et le composite satellite dans le coin supérieur droit de la fenêtre de la carte.
 
-![ToggleImage](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\ToggleImage.jpg)
+![ToggleImage](./figures/m1.2/m1.2.2/ToggleImage.jpg)
 
 3. Si vous laissez tomber un point par accident, vous pouvez le déplacer ou le supprimer en utilisant la main panoramique, sélectionner le point et le modifier en le faisant glisser pour le déplacer ou le supprimer (voici une brève [vidéo](https://youtu.be/Q6QElHXYOT0) pour illustrer la manière de procéder). Cliquez sur *Exit* pour quitter les points d'édition.
 
@@ -212,7 +212,7 @@ Une fois que vous avez recueilli les données d'entrainement pour chaque classe,
 2. Prenez le temps d'examiner votre échantillon et assurez-vous qu'il n'y a pas de "lacunes" majeures dans les données d'entraînement. 
 
 ### 3.6 Fusionner et exporter des données
-L'étape finale consiste à fusionner chaque élément de l'occupation des sols en une classe finale d'éléments avec toutes les classes d'occupation des sols regroupées. Ensuite, il faut exporter les données. Voici une brève [vidéo] (https://youtu.be/r8UBDKztBpY) pour illustrer la manière de procéder.
+L'étape finale consiste à fusionner chaque élément de l'occupation des sols en une classe finale d'éléments avec toutes les classes d'occupation des sols regroupées. Ensuite, il faut exporter les données. Voici une brève [vidéo](https://youtu.be/r8UBDKztBpY) pour illustrer la manière de procéder.
 
 1. Les éléments de formation peuvent être combinés avec la méthode de "fusion". Par exemple, pour "Forest", "Water", "Herbaceous" et "Developed", qui représentent tous des collections d'éléments, vous pouvez entrer le code suivant N'oubliez pas que JavaScript est sensible à la casse, alors vérifiez la capitalisation entre vos déclarations de fusion et vos noms de géométrie.
 
@@ -311,7 +311,7 @@ Poursuivez maintenant la formation à partir d'ici, en commençant par la sectio
 
    
 
-![MozambiqueNDVI](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\MozambiqueNDVI.JPG)
+![MozambiqueNDVI](./figures/m1.2/m1.2.2/MozambiqueNDVI.JPG)
 
 La carte qui est chargée est la variance saisonnière de NDVI, dans laquelle le rouge indique une variabilité moindre et le vert une variabilité plus importante. 
 
@@ -326,7 +326,7 @@ La carte qui est chargée est la variance saisonnière de NDVI, dans laquelle le
 
    
 
-![MozambiqueNDVImasked](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\MozambiqueNDVImasked.JPG)
+![MozambiqueNDVImasked](./figures/m1.2/m1.2.2/MozambiqueNDVImasked.JPG)
 
 6. Maintenant que nous collectons des données d'entraînement pour la classe "Forêt", il est important de référencer cette couche pour s'assurer que les données d'entraînement tiennent compte des différences de variabilité spectrale saisonnière dans les forêts. Tout d'abord, voyons pourquoi il pourrait être avantageux d'effectuer les étapes énumérées ci-dessus : 
     - Certaines forêts ont des modèles saisonniers de productivité. 
@@ -371,11 +371,11 @@ La plupart des forêts restantes au Cambodge sont situées sur des terrains vall
 
 2. Naviguez jusqu'au bouton 'Map / Satellite' situé sur le côté droit de l'écran et cliquez sur "Satellite". Cela vous permettra de voir la carte de terrain qui facilitera la visualisation des caractéristiques topographiques dans l'imagerie de référence, afin qu'elle puisse être utilisée comme information supplémentaire lors de la collecte des données de référence. Veillez à collecter des échantillons d'entraînement pour les forêts qui varient en fonction de leur disposition topographique. Par exemple, les échantillons doivent être collectés sur un terrain qui diffère par sa pente et son aspect. Il n'est pas nécessaire d'être précis, et cela peut être fait de manière optionnelle pour n'importe quelle occupation du sol. 
 
-![MapSatellite](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\MapSatellite.JPG)
+![MapSatellite](./figures/m1.2/m1.2.2/MapSatellite.JPG)
 
 3. Vous pouvez également modifier la transparence des couches que vous créez en cliquant sur "Layers" sur le côté droit de l'écran et en ajustant la couche, comme le montre l'image ci-dessous. 
 
-![LayerTransparency](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\LayerTransparency.JPG)
+![LayerTransparency](./figures/m1.2/m1.2.2/LayerTransparency.JPG)
 
 4. N'oubliez pas de sauvegarder fréquemment.
 
@@ -387,12 +387,12 @@ La plupart des forêts restantes au Cambodge sont situées sur des terrains vall
 Des polygones peuvent également être utilisées comme données d'entraînement, mais gardez à l'esprit que l'autocorrélation spatiale entraînera des informations redondantes dérivées de chaque polygone. Nous recommandons donc de collecter des échantillons ponctuels représentatifs de l'ensemble des données plutôt que de quelques polygones.  
 
 
-**Comment choisir les données à utiliser comme référence ?
+**Comment choisir les données à utiliser comme référence?**
 
 Les données de référence doivent recouvrir dans le temps et dans l'espace les données utilisées dans votre analyse. S'il existe plusieurs sources de données répondant à ce critère, l'utilisateur doit choisir les données qu'il trouve les plus faciles à interpréter en se basant sur la légende de sa classification. 
 
 
-**Les données relatives à la formation doivent-elles être dérivées selon un plan d'échantillonnage probabiliste ?
+**Les données relatives à la formation doivent-elles être dérivées selon un plan d'échantillonnage probabiliste?**
 
 Non, il n'est pas nécessaire d'obtenir des données d'entraînement en utilisant un plan d'échantillonnage basé sur les probabilités. Cependant, si les données de formation ont été créées de cette manière (par exemple un échantillon aléatoire simple interprété), il n'y a aucune raison pour qu'elles ne puissent pas être utilisées pour la classification. 
 
@@ -404,6 +404,10 @@ Il n'y a pas de nombre magique pour le nombre de points de formation pour chaque
 **Peut-on diviser les données d'entraînement pour en utiliser une partie pour la validation?**
 
 Si les données d'entraînement ont été collectées de manière opportuniste, ou en d'autres termes *non* en utilisant un échantillon probabiliste, alors il n'est généralement pas recommandé de les utiliser pour la validation car cela introduirait un biais. 
+
+-----
+
+![](./figures/m1.1/cc.png)
 
 Ce travail est sous licence [Creative Commons Attribution 3.0 IGO] (https://creativecommons.org/licenses/by/3.0/igo/) 
 
@@ -420,11 +424,7 @@ Kelsey Herndon, Université d'Alabama à Huntsville
 Attribution
 Tenneson, Karis. 2020. Formation à la collecte de données à l'aide de Google Earth Engine.  Banque mondiale. Licence : Licence Creative Commons Attribution (CC BY 3.0 IGO)
 
-
-
-![WB_FCPF](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\WB_FCPF.png)
-
-![GFOI](C:\Users\mygan\Desktop\traduction\MRV-main\MRV-main\Modules_1\figures\m1.2\m1.2.2\GFOI.png)
+![](./figures/m1.1/wb_fcfc_gfoi.png)
 
 
 

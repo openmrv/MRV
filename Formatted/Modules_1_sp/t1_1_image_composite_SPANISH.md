@@ -31,21 +31,34 @@ group:
   etapa: Insumos
 ---
 
-# 1.1 Creación de Imagen Compuesta/Mosaico para Landsat y Sentinel-2 en Google Earth Engine
+# Creación de Imagen Compuesta/Mosaico para Landsat y Sentinel-2 en Google Earth Engine
 
 ## 1 Contexto
 
 Este tutorial le explicará como crear una imagen compuesta usando imágenes de Landsat y/o Sentinel-2 a un nivel nacional en Google Earth Engine (GEE). Aquí, el proceso es demostrado para el país de Colombia. El tutorial viene acompañado por un repositorio de GEE que contiene 3 scripts y una serie de videos que explican algunas de las secciones. Los scripts le dan la habilidad de crear una imagen compuesta que puede ser utilizada en las siguientes secciones de este entrenamiento. 
 
-### 1.1 Prerrequisitos para este módulo
+## 1.1 Google Earth Engine (GEE)
 
-- Conocimiento básico a intermedio de conceptos de teledetección
-  - Puede referirse al entrenamiento de [NASA ARSET, Fundamentales de Teledetección](https://appliedsciences.nasa.gov/join-mission/training/english/fundamentals-remote-sensing). Incluye conceptos básicos de teledetección satelital, incluyendo orbitas de satélites, tipos, resoluciones, sensores, y niveles de procesamiento. Está bajo demanda y cualquier persona lo puede tomar (solo está disponible en ingles)
-- Cuenta de GEE
-  - Cualquier persona puede inscribirse a GEE. GEE es gratis para el uso no comercial. Para inscribirse, por favor complete [este formulario](https://earthengine.google.com/signup/). Una vez que haya sido aceptado/a, recibirá un correo electrónico con información adicional. 
-- Conocimiento básico a intermedio de la programación
-  - Ver entrenamientos útiles e información acerca de la programación JavaScript para GEE en la Sección 3 de GEE
-- GEE funciona mejor con el navegador [Google Chrome](https://www.google.com/chrome/) 
+El atractivo de usar GEE es que GEE contiene multi-petabytes de imágenes satelitales y datos geoespaciales, permitiendo que sus usuarios computen análisis a escala masiva en una plataforma basada en la nube.  GEE contiene JavaScript (usado en este caso) y una Interfaz de programación de aplicaciones (API por sus siglas en ingles) de Python, donde usuarios pueden subir sus propios conjuntos de datos y usar funciones integradas para completar **una enorme variedad de tareas geoespaciales a velocidades y escalas sin precedente.** Para mas información acerca de GEE por favor refiérase [a la página principal de GEE](https://earthengine.google.com/). Ahí puede encontrar tutoriales y documentación útil. Algunos enlaces relevantes se destacan a continuación:
+
+- [Conjuntos de datos disponibles](https://developers.google.com/earth-engine/datasets/) 
+- [Preguntas frecuentes](https://earthengine.google.com/faq/)
+- [Empezando con GEE](https://developers.google.com/earth-engine/guides/getstarted)
+- [Introducción al API de Javascript](https://developers.google.com/earth-engine/tutorials/tutorial_api_01)
+- [Documentación](https://developers.google.com/earth-engine)
+- [Referencia API](https://developers.google.com/earth-engine/apidocs)
+- [Guía para el editor del código](https://developers.google.com/earth-engine/guides/playground)
+- [Tutoriales comunitarios](https://developers.google.com/earth-engine/tutorials)
+- [Guía para depurar](https://developers.google.com/earth-engine/guides/debugging)
+- [Como conseguir ayuda](https://developers.google.com/earth-engine/help)
+- [Alcance de Google Earth: Introducción a GEE](https://www.google.com/earth/outreach/learn/introduction-to-google-earth-engine/)
+- Presentaciones de la conferencia [2019 Geo for Good Summit de Google](https://www.google.com/earth/outreach/learn/introduction-to-google-earth-engine/):
+  - [Earth Engine para los que no programan](https://docs.google.com/presentation/d/10DTcBGPl0JeTEOJlSRNdj9dtGLwqq7HPLzegENygI-U/edit?usp=sharing)
+  - [Codificar en GEE](https://docs.google.com/presentation/d/1KCOcW1PtFUzC4R2g3pbovtO19C4VPtjRXJxCwkG1b5Q/edit?usp=sharing)
+  - [Recorrido de los conjuntos de datos de GEE y carga de datos](https://docs.google.com/presentation/d/1ODCtpBYLTNCFkFhTMBHmyVBU41XfYzv8WUN7c0dwizc/edit?usp=sharing)
+  - [Estructuras de datos grandes de Earth Engine](https://docs.google.com/presentation/d/1Ksax77YPEvmseush73-6GueGA765KHBNcxuJDE9154k/edit?usp=sharing)
+
+![](./figures/m1.1/GEEcodeEditor.png)
 
 ### 1.2 Repositorio
 
@@ -71,34 +84,22 @@ El canal de YouTube titulado [Open MRV](https://www.youtube.com/channel/UCdPooUC
 - Familiarizarse con una variedad de opciones que incluyen: seleccionar fechas, sensores, y métodos de mosaico
 - Aprender como exportar el mosaico/imagen compuesta
 
-## 3 Google Earth Engine (GEE)
+### 2.1 Prerrequisitos para este módulo
 
-El atractivo de usar GEE es que GEE contiene multi-petabytes de imágenes satelitales y datos geoespaciales, permitiendo que sus usuarios computen análisis a escala masiva en una plataforma basada en la nube.  GEE contiene JavaScript (usado en este caso) y una Interfaz de programación de aplicaciones (API por sus siglas en ingles) de Python, donde usuarios pueden subir sus propios conjuntos de datos y usar funciones integradas para completar **una enorme variedad de tareas geoespaciales a velocidades y escalas sin precedente.** Para mas información acerca de GEE por favor refiérase [a la página principal de GEE](https://earthengine.google.com/). Ahí puede encontrar tutoriales y documentación útil. Algunos enlaces relevantes se destacan a continuación:
+- Conocimiento básico a intermedio de conceptos de teledetección
+  - Puede referirse al entrenamiento de [NASA ARSET, Fundamentales de Teledetección](https://appliedsciences.nasa.gov/join-mission/training/english/fundamentals-remote-sensing). Incluye conceptos básicos de teledetección satelital, incluyendo orbitas de satélites, tipos, resoluciones, sensores, y niveles de procesamiento. Está bajo demanda y cualquier persona lo puede tomar (solo está disponible en ingles)
+- Cuenta de GEE
+  - Cualquier persona puede inscribirse a GEE. GEE es gratis para el uso no comercial. Para inscribirse, por favor complete [este formulario](https://earthengine.google.com/signup/). Una vez que haya sido aceptado/a, recibirá un correo electrónico con información adicional. 
+- Conocimiento básico a intermedio de la programación
+  - Ver entrenamientos útiles e información acerca de la programación JavaScript para GEE en la Sección 3 de GEE
+- GEE funciona mejor con el navegador [Google Chrome](https://www.google.com/chrome/) 
 
-- [Conjuntos de datos disponibles](https://developers.google.com/earth-engine/datasets/) 
-- [Preguntas frecuentes](https://earthengine.google.com/faq/)
-- [Empezando con GEE](https://developers.google.com/earth-engine/guides/getstarted)
-- [Introducción al API de Javascript](https://developers.google.com/earth-engine/tutorials/tutorial_api_01)
-- [Documentación](https://developers.google.com/earth-engine)
-- [Referencia API](https://developers.google.com/earth-engine/apidocs)
-- [Guía para el editor del código](https://developers.google.com/earth-engine/guides/playground)
-- [Tutoriales comunitarios](https://developers.google.com/earth-engine/tutorials)
-- [Guía para depurar](https://developers.google.com/earth-engine/guides/debugging)
-- [Como conseguir ayuda](https://developers.google.com/earth-engine/help)
-- [Alcance de Google Earth: Introducción a GEE](https://www.google.com/earth/outreach/learn/introduction-to-google-earth-engine/)
-- Presentaciones de la conferencia [2019 Geo for Good Summit de Google](https://www.google.com/earth/outreach/learn/introduction-to-google-earth-engine/):
-  - [Earth Engine para los que no programan](https://docs.google.com/presentation/d/10DTcBGPl0JeTEOJlSRNdj9dtGLwqq7HPLzegENygI-U/edit?usp=sharing)
-  - [Codificar en GEE](https://docs.google.com/presentation/d/1KCOcW1PtFUzC4R2g3pbovtO19C4VPtjRXJxCwkG1b5Q/edit?usp=sharing)
-  - [Recorrido de los conjuntos de datos de GEE y carga de datos](https://docs.google.com/presentation/d/1ODCtpBYLTNCFkFhTMBHmyVBU41XfYzv8WUN7c0dwizc/edit?usp=sharing)
-  - [Estructuras de datos grandes de Earth Engine](https://docs.google.com/presentation/d/1Ksax77YPEvmseush73-6GueGA765KHBNcxuJDE9154k/edit?usp=sharing)
 
-![](figures/m1.1/GEEcodeEditor.png)
-
-## 4 Creando una Imagen Compuesta
+## 3 Creando una Imagen Compuesta
 
 El flujo de trabajo general del proceso para este tutorial se demuestra a continuación:
 
-![](figures/m1.1/WB_graphs_v2-02-crop.png)
+![](./figures/m1.1/WB_graphs_v2-02-crop.png)
 
 Ahora completemos cada uno de estos pasos. Abra el Editor de Código escribiendo [https://code.earthengine.google.com](https://code.earthengine.google.com) en su barra de búsqueda. 
 
@@ -106,7 +107,7 @@ En el lado izquierdo del Editor de Código esta la pestaña Docs, la cual contie
 
 Por favor note que en este tutorial especifico, crearemos una imagen compuesta mediana del país de Colombia en el 2019 para propósitos de presentación. Este tutorial no garantiza que los métodos demostrados serán perfectos para cada caso individual del usuario (por ejemplo, que produzca la mejor imagen compuesta). Uno puede, y debería de, experimentar con diferentes periodos de tiempo, áreas de estudios, y métodos. 
 
-### 4.1 Área de Interés
+### 3.1 Área de Interés
 
 >  Los siguientes pasos están demostrados en el script `1_Landsat_Sentinel2_Median`.
 >
@@ -116,11 +117,11 @@ Para empezar, necesitamos definir nuestra área de interés. Usaremos el conjunt
 
 Busque "USDOS" en la barra de búsqueda en el Editor de Código y haga clic en "LSIB 2017: Large Scale International Boundary Polygons, Simplified".
 
-![](figures/m1.1/searchlisb.png)
+![](./figures/m1.1/searchlisb.png)
 
 Una ventana pop-up demostrará la descripción, las propiedades, y los términos de uso de este conjunto de datos.
 
-![](figures/m1.1/lisbGEE.png)
+![](./figures/m1.1/lisbGEE.png)
 
 Copie y pegue el código abajo para crear una variable para este conjunto de datos.
 
@@ -143,7 +144,7 @@ Map.centerObject(country,5);
 Map.addLayer(country,{},'Colombia');
 ```
 
-![](figures/m1.1/colombiaGEE2.png)
+![](./figures/m1.1/colombiaGEE2.png)
 
 > NOTA: Ajuste el nivel de zoom a su preferencia cambiando el numero `5` a cualquier numero entre 1 y 24. Entre mas alto este el numero, mas se acercará el mapa. Puede usar el control deslizante bajo el panel de *Layers* (Capas) en el mapa para cambiar la opacidad de la capa.
 >
@@ -155,8 +156,8 @@ Map.addLayer(country,{},'Colombia');
 > - `shown`: Una etiqueta que indica si la capa debe de estar activada de forma predeterminada (esto puede ser muy útil cuando este experimentando con diferentes parámetros y tiene varias capas). Este es un argumento Booleano y usa `True` automáticamente.
 > - `opacity`: La opacidad de la capa representada por un numero entre 0 y 1. Se le da valor de 1 automáticamente. 
 
-### 4.2 Colección de Landsat
-#### 4.2.1 Empezando con Landsat 8
+### 3.2 Colección de Landsat
+#### 3.2.1 Empezando con Landsat 8
 
 >[Instrucciones de video](https://youtu.be/J6o6NLqsobw)
 
@@ -188,7 +189,7 @@ Imprima `l8Filt` con la función `print` para ver su colección filtrada. Haga c
 print('L8 SR collection filtered',l8Filt);
 ```
 
-![](figures/m1.1/printL8v4.png)
+![](./figures/m1.1/printL8v4.png)
 
 Con la colección filtrada, vamos a crear una imagen compuesta usando un reductor mediano. Usaremos la función `median()` para `ee.ImageCollection` y la función `clip()` para reducir la imagen compuesta a nuestra área de interés. 
 
@@ -224,9 +225,9 @@ print('L8 composite 2019',composite);
 
 Puede probar parámetros de visualización haciéndole clic al ícono de los ajustes ![](figures/m1.1/gear2.png) a un lado de la capa "Composite 2019" y experimentar con las opciones de estiramiento. 
 
-![](figures/m1.1/visParams2.png)
+![](./figures/m1.1/visParams2.png)
 
-![](figures/m1.1/l8cloudycomposite.png)
+![](./figures/m1.1/l8cloudycomposite.png)
 
 En el mapa, debería de ser visible una imagen muy nublada como la de arriba. Vamos a intentar agregar un pre-filtro para las nubes cuando filtremos nuestra colección. La colección de Landsat viene con una propiedad llamada `CLOUD_COVER`, y podemos definir un porcentaje de cobertura de nube como un umbral para filtrar las escenas. Usaremos la función `filterMetadata` para filtrar imágenes con cobertura de nube de menos de 50%. Copie y pegue el código siguiente y haga clic en *Run*. 
 
@@ -247,11 +248,11 @@ print('L8 composite 2019 pre cloud filter',composite2);
 
 Podrá apreciar que esta imagen compuesta se mira un poco mejor que la anterior, pero aun tiene muchas nubes. En la consola, también note que la nueva colección tiene 454 imágenes comparado con las 956 en la colección previo. 
 
-![](figures/m1.1/l8cloudycompositev2.png)
+![](./figures/m1.1/l8cloudycompositev2.png)
 
 Intente ajustar el umbral de CLOUD_COVER a diferentes porcentajes y revisar los resultados. Ejemplo: con un 20% definido como el umbral, puede ver que muchas partes del país tienen vacíos. Adicionalmente, algunas losas presentan un alto porcentaje de cobertura de nubes aun con el filtro de nubes. 
 
-![](figures/m1.1/l820cloudthreshold2.png)
+![](./figures/m1.1/l820cloudthreshold2.png)
 
 Esto es debido a la persistencia de cobertura de nubes sobre ciertas regiones de Colombia. Podemos aplicar una Máscara de Nubes para mejorar los resultados. Las colecciones de Landsat 8 contienen una banda de Quality Assessment (Evaluación de Calidad) llamada `pixel_qa` que provee información útil acerca de ciertas condiciones dentro de los datos, y permite que los usuarios apliquen filtros por pixel. Cada pixel en la banda QA contiene íntegros no firmados que representan combinaciones de combinaciones de bit de las condiciones de la superficie, la atmosfera, y el sensor. De interés particular son los Bits 3 y 5 que representan sombra de nube, y nube, respectivamente. 
 
@@ -292,7 +293,7 @@ Map.addLayer(l8compositeMasked,
 > - [Left shift operator in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Left_shift)
 > - [GEE `bitwiseAnd` function](https://developers.google.com/earth-engine/apidocs/ee-image-bitwiseand)
 
-![](figures/m1.1/l8masked2.png)
+![](./figures/m1.1/l8masked2.png)
 
 La imagen compuesta que resulta demuestra nubes enmascaradas y es un gran mejoramiento comparado a las imágenes compuestas anteriores. Sin embargo, los vacíos de datos siguen siendo un problema dado la cobertura de nubes. Si no es necesario una imagen compuesta anual, puede crear una imagen compuesta de dos años para amortiguar el problema de falta de datos. Próximamente, intentaremos eso: 
 
@@ -320,7 +321,7 @@ La imagen compuesta que resulta demuestra nubes enmascaradas y es un gran mejora
 >
 > NOTA 2: También puede poner el argumento `shown` en las funciones de `Map.addLayer` como falso (`False`) para que esas capas no sean visualizadas automáticamente al mapa.
 
-#### 4.2.2 Agregando un año más de datos 
+#### 3.2.2 Agregando un año más de datos 
 
 > [Instrucciones de Video](https://youtu.be/Q5cjLW_yf7k)
 
@@ -340,13 +341,13 @@ var l8TwoYearComposite = l8.filterBounds(country)
 Map.addLayer(l8TwoYearComposite,{bands:['B4','B3','B2'],min:0,max:2000},'Landsat 8 Two-Year composite');
 ```
 
-![](figures/m1.1/twoYearComposite2.png)
+![](./figures/m1.1/twoYearComposite2.png)
 
 La imagen resultante tiene menos vacíos de datos. Si el periodo de tiempo no es una restricción para la creación de su imagen compuesta, puede incorporar mas imágenes de un tercer año, y así sucesivamente. 
 
 Otra opción para mejorar los vacíos de datos es usar imágenes de otros sensores para el periodo de tiempo de interés. Afortunadamente, la colección de Landsat abarca varias misiones, las cuales han adquirido datos continuamente desde 1972 con diferentes fechas de adquisición. Próximamente, incorporaremos imágenes de Landsat 7 del 2019 para llenar los vacíos en la imagen compuesta de Landsat 8 del 2019. 
 
-#### 4.2.3 Agregando la Colección de Landsat 7 
+#### 3.2.3 Agregando la Colección de Landsat 7 
 
 > [Instrucciones de Video](https://youtu.be/vu61q6vsno8)
 
@@ -394,15 +395,15 @@ Map.addLayer(l7compositeMasked,{bands:['B3','B2','B1'],min:0,
 
 > NOTA: Usamos `bands:['B3','B2','B1']` esta vez porque Landsat 7 tiene diferentes designaciones de bandas. Los sensores a bordo de cada uno de los satélites de Landsat fueron diseñados para adquirir datos en diferentes rangos de frecuencias a lo largo del espectro electromagnético. Las bandas rojas, verdes, y azules corresponden a B4, B3, y B2 respetivamente. Para Landsat 7, estas mismas bandas son B3, B2, y B1 respetivamente. Para mas información, referirse a [esta página](https://www.usgs.gov/faqs/what-are-band-designations-landsat-satellites?qt-news_science_products=0#qt-news_science_products).
 
-![](figures/m1.1/l7composite.png)
+![](./figures/m1.1/l7composite.png)
 
 Debería de ver una imagen con muchos vacíos como la imagen de arriba. Landsat 7 fue lanzado en 1999 pero desde el 2003, el sensor adquirió y entrego datos con vacíos de datos causados por una falla del Corrector de Línea de Escaneo (SLC, por sus siglas en ingles). Sin un SLC operativo, la línea de vista del sensor sigue un patrón zig-zag a lo largo de la trayectoria terrestre de satélite. Como resultado, el área capturada es duplicada. Cuando los datos de Nivel-1 son procesados, se eliminan las áreas duplicadas, dejando vacíos de datos. Para mas información acerca de Landsat 7 y el error de SLC, por favor referirse a esta página. 
 
-![](figures/m1.1/SLC.jpg)
+![](./figures/m1.1/SLC.jpg)
 
 Podemos usar los datos de Landsat 7 en nuestra imagen compuesta a pesar del error de SLC. Ahora, vamos a combinar las colecciones de Landsat 7 y 8. 
 
-#### 4.2.4 Combinando dos sensores en una imagen compuesta
+#### 3.2.4 Combinando dos sensores en una imagen compuesta
 
 > [Instrucciones de Video](https://youtu.be/COobcYDThxo)
 
@@ -425,7 +426,7 @@ print('L7 SR collection renamed',l7FiltMaskedRenamed);
 
 > NOTA: Si revisa las bandas de las primeras imágenes de las colecciones `l7FiltMasked` y `l7FiltMaskedRenamed` verá que los nombres de las bandas fueron cambiados, y no todas las bandas fueron copiadas (`sr_atmos_opacity`, `sr_cloud_qa`, `pixel_qa`,  `radsat_qa`, y`B6`). Para copiar estas bandas adicionales, simplemente agréguelas a la función para renombrar (para `B6` necesitará renombrarla para que no tenga el mismo nombre que la nueva `banda 5`). La imagen siguiente demuestra las bandas de la primera imagen de la colección de Landsat 7 a la izquierda, y las bandas de la primera imagen de la colección Landsat 7 renombrada a la derecha. 
 >
-> ![](figures/m1.1/rename2.png)
+> ![](./figures/m1.1/rename2.png)
 
 Ahora combinaremos ambas colecciones. Usaremos la función `merge` para `imageCollection`. Copie y pegue el código siguiente y haga clic en *Run*. Vera en la consola que ahora tiene una colección de 999 imágenes (563 de Landsat 8 y 436 de Landsat 7). 
 
@@ -435,7 +436,7 @@ var l78 = l7FiltMaskedRenamed.merge(l8FiltMasked);
 print('Merged collections',l78);
 ```
 
-![](figures/m1.1/mergedCollection2.png)
+![](./figures/m1.1/mergedCollection2.png)
 
 Ahora, para crear la imagen compuesta, haremos lo mismo que antes. Note que si ejecuta el código siguiente, dará con un error:
 
@@ -446,7 +447,7 @@ Map.addLayer(l78composite,{bands:['B4','B3','B2'],min:0,max:2000},
              'Landsat 7 and 8 composite');
 ```
 
-![](figures/m1.1/tileError3.png)
+![](./figures/m1.1/tileError3.png)
 
 Esto es porque la colección de Landsat 7 tiene 6 bandas y Landsat 8 tiene 12 bandas. Para crear los mosaicos y agregarlos al mapa, deben tener el mismo número de bandas. Modificaremos el bloque de código donde estamos combinando las colecciones para agregar una función de `select` a la colección de Landsat 8. La función `select` seleccionará bandas especificas de las imágenes. Seleccionaremos solo las bandas disponibles en la colección de Landsat 7. Para lograr esto, cambie el procedimiento de combinación:
 
@@ -464,13 +465,13 @@ Map.addLayer(l78composite,{bands:['B4','B3','B2'],min:0,max:2000},
 
 Debería de ver una imagen compuesta parecida a esta:
 
-![](figures/m1.1/mergedComposite2.png)
+![](./figures/m1.1/mergedComposite2.png)
 
 Comparado a las imágenes compuestas solo de Landsat 8, puede ver que algunos de los vacíos han sido llenados. Sin embargo, dado a la naturaleza de composición/combinación en general, y el error de SLC de Landsat 7, puede ver artefactos en algunas regiones (ejemplo en la centroide Latitud: 1.46, Longitud: -69.99). Compuesta de Landsat 8 exclusivamente (a la izquierda) e imagen compuesta de Landsat 7 y 8 (a la derecha)
 
-![](figures/m1.1/l8andMergedComparison.png)j
+![](./figures/m1.1/l8andMergedComparison.png)j
 
-#### 4.2.5 Tratando de llenar los vacíos de datos con funciones de Media Focal (o Mediana Focal)
+#### 3.2.5 Tratando de llenar los vacíos de datos con funciones de Media Focal (o Mediana Focal)
 
 > [Instrucciones de Video](https://youtu.be/hYtoWeVwoKs)
 
@@ -478,7 +479,7 @@ Podemos tratar de llenar vacíos de datos usando una función de media focal o m
 
 > NOTA: La función focal_mean contiene 5 argumentos de entrada: `radius`, `kernelType`, `units`, `iterations`, y `kernel`. Puede encontrar más información acerca de cada uno de ellos buscando la media focal en la pestaña *Docs* (y cualquier otra función de GEE). Para este ejemplo, definimos un radio de 1.5, un núcleo de tipo cuadrado, un núcleo pixel, y 2 iteraciones. Usted puede experimentar con variables diferentes. Entre mas grande los valores, mas borrosos se verán los datos.
 >
-> ![](figures/m1.1/focalMeanDocs.png)
+> ![](./figures/m1.1/focalMeanDocs.png)
 
 ```javascript
 // Función para llenar vacíos debido al error SLC usando media focal
@@ -499,9 +500,9 @@ Map.addLayer(l78compositeFill,{bands:['B4','B3','B2'],min:0,
 
 Debería de ver una imagen compuesta como la siguiente. En este caso particular, puede que valga la pena no aplicar este método ya que "creó" nuevos pixeles que parecen nubes y el método anterior da mejor resultado. Sin embargo, para otras regiones con menos cobertura de nube, este paso adicional puede ser útil. 
 
-![](figures/m1.1/focalMean4.png)
+![](./figures/m1.1/focalMean4.png)
 
-#### 4.2.6 Imagen Compuesta Medoide
+#### 3.2.6 Imagen Compuesta Medoide
 
 > Los siguientes pasos están demostrados en el código `3_Landsat_Medoid`.
 >
@@ -527,15 +528,15 @@ var l78medoidComposite = l78.map(function(image) {
 Map.addLayer(l78medoidComposite,{bands:['B4','B3','B2'],min:0,max:2000},'L7&8 Medoid composite 2019');
 ```
 
-![](figures/m1.1/LandsatMedoid2.png)
+![](./figures/m1.1/LandsatMedoid2.png)
 
 Debería de ver una imagen como la de arriba. A primera vista, se puede pensar que no hay mucha diferencia comparado con la imagen compuesta mediana. Sin embargo, la imagen compuesta medoide puede demostrar mejoramientos importantes para ciertos pixeles. Ver el ejemplo siguiente para el punto (2.86, -74.73) donde áreas con nubes en el mediano están representadas de mejor manera en la imagen compuesta medoide. 
 
-![](figures/m1.1/MedoidComparison.png)
+![](./figures/m1.1/MedoidComparison.png)
 
 Ahora, vamos a crear una imagen compuesta mediana con los datos de Copernicus Sentinel-2 de la Agencia Espacial Europea (ESA por sus siglas en ingles). Sentinel-2 es una misión de adquisición de imágenes multi-espectral, de alta-resolución, y de andana ancha  que apoya estudios de Monitoreo Terrestre de Copernicus, incluyendo el monitoreo de vegetación, tierra, y agua, al igual que la observación de vías navegables interiores y de áreas costeras. 
 
-### 4.3 Colección de Sentinel-2
+### 3.3 Colección de Sentinel-2
 
 > Los siguientes pasos están demostrados en el código `1_Landsat_Sentinel2_Median`.
 >
@@ -594,7 +595,7 @@ Map.addLayer(s2composite,{bands:['B4','B3','B2'],min:0.02,max:0.3,
                           gamma:1.5},'Sentinel-2 2019 composite');
 ```
 
-![](figures/m1.1/s2composite2.png)
+![](./figures/m1.1/s2composite2.png)
 
 > Adicionalmente: Puede intentar una combinación de banda diferente para visualizar la imagen compuesta de Sentinel-2. Intente la combinación de colores falsos siguiente usando las bandas SWIR 1, NIR, y Azul. Esta combinación de bandas es frecuentemente usada para monitorear la salud del los cultivos por la manera en la que usa infrarrojo cercano y de onda corta. Ambas bandas son particularmente eficientes en destacar vegetación densa, la cual aparece como verde oscuro. [Esta pagina](https://gisgeography.com/sentinel-2-bands-combinations/)(https://gisgeography.com/sentinel-2-bands-combinations/)  explica las diferentes combinaciones de bandas de Sentinel-2. 
 >
@@ -604,7 +605,7 @@ Map.addLayer(s2composite,{bands:['B4','B3','B2'],min:0.02,max:0.3,
 >           'Sentinel-2 2019 composite SWIR/NIR/Blue');
 > ```
 >
-> ![](figures/m1.1/s2compositeFalseColor2.png)
+> ![](./figures/m1.1/s2compositeFalseColor2.png)
 
 #### Advertencia: Reflectancia de Superficie vs. Productos de la Cima de la Atmósfera
 
@@ -612,7 +613,7 @@ La Agencia Espacial Europea no produjo datos de Sentinel-2 a Nivel-2 (reflectanc
 
 Los productos de la cima de la atmosfera (TOA) no han sido procesados con correcciones atmosféricas, a si que una imagen compuesta TOA presentará diferencias comparada a BOA ya que representa influencias atmosféricas. Próximamente, la imagen compuesta mediana del 2019 del producto Sentinel-1 L-1 es mostrada junto con la imagen compuesta del 2019 del producto L2 para una comparación.
 
- ![](figures/m1.1/TOA_BOAComparison3.png)
+ ![](./figures/m1.1/TOA_BOAComparison3.png)
 
 Puede notar el efecto azul en la imagen compuesta TOA. Para mas información acerca de los niveles de procesamiento de Sentinel-2, por favor referirse a [esta página](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels) (y subpáginas [Nivel-0](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels/level-0), [Nivel-1](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels/level-1), y [Nivel-2](https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels/level-2)). Otros recursos acerca de las diferencias entre radiancia, reflectancia, y la cima de la atmósfera son: 
 
@@ -622,7 +623,7 @@ Puede notar el efecto azul en la imagen compuesta TOA. Para mas información ace
 - [Presentación de USGS](http://www.pancroma.com/downloads/General%20Landsat.pdf)
 - Adicionalmente: [Algoritmos Landsat de GEE](https://developers.google.com/earth-engine/guides/landsat) para diferentes niveles de procesamiento
 
-## 5 Exportando la Imagen Compuesta
+### 3.4 Exportando la Imagen Compuesta
 
 Exportar datos del Editor de Código es posible a través de las funciones de exportación, las cuales incluyen opciones de exportación para imágenes, mesas, y videos. Métodos de exportación usan varios argumentos opcionales para que pueda controlar características importantes de sus datos resultantes, como la resolución y la región. Tiene tres opciones para exportar una imagen: 
 
@@ -632,7 +633,7 @@ Exportar datos del Editor de Código es posible a través de las funciones de ex
 
 `Export.image.toCloudStorage` para exportar a su Almacenamiento de Google Cloud.
 
-### 5.1 Exportar a Google Drive
+#### 3.4.1 Exportar a Google Drive
 
 Agregue la declaración siguiente al final de su script. Esto creará una tarea en la pestaña *Task* que puede usar para exportar la imagen y hacerle clic a *Run*. El proceso es demostrado para la imagen compuesta de Landsat combinada. Para exportar mas imágenes compuestas, simplemente copie el mismo código y cambie el nombre de la imagen compuesta para las funciones adicionales de Exportación. 
 
@@ -648,7 +649,7 @@ Export.image.toDrive({
 });
 ```
 
-![](figures/m1.1/taskProcess.png)
+![](./figures/m1.1/taskProcess.png)
 
 > NOTA: En este ejemplo ha especificado algunos de los argumentos opcionales reconocidos por `Export.image`. A pesar de que esta función usa varios parámetros opcionales, es valioso familiarizarse con estos:
 >
@@ -659,17 +660,17 @@ Export.image.toDrive({
 
 > NOTA 2: Si trata de exportar una imagen que contiene bandas de diferentes tipos de datos, verá un error. Todas las bandas de una imagen Sentinel-2 son 16-bit entero no firmado `unsigned int16`, así que no tendrá un error. Sin embargo, para imágenes de Landsat, necesitara seleccionar bandas especificas usando la función `select` o hacer que las bandas tengan el mismo tipo de datos. No tendremos problema ya que nuestra imagen compuesta combinada de Landsat solo contiene B2-7 que fueron seleccionadas previamente, pero para colecciones de Landsat separadas, debería de aplicar la función `select`.
 >
-> ![](figures/m1.1/landsatDataType3.png)
+> ![](./figures/m1.1/landsatDataType3.png)
 
 Dado que estamos exportando una imagen compuesta para el país entero de Colombia, la exportación llevará varios minutos, talvez horas. Una vez completado, notará que en la carpeta destino que especificó, la imagen compuesta está separada en varios archivos GeoTIFF (ejemplo: l78composite2019-0000000000-0000000000.tif, l78composite2019-0000000000-000000xxxx.tif ) donde xxxx representan números diferentes, y así sucesivamente.
 
 > NOTE: Para revisar el estado de una tarea, pase el mouse sobre la exportación y haga clic en el icono ![](figures/m1.1/question2.png). Una ventana aparecerá demostrando los detalles: 
 >
-> ![](figures/m1.1/taskDetails2.png)
+> ![](./figures/m1.1/taskDetails2.png)
 >
 > NOTA 2: Para Sentinel-2, la resolución de pixel son 10 metros y cuando se exportan imágenes grandes (como una imagen compuesta del país entero de Colombia) puede que aparezca un error de exportación. Si le aparece un error acerca del tamaño, incremente la escala `scale`, o intente modificar el parámetro de `maxPixels`, o cambie la región a una geometría/área mas pequeña. Esto es valido para todo tipo de funciones de `Export`. 
 
-### 5. 2 Exportar como un Asset
+#### 3.4.2 Exportar como un Asset
 
 Similarmente a la función de arriba, copie y pegue el código siguiente para exportar la imagen compuesta como un Asset (Recurso) de GEE. La diferencia es que el `fileNamePrefix` se convierte en `assetId`. Cambie su `YourPath` a un lado del `assetId` al camino correcto donde quiere que se ubique su imagen. 
 
@@ -687,7 +688,7 @@ Export.image.toAsset({
 
 Para mas información acerca de como manejar sus assets, por favor referirse a [esta pagina](https://developers.google.com/earth-engine/guides/asset_manager). 
 
-### 5.3 Exportar a una cubeta de almacenamiento de Google Cloud
+#### 3.4.3 Exportar a una cubeta de almacenamiento de Google Cloud
 
 Si utiliza almacenamiento de Google Cloud Storage, puede usar el código siguiente. Cambie su `YourBucket` a la cubeta donde quiere 
 
@@ -704,14 +705,14 @@ Export.image.toCloudStorage({
 });
 ```
 
-## 6 Ejemplos Adicionales
+## 4 Ejemplos Adicionales
 
 En este tutorial, hemos creado y exportado diferentes imágenes compuestas para el país de Colombia. Ahora, puede intentar crear imágenes compuestas para el país que sea de su interés. Los scripts están diseñados de tal manera que lo único que necesita hacer es cambiar alguna líneas de código. Veremos ejemplos para Mozambique y Camboya. En todos los casos, el proceso general es igual al que fue demostrado para Colombia. Sin embargo, para otros países, se deben de tomar en cuenta algunas consideraciones en cuanto a clasificaciones de diferentes coberturas terrestres o la detección de cambios en el paisaje. Algunas consideraciones que vera en los próximos módulos incluirán: 
 
 - Considerando Estacionalidad - Variación estacional puede presentar un desafío cuando se lleva acabo una clasificación de coberturas terrestres. En una imagen de la temporada seca sobre Mozambique, un bosque caducifolio puede ser confundido con clases de cobertura no forestadas o herbáceas dada la poca vegetación durante el periodo sin hojas. Dado esto, pueda que necesite crear imágenes compuestas separadas para las temporadas húmedas y secas. Puede hacer esto cambiando las variables de fecha inicial `startDate`y fecha final `endDate` en los scripts. 
 - Considerando Topografía - Muchos de los bosques restantes en Camboya están ubicados en terreno montañosos. Dado a que estas características pueden crear sombras, la reflectancia del paisaje dentro de la sombra puede ser menos que paisajes similares que no están en sombra. De esta manera, la topografía también puede introducir desafíos para la clasificación de coberturas terrestres o la detección de cambio en el paisaje. 
 
-### 6.1 Mozambique
+### 4.1 Mozambique
 
 En los scripts `1_Landsat_Sentinel2_Median`o `3_Landsat_Medoid`, simplemente cambie '`Colombia`' en la línea 15 a '`Mozambique`' (o en la línea apropiada si esta usando su propio script) y haga clic en *Run*. 
 
@@ -763,7 +764,7 @@ var units = 'pixels';
 var iterations = 2;
 ```
 
-### 6.2 Camboya
+### 4.2 Camboya
 
 En las scripts `1_Landsat_Sentinel2_Median` o `3_Landsat_Medoid`, simplemente cambie 'Colombia' en línea 15 a 'Camboya' (o en la línea apropiada en caso que sea su propio script) y haga clic en *Run*. El script llamado Camboya mencionado en Sección 1.2. Repositorio es una copia exacta de este script pero con el cambio ya hecho. 
 
@@ -775,7 +776,7 @@ Como se mencionó arriba en el ejemplo de Mozambique, puede ajustar cualquier ot
 
 Felicidades! Ha llegado al final de este módulo. En los próximos  módulos, aprenderá como coleccionar datos de entrenamiento usando QGIS y GEE.
 
-## 7 Preguntas Frecuentes
+## 5 Preguntas Frecuentes
 
 **¿Por que estamos usando [LSIB Simplificado](https://developers.google.com/earth-engine/datasets/catalog/USDOS_LSIB_SIMPLE_2017) y no [LSIB Detallado](https://developers.google.com/earth-engine/datasets/catalog/USDOS_LSIB_2017)?**
 
@@ -797,6 +798,8 @@ No. GEE es una plataforma basada en la nube, así que todo el procesamiento ocur
 
 Usualmente este "Script Error" no afectará su código. Si los resultados se cargan correctamente en la consola y las capas son agregadas al Mapa, no necesita preocuparse por este error. Un error real que prohíbe que el usuario obtenga un resultado enseñara un mensaje explicando *cual* es el error. Para asistencia en resolver estos problemas en su código, por favor consulte el [Debugging Guide](https://developers.google.com/earth-engine/guides/debugging) y los enlaces de [How to get help](https://developers.google.com/earth-engine/help) disponibles en la Sección 3. Google Earth Engine.
 
+-----
+
 ![](figures/m1.1/cc.png) 
 
 Este trabajo tiene licencia bajo un [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/).
@@ -816,15 +819,11 @@ Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat
 Paula Andrea Paz, Colombia, International Center for Tropical Agriculture (CIAT)  
 Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD) 
 Raja Ram Aryal, Nepal, Forest Research and Training Centre  
-
 Rajesh Bahadur Thapa, Nepal, International Centre for Integrated Mountain Development (ICIMOD)  
 Sofia Garcia, Guatemala, Ministry of Environment and Natural Resources  
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
 
-
-
 Atribución 
-
 Nicolau, Andrea P. 2020. Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
-![](figures/m1.1/wb.png)![](figures/m1.1/gfoi.png)
+![](figures/m1.1/wb_fcfc_gfoi.png)

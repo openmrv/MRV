@@ -9,7 +9,6 @@ publisher and license: Copyright 2021, World Bank. This work is licensed under a
 tags:
 - OpenMRV
 - Landsat
-- Sentinel 2
 - GEE
 - Cloud cover
 - Optical sensors
@@ -19,8 +18,6 @@ tags:
 - LandTrendr
 - Time series
 - Change detection
-- Land cover mapping
-- Forest mapping
 - Deforestation mapping
 - Degradation mapping
 - Forest degradation mapping

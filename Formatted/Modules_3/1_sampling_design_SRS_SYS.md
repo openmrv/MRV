@@ -8,60 +8,24 @@ publisher and license: Copyright 2021, World Bank. This work is licensed under a
 
 tags:
 - OpenMRV
-- Landsat
-- Sentinel 2
-- Sentinel 1
 - GEE
 - QGIS
 - AREA2
-- Cloud cover
-- Optical sensors
-- Remote sensing
-- Composite
-- Mosaic
-- Time series
-- Change detection
-- Land cover mapping
-- Forest mapping
-- Deforestation mapping
-- Degradation mapping
-- Forest degradation mapping
 - Sampling design
 - Sample design
-- Sample selection
 - Sample
 - Sampling frame
-- Stratified
 - Simple Random
 - Systematic
-- Response design
-- Survey
-- Survey design
-- Accuracy
-- Accuracy assessment
-- Area Estimation
-- Reference data
-- Reference classification
-- Reference observations
-- Colombia
 
 group:
-- category: Stratified
-  stage: Sampling
 - category: Simple Random
   stage: Sampling
 - category: Cluster
   stage: Sampling
 - category: Systematic
   stage: Sampling
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
-- category: Expansion
-  stage: Area Estimation/Accuracy assessment
-- category: Model-assisted
-  stage: Area Estimation/Accuracy assessment
-- category: Ratio
-  stage: Area Estimation/Accuracy assessment
+
 ---
 
 # Simple random/systematic sampling 
@@ -127,7 +91,7 @@ which gives a sample size of
 
 ![](https://latex.codecogs.com/svg.latex?\Large&space;n=\frac{\hat{p}(1-\hat{p})}{\hat{V}(\hat{p})}=\frac{0.8(1-0.8)}{0.0004}=400)
 
-Even though estimation of overall accuracy was illustrated in Olofsson et al. (2014), specifying a margin of error of the overall map accuracy is not intuitive and rarely an estimation objective. A more realistic example would be the  estimation of the area of deforestation or forest degradation with a certain precision. In another tutorial here on OpenMRV under process "Change detection" and tool "CODED", a map of deforestation, forest degradation, forest and non-forest was created for Colombia, and we will use it as an example; for the sake of simplicity, let's lump the deforestation and forest degradation into a single forest disturbance class, which was mapped as 1.4% of the country from 2010 to 2020. Note, for estimation of activity data within REDD+ (and other initiatives), it is recommended to estimate deforestation and degradation separately -- and hence use a deforestation stratum and a degradation stratum -- rather than combining the two classes into a single forest disturbance class. Here, we are using a combined disturbance class to facilitate the illustration of the workflow and calculations.  Let's assume we want to estimate the area of forest disturbance (again, combined deforestation and degradation) with a 25% margin of error. Note that 25% is used here simply to illustrate the workflow -- the target error will depend on the circumstances of the study. First, a 25% margin of error is equivalent to a variance of  
+Even though estimation of overall accuracy was illustrated in Olofsson et al. (2014), specifying a margin of error of the overall map accuracy is not intuitive and rarely an estimation objective. A more realistic example would be the  estimation of the area of deforestation or forest degradation with a certain precision. In another tutorial here on OpenMRV under process "Change detection" and tool "CODED", a map of deforestation, forest degradation, forest and non-forest was created for Colombia, and we will use it as an example (https://code.earthengine.google.com/?asset=users/openmrv/MRV/CODED_Colombia_Stratification_No_Buffer); for the sake of simplicity, let's lump the deforestation and forest degradation into a single forest disturbance class, which was mapped as 1.4% of the country from 2010 to 2020. Note, for estimation of activity data within REDD+ (and other initiatives), it is recommended to estimate deforestation and degradation separately -- and hence use a deforestation stratum and a degradation stratum -- rather than combining the two classes into a single forest disturbance class. Here, we are using a combined disturbance class to facilitate the illustration of the workflow and calculations.  Let's assume we want to estimate the area of forest disturbance (again, combined deforestation and degradation) with a 25% margin of error. Note that 25% is used here simply to illustrate the workflow -- the target error will depend on the circumstances of the study. First, a 25% margin of error is equivalent to a variance of  
 
 ![](https://latex.codecogs.com/svg.latex?\Large&space;\hat{V}(\hat{p})=(\frac{MoE\times&space;\hat{p}}{2})^2=(\frac{0.25\times0.014}{2})^2=0.000003)
 
@@ -142,38 +106,28 @@ The reason for why 30 is regarded is the minimum sample size is best described b
 > The imprecise term “sufficiently large” occurs in the central limit theorem because the adequacy of the normal approximation depends on n and on how closely the population {yi, i = 1, ... , N} resembles a population generated from the normal distribution. The “magic number” of n = 30 is often cited in introductory statistics books as a sample size that is “sufficiently large” for the central limit theorem to apply
 
 The central limit theorem is important because it states that the sum of independent random variables are normally distributed  even if the variables themselves are not. For example, the theorem allows us to construct confidence intervals by using common z-scores and a standard error.
+   
 
-### 3.3 Two-stage/cluster sampling
-Because of the complexity associated with two-stage sampling, there are far fewer examples of these types of designs in the literature compared to STR and SRS/SYS. Further, there are no fixed rules to guide the size of the sample and the primary sampling units (PSUs) other than to find a compromise between the overall number of observations and a reasonable level of uncertainty for within-PSU estimates (Sannier et al., 2013). Instead of creating examples, we will review two examples in literature. 
-
-The first example is Potapov et al. (2014) who estimated the area of forest loss 2000-2011 across the Peruvian Amazon in support of REDD+. The main source of reference data was commercial high resolution imagery; a two-stage design was chosen for cost-saving purposes as the budget allowed for purchasing only 30 high resolution datasets. In a two-stage design, reference data are only needed for the PSUs and not for the entire study area.   Accordingly, the sample size of the 30 PSUs was determined based on budgetary reasons and not specifying a target precision as in the examples above. The size of the PSUs of 12 × 12 km was chosen to align with the high resolution images. The 5,532 blocks, each 12 × 12 km,  covering the study area were separated into a high (337 blocks) and low (5,195 blocks) forest-change stratum, from which 21 and 9 PSUs were selected under STR. (This selection was guided by the rules of optimal sample allocation in Cochran (1977).) Within each of the 30 PSUs, 100 secondary sampling units (SSUs) were selected under SRS in the second stage of the sampling. 
-
-A second example is provided in Sannier et al. (2013) who estimated the proportion of forest cover and net  deforestation in Gabon using two-stage sampling. Two-stage sampling was chosen because it represented a compromise between the ease of data collection and geographic distribution. The study area was partitioned into 251 blocks of 20 × 20 km, each of which were further partitioned into 100 2 × 2 km blocks. In the first stage, one 2 × 2 km PSU was selected in each of the 251 20 x 20 km blocks under SRS. In the second stage, 50 SSUs corresponding to a Landsat pixel were selected under SRS.   
-
-### 3.4 Software that allows for sample size estimation
+### 3.3 Software that allows for sample size estimation
 SEPAL/CEO has built-in support for estimating sample size as explained in [this documentation](https://sepal-ceo.readthedocs.io/en/latest/).
 
 Similar to SEPAL is this spreadsheet developed by the World Bank which also calculates the sample size required to meet a precision of overall accuracy: https://onedrive.live.com/view.aspx?resid=9815683804F2F2C7!37340&ithint=file%2cxlsx&authkey=!ANcP-Xna7Knk_EE
 
-### 3.5 Selecting the sample
+### 3.4 Selecting the sample
 The final step of the sampling design is to physically draw the sample from the study area, which is covered here on OpenMRV under process "Sampling design" and tools "QGIS", "GEE", "AREA2".
 
 ## 4 Frequently Asked Questions (FAQs)
-**I don't understand the qh variable that is used to calculate the sample size under STR -- what does it mean?**
 
-The variable *qh* is needed to calculate the standard deviation of stratum *h* and is he proportion of stratum *h* that is the target class. In the example above we have three strata (before creating the buffer stratum), *h* = 1 is forest, *h* = 2 is non-forest, and *h* = 3 is forest disturbance, with the latter being the target class. In this case, *qh* is the proportion of forest disturbance in each strata. If the map was perfect, then all the forest disturbance in the study area would be present in the forest disturbance stratum and hence *q3* = 1, while *q1* and *q2* would be zero. No map is perfect and we will need to assume some level of classification error. Note that this information is unknown at the design stage and an educated guess is necessery. For example, if  *q3* = 0.8, then we are assuming that 80% of the forest disturbance in the study is present in the forest disturbance stratum. If *q1* = 0.001, then we assume that 0.1% of the forest stratum is forest disturbance. 
+**How do I know if I can use SRS or if I will need a more complex design such as STR?**
 
-**I have no idea how to determine values of qh -- what do I do?**
+The easiest way to determine if simple designs such as SRS and SYS viable is to following the equations in this tutorial to determine the sample size required to reach a certain precision. If the sample size required is too large to be managable, then you might need have to use strata when sampling.
 
-The variable *qh* is in essence an indication of how well the stratification captures the class of interest. Because maps are typically used to stratify the study area, I would recommend reviewing the accuracy of previous maps of the same area. Note that *qh* for *h* = the class of interest, is the anticipated user's accuracy of the class of interest.
 
 **How do I determine a target standard error?**
 
 Certain programs specify a desired or required precision; the Forest Carbon Partnership Facility (FCPF) for example stipulate a margin of error of 30% at the 95% confidence level for area estimates of activity data. The margin of error is 1.96 times the standard error divided by the area estimate. When no such precision requirements are specified, a target standard error needs to be determined based on other criteria. Note that the smaller the area proportion of the target class, the larger the sample is needed to reach a small margin of error. Accordingly, for small area proportions, the target precision will need to be relaxed to avoid having to select a very large sample. 
 
-**If I use a buffer stratum, how many pixels should it be?**
 
-It is hard to provide recommendations as the size of the buffer will depend on the situations. A larger buffer will probably "capture" more omission errors but will have a larger stratum weights. A larger buffer is recommended in situations of a small class of interest in the presence of a large stable stratum (such as stable forest). Examples in the literature range from 1 to 3 pixels. A more detailed exploration of the impact of buffer size is presented in Olofsson et al. (2020). 
 
 ## 5 Terminology
 
@@ -181,7 +135,7 @@ A list of terms relevant to the sampling and inference techniques are provided i
 
 ### 5.1 Response design
 
-Defined by (Stehman and Czaplewski, 1998):  “The reference or ‘true’ classification is obtained for each sampling unit based on interpreting aerial photography or videography, a ground visit, or a combination of these sources. The methods used to determine this reference classification are called the ‘response design.’ The response design includes procedures to collect information pertaining to the reference land-cover determination, and rules for assigning one or more reference [labels] to each sampling unit.” Referred to as “measurement plan” by Särndal et al. (1992).
+Defined is defined by Stehman and Czaplewski (1998) as  “The reference or ‘true’ classification is obtained for each sampling unit based on interpreting aerial photography or videography, a ground visit, or a combination of these sources. The methods used to determine this reference classification are called the ‘response design.’ The response design includes procedures to collect information pertaining to the reference land-cover determination, and rules for assigning one or more reference [labels] to each sampling unit.” Referred to as “measurement plan” by Särndal et al. (1992).
 
 ### 5.2 Sample
 

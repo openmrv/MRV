@@ -41,41 +41,11 @@ group:
   etapa: Detección de Cambio
 ---
 
-# 1.0 Objetivos de aprendizaje
+# LandTrendr
 
-Al final del módulo, usuarios podrán: 
+# 1 Contexto
 
-- Interpretar valores espectrales de series temporales anuales para discriminar entre cambio real en la condición de cobertura terrestre y artefactos espectrales causados por otros factores. 
-- Identificar índices espectrales y ventanas de temporalidad que mejor capturan regímenes de disturbios deseados. 
-- Escoger parámetros que mejor capturan los patrones en valores espectrales anuales
-- Interpretar imágenes compuestas temporales de tres bandas en términos de cambio de cobertura terrestre y la robustez de parámetros de ajuste de LandTrendr 
-- Implementar scripts de mapeo de disturbio con LandTrendr a través de la interfaz grafica de usuario (GUI por sus siglas en ingles)
-
-Adicionalmente, usuarios avanzados podrán: 
-
-- Adaptar scripts de LandTrendr GEE para crear mapas de disturbios y recuperación en áreas de interés 
-
-## 1.1 Prerrequisitos para este módulo
-
-* Conceptos de Google Earth Engine (GEE) (por favor refiérase a la Sección 1.1 de Modulo 1.1 Creación de mosaico/imagen compuesta para Landsat y Sentinel-2 en Google Earth Engine para encontrar recursos de GEE útiles)
-  - Obtener una cuenta de usuario
-  - Imágenes en GEE
-  - Sintaxis básico de funciones
-  - Procesamiento básico de imágenes, incluyendo elección de imágenes, filtración de nubes, creación de mosaicos y compuestas 
-* Es altamente recomendado que complete los tutoriales previos:
-  - Módulo 1
-    - 1.1 Creación de mosaicos/imágenes compuestas para Landsat y Sentinel-2 en Google Earth Engine
-    - 1.2 Recopilación de Datos de Entrenamiento
-      - 1.2.1 Recopilación de Datos de Entrenamiento Usando QGIS, o
-      - 1.2.2 Recopilación de Datos de Entrenamiento Usando Google Earth Engine
-    - 1.3 Clasificación de Cobertura y Uso Terrestre en Google Earth Engine
-  - Módulo 2
-    - 2.1 Conceptos Básicos de Métodos de Detección de Cambio
-
-
-# 2.0 Contexto
-
-## 2.1  Fundamentos Conceptuales de LandTrendr
+## 1.1  Fundamentos Conceptuales de LandTrendr
 
 A medida que los procesos biofísicos, ecológicos y antropogénicos actúan sobre la superficie terrestre, la reflectancia espectral de la superficie cambia con el tiempo. La trayectoria temporal de la reflectancia espectral evoluciona a una forma que es indicativa de los procesos que están actuando: el crecimiento y el declive vegetativo, la perturbación y la transición de la cobertura terrestre afectan la progresión temporal de los valores espectrales de formas distintas. La estrategia del algoritmo LandTrendr es destilar una trayectoria espectral de varios años en segmentos secuenciales de línea recta que capturan adecuadamente el carácter de esos cambios progresivos y luego aprovechar esa interpretación simplificada de la serie temporal para extraer información útil.
 
@@ -93,17 +63,17 @@ Una vez que la serie de tiempo se segmenta en partes distintas, se pueden consul
 
 Una vez que un segmento de interés ha sido identificado para cada pixel, características claves pueden ser visualizadas de forma espacial para producir mapas de interés. Para mapear el año donde ocurrió un disturbio, por ejemplo, todos los pixeles con segmentos que pierden vegetación rápidamente pueden ser identificados y etiquetados con el año de la caída del segmento. Para mapear la magnitud de la recuperación, el cambio en el valor espectral del vértice inicial al vértice final puede ser mapeado.  
 
-### 2.1.1 Una nota acerca de los sensores 
+#### 1.1.1 Una nota acerca de los sensores 
 
 El algoritmo LandTrendr se creó para utilizar imágenes de la familia de sensores Landsat, y todos los ejemplos de esta capacitación utilizan estos sensores: Landsat 5, 7 y 8. Con imágenes de esos tres sensores, la serie Landsat proporciona un registro potencialmente ininterrumpido desde 1984. 
 
 Si bien el algoritmo se construyó teniendo en cuenta los datos de Landsat, se puede presentar series de tiempo de cualquier secuencia numérica, ya sea de sensores Landsat, otros sensores satelitales o una fuente completamente diferente. Sin embargo, cuando se utilizan otros tipos de datos, es importante tener en cuenta varias consideraciones. El algoritmo asume que hay una entrada o un insumo por año; si utiliza un paso de tiempo diferente, deberá "engañar" al algoritmo para que piense que está mirando datos anuales. El algoritmo asume que hay una entrada por año; si utiliza un paso de tiempo diferente, deberá "engañar" al algoritmo para que piense que está mirando datos anuales. El algoritmo asume que el cambio duradero en los valores a lo largo del tiempo corresponde a un cambio de interés y que hay suficientes datos para analizar el cambio real del ruido. Si no hay suficientes observaciones a lo largo del tiempo de un sensor dado, no será apropiado para LandTrendr. Como regla general, debe haber aproximadamente de tres a cuatro veces más observaciones que el número máximo de períodos que desea que discrimine el algoritmo. Dado que la captura de un solo disturbio requiere tres segmentos: un segmento previo al disturbio, el segmento de cambio y un segmento posterior al disturbio, es aconsejable no intentar LandTrendr con menos de 10-12 observaciones fiables por píxel.
 
-### 2.1.2 El recurso de LandTrendr-GEE GitHub 
+#### 1.1.2 El recurso de LandTrendr-GEE GitHub 
 
 Hemos desarrollado un manual para la implementación general de los algoritmos de LT-GEE (LandTrendr Google Earth Engine):  https://github.com/eMapR/LT-GEE.  Lectores interesados pueden encontrar descripciones adicionales y complementarias de la lógica de ajustamiento, además de otras funcionalidades de la implementación de LT_GEE que puedan ser de interés. 
 
-## 2.2 Lógica de Ajuste de LandTrendr
+### 1.2 Lógica de Ajuste de LandTrendr
 
 La lógica subyacente de los algoritmos de segmentación temporal de LandTrendr es imponer segmentos de tendencia lineal en una serie de tiempo de observaciones para minimizar el error residual. Esto se logra en dos pasos amplios: un paso de identificación del punto de interrupción y un paso de ajuste del modelo. Los detalles de estos pasos no son necesarios para la mayoría de los usuarios y se describen en detalle en la primera publicación sobre el algoritmo (Kennedy et al. 2010: Remote Sensing of Environment 114(12): 2897-2910). Sin embargo, una breve descripción general de los aspectos más destacados del proceso es útil al elegir los parámetros para el ajuste (Tabla 1).
 
@@ -134,9 +104,9 @@ Si no se pueden encontrar buenos modelos usando estos criterios basados en el pa
 
 Inicialmente, se considera que el mejor modelo es el que tiene el mejor valor *p*. Sin embargo, debido a que la estadística pseudo- *f* penaliza a los modelos más complicados (es decir, modelos con más segmentos), a menudo se puede elegir un modelo sin perturbaciones en lugar de un modelo que captura con precisión la perturbación pero que tiene una puntuación ligeramente inferior. Así, se puede realizar un ajuste que permitirá elegir un modelo con más segmentos siempre que esté dentro de una proporción definida del modelo con mejor puntuación. Esa proporción se establece mediante el parámetro *mejor proporción del modelo*. Por ejemplo, un valor de *mejor proporción del modelo* de 0,75 permitiría elegir un modelo más complicado si su puntuación fuera superior al 75% de la del mejor modelo.
 
-## 2.3 Resultados de LandTrendr
+### 1.3 Resultados de LandTrendr
 
-### 2.3.1 Resultados estándares
+#### 1.3.1 Resultados estándares
 
 El resultado de una ejecución del algoritmo LandTrendr en GEE es una "imagen de matriz" con al menos dos bandas. Las imágenes de matriz son representaciones de datos algo abstractas: piense en cada píxel como un contenedor de objetos que se denominan "bandas". Cada "banda" puede tener datos de una variedad de tipos, y las diferentes bandas no necesitan tener el mismo tamaño o tipo. Las imágenes de matriz en sí mismas no se pueden representar como imágenes geoespaciales, pero las bandas (dentro de ellas) se pueden desempaquetar, remodelar y representar.
 
@@ -144,7 +114,7 @@ La primera banda se llama 'LandTrendr' y es de gran interés. Es una matriz de t
 
 La segunda banda es un escalar que corresponde al error cuadrático medio general del ajuste -- el residuo entre los valores espectrales de la fuente original y los valores ajustados.
 
-### 2.3.2 Resultados opcionales
+#### 1.3.2 Resultados opcionales
 
 Opcionalmente, un usuario puede pasar más de una banda al algoritmo de segmentación LandTrendr. La primera banda siempre se usa para el proceso de segmentación: encontrar vértices y ajustar el mejor modelo de segmentación. Para todas las bandas adicionales pasadas al algoritmo, solo se lleva a cabo la segunda mitad del proceso de segmentación: los años de vértice desde el ajuste del primer índice se utilizan para restringir un proceso de segmentación lineal de las bandas adicionales.
 
@@ -152,7 +122,7 @@ De esta manera, se puede usar un índice que sea sensible al cambio para caracte
 
 Este proceso se conoce como ajuste a vértices o FTV por sus siglas en ingles. Aunque el proceso de FTV está más allá del alcance de este tutorial, los usuarios avanzados pueden aprovechar las imágenes resultantes para construir algoritmos de clasificación de cobertura terrestre de series de tiempo, como se describe en Kennedy et al. (2018).
 
-## 2.4 Aplicación de LandTrendr 
+### 1.4 Aplicación de LandTrendr 
 
 La aplicación de los algoritmos LandTrendr en GEE implica varios pasos. Los usuarios especifican parámetros que controlan la construcción de pilas de imágenes, el proceso de segmentación temporal en LandTrendr, y el posprocesamiento de salidas segmentadas en mapas de perturbación y recuperación.  
 
@@ -167,27 +137,51 @@ Para determinar adecuadamente los parámetros de usuario apropiados cada vez que
 A continuación, describimos cómo se pueden abordar estos pasos utilizando una interfaz gráfica de usuario (Sección 3), y cómo la detección de cambios se puede personalizar adaptando los scripts GEE existentes (Sección 4).
 
 
-# 3.0 Quickstart LandTrendr a través de la GUI en GEE
+## 2 Objetivos de aprendizaje
 
+Al final del módulo, usuarios podrán: 
+
+- Interpretar valores espectrales de series temporales anuales para discriminar entre cambio real en la condición de cobertura terrestre y artefactos espectrales causados por otros factores. 
+- Identificar índices espectrales y ventanas de temporalidad que mejor capturan regímenes de disturbios deseados. 
+- Escoger parámetros que mejor capturan los patrones en valores espectrales anuales
+- Interpretar imágenes compuestas temporales de tres bandas en términos de cambio de cobertura terrestre y la robustez de parámetros de ajuste de LandTrendr 
+- Implementar scripts de mapeo de disturbio con LandTrendr a través de la interfaz grafica de usuario (GUI por sus siglas en ingles)
+
+Adicionalmente, usuarios avanzados podrán: 
+
+- Adaptar scripts de LandTrendr GEE para crear mapas de disturbios y recuperación en áreas de interés 
+
+### 2.1 Prerrequisitos para este módulo
+
+* Conceptos de Google Earth Engine (GEE) (por favor refiérase a la Sección 1.1 de Modulo 1.1 Creación de mosaico/imagen compuesta para Landsat y Sentinel-2 en Google Earth Engine para encontrar recursos de GEE útiles)
+  - Obtener una cuenta de usuario
+  - Imágenes en GEE
+  - Sintaxis básico de funciones
+  - Procesamiento básico de imágenes, incluyendo elección de imágenes, filtración de nubes, creación de mosaicos y compuestas 
+
+## 3 Quickstart LandTrendr a través de la GUI en GEE
 
 ## 3.1 Descripción General
 
 Para evaluar las opciones de imagen y parámetros de LandTrendr, la GUI de LandTrendr es un excelente lugar para trabajar. La interfaz permite una evaluación rápida acerca de las opciones de la ventana de fecha de la imagen, sobre la elección de parámetros y sobre la creación de mapas.
 
-## 3.2 Configuración con bibliotecas y GUI
+### 3.2 Configuración con bibliotecas y GUI
 
 La GUI la proporcionan los desarrolladores de LandTrendr en el laboratorio eMapR (emapr.ceoas.oregonstate.edu). Este tutorial utiliza una instantánea (diciembre de 2020) de la versión actual.
 
-En el repositorio común de OpenMRV, busque y abra el script llamado: ** LT-GEE-Vis-DownLoad-app_WB_v1.0 **. Cuando se carga y ejecuta, este script crea una GUI LandTrendr-GEE. Tenga en cuenta que esta GUI requiere acceso a dos bibliotecas de funciones de utilidad: una que maneja el procesamiento de imágenes y otra que maneja la interfaz GUI. Los usuarios no necesitan cambiar nada en el script para acceder a ellos, pero es útil reconocer que se están llamando a estas bibliotecas externas. Aunque originalmente desarrolladas por el laboratorio eMapR, por conveniencia, como se señaló anteriormente, estas bibliotecas se copiaron a fines de 2020 en el repositorio común de este módulo de capacitación.
+#### 3.2.1 Open the GUI
 
+En el repositorio común de OpenMRV, busque y abra el script llamado: **LT-GEE-Vis-DownLoad-app_WB_v1.0**. Cuando se carga y ejecuta, este script crea una GUI LandTrendr-GEE. 
+
+Tenga en cuenta que esta GUI requiere acceso a dos bibliotecas de funciones de utilidad: una que maneja el procesamiento de imágenes y otra que maneja la interfaz GUI. Los usuarios no necesitan cambiar nada en el script para acceder a ellos, pero es útil reconocer que se están llamando a estas bibliotecas externas. Aunque originalmente desarrolladas por el laboratorio eMapR, por conveniencia, como se señaló anteriormente, estas bibliotecas se copiaron a fines de 2020 en el repositorio común de este módulo de capacitación.
 
 > Nota: Las versiones originales de estas bibliotecas y scripts (incluidas las posibles actualizaciones a lo largo del tiempo) están disponibles en GEE a través de la carpeta / users / emaprlab / public.
 
-### 3.2.2 Orientación básica a la GUI
+#### 3.2.2 Orientación básica a la GUI
 
 La GUI de LT consta de tres paneles: un panel de control a la izquierda, un panel de informes a la derecha y un panel de mapa en el centro.
 
-`! [_ figG1_overviewGUI] (./ figures / _figG1_overviewGUI.png)`
+![_figG1_overviewGUI](./figures/_figG1_overviewGUI.png)
 
 Un video que muestra la orientación básica de la GUI está aquí: https://youtu.be/tdpuxV7Ad8g
 
@@ -195,19 +189,19 @@ Usando los menús en expansión en el Panel de control, el usuario establece par
 
 ![_figG2_arrows_for_expanding_windows](./figures/_figG2_arrows_for_expanding_windows.png)
 
-## 3.3 Explorar el accesorio LandTrendr en modo punto
+### 3.3 Explorar el accesorio LandTrendr en modo punto
 
 La forma de inicio más sencilla para comprender LandTrendr es aplicar los algoritmos en modo de puntos. Esto le permite visualizar cómo funciona el ajuste y cómo cambiar su configuración puede cambiar el ajuste.
 
 Para acceder al modo de puntos, seleccione el menú "Opciones de serie temporal de píxeles". Debería ver una ventana similar a esta:
 
-`! [_ fig_time_series] (./ figures / _fig_time_series.png)`
+![_ fig_time_series](./figures/_fig_time_series.png)
 
 Puede hacer clic en un punto del mapa y esperar pacientemente, o escribir coordenadas y luego hacer clic en el botón "Enviar píxel".
 
 Aquí hay un video que muestra el funcionamiento básico del modo de punto: https://youtu.be/RdQvxTbi37E
 
-### 3.3.1 Examinar un píxel de disturbio del bosque
+#### 3.3.1 Examinar un píxel de disturbio del bosque
 
 Para comenzar, deje todas las configuraciones como están y simplemente escriba estos números en los cuadros Longitud y Latitud, respectivamente, y haga clic en el botón Submit Pixel.
 
@@ -215,7 +209,7 @@ Longitud: -74.43198, Latitud: 2.73876
 
 Debería ver algo como esto:
 
-`! [_ fig_time_series_example1] (./ figures / _fig_time_series_example1.png)`
+![_ fig_time_series_example1](./figures/_fig_time_series_example1.png)
 
 El gráfico de series de tiempo a la derecha es la clave para aprender a interpretar. Muestra exactamente lo que está haciendo el algoritmo y se basa en las teorías señaladas anteriormente en las secciones introductorias.
 
@@ -242,13 +236,13 @@ Por lo tanto, interpretando el gráfico anterior, podemos ver que los valores es
 
 Exploremos otros procesos de cambio. 
 
-### 3.3.2 Tour guiado de dinámica forestal
+#### 3.3.2 Tour guiado de dinámica forestal
 
 Es divertido aprender sobre la dinámica forestal a través de la lente de una máquina del tiempo como los sensores Landsat. Con algunas habilidades básicas de interpretación, puede comenzar a reconocer muchos tipos de dinámicas forestales.
 
 A continuación, daremos algunos valores de longitud y latitud. Escríbalos en el mismo cuadro que hizo para el primer ejemplo, y discutiremos lo que ve en cada punto.
 
-#### 3.3.2.1 Bosque estable
+##### 3.3.2.1 Bosque estable
 
 Cuando el bosque es relativamente maduro (es decir, no es un bosque joven de crecimiento vigoroso ni sujeto a perturbaciones o degradaciones), su señal espectral de un año a otro es relativamente estable. He aquí un buen ejemplo:
 
@@ -264,13 +258,13 @@ Asi es como se ve una foto aérea de este área:
 
 ![pixel_stable_forest_airphoto](./figures/pixel_stable_forest_airphoto.png)
 
-#### 3.3.2.2 Posible degradación
+##### 3.3.2.2 Posible degradación
 
 Aunque la alteración del bosque como la que se muestra en nuestro ejemplo inicial es común, hay otras formas en que el bosque puede verse afectado sin la remoción total del bosque. En este caso, la señal espectral a menudo muestra una reducción de mayor duración en los valores espectrales asociados con la vegetación.
 
 Longitud: -74.45873, 2.65730
 
-`! [pixel_degrade_maybe] (./ figures / pixel_degrade_maybe.png)`
+![pixel_degrade_maybe](./figures/pixel_degrade_maybe.png)
 
 Características notables: la caída en los valores de origen a mediados de la década de 2000 ocurre durante más de dos años y fue precedida por una disminución lenta aún más prolongada desde el comienzo del registro, lo que sugiere una pérdida persistente de pequeñas cantidades de vegetación. El segmento que muestra un aumento de varios años a partir de aproximadamente 2007 es constante en el tiempo (es decir, no es ruidoso) y persistente (muestra un patrón constante durante varios años). Cuando estos se observan después de una disminución como la observada en el período 2004-2006, es una evidencia que respalda que la disminución fue real y no un artefacto.
 
@@ -280,7 +274,7 @@ Al ver la foto aérea de la región, vemos evidencia de actividad humana alreded
 
 
 
-#### 3.3.2.3 Perturbación y recuperación ribereña
+##### 3.3.2.3 Perturbación y recuperación ribereña
 
 Los humanos no son los únicos agentes de cambio en los bosques. Los procesos naturales pueden eliminar la vegetación, solo para que el bosque vuelva a crecer. Los ríos son agentes notables de tal cambio.
 
@@ -290,7 +284,7 @@ Longitud: -74.06598, Latitud: 2.692711
 
 Y deberías ver esta trayectoria:
 
-`![pixel_river_dist_rec] (./ figures / pixel_river_dist_rec.png)`
+![pixel_river_dist_rec](./figures/pixel_river_dist_rec.png)
 
 Características notables: En la señal de origen, vemos una disminución de varios años en la señal NBR desde aproximadamente 1990 a 1997 o 1998, luego de una breve recuperación rápida y una recuperación más prolongada y lenta desde aproximadamente 1999 hasta el presente. Al final de la serie temporal, podríamos esperar ver un dosel en recuperación.
 
@@ -304,7 +298,7 @@ La imagen de alta resolución de la era reciente muestra muy poca evidencia de d
 
 
 
-### 3.3.3 Otros índices espectrales
+#### 3.3.3 Otros índices espectrales
 
 En la GUI, puede ejecutar LandTrendr usando muchos índices. Echemos un vistazo a cómo se ve esta última perturbación y recuperación del río en otros dos índices espectrales.
 
@@ -312,7 +306,7 @@ En la GUI, puede ejecutar LandTrendr usando muchos índices. Echemos un vistazo 
 
 Sin cambiar la Longitud o Latitud, simplemente haga clic en las casillas de verificación junto a "NDVI" y "B5", y haga clic en el cuadro "Submit Pixel", como se muestra aquí:
 
-! [timeseries_menu_with_ndvi_and_b5] (./ figures / timeseries_menu_with_ndvi_and_b5.png)
+![timeseries_menu_with_ndvi_and_b5](./figures/timeseries_menu_with_ndvi_and_b5.png)
 
 Ahora debería ver dos gráficos más en el panel de informes de la derecha, con el siguiente aspecto:
 
@@ -328,11 +322,11 @@ La trayectoria B5 requiere una explicación. La banda 5 se refiere al número de
 
 De hecho, algunos índices son mejores para detectar cambios en determinados entornos que en otros. Para las regiones boscosas, nuestra experiencia sugiere que NBR, NDVI y Band 5 son algo complementarios.
 
-### 3.3.4 Sugerencias de problemas
+#### 3.3.4 Sugerencias de problemas
 
 Hasta ahora, solo hemos visto áreas donde la señal de la fuente era bastante clara y el ajuste del algoritmo parecía tener sentido. ¡Este no es siempre el caso! De hecho, hasta ahora solo hemos utilizado los parámetros "predeterminados" para los algoritmos LandTrendr, y es posible que no esperemos que sean óptimos para cualquier entorno o situación nueva. Antes de comenzar a cambiar los controles, echemos un vistazo a algunas áreas donde las cosas no funcionan tan bien.
 
-#### 3.3.4.1 Señal de fuente ruidosa
+##### 3.3.4.1 Señal de fuente ruidosa
 
 A veces, la señal de la fuente es ruidosa, lo que dificulta la interpretación de un humano o de un algoritmo.
 
@@ -388,11 +382,11 @@ Esto plantea un tema importante en la configuración de parámetros para el ajus
 
 Se pueden ajustar varios parámetros clave en situaciones como esta para alentar al algoritmo a capturar dicho cambio (descrito a continuación). 
 
-### 3.3.5 Explore independientemente! 
+#### 3.3.5 Explore independientemente! 
 
 La mejor manera de aprender la interpretación de series de tiempo con los procesos en juego es explorar por su cuenta. De hecho, puede apuntar la GUI a cualquier parte del mundo para explorar ubicaciones en las que crea que puede comprender la dinámica del cambio y experimentar con índices espectrales para ver qué tan bien capturan el proceso de cambio subyacente, y luego evaluar cómo funciona el algoritmo al capturar la forma del índice.
 
-## 3.4 Explorando la dinámica con imágenes compuestas de tres colores
+### 3.4 Explorando la dinámica con imágenes compuestas de tres colores
 
 Si bien el modo de puntos es la única forma de comprender y evaluar completamente la fuente y los valores ajustados, es una forma ineficiente de explorar los patrones espaciales. Podemos encontrarnos con píxeles donde los valores de origen indican un problema con las imágenes, o donde los parámetros de ajuste probablemente no se eligen apropiadamente, pero tales hallazgos ocurren por casualidad. Sería útil tener una herramienta visual rápida para escanear el paisaje y evaluar tendencias y problemas potenciales.  
 
@@ -400,7 +394,7 @@ La herramienta de visualización RGB en la GUI de LandTrendr está diseñada par
 
 Vamos a explorar la herramienta de Visualización RGB. 
 
-### 3.4.1 Cargar un área de estudio delimitada en Colombia
+#### 3.4.1 Cargar un área de estudio delimitada en Colombia
 
 Los algoritmos LandTrendr son computacionalmente intensivos y tardan algún tiempo en ejecutarse. Con fines de capacitación, es útil limitar nuestro análisis a un dominio geográfico relativamente pequeño. 
 
@@ -423,13 +417,13 @@ Cuando haya realizado estos pasos, el límite del área de interés debería apa
 
 ![_fig_colombia_rectangle](./figures/_fig_colombia_rectangle.png)
 
-### 3.4.2 Visualizar e interpretar imágenes ajustadas en modo RGB 
+#### 3.4.2 Visualizar e interpretar imágenes ajustadas en modo RGB 
 
 ¿Qué son las imágenes ajustadas? Como ha aprendido en el modo de píxeles, el algoritmo LandTrendr crea trayectorias ajustadas de valores espectrales a una escala de píxeles. A cada año de la serie temporal se le asigna un valor ajustado del modelo de segmentación temporal. Si tuviéramos que ejecutar LT para muchos píxeles, podríamos tomar una foto instantánea de los valores ajustados de cualquier año y producir una imagen de ese índice espectral para ese año. Podríamos hacer lo mismo durante otros dos años, y si asignamos un año a cada una de las pistolas de color del monitor, veríamos una imagen RGB combinada. La interpretación de los colores en esta imagen nos habla de la trayectoria de ajuste.
 
 > Nota: Para obtener una buena descripción gráfica de este proceso, consulte la Sección 8.3 en la Guía del usuario de LT-GEE producida por el laboratorio eMapR en Github: https://emapr.github.io/LT-GEE/ui-applications.html#ui-landtrendr-fitted-index-delta-rgb-mapper
 
-#### 3.4.2.1 Cargar una combinación de imágenes RGB
+##### 3.4.2.1 Cargar una combinación de imágenes RGB
 
 Probémoslo para el área de estudio de interés. Abra el menú del mapeador de cambios RGB en la GUI. Debido a que cargamos un activo y, en el menú Asset de arriba, hicimos clic en la casilla de verificación que decía "Usar la primera ruta de archivo para procesar imágenes" (Marcó la casilla de arriba, ¿verdad?), podemos ignorar muchas de las opciones aquí.
 
@@ -447,7 +441,7 @@ Haga clic en "Add RGB Imagery" (Agregar imágenes RGB), y espere pacientemente. 
 
 > Nota: Hay algunas áreas en el borde izquierdo de esta área de estudio que tienen datos faltantes (indicado al poder ver la imagen subyacente en lugar de los valores ajustados). Estas áreas no tienen suficientes observaciones desenmascaradas para ejecutar el ajuste temporal (el parámetro "minimum observations needed" (observaciones mínimas necesarias) es una cantidad definida por el usuario (Sección 2 anterior).
 
-#### 3.4.2.1 Interpretar cambio como colores
+#### 3.4.2.2 Interpretar cambio como colores
 
 Como interpretar los colores? Asumamos que estamos trabajando con un índice como NBR o NDVI donde los valores altos indican mas vegetación y los valores bajos indican menos vegetación. 
 
@@ -535,7 +529,7 @@ Sin embargo, también vemos un ejemplo de una perturbación violeta con un patr�
 
 Por lo tanto, tenemos más evidencia de que la ventana de imagen elegida para la ejecución predeterminada de LandTrendr aquí no es óptima para Colombia. Trabajemos con eso.
 
-## 3.5 Actualizando los Parámetros de Imagen y Ajustes 
+### 3.5 Actualizando los Parámetros de Imagen y Ajustes 
 
 Hasta ahora, nos hemos basado en los parámetros "predeterminados" para ejecutar el algoritmo LT: las ventanas de fecha del año para construir colecciones de imágenes y los parámetros de ajuste para controlar el algoritmo. ¡Y hemos visto evidencia de que esto puede no ser lo suficientemente bueno para nuestra nueva situación en Colombia!
 
@@ -543,7 +537,7 @@ Para mejorar esto, debemos definir las imágenes básicas que se proporcionarán
 
 Un video básico que muestra este proceso está aquí: https://youtu.be/TNQOdHIg24s
 
-### 3.5.1 Cambiar valores en el menú
+#### 3.5.1 Cambiar valores en el menú
 
 En la Sección 3.5, primero describimos la lógica para cada componente y proveemos recomendaciones para nuevos valores para intentar.
 
@@ -553,7 +547,7 @@ Como se noto en el diagrama de flujo de trabajo  (Sección 2.4), el primer paso 
 
 Necesitamos determinar dos grupos de valores: el rango de años a partir del cual extraer para la segmentación y el rango de fechas estacionales dentro de cada año a partir del cual calcular los compuestos.
 
-#### Años de Imágenes
+##### Años de Imágenes
 
 Como se señaló en la Sección 2.1.1, el algoritmo LandTrendr está diseñado para trabajar con datos de la familia de sensores Landsat que se remontan a 1984. En la práctica, muchas áreas tropicales del mundo no tienen suficiente disponibilidad de imágenes en los primeros años del archivo Landsat para proporcionar composiciones de imágenes razonables.
 
@@ -565,7 +559,7 @@ Además, si los pasos posteriores muestran que pocos píxeles tienen valores en 
 
 Por lo tanto, **recomendamos establecer 1990 como el año inicial**, y dejar el año final como 2020. 
 
-#### Rango de Datos
+##### Rango de Datos
 
 LT asume que cada píxel tiene una observación por año. Como se describió en módulos anteriores, minimizar el impacto de las nubes requiere que construyamos estas observaciones componiendo múltiples imágenes dentro de una ventana de fecha por año. Si la ventana es demasiado estrecha, es posible que no haya suficientes imágenes a partir de las cuales se pueda realizar una composición clara. Si la ventana es demasiado amplia, los efectos de la estacionalidad de la vegetación podrían introducir cambios espectrales indeseables que no están relacionados con el cambio real en el suelo.
 
@@ -575,11 +569,11 @@ El rango predeterminado es de junio a septiembre, lo que no es inverosímil para
 
 Por esto **recomendamos establecer la fecha inicial en 01-01 y la fecha final en 04-30**.  Esto provee cuatro meses de imágenes potenciales de cuales extraer durante una de las temporadas secas. 
 
-#### Fuente e índice ajustado
+##### Fuente e índice ajustado
 
 Para este ejercicio, usaremos NBR. Usuarios son bienvenidos a experimentar con índices diferentes más tarde. 
 
-#### Parámetros de Segmentación 
+##### Parámetros de Segmentación 
 
 <u>Max Segments</u>:  Cambie esto a 8.  Con 30 años de datos posibles (1990 a 2020), ocho segmentos sigue siendo apropiado, ya que está bajo la regla de una tasa de 3:1. Incrementando de 6 a 8 segmentos puede ayudarnos a descubrir ajustes un poco mas complicados durante los 30 años de análisis. 
 
@@ -597,7 +591,7 @@ Para este ejercicio, usaremos NBR. Usuarios son bienvenidos a experimentar con �
 
 <u>Min Observations needed:</u>  Mantener en 6. 
 
-### 3.5.2 Evaluar parámetros nuevos 
+#### 3.5.2 Evaluar parámetros nuevos 
 
 Veamos qué sucede tanto con los compuestos RGB ajustados como con los píxeles individuales una vez que haya cambiado los parámetros de LT.
 
@@ -611,7 +605,7 @@ Al acercarnos a la región de la mitad oriental de la imagen, parece que los pro
 
 ![_fig_newparams_easternzone_stable](./figures/_fig_newparams_easternzone_stable.png)
 
-### 3.5.3 Explorando los impactos de los parámetros de ajuste
+#### 3.5.3 Explorando los impactos de los parámetros de ajuste
 
 El impacto de cambiar los parámetros de ajuste de LandTrendr varía en diferentes países debido a las diferentes densidades de archivo de imágenes, las condiciones de nubes y fenología, y el tipo de bosque y el proceso de cambio del bosque. Por lo tanto, el mejor enfoque para ver cómo operan los parámetros de ajuste de la imagen es simplemente experimentar cambiando los parámetros y evaluando el impacto usando el panel de Pixel Time Series Options.  
 
@@ -621,7 +615,7 @@ Con la configuración de los parámetros que teníamos arriba, se captura la per
 
 ![col_traj_353_startingPoint](./figures/col_traj_353_startingPoint.png)
 
-#### Eliminar los picos
+##### Eliminar los picos
 
 Para apagar la función de eliminar picos, poner el valor en 1.  La trayectoria de fuente se usa de la manera exacta en la que es recibida. En este pixel, apagar la eliminación de picos de esta manera cambia el comportamiento de los segmentos después de los disturbios. 
 
@@ -631,7 +625,7 @@ La función de eliminar picos eliminó características de la serie temporal, lo
 
 ![col_traj_353_despike05](./figures/col_traj_353_despike05.png)
 
-#### Umbral de Recuperación
+##### Umbral de Recuperación
 
 El parámetro de umbral de recuperación ejerce un fuerte impacto en el ajustamiento. Recuerde que el parámetro establece el límite en la velocidad de retorno del valor espectral posterior al disturbio.
 
@@ -645,7 +639,7 @@ Sin embargo, desactivar el umbral estableciéndolo en **recovery_threshold = 1.0
 
 ![col_traj_353_recovery_thre_10](./figures/col_traj_353_recovery_thre_10.png)
 
-#### P-value Threshold (Umbral P-value)
+##### P-value Threshold (Umbral P-value)
 
 El aumento del umbral del valor p permite capturar ajustes que retienen más ruido residual después del ajuste.
 
@@ -655,7 +649,7 @@ En el caso de nuestro píxel de prueba, establecer el ** umbral del valor p = 0,
 
 
 
-#### Best-model proportion (Proporción de mejor modelo)
+##### Best-model proportion (Proporción de mejor modelo)
 
 Cuando se establece en un valor menor que 1.0, este parámetro permite elegir ajustes más complicados incluso si no tienen el mejor valor p. Nuestro valor predeterminado era 0,75, y establecer **proporción del mejor modelo = 1,0** no cambia el ajuste de este píxel en particular en relación con nuestro punto de partida:
 
@@ -669,7 +663,7 @@ Sin embargo, puede funcionar con otros parámetros para provocar un ligero cambi
 
 
 
-## 3.6 Mapeo de Disturbios
+### 3.6 Mapeo de Disturbios
 
 En el enfoque de segmentación temporal, el mapeo de perturbaciones forestales es esencialmente una consulta a nivel de píxel de la trayectoria segmentada. Por lo tanto, una vez que haya identificado un conjunto de ventanas de fecha de imagen y parámetros de ajuste, gran parte del trabajo más dificil estará hecho.
 
@@ -717,17 +711,16 @@ El umbral de cambio puede hacerse más estricto para evitar estas asignaciones d
 
 Sin embargo, el paso final de la evaluación ocurre cuando se utilizan datos independientes para evaluar la precisión del mapa final. Esto se trata en un módulo posterior.
 
-# 4.0 Implementación detallada de LandTrendr usando Javascript
-
+# 4 Implementación detallada de LandTrendr usando Javascript
 
 ## 4.1 Reseña
 Mientras que muchos usuarios satisfacen sus necesidades a través del uso de la GUI, usuarios intermedios o avanzados pueden implementar LT directamente usando scripts. Esta sección introduce la funcionalidad central de LT manejada por scripts. 
 
-## 4.2  Script del Disturbio Mayor (Greatest Disturbance)
+### 4.2  Script del Disturbio Mayor (Greatest Disturbance)
 
 En esta sección, perfilamos el script maestro que crea mapas de perturbaciones. Sin embargo, al igual que con la GUI en la Sección 3 de este módulo, la secuencia de comandos Greatest Disturbance que compartimos en esta demostración utiliza una biblioteca LandTrendr Javascript para realizar gran parte del trabajo detrás de escena. Dentro de la biblioteca de Javascript hay funciones que se importan y utilizan dentro de otros scripts. Aunque las bibliotecas incluyen más funciones que las que se utilizan aquí, muchos componentes pueden considerarse funciones básicas que un usuario intermedio o avanzado puede querer aprovechar o incluso adaptar a sus propios fines. Estos se detallan en la Sección 5.
 
-### 4.2.1. Cargar script y configuraciones de nota
+#### 4.2.1. Cargar script y configuraciones de nota
 
 El script del mapeador de Disturbios Mayores se puede encontrar en: 
 
@@ -832,17 +825,17 @@ Export.image.toDrive({
 
 Probablemente querrá cambiar los nombres de las carpetas, fileNamePrefix, y descripción. Además, talvez quiera cambiar el CRS a un sistema de coordenadas proyectadas.
 
-### 4.2.2 Ejecutar el script
+#### 4.2.2 Ejecutar el script
 
 Hacer clic en el botón "Run" activa el script, pero por el paso de exportar al final del script, el proceso se denomina como una tarea ('Task') que el usuario debe iniciar.  Haga clic en la pestaña "Tasks" a la derecha de la interfaz de GEE interface, y haga clic en "Run". 
 
 Para el rectángulo pequeño proveído en los ejemplos hasta ahora, la generación del mapa de disturbio toma aproximadamente 10 minutos. Para una área grande, como el país de Colombia, puede tomar hasta 10 horas.   
 
-### 4.2.3 Revisar mapas de perturbaciones
+#### 4.2.3 Revisar mapas de perturbaciones
 
 Una vez que se ha exportado el mapa de perturbaciones, puede descargarlo en una máquina local y revisarlo. A menudo, es más fácil revisar rápidamente diferentes capas en una máquina local que en GEE porque GEE volverá a renderizar todas las capas cuando se mueva o escale la imagen. Aquí, ilustramos cómo la revisión de los mapas en una instalación local de QGIS puede proporcionar información sobre el mapeo de perturbaciones que puede conducir a mejoras en la elección de los parámetros de mapeo.
 
-#### Descargar y abrir en QGIS
+##### Descargar y abrir en QGIS
 
 En la carpeta que especifico en la declaración de `Export` en la Sección 4.2.1, debería de encontrar el archivo con el nombre de archivo que indicó. Si la carpeta no existía previamente, será creada. En el ejemplo de arriba, el archivo "colombia_distmap_rectangle.tif" fue encontrado en la carpeta "openMRV" en el Drive. 
 
@@ -856,7 +849,7 @@ Recomendamos ver el archivo una capa a la vez. Abajo hay un ejemplo de la visual
 
 
 
-#### Examinar año y magnitud de perturbación 
+##### Examinar año y magnitud de perturbación 
 
 Es posible examinar patrones dentro de QGIS y potencialmente mejorar nuestro mapeo por que es fácil mover, acercar, y comparar capas en estos programas sin la espera de la reproducción de imágenes en GEE.  
 
@@ -868,11 +861,11 @@ Después de cargar el mapa de disturbios de nuevo como una capa separada, podemo
 
 Basado en esta simple evaluación del año de detección, el umbral para mapear cambio podría ser alterado a 200 en lugar de 100, como se uso en el parámetro `changeParams.mag`de la exportación original.
 
-# 5.0 La Biblioteca LandTrendr Javascript 
+## 5 La Biblioteca LandTrendr Javascript 
 
 Tanto la interfaz gráfica de usuario de LandTrendr (Sección 3) como el script Javascript (Sección 4) se basan en funciones en la biblioteca de LandTrendr Javascript para llevar a cabo todos los pasos importantes en el proceso de detección de cambios. Si bien no se necesita un conocimiento detallado de las funciones para ejecutar ninguna de las herramientas, recomendamos que la mayoría de los usuarios desarrollen una comprensión básica de las suposiciones encapsuladas en estas funciones, ya que ayuda a comprender dónde puede estar fallando el mapeo. Además, los usuarios avanzados querrán acceder a estas funciones para ajustarlas o personalizarlas. Por lo tanto, las siguientes secciones detallan las piezas centrales de las bibliotecas LandTrendr en GEE.
 
-## 5.1 Importando la biblioteca LT Javascript
+### 5.1 Importando la biblioteca LT Javascript
 
 La biblioteca LT Javascript mejora con regularidad, pero para mantener la coherencia, hemos proporcionado una copia de la versión de trabajo actual a los usuarios del Banco Mundial. Como se señaló anteriormente, la importación de la biblioteca se realiza con este código:
 
@@ -884,7 +877,7 @@ A partir de entonces, se hace referencia a todas las funciones en esa biblioteca
 
 Usuarios interesados pueden revisar versiones de desarrollo de la biblioteca que se encuentra en el sitio de GEE, eMapR lab: `/users/emaprlab/public:Modules/LandTrendr.js`
 
-## 5.2 Segmentación temporal de LandTrendr 
+### 5.2 Segmentación temporal de LandTrendr 
 
 En el centro de todas las ejecuciones LandTrendr (LT) esta la segmentación temporal, en la cual cada trayectoria de pixel se quiebra en segmentos de línea recta separados por vértices. Esta función es una parte de la biblioteca de algoritmos de GEE: `ee.Algorithms.TemporalSegmentation.LandTrendr`.  
 
@@ -896,11 +889,11 @@ En la implementación proveída aquí, la función de envoltura se llama "**runL
 var lt = ltgee.runLT(startYear, endYear, startDay, endDay, aoi, index, [], runParams, maskThese);
 ```
 
-### 5.2.1 Argumentos pasados a runLT
+#### 5.2.1 Argumentos pasados a runLT
 
 Un tratamiento breve de cada argumento sigue.
 
-#### **Ventanas Temporales**
+##### **Ventanas Temporales**
 
 `startYear` y `endYear` son variables numéricas que definen el periodo para el cual una colección de imágenes será construida. Simplemente definir estos años no garantiza que imágenes de todos esos años estará disponible; de hecho, en muchas partes del mundo, hay huecos en el archivo Landsat. Si, por ejemplo, su región no tiene imágenes antes del 1999, poner el año de inicio en 1984 no causara que falle el algoritmo, pero comenzara la serie de tiempo en 1999.  
 
@@ -908,7 +901,7 @@ Un tratamiento breve de cada argumento sigue.
 
 La composición de imágenes se hace usando una estrategia medoide (elaborado en mas detalle próximamente) y resulta en una imagen por año del periodo indicado por estas fechas. 
 
-#### **Área de interés**
+##### **Área de interés**
 
 El argumento `aoi` es una variable correspondiendo a un `ee.FeatureCollection` que define la región geográfica de interés para el procesamiento.  
 
@@ -918,7 +911,7 @@ Establecer tal feature collection (colección de objetos) de un asset de GEE se 
 var aoi = ee.FeatureCollection('users/openmrv/MRV/ColombiaRectangle');
 ```
 
-#### **Argumentos Espectrales**
+##### **Argumentos Espectrales**
 
 La variable `index` es una cadena que corresponde a a uno de los índices espectrales definidos en la rutina `calcIndex` dentro de la biblioteca Javascript de LandTrendr.  
 
@@ -936,7 +929,7 @@ Por el momento, los índices siguientes están incluidos:
 
 Siguiendo de la variable de `index` esta una lista que incluye índices espectrales donde la estrategia "fit to vertex" (FTV) seria utilizada. El método FTV no es necesario para detección de cambio básica, pero puede ser usada en el mapeo de cobertura terrestre. Mas detalles se pueden encontrar en Kennedy et al. (2018).  Para dejar en blanco la variable, use la lista vacía de la manera siguiente: `[]`.
 
-#### **Parámetros de Ajuste**
+##### **Parámetros de Ajuste**
 
 El algoritmo LT es controlado por parámetros de ajuste descritos en la Sección 3.5.1 arriba.  La variable `runParams` es un objeto de diccionario que se establece en el script inicial. Un ejemplo de el script de Mayo Disturbio de LandTrendr es el siguiente: 
 
@@ -955,7 +948,7 @@ var runParams = {
 
 
 
-#### Enmascarar
+##### Enmascarar
 
 Al crear las colecciones de imágenes que se pasan al algoritmo, se pueden marcar y enmascarar diferentes tipos de condiciones. La variable `maskThese` es una lista con cadenas para indicar los tipos de condición que se marcarán. 
 
@@ -967,7 +960,7 @@ En la biblioteca Javascript de LandTrendr, estos son manejados en la función `g
 | 'waterplus'                        | Usa la capa de "recurrencia" del asset "JRC/GSW1_1/GlobalSurfaceWater" en GEE;  recurrencia mayor a 99% será filtrada, o 'enmascarada'. Ver "https://storage.googleapis.com/global-surface-water/downloads_ancillary/DataUsersGuidev2.pdf" para mas información acerca de este recurso. |
 | 'nonforest'                        | Usa el producto de Copernicus Global Land Service (Servicio de Terreno Global de Copernicus, CGLS por sus siglas en ingles) de resolución de 100m para enmascarar las áreas que no son bosque. Si utiliza esta máscara, limitará a LandTrendr a las áreas definidas por este producto como bosque. |
 
-#### Configuraciones Implícitas
+##### Configuraciones Implícitas
 
 La función `runLT` simplifica el llamado a la función LT a través del manejo de la construcción de colecciones de imágenes.
 
@@ -986,13 +979,13 @@ Los cambios menores se pueden lograr si se hace una copia local de la biblioteca
 
 Cambios mayores se pueden lograr si intercambia módulos enteros para crear colecciones de imágenes.  Por ejemplo, es concebible que un usuario quiera aplicar el algoritmo LandTrendr a imágenes de radar de Sentinel 2. En este caso, casi todos los aspectos de la construcción de la colección de imágenes tendrían que ser cambiados. En este caso, el usuario puede simplemente usar la biblioteca como un guía estructural para la creación de una biblioteca diferente. 
 
-### 5.2.2 Construyendo colecciones de imágenes 
+#### 5.2.2 Construyendo colecciones de imágenes 
 
 La función `runLT` toma los parámetros pasados por el usuario para construir colecciones de imágenes que se pasan al algoritmo LT. 
 
 Se necesitan dos pasos secuenciales. Primero, la función `buildSRcollection` inicia una cascada de funciones para construir una colección anual compuesta, enmascarada, multivariada y de reflectancia superficial. En segundo lugar, "buildLTcollection" traduce esa colección en la forma necesaria para llamar al algoritmo de segmentación LT. Cada función llama a otras subfunciones. Un tratamiento detallado de cada aspecto de estas bibliotecas está más allá del alcance de este material de capacitación, pero las descripciones generales de la lógica central brindan a los usuarios información sobre las decisiones clave que manejan los algoritmos.
 
-##### Funciones para construir una colección de imágenes compuestas 
+###### Funciones para construir una colección de imágenes compuestas 
 
 `buildSRcollection` analiza los insumos del usuario y luego recorre todos los años de la colección, llamando o invocando la función `buildMosaic` cada año para crear una colección de imágenes con una imagen singular por año. 
 
@@ -1013,7 +1006,7 @@ Algunas de las decisiones claves encapsuladas en este código:
 
 Una vez que la colección ha sido construida, la función `runLT`  debe de convertirla en una serie temporal univariada para la segmentación.  Para la mayoría de usos, esto es un simple caso de calcular el índice espectral deseado, y se maneja en la función  `buildLTcollection`.  Para usos avanzados que requieren estabilización temporal usando el método fit-to-vertex (FTV), esas bandas se pueden pasar a la misma función también. 
 
-### 5.2.3 Invocando el algoritmo central LT-GEE
+#### 5.2.3 Invocando el algoritmo central LT-GEE
 
 El algoritmo central de segmentación temporal de LandTrendr se puede acceder en GEE usando este formato:
 
@@ -1029,7 +1022,7 @@ donde el `annualLTcollection` es la colección de valores invariados calculados 
 
 Como se notó arriba en la Sección 2.3 , el resultado de la llamada al algoritmo principal de LandTrendr en GEE es una matriz de imágenes. La próxima sección describe la función `ltgee` que puede ser usada para convertir esa matriz de imágenes a un mapa de disturbios o de (recuperación).
 
-## 5.3 Mapeo de Disturbios
+### 5.3 Mapeo de Disturbios
 
 Como se describió en la Sección 3.5 arriba, el mapeo de disturbios o perturbaciones se logra mediante consultas de los vértices que resultan del ajuste LT. En la GUI o en el mapeo basado en el script, el mapeo se maneja mediante una llamada a la función `ltgee.getChangeMap`:
 
@@ -1159,7 +1152,7 @@ Cada fila contiene la misma cantidad de columnas como segmentos que cumplen con 
 
 > NOTA:  El vértice al principio de un segmento que aun no ha experimentado cambio. Por lo tanto, como una convención, consideramos que el primer año después del vértice como la primera vez que el cambio es evidente para el segmento. Para mapear disturbios abruptos, esto significa que el año de detección será etiquetado apropiadamente como el año en donde se nota el declive del índice espectral. 
 
-### 5.3.2 Identificar el segmento objetivo
+#### 5.3.2 Identificar el segmento objetivo
 
 Como se noto en la Sección 3.5, mapear requiere que un segmento singular sea identificado. Ya que frecuentemente hay  mas de un segmento de perdida o ganancia, debemos identificar cual segmento queremos **apuntar** (target) para el mapeo. Además, frecuentemente queremos ignorar los segmentos que no pasan umbrales específicos, por ejemplo umbrales de tiempo, duración, o magnitud de cambio. Las varias características de cada segmento pueden ser usadas para determinar si es el mas apropiado para mapear. 
 
@@ -1200,7 +1193,7 @@ Adicionalmente, el filtro `mmu`  permite la eliminación de grupos de pixeles qu
 
 El resultado de la función `getChangeMap` es la imagen de disturbio con las capas notadas en Sección 4 anteriormente. 
 
-# 6.0 Implementando LandTrendr en Mozambique y Camboya
+# 6 Implementando LandTrendr en Mozambique y Camboya
 
 Cuando se implementa una detección de cambio forestal de LandTrendr en un área nueva, los mismos problemas descritos en la Sección 3 deben de ser considerados. Estos incluyen: 
 
@@ -1209,11 +1202,11 @@ Cuando se implementa una detección de cambio forestal de LandTrendr en un área
 - Idoneidad o aptitud de un índice espectral dado para los tipos de bosques de interés 
 - Procesos de cambio de interés al usuario
 
-## 6.1 Mozambique
+### 6.1 Mozambique
 
 En la fase de exploración inicial de trabajar en un dominio nuevo, recomendamos utilizar la GUI de LandTrendr descrito en la Sección 3 anterior.
 
-### 6.1.1 Cargar un área de estudio de Mozambique en la GUI de LandTrendr
+#### 6.1.1 Cargar un área de estudio de Mozambique en la GUI de LandTrendr
 
 Exploremos lo que LandTrendr puede lograr en Mozambique. Como recordatorio, encuentre y abra un script llamado **LT-GEE-Vis-DownLoad-app_WB_v1.0**  desde la biblioteca openMRV/ChangeDetection en GEE.
 
@@ -1229,7 +1222,7 @@ Para los propósitos de este documento, hemos delineado una área de estudio sim
 
 ![_fig_moz_add_study_area](./figures/_fig_moz_add_study_area.png)
 
-### 6.1.2. Determinar ventanas de fechas
+#### 6.1.2. Determinar ventanas de fechas
 
 Como siempre, buscamos ventanas de fechas estacionales que sean lo suficientemente amplias y cronometradas lo suficientemente bien para maximizar el cambio de búsqueda de píxeles claros en la mayoría de los años, pero que sean lo suficientemente estrechas para evitar demasiada variabilidad fenológica dentro de la ventana de fechas. Un buen lugar para comenzar es comprender la estacionalidad de las precipitaciones.
 
@@ -1249,7 +1242,7 @@ Avanzar ligeramente las fechas en el año da como resultado una pila RGB ajustad
 
 ![moz_march_july_99_10_20](./figures/_fig_moz_march_oct_RGB_studyarea.png)
 
-### 6.1.3 Explorar archivo de imágenes y procesos de cambio
+#### 6.1.3 Explorar archivo de imágenes y procesos de cambio
 
 Con la imagen RGB como fondo, considere las dimensiones temporales del cambio en Mozambique. Buscamos comprender los patrones espaciales de cambio evidentes en la imagen RGB y comprobar que el archivo de imágenes sea suficiente para el conjunto inicial de años de imágenes. La interfaz "Pixel Time Series Options" (Opciones de Serie Temporal de Pixeles) es una excelente herramienta para explorar estas preguntas.
 
@@ -1286,11 +1279,11 @@ La evidencia de deforestación mediada por humanos parece más alta en la regió
 
 ![_fig_moz_nicuadala](./figures/_fig_moz_nicuadala.png)
 
-## 6.2 Camboya
+### 6.2 Camboya
 
 En la Sección 6.1, cubrimos los temas clave para pasar de nuestra exploración inicial en Colombia a una nueva ubicación. Aquí, destacamos solo los problemas que difieren durante una exploración inicial del mapeo de perturbaciones en Camboya.
 
-### 6.2.1. Área de estudio y configuraciones de imagen
+#### 6.2.1. Área de estudio y configuraciones de imagen
 
 Al igual que con Colombia y Mozambique, hemos proporcionado una pequeña área de estudio en la que experimentar con ajustes de imagen y parámetros. La ruta al activo de GEE es: `users / openmrv / MRV / CambodiaArea`
 
@@ -1300,7 +1293,7 @@ Una primera revisión de las imágenes ajustadas RGB muestra áreas de estabilid
 
 ![_fig_moz_buffersetting_long_dur_settings](./figures/_fig_camb_setting_and_rgb.png)
 
-### 6.2.2 Procesos de cambio de paisaje
+#### 6.2.2 Procesos de cambio de paisaje
 
 Los procesos de cambio de paisaje que operan en Camboya difieren nuevamente de los de Colombia y Mozambique.
 
@@ -1318,7 +1311,7 @@ Al otro lado de la frontera hacia la provincia de Steung Treng, al oeste-noroest
 
 Al igual que en Colombia y Mozambique, la segmentación temporal podría convertirse en mapas del año de la perturbación, la magnitud de la perturbación y la duración de la perturbación. 
 
-# 7.0 Preguntas Frecuentes
+## 7 Preguntas Frecuentes
 
 *¿Como selecciono los parámetros de ajuste? Hay un método automatizado?*
 
@@ -1348,30 +1341,26 @@ Talvez. En principio, al algoritmo LandTrendr no le importa cuál sea la señal 
 
 Mezclar tipos de sensores puede resultar muy complicado. Requiere un procesamiento previo que coloca todas las medidas exactamente en la misma escala. Incluso la transición de Landsat 8 a Landsat 7 y 5 es complicada porque los pasos de banda de los sensores son ligeramente diferentes. Por lo tanto, si bien no es teóricamente imposible reunir las imágenes de Sentinel-2 y Landsat, en la práctica los pasos de preprocesamiento probablemente sean bastante desafiantes.
 
-## 8.0 Referencias
-
-Crist, E. P. 1985, A TM tasseled cap equivalent transformation for re􏰝flectance factor data. __Remote Sensing of Environment__, 17: 301–306.
-
-Kennedy, Robert E.; Yang, Zhiqiang; Cohen, Warren B.  2010, Detecting trends in forest disturbance and recovery using yearly Landsat time series: 1. LandTrendr - Temporal segmentation algorithms. **Remote Sensing of Environment** 114(12): 2897-2910.
-
-Cohen, Warren B; Yang, Zhiqiang; Kennedy, Robert E.  2010, Detecting trends in forest disturbance and recovery using yearly Landsat time series: 2. TimeSync - Tools for calibration and validation. **Remote Sensing of Environment** 114(12): 2911-2924.
-
-Cohen, Warren B; Yang, Zhiqiang; Healey, Sean P.; Kennedy, Robert E.; Gorelick, Noel. 2018, A LandTrendr multispectral ensemble for forest disturbance detection. **Remote Sensing of Environment** 205: 131-140. 
-
-Kennedy, Robert E.; Ohmann, Janet; Gregory, Matt; Roberts, Heather; Yang, Zhiqiang; Bell, David M.; Hughes, M. Joseph; Cohen, Warren B.; Powell, Scott. 2018, An empirical, integrated forest biomass monitoring system. __Environ. Res. Lett.__ 13: 025004
-
-Powell, S.L.; Cohen, W.B.; Healey, S.P.; Kennedy, R.E.; Moisen, G.G.; Pierce, K.B.; Pierce, K.B.; Ohmann, J.L., 2010, Quantification of live aboveground forest biomass dynamics with Landsat time-series and field inventory data: A comparison of empirical modelling approaches. __Remote Sens. Environ.__ **2010**, 114: 1053–1068.
-
-Roy, D.P., Kovalskyy, V., Zhang, H.K., Vermote, E.F., Yan, L., Kumar, S.S, Egorov, A., 2016, Characterization of Landsat-7 to Landsat-8 reflective wavelength and normalized difference vegetation index continuity, Remote Sensing of Environment, 185, 57-70.(http://dx.doi.org/10.1016/j.rse.2015.12.024)
+## 8 Referencias
 
 
+Crist, E.P., 1985. A TM tasseled cap equivalent transformation for reflectance factor data. *Remote Sensing of Environment*, *17*(3), pp.301-306. https://doi.org/10.1016/0034-4257(85)90102-6
 
+Kennedy, R.E., Yang, Z. and Cohen, W.B., 2010. Detecting trends in forest disturbance and recovery using yearly Landsat time series: 1. LandTrendr—Temporal segmentation algorithms. *Remote Sensing of Environment*, *114*(12), pp.2897-2910. https://doi.org/10.1016/j.rse.2010.07.008
 
+Cohen, W.B., Yang, Z. and Kennedy, R., 2010. Detecting trends in forest disturbance and recovery using yearly Landsat time series: 2. TimeSync—Tools for calibration and validation. *Remote Sensing of Environment*, *114*(12), pp.2911-2924. https://doi.org/10.1016/j.rse.2010.07.010
 
-------
+Cohen, W.B., Yang, Z., Healey, S.P., Kennedy, R.E. and Gorelick, N., 2018. A LandTrendr multispectral ensemble for forest disturbance detection. *Remote Sensing of environment*, *205*, pp.131-140. https://doi.org/10.1016/j.rse.2017.11.015
 
-[
-![img](https://lh4.googleusercontent.com/FlTik_kVMvlZvBAPQuX5ijx5rwSVC_7T0zZbh48d415FxyqXrp-ZM_w2TLvmmICTyJVbii4VQJurxJt5-cKnSOOeNQ3-j3BdlK5XNwg4SKDAlVBLoVH25_ssaOgeL6xgLrwvZxjo)](http://creativecommons.org/licenses/by-sa/4.0/)
+Kennedy, R.E., Ohmann, J., Gregory, M., Roberts, H., Yang, Z., Bell, D.M., Kane, V., Hughes, M.J., Cohen, W.B., Powell, S. and Neeti, N., 2018. An empirical, integrated forest biomass monitoring system. *Environmental Research Letters*, *13*(2), p.025004. https://doi.org/10.1088/1748-9326/aa9d9e
+
+Powell, S.L., Cohen, W.B., Healey, S.P., Kennedy, R.E., Moisen, G.G., Pierce, K.B. and Ohmann, J.L., 2010. Quantification of live aboveground forest biomass dynamics with Landsat time-series and field inventory data: A comparison of empirical modeling approaches. *Remote Sensing of Environment*, *114*(5), pp.1053-1068. https://doi.org/10.1016/j.rse.2009.12.018
+
+Roy, D.P., Kovalskyy, V., Zhang, H.K., Vermote, E.F., Yan, L., Kumar, S.S. and Egorov, A., 2016. Characterization of Landsat-7 to Landsat-8 reflective wavelength and normalized difference vegetation index continuity. *Remote Sensing of Environment*, *185*, pp.57-70. http://dx.doi.org/10.1016/j.rse.2015.12.024
+
+-----
+
+![](figures/cc.png)  
 
 Este trabajo esta licenciado bajo un [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) 
 
@@ -1379,44 +1368,15 @@ Copyright 2020, World Bank
 
 Este trabajo fue desarrollado por Robert E Kennedy bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionadas a la Medida, Reportaje, y Verificación para el apoyo de implementación MRV en varios países. 
 
-
-
 Material revisado por:
-
 Foster Mensah  / Center for Remote Sensing and Geographic Information Services, Ghana
-
 Jennifer Juliana Escamilla Valdez / Minsiterio de Medio Ambiente y Recursos Naturales, El Salvador
-
 Raja Ram Aryal /  Ministry of Forests and Environment, Nepal
-
 KONAN Yao Eric Landry / REDD+ Permanent Executive Secretariat, Cote d'Ivoire
-
 Carole Andrianirina / BNCCREDD+, Madagascar
-
 Tatiana Nana / REDD+ National Coordination MINEPDED Ministry of Environment, Cameroon
 
-
-
 Atribución:
-
 Kennedy, Robert E . 2021. Change detection with LandTrendr in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
- 
-
-  
-
-
-![img](https://lh4.googleusercontent.com/6NE8qSB-n0jdUuIJhOi1KCswEq3JTZvc0o-pudDvv_myoESveXmgjnEu2GoRj5wT86x1KNWEVGsvmkpkKfWLUKCx5ThiShCstxc4nrov894b2IC_6-MUNQNG374JiLRnJTi7Stjz)![img](https://lh5.googleusercontent.com/cWpru05JISJZrVmeHUr1bP0abbQL4IRCRotcA2hYICrcOAAYFFG5NkbQ9piU3OLrWnjEWBMQ1bBZKqABIghoz0--lAXlvuxrhMh8icTMJPoDYi4fjWfeODRkRbKduPRcM601lRWh)
-
-
-
-
-
-
-
-
-
-
-
-
-
+ ![](figures/wb_fcfc_gfoi.png)

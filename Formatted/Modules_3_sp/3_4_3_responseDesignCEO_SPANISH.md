@@ -1,10 +1,70 @@
 ---
-title: Module 3.3.3 Survey Form Creation and Reference Observation Collection with Collect Earth Online
-toc: true
-colorlinks: blue
+title: Response Design in Collect Earth Online
+summary: Collect Earth Online is a custom built, open-source, satellite image viewing and interpretation system to collect data for use in projects that require land cover and/or land use reference information. In this tutorial you will learn how to draft, review, and publish a project in Collect Earth Online. More information is available on the Collect Earth Online Support Page (https://collect.earth/support).
+author:
+- Karis Tenneson
+- Karen Dyson
+creation date: February, 2021
+language: English
+publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+
+tags:
+- OpenMRV
+- Landsat
+- Sentinel 2
+- Sentinel 1
+- Cloud cover
+- Optical sensors
+- Remote sensing
+- Composite
+- Mosaic
+- Time series
+- GEE
+- CEO
+- Planet Labs
+- Change detection
+- Land cover mapping
+- Forest mapping
+- Deforestation mapping
+- Degradation mapping
+- Forest degradation mapping
+- Sampling design
+- Sample design
+- Sample selection
+- Sample
+- Sampling frame
+- Stratified
+- Simple Random
+- Systematic
+- Response design
+- Survey
+- Survey design
+- Accuracy
+- Accuracy assessment
+- Area Estimation
+- Reference data
+- Reference classification
+- Reference observations
+- Colombia
+
+group:
+- category: Stratified
+  stage: Sampling
+- category: Simple Random
+  stage: Sampling
+- category: Cluster
+  stage: Sampling
+- category: Systematic
+  stage: Sampling
+- category: Collect Earth Online
+  stage: Reference data collection
+- category: Google Earth Engine
+  stage: Reference data collection
+- category: Stratified
+  stage: Area Estimation/Accuracy assessment
 ---
 
-# Módulo 3.3.3 Creación de Forma de Encuesta y Colección de Observaciones de Referencia con Collect Earth Online
+# Response Design in Collect Earth Online
 
 ## 1 Contexto
 
@@ -15,25 +75,8 @@ Se requieren observaciones de referencia para calcular estimaciones de área e i
 
 Collect Earth Online es un sistema de interpretación y visualización de imágenes satelitales de código abierto y personalizado para recopilar datos para su uso en proyectos que requieren información de referencia sobre la cobertura del suelo y/o el uso del suelo. Collect Earth Online promueve la coherencia en la localización, interpretación y etiquetado de muestras para su uso en la clasificación y seguimiento del cambio de cobertura y uso de la tierra. La funcionalidad completa de Collect Earth Online, incluida la compilación colaborativa de bases de datos de puntos de referencia, se implementa en línea, por lo que no es necesario instalarlo en el escritorio. 
 
-### 1.2 Objetivos de Aprendizaje
 
-Al final de este ejercicio, podrá redactar, revisar y publicar un proyecto en Collect Earth Online. Esto incluye:
-
-* Diseño de encuestas en Collect Earth Online.
-
-* Selección de imágenes para ver para la interpretación de datos.
-
-* Recopilar y exportar observaciones de referencia.
-
-### 1.3 Prerrequisitos para este modulo
-
-* Comprender la terminología del Módulo 3.1 y tener un diseño de muestra establecido, que se describe en los Módulos 3.2 y 3.3.
-* Comprensión general de la interpretación de imágenes. La interpretación de imágenes es el proceso de observar imágenes de resolución espacial moderada, alta o muy alta (de satélites o fotografías aéreas) y etiquetar los objetos de interés en las ubicaciones de las muestras. La interpretación de fotografías es la habilidad principal necesaria para ejecutar de manera efectiva cualquier proyecto de CEO.
-* Para obtener más información, consulte el Manual de creación de proyectos e instituciones de Collect Earth Online, que se encuentra en [Collect Earth Online Support Pages](https://collect.earth/support)
-* Se recomienda que comprenda los tutoriales anteriores de los Módulos 1 y 2
-
-
-### 1.4 Registrarse para obtener una cuenta de Collect Earth Online
+### 1.2 Registrarse para obtener una cuenta de Collect Earth Online
 
 1. En su navegador de internet, navegue a [CEO](https://collect.earth/). CEO apoya a Google Chrome, Mozilla Firefox, y Microsoft Edge.
 
@@ -45,7 +88,7 @@ Al final de este ejercicio, podrá redactar, revisar y publicar un proyecto en C
 
 5. Si se le olvido su contraseña, haga clic en [Forgot your password?] y siga las instrucciones.
 
-### 1.5 Recursos de Collect Earth Online
+### 1.3 Recursos de Collect Earth Online
 
 Puede acceder las paginas de Home (Inicio), About (Acerca de), Support (Apoyo), y Account (Cuenta) desde el bar de menú en la parte superior. 
 
@@ -55,14 +98,32 @@ Puede acceder las paginas de Home (Inicio), About (Acerca de), Support (Apoyo), 
 * La página Account enumera información como estadísticas de usuario y permite a los usuarios actualizar la configuración de su cuenta.
 * Hay un signo de interrogación violeta en la esquina superior derecha de la pantalla. Al hacer clic en esto, aparecerá la interfaz de ayuda, que proporciona información sobre las funciones del CEO. Estas interfaces de ayuda están disponibles para la página de inicio, para la recopilación de datos y para la creación de proyectos.
 
+## 2 Objetivos de Aprendizaje
 
-## 2. Configurando Feeds de Imágenes en Collect Earth Online
+Al final de este ejercicio, podrá redactar, revisar y publicar un proyecto en Collect Earth Online. Esto incluye:
+
+* Diseño de encuestas en Collect Earth Online.
+
+* Selección de imágenes para ver para la interpretación de datos.
+
+* Recopilar y exportar observaciones de referencia.
+
+### 2.1 Prerrequisitos para este modulo
+
+* Comprender la terminología del Módulo 3.1 y tener un diseño de muestra establecido, que se describe en los Módulos 3.2 y 3.3.
+* Comprensión general de la interpretación de imágenes. La interpretación de imágenes es el proceso de observar imágenes de resolución espacial moderada, alta o muy alta (de satélites o fotografías aéreas) y etiquetar los objetos de interés en las ubicaciones de las muestras. La interpretación de fotografías es la habilidad principal necesaria para ejecutar de manera efectiva cualquier proyecto de CEO.
+* Para obtener más información, consulte el Manual de creación de proyectos e instituciones de Collect Earth Online, que se encuentra en [Collect Earth Online Support Pages](https://collect.earth/support)
+* Se recomienda que comprenda los tutoriales anteriores de los Módulos 1 y 2
+
+## 3 Tutorial: Collect Earth Online
+
+### 3.1 Configurando Feeds de Imágenes en Collect Earth Online
 
 Hay múltiples fuentes de imágenes públicas disponibles a todos los usuarios en Collect Earth Online. Estas incluyen Mapbox Satellite y los datos de Planet disponibles gracias a una colaboración con el International Climate and Forests Initiative (Planet NICFI) de Noruega. También puede agregar sus propias fuentes de imágenes privados a la página de su Institución. Recomendamos agregar Sentinel 1, Sentinel 2, y Bing, como se describe próximamente. Todas estas son opciones gratuitas. 
 
 1. Vaya a la página de su institución en Collect Earth Online. Luego haga clic en la pestaña de Imagery. 
 
-### 2.1 Agregar datos Sentinel 2 a la pagina de Institución
+#### 3.1.1 Agregar datos Sentinel 2 a la pagina de Institución
 
 Imágenes de Sentinel 2 están disponibles desde junio 2015-presente. Después de ajustar las configuraciones usando las siguientes instrucciones, los datos Sentinel 2 data serán enviados de GEE a CEO para el uso de sus usuarios. 
 
@@ -98,9 +159,9 @@ Para este ejercicio, seleccione esta opción.
 
 11. Cuando todos los campos estén llenos, haga clic en [Add New Imagery].
 
-![](figures/AddS2.JPG)
+![](./figures/AddS2.JPG)
 
-### 2.2 Agregar datos de Sentinel 1 a pagina de Institución
+#### 3.1.2 Agregar datos de Sentinel 1 a pagina de Institución
 
 Información de Sentinel 1 solo esta disponible de abril del 2014 hasta el presente (lanzamiento de Sentinel 1A). Después de ajustar las configuraciones usando las instrucciones siguientes, los datos de Sentinel 1 serán enviados de GEE a CEO para el uso de sus usuarios. 
 
@@ -131,15 +192,15 @@ Para este ejercicio, seleccione '0.4'. (Unidades de coeficientes de retrodispers
 
 10. Cuando todos los campos estén llenos, haga clic en [Add New Imagery].
 
-![](figures/AddS1.JPG)
+![](./figures/AddS1.JPG)
 
-### 2.3 Agregar imágenes de Bing a la pagina de Institución 
+#### 3.1.3 Agregar imágenes de Bing a la pagina de Institución 
 
 Esto le permite agregar Bing Maps con su propia clave API. Las imágenes proporcionadas por Bing Maps son imágenes de satélite compuestas. Esto significa que cada mosaico de mapa se une a partir de imágenes adquiridas en varias fechas. No hay una sola fecha para un mosaico de imágenes. Algunos mosaicos de mapas contienen imágenes recopiladas durante una ventana de varios días, mientras que otros mosaicos contienen imágenes recopiladas durante una ventana de varios años. Como no hay una sola fecha para un mosaico de imágenes, el director ejecutivo no puede proporcionar la fecha exacta de las imágenes utilizadas. Si le interesa saber mas, la API de los Mapas Bing se puede encontrar aquí: [Bing Imagery-metadata](https://docs.microsoft.com/en-us/bingmaps/restservices/imagery/imagery-metadata). 
 
 El sistema de mosaicos de Bing utiliza la proyección de Mercator y tiene 23 niveles de zoom (aunque no todos los niveles están disponibles en todas las ubicaciones). Por lo general, la resolución con el zoom máximo es de aproximadamente 0.3 m por píxel. Para más información, ver [Bing maps tile system](https://docs.microsoft.com/en-us/bingmaps/articles/bing-maps-tile-system).
 
-#### 2.3.1 Direcciones para solicitar una llave de Bing maps:
+##### 3.1.3.1 Direcciones para solicitar una llave de Bing maps:
 
 1. Para usar imágenes de Bing Maps para sus proyectos, puede crear su propia clave de Bing Maps GRATIS para conectar los proyectos de su institución a su cuenta de Bing Maps. Las direcciones completas para crear una llave están aquí: [Get a Bing maps key](https://docs.microsoft.com/en-us/bingmaps/getting-started/bing-maps-devcenter-help/getting-a-bing-maps-key).
 
@@ -158,7 +219,7 @@ e. Complete la información necesaria. El URL de aplicación es opcional, pero s
 
 f. Creará un Basic key (una llave básica). Si necesita mas imágenes, necesitará hablar con Microsoft y solicitar un [Enterprise key](https://www.microsoft.com/en-us/maps/create-a-bingmaps-key#enterprise)
 
-#### 2.3.2 Direcciones para conectar su llave de Bing maps key en Collect Earth Online:
+##### 3.1.3.2 Direcciones para conectar su llave de Bing maps key en Collect Earth Online:
 
 1. Regrese a su página de Institución. Bajo la pestaña de Imagery, haga clic en 'Add New Imagery'.
 
@@ -174,13 +235,13 @@ f. Creará un Basic key (una llave básica). Si necesita mas imágenes, necesita
 
 7. Cuando todos los campos estén llenos, haga clic en [Add New Imagery].
 
-### 2.4 Fuentes de Imágenes Adicionales
+#### 3.1.4 Fuentes de Imágenes Adicionales
 
 Consulte el Manual de creación de proyectos e instituciones de Collect Earth Online para obtener información sobre cómo agregar fuentes de imágenes adicionales, como recursos de imágenes de Google Earth Engine. Se puede acceder al manual aquí: [Collect Earth Online Support Pages](https://collect.earth/support).
 
-## 3. Diseño de Respuesta
+### 3.2 Diseño de Respuesta
 
-### 3.1 Resumen
+### 3.2.1 Resumen
 
 El diseño de un proyecto es un proceso iterativo, y probablemente necesitará realizar varias ediciones en los proyectos en CEO a medida que prueba y refina sus objetivos, esquemas de clasificación de cobertura o uso de la tierra, fuentes de imágenes, etc. Estos cambios deben examinarse y realizarse para un proyecto antes de que se publique. Esto significa que, idealmente, puede dedicarle tiempo a poner a prueba un proyecto, recopilar datos de prueba con el cuestionario y revisarlo para adaptarlo a cualquier error o ineficiencia que encuentre antes de publicar el proyecto y comenzar los esfuerzos oficiales de recopilación de datos.
 
@@ -195,15 +256,15 @@ En la práctica, encontramos que la creación de un proyecto piloto y la recopil
 3. Utilizando los comentarios del proyecto piloto, cree proyectos para que los intérpretes recopilen los datos de "producción" o "finales". Se eliminarán todos los datos recopilados de las muestras interpretadas antes de la publicación.
 4. Recopilar y analizar datos.
 
-### 3.2 Crear un proyecto nuevo
+#### 3.2.2 Crear un proyecto nuevo
 
 Para comenzar, abra un navegador de web y navegue a [Collect Earth Online](https://collect.earth/). Navegue a la página de su institución. 
 
 1. En la pestaña de Projects en la página de su institución, haga clic en [Create New Project]. Esto lo llevará al wizard (asistente) de creación de proyectos. El asistente consiste de 6 partes, cada una explicada próximamente. 
 
-![](figures/Wizard.png)
+![](./figures/Wizard.png)
 
-#### 3.2.1 Resumen del Proyecto: 
+##### 3.2.2.1 Resumen del Proyecto: 
 
 Esta sección le permite agregar información general acerca del proyecto, incluyendo la selección de una plantilla (opcional), nombre de proyecto, descripción de proyecto, y opciones de proyecto. 
 
@@ -217,7 +278,7 @@ Sin embargo, información acerca de como trabajar con una plantilla se incluye p
 
   ii. Luego haga clic en el menú desplegable abajo de "Select Project" y hacer clic en el nombre del proyecto. 
 
-![](figures/Template.png)
+![](./figures/Template.png)
 
   iii. Haga clic en el nombre del proyecto, y luego haga clic en "Load" para cargar la información de la plantilla. 
 
@@ -254,7 +315,7 @@ i. La primera opción es "Show GEE Script Link on the Collection Page" (Mostrar 
 
 I. La primera opción es 'Show GEE Script Link on the Collection Page' (Mostrar enlace al Script de GEE en la página de Colección). Esto permite que los usuarios en Data Collection hagan clic en un botón etiquetado [Ir a GEE Script para abrir una nueva pestaña con una serie de imágenes y gráficos de series de tiempo de Landsat y Sentinel] (ver imagen abajo). Para este ejercicio, seleccione esta opción.
 
-![](figures/GEE_script.JPG)
+![](./figures/GEE_script.JPG)
 
 En el ejemplo de imagen del script GEE hay tres paneles. En el extremo izquierdo, hay una composición de Sentinel 2 de los últimos 12 meses. Se colorea utilizando un compuesto de color infrarrojo (infrarrojo cercano, infrarrojo medio, rojo). En el centro están los mosaicos Landsat 8 y Landsat 7 Color Yearly, con un control deslizante para que pueda elegir entre años. A la derecha están los gráficos NDVI del gráfico de MODIS, Landsat 7/8 y Sentinel 2. Para los gráficos Landsat 7/8 y Sentinel, puede hacer clic en un punto de los gráficos para cargar imágenes específicas en los paneles izquierdo y central.
 
@@ -270,9 +331,9 @@ Para este ejercicio, seleccione lanzamiento automático de Geo-Dash.
 
 5. Su pantalla debería de verse similar a la imagen siguiente. Haga clic en "Next" para llegar al panel de selección de imágenes. 
 
-![](figures/ProjectOverview.JPG)
+![](./figures/ProjectOverview.JPG)
 
-#### 3.2.2 Selección de Imágenes 
+##### 3.2.2.2 Selección de Imágenes 
 
 En el panel de "Imagery Seleccion" (Selección de imágenes), puede cambiar las imágenes del mapa base predeterminado y los mapas base de imágenes que están disponibles para los usuarios durante la recopilación de datos.
 
@@ -292,13 +353,13 @@ Active la casilla a un lado de cada fuente de imágenes que quiere que este disp
 
 4. Haga clic en "Next" cuando haya terminado.
 
-![](figures/ImagerySelection.JPG)
+![](./figures/ImagerySelection.JPG)
 
-#### 3.2.3 Especificación de Muestra: Diseño de Parcela
+##### 3.2.2.3 Especificación de Muestra: Diseño de Parcela
 
 El sistema integrado de CEO permite que usuarios creen diseños de muestreo usando una interfaz fácil de usar. Hay dos partes claves, seleccionando el área de interés y la generación de parcelas.
 
-##### 3.2.3.1 Seleccione su área de interés (AOI)
+#####  Seleccione su área de interés (AOI)
 
 Para este ejercicio usaremos la selección de muestras creado anteriormente y exportado como archivo csv. Esto establecerá el área de interés (AOI por sus siglas en ingles) para el proyecto. CEO limita el AOI alrededor de las ubicaciones de parcela que usted suba. Por eso, salte las próximas instrucciones para dibujar el AOI manualmente. 
 
@@ -314,13 +375,13 @@ i. La manera mas fácil de seleccionar el área de interés de su proyecto es di
 
   * Las cajas de coordenadas se poblaran una vez que la caja este dibujada y suelte el botón del mouse. Las coordenadas se muestran en formato lat/long usando WGS84 EPSG:4326.
 
-![](figures/AOI.png)
+![](./figures/AOI.png)
 
 ii. Puede incluir manualmente las coordenadas de límites en las cajas provistas. 
 
-![](figures/CoordBoundingBox.png)
+![](./figures/CoordBoundingBox.png)
 
-##### 3.2.3.1 Diseño de Parcela 
+##### Diseño de Parcela 
 
 En la sección "Plot Design" (Diseño de Parcelas), puede especificar el tipo y número de parcelas. Para este ejercicio usaremos la selección de muestra creada anteriormente y exportada como un csv. Hay otras tres opciones para ubicar parcelas: aleatoriamente, diseño cuadriculado y carga de un shapefile.
 
@@ -332,7 +393,7 @@ Primero debemos de ajustar el formato del archivo .csv. El archivo que suba para
 
 i. En un software para el formato de hojas de calculo como Excel, abra el archivo de muestra aleatoria estratificada que creo en el ejercicio de selección de muestra (Modulo 3.2). 
 
-![](figures/stratSmplRaw.JPG)
+![](./figures/stratSmplRaw.JPG)
 
 ii. Copiar y pegar las columnas alrededor para que la primera contenga las coordenadas de longitud, seguida por coordenadas de latitud, y luego el ID de la parcela.
 
@@ -342,11 +403,11 @@ iv. Borre la columna llamada '.geo'.
 
 v. Guarde los cambios a su .csv.
 
-![](figures/stratSmplMod.JPG)
+![](./figures/stratSmplMod.JPG)
 
 Nota: si no especifica los nombres de columnas correctamente (deletreando o en orden), recibirá el siguiente error: 
 
-![](figures/csvError.png)
+![](./figures/csvError.png)
 
 Longitud debe de estar entre -180 and 180, y latitud debe de estar entre -90 and 90. Si los confunde, puede obtener un error si su longitud es mas grande que 90 o menos que -90 (cuando esto se confunde con latitud, esta "por encima" del polo). Revise bien estos valores. 
 
@@ -374,7 +435,7 @@ Nota: cuando las parcelas con pequeñas, sus usuarios necesitaran alejarse/hacer
 
 **Nota:** CEO proveerá un estimado de cuantas parcelas se generaran para su proyecto en base a su diseño de muestreo. Usando el muestreo de CEO, el numero máximo de parcelas para un proyecto es 5,000. Para el muestreo cuadriculado, pueda que necesite incrementar el espacio entre las parcelas para no exceder el máximo de 5,000 parcelas.
 
-#### 3.2.4 Especificación de Muestra: Diseño de Muestra 
+##### 3.2.2.4 Especificación de Muestra: Diseño de Muestra 
 
 Aquí es donde especificara cuantos puntos de muestra están dentro de cada parcela, y si se crearon con un método aleatorio, cuadriculado, o una distribución personalizada.  
 
@@ -383,7 +444,7 @@ Aquí es donde especificara cuantos puntos de muestra están dentro de cada parc
 
 Para este ejercicio, puede dejar esa opción sin activar.
 
-![](figures/SmpDesign.JPG)
+![](./figures/SmpDesign.JPG)
 
 3. Haga clic en Next.
 
@@ -402,7 +463,7 @@ Si necesita mas puntos o parcelas, por favor cree su diseño de muestreo en otro
 
 * Por favor refiérase al manual de [Collect Earth Online Institution and Project Creation Manual](https://collect.earth/support) para leer acerca de como trabajar con muestras especificadas con un csv o shapefile. 
 
-#### 3.2.5 Preguntas de Tarjeta de Notas ('Notecard Questions')
+##### 3.2.2.5 Preguntas de Tarjeta de Notas ('Notecard Questions')
 
 Aquí es donde diseña las preguntas que sus recolectores de datos / intérpretes fotográficos responderán para cada una de sus parcelas. Cada pregunta crea una columna de datos. A partir de estos datos sin procesar, puede calcular métricas de área, etc.
 
@@ -416,7 +477,7 @@ iii. Mover a la próxima pregunta de nivel-alto (nuevo tarjeta de pregunta) & re
 
 Para la pestaña de "Survey Question" (Pregunta de Encuesta), el panel izquierdo permite que ingrese preguntas mientras que el panel derecho proporciona una vista previa de como estas preguntas le aparecerán a sus recopiladores de datos. Ahora entraremos en mas detalle acerca de como agregar una pregunta y respuestas, los tipos de preguntas que se pueden hacer, y cuando estas preguntas pueden ser útiles. 
 
-##### 3.2.5.1. Como agregar preguntas y respuestas 
+##### Como agregar preguntas y respuestas 
 
 CEO provee una manera directa para hacer preguntas de opción múltiple. Ya que es el tipo de pregunta usado con mayor frecuencia, lo usaremos para este ejemplo. En CEO, estas preguntas se llaman "button text" o "texto de botón" ya que dentro de colección de datos, aparecen como un botón con texto. 
 
@@ -468,7 +529,7 @@ i. En el campo de Nueva Pregunta, escriba 'Cobertura de suelo previa'. Luego hag
 
 ii. Ahora agregue respuestas a la nueva pregunta hijo usando el método explicado en paso 3 arriba. Lo puede hacer usando las mismas categorías de cobertura de suelo que usamos en la primera pregunta: Agua, Hielo/nieve, desarrollado, desnudo, arboles, arbustos, pastizales, cultivos, y otro. 
 
-![](figures/ChildQ.JPG)
+![](./figures/ChildQ.JPG)
 
 8. Puede repetir este proceso para preguntar si hubo cambios antes del evento de cambio mas reciente. Agregue hasta tres opciones de eventos de cambios.
 
@@ -504,7 +565,7 @@ Los tres tipos de datos permitidos son:
 
 * Number: Use esto cuando tenga varias opciones que sean números, que no contengan letras ni símbolos.
 
-#### 3.2.6 Reglas de Encuesta
+##### 3.2.2.6 Reglas de Encuesta
 
 Las reglas de la encuesta ayudan a garantizar que los usuarios recopilen respuestas lógicas y correctas. Si no desea agregar ninguna regla, simplemente haga clic en Siguiente.
 
@@ -526,7 +587,7 @@ Tipos de reglas incluyen:
 
 * Incompatible answers: Esta regla se puede aplicar a cualquier tipo de pregunta. Permite al usuario definir conjuntos de respuestas incompatibles. Por ejemplo, si la respuesta a una pregunta es cobertura terrestre = "Agua", la respuesta a otra pregunta no podría ser uso de la tierra = "Industrial".
 
-#### 3.2.7 Repaso de Proyecto y Publicación
+##### 3.2.2.7 Repaso de Proyecto y Publicación
 
 1. Ahora verá una descripción general de los detalles de su proyecto.
 2. Desplácese para comprobar que todo esté correcto.
@@ -542,25 +603,25 @@ ii. Si nota un error, haga clic en "Continue Editing" (Continuar editando) para 
 6. Después de crear el proyecto, será llevada a un panel de información del proyecto. Puede manejar su proyecto usando este menú. 
 
 
-#### 3.2.8 Configurando Geo-Dash
+##### 3.2.2.8 Configurando Geo-Dash
 
 Geo-Dash es un tablero que se abre en una segunda ventana cuando los usuarios comienzan a analizar parcelas de muestra. GeoDash proporciona a los usuarios información adicional para ayudarlos a interpretar las imágenes y clasificar mejor los puntos de muestra y las gráficas. La pestaña Geo-Dash se puede personalizar para mostrar información como series de tiempo NDVI, imágenes adicionales y datos digitales de elevación.
 
 1. Puede configurar su Geo-Dash haciendo clic en [Configure Geo-Dash] de la página de información de proyecto. Esto abrirá la pantalla de layout de Geo-Dash.
 
-![](figures/geoDash.JPG)
+![](./figures/geoDash.JPG)
 
 2. [Copy Layout] le permitirá copiar el Geo-Dash de otro proyecto. Esto borrará otros widgets de Geo-Dash que posiblemente ya haya asociado con su proyecto.
 
-![](figures/copygeodash.JPG)
+![](./figures/copygeodash.JPG)
 
 3. Puede agregar widgets de Geo-Dash individuales con [Add Widget]. Para entender el propósito de cada widget, haga clic en [Geo-Dash Help] para abrir el Centro de Ayuda de  Geo-Dash. 
 
 Para este ejercicio, solo agregaremos uno de los muchos widgets Geo-Dash disponibles. Sin embargo, si desea obtener más información sobre estas opciones, consulte el manual [Collect Earth Online Institution and Project Creation Manual](https://collect.earth/support).
 
-![](figures/geodashHelp.JPG)
+![](./figures/geodashHelp.JPG)
 
-#### 3.2.8.1 Agregando Imágenes ChronoSequence al Geo-Dash, el Widget de Degradación Forestal
+#### Agregando Imágenes ChronoSequence al Geo-Dash, el Widget de Degradación Forestal
 
 El widget Degradación proporciona información de series de tiempo sobre la degradación forestal por tala selectiva, incendios y otras perturbaciones grandes y pequeñas. El índice de fracción de diferencia normalizada (NDFI, por sus siglas en inglés) permite una mejor detección del daño al dosel forestal de múltiples fuentes, incluida la tala selectiva y los incendios forestales. Se calcula con la metodología encontrada en Souza et. al (2005).
 
@@ -582,21 +643,21 @@ El widget Degradación proporciona información de series de tiempo sobre la deg
 
 9. Los widgets se pueden manipular en el editor de diseño de widgets de Geo-Dash de varias formas. Para ver un gif que ilustra estos movimientos, vea [video](https://collect.earth/geo-dash/geo-dash-help) y haga clic en 'To Move and Resize Widgets' (Para mover y cambiar el tamaño de widgets).
 
-## 4 Colección de Datos
+### 3.3 Colección de Datos
 
-### 4.1 Resumen
+### 3.3.1 Resumen
 
 Los usuarios de su equipo que ayudarán a recopilar las observaciones de referencia deberán registrarse para obtener una cuenta de Collect Earth Online. Las instrucciones para hacer esto se encuentran a continuación. Como administrador de la institución, usted será responsable de asegurarse de que los miembros del equipo hayan sido invitados a la institución del director ejecutivo de su agencia para completar la recopilación de datos.
 
-#### 4.2 La pantalla de análisis 
+#### 3.3.2 La pantalla de análisis 
 
 Una vez que se han agregado miembros a la institución, puede compartir el enlace al proyecto con ellos. O pídales que naveguen a la página de su institución y seleccionen el proyecto en la página de inicio de la institución.
 
-![](figures/FindProject.JPG)
+![](./figures/FindProject.JPG)
 
 1. Una vez en la página de recopilación de datos del proyecto, puede acceder a la ayuda para la pantalla de análisis en cualquier momento haciendo clic en el signo de interrogación púrpura en la esquina superior derecha de la pantalla. La función de ayuda señalará características importantes de la página de recopilación de datos.
 
-![](figures/HelpButton.JPG)
+![](./figures/HelpButton.JPG)
 
 2. Primero asegúrese de hacer clic en el botón [Go to first plot] (Ir a la primera parcela) en la esquina superior a mano derecha.
 
@@ -654,13 +715,13 @@ Una vez que se han agregado miembros a la institución, puede compartir el enlac
 
 10. La ventana emergente Geo-Dash también se abrirá con información acerca de la parcela si ha sido configurada para el proyecto. La ventana contiene información para asistir a identificar atributos de cobertura y uso de suelo compilado de Google Earth Engine. Dependiendo del proyecto, Geo-Dash puede incluir parcelas de datos de series de tiempo (por ejemplo, como valores de NDVI han variado a través del tiempo), chips de imágenes Landsat, y mas. 
 
-#### 4.2 Analizar Parcelas 
+#### 3.3.3 Analizar Parcelas 
 
 1. Ahora es tiempo de contribuir al proyecto. 
 
 2. Lea la primera pregunta de encuesta y las respuestas posibles. Está preguntando cual es la cobertura de suelo actual. Para determinar esto, aléjese de la parcela con zoom hasta que las imágenes se vean mas claras. Esto le permitirá conseguir mas pistas de contexto del paisaje.
 
-![](figures/Q1.JPG)
+![](./figures/Q1.JPG)
 
 3. Use el menú desplegable de 'Imagery Options' para cargar fuentes de imágenes disponibles y determinar cual es la cobertura de suelo actual. 
 
@@ -679,25 +740,25 @@ Una vez que se han agregado miembros a la institución, puede compartir el enlac
 * Si comete un error y asigna un valor incorrecto a un punto o puntos, puede volver a seleccionar los puntos y cambiar la "respuesta".
 
 
-![](figures/Q2pre.JPG)
+![](./figures/Q2pre.JPG)
 
 5. A continuación, seleccione la segunda pregunta de la encuesta haciendo clic en "2" o presione la flecha hacia la derecha. Esta pregunta es preguntar si ha habido un cambio en la cobertura del suelo, en qué año ocurrió. Si hubo más de un cambio, indica que debe registrar el año del evento de cambio más reciente.
 
-![](figures/Q2.JPG)
+![](./figures/Q2.JPG)
 
 6. Para determinar el historial del paisaje en esta parcela, es útil revisar los datos en Google Earth Pro, GEE Script y en la pestaña Geo-Dash. Primero, abra la pestaña Geo-Dash (es probable que sea la pestaña inmediatamente a la derecha de la pestaña de recopilación de datos. Es posible que deba hacer clic en el botón Geo-Dash si la pestaña aún no está abierta.
 7. Haga clic en Descargar Plot KML para descargar un archivo .kml y verlo en Google Earth. Google Earth tiene varias fuentes de imágenes históricas y actuales que pueden ayudar a identificar una trama. Necesitará tener Google Earth Pro instalado en su computadora. Puede hacer clic en el archivo .kml descargado para abrirlo en Google Earth o importarlo manualmente en Google Earth. Luego, haga clic en el control deslizante de la serie temporal para alternar entre las imágenes disponibles para diferentes fechas.
 8. En este ejercicio, la página Geo-Dash se ha configurado con solo una herramienta de visualización de series de tiempo. Esto incluye un gráfico de series de tiempo de los valores mensuales (NDFI) de enero de 2005 a enero de 2020 calculados a partir de las colecciones de imágenes de Landsat. Busque cambios bruscos y graduales en el gráfico de series de tiempo NDFI, que se muestra en el panel inferior. Recuerde examinar el gráfico de series de tiempo en busca de patrones cíclicos (que indiquen cambios estacionales) antes de evaluar valores inesperados. Estos patrones estacionales están presentes en los bosques caducifolios, pero no indican un cambio en la cobertura del suelo. Busque cambios abruptos (generalmente desengrasados bruscos) o cambios graduales (generalmente aumentos graduales). Estos indican posibles eventos de degradación y recuperación.
 
-![](figures/TimeSeries.JPG)
+![](./figures/TimeSeries.JPG)
 
 9. Si identifica lo que parece un cambio del valor esperado, puede hacer clic en un punto del gráfico para cargar esa imagen Landsat en la ventana del mapa. Haga clic en una fecha individual (círculo azul) en el gráfico para que aparezcan las imágenes de ese período de tiempo. Es posible que deba esperar a que se carguen las imágenes.
 
 * Por ejemplo, en la imagen de abajo hay un par de puntos con un valor NDFI bajo en comparación con la mayoría de los valores en el rango de tiempo. Por ejemplo, en la imagen de abajo hay una caída en los valores de NDFI el 9 de noviembre de 2015. Si hace clic en el punto de la imagen antes de la caída, verá que el paisaje parece arbolado. Si luego hace clic en el punto con un valor bajo (el 9-11-2015), la imagen se carga y el paisaje todavía parece arbolado. Sin embargo, hay un borde de nube que se superpone a la trama. En este ejemplo, parece que el cambio en la serie temporal se debe al ruido atmosférico en lugar de a los cambios en la cobertura del suelo. Después de hacer clic en todos los valores bajos de NDFI y examinar la imagen Landsat asociada, parece que todas estas caídas se deben a la cobertura de nubes en esta ubicación de la parcela. Por lo tanto, para este gráfico de la pregunta 2, seleccionaríamos 'Sin cambios'.
 
-![](figures/prechange.png)
+![](./figures/prechange.png)
 
-![](figures/Change.png)
+![](./figures/Change.png)
 
 * Al hacer clic en los puntos del gráfico, las imágenes a veces tardan un momento en cargarse.
 
@@ -707,7 +768,7 @@ Una vez que se han agregado miembros a la institución, puede compartir el enlac
 
 * Un declive fuerte de NDFI (frecuentemente acompañado por una recuperación pequeña) puede indicar tala selectiva. El panel a mano izquierda muestra el paisaje antes; a la derecha es el después. Podemos ver que en nuestra parcela de muestras, se ha construido una carretera. Esto se registraría como una degradación aun en el 2009 con una recuperación durando aproximadamente 2-3 años. 
 
-![](figures/road.png)
+![](./figures/road.png)
 
 10. Haga clic en diferentes fechas en y alrededor de su evento sospechado para confirmar visualmente que si ocurrió un evento. Si ocurrió un evento, indique en que año ocurrió. Si no hubo cambios, seleccione 'No Changes'. 
 
@@ -745,7 +806,7 @@ Una vez que se han agregado miembros a la institución, puede compartir el enlac
 
   * Plantaciones de arboles pueden parecer bosques naturales hasta que se aleja de la imagen y observa el patrón regular y sistemático de los arboles plantados. 
 
-## 6 Exportar Datos
+### 3.4 Exportar Datos
 1. Cuando haya recopilado todos los datos de su proyecto, navegue a la pagina de su institución. 
 
 2. Junto a su proyecto hay dos opciones de descarga: 'Download Plot Data' (Descargar Datos de Parcela), la cual descarga los datos de forma resumida por parcela, y 'Download Sample Data' (Descargar Datos de Muestra), la cual descarga sus datos brutos con información de cada punto dentro de cada parcela como su propia fila. La descarga de datos de parcela se indica con una P y la descarga de datos de muestra se indica con una S (por sus siglas en ingles). Ambos se descargan en forma de archivo csv, el cual se puede abrir en programas como Microsoft Excel o importados a un software de análisis de datos. 
@@ -757,14 +818,13 @@ Una vez que se han agregado miembros a la institución, puede compartir el enlac
 Usara estos datos descargados en modelos futuros para ejecutar estimaciones de área. 
 
 
-
 ## 4 Preguntas Frecuentes
 
-**¿Cuándo debería usar CEO? **
+**¿Cuándo debería usar CEO?**
 
 Utilice CEO si tendrá varios recopiladores de datos (CEO) y si desea una configuración más sencilla para las preguntas de la encuesta (CEO).
 
-**¿Dónde puedo encontrar ayuda dentro del CEO? **
+**¿Dónde puedo encontrar ayuda dentro del CEO?**
 
 Hay un signo de interrogación violeta en la esquina superior derecha de la pantalla. Al hacer clic en esto, aparecerá la interfaz de ayuda, que proporciona información sobre las funciones del CEO. Estas interfaces de ayuda están disponibles para la página de inicio, para la recopilación de datos y para la creación de proyectos.
 
@@ -801,12 +861,65 @@ A continuación se ofrecen algunos consejos:
 
 Consulte el [Manual de creación de proyectos e instituciones de Collect Earth Online](https://collect.earth/support).
 
+## 5 Terminología relevante para las técnicas de muestreo
 
+Una lista de términos relevantes para las técnicas de muestreo e inferencia esta provista en la documentación de AREA2: https://area2.readthedocs.io/en/latest/definitions.html. Abajo hay algunos términos adicionales que no están incluidos en la documentación.
 
-## 7 Referencias
+### 5.1 Diseño de Respuesta
 
-Souza, C. M., Roberts, D. A., & Cochrane, M. A. (2005). Combining spectral and spatial information to map canopy damage from selective logging and forest fires. Remote Sensing of Environment, 98(2), 329-343.
+Definido por Stehman and Czaplewski, 1998[^fn1]: “La referencia o clasificación 'verdadera' se obtiene para cada unidad de muestreo en función de la interpretación de fotografías aéreas o videografías, una visita terrestre o una combinación de estas fuentes. Los métodos utilizados para determinar esta clasificación de referencia se denominan "diseño de respuesta". El diseño de respuesta incluye procedimientos para recopilar información relacionada con la determinación de la cobertura terrestre de referencia y reglas para asignar una o más [etiquetas] de referencia a cada unidad de muestreo ". Conocido como "plan de medición" por Särndal et al. (1992)[^fn2].
 
+### 5.2 Muestra
+
+Un subconjunto de unidades de población seleccionadas de la población.
+
+### 5.3 Diseño de Muestra
+
+Sinónimo de diseño de muestreo, que es el término preferido en la literatura fundamental (Cochran, 1977 [^ fn3], Särndal et al., 1992 [^ fn2]). El término aparece en Rice (1995) [^ fn4] que utiliza tanto "diseño de muestreo" como "diseño de muestra".
+
+### 5.4 Diseño de Muestreo
+
+"El diseño de muestreo es el protocolo mediante el cual se seleccionan las unidades de muestra de referencia". (Stehman y Czaplewski, 1998) [^ fn1]. El “diseño de muestreo” también es utilizado por Cochran (1977) [^ fn3] y Särndal et al. (1992) [^ fn2]- el primero también usa "plan de muestreo".
+
+### 5.5 Encuesta
+
+Särndal y col. (1992) [^ fn2] define una encuesta como una “investigación parcial de una población finita”, y además que “los términos 'encuesta' y 'encuesta por muestreo' se utilizan para denotar investigaciones estadísticas con las siguientes características metodológicas: [. ..] plan de medición [...] de muestreo probabilístico [y] estimación."
+
+### 5.6 Diseño de Encuesta
+
+Un "diseño total de la encuesta" define los procedimientos para "obtener la posible precisión en las estimaciones de la encuesta mientras se logra un equilibrio entre los errores de muestreo y los no muestrales [...] El diseño de la encuesta da lugar a operaciones de encuesta" como la selección de la muestra (Särndal et al., 1992) [^ fn2]. Lohr (1999) [^ fn5] describe un diseño de encuesta total como "Una filosofía de diseño de encuesta para minimizar los errores de muestreo y de no muestreo". Además, en Lohr (1999) “diseño de encuestas” es sinónimo de diseño de muestreo.
+
+### 5.7 Datos de referencia 
+
+Datos que caracterizan la evaluación disponible más precisa de la condición real en la ubicación de la muestra (ejemplo: imágenes de satélite de resolución fina).
+
+### 5.8 Observaciones de referencia
+
+La evaluación disponible más precisa de la verdadera condición de una unidad de población.
+
+### 5.9 Clasificación de referencia 
+
+La clasificación de referencia aplicada a la colección de todas las unidades de muestra.
+
+## 6 Referencias
+
+Cochran, W.G., 1977. *Sampling Techniques*, John Wiley & Sons, New York, NY.
+
+Lohr, S.L., 1999. *Sampling: Design And Analysis,* CRC Press.
+
+Olofsson, P., Foody, G.M., Herold, M., Stehman, S.V., Woodcock, C.E. and Wulder, M.A., 2014. Good practices for estimating area and assessing accuracy of land change. Remote Sensing of Environment, 148, pp.42-57. https://doi.org/10.1016/j.rse.2014.02.015
+
+Rice, J.A., 1995. *Mathematical Statistics and Data Analysis* (2nd ed.), Duxbury Press, Belmont, CA.
+
+Särndal, C.E., Svensson, B.H., & Wretman, J.H., 1992. *Model assisted survey sampling*, Springer Science & Business Media, New York, NY.
+
+Souza Jr, C.M., Roberts, D.A. and Cochrane, M.A., 2005. Combining spectral and spatial information to map canopy damage from selective logging and forest fires. *Remote Sensing of Environment*, *98*(2-3), pp.329-343. https://doi.org/10.1016/j.rse.2005.07.013
+
+Stehman, S.V., & Czaplewski, R.L., 1998. Design and analysis for thematic map accuracy assessment: fundamental principles. *Remote Sensing of Environment*, 64(3), 331-344. https://doi.org/10.1016/S0034-4257(98)00010-8
+
+-----
+
+![](figures/cc.png)  
 
 
 Este trabajo tiene licencia bajo un [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) 
@@ -819,7 +932,5 @@ Atribución
 Tenneson, Karis and Dyson, Karen. 2021. Module 3.3.3 Survey Form Creation and Reference Observation Collection with Collect Earth Online.  World Bank. 
 
 License: Creative Commons Attribution license (CC BY 3.0 IGO)
-
-![](figures/WB_FCPF.png)
-![](figures/GFOI.png)
+![](figures/wb_fcfc_gfoi.png)
 

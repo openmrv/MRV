@@ -42,9 +42,9 @@ group:
   etapa: Detección de cambio
 ---
 
-# Modul0 2.2 Detección y Clasificación Continua de Cambio (CCDC)
+# Detección y Clasificación Continua de Cambio (CCDC)
 
-## 1.0 Contexto
+## 1 Contexto
 
 
 #### 1.1 Monitoreo de Cambio Terrestre
@@ -54,7 +54,7 @@ Los cambios en la cobertura del suelo afectan los entornos naturales y antropog�
 El monitoreo del cambio de tierra utilizando datos de teledetección requiere metodologías para transformar las imágenes en información útil sobre los cambios en el paisaje. Uno de estos enfoques que se ha aplicado ampliamente es la detección y clasificación continua de cambios (CCDC; Zhu y Woodcock 2014). Este tutorial demostrará cómo se puede aplicar CCDC en Google Earth Engine con el propósito de monitorear el cambio de tierra.
 
 
-## 2.0 Objetivos de aprendizaje
+## 2 Objetivos de aprendizaje
 
 Al final de este tutorial, los usuarios podrán: 
 
@@ -64,34 +64,28 @@ Al final de este tutorial, los usuarios podrán:
 
 ### 2.1 Prerrequisitos para este módulo
 
-- Conceptos de Google Earth Engine (GEE) (por favor refiérase a Sección 1.1 de Modulo 1.1 Creación de mosaico/imagen compuesta para Landsat y Sentinel-2 en Google Earth Engine para encontrar recursos de GEE útiles)
-  - - Obtener una cuenta de usuario
-    - Imágenes en GEE
-    - Sintaxis básico de funciones
-    - Procesamiento básico de imágenes, incluyendo elección de imágenes, filtración de nubes, creación de mosaicos y compuestas 
-  - Es altamente recomendado que complete los tutoriales previos:
-  - Módulo 1
-    - 1.1 Creación de mosaicos/imágenes compuestas para Landsat y Sentinel-2 en Google Earth Engine
-    - 1.2 Recopilación de Datos de Entrenamiento
-      - 1.2.1 Recopilación de Datos de Entrenamiento Usando QGIS, o
-      - 1.2.2 Recopilación de Datos de Entrenamiento Usando Google Earth Engine
-    - 1.3 Clasificación de Cobertura y Uso Terrestre en Google Earth Engine
+* Google Earth Engine (GEE) concepts
+  * Getting a user account
+  * Image handling in GEE
+  * Basic syntax of functions
+  * Basic image processing, including choice of imagery, cloud-screening, mosaicking and compositing
 
-  - Módulo 2
-    - 2.1 Conceptos Básicos de Métodos de Detección de Cambio
-    - 2.2 LandTrendr
+> NOTE: Refer to process "Pre-processing" and tool "GEE" here on OpenMRV for more information and resources for working in Google Earth Engine.
 
 
-## 3.0 Detección de Cambio y Clasificación Continua (CCDC)
 
+## 3 Detección de Cambio y Clasificación Continua (CCDC)
+CCDC se puede ejecutar con Google Earth Engine. Se puede acceder a otras implementaciones de CCDC [aquí](https://github.com/GERSL/CCDC) e incluye implementaciones en C, Python y MATLAB. Para facilitar el análisis en GEE, Arévalo et al (2020) lanzaron una API y una colección de aplicaciones que se demostrarán [aquí](https://gee-ccdc-tools.readthedocs.io/en/latest/).
 
-#### 3.1 Descripción del Algoritmo
+Este tutorial utilizará la implementación de CCDC en GEE, por lo tanto, se necesita una cuenta de GEE. Consulte el Módulo 1 para obtener información adicional sobre GEE. En el primer ejemplo, el proceso se demuestra utilizando la API de CCDC en Camboya. En el segundo ejemplo, el proceso se demuestra en Mozambique utilizando las interfaces gráficas de usuario. Finalmente, el proceso se realiza en Colombia para crear una estratificación de pérdida y ganancia forestal. 
 
-![alt_text](images/CCDC/image1.png "image_tooltip")
+### 3.1 Descripción del Algoritmo
+
+![alt_text](./images/CCDC/image1.png "image_tooltip")
 
 CCDC usa todos los datos de reflectancia superficial de Landsat con mascara de nubes para un área de estudio. Los detalles acerca de la implementación original se describen en Zhu y Woodcock (2014). CCDC es un algoritmo generalizado para monitorear diferentes tipos de cambio terrestre. Por lo tanto, no depende de una banda espectral singular o un índice, y tampoco filtra los cambios en base a los cambios espectrales direccionales específicos. Un diagrama esquemático de CCDC se puede encontrar próximamente. 
 
-![alt_text](images/CCDC/image2.png "image_tooltip")
+![alt_text](./images/CCDC/image2.png "image_tooltip")
 
 
 Como indica el nombre, CCDC consiste de un componente de detección de cambio y uno de clasificación. La detección de cambio se ejecuta usando todas las imágenes de Landsat disponibles además de un conjunto de bandas espectrales o de índices definidos por el usuario. Típicamente, al menos las bandas Verde, Roja, Infrarrojo Cercano (NIR), Infrarrojo de onda corta (SWIR1), e Infrarrojo de Onda corta (SWIR2) se utilizan para la detección de cambios. Las nubes se filtran de todos los datos al nivel del pixel de acuerdo a la banda ‘pixel_qa’ o fMask. 
@@ -138,12 +132,12 @@ Como indica el nombre, CCDC consiste de un componente de detección de cambio y 
 El primer paso para identificar rupturas del modelo (o "cambios espectrales") es ajustar un modelo de regresión LASSO a un subconjunto de datos al comienzo de la serie de tiempo. A continuación se muestra un ejemplo de un ajuste de regresión estacional (línea roja) a observaciones NIR (puntos negros) para un ejemplo de píxel en Colombia. Si bien esto se muestra aquí para la banda NIR, se ajusta a todas las bandas espectrales y, opcionalmente, se puede aplicar a índices espectrales. El modelo de regresión captura el “patrón general” de reflectancia en el transcurso de un año y, por lo tanto, predice cómo deberían verse las observaciones “futuras” en ausencia de un cambio en el paisaje. 
 
 
-![alt_text](images/CCDC/image3.png "image_tooltip")
+![alt_text](./images/CCDC/image3.png "image_tooltip")
 
 
 Los modelos de regresión se ajustan con coeficientes que representan la intersección del modelo, la pendiente y tres conjuntos de pares de seno / coseno. Dado que las regresiones se ajustan mediante la regresión LASSO, estos parámetros se pueden reducir a 0. Los pares de seno / coseno se convierten finalmente en amplitud y fase para que sean más fáciles de interpretar. Estos modelos se utilizan para predecir observaciones posteriores durante un "período de seguimiento", definido como una ventana móvil con el número de observaciones igual al parámetro _minObservations_. A continuación, puede ver un modelo de regresión ajustado durante un período de entrenamiento (azul), con el período de monitoreo mostrado entre las líneas de puntos rojas. La figura es original de Zhu y Woodcock (2014) y Bullock et al., (2020).
 
-![alt_text](images/CCDC/image4.jpg "image_tooltip")
+![alt_text](./images/CCDC/image4.jpg "image_tooltip")
 
 Los residuos de las observaciones en la región de estudio se utilizan para calcular una estadística de prueba que sigue una distribución de chi-cuadrado. Si cada observación en la ventana de monitoreo excede el parámetro _chiSquaredProbability_ en la estadística de prueba, se detecta un cambio. Si quedan suficientes observaciones en la serie temporal, se ajusta un nuevo modelo de entrenamiento y el proceso se repite hasta el final de la serie temporal.
 
@@ -251,7 +245,7 @@ Hemos creada una aplicación Google Earth Engine para visualizar la serie tempor
 
 Intentar navegar a una ubicación de interés y hacer clic en el mapa para ver la serie temporal de SWIR1. La banda espectral visualizada se puede seleccionar del menú de caída a mano izquierda del mapa. Abajo hay un ejemplo de una serie de tiempo para un área de bosque convertida en pastizal en la Amazona colombiana. 
 
-![alt_text](images/CCDC/image5.png "image_tooltip")
+![alt_text](./images/CCDC/image5.png "image_tooltip")
 
 
 Aquí, CCDC se demuestra para el propósito del monitoreo de cambio de cobertura terrestre. Por lo tanto, modelos de regresión deben de ser clasificados en etiquetas de cobertura terrestre, y después los *cambios espectrales*  pueden ser asignados a diferentes categorías de cobertura terrestre (por ejemplo, bosque a urbano). Para hacer esto, CCDC usa datos de entrenamiento categóricos con un clasificador de Random Forest para asignar etiquetas de cobertura terrestre a cada periodo segmentado del modelo. Los datos de insumo para la clasificación con los coeficientes del modelo (por ejemplo, pendiente e intersección) además de el error 'root-mean-squared' del modelo para cada banda o índice espectral (típicamente las bandas espectrales de Landsat).  
@@ -295,15 +289,7 @@ Coberturas terrestres pueden ser clasificadas usando coeficientes de regresión 
 </table>
 
 
-
-## 3.0 Tutoriales
-
-CCDC se puede ejecutar con Google Earth Engine. Se puede acceder a otras implementaciones de CCDC [aquí](https://github.com/GERSL/CCDC) e incluye implementaciones en C, Python y MATLAB. Para facilitar el análisis en GEE, Arévalo et al (2020) lanzaron una API y una colección de aplicaciones que se demostrarán [aquí](https://gee-ccdc-tools.readthedocs.io/en/latest/).
-
-Este tutorial utilizará la implementación de CCDC en GEE, por lo tanto, se necesita una cuenta de GEE. Consulte el Módulo 1 para obtener información adicional sobre GEE. En el primer ejemplo, el proceso se demuestra utilizando la API de CCDC en Camboya. En el segundo ejemplo, el proceso se demuestra en Mozambique utilizando las interfaces gráficas de usuario. Finalmente, el proceso se realiza en Colombia para crear una estratificación de pérdida y ganancia forestal. 
-
-
-#### 3.1 Camboya: API de CCDC
+### 3.2 Camboya: API de CCDC
 
 El caso de prueba en Camboya se demostrará aquí utilizando la API de CCDC. Este mismo proceso se puede realizar en la GUI siguiendo las instrucciones que se describen a continuación en el ejemplo de Mozambique.
 
@@ -425,7 +411,7 @@ grid.size().evaluate(function(s) {
 ```
 
 
-![alt_text](images/CCDC/image10.png "image_tooltip")
+![alt_text](./images/CCDC/image10.png "image_tooltip")
 
 **Nota Importante:** Si no puede exportar los coeficientes CCDC, también puede utilizar los coeficientes globales CCDC creados por Gorelick et al., (Investigación no publicada). Estos datos fueron creados para superar el cuello de botella en el uso de CCDC que proviene de la creación de los coeficientes iniciales. A partir de enero de 2021, estos resultados se pueden cargar utilizando el siguiente código:
 
@@ -477,14 +463,14 @@ La etiqueta de cobertura terrestre debe ser numérica, por lo que no puede ser u
 
 
 
-![alt_text](images/CCDC/image11.png "image_tooltip")
+![alt_text](./images/CCDC/image11.png "image_tooltip")
 
 
 Debería ver que aparece el JSON del objeto:
 
 
 
-![alt_text](images/CCDC/image12.png "image_tooltip")
+![alt_text](./images/CCDC/image12.png "image_tooltip")
 
 Tenga en cuenta que la función tiene dos atributos: lc_string y landcover. El atributo lc_string no funcionará porque los clasificadores requieren una propiedad de clase numérica. También tenga en cuenta que la representación JSON de la propiedad "landcover" es un 2 numérico, no una representación de cadena como "2". Dado que es numérico, funcionará para la clasificación.
 
@@ -557,7 +543,7 @@ Map.addLayer(ccdImage.select('S1_NIR_RMSE'), {min: 0, max: .05, palette: ['##fff
 
 
 
-<img src="images/CCDC/image13.png" width="" alt="alt_text" title="image_tooltip">
+<img src="./images/CCDC/image13.png" width="" alt="alt_text" title="image_tooltip">
 
 <p>
 Segmento 1 Fecha de Rotura (Marrón -> Azul)
@@ -566,7 +552,7 @@ Segmento 1 Fecha de Rotura (Marrón -> Azul)
 
 
 
-<img src="images/CCDC/image14.png" width="" alt="alt_text" title="image_tooltip">
+<img src="./images/CCDC/image14.png" width="" alt="alt_text" title="image_tooltip">
 
 <p>
 Segmento 1 NIR RMSE (Verde Claro -> Verde Oscuro)
@@ -666,7 +652,7 @@ print(doChart(trainingData, 'SWIR1_INTP','NIR_INTP'))
 
 
 
-![alt_text](images/CCDC/image15.png "image_tooltip")
+![alt_text](./images/CCDC/image15.png "image_tooltip")
 
 
 Tenga en cuenta las diferencias en las intersecciones entre bandas. Las muestras de agua tienen intercepciones bajas en las bandas NIR y SWIR1 debido a la reflectancia generalmente baja en el agua. El bosque, por el contrario, tiene un SWIR1 bajo pero un NIR alto, debido a la alta reflectancia en las longitudes de onda de NIR para la vegetación verde. Las áreas herbáceas y los asentamientos son muy variables, lo que refleja la amplia gama de reflectancia en estas clases. De esta manera, se puede ver cómo la intersección generalmente corresponde a la reflectancia "promedio".
@@ -699,7 +685,7 @@ Map.addLayer(results.select(0), {min: 1, max: 4, palette: ['##a6d854','##386cb0'
 
 
 
-![alt_text](images/CCDC/image16.png "image_tooltip")
+![alt_text](./images/CCDC/image16.png "image_tooltip")
 
 
 Finalmente, las clasificaciones en fechas específicas se pueden obtener usando la función [getLcAtDate](https://gee-ccdc-tools.readthedocs.io/en/latest/api/api.html#getLcAtDate). El siguiente fragmento de código primero crea una clasificación para la fecha arbitraria del 27 de marzo de 2014 y luego calcula la deforestación entre 2000 y 2018. En los datos de entrenamiento, el valor 1 representa bosque, 2 es herbáceo, 3 es agua y 4 es asentamiento. Por lo tanto, la sustitución de los diferentes valores de clase crearía mapas de cambio para las otras clases respectivas.
@@ -738,7 +724,7 @@ Map.addLayer(postDefClass, {min: 1, max: 4, palette: ['##a6d854','##386cb0','##e
 
 
 
-<img src="images/CCDC/image17.png" width="" alt="alt_text" title="image_tooltip">
+<img src="./images/CCDC/image17.png" width="" alt="alt_text" title="image_tooltip">
 
 <p>
 Deforestación
@@ -749,7 +735,7 @@ Deforestación
 
 
 
-<img src="images/CCDC/image18.png" width="" alt="alt_text" title="image_tooltip">
+<img src="./images/CCDC/image18.png" width="" alt="alt_text" title="image_tooltip">
 
 <p>
 Cobertura Terrestre despues de Deforestación
@@ -892,7 +878,7 @@ El primer paso es cargar la [aplicación](https://code.earthengine.google.com/?s
 
 
 
-![alt_text](images/CCDC/image19.png "image_tooltip")
+![alt_text](./images/CCDC/image19.png "image_tooltip")
 
 
 A continuación, el usuario debe cargar los coeficientes CCDC. Si los coeficientes se crearon mediante el paso anterior "Enviar detección de cambios", ese asset debe utilizarse en este paso. En caso contrario, se pueden utilizar los coeficientes globales.
@@ -903,35 +889,35 @@ Debería ver el panel _Predictor Variables_ poblarse como en la siguiente figura
 
 
 
-![alt_text](images/CCDC/image20.png "image_tooltip")
+![alt_text](./images/CCDC/image20.png "image_tooltip")
 
 
 La siguiente opción le permite decidir cómo definir la región para clasificar y exportar. Como verá, hay muchas opciones. La mayoría de esas giran en torno a una cuadrícula global que hemos creado para el proyecto Global Land Cover Mapping and Estimation (GLanCE). Puede encontrar más información sobre la cuadrícula GLanCE en el [sitio web del proyecto](http://sites.bu.edu/measures/).
 
 
 
-![alt_text](images/CCDC/image21.png "image_tooltip")
+![alt_text](./images/CCDC/image21.png "image_tooltip")
 
 
 Hay cuatro formas de especificar un mosaico para que se ejecute, además de definir manualmente la región de estudio o seleccionar un país. La opción más simple es elegir “Tile Intersecting Point” ("Mosaico de punto de intersección") y luego hacer clic en algún lugar del mapa. Verá que la cuadrícula se superpone a la ubicación que seleccionó cargada como región de estudio.
 
 
 
-![alt_text](images/CCDC/image22.png "image_tooltip")
+![alt_text](./images/CCDC/image22.png "image_tooltip")
 
 
 Alternativamente, puede definir la región de estudio manualmente  haciendo clic en cinco puntos en el mapa que definen los limites. 
 
 
 
-![alt_text](images/CCDC/image23.png "image_tooltip")
+![alt_text](./images/CCDC/image23.png "image_tooltip")
 
 
 Las otras opciones son definir manualmente las cuadrículas de salida en función de sus ID de mosaico, dibujar en el mapa para especificar múltiples cuadrículas o seleccionar un país. Si se seleccionan varias cuadrículas, cada cuadrícula se enviará como una tarea separada. Si se selecciona un país, todo el límite del país será la región de estudio.
 
 
 
-![alt_text](images/CCDC/image24.png "image_tooltip")
+![alt_text](./images/CCDC/image24.png "image_tooltip")
 
 
 Use el método _Country Boundary_ (Limites del País) para definir una región de salida, y seleccione  _Mozambique_ para el _Country_ (país). 
@@ -945,7 +931,7 @@ El conjunto final de parámetros se relaciona con los datos de entrenamiento. Lo
 
 
 
-![alt_text](images/CCDC/image25.png "image_tooltip")
+![alt_text](./images/CCDC/image25.png "image_tooltip")
 
 Tenga en cuenta que la clasificación se ejecuta más rápido si los datos del predictor para cada punto de entrenamiento se guardan en las propiedades de la función (en lugar de calcularse sobre la marcha). Recomendamos hacer este proceso en una tarea separada y luego usar los datos con los predictores adjuntos para probar rápidamente los parámetros de clasificación. Debería ver en la consola una nota sobre si los datos del predictor se deben muestrear o no como puntos de entrenamiento. Si es así, también puede enviar una tarea que guardará este cálculo para uso futuro.
 
@@ -962,7 +948,7 @@ Las fechas deben introducirse en el formato "AAAA-MM-DD" y separadas por comas, 
 
 
 
-![alt_text](images/CCDC/image26.png "image_tooltip")
+![alt_text](./images/CCDC/image26.png "image_tooltip")
 
 
 Esta aplicación también tiene la función de agregar un cambio entre lo que representa la conversión de una o varias clases en una fecha específica a una clase o grupo de clases específico. Primero debe especificar las fechas de inicio y finalización y los valores de la clase de cobertura terrestre para las fechas correspondientes. Por ejemplo, los siguientes ejemplos muestran los píxeles (rojo) que son de clase 1 (bosque) en 2001-01-01, y son de clase 2, 3 o 4 en 2018-01-01. En otras palabras, deforestación de enero de 2001 a enero de 2018. Al cambiar las clases "from" (Desde) y "To" (A) para la banda de cambio, se calculará el inverso de la deforestación, o el crecimiento del bosque.
@@ -971,7 +957,7 @@ Esta aplicación también tiene la función de agregar un cambio entre lo que re
 
 
 
-![alt_text](images/CCDC/image27.png "image_tooltip")
+![alt_text](./images/CCDC/image27.png "image_tooltip")
 
 También puede especificar un solo valor para el cuadro Clase (A), por ejemplo, con solo usar 3 se asignaría la conversión de 1 a 3, o de bosque a tierra de cultivo. Si estas casillas se dejan vacías, solo se crearán los mapas de cobertura terrestre.
 
@@ -981,7 +967,7 @@ Finalmente, la herramienta le permite especificar algunos parámetros de visuali
 
 
 
-![alt_text](images/CCDC/image28.png "image_tooltip")
+![alt_text](./images/CCDC/image28.png "image_tooltip")
 
 #### 3.3 Colombia: API de CCDC para la Estratificación de Cambio Forestal 
 
@@ -1122,35 +1108,38 @@ En el ejemplo siguiente, la paleta de colores de la leyenda es:
 - Rojo: Perdida de Bosque
 - Cian: Ganancia de Bosque 
 
-![alt_text](images/CCDC/image29.png "image_tooltip")
+![alt_text](./images/CCDC/image29.png "image_tooltip")
 
 **Nota:** El área de Perdida de Bosque es pequeña y el área de Ganancia de Bosque es aún menor. ¡Eso es lo que esperaríamos! Nuestro período de estudio es de solo dos años, y han habido relativamente pocos cambios forestales en Colombia en los últimos años. Usando el código anterior como referencia, ¿cómo cambian los resultados cuando se usa un período de estudio más largo (por ejemplo, 2000 a 2018)?  
 
 
 
-## Preguntas Frecuentes
+## 4 Preguntas Frecuentes
 
-**¿Se puede realizar la CCDC utilizando otras fuentes de datos? **
+**¿Se puede realizar la CCDC utilizando otras fuentes de datos?**
 Técnicamente, sí. Aunque la CCDC se diseñó para datos Landsat, técnicamente es independiente de los datos y, por lo tanto, podría realizarse utilizando cualquier fuente de datos con un registro de series de tiempo denso.
 
 **¿Donde puedo encontrar las versiones mas recientes de las aplicaciones CCDC?**
 Las versiones mas recientes de las GUIs y API se pueden encontrar aquí:  https://gee-ccdc-tools.readthedocs.io
 
-**¿Se puede analizar el CCDC sin la API o GUIs? **
+**¿Se puede analizar el CCDC sin la API o GUIs?**
 Si, CCDC se puede realizar usando solo la API de de JavaScript. Sin embargo, la complejidad de los insumos y los resultados calculados han sido un desafío para usuarios nuevos (incluso usuarios avanzados). Por lo tanto, creamos la API y las aplicaciones para facilitar el análisis. 
 
-**¿A quién se le debe acreditar por crear la CCDC? **
+**¿A quién se le debe acreditar por crear la CCDC?**
 La CCDC se introdujo originalmente en Zhu y Woodcock (2014). La implementación de GEE fue escrita por Noel Gorelick y Yang Zhiqiang. Ha habido muchos otros contribuyentes al algoritmo CCDC y las aplicaciones utilizadas aquí, en particular el [Programa LCMAP del USGS](https://github.com/repository-preservation/lcmap-pyccd), el [Laboratorio de percepción remota ambiental global](https://gerslab.uconn.edu/) y el [Proyecto de estimación y cartografía de la cobertura terrestre mundial](http://sites.bu.edu/measures/). Las GUI y API son escritas y administradas principalmente por Paulo Arévalo y Eric Bullock. 
 
-**Los coeficientes de cambio no se pueden exportar, ¿qué debo hacer? **
+**Los coeficientes de cambio no se pueden exportar, ¿qué debo hacer?**
 El cálculo de los coeficientes de cambio es la parte más computacionalmente intensiva de CCDC. Es por eso que la amable gente de Google ha creado un conjunto de datos de coeficientes globales. Aunque utiliza un conjunto predeterminado de parámetros de cambio para todo el mundo, se ha demostrado que los parámetros funcionan relativamente bien en diferentes entornos. Por lo tanto, debe considerarse como una alternativa útil a los coeficientes creados por el usuario.
 
 
-#### 4.0 Referencias
+#### 5 Referencias
 
 Zhu, Z., Woodcock, C.E., 2014. Continuous change detection and classification of land cover using all available Landsat data. Remote Sens. Environ. 144, 152–171. https://doi.org/10.1016/j.rse.2014.01.011
 
-![](images/CODED/cc.png)  
+-----
+
+![](figures/cc.png)  
+
 Este trabajo tiene licencia bajo [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
 Copyright 2020, World Bank 
@@ -1167,4 +1156,4 @@ Adrianirina Carole, Madagascar, BNCCREDD+
 
 Atribución
 Bullock, E. 2020. Continuous Change Detection and Classification (CCDC). © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)  
-![](images/CODED/WB_FCPF2.png)![](images/CODED/GFOI2.png)
+![](figures/wb_fcfc_gfoi.png)

@@ -1,6 +1,6 @@
 ---
 title: Détection et classification des changements en continu (CCDC)
-summary: La détection et la classification des changements continus (CCDC) est un algorithme généralisé qui utilise les sept bandes disponibles de Landsat pour effectuer simultanément la classification et la détection des changements d'occupation du sol, en cherchant à utiliser davantage de données pour atténuer les problèmes dus à des facteurs tels que la couverture nuageuse et la saisonnalité. Dans ce tutoriel, vous apprendrez les principaux composants et paramètres de CCDC, comment utiliser l'algorithme dans Google Earth Engine et créer des cartes de changement . Des exemples sont présentés pour les pays suivants : Mozambique, Cambodge et Colombie. De plus amples informations sur le CCDC sont décrites dans l'article original de Zhu et Woodstock, 2014 (https://doi.org/10.1016/j.rse.2014.01.011) et dans ce répertoire Gituhub (https://gee-ccdc-tools.readthedocs.io/).
+summary: La détection et la classification des changements continus (CCDC) est un algorithme généralisé qui utilise les sept bandes disponibles de Landsat pour effectuer simultanément la classification et la détection des changements d'occupation du sol, en cherchant à utiliser davantage de données pour atténuer les problèmes dus à des facteurs tels que la couverture nuageuse et la saisonnalité. Dans ce tutoriel, vous apprendrez les principaux composants et paramètres de CCDC, comment utiliser l'algorithme dans Google Earth Engine et créer des cartes de changement . Des exemples sont présentés pour les pays suivants - Mozambique, Cambodge et Colombie. De plus amples informations sur le CCDC sont décrites dans l'article original de Zhu et Woodstock, 2014 (https://doi.org/10.1016/j.rse.2014.01.011) et dans ce répertoire Gituhub (https://gee-ccdc-tools.readthedocs.io/).
 author: Eric Bullock
 creation date: Janvier 2021
 language: Français
@@ -44,18 +44,18 @@ group:
 
 
 
-# Module 2.2 Détection et classification continues des changements  (CCDC)
+# Détection et classification continues des changements  (CCDC)
 
-## 1.0 Informations générales
+## 1 Contexte
 
 
-#### 1.1 Le suivi des changements 
+### 1.1 Le suivi des changements 
 
 Les changements de l'occupation des sols affectent les environnements naturels et anthropiques et sont considérés comme une variable climatique essentielle par le Système mondial d'observation du climat. Par exemple, la désertification entraîne une transition de la couverture terrestre des écosystèmes végétatifs vers le désert, la déforestation entraîne la conversion des forêts à des utilisations des terres modifiées par l'homme, et le développement urbain peut faire passer un environnement naturel à un environnement couvert de bâtiments et de routes. Afin de comprendre l'impact de ces transitions, il est essentiel de les quantifier à l'échelle nationale et régionale, ce qui est possible grâce à l'analyse par télédétection.
 La surveillance des changements de sol à l'aide de données de télédétection nécessite des méthodologies permettant de transformer les images en informations utiles sur les changements du paysage. L'une de ces méthodes, qui a été largement appliquée, est la détection et la classification continues des changements (CCDC ; Zhu et Woodcock 2014). Ce tutoriel démontrera comment la CCDC peut être appliquée sur Google Earth Engine pour la surveillance des changements.
 
 
-#### 1.2 Les objectifs d'apprentissage
+## 2 Les objectifs d'apprentissage
 
 À la fin de ce tutoriel, les utilisateurs devraient être en mesure de
 
@@ -65,33 +65,27 @@ La surveillance des changements de sol à l'aide de données de télédétection
 
 ### 2.1 Prérequis pour ce module
 
-- Google Earth Engine (GEE) concepts (please refer to Section 1.1 of Module 1.1 Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine for useful GEE resources)
-  - Obtenir un compte utilisateur
-  - Manipulation des images dans GEE
-  - Syntaxe de base des fonctions
-  - Traitement de base des images, y compris le choix des images, le filtrage des nuages, la mosaïque et la composition.
-- Il est fortement conseillé de terminer les tutoriels précédents:
-  - Module 1
-    - 1.1  Création de mosaïque/composite d'images pour Landsat et Sentinel-2 dans Google Earth Engine
-    - 1.2  Collecte de données d'entraînement 
-      - 1.2.1 Collecte de données d'entraînement avec QGIS, ou
-      - 1.2.2  Collecte de données d'entraînement  à l'aide de Google Earth Engine
-    - 1.3 Classification d'occupation et d'utilisation du sol dans Google Earth Engin
-  - Module 2
-    - 2.1  Notions de base sur les méthodes de détection des changements
-    - 2.2 LandTrendr
+* Google Earth Engine (GEE) concepts
+  * Getting a user account
+  * Image handling in GEE
+  * Basic syntax of functions
+  * Basic image processing, including choice of imagery, cloud-screening, mosaicking and compositing
 
+> NOTE: Refer to process "Pre-processing" and tool "GEE" here on OpenMRV for more information and resources for working in Google Earth Engine.
 
-## 2.0 Détection et classification continues des changements (CCDC)
+## 3 Tutoriels: Détection et classification continues des changements  (CCDC)
 
+Le CCDC peut être géré à l'aide de Google Earth Engine. D'autres implémentations de CCDC sont accessibles [ici](https://github.com/GERSL/CCDC) et comprennent des implémentations en C, Python et MATLAB. Afin de faciliter l'analyse dans le cadre du GEE, Arevalo et al (2020) ont publié une API et une collection d'applications qui seront présentées [ici](https://gee-ccdc-tools.readthedocs.io/en/latest/). 
 
-#### 2.1 Algorithm description
+Ce tutoriel utilisera l'implémentation du CCDC dans GEE, d'où la nécessité d'un compte GEE. Veuillez vous reporter au module 1 pour de plus amples informations sur GEE. Dans le premier exemple, le processus est démontré en utilisant l'API du CCDC au Cambodge. Dans le second exemple, le processus est démontré au Mozambique en utilisant les interfaces graphiques. Enfin, le processus est réalisé en Colombie pour créer une stratification des pertes et des gains de forêts. 
 
-![image1](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image1.png)
+### 3.1 Algorithm description
+
+![image1](./images/CCDC/image1.png)
 
 Le CCDC utilise toutes les données de réflectance de surface Landsat masquées par les nuages disponibles pour une zone d'étude. Les détails de la mise en œuvre initiale sont décrits dans Zhu et Woodcock (2014). Le CCDC est un algorithme généralisé pour le suivi de différents types de changement au sol. Il ne repose donc pas sur une bande spectrale ou un indice unique, et ne filtre pas les changements en fonction des changements de direction spectrale spécifiques. Un diagramme schématique de CCDC se trouve ci-dessous. 
 
-![image2](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image2.png)
+![image2](./images/CCDC/image2.png)
 
 
 Comme son nom l'indique, le CCDC se compose d'une composante de détection des changements et d'une composante de classification. La détection des changements est effectuée à l'aide de toutes les images Landsat disponibles et d'un ensemble de bandes spectrales ou d'indices définis par l'utilisateur. Généralement, au moins les bandes verte, rouge, NIR, SWIR1 et SWIR2 sont utilisées pour la détection des changements. Toutes les données sont filtrées au niveau du pixel pour les nuages selon la bande "pixel_qa", ou fMask. 
@@ -139,14 +133,14 @@ Comme son nom l'indique, le CCDC se compose d'une composante de détection des c
 
 La première étape pour identifier les ruptures de modèle (ou "changements spectraux") consiste à ajuster un modèle de régression LASSO à un sous-ensemble de données au début de la série chronologique. Vous trouverez ci-dessous un exemple d'ajustement de régression saisonnière (ligne rouge) aux observations NIR (points noirs) pour un pixel en Colombie. Bien que ce modèle soit présenté ici pour la bande NIR, il est adapté à toutes les bandes spectrales et peut éventuellement être appliqué aux indices spectraux. Le modèle de régression capture le "modèle général" de la réflectance au cours d'une année, et est donc prédictif de ce à quoi devraient ressembler les observations "futures" en l'absence de changement dans le paysage.
 
-![image3](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image3.png)
+![image3](./images/CCDC/image3.png)
 
 
 Les modèles de régression sont ajustés avec des coefficients représentant un intercepte de modèle, une pente et trois ensembles de paires sinus/cosinus. Comme les régressions sont ajustées à l'aide de la régression LASSO, ces paramètres peuvent être réduits à 0. Les paires sinus/cosinus sont finalement converties en amplitude et en phase pour être plus faciles à interpréter. Ces modèles sont utilisés pour prévoir les observations ultérieures pendant une "période de surveillance", définie comme une fenêtre mobile dont le nombre d'observations est égal au paramètre _minObservations_. Vous pouvez voir ci-dessous un modèle de régression adapté à une période d'apprentissage (en bleu), avec la période de surveillance indiquée entre les pointillés rouges. La figure est tirée de Zhu et Woodcock (2014) et Bullock et al, (2020). 
 
 
 
-![image4](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image4.jpg)
+![image4](./images/CCDC/image4.jpg)
 
 Les résidus des observations dans la région d'étude sont utilisés pour calculer un test statistique  qui suit une distribution chi-carré. Si chaque observation de la fenêtre de surveillance dépasse le paramètre _chiSquaredProbability_ du test statistique , un changement est détecté. S'il reste suffisamment d'observations dans la série temporelle, un nouveau modèle d'apprentissage est adapté et le processus se répète jusqu'à la fin de la série temporelle. 
 
@@ -255,7 +249,7 @@ Nous avons créé une application Google Earth Engine pour visualiser les série
 
 Essayez de naviguer vers un lieu d'intérêt et cliquez sur la carte pour voir la série chronologique SWIR1. La bande spectrale visualisée peut être sélectionnée dans le menu déroulant à gauche de la carte. Vous trouverez ci-dessous un exemple de série chronologique pour une zone de forêt convertie en pâturage en Amazonie colombienne.
 
-![image5](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image5.png)
+![image5](./images/CCDC/image5.png)
 
 Ici, le CCDC fait l'objet d'une démonstration dans le but de surveiller l'évolution de l'occupation du sol. Par conséquent, les modèles de régression doivent être classés dans des étiquettes de couverture des sols, et ensuite les _changements spectraux_ peuvent être attribués à différentes catégories de changement de sol (par exemple, de forêt à développé). Pour ce faire, le CCDC utilise des données de formation catégorielles avec un classificateur Random Forest pour attribuer des étiquettes de couverture terrestre à chaque période segmentée du modèle. Les données d'entrée pour la classification sont les coefficients du modèle (par exemple, la pente et l'intersection) en plus de l'erreur quadratique moyenne du modèle pour chaque bande spectrale ou indice (généralement les bandes spectrales Landsat). 
 
@@ -263,36 +257,32 @@ Les occupation du sol peuvent être classées à l'aide de coefficients de régr
 
 
 
-![image6](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image6.png)
+![image6](./images/CCDC/image6.png)
 
 
 
 
 
-![image7](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image7.png)
+![image7](./images/CCDC/image7.png)
 
 
 
-![image8](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image8.png)
+![image8](./images/CCDC/image8.png)
 
 
 
 
 
-![image9](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image9.png)
+![image9](./images/CCDC/image9.png)
 
   
 
 
 
-## 3.0 Tutoriels
-
-Le CCDC peut être géré à l'aide de Google Earth Engine. D'autres implémentations de CCDC sont accessibles [ici](https://github.com/GERSL/CCDC) et comprennent des implémentations en C, Python et MATLAB. Afin de faciliter l'analyse dans le cadre du GEE, Arevalo et al (2020) ont publié une API et une collection d'applications qui seront présentées [ici](https://gee-ccdc-tools.readthedocs.io/en/latest/). 
-
-Ce tutoriel utilisera l'implémentation du CCDC dans GEE, d'où la nécessité d'un compte GEE. Veuillez vous reporter au module 1 pour de plus amples informations sur GEE. Dans le premier exemple, le processus est démontré en utilisant l'API du CCDC au Cambodge. Dans le second exemple, le processus est démontré au Mozambique en utilisant les interfaces graphiques. Enfin, le processus est réalisé en Colombie pour créer une stratification des pertes et des gains de forêts. 
 
 
-#### 3.1 Cambodge : API DU CCDC
+
+### 3.2 Cambodge : API DU CCDC
 
 Le cas test au Cambodge sera présenté ici en utilisant l'API du CCDC. Ce même processus peut être réalisé dans les interfaces graphiques en utilisant les instructions décrites ci-dessous dans l'exemple du Mozambique. 
 
@@ -413,7 +403,7 @@ grid.size().evaluate(function(s) {
 ```
 
 
-![image10](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image10.png)
+![image10](./images/CCDC/image10.png)
 
 **Note importante**: Si vous ne pouvez pas exporter les coefficients CCDC, vous pouvez également utiliser les coefficients CCDC globaux créés par Gorelick et al. (recherche non publiée). Ces données ont été créées pour surmonter le goulot d'étranglement dans l'utilisation des CCDC qui provient de la création des coefficients initiaux. A partir de janvier 2021, ces résultats peuvent être chargés en utilisant le code suivant :
 
@@ -469,11 +459,11 @@ print(trainingData.first())
 
 Dans la console, vous devriez voir des informations sur le premier point de formation. Sélectionnez l'élément, puis sélectionnez "géométrie". Assurez-vous que le "type" est "Point", comme dans la figure ci-dessous. Si c'est autre chose (comme Rectangle ou Polygone), vous devez convertir vos données en points avant de continuer.
 
-**Création d'un attribut numérique de l'occupation du sol
+**Création d'un attribut numérique de l'occupation du sol**
 
 L'étiquette d'occupation des sols doit être numérique, elle ne peut donc pas être une chaîne de caractères (comme "forêt") ou une chaîne numérique (ou un nombre écrit sous forme de chaîne). Pour vérifier le type de votre attribut, sélectionnez le bouton "JSON" sur le côté droit de la console pour développer la représentation json de l'élément. 
 
-![image11](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image11.png)
+![image11](./images/CCDC/image11.png)
 
 
 
@@ -482,7 +472,7 @@ Vous devriez voir apparaître le JSON :
 
 
 
-![image12](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image12.png)
+![image12](./images/CCDC/image12.png)
 
 Notez que ma fonction a deux attributs : lc_string et landcover. L'attribut lc_string ne fonctionnera pas car les classificateurs exigent une propriété de classe numérique. Notez que la représentation JSON de la propriété "landcover" est un 2 numérique, et non une représentation en chaîne comme "2". Comme il est numérique, il fonctionnera pour la classification. 
 
@@ -554,7 +544,7 @@ Map.addLayer(ccdImage.select('S1_NIR_RMSE'), {min: 0, max: .05, palette: ['##fff
    <td>
 
 
-![image13](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image13.png)
+![image13](./images/CCDC/image13.png)
 
 
 
@@ -567,7 +557,7 @@ Segment 1 date de rupture (Marron -> Bleu)
 
 
 
-![image14](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image14.png)
+![image14](./images/CCDC/image14.png)
 
 <p>
 Segment 1 NIR RMSE (vert clair-> vert foncé)
@@ -662,7 +652,7 @@ print(doChart(trainingData, 'SWIR1_INTP','NIR_INTP'))
 
 
 
-![image15](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image15.png)
+![image15](./images/CCDC/image15.png)
 
 Notez les différences des interceptions entre les bandes. Les échantillons d'eau ont de faibles interceptions dans les bandes NIR et SWIR1 en raison de la réflectance généralement faible dans l'eau. La forêt, par contre, a un SWIR1 faible mais un NIR élevé, en raison de la forte réflectance dans les longueurs d'onde du NIR pour la végétation verte. Les herbacées et les habitats sont très variables, ce qui reflète la large gamme de réflectance dans ces classes. De cette manière, on peut voir comment l'interception correspond généralement à la réflectance "moyenne". 
 
@@ -693,7 +683,7 @@ Map.addLayer(results.select(0), {min: 1, max: 4, palette: ['##a6d854','##386cb0'
 
 
 
-![image16](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image16.png)
+![image16](./images/CCDC/image16.png)
 
 
 Finalement, des classifications à des dates spécifiques peuvent être obtenues en utilisant la fonction [getLcAtDate](https://gee-ccdc-tools.readthedocs.io/en/latest/api/api.html#getLcAtDate). L'extrait de code suivant crée d'abord une classification pour la date arbitraire du 27 mars 2014, puis calcule la déforestation entre 2000 et 2018. Dans les données de formation, la valeur 1 représente la forêt, 2 est une plante herbacée, 3 est de l'eau et 4 est une colonie. Par conséquent, la substitution des différentes valeurs de classe permettrait de créer des cartes de changement pour les autres classes respectives. 
@@ -727,7 +717,7 @@ Map.addLayer(postDefClass, {min: 1, max: 4, palette: ['##a6d854','##386cb0','##e
 
 
 
-![image17](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image17.png)
+![image17](./images/CCDC/image17.png)
 
 <p>
 Deforestation
@@ -735,7 +725,7 @@ Deforestation
    <td>
 
 
-![image18](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image18.png)
+![image18](./images/CCDC/image18.png)
 
 <p>
 Occupation des sols après la déforestation
@@ -812,7 +802,7 @@ Map.addLayer(matchingDate, {min: 1, max: 4, palette: ['##a6d854','##386cb0','##e
 
 
 
-#### 3.2  Mozambique : GUI du CCDC
+### 3.3  Mozambique : GUI du CCDC
 
 Pour faciliter l'accès à notre API, nous avons créé une série d'interfaces utilisateur graphiques (GUI) qui ne nécessitent aucun codage de la part de l'utilisateur. Des descriptions détaillées de ces outils se trouvent dans [Arevalo et al., 2020](https://doi.org/10.3389/fclim.2020.576740).
 
@@ -878,7 +868,7 @@ La première étape consiste à charger l'application  [app](https://code.earthe
 
 
 
-![image19](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image19.png)
+![image19](./images/CCDC/image19.png)
 
 
 
@@ -890,7 +880,7 @@ Vous devriez voir le panneau  _Predictor Variables_ remplir comme dans la figure
 
 
 
-![image20](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image20.png)
+![image20](./images/CCDC/image20.png)
 
 
 
@@ -899,7 +889,7 @@ L'option suivante vous permet de décider comment définir la région à classer
 
 
 
-![image21](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image21.png)
+![image21](./images/CCDC/image21.png)
 
 
 
@@ -908,13 +898,13 @@ Il existe quatre façons de spécifier une tuile à exécuter, en plus de défin
 
 
 
-![image22](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image22.png)
+![image22](./images/CCDC/image22.png)
 
 
 
 Vous pouvez également définir manuellement la région d'étude en cliquant sur cinq points de la carte qui définissent les frontières.
 
-![image23](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image23.png)
+![image23](./images/CCDC/image23.png)
 
 
 
@@ -923,7 +913,7 @@ Les autres options consistent à définir manuellement les grilles de sortie en 
 
 
 
-![image24](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image24.png)
+![image24](./images/CCDC/image24.png)
 
 
 
@@ -943,7 +933,7 @@ La dernière série de paramètres concerne les données d'apprentissage. Les do
 
   
 
-![image25](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image25.png)
+![image25](./images/CCDC/image25.png)
 
 
 
@@ -960,7 +950,7 @@ Les dates doivent être entrées dans le format ‘YYYY-MM-DD’ et séparées p
 
 
 
-![image26](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image26.png)
+![image26](./images/CCDC/image26.png)
 
 
 
@@ -968,7 +958,7 @@ Cette application a également la fonction d'ajouter un changement entre qui rep
 
 
 
-![image27](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image27.png)
+![image27](./images/CCDC/image27.png)
 
 
 
@@ -976,13 +966,13 @@ Vous pouvez également spécifier une seule valeur pour la case Classe (À), par
 
 Enfin, l'outil vous permet de spécifier certains paramètres de visualisation. Cette étape est très simple, il suffit de lister les noms de couverture terrestre et la valeur numérique correspondante, et de fournir éventuellement une palette. Une fois la carte chargée, vous pouvez cliquer sur la carte pour visualiser la trajectoire de la série chronologique SWIR1 pour ce pixel. L'exemple ci-dessous montre une trajectoire de repousse, qui est caractérisée par une diminution de la réflectance de SWIR1 au cours de la série temporelle.
 
-![image28](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image28.png)
+![image28](./images/CCDC/image28.png)
 
 
 
 
 
-#### 3.3 Colombia: CCDC API for Forest Change Stratification
+#### 3.4 Colombia: CCDC API for Forest Change Stratification
 
 Le dernier tutoriel démontrera l'utilisation de l'API pour créer une stratification des changements forestiers en Colombie. Le code est modifié par rapport à celui du tutoriel sur le Mozambique et utilise l'ensemble des données de coefficient global du CCDC. Le script peut être trouvé dans le dépôt MRV ouvert dans le script "CCDC/Colombia_1". 
 
@@ -1121,13 +1111,13 @@ Dans l'exemple suivant, la palette de légende est :
 - Rouge : Perte de la forêt
 - Cyan: Forest Gain
 
-![image29](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CCDC/image29.png)
+![image29](./images/CCDC/image29.png)
 
 **Note:** La zone de perte de forêt est petite, et la zone de gain de forêt est encore plus petite. Il fallait s'y attendre ! Notre période d'étude n'est que de deux ans, et il y a relativement peu de changements dans les forêts qui se sont produits en Colombie ces dernières années. En utilisant le code précédent comme référence, comment les résultats changent-ils lorsqu'on utilise une période d'étude plus longue (par exemple, de 2000 à 2018) ? 
 
 
 
-## FAQs
+## 4 FAQs
 
 **Peut-on utiliser d'autres sources de données pour le CCDC?**
 Techniquement, oui. Bien que le CCDC ait été conçu pour les données Landsat, il est techniquement agnostique et peut donc être réalisé en utilisant n'importe quelle source de données avec un important jeu de séries chronologiques. 
@@ -1145,11 +1135,14 @@ Le CCDC a été introduit à l'origine dans Zhu et Woodcock (2014). La mise en �
 Le calcul des coefficients de variation est la partie la plus intensive du CCDC en matière de calcul. C'est pourquoi les gens de Google ont créé un ensemble de données de coefficients global. Bien qu'il utilise un ensemble de paramètres de changement par défaut pour le globe, il a été prouvé que ces paramètres fonctionnent relativement bien dans différents environnements. Par conséquent, il doit être considéré comme une alternative utile aux coefficients créés par les utilisateurs. 
 
 
-#### 4.0 References
+## 5 References
 
 Zhu, Z., Woodcock, C.E., 2014. Continuous change detection and classification of land cover using all available Landsat data. Remote Sens. Environ. 144, 152–171. https://doi.org/10.1016/j.rse.2014.01.011
 
-![cc](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/cc.png)
+-----
+
+![](figures/cc.png) 
+
 This work is licensed under a [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
 Copyright 2020, World Bank 
@@ -1168,7 +1161,7 @@ Bullock, E. 2020. Continuous Change Detection and Classification (CCDC). © Worl
 
 
 
-![WB_FCPF2](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/WB_FCPF2.png)![GFOI2](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/images/CODED/GFOI2.png)
+![](figures/wb_fcfc_gfoi.png)
 
 
 

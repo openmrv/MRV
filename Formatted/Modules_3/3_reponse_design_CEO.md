@@ -9,19 +9,13 @@ language: English
 publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
 
 tags:
-- OpenMRV
-- Landsat
 - Sentinel 2
 - Sentinel 1
 - Cloud cover
 - Optical sensors
-- Remote sensing
 - Composite
-- Mosaic
 - Time series
-- GEE
 - CEO
-- Planet Labs
 - Change detection
 - Land cover mapping
 - Forest mapping
@@ -39,9 +33,6 @@ tags:
 - Response design
 - Survey
 - Survey design
-- Accuracy
-- Accuracy assessment
-- Area Estimation
 - Reference data
 - Reference classification
 - Reference observations
@@ -58,10 +49,6 @@ group:
   stage: Sampling
 - category: Collect Earth Online
   stage: Reference data collection
-- category: Google Earth Engine
-  stage: Reference data collection
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
 ---
 
 # Response Design in Collect Earth Online
@@ -378,7 +365,7 @@ CEO's built in system enables users to create sampling designs using an easy-to-
 
 ##### **Select your AOI**
 
-For this exercise we will use the sample selection created earlier and exported as a csv. This will set the area of interest (AOI) for the project. CEO bounds the AOI around the plot locations that you upload. Therefore, skip the following instructions to manually draw the AOI. 
+Here we will demonstrate the process using an existing spreadsheet file generated here on OpenMRV under process "Sample data collection" and tool "AREA2" (available [here](https://drive.google.com/file/d/1D56RnNziNVROjeGro1uwvJAH1DCQceck/view?usp=sharing) for download). This will set the area of interest (AOI) for the project. CEO bounds the AOI around the plot locations that you upload. Therefore, skip the following instructions to manually draw the AOI. 
 
 These steps are included below for reference.
 
@@ -401,15 +388,15 @@ ii. You can also manually enter your Boundary Coordinates into the boxes provide
 
 ##### **Plot Design**
 
-In the Plot Design section, you can specify the type and number of plots. For this exercise we will use the sample selection created earlier and exported as a csv. There are three other options to locate plots: randomly, gridded layout, and uploading a shapefile. 
+In the Plot Design section, you can specify the type and number of plots. There are three other options to locate plots: randomly, gridded layout, and uploading a shapefile. 
 
-For this exercise, follow the instructions to upload the csv. Then, skip the subsequent instructions to work with random, gridded, or shapefile options. These steps are included below for your future reference.
+For this exercise, follow the instructions to upload the csv provided above. Then, skip the subsequent instructions to work with random, gridded, or shapefile options. These steps are included below for your future reference.
 
 Additional notes on working with user specified plot files: Using .csv and .shp files, the maximum number of plots is 50,000 and the total sample point limit is 350,000. You must use WGS84 EPSG:4326 format for coordinates in both .csv and .shp files.
 
-We must first adjust the formatting of the .csv file. The file you upload to specify plot centers must have these columns, in this order: LON, LAT, PLOTID. Here we will demonstrate the process using an existing spreadsheet file generated here on OpenMRV under process "Sample selection". Alternatively, you can use your own sample dataset.
+We must first adjust the formatting of the .csv file. The file you upload to specify plot centers must have these columns, in this order: LON, LAT, PLOTID. Here we will demonstrate the process using the same csv file provided above. Alternatively, you can use your own sample dataset.
 
-i. In a spreadsheet formatting software like Excel, open the stratified random sample file that can be found here for download. 
+i. In a spreadsheet formatting software like Excel, open the stratified random sample file.
 
 ![](figures/stratSmplRaw.JPG)
 

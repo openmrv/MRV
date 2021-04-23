@@ -1,10 +1,71 @@
 ---
-title: Module 3.3.3 Survey Form Creation and Reference Observation Collection with Collect Earth Online
-toc: true
-colorlinks: blue
+title: Response Design in Collect Earth Online
+summary: Collect Earth Online is a custom built, open-source, satellite image viewing and interpretation system to collect data for use in projects that require land cover and/or land use reference information. In this tutorial you will learn how to draft, review, and publish a project in Collect Earth Online. More information is available on the Collect Earth Online Support Page (https://collect.earth/support).
+author:
+- Karis Tenneson
+- Karen Dyson
+creation date: February, 2021
+language: English
+publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+
+tags:
+- OpenMRV
+- Landsat
+- Sentinel 2
+- Sentinel 1
+- Cloud cover
+- Optical sensors
+- Remote sensing
+- Composite
+- Mosaic
+- Time series
+- GEE
+- CEO
+- Planet Labs
+- Change detection
+- Land cover mapping
+- Forest mapping
+- Deforestation mapping
+- Degradation mapping
+- Forest degradation mapping
+- Sampling design
+- Sample design
+- Sample selection
+- Sample
+- Sampling frame
+- Stratified
+- Simple Random
+- Systematic
+- Response design
+- Survey
+- Survey design
+- Accuracy
+- Accuracy assessment
+- Area Estimation
+- Reference data
+- Reference classification
+- Reference observations
+- Colombia
+
+group:
+- category: Stratified
+  stage: Sampling
+- category: Simple Random
+  stage: Sampling
+- category: Cluster
+  stage: Sampling
+- category: Systematic
+  stage: Sampling
+- category: Collect Earth Online
+  stage: Reference data collection
+- category: Google Earth Engine
+  stage: Reference data collection
+- category: Stratified
+  stage: Area Estimation/Accuracy assessment
 ---
 
-# Module 3.3.3 Création de formulaires d'enquête et collecte d'observations de référence avec Collect Earth Onlinee
+
+# Response Design in Collect Earth Online
 
 ## 1 Contexte
 
@@ -15,25 +76,7 @@ Les données de référence sont nécessaires pour calculer des estimations non 
 
 Collect Earth Online est un système de visualisation et d'interprétation d'images satellites personnalisé, à code source ouvert, qui permet de recueillir des données à utiliser dans le cadre de projets nécessitant des informations de référence sur la répartition et/ou l'utilisation des sols. Collect Earth Online favorise la cohérence dans la localisation, l'interprétation et la labellisation des échantillons utilisés pour la classification et le suivi de l'occupation et de l'utilisation des sols. Toutes les fonctionnalités de Collect Earth Online, y compris la compilation collaborative de bases de données de points de référence, sont mises en œuvre en ligne, de sorte qu'il n'est pas nécessaire de procéder à une installation sur ordinateur. 
 
-### 1.2 Objectifs d'apprentissage 
-
-À la fin de ce tutoriel, vous serez en mesure de rédiger, réviser et publier un projet dans Collect Earth Online. Cela comprend :
-
-* La conception de relevés dans Collect Earth Online.
-
-* Sélection de données images à visualiser pour l'interprétation des données.
-
-* Collecte et exportation des observations de référence. 
-
-### 1.3 Pré-requis pour ce module
-
-*  Avoir compris la terminologie du module 3.1, et avoir établi un plan d'échantillonnage et une sélection d'échantillons, qui sont décrits dans les modules 3.2 et 3.3.
-*  Compréhension générale de l'interprétation des images. L'interprétation d'images est le processus qui consiste à regarder des images à résolution spatiale moyenne, élevée ou très élevée (provenant de satellites ou de photographies aériennes) et à labelliser les objets d'intérêt dans vos lieux d'échantillonnage. L'interprétation d'images est la compétence de base nécessaire à la réalisation efficace de tout projet CEO. 
-* Pour plus d'informations, veuillez consulter le manuel de création de projets et d'institutions de Collect Earth Online, disponible à l'adresse suivante [Pages d'assistance en ligne de Collect Earth](https://collect.earth/support). 
-* Il est fortement conseillé de comprendre les tutoriels précédents des modules 1 et 2.
-
-
-### 1.4 Ouverture d'un compte Collect Earth Online
+### 1.2 Ouverture d'un compte Collect Earth Online
 
 1. Dans la fenêtre de votre navigateur, accédez à  [CEO](https://collect.earth/). CEO est compatible avec Google Chrome, Mozilla Firefox et Microsoft Edge.
 2. Cliquez sur [Connexion/Inscription] en haut à droite.
@@ -41,7 +84,7 @@ Collect Earth Online est un système de visualisation et d'interprétation d'ima
 4. Lorsque vous avez créé un compte, connectez-vous avec votre email et votre mot de passe.
 5. Si vous oubliez votre mot de passe, cliquez sur [Mot de passe oublié ?] et suivez les instructions.
 
-### 1.5 Ressources en ligne de Collect Earth
+### 1.3 Ressources en ligne de Collect Earth
 
 Vous pouvez accéder aux pages Accueil, À propos, Soutien et Compte à partir de la barre de menu supérieure.
 
@@ -53,13 +96,31 @@ Vous pouvez accéder aux pages Accueil, À propos, Soutien et Compte à partir d
 * Il y a un ? violet dans le coin supérieur droit de l'écran. En cliquant dessus, vous ferez apparaître l'interface d'aide, qui fournit des informations sur les fonctionnalités de CEO. Ces interfaces d'aide sont disponibles pour la page d'accueil, pour la collecte de données et pour la création de projets.
 
 
-## 2. Configuration des sources des images dans Collect Earth Online
+## 2 Objectifs d'apprentissage 
+
+À la fin de ce tutoriel, vous serez en mesure de rédiger, réviser et publier un projet dans Collect Earth Online. Cela comprend :
+
+* La conception de relevés dans Collect Earth Online.
+
+* Sélection de données images à visualiser pour l'interprétation des données.
+
+* Collecte et exportation des observations de référence. 
+
+### 2.1 Pré-requis pour ce module
+
+*  Avoir compris la terminologie du module 3.1, et avoir établi un plan d'échantillonnage et une sélection d'échantillons, qui sont décrits dans les modules 3.2 et 3.3.
+*  Compréhension générale de l'interprétation des images. L'interprétation d'images est le processus qui consiste à regarder des images à résolution spatiale moyenne, élevée ou très élevée (provenant de satellites ou de photographies aériennes) et à labelliser les objets d'intérêt dans vos lieux d'échantillonnage. L'interprétation d'images est la compétence de base nécessaire à la réalisation efficace de tout projet CEO. 
+* Pour plus d'informations, veuillez consulter le manuel de création de projets et d'institutions de Collect Earth Online, disponible à l'adresse suivante [Pages d'assistance en ligne de Collect Earth](https://collect.earth/support). 
+
+## 3 Tutorial: Collect Earth Online
+
+### 3.1 Configuration des sources des images dans Collect Earth Online
 
 Un certain nombre de sources publiques d'imagerie sont accessibles à tous les utilisateurs de Collect Earth Online. Il s'agit notamment de Mapbox Satellite et des données de Planet mises à disposition en collaboration avec l'Initiative internationale sur le climat et les forêts de Norvège (Planet NICFI). Vous pouvez également ajouter vos propres flux d'imagerie supplémentaires (privés) sur votre page Institution. Nous vous recommandons d'ajouter Sentinel 1, Sentinel 2 et Bing, comme décrit ci-dessous. Toutes ces options sont disponibles gratuitement.
 
 1. Allez sur la page de votre institution dans Collect Earth Online. Cliquez ensuite sur l'onglet Imagery. 
 
-### 2.1 Ajouter les données Sentinel 2 à la page de l'institution
+#### 3.1.1 Ajouter les données Sentinel 2 à la page de l'institution
 
 Les données Sentinel 2 sont disponibles de juin 2015 à aujourd'hui. Après avoir configuré les paramètres à l'aide des instructions ci-dessous, les données Sentinel 2 seront acheminées par GEE dans CEO pour que vos utilisateurs puissent travailler avec. 
 
@@ -101,9 +162,9 @@ Pour cet exercice, sélectionnez cette option.
 
 11. Lorsque tous les champs sont remplis, cliquez sur [Add New Imagery].
 
-![AddS2](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/AddS2.JPG)
+![AddS2](./figures/AddS2.JPG)
 
-### 2.2 Ajouter les données Sentinel 1 à la page de l'institution
+#### 3.1.2 Ajouter les données Sentinel 1 à la page de l'institution
 
 Les informations de Sentinel 1 ne sont disponibles que d'avril 2014 à aujourd'hui (lancement de Sentinel 1A). Après avoir configuré les paramètres à l'aide des instructions ci-dessous, les données Sentinel 1 seront acheminées par GEE dans CEO pour que vos utilisateurs puissent travailler avec. 
 
@@ -118,9 +179,9 @@ Les informations de Sentinel 1 ne sont disponibles que d'avril 2014 à aujourd'h
 9. Si vous voulez ajouter cette source d'imagerie à tous les projets de votre institution, cochez la case à côté de Add Imagery to All Projects When Saving (Ajouter l'imagerie à tous les projets lors de l'enregistrement). Cochez cette case pour ajouter la source à tous les projets existants.
 10. Lorsque tous les champs sont remplis, cliquez sur [Add New Imagery].
 
-![AddS1](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/AddS1.JPG)
+![AddS1](./figures/AddS1.JPG)
 
-### 2.3 Ajouter les images de Bing à la page de l'institution
+#### 3.1.3 Ajouter les images de Bing à la page de l'institution
 
 Ceci vous permet d'ajouter Bing Maps avec votre propre clé API. L'imagerie fournie par Bing Maps est une imagerie satellite composite. Cela signifie que chaque tuile de carte est assemblée à partir d'images acquises à plusieurs dates. Il n'y a pas une seule date pour une tuile . Certaines tuiles de carte contiennent des images recueillies sur une fenêtre de plusieurs jours, tandis que d'autres tuiles contiennent des images recueillies sur une fenêtre de plusieurs années. Comme il n'y a pas de date unique pour une tuile d'imagerie, CEO ne peut pas fournir la date exacte de l'imagerie utilisée. Si vous souhaitez en savoir plus, l'API de Bing Maps est disponible ici : [Bing Imagery-metadata](https://docs.microsoft.com/en-us/bingmaps/restservices/imagery/imagery-metadata). 
 
@@ -128,7 +189,7 @@ Le système de tuiles Bing utilise la projection de Mercator et dispose de 23 ni
 résolution au zoom maximum est d'environ 0,3 m par pixel. Pour plus d'informations, voir
 [Bing maps tile system](https://docs.microsoft.com/en-us/bingmaps/articles/bing-maps-tile-system).
 
-#### 2.3.1 Directions for requesting a Bing maps key:
+##### 3.1.3.1 Directions for requesting a Bing maps key:
 
 1. Pour utiliser l'imagerie Bing Maps pour vos projets, vous pouvez créer votre propre clé Bing maps GRATUITE pour connecter les projets de votre institution à votre compte Bing Maps. Les instructions complètes pour la création d'une clé sont ici : [Obtenir une clé Bing maps](https://docs.microsoft.com/en-us/bingmaps/getting-started/bing-maps-devcenter-help/getting-a-bing-maps-key).
 
@@ -147,9 +208,7 @@ e. Remplissez les informations. L'URL de l'application est facultative, mais si 
 
 f. Vous allez créer une clé de base. Si vous avez besoin de plus d'images, vous devrez vous adresser à Microsoft et demander une [clé d'Entreprise](https://www.microsoft.com/en-us/maps/create-a-bingmaps-key#enterprise)
 
-#### 2.3.2 Instructions pour connecter votre clé Bing maps dans Collect Earth Online :
-
-
+##### 3.1.3.2 Instructions pour connecter votre clé Bing maps dans Collect Earth Online :
 
 1. Retournez à la page de votre institution. Ensuite, sous l'onglet Imagerie, cliquez sur " Add New Imagery ".
 2. Dans la première liste déroulante, sélectionnez " Bing Maps " comme type. 
@@ -159,13 +218,13 @@ f. Vous allez créer une clé de base. Si vous avez besoin de plus d'images, vou
 6. Si vous souhaitez ajouter cette source d'images à tous les projets de votre institution, cochez la case située à côté de Ajouter l'imagerie à tous les projets lors de l'enregistrement.
 7. Lorsque tous les champs sont remplis, cliquez sur [Add New Imagery].
 
-### 2.4 Flux d'images additionnelles
+#### 3.1.4 Flux d'images additionnelles
 
 Veuillez consulter le manuel de création d'institutions et de projets de Collect Earth Online pour savoir comment ajouter des sources d'images supplémentaires, telles que des images provenant de Google Earth Engine. Le manuel est accessible ici : [Pages de soutien de Collect Earth Online](https://collect.earth/support).
 
-## 3.conception de projet
+### 3.2 Response Design
 
-### 3.1 Vue d'ensemble
+#### 3.2.1 Vue d'ensemble
 
 1. La conception d'un projet est un processus itératif, et vous aurez probablement besoin d'apporter de multiples modifications aux projets dans CEO au fur et à mesure que vous testez et affinez vos objectifs, vos schémas de classification de l'utilisation ou de l'occupation du sol, vos sources d'imagerie, etc. Ces modifications doivent être examinées et apportées à un projet avant que celui-ci ne soit publié. Cela signifie que vous pouvez idéalement passer un certain temps à piloter un projet, à collecter des données de test avec le questionnaire, et à le modifier pour l'adapter à toute erreur ou inefficacité que vous trouverez avant de publier le projet et de procéder à la collecte officielle des données.
 
@@ -187,15 +246,15 @@ Veuillez consulter le manuel de création d'institutions et de projets de Collec
 
    8. Collecter et analyser les données.
 
-### 3.2 Créer un nouveau projet
+#### 3.2.2 Créer un nouveau projet
 
 Pour commencer, ouvrez un navigateur Web et accédez à [Collect Earth Online](https://collect.earth/). Accédez à la page de votre institution.
 
 1. Dans l'onglet Projets de votre page Institution, cliquez sur  [Create New Project]. Vous accédez alors à l'assistant de création de projet. L'assistant comprend 6 parties, chacune étant couverte par l'une des sections ci-dessous.
 
-![Wizard](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/Wizard.png)
+![Wizard](./figures/Wizard.png)
 
-#### 3.2.1 Aperçu du projet : 
+##### 3.2.2.1 Aperçu du projet: 
 
 Cette section vous permet d'ajouter des informations générales sur le projet, notamment la sélection d'un template (facultatif), le nom du projet, la description du projet et les options du projet.
 
@@ -209,7 +268,7 @@ Cependant, pour référence, des informations sur le travail avec un template so
 
   ii.  Cliquez ensuite sur le menu déroulant sous Select Project et cliquez sur le nom du projet.
 
-![Template](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/Template.png)
+![Template](./figures/Template.png)
 
   iii. Cliquez sur le nom du projet, puis sur Load pour charger les informations du template.
 
@@ -217,9 +276,9 @@ Cependant, pour référence, des informations sur le travail avec un template so
 
   v. Le chargement d'un template crée deux cases à cocher sous Copy Options, Copy Template Plots and Samples et Copy Template Widgets. Elles sont cochées par défaut.
 
-    * Si la case Copy Template Plots and Samples est cochée, les sections Plot Review et Sample Design n'afficheront qu'un aperçu du nombre de parcelles, etc. Décochez cette case pour modifier ces paramètres.
+   * Si la case Copy Template Plots and Samples est cochée, les sections Plot Review et Sample Design n'afficheront qu'un aperçu du nombre de parcelles, etc. Décochez cette case pour modifier ces paramètres.
     
-    * Copy Template Widgets fait référence aux options de Geo-Dash couvertes dans la partie 6 : Mise en œuvre de Geo-Dash.
+   * Copy Template Widgets fait référence aux options de Geo-Dash couvertes dans la partie 6 : Mise en œuvre de Geo-Dash.
 
 2. Saisissez le nom et la description du projet. Le nom doit être court et sera affiché sur la page d'accueil ainsi que sur la page de collecte de données du projet. 
 
@@ -243,7 +302,7 @@ Pour cet exercice, sélectionnez Institution.
 
 i. La première option consiste à " Afficher le lien GEE Script sur la page de collecte ". Ceci permet aux utilisateurs de Data Collection de cliquer sur un bouton intitulé Go to GEE Script pour ouvrir un nouvel onglet avec une série d'images et de graphiques de séries temporelles Landsat et Sentinel (voir image ci-dessous). Pour cet exercice, sélectionnez cette option.
 
-![GEE_script](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/GEE_script.JPG)
+![GEE_script](./figures/GEE_script.JPG)
 
 Dans l'exemple d'image du script GEE, il y a trois panneaux. À l'extrême gauche, il y a un composite Sentinel 2 des 12 derniers mois. Elle est colorée à l'aide d'un composite de couleurs infrarouges (proche infrarouge, infrarouge moyen, rouge). Au centre se trouvent les mosaïques annuelles en couleur de Landsat 8 et Landsat 7, avec un curseur permettant de choisir entre les années. À droite, les graphiques NDVI de la parcelle provenant de MODIS, Landsat 7/8 et Sentinel 2. Pour les graphiques Landsat 7/8 et Sentinel, vous pouvez cliquer sur un point des graphiques pour charger des images spécifiques dans les panneaux de gauche et du centre.
 
@@ -261,11 +320,11 @@ Pour cet exercice, sélectionnez l'option de lancement automatique de Geo-Dash (
 
 
 
-![ProjectOverview](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/ProjectOverview.JPG)
+![ProjectOverview](./figures/ProjectOverview.JPG)
 
 
 
-#### 3.2.2 Sélection des images
+##### 3.2.2.2 Sélection des images
 
 Dans le volet Imagery Selection (Sélection d'images), vous pouvez modifier les images de la carte de base par défaut et les cartes de base d'images qui sont disponibles pour les utilisateurs pendant la collecte des données.
 
@@ -285,13 +344,13 @@ Cliquez sur la case à cocher à côté de chaque source d'images que vous souha
 
 4. Cliquez sur " Next " (Suivant) lorsque vous avez terminé.
 
-![ImagerySelection](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/ImagerySelection.JPG)
+![ImagerySelection](./figures/ImagerySelection.JPG)
 
-#### 3.2.3  Spécification de l'échantillon : Plan d'échantillonnage
+##### 3.2.2.3  Spécification de l'échantillon : Plan d'échantillonnage
 
 Le système intégré de CEO permet aux utilisateurs de créer des plans d'échantillonnage en utilisant une interface facile à utiliser. Il y a deux parties clés, la sélection de l'AOI (Area of Interest) et la génération du plot.
 
-##### 3.2.3.1 Sélection de votre AOI
+##### Sélection de votre AOI
 
 Pour cet exercice, nous allons utiliser la sélection d'échantillons créée précédemment et exportée sous forme de csv. Ceci définira la zone d'intérêt (AOI) pour le projet. CEO délimite la zone d'intérêt autour des emplacements des parcelles que vous téléchargez. Par conséquent, ne suivez pas les instructions suivantes pour dessiner manuellement la zone d'intérêt. 
 
@@ -307,13 +366,13 @@ i. La façon la plus simple de sélectionner le périmètre d'intérêt de votre
 
   * Les cases de coordonnées se remplissent dès que la case est dessinée et que vous relâchez le bouton de la souris. Les coordonnées sont affichées en lat/long en utilisant WGS84 EPSG:4326.
 
-![AOI](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/AOI.png)
+![AOI](./figures/AOI.png)
 
 ii. Vous pouvez également saisir manuellement vos coordonnées de délimitation dans les cases prévues à cet effet.
 
-![CoordBoundingBox](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/CoordBoundingBox.png)
+![CoordBoundingBox](./figures/CoordBoundingBox.png)
 
-##### 3.2.3.1 Plot Design
+##### Plot Design
 
 Dans la section Conception des placettes, vous pouvez spécifier le type et le nombre de placettes. Pour cet exercice, nous utiliserons l'échantillon de sélection créé précédemment et exporté sous forme de csv. Il y a trois autres options pour localiser les placettes : aléatoirement, disposition en grille, et chargement d'un shapefile.
 
@@ -325,7 +384,7 @@ Nous devons d'abord ajuster le formatage du fichier .csv. Le fichier que vous t�
 
 i.Dans un tableur comme Excel, ouvrez le fichier d'échantillon aléatoire stratifié que vous avez créé dans l'exercice de sélection d'échantillon (Module 3.2). 
 
-![stratSmplRaw](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/stratSmplRaw.JPG)
+![stratSmplRaw](./figures/stratSmplRaw.JPG)
 
 
 
@@ -337,13 +396,13 @@ iv. Supprimez la colonne appelée  '.geo'.
 
 v. Sauvegardez les changements dans votre  .csv.
 
-![stratSmplMod](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/stratSmplMod.JPG)
+![stratSmplMod](./figures/stratSmplMod.JPG)
 
 
 
 Remarque : si vous ne spécifiez pas correctement les noms des colonnes (orthographe ou ordre), vous obtiendrez l'erreur suivante :
 
-![csvError](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/csvError.png)
+![csvError](./figures/csvError.png)
 
 
 
@@ -373,7 +432,7 @@ Remarque : lorsque les parcelles sont petites, vos utilisateurs devront effectue
 
 **Remarque** : CEO fournira une estimation du nombre de placettes qui seront générées pour votre projet en fonction de votre plan d'échantillonnage. En utilisant l'échantillonnage de CEO, le nombre maximum de placettes pour un projet est de 5 000. Pour l'échantillonnage en grille, vous devrez peut-être augmenter l'espace entre les parcelles pour éviter de dépasser 5 000 parcelles.
 
-#### 3.2.4 Spécifications de l'échantillon : Plan d'échantillonnage
+##### 3.2.2.4 Spécifications de l'échantillon : Plan d'échantillonnage
 
 C'est ici que vous indiquerez combien de points d'échantillonnage se trouvent dans chaque placette, et s'ils sont échantillonnés selon une approche de distribution aléatoire, en grille ou personnalisée.
 
@@ -382,7 +441,7 @@ C'est ici que vous indiquerez combien de points d'échantillonnage se trouvent d
 
 Pour cet exercice, ne cochez pas cette option.
 
-![SmpDesign](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/SmpDesign.JPG)
+![SmpDesign](./figures/SmpDesign.JPG)
 
 
 
@@ -403,7 +462,7 @@ Pour cet exercice, ne cochez pas cette option.
 
 * Veuillez consulter le [Manuel de création d'institutions et de projets de Collect Earth Online](https://collect.earth/support) pour savoir comment travailler avec des échantillons spécifiés dans un fichier csv ou shapefile. 
 
-#### 3.2.5 Questions sur les cartes de notes
+##### 3.2.2.5 Questions sur les cartes de notes
 
 C'est ici que vous concevez les questions auxquelles vos collecteurs de données/interprètes photographiques répondront pour chacune de vos parcelles. Chaque question crée une colonne de données. À partir de ces données brutes, vous pouvez calculer des paramètres de surface, etc.
 
@@ -417,11 +476,11 @@ iii. Passez à la question de premier niveau suivante (new question card) et ré
 
 Dans l'onglet Survey Question , le panneau de gauche vous permet de saisir les questions, tandis que le panneau de droite fournit un aperçu de la façon dont ces questions apparaîtront à vos collecteurs de données. Nous allons maintenant détailler comment ajouter une question et des réponses, les types de questions qui peuvent être posées et quand ces questions peuvent être utiles.
 
-##### 3.2.5.1. Comment ajouter des questions et des réponses
+###### Comment ajouter des questions et des réponses
 
 CEO offre un moyen simple de poser des questions à choix multiples. Comme c'est le type de question le plus communément utilisé, nous l'utiliserons pour cet exemple. Dans CEO, ces questions sont appelées questions "bouton-texte" car dans la collecte de données, elles s'affichent comme un bouton avec du texte.
 
-![buttonQuestion](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/buttonQuestion.png)
+![buttonQuestion](./figures/buttonQuestion.png)
 
 
 
@@ -466,20 +525,20 @@ i. Nous allons ajouter une question de confiance. Dans le champ Nouvelle questio
 
 ii. Ajoutez maintenant les réponses " faible ", " moyen " et " élevé " comme options.
 
-Nous allons maintenant ajouter une question sur l'occupation du sol précédente.
+8. Nous allons maintenant ajouter une question sur l'occupation du sol précédente.
 
 i.  Dans l'espace Nouvelle Question en bas de l'écran, tapez 'Previous land cover'. Puis cliquez sur Add Survey question, en gardant le texte du bouton, en utilisant 'was there change' comme question parent, et 'Change' comme réponse parent.
 
 ii. Ajoutez maintenant des réponses à la nouvelle question enfant en utilisant l'approche décrite à l'étape 3 ci-dessus. Utilisez les mêmes catégories de l'occupation du sol que pour notre première question :  WATER, SNOW/ICE, DEVELOPED, BARE, TREES, SHRUB, GRASSLAND, CROPS, and OTHER. 
 
-![ChildQ](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/ChildQ.JPG)
+![ChildQ](./figures/ChildQ.JPG)
 
 
 
-8. Vous pouvez répéter ce processus pour demander s'il y a eu un changement avant l'événement de changement le plus récent. Ajoutez jusqu'à trois options d'événement de changement.
-9. Une fois que vous avez rédigé toutes les questions, vous pouvez les revoir en cliquant sur les numéros du panneau d'aperçu des questions, à droite de l'écran.
+9. Vous pouvez répéter ce processus pour demander s'il y a eu un changement avant l'événement de changement le plus récent. Ajoutez jusqu'à trois options d'événement de changement.
+10. Une fois que vous avez rédigé toutes les questions, vous pouvez les revoir en cliquant sur les numéros du panneau d'aperçu des questions, à droite de l'écran.
 
-10. Lorsque vous êtes satisfait de la liste de questions, cliquez sur Suivant pour passer au Survey Rules panel (panneau Règles de l'enquête).
+11. Lorsque vous êtes satisfait de la liste de questions, cliquez sur Suivant pour passer au Survey Rules panel (panneau Règles de l'enquête).
 
 ##### Notes, conseils et astuces pour la création de questions dans CEO
 
@@ -511,7 +570,7 @@ Les trois types de données autorisés sont :
 
 * Nombre : Utilisez cette option lorsque vous avez plusieurs options qui sont des nombres, qui ne contiennent pas de lettres ou de symboles.
 
-#### 3.2.6 Règles d'enquête
+##### 3.2.2.6 Règles d'enquête
 
 Les règles d'enquête permettent de s'assurer que les utilisateurs recueillent des réponses logiques et correctes. Si vous ne souhaitez pas ajouter de règles, vous pouvez simplement cliquer sur Suivant.
 
@@ -530,7 +589,7 @@ Les types de règles comprennent :
 * Faire correspondre les sommes : Cette règle s'applique à tout type de questions et à leurs réponses. Avec cette règle, vous spécifiez deux ensembles de questions multiples (2 ou plus) qui doivent avoir des sommes égales.
 * Réponses incompatibles : Cette règle peut s'appliquer à tout type de question. Elle permet à l'utilisateur de définir des ensembles de réponses incompatibles. Par exemple, si la réponse à une question est couverture du sol = "Eau", la réponse à une autre question ne peut pas être utilisation du sol = "Industriel".
 
-#### 3.2.7 Examen et publication du projet
+##### 3.2.2.7 Examen et publication du projet
 
 1. Vous verrez maintenant un aperçu des détails de votre projet.
 
@@ -547,19 +606,19 @@ ii. Si vous notez une erreur, cliquez sur Continuer à éditer pour la corriger.
 6. Après avoir créé le projet, vous serez amené au panneau d'informations sur le projet. Vous pouvez gérer votre projet à l'aide de ce menu.
 
 
-#### 3.2.8  Configurer le GeoDash
+##### 3.2.2.8  Configurer le GeoDash
 
 Geo-Dash est un tableau de bord qui s'ouvre dans une deuxième fenêtre lorsque les utilisateurs commencent à analyser les placettes d'échantillonnage. GeoDash fournit aux utilisateurs des informations supplémentaires pour les aider à interpréter l'imagerie et à mieux classer les points d'échantillonnage et les parcelles. L'onglet Geo-Dash peut être personnalisé pour afficher des informations telles que les séries chronologiques NDVI, des images supplémentaires et des données d'élévation numériques.
 
 1. Vous pouvez configurer votre tableau de bord géographique en cliquant sur [Configurer le tableau de bord géographique] à partir de la page Informations sur le projet / Révision du projet. L'écran de mise en page du Geo-Dash apparaît alors.
 
-![geoDash](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/geoDash.JPG)
+![geoDash](./figures/geoDash.JPG)
 
 2. [Copier la mise en page] vous permet de copier le Geo-Dash d'un autre projet. Cela supprimera tous les autres widgets Geo-Dash que vous avez déjà associés à votre projet.t.
 
 
 
-![copygeodash](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/copygeodash.JPG)
+![copygeodash](./figures/copygeodash.JPG)
 
 3. Vous pouvez ajouter des widgets Geo-Dash individuels en cliquant sur [Add  Widget]. Pour savoir ce que font chacun des widgets, cliquez sur [Aide Geo-Dash] pour ouvrir le centre d'aide Geo-Dash
 
@@ -567,9 +626,9 @@ Pour cet exercice, nous n'ajouterons qu'un seul des nombreux widgets Geo-dash di
 
 
 
-![geodashHelp](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/geodashHelp.JPG)
+![geodashHelp](./figures/geodashHelp.JPG)
 
-#### 3.2.8.1 Ajout d'images de ChronoSéquence au GeoDash, le widget de dégradation des forêts
+#### Ajout d'images de ChronoSéquence au GeoDash, le widget de dégradation des forêts
 
 Le widget Dégradation fournit des séries chronologiques d'informations sur la dégradation des forêts due à l'exploitation sélective, aux incendies et à d'autres perturbations, grandes ou petites. L'indice de fractionnement de la différence normalisée (NDFI) permet de mieux détecter les dommages causés à la canopée des forêts par des sources multiples, notamment l'exploitation sélective et les incendies de forêt. Il est calculé avec la méthodologie trouvée dans Souza et. al. (2005).
 
@@ -591,23 +650,23 @@ Le widget Dégradation fournit des séries chronologiques d'informations sur la 
 
 9. Les widgets peuvent être manipulés dans l'éditeur de disposition des widgets de Geo-Dash de plusieurs façons. Pour obtenir un fichier gif illustrant ces mouvements, consultez la [vidéo](https://collect.earth/geo-dash/geo-dash-help) et cliquez sur "Déplacer et redimensionner les widgets".
 
-## 4  Collection de données
+### 3.3  Collection de données
 
-### 4.1 Aperçu général
+#### 3.3.1 Aperçu général
 
 Les utilisateurs de votre équipe qui participeront à la collecte des observations de référence devront s'inscrire pour obtenir un compte Collect Earth Online. Les instructions pour ce faire se trouvent ci-dessous. En tant qu'administrateur de l'institution, vous devrez vous assurer que les membres de l'équipe ont été invités dans l'institution CEO de votre agence pour effectuer la collecte des données.
 
-#### 4.2 L'écran d'analyse
+#### 3.3.2 L'écran d'analyse
 
 Une fois que les membres ont été ajoutés à l'institution, vous pouvez partager avec eux le lien vers le projet. Vous pouvez aussi leur demander de naviguer sur la page de votre institution et de sélectionner le projet à partir de la page d'accueil de l'institution.
 
-![FindProject](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/FindProject.JPG)
+![FindProject](./figures/FindProject.JPG)
 
 
 
 1. Une fois dans la page de collecte des données du projet, vous pouvez accéder à l'aide pour l'écran d'analyse à tout moment en cliquant sur le **?** violet dans le coin supérieur droit de l'écran. La fonction d'aide vous indiquera les caractéristiques importantes de la page de collecte des données.
 
-![HelpButton](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/HelpButton.JPG)
+![HelpButton](./figures/HelpButton.JPG)
 
 
 
@@ -663,13 +722,13 @@ Une fois que les membres ont été ajoutés à l'institution, vous pouvez partag
 
 10. La fenêtre pop-up Geo-Dash s'ouvrira également avec des informations sur la parcelle si elle a été configurée pour le projet. Cette fenêtre contient des informations permettant d'identifier les attributs de couverture et d'utilisation du sol compilés à partir de Google Earth Engine. Selon le projet, Geo-Dash peut inclure des graphes de données de séries chronologiques (comme la façon dont les valeurs NDVI ont varié dans le temps), des images Landsat, et plus encore.
 
-#### 4.2 Analyser les graphiques
+#### 3.3.3 Analyser les graphiques
 
 1. Il est maintenant temps de contribuer au projet.
 
 2. Lisez la première question de l'enquête et les réponses possibles. Elle demande quelle est la couverture actuelle du sol. Pour le déterminer, faites un zoom arrière sur la parcelle jusqu'à ce que l'imagerie devienne plus claire. Le fait de dézoomer vous aidera à recueillir des indices contextuels sur le paysage.
 
-![Q1](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/Q1.JPG)
+![Q1](./figures/Q1.JPG)
 
 3. Utilisez le menu déroulant Options d'imagerie pour charger les sources d'images disponibles et déterminer quelle est la couverture du sol actuelle. 
 4. Dans l'exemple ci-dessus, il s'agit d'arbres. Pour répondre à la première question, vous pouvez simplement cliquer sur la réponse - TREES - sans avoir à sélectionner le(s) point(s) dans la placette.
@@ -687,11 +746,11 @@ Une fois que les membres ont été ajoutés à l'institution, vous pouvez partag
 * Si vous faites une erreur et attribuez une mauvaise valeur à un ou plusieurs points, vous pouvez re-sélectionner les points et changer la "réponse".
 
 
-![Q2pre](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/Q2pre.JPG)
+![Q2pre](./figures/Q2pre.JPG)
 
 5. Sélectionnez ensuite la deuxième question de l'enquête en cliquant sur "2" ou en appuyant sur la flèche de droite. Cette question demande s'il y a eu un changement dans la couverture du sol, en quelle année il s'est produit. S'il y a eu plus d'un changement, cela indique que vous devez enregistrer l'année du changement le plus récent. 
 
-![Q2](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/Q2.JPG)
+![Q2](./figures/Q2.JPG)
 
 
 
@@ -700,7 +759,7 @@ Une fois que les membres ont été ajoutés à l'institution, vous pouvez partag
 
 8. Dans cet exercice, la page GeoDash a été configurée avec un simple outil de visualisation des séries chronologiques. Il s'agit d'un graphique de séries chronologiques des valeurs mensuelles (NDFI) de janvier 2005 à janvier 2020 calculées à partir des collections d'images Landsat. Observez les changements brusques et graduels dans le graphique de la série chronologique de l'indice NDFI, illustré dans le panneau inférieur. N'oubliez pas d'examiner le graphique de la série chronologique à la recherche de tout modèle cyclique (indiquant des changements saisonniers) avant d'évaluer les valeurs inattendues. Ces schémas saisonniers sont présents dans les forêts à feuillus, mais n'indiquent pas un changement de la couverture du sol. Recherchez les changements abrupts (généralement de fortes diminutions) ou les changements graduels (généralement des augmentations graduelles). Ils indiquent des événements potentiels de dégradation et de restauration.
 
-![TimeSeries](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/TimeSeries.JPG)
+![TimeSeries](./figures/TimeSeries.JPG)
 
 
 
@@ -708,9 +767,9 @@ Une fois que les membres ont été ajoutés à l'institution, vous pouvez partag
 
 * Par exemple, dans l'image ci-dessous, il y a quelques points avec une faible valeur NDFI par rapport à la majorité des valeurs sur la période. Par exemple, dans l'image ci-dessous, il y a un creux dans les valeurs NDFI le 9 novembre 2015. Si vous cliquez sur le point de l'image avant le creux, vous voyez que le paysage semble boisé. Si vous cliquez ensuite sur le point avec une faible valeur (le 9-11-2015), l'image se charge et le paysage semble toujours boisé. Cependant, il y a un bord de nuage qui chevauche le tracé. Dans cet exemple, il semble que le changement dans la série chronologique soit dû au bruit atmosphérique plutôt qu'aux changements de la couverture du sol. Après avoir cliqué sur toutes les valeurs basses de l'indice NDFI et examiné l'image Landsat associée, il apparaît que ces baisses sont toutes dues à la couverture nuageuse à cet endroit de la parcelle. Par conséquent, pour cette placette, à la question 2, nous choisissons " No Change ".
 
-![prechange](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/prechange.png)
+![prechange](./figures/prechange.png)
 
-![Change](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/Change.png)
+![Change](./figures/Change.png)
 
 
 
@@ -722,7 +781,7 @@ Une fois que les membres ont été ajoutés à l'institution, vous pouvez partag
 
 * Une forte diminution de l'indice NDFI (souvent accompagnée d'une restauration progressive) peut indiquer une exploitation forestière sélective. Le panneau de gauche montre le paysage avant, celui de droite après. Nous pouvons voir que sur notre placette d'échantillonnage, une route a été créée. Il s'agirait d'une dégradation même autour de 2009 avec une restauration durant 2-3 ans.
 
-![road](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/road.png)
+![road](./figures/road.png)
 
 10. Cliquez entre les différentes dates sur et autour de votre événement suspect pour confirmer visuellement qu'un événement s'est produit. Si un événement s'est produit, indiquez l'année où il s'est produit. S'il n'y a eu aucun changement, sélectionnez " No Changes ". 
 
@@ -758,7 +817,7 @@ Une fois que les membres ont été ajoutés à l'institution, vous pouvez partag
   - L'eau des grands plans d'eau apparaît souvent noire ou sombre jusqu'à ce que vous fassiez un zoom arrière.
   - Les plantations d'arbres peuvent ressembler à des forêts naturelles jusqu'à ce que vous fassiez un zoom arrière pour voir le motif régulier des arbres plantés.
 
-## 6 Exportation des données
+### 3.4 Exportation des données
 1. Lorsque vous avez collecté toutes les données de votre projet, retournez à la page de votre institution.
 
 2. À côté de votre projet, vous trouverez deux options de téléchargement de données : Télécharger les données des parcelles, qui permet de télécharger vos données brutes , Le téléchargement des données de parcelles est indiqué par un P et le téléchargement des données d'échantillons est indiqué par un S. Les deux sont téléchargés au format .csv, qui peut être ouvert dans des programmes tels que Microsoft Excel ou importé dans un logiciel d'analyse de données. 
@@ -813,12 +872,65 @@ Voici quelques astuces :
 Veuillez consulter le  [Manuel de création de projets et d'institutions de Collect Earth Online](https://collect.earth/support).
 
 
+## 5 Terminologie relative aux techniques d'échantillonnage
 
-## 7 References
+Une liste de termes relatifs aux techniques d'échantillonnage et d'inférence est fournie dans la documentation d'AREA2 : https://area2.readthedocs.io/en/latest/definitions.html Vous trouverez ci-dessous quelques termes supplémentaires qui ne figurent pas dans la documentation d'AREA2.
 
-Souza, C. M., Roberts, D. A., & Cochrane, M. A. (2005). Combining spectral and spatial information to map canopy damage from selective logging and forest fires. Remote Sensing of Environment, 98(2), 329-343.
+### 5.1 Plan de réponse
 
+Défini par (Stehman and Czaplewski, 1998)[^fn1]: “La référence ou classe réelle est obtenue pour chaque unité d'échantillonnage sur la base de l'interprétation de photographies aériennes ou de vidéographies, d'une observation au sol ou d'une combinaison de ces sources. Les méthodes utilisées pour déterminer cette référence de classification sont appelées "plan de réponse". Le plan d'intervention comprend les procédures de collecte des informations relatives à la détermination de la occupation du sol de référence, et les règles d'attribution d'une ou plusieurs [labels] de référence à chaque unité d'échantillonnage.” Connu sous le nom de “plan de mesure” par Särndal et al. (1992)[^fn2].
 
+### 5.2 Echantillon
+
+Un sous-ensemble de la population sélectionné parmi les unités de la population.
+
+### 5.3 Plan d'échantillonnage
+
+Synonyme de plan d'échantillonnage (Sampling Design), qui est le terme préféré dans la littérature de référence (Cochran, 1977[^fn3], Särndal et al., 1992[^fn2]). Le terme apparaît chez Rice (1995)[^fn4] ui utilise à la fois “sampling design, ***plan d'echantillonnage\***” et “sample design, ***plan d'echantillon\***”.
+
+### 5.4 Plan d'échantillonnage
+
+“Le concept de plan d'échantillonnage (sampling design ) est le protocole par lequel les unités de référence de l'échantillon sont sélectionnées” (Stehman and Czaplewski, 1998)[^fn1]. Le terme “Sampling design” est également utilisé par Cochran (1977)[^fn3] and Särndal et al. (1992)[^fn2] -- Le premier utilise également “sampling plan”.
+
+### 5.5 Sondage/Enquêtee
+
+Särndal et al. (1992)[^fn2] définissent une enquête comme une “investigation partielle d'une population finie”, et précisent que “les concepts d ‘enquête’ et ‘enquête par sondage’ sont utilisés pour désigner des enquêtes statistiques présentant les caractéristiques méthodologiques suivantes: [...] échantillonnage aléatoire [...] plan de mesure [et] estimation”. de facon plus precise une enquete par sondage ou un sondage est une enquête effectuee sur une partie de la population. Cette fraction de la population constitue l'échantillon et les méthodes qui permettent de construire cet echantillon s'appellent méthode d'échantillonnage.
+
+### 5.6 Plan d'enquête
+
+UN “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992)[^fn2]. Lohr (1999)[^fn5] décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
+
+### 5.7 Données de référence
+
+Données caractérisant l'évaluation la plus précise possible de la condition réelle à l'emplacement de l'échantillon (exemple : imagerie satellite à haute résolution).
+
+### 5.8 Les observations de référence 
+
+L'évaluation la plus exacte possible de l'état réel d'une unité de population.
+
+### 5.9 Reference classification 
+
+La classification de référence appliquée à la collection de toutes les unités d'échantillonnage.
+
+## 6 References
+
+Cochran, W.G., 1977. *Sampling Techniques*, John Wiley & Sons, New York, NY.
+
+Lohr, S.L., 1999. *Sampling: Design And Analysis,* CRC Press.
+
+Olofsson, P., Foody, G.M., Herold, M., Stehman, S.V., Woodcock, C.E. and Wulder, M.A., 2014. Good practices for estimating area and assessing accuracy of land change. Remote Sensing of Environment, 148, pp.42-57. https://doi.org/10.1016/j.rse.2014.02.015
+
+Rice, J.A., 1995. *Mathematical Statistics and Data Analysis* (2nd ed.), Duxbury Press, Belmont, CA.
+
+Särndal, C.E., Svensson, B.H., & Wretman, J.H., 1992. *Model assisted survey sampling*, Springer Science & Business Media, New York, NY.
+
+Souza Jr, C.M., Roberts, D.A. and Cochrane, M.A., 2005. Combining spectral and spatial information to map canopy damage from selective logging and forest fires. *Remote Sensing of Environment*, *98*(2-3), pp.329-343. https://doi.org/10.1016/j.rse.2005.07.013
+
+Stehman, S.V., & Czaplewski, R.L., 1998. Design and analysis for thematic map accuracy assessment: fundamental principles. *Remote Sensing of Environment*, 64(3), 331-344. https://doi.org/10.1016/S0034-4257(98)00010-8
+
+-----
+
+![](figures/cc.png)  
 
 Ce travail est sous licence [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) 
 
@@ -838,7 +950,5 @@ Tenneson, Karis and Dyson, Karen. 2021. Module 3.3.3 Survey Form Creation and Re
 
 License: Creative Commons Attribution license (CC BY 3.0 IGO)
 
-![WB_FCPF](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/WB_FCPF.png)
-
-![GFOI](/home/modou/Desktop/docx MOdou/FINAL/Modules_3/figures/GFOI.png)
+![](figures/wb_fcfc_gfoi.png)
 

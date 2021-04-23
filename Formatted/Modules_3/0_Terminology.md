@@ -8,22 +8,6 @@ publisher and license: Copyright 2021, World Bank. This work is licensed under a
 
 tags:
 - OpenMRV
-- Landsat
-- Sentinel 2
-- Sentinel 1
-- GEE
-- Cloud cover
-- Optical sensors
-- Remote sensing
-- Composite
-- Mosaic
-- Time series
-- Change detection
-- Land cover mapping
-- Forest mapping
-- Deforestation mapping
-- Degradation mapping
-- Forest degradation mapping
 - Sampling design
 - Sample design
 - Sample selection
@@ -41,9 +25,6 @@ tags:
 - Reference data
 - Reference classification
 - Reference observations
-- Colombia
-- Mozambique
-- Cambodia
 
 group:
 - category: Stratified

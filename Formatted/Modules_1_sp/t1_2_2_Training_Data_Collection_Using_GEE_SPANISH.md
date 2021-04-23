@@ -1,6 +1,6 @@
 ---
 title: Recopilación de Datos de Entrenamiento Usando Google Earth Engine
-summary: Este tutorial demostrará cómo recopilar datos de entrenamiento categóricos para la clasificación de la cobertura terrestre utilizando Google Earth Engine. Los usuarios deben ajustar los distintos componentes para que coincidan con los objetivos de su proyecto. Aquí, el proceso se demuestra para los países de Colombia, Mozambique y Camboya, y para una leyenda simple de cuatro clases de cobertura terrestre: bosque, agua, herbáceo y desarrollado. Consulte el Módulo 1.1 Creación de mosaicos / compuestos de imágenes para Landsat y Sentinel-2 en Google Earth Engine para obtener más información y recursos para trabajar en este entorno.
+summary: Este tutorial demostrará cómo recopilar datos de entrenamiento categóricos para la clasificación de la cobertura terrestre utilizando Google Earth Engine. Los usuarios deben ajustar los distintos componentes para que coincidan con los objetivos de su proyecto. Aquí, el proceso se demuestra para los países de Colombia, Mozambique y Camboya, y para una leyenda simple de cuatro clases de cobertura terrestre - bosque, agua, herbáceo y desarrollado. Consulte el Módulo 1.1 Creación de mosaicos / compuestos de imágenes para Landsat y Sentinel-2 en Google Earth Engine para obtener más información y recursos para trabajar en este entorno.
 author: Karis Tenneson
 creation date:  diciembre 2020
 language: Español
@@ -39,7 +39,7 @@ group:
 
 ---
 
-# Módulo 1.2.2 Recolección de Datos de Entrenamiento Usando Google Earth Engine 
+# Recolección de Datos de Entrenamiento Usando Google Earth Engine 
 
 ## 1 Contexto
 
@@ -64,13 +64,12 @@ Al final de este ejercicio, podrá:
 
 * Google Earth Engine
   * Tener una cuenta de GEE
-  * Haber completado módulo 1.1 Creación de Imagen Compuesta/Mosaico para Landsat y Sentinel-2
 
 * Conceptos de Teledetección
   * Comprensión básica de teorías involucradas en la clasificación de imágenes
   * Entender como definir una leyenda temática
 
-## 3. Colección de Datos de Entrenamiento
+## 3 Tutorial: Training Data Collection in GEE
 
 ### 3.1 Resumen
 
@@ -81,7 +80,7 @@ El proceso para recolectar datos de entrenamiento en GEE esta detallado en los p
 3. Recolectar los datos de entrenamiento a través de la definición manual de puntos de entrenamiento. 
 4. Exportar los datos de entrenamiento.
 
-![](C:\Users\vanes\Downloads\figures\m1.2\m1.2.2\diagramGEE.JPG)
+![](./figures/m1.2/m1.2.2/diagramGEE.JPG)
 
 ### 3.2 Creando Nuevas Colecciones de Objetos 
 
@@ -93,15 +92,15 @@ Luego será necesario definir un Feature Class (Clase de Objetos) nuevo para cad
 
 1. En Earth Engine, navegue a las herramientas de dibujo en la esquina izquierda superior en la ventana del mapa.  Hacerle clic al ícono y agregar marcadores de puntos. 
 
-![](C:\Users\vanes\Downloads\figures\m1.2\m1.2.2\AddMarker.jpg)
+![](./figures/m1.2/m1.2.2/AddMarker.jpg)
 
 2. Esto agregará un panel nuevo de *Geometry Imports* en la ventana del mapa, con una etiqueta para las propiedades nuevas que ya puede dibujar en la ventana del mapa. El nombre predeterminado de esta capa nueva es 'geometry'.
 
-![](C:\Users\vanes\Downloads\figures\m1.2\m1.2.2\GeometryImports.jpg)
+    ![](figures/m1.2/m1.2.2/GeometryImports.JPG)
 
 3. Sostenga su cursor sobre el nombre 'geometry' en este panel hasta que aparezca un ícono de engranaje en la maño derecha de la etiqueta. Haga clic en el ícono para abrir el panel y editar la configuración de la capa. 
 
-![](C:\Users\vanes\Downloads\figures\m1.2\m1.2.2\Settings.JPG)
+![](./figures/m1.2/m1.2.2/Settings.JPG)
 
 
 4. Ahora dele un nombre a la capa relacionado a la cobertura terrestre de interés, por ejemplo 'Bosque'. 
@@ -121,11 +120,11 @@ Para este tutorial, recomendamos el uso de una leyenda de clasificación de cobe
 
 Su panel debería de aparecer así:
 
-![](C:\Users\vanes\Downloads\figures\m1.2\m1.2.2\GeomSettings.JPG)
+   ![](figures/m1.2/m1.2.2/GeomSettings.jpg)
 
 10. En la ventana del mapa, sostenga su cursor sobre las importaciones de geometrías y hacer clic en la opción + *new layer* (capa nueva). 
 
-![](C:\Users\vanes\Downloads\figures\m1.2\m1.2.2\NewGeom.JPG)
+    ![](figures/m1.2/m1.2.2/NewGeom.jpg)
 
 11. Repetir pasos 3 a 10 hasta que tenga un Feature Collection establecido para cada tipo de cobertura terrestre.
 
@@ -164,11 +163,11 @@ Map.addLayer(s1_composite_masked, vis, 'Sentinel 2 2019 Masked');
 
 ```
 
-![](C:\Users\vanes\Downloads\figures\m1.2\m1.2.2\gee.JPG)
+![](./figures/m1.2/m1.2.2/gee.JPG)
 
 2. También hay otra manera de cargar las imágenes a GEE, puede cargar la imagen desde la pestaña Assets (Recursos). Si exportó una imagen compuesta de su carpeta de GEE Assets, también puede importar esa misma imagen. Navegue a su carpeta de Assets y sostenga su mouse sobre el nombre de la imagen compuesta y seleccione la flecha para importarla al editor de código. Asegúrese que la imagen que cargue de su carpeta Asset este definida como una imagen ("image") para que funcione el código de GEE. 
 
-![](C:\Users\vanes\Downloads\figures\m1.2\m1.2.2\import.JPG)
+![](figures/m1.2/m1.2.2/import.jpg)
 
 
 3. Copiar y pegar el texto siguiente en el editor de código para cargarlo en la ventana de mapa y hacer clic en *Run*.
@@ -196,7 +195,8 @@ Una vez que haya seleccionado las imágenes de referencia, es tiempo de recolect
 1. Seleccionar la capa de coberturas terrestres en el panel de  *Geometry imports* en la ventana de mapa.
 2. Seleccionar el marcador de puntos y hacer clic en el mapa para agregar puntos de esa cobertura terrestre (aquí hay un [video](https://youtu.be/tJx7plJLqW4) breve para ilustrar como hacerlo). Puede prender y apagar la imagen compuesta en el panel de Layers (Capas). También puede alternar entre el mapa y la imagen compuesta satelital en la esquina superior a la derecha de la ventana del mapa. 
 
-![](C:\Users\vanes\Downloads\figures\m1.2\m1.2.2\ToggleImage.JPG)
+
+    ![](figures/m1.2/m1.2.2/ToggleImage.jpg)
 
 3. Si crea un punto accidentalmente, puede moverlo o eliminarlo usando la herramienta de la mano. Seleccione el punto y arrástrelo o elimínelo (aquí hay un [video]((https://youtu.be/Q6QElHXYOT0) ) breve para ilustrar como hacerlo). 
 
@@ -227,7 +227,7 @@ var training = Forest.merge(Water)
 
    2a. Puede exportar a 'Asset' con el código siguiente: 
 
-```
+```javascript
 Export.table.toAsset({
   collection: training,
   description: 'LCsample2019',
@@ -249,7 +249,7 @@ Export.table.toDrive({
 
 3. Luego haga clic en Run para ejecutar. Esto le permitirá navegar a la pestaña de tarea 'Task' y completar la exportación. Si no recuerda como completar el proceso de exportación, por favor vuelva a repasar el Módulo 1.1 Creación de Imagen Compuesta/mosaico con Landsat y Sentinel-2 en Google Earth Engine. 
 
-## 4. Ejemplos: Mozambique y Camboya 
+## 4 Ejemplos: Mozambique y Camboya 
 
 Ahora intentemos replicar este mismo proceso con nuevas regiones de estudio: Mozambique y Camboya. Esta sección es opcional y le permitirá practicar el proceso de colección de datos en diferentes regiones de estudio. El proceso general es igual al que se demostró para Colombia. 
 
@@ -308,7 +308,7 @@ var viz = {'min': 0, 'max': 0.1, 'palette': ['red','yellow','green']};
 Map.addLayer(variance, viz);
 ```
 
-![](C:\Users\vanes\Downloads\figures\m1.2\m1.2.2\MozambiqueNDVI.JPG)
+![](./figures/m1.2/m1.2.2/MozambiqueNDVI.JPG)
 
 El mapa que esta cargado es el de variancia estacional de NDVI, en donde rojo indica menos variabilidad y verde indica más.  
 
@@ -321,7 +321,7 @@ var variance_masked = variance.updateMask(mask);
 Map.addLayer(variance_masked, viz);
 ```
 
-![](C:\Users\vanes\Downloads\figures\m1.2\m1.2.2\MozambiqueNDVImasked.JPG)
+![](./figures/m1.2/m1.2.2/MozambiqueNDVImasked.JPG)
 
 6. Ahora, mientras estamos recopilando datos de entrenamiento para la clase 'Bosque', es importante referir esta capa para asegurar que estos datos de entrenamiento contabilicen las diferencias es la variabilidad estacional espectral en bosques. Primero, vamos a repasar porque esto pueda ser de gran beneficio hacer los pasos descritos arriba: 
 
@@ -365,11 +365,11 @@ Map.addLayer(s1_composite_masked, vis, 'Sentinel 2 2019 Masked');
 
 2. Navegue a la palanca 'Map / Satellite' en la parte derecha de la pantalla y haga clic en 'Satellite'. Esto visualizará el mapa de terreno, lo cual facilitará la distinción de las características topográficas en las imágenes de referencia, para que se puede utilizar como información suplemental para la colección de datos de entrenamiento. Asegúrese de recolectar muestras de entrenamiento para bosque que varíen en sus características topográficas. Por ejemplo, muestras deberían de recolectarse en terrenos de diversos pendientes y aspectos. Esto no necesita ser preciso, y se puede hacer opcionalmente para cualquier tipo de cobertura terrestre. 
 
-![](C:\Users\vanes\Downloads\figures\m1.2\m1.2.2\MapSatellite.JPG)
+![](./figures/m1.2/m1.2.2/MapSatellite.JPG)
 
 3. También puede cambiar las transparencia de las capas que creó si navega a 'Layers' en la parte derecha de la pantalla y ajusta la capa, como se ilustra en la imagen siguiente. 
 
-![](C:\Users\vanes\Downloads\figures\m1.2\m1.2.2\LayerTransparency.JPG)
+![](./figures/m1.2/m1.2.2/LayerTransparency.JPG)
 
 4. Acuérdese de guardar su trabajo frecuentemente.
 
@@ -396,7 +396,9 @@ No hay un numero mágico para el numero de puntos de entrenamiento necesario par
 
 Si los datos de entrenamiento fueron colectados oportunistamente, o en otras palabras *sin* usar una muestra de probabilidad, no se recomienda usar estos datos para la validación ya que introducirían sesgo.
 
+-----
 
+![](figures/m1.1/cc.png)
 
 Este trabajo tiene licencia bajo un [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) 
 
@@ -405,6 +407,14 @@ Copyright 2020, World Bank
 Este trabajo fue desarrollado por Karis Tenneson bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionadas a la Medida, Reportaje, y Verificación para el apoyo de implementación MRV en varios países. 
 
 Material revisado por:
+Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
+Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS)  
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
+Kenset Rosales, Guatemala, Ministry of Environment and Natural Resources  
+Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat     
+Paula Andrea Paz, Colombia, International Center for Tropical Agriculture (CIAT)  
+Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)   
+Raja Ram Aryal, Nepal, Forest Research and Training Centre  
 
 Kenset Rosales, Guatemalan Ministry of Environment 
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat
@@ -412,8 +422,6 @@ Justine Bui, Spatial Informatics Group LLC
 Kelsey Herndon, University of Alabama in Huntsville
 
 Atribución
-
 Tenneson, Karis. 2020. Training Data Collecting Using Google Earth Engine. � World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)
 
-![](C:\Users\vanes\Downloads\figures\m1.2\m1.2.2\WB_FCPF.png)
-![](figures/m1.2/m1.2.2/GFOI.png)
+![](figures/m1.1/wb_fcfc_gfoi.png)

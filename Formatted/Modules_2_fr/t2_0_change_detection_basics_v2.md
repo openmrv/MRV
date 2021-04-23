@@ -50,7 +50,9 @@ group:
   étape : Détection des changements
 ---
 
-## 1.0 **Contexte de la détection des** **changements**
+# Basics of Change Detection methods
+
+## Contexte
 
 L'objectif de la détection des changements par l'image est d'identifier et de cartographier quand et où des changements importants se produisent à la surface de la Terre.  Les méthodes décrites dans les sections suivantes de ce module (LandTrendr, CCDC et CODED) reposent toutes sur un principe simple pour ce faire :  On s'attend à ce que les changements à la surface provoquent une modification de la réflectance spectrale suffisamment distincte pour pouvoir être saisie par un algorithme.  
 
@@ -68,7 +70,7 @@ Le concept de base de la détection des changements basée sur le spectre est qu
 
 Ainsi, un pixel qui est dans une partie de l'espace spectral au temps t1 et qui se déplace vers une autre partie de l'espace spectral au temps t2 est supposé avoir changé d'état de surface.  Si nous comparons simplement l'emplacement d'un pixel dans l'espace spectral à deux dates différentes, nous pouvons déterminer si un changement s'est produit. 
 
-![change_in_spectral_space](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/intro/change_in_spectral_space.png)
+![change_in_spectral_space](./figures/intro/change_in_spectral_space.png)
 
 
 
@@ -78,18 +80,33 @@ Hélas, les pixels peuvent déplacer leur emplacement dans l'espace spectral pou
 
 
 
-![atmospheric_effects](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/intro/atmospheric_effects.png)
+![atmospheric_effects](./figures/intro/atmospheric_effects.png)
 
 
 
 De même, si la végétation présente un changement phénologique de la réflectance, un pixel présentera un déplacement dans l'espace spectral.   La plupart des pixels présentent également un certain mouvement dans l'espace spectral en raison d'un décalage de l'angle du soleil ou de l'éclairage.
 
-### 1.3**Distinction entre les transformations intéressantes et les transformations sans intérêt**
+### 1.3 **Distinction entre les transformations intéressantes et les transformations sans intérêt**
 
 Plus nous comprenons le mécanisme de déplacement d'un pixel dans l'espace spectral sous des " conditions normales ", mieux nous pouvons déterminer quand quelque chose d'intéressant se produit.  Le mouvement dans les conditions normales peut être visualisé comme un " déplacement aléatoire " dans l'espace spectral.  Lorsqu'un pixel émerge de cette région de mouvement normal dans une autre partie de l'espace spectral, nous avons davantage de preuves que quelque chose d'intéressant est survenu.
 
-![random_vs_interesting_movement](/home/modou/Desktop/docx MOdou/MRV-main/Modules_2/figures/intro/random_vs_interesting_movement.png)
+![random_vs_interesting_movement](./figures/intro/random_vs_interesting_movement.png)
 
 
 
 Les trois algorithmes décrits dans les sections suivantes s'appuient tous sur ce dernier concept pour reconnaître quand un changement intéressant s'est produit. 
+
+-----
+
+![](figures/cc.png)  
+
+This work is licensed under a Creative Commons Attribution 3.0 IGO.
+
+Copyright 2021, World Bank
+
+Ce travail a été développé par Robert E Kennedy, Eric Bullock dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte des ressources existantes - liées à la mesure, la notification et la vérification afin de soutenir la mise en œuvre du MRV par les pays. 
+
+Attribution
+Kennedy, R. E., Bullock, E. 2021. Basics of Change Detection methods. © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)
+
+![](figures/wb_fcfc_gfoi.png)
