@@ -43,7 +43,7 @@ group:
   étape : Collecte des données d'entraînement 
 ---
 
-# Formation à la collecte de données à l'aide de QGIS 
+#  Collecte de données d'entraînement à l'aide de QGIS 
 
 ## 1 Contexte 
 
@@ -54,7 +54,7 @@ Ce tutoriel montrera comment collecter des données d'apprentissage catégoriell
 
 ### 1.1 QGIS
 
-Quantum GIS (QGIS) est un logiciel SIG open source qui fonctionne sous Windows, Linux et Mac OS X. Les utilisateurs doivent consulter le  [site-web de QGIS](https:/qgis.org/en/site/forusers/alldownloads.html) pour des informations générales et des instructions d'installation. Comme il existe de nombreuses manières différentes d'installer le QGIS, dépendant de votre système d'exploitation, les instructions d'installation ne seront pas détaillées ici. Si les utilisateurs ne sont pas en mesure d'installer QGIS, nous recommandons de passer au [Module 1.2.2 Collecte de données de formation à l'aide de Google Earth Engine] (Tenneson_TrainingData_GEE.md) 
+Quantum GIS (QGIS) est un logiciel SIG open source qui fonctionne sous Windows, Linux et Mac OS X. Les utilisateurs doivent consulter le  [site-web de QGIS](https:/qgis.org/en/site/forusers/alldownloads.html) pour des informations générales et des instructions d'installation. Comme il existe de nombreuses manières différentes d'installer le QGIS, dépendant de votre système d'exploitation, les instructions d'installation ne seront pas détaillées ici. Si les utilisateurs ne sont pas en mesure d'installer QGIS, Nous vous conseillons de passer à ce même tutoriel sur OpenMRV pour la collecte de données d'entraînement à l'aide de Google Earth Engine, sous la section "Collecte de Données d'Entraînement" et l'outil "GEE".
 
 Ce tutoriel est basé sur la version à long terme [Version 3.10.10](https:/docs.qgis.org/3.10/en/docs/user_manual/). Pour les fonctionnalités principales de ce tutoriel, les utilisateurs n'auront besoin que de QGIS installé et d'une connexion Internet.  Pour utiliser tous les plugins décrits dans ce tutoriel, les utilisateurs auront besoin de comptes sur  [Google Earth Engine](https:/signup.earthengine.google.com/#!/) et sur [Planet](https:/www.planet.com/login/?mode=signup). 
 
@@ -68,7 +68,7 @@ A la fin de cet exercice, vous serez en mesure de :
 
 - Collecter des données d'entraînement pour une classification catégorielle. 
 
-### 2.1 Pré-requis pour ce module
+### 2.1 Pré-requis 
 
 * Concepts QGIS 
   * Installation
@@ -78,7 +78,7 @@ A la fin de cet exercice, vous serez en mesure de :
   * Compréhension de base des théories impliquées dans la classification d'images.
   * Définition d'une légende thématique
 
-## 3 Tutorial: Training Data Collection in QGIS
+## 3 Tutoriel : Collecte de données d'entraînement dans QGIS
 
 ### 3.1 Vue d'ensemble
 
@@ -118,7 +118,7 @@ Votre panel devrait ressembler à ceci :
 Cliquez sur *Ok* et vous devriez voir qu'une nouvelle couche est ajoutée dans le panneau "Couches" à gauche de l'écran. Nous ajouterons à cette couche lors de la création des données d'entraînement. 
 
 
-### 3.3 Charger les couches de base
+### 3.3 Charger les Fonds de cartes
 
 Les données de référence sont essentielles à la collecte de données d'entraînement et, dans la plupart des cas, il suffit d'utiliser des images haute résolution. Deux facteurs critiques dans la sélection des données de référence sont :  
 
@@ -133,7 +133,7 @@ Les plugins suivants permettent d'accéder à des images de référence. Chaque 
 
 Les utilisateurs doivent considérer les options ci-dessous et décider d'une source de données de référence qui correspond à la période et à l'étendue géographique de votre région d'étude. Ici, le processus est démontré pour la Colombie et pour l'année 2018.   
 
-**Remarque importante:** Nous suggérons aux utilisateurs de commencer par les services QuickMap, car ils ne nécessitent pas de compte externe et l'installation est la plus simple. L'utilisation de Planet et de Google Earth Engine fournit des données de référence plus souples, mais les plugins sont expérimentaux et nécessitent des comptes avec Earth Engine et Planet. Si les utilisateurs ne peuvent installer aucun plugin, nous leur suggérons de passer au [Module 1.2.2 Collecte de données d'entrainement à l'aide de Google Earth Engine] (Tenneson_TrainingData_GEE.md).  
+**Remarque importante:** Nous suggérons aux utilisateurs de commencer par les services QuickMap, car ils ne nécessitent pas de compte externe et l'installation est la plus simple. L'utilisation de Planet et de Google Earth Engine fournit des données de référence plus souples, mais les plugins sont expérimentaux et nécessitent des comptes avec Earth Engine et Planet. Si les utilisateurs ne peuvent installer aucun plugin, Nous leur suggérons de passer à ce même tutoriel sur OpenMRV pour la collecte de données d'entraînement à l'aide de Google Earth Engine, situé dans la section "Collecte de Données d'Entraînement " et l'outil "GEE".
 
 # <a name="quickmap"></a>
 #### 3.3.1 Services QuickMap 
@@ -592,9 +592,9 @@ Non, il n'est pas nécessaire de se préoccuper de la topographie dans une zone 
 
 Si vous ne parvenez pas à charger l'un des plugins, utilisez simplement l'un des autres. Plusieurs plugins sont présentés ici pour donner aux utilisateurs de multiples options.  
 
- **Que dois-je faire si je ne peux pas installer QGIS ou obtenir un des plugins à charger ? **
+ **Que dois-je faire si je ne peux pas installer QGIS ou obtenir un des plugins à charger ?**
 
-Ne vous inquiétez pas ! Ce même tutoriel est fourni sur le  Google EarthEngine dans le module 1.2.2, qui ne nécessite aucune installation.  
+Ne vous inquiétez pas ! Ce même tutoriel est disponible ici sur OpenMRV pour la collecte de données d'entraînement à l'aide de Google Earth Engine, sous le nom de la section "Collecte de données d'entraînement" et de l'outil "GEE", et il ne nécessite aucune installation.  
 
 
 -----
