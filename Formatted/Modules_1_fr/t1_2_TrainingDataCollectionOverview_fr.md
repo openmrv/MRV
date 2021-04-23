@@ -71,6 +71,6 @@ Copyright 2020, Banque mondiale
 Ce travail a été réalisé par Eric Bullock et Karis Tenneson dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte de ressources existantes - liées à la mesure, au rapportage et à la vérification pour soutenir la mise en œuvre du MRV dans les pays.
 
 Attribution
-Bullock, E., Tenneson, K. 2021. collecte de données d'entraînement . Banque mondiale. Licence: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+Bullock, E., Tenneson, K. 2021. Collecte de données d'entraînement . Banque mondiale. Licence: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](./figures/m1.1/wb_fcfc_gfoi.png)
