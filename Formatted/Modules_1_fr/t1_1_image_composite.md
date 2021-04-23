@@ -35,11 +35,11 @@ group:
 
 ##   1 Contexte
 
-Ce tutoriel vous explique comment créer un composite en utilisant l'imagerie Landsat et/ou Sentinel-2 au niveau national dans Google Earth Engine (GEE). Ici, le processus est démontré pour le pays de la Colombie. Le tutoriel est accompagné d'un dépôt GEE qui contient trois scripts, et d'une série de vidéos qui vous guideront à travers certaines des sections. Les scripts vous permettent de créer un composite qui peut être utilisé dans les sections suivantes de cette formation. 
+Ce tutoriel vous explique comment créer un composite en utilisant l'imagerie Landsat et/ou Sentinel-2 au niveau national dans Google Earth Engine (GEE). Ici, le processus est démontré pour le pays de la Colombie. Le tutoriel est accompagné d'un répertoire GEE qui contient trois scripts, et d'une série de vidéos qui vous guideront à travers certaines des sections. Les scripts vous permettent de créer un composite qui peut être utilisé dans les autres tutoriels sur openMRV. 
 
 ## 1.1 Google Earth Engine
 
-L'intérêt de l'utilisation de Google Earth Engine (GEE) est que GEE contient plusieurs pétaoctets d'images satellites et de données géospatiales permettant aux utilisateurs de calculer des analyses à grande échelle dans la plateforme basée sur le cloud. GEE contient un JavaScript (utilisé dans ce cas) et une API Python, où les utilisateurs peuvent télécharger leurs propres ensembles de données et utiliser les fonctions intégrées pour accomplir une myriade de tâches de télédétection et de géospatial à des vitesses et des échelles sans précédent. Pour plus d'informations sur GEE, veuillez consulter [la page principale sur le moteur Google Earth](https://earthengine.google.com/). Vous y trouverez des tutoriels et de la documentation utiles. Certains liens pertinents sont mis en évidence ci-dessous :
+L'intérêt de l'utilisation de Google Earth Engine (GEE) est que GEE contient plusieurs pétaoctets d'images satellites et de données géospatiales permettant aux utilisateurs de calculer des analyses à grande échelle dans la plateforme basée sur le cloud. GEE contient un API JavaScript (utilisé dans ce cas) et une API Python, où les utilisateurs peuvent télécharger leurs propres ensembles de données et utiliser les fonctions intégrées pour accomplir une myriade de tâches de télédétection et de géospatial à des vitesses et des échelles sans précédent. Pour plus d'informations sur GEE, veuillez consulter [la page principale sur le moteur Google Earth(https://earthengine.google.com/). Vous y trouverez des tutoriels et de la documentation utiles. Certains liens pertinents sont mis en évidence ci-dessous :
 
 * [Ensembles de données disponibles](https://developers.google.com/earth-engine/datasets/) 
 * [FAQ](https://earthengine.google.com/faq/)
@@ -62,9 +62,9 @@ L'intérêt de l'utilisation de Google Earth Engine (GEE) est que GEE contient p
 
 ![GEEcodeEditor](./figures/m1.1/GEEcodeEditor.png)
 
-### 1.2 Repository
+### 1.2 Répertoire
 
-[Ce dépôt](https://code.earthengine.google.com/?accept_repo=users/openmrv/MRV) contient un sous-dossier appelé "Composite" avec des scripts qui effectuent toutes les opérations que vous apprendrez dans ce tutoriel. Les principaux scripts sont les suivants :
+[Ce Répertoire](https://code.earthengine.google.com/?accept_repo=users/openmrv/MRV) contient un sous-dossier appelé "Composite" avec des scripts qui effectuent toutes les opérations que vous apprendrez dans ce tutoriel. Les principaux scripts sont les suivants :
 
 1. L'option `Landsat_Sentinel2_Median` contient toutes les étapes dans l'ordre que vous allez suivre (sauf pour la section 4.2.6 Medoid composite) pour créer des composites médians en utilisant les collections Landsat et Sentinel-2.
 2. `Landsat_Sentinel2_Median2` est une version optimisée du script ci-dessus. Il contient toutes les variables utilisateur en haut et les fonctions/codes qui n'ont pas besoin d'être modifiés en bas.
@@ -78,7 +78,7 @@ Nous vous encourageons à suivre les étapes ci-dessous en écrivant vous-même 
 
 ### 1.3 Vidéos
 
-Le [canal MRV YouTube](https://www.youtube.com/channel/UCdPooUCxF3HRIWdEh4pwrqQ) contient des vidéos qui vous guident à travers certaines sections de ce module et d'autres. Pour ce module, une vidéo a été créée pour chaque sous-section de la section 3: Création d'une vidéo composite. Veuillez noter que le développement du script dans les vidéos peut ne pas être exactement le même que celui démontré à chaque étape du tutoriel (c'est-à-dire que l'ordre des lignes de code et des noms de variables peut différer, etc. ) et que chaque vidéo est construite sur les précédentes. Dans tous les cas, les mêmes résultats sont produits. Vous trouverez dans chaque section ci-dessous un hyperlien vers la vidéo correspondante. Il est recommandé de parcourir chaque section avant de visionner les vidéos. 
+Le [canal MRV YouTube](https://www.youtube.com/channel/UCdPooUCxF3HRIWdEh4pwrqQ) contient des vidéos qui vous guident à travers de ce tutoriel et d'autres sur openMRV. Pour ce tutoriel, une vidéo a été créée pour chaque sous-section de la section 3: Création d'une vidéo composite. Veuillez noter que le développement du script dans les vidéos peut ne pas être exactement le même que celui démontré à chaque étape du tutoriel (c'est-à-dire que l'ordre des lignes de code et des noms de variables peut différer, etc. ) et que chaque vidéo est construite sur les précédentes. Dans tous les cas, les mêmes résultats sont produits. Vous trouverez dans chaque section ci-dessous un hyperlien vers la vidéo correspondante. Il est recommandé de parcourir chaque section avant de visionner les vidéos. 
 
 
 ## 2 Objectif du cours
@@ -89,7 +89,7 @@ Le [canal MRV YouTube](https://www.youtube.com/channel/UCdPooUCxF3HRIWdEh4pwrqQ)
 
 * Apprendre à exporter la mosaïque / le composite
 
-### 2.1 Pré-requis pour ce module
+### 2.1 Pré-requis
 
 * Compréhension de base à intermédiaire des concepts de la télédétection
   * Vous pouvez vous référer à la formation [NASA ARSET's Fundamentals of Remote Sensing](https://appliedsciences.nasa.gov/join-mission/training/english/fundamentals-remote-sensing). Cette formation comprend les bases de la télédétection par satellite, notamment les orbites, les types, les résolutions, les capteurs et les niveaux de traitement des satellites. Il est disponible sur demande et tout le monde peut le suivre (disponible uniquement en anglais)
@@ -320,7 +320,7 @@ Map.addLayer(l8compositeMasked,
 
 Le composite qui en résulte montre des nuages masqués et constitue une grande amélioration par rapport aux composites précédents. Cependant, les lacunes dans les données restent un problème en raison de la couverture nuageuse. Si vous n'avez pas spécifiquement besoin d'un composite annuel, vous pouvez créer un composite sur deux ans pour essayer d'atténuer le problème des données manquantes. Nous allons essayer de le faire.
 
-> NOTE : A ce stade, vous avez probablement remarqué que les couches prennent un certain temps à charger, c'est-à-dire que le script est globalement "plus lent". Pour éviter d'attendre trop longtemps pour vérifier les résultats, et de tomber sur une erreur de la "Capacité mémoire dépassée de Google Earth Engine", vous pouvez commenter certaines des instructions "print" et "Map.addLayer", et/ou des variables non utilisées en ajoutant des doubles barres obliques en début de ligne **ou** en cliquant sur la ligne souhaitée et en appuyant sur *Ctrl + /*. Utilisez cette stratégie tout au long du reste de ce tutoriel et n'imprimez et n'ajoutez des couches à la carte des composites souhaités, ou pour vérifier les erreurs intermédiaires si vous en rencontrez une.
+> NOTE : A ce stade, vous avez probablement remarqué que les couches prennent un certain temps à charger, c'est-à-dire que le script est globalement "plus lent". Pour éviter d'attendre trop longtemps pour vérifier les résultats, et de tomber sur une erreur du genre la "Capacité mémoire dépassée de Google Earth Engine", vous pouvez commenter certaines des instructions "print" et "Map.addLayer", et/ou des variables non utilisées en ajoutant des doubles barres obliques en début de ligne **ou** en cliquant sur la ligne souhaitée et en appuyant sur *Ctrl + /*. Utilisez cette stratégie tout au long du reste de ce tutoriel et n'imprimez et n'ajoutez des couches à la carte des composites souhaités, ou pour vérifier les erreurs intermédiaires si vous en rencontrez une.
 >
 > Exemple visuel d'extrait de code non commenté :
 >
@@ -771,8 +771,8 @@ Export.image.toCloudStorage({
 });
 ```
 
-## 4 Autres exemples
-Dans ce tutoriel, nous avons créé et exporté différents composites pour le pays de la Colombie. Maintenant, vous pouvez tester la création de composites pour le pays de votre choix. Les scripts sont conçus de manière à ce que vous n'ayez qu'à modifier quelques lignes de code. Nous verrons des exemples pour le Mozambique et le Cambodge. Dans tous les cas, le processus général est le même que celui qui a été démontré en Colombie. Toutefois, pour d'autres pays, il peut être nécessaire de prendre en compte certaines considérations lors de la réalisation d'une classification de l'occupation des sols ou de la détection de changements dans le paysage. Certaines considérations que vous verrez dans les modules suivants le seront : 
+## 4 Autres exemples : Mozambique et Cambodge
+Dans ce tutoriel, nous avons créé et exporté différents composites pour le pays de la Colombie. Maintenant, vous pouvez tester la création de composites pour le pays de votre choix. Les scripts sont conçus de manière à ce que vous n'ayez qu'à modifier quelques lignes de code. Nous verrons des exemples pour le Mozambique et le Cambodge. Dans tous les cas, le processus général est le même que celui qui a été démontré en Colombie. Toutefois, pour d'autres pays, il peut être nécessaire de prendre en compte certaines considérations lors de la réalisation d'une classification de l'occupation des sols ou de la détection de changements dans le paysage. Voici quelques considérations que vous pourrez retrouver dans d'autres tutoriels d'OpenMRV : 
 
 * Prise en compte de la saisonnalité - La variabilité saisonnière peut représenter un défi lors de la classification de l'occupation des sols. Dans une image de la saison sèche au Mozambique, une forêt de feuillus pourrait être confondue avec des classes de couverture terrestre herbacée ou non forestière en raison de la faible verdeur végétative pendant la période de feuillaison. Par conséquent, vous pourriez avoir besoin de créer des composites séparés pour les saisons sèches et humides. Vous pouvez y parvenir en modifiant les variables "startDate" et "endDate" des scripts.
 * Prise en compte de la topographie - La plupart des forêts restantes au Cambodge sont situées sur des terrains vallonnés ou montagneux. Parce que les caractéristiques topographiques projettent une ombre, la réflectance du paysage dans l'ombre peut être plus faible qu'un paysage similaire non ombragé. Par conséquent, la topographie peut également présenter un défi pour la classification de la couverture terrestre ou la détection des changements dans le paysage.
@@ -845,7 +845,7 @@ var countryName = 'Cambodia';
 
 Comme mentionné ci-dessus dans l'exemple du Mozambique, vous pouvez ajuster toute autre variable de l'utilisateur souhaitée. Par exemple, le niveau de zoom, les dates de début et de fin, les paramètres de visualisation et les paramètres de la moyenne focale.
 
-Félicitations, vous avez atteint la fin de ce module. Dans les prochains modules, vous apprendrez comment collecter des données de formation en utilisant le QGIS et le GEE.
+Bravo, vous avez atteint la fin de ce tutoriel. Dans les prochains modules, vous apprendrez comment collecter des données de formation en utilisant le QGIS et le GEE.
 
 ## 5 FAQs
 
