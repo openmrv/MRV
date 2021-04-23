@@ -1,6 +1,6 @@
 ---
 title: Collecte de données d'entraînement à l'aide de Google Earth Engine
-summary: Ce tutoriel montre comment collecter des données d'entraînement catégorielles pour la classification de l'occupation du sol à l'aide de Google Earth Engine. Les utilisateurs doivent adapter les différentes composantes en fonction des objectifs de leur projet. Le processus est présenté ici pour les pays suivants - la Colombie, le Mozambique et le Cambodge, et pour une légende simple de quatre classes d'occupation du sol - forêt, eau, plantes herbacées et zones développées. Reportez-vous au Module 1.1 Création de mosaïques/composites d'images pour Landsat et Sentinel-2 dans Google Earth Engine pour plus d'informations et de ressources pour travailler dans cet environnement.
+summary: Ce tutoriel montre comment collecter des données d'entraînement  pour la classification de l'occupation du sol à l'aide de Google Earth Engine. Les utilisateurs doivent adapter les différentes composantes en fonction des objectifs de leur projet. Le processus est présenté ici pour les pays suivants - la Colombie, le Mozambique et le Cambodge, et pour une légende simple de quatre classes d'occupation du sol - forêt, eau, plantes herbacées et zones développées. Reportez-vous au processus "Pré-traitement" et à l'outil "GEE" ici sur OpenMRV pour plus d'informations et de ressources pour travailler dans cet environnement.
 author: Karis Tenneson
 creation date: décembre 2020
 language: Français
@@ -38,7 +38,7 @@ group:
   étape : Collecte des données d'entraînement 
 ---
 
-# Formation à la collecte de données à l'aide de Google Earth Engine 
+# Collecte de données d'entraînement  à l'aide de Google Earth Engine 
 
 ## 1 Contexte
 
@@ -49,7 +49,7 @@ Ce tutoriel montre comment collecter des données d'entrainement catégorielles 
 
 ### 1.1 Google Earth Engine
 
-Nous allons numériser les données d'entraînement dans Google Earth Engine. Reportez-vous au module 1.1 Création de mosaïques/composites d'images pour Landsat et Sentinel-2 dans Google Earth Engine pour plus d'informations et de ressources pour travailler dans cet environnement.
+Nous allons numériser les données d'entraînement dans Google Earth Engine. Reportez-vous au processus "Pré-traitement" et à l'outil "GEE" ici sur OpenMRV pour plus d'informations et de ressources pour travailler dans cet environnement.
 
 ## 2 Objectifs de la formation 
 
@@ -59,24 +59,22 @@ A la fin de cet exercice, vous serez en mesure de :
 - Charger votre composite Landsat ou Sentinel pour l'utiliser comme image d'arrière-plan à utiliser comme référence.
 - Collecter et exporter des données d'entraînement pour une classification catégorielle. 
 
-### 2.1 Pré-requis pour ce module
+### 2.1 Pré-requis 
 
 * Google Earth Engine
   * Avoir un compte GEE.
-  * Module 1.1 Création de mosaïques/composites d'images pour Landsat et Sentinel-2
-
 * Concepts de télédétection
   * Compréhension de base sur les théories impliquées dans la classification des images.
   * Définition d'une légende thématique
 
-## 3 Tutorial: Training Data Collection in GEE
+## 3 Tutoriel : Collecte de données d'entraînement dans GEE
 
 ### 3.1 Vue d'ensemble
 
 Le processus de collecte des données d'entraînement dans GEE est détaillé dans les étapes ci-dessous. Le processus peut être généralement décrit en trois étapes principales :
 
 1. Créer une nouvelle classe éléments  pour chaque occupation du sol afin de stocker les données d'entraînement.
-2. Chargement d'une carte de base en utilisant ce que vous avez appris dans le module 1.1 Création de mosaïques d'images/composites pour Landsat et Sentinel-2.
+2. Chargement d'une fond de carte 
 3. Collecte des données d'entraînement en définissant manuellement les points d'entraînement. 
 4. Exportation des données d'entraînement.
 
@@ -84,7 +82,7 @@ Le processus de collecte des données d'entraînement dans GEE est détaillé da
 
 ### 3.2 Création de nouvelles collections d'éléments
 
-Comme on peut le voir dans le module 1.2.1 Collecte de données d'entraînement à l'aide du QGIS, les données d'entraînement peuvent être créées dans une variété de plateformes. Dans ce tutoriel, vous créerez ces données en utilisant des collections de points avec des étiquettes d'occupation du sol uniques identifiées par un attribut "label". Par exemple, les forêts peuvent avoir un attribut "label" de 1, l'agriculture de 2, et ainsi de suite. Une méthode simple pour développer des données d'entraînement consiste à créer une collection d'éléments pour chaque occupation du sol en utilisant les données et l'imagerie disponibles dans Google Earth Engine. Ce tutoriel montre comment créer des données d'entraînement qui sont des géométries ponctuelles. Un processus similaire peut être utilisé avec des données de polygones. 
+Les données d'entraînement peuvent être créées dans une multitude de plateformes.Dans ce tutoriel, vous créerez ces données en utilisant des collections de points avec des étiquettes d'occupation du sol uniques identifiées par un attribut "label". Par exemple, les forêts peuvent avoir un attribut "label" de 1, l'agriculture de 2, et ainsi de suite. Une méthode simple pour développer des données d'entraînement consiste à créer une collection d'éléments pour chaque occupation du sol en utilisant les données et l'imagerie disponibles dans Google Earth Engine. Ce tutoriel montre comment créer des données d'entraînement qui sont des géométries ponctuelles. Un processus similaire peut être utilisé avec des données de polygones. 
 
 Pour commencer, ouvrez un navigateur web et naviguez jusqu'à [Google Earth Engine](https://code.earthengine.google.com/). 
 
@@ -129,7 +127,7 @@ Votre panel devrait ressembler à ceci :
 
 11. Répétez les étapes 3 à 10 jusqu'à ce qu'une collection éléments soit établie pour chaque type de classe d'occupation des sols.
 
-### 3.3 Charger les couches de bases
+### 3.3 Charger des fons de carte 
 Les données de référence sont essentielles pour la collecte des données d'entraînement, et pour la plupart des objectifs, il suffit d'utiliser des images à haute résolution. Deux facteurs critiques dans la sélection des données de référence sont :
 
 - Les classes cibles peuvent être distinguées grâce à une interprétation visible.
@@ -137,8 +135,7 @@ Les données de référence sont essentielles pour la collecte des données d'en
 
 Il existe une carte de base de l'imagerie de référence à haute résolution disponible directement dans GEE. L'inconvénient est qu'il s'agit d'une mosaïque d'images haute résolution, sans information disponible sur la date d'acquisition.
 
-Pour compléter les informations disponibles dans ces mosaïques d'images haute résolution, il est suggéré de charger également la mosaïque d'images que vous utiliserez pour effectuer la classification supervisée. Il s'agit de l'image que vous avez créée dans le module 1.1 Création de mosaïques d'images/composites pour Landsat et Sentinel-2 dans Google Earth
-Moteur. Vous pouvez ensuite basculer entre l'imagerie haute résolution disponible et le composite d'imagerie pour la date d'intérêt afin de vous assurer qu'aucun changement d'occupation du sol ne s'est produit entre les dates des deux acquisitions d'images. 
+Pour compléter les informations disponibles dans ces mosaïques d'images haute résolution, il est suggéré de charger également la mosaïque d'images que vous utiliserez pour effectuer la classification supervisée. Les tutoriels sous le nom de "Pré-traitement" et l'outil "GEE" ici sur OpenMRV montrent comment créer une image composite/mosaïque. Vous pouvez ensuite basculer entre l'imagerie haute résolution disponible et le composite d'imagerie pour la date d'intérêt afin de vous assurer qu'aucun changement d'occupation du sol ne s'est produit entre les dates des deux acquisitions d'images. 
 
 N'oubliez pas que vous voulez que les données de référence correspondent à la période et à l'étendue géographique de votre région d'étude. Ici, le processus est démontré pour la Colombie et pour l'année 2019. 
 
@@ -250,7 +247,7 @@ Export.table.toDrive({
 
 ````
 
-3. Cliquez ensuite sur Run pour exécuter. Cela vous permettra d'aller dans l'onglet Tasks et d'exécuter l'exportation. Si vous avez besoin d'un rafraîchissement sur la façon de terminer le processus d'exportation, revenez au module 1.1 Création de mosaïques/composites d'images pour Landsat et Sentinel-2 dans Google Earth Engine.
+3. Cliquez ensuite sur Run pour exécuter. Cela vous permettra d'aller dans l'onglet Tasks et d'exécuter l'exportation. Des informations supplémentaires sur la façon d'exporter des données dans GEE sont disponibles [ici](https://developers.google.com/earth-engine/guides/exporting).
 
 ## 4. Exemples : Mozambique et Cambodge 
 Essayons maintenant de reproduire le même processus que ci-dessus dans de nouvelles régions d'étude : le Mozambique et le Cambodge. Cette section est facultative et vous permettra de vous entraîner à collecter des données dans différentes régions d'étude. Le processus général est le même que celui qui a été démontré en Colombie. 
