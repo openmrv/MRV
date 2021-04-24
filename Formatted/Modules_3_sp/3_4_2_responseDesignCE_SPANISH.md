@@ -581,6 +581,7 @@ Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natu
 Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat
 
-Atribución Bui, Justine and Dyson, Karen. 2021. Module 3.3.2 How to create surveys in Collect and collect data using Collect Earth Desktop. World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)
+Atribución 
+Bui, J., Dyson, K. 2021. Response Design in Collect Earth Desktop. © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)  
 
 ![](figures/wb_fcfc_gfoi.png)
