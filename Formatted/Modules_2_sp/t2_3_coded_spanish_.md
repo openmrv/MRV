@@ -399,7 +399,7 @@ Un *chiSquareProbability* mas bajo tiene el efecto de incrementar la sensibilida
 
 Disturbios son atribuidos como deforestación o degradación basado en la cobertura terrestre después del disturbio. Si hay una conversión de bosque a no-forestal (por ejemplo, pastizal, asentamientos, o agricultura), el disturbio es considerado deforestación. Si la regeneración comienza después del disturbio es etiquetado degradación. El proceso de atribución se puede describir generalmente de acuerdo al flujo de trabajo siguiente: 
 
-![alt_text](./images/CODED/img16.png "image_tooltip")
+![alt_text](./images/CODED/img16_sp.png "image_tooltip")
 
 
 ## 4 Ejecutar CODED con una Interfaz de Usuario Grafica 
