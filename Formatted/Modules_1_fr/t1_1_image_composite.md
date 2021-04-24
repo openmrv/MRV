@@ -104,7 +104,7 @@ Le [canal MRV YouTube](https://www.youtube.com/channel/UCdPooUCxF3HRIWdEh4pwrqQ)
 
 Le déroulement général du processus de ce tutoriel est présenté ci-dessous : 
 
-![WB_graphs_v2-02-crop](./figures/m1.1/WB_graphs_v2-02-crop.png)
+![WB_graphs_v2-02-crop](./figures/m1.1/WB_graphs_v2-02-crop_fr.png)
 
 
 
