@@ -1143,17 +1143,17 @@ Zhu, Z., Woodcock, C.E., 2014. Continuous change detection and classification of
 ![](figures/cc.png)  
 This work is licensed under a [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
-Copyright 2020, World Bank 
+Copyright 2021, World Bank 
 
 Ce travail a été développé par Eric Bullock dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte des ressources existantes - liées à la mesure, la notification et la vérification afin de soutenir la mise en œuvre du MRV par les pays. 
 
 Matériel examiné par :   
+Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)   
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
+Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat   
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
-KONAN Yao Eric Landry, Cote d'Ivoire, REDD+ Executive Permanent Secretariat
-Adrianirina Carole, Madagascar, BNCCREDD+
-Jennifer Juliana Escamilla Valdez, El Salvador, Ministerio de Medio Ambiente y Recursos Naturales
 
 Attribution
-Bullock, E. 2020. Continuous Degradation Detection (CODED). © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)  
+Bullock, E. 2021. Continuous Degradation Detection (CODED). © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)   
 
 ![](figures/wb-fcfc-gfoi.png)
