@@ -125,7 +125,7 @@ Aunque los pasos específicos varían en base al clasificador, el [flujo de trab
 
 Próximamente, los pasos se muestran de manera visual. 
 
-![Workflow of classification](./figures/m1.3/WB_graphs_v2-03.png)
+![Workflow of classification](./figures/m1.3/WB_graphs_v2-03_sp.png)
 
 Esto crea un mapa. Luego necesitará evaluar la precisión del mapa. Este tema se desarrolla en un módulo siguiente acerca de la evaluación de precisión.
 
