@@ -170,7 +170,7 @@ L'interface utilisateur graphique (GUI) est fournie par les développeurs de Lan
 
 #### 3.2.1 L'interface graphique
 
-Dans le répertoire commun  de ce tutorial sur OpenMRV, trouvez et ouvrez le script nommé : **LT-GEE-Vis-DownLoad-app_WB_v1.0**.  Une fois chargé et exécuté, ce script crée une interface graphique LandTrendr-GEE. 
+Dans le répertoire commun  de ce tutorial sur OpenMRV, trouvez et ouvrez le script nommé : **OpenMRV_français/Part2/ LandTrendr_fr/LT-GEE-Vis-DownLoad-app_WB_v1.0_fr**.  Une fois chargé et exécuté, ce script crée une interface graphique LandTrendr-GEE. 
 
 Notez que cette interface graphique nécessite l'accès à deux bibliothèques de fonctions utilitaires : Une qui gère le traitement des images, et une autre qui gère l'interface graphique. Les utilisateurs n'ont pas besoin de modifier quoi que ce soit dans le script pour y accéder, mais il est utile de reconnaître que ces bibliothèques externes sont appelées. Bien que développées à l'origine par le laboratoire eMapR, ces bibliothèques ont été copiées fin 2020 dans le référentiel commun de ce module de formation, pour des raisons de commodité, comme indiqué ci-dessus. 
 
@@ -748,7 +748,7 @@ Dans cette section, nous décrivons le scénario principal qui crée les cartes 
 
 Le script du Greatest Disturbance Mapper peut être trouvé à l'adresse
 
- `users/openmrv/MRV/ChangeDetection/LandTrendr Greatest Disturbance Mapping`
+ `users/openmrv/MRV/OpenMRV_français/Part2/LandTrendr_fr/LandTrendr Greatest Disturbance Mapping_fr`
 
 La première section du script vous permet de saisir manuellement les paramètres que vous avez sélectionnés lorsque vous utilisiez le menu de paramètres de l'interface graphique LandTrendr : 
 
@@ -893,7 +893,7 @@ L'interface utilisateur graphique LandTrendr (section 3) et le script JavaScript
 La bibliothèque LT Javascript s'améliore régulièrement, mais par souci de cohérence, nous avons fourni une copie de la version de travail actuelle aux utilisateurs de la Banque mondiale.  Comme indiqué ci-dessus, l'importation de la bibliothèque se fait avec ce code :
 
 ```javascript
-var ltgee = require('users/openmrv/MRV:ChangeDetection/LandTrendr_V2.4WB.js'); 
+var ltgee = require('users/openmrv/MRV/ChangeDetection/LandTrendr_V2.4WB.js'); 
 ```
 
 Par la suite, toutes les fonctions de cette bibliothèque sont référencées avec le nom de la bibliothèque suivi du nom de la fonction, avec un "point" comme séparateur (par exemple, appeler la fonction "runLT" avec <arguments> serait traité:`var lt=ltgee.runLT(<arguments>)`). 
@@ -1238,7 +1238,7 @@ Dans la phase initiale de prospection pour travailler dans un nouveau domaine, n
 
 #### 6.1.1 Charger une zone d'étude du Mozambique dans le GUI LandTrendr
 
-Voyons ce que fait LandTrendr au Mozambique. Pour rappel, trouvez et ouvrez le script nommé **LT-GEE-Vis-DownLoad-app_WB_v1.0** depuis la bibliothèque openMRV/ChangeDetection sur GEE.
+Voyons ce que fait LandTrendr au Mozambique. Pour rappel, trouvez et ouvrez le script nommé **OpenMRV_français/Part2/ LandTrendr_fr/LT-GEE-Vis-DownLoad-app_WB_v1.0_fr** depuis la bibliothèque openMRV sur GEE.
 
 Une fois chargé et exécuté, le script affiche par défaut la carte de la Colombie. Vous pouvez utiliser le navigateur de carte pour naviguer manuellement vers différentes parties du globe. Ou, si vous prévoyez de vous rendre régulièrement à un autre endroit, *faites une copie locale du script* et changez la ligne 1341 du script de :
 
@@ -1321,7 +1321,7 @@ Dans la section 6.1, nous avons abordé les sujets clés du passage de notre exp
 
 #### 6.2.1. Zone d'étude et paramètres de l'image
 
-Comme pour la Colombie et le Mozambique, nous avons mis à disposition une petite zone d'étude pour expérimenter les réglages d'images et de paramètres.  Le chemin vers l'actif GEE est : `users/openmrv/MRV/CambodgeArea
+Comme pour la Colombie et le Mozambique, nous avons mis à disposition une petite zone d'étude pour expérimenter les réglages d'images et de paramètres.  Le chemin vers l'actif GEE est : `users/openmrv/MRV/CambodgeArea`
 
 En raison d'une saison des pluies différente, nous avons utilisé une fenêtre de dates allant du 01-01 au 04-01.  La disponibilité des images jusqu'en 1990 semble robuste. 
 
