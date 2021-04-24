@@ -946,9 +946,7 @@ Tatiana Nana, Cameroon, REDD+ Technical Secretariat
 
 
 Attribution
-Tenneson, Karis and Dyson, Karen. 2021. Module 3.3.3 Survey Form Creation and Reference Observation Collection with Collect Earth Online.  World Bank. 
-
-License: Creative Commons Attribution license (CC BY 3.0 IGO)
+Tenneson, K., Dyson, K. 2021. Response Design in Collect Earth Online. © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)  
 
 ![](figures/wb_fcfc_gfoi.png)
 
