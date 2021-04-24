@@ -4,7 +4,7 @@ summary: This tutorial will demonstrate how to collect categorical training data
 author: Eric Bullock
 creation date: diciembre 2020
 language: Español
-publisher and license: Copyright 2020, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
+publisher and license: Copyright 2021, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
@@ -485,7 +485,7 @@ No se preocupe! Este mismo tutorial se provee para Google Earth Engine en el Mó
 
 Este trabajo tiene licencia bajo un [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
-Copyright 2020, World Bank 
+Copyright 2021, World Bank 
 
 Este trabajo fue desarrollado por Eric Bullock bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionadas a la Medida, Reportaje, y Verificación para el apoyo de implementación MRV en varios países. 
 
