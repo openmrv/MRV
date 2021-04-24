@@ -137,7 +137,7 @@ La metodología CODED tiene tres componentes primarios (ver Bullock et al., 2020
 3. Atribución de cambio a deforestación o degradación usando datos de entrenamiento y un clasificador de aprendizaje automático
 
 
-![alt_text](./images/CODED/img5.png "image_tooltip")
+![alt_text](./images/CODED/img5_sp.png "image_tooltip")
 
 #### 3.4 Análisis de Mezcla Espectral 
 
