@@ -141,7 +141,7 @@ GEE fonctionne par le biais de scripts.  Comme indiqué ci-dessus, nous supposon
 
 ![GEE_new_repo](./figures/m1.3/GEE_new_repo.png)
 
-3. Si vous êtes un lecteur sur le groupe openMRV, vous verrez le script dans "users/openmrv/MRV/LCLUC/cls_landsat_v2_colombia".  Vous pouvez également y accéder directement en utilisant le lien [GEE script](https://code.earthengine.google.com/549b29a5d53880813d9b8f07b839bbb5)
+3. Si vous êtes un lecteur sur le groupe openMRV, vous verrez le script dans "users/openmrv/MRV/OpenMRV_français/Part1/1.3 LCLU Classification/cls_landsat_v2_colombia_fr".  Vous pouvez également y accéder directement en utilisant le lien [GEE script](https://code.earthengine.google.com/2455cc293e19606c2070603c7270d413)
    1. Nous appellerons ce script le "script maître", car il exécute toutes les étapes du tutoriel.  
 4. Enregistrez-le dans votre dossier préféré.  Vous pouvez utiliser la vidéo mentionnée ci-dessus pour vous guider. 
 
@@ -398,7 +398,7 @@ Les cartes de l'occupation du sol sont associées à l'année d'acquisition des 
 
 Bien qu'il soit justifié de limiter la collection d'image et les données d'apprentissage à une seule année, les cartes dont les valeurs sont manquantes posent problème.  En fonction de l'utilisation prévue de la carte, une option pour améliorer la qualité des données de la carte peut être élargir  le nombre d'années disponibles pour la  formation de la composition de l'image. 
 
-Dans notre exemple de script GEE `cls_landsat_v2_colombia`, nous avons fourni un exemple de la façon dont des années supplémentaires d'une collection peuvent être fusionnées à une autre collection d'images avant la mosaïque d'images.  L'approche par force brute consiste à construire simplement deux collections d'images et à utiliser ensuite la méthode `.merge()` de GEE  pour les combiner.  
+Dans notre exemple de script GEE `cls_landsat_v2_colombia_fr`, nous avons fourni un exemple de la façon dont des années supplémentaires d'une collection peuvent être fusionnées à une autre collection d'images avant la mosaïque d'images.  L'approche par force brute consiste à construire simplement deux collections d'images et à utiliser ensuite la méthode `.merge()` de GEE  pour les combiner.  
 
 Si vous copiez du code dans votre propre script, ajoutez maintenant la section 3.7.1.2 à votre script. 
 
@@ -639,7 +639,7 @@ En supposant que vous disposiez de données de formation pour votre nouvelle sit
 
 ## 5.1 Mozambique
 
-Par souci d'exhaustivité, nous avons fourni une version complète du scripte principale adaptée au Mozambique.  Elle peut être trouvée dans le répertoire OpenMRV sous `cls_landsat_v2_mozambique`, ou directement à partir de [ce lien](https://code.earthengine.google.com/b6c049e0f85da94a4ea392bce261d19c). 
+Par souci d'exhaustivité, nous avons fourni une version complète du scripte principale adaptée au Mozambique.  Elle peut être trouvée dans le répertoire OpenMRV sous `cls_landsat_v2_mozambique_fr`, ou directement à partir de [ce lien](https://code.earthengine.google.com/ffbc576d3666b8efe808dd42c14785f5). 
 
 ### 5.1.1 Ajustements du code
 
@@ -680,7 +680,7 @@ Figure M2.  Comparaison de trois variantes de classification dans le système de
 
 ## 5.2 Cambodge
 
-Comme pour le Mozambique, nous avons fourni une version complète du script principal adaptée au Cambodge.  Elle peut être trouvée dans le répertoire **OpenMRV** sous `cls_landsat_v2_cambodia`, ou directement à partir de [ce lien](https://code.earthengine.google.com/1fcaac622c0e644bf3139c251657f777). 
+Comme pour le Mozambique, nous avons fourni une version complète du script principal adaptée au Cambodge.  Elle peut être trouvée dans le répertoire **OpenMRV** sous `cls_landsat_v2_cambodia_fr`, ou directement à partir de [ce lien](https://code.earthengine.google.com/d485ddd4d17c54bcdef1d5d62b559ef4). 
 
 ### 5.2.1 Ajustements du code
 
