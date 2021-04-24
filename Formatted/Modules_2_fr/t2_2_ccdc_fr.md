@@ -276,7 +276,7 @@ Le cas test au Cambodge sera présenté ici en utilisant l'API du CCDC. Ce même
 
 Dans la [console Javascript de Google Earth Engine] (https://code.earthengine.google.com/), vous devez d'abord charger l'API CCDC et définir les paramètres de la région de détection et d'étude des changements. Pour cet exemple, nous utiliserons l'ensemble du pays, le Cambodge, comme région d'étude.  
 
-Copiez et collez le script suivant dans GEE, ou chargez le script dans le dépôt GEE de Open MRV appelé 'CCDC/Cambodge_1' : 
+Copiez et collez le script suivant dans GEE, ou chargez le script dans le dépôt GEE de Open MRV appelé 'OpenMRV_français/Part 2/CCDC_fr/Cambodia_1_fr' : 
 
 
 ```javascript
@@ -962,7 +962,7 @@ Enfin, l'outil vous permet de spécifier certains paramètres de visualisation. 
 
 #### 3.4 Colombia: CCDC API for Forest Change Stratification
 
-Le dernier tutoriel démontrera l'utilisation de l'API pour créer une stratification des changements forestiers en Colombie. Le code est modifié par rapport à celui du tutoriel sur le Mozambique et utilise l'ensemble des données de coefficient global du CCDC. Le script peut être trouvé dans le dépôt MRV ouvert dans le script "CCDC/Colombia_1". 
+Le dernier tutoriel démontrera l'utilisation de l'API pour créer une stratification des changements forestiers en Colombie. Le code est modifié par rapport à celui du tutoriel sur le Mozambique et utilise l'ensemble des données de coefficient global du CCDC. Le script peut être trouvé dans le dépôt MRV ouvert dans le script "OpenMRV_français/Part 2/CCDC_fr/Colombia_1_fr". 
 
 Pour la stratification de sortie, nous voulons des classes qui représentent :
 
