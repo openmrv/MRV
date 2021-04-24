@@ -10,7 +10,6 @@ publisher and license: Copyright 2021, Banque mondiale. Ce travail est sous lice
 tags:
 - OpenMRV
 - Landsat
-- Sentinel 2
 - GEE
 - Couverture nuageuse
 - Capteurs optiques
@@ -20,8 +19,6 @@ tags:
 - LandTrendr
 - Série chronologique
 - Détection des changements
-- Cartographie d'occupation du sol
-- Cartographie forestière
 - Cartographie de la déforestation
 - Cartographie de la dégradation
 - Cartographie de la dégradation des forêts
@@ -139,7 +136,7 @@ Nous décrivons ci-dessous comment ces étapes peuvent être abordées à l'aide
 
 ## 2 Learning objectives
 
-Au terme de ce module, vous serez en mesure de:   
+Au terme de ce tutoriel, vous serez en mesure de:   
 
 - Interpréter les valeurs spectrales des séries chronologiques annuelles pour faire la distinction entre le changement réel de l'état de la d'occpuation des sols et des artefacts spectraux causés par d'autres facteurs
 - Identifier les indices spectraux et les fenêtres de saisonnalité qui capturent le mieux les régimes de perturbation souhaités
@@ -151,23 +148,13 @@ De plus, les utilisateurs avancés pourront
 
 - Adapter les scripts LandTrendr GEE pour créer des cartes de perturbation et de régénération sur mesure pour les zones d'intérêt
 
-### 2.1 Pré-requis pour ce module
+### 2.1 Pré-requis
 
-* * Concepts de Google Earth Engine (GEE) (veuillez vous référer à la section 1.1 du module 1.1 Création de mosaïques/composites d'images pour Landsat et Sentinel-2 dans Google Earth Engine pour des ressources GEE utiles)
+*  NOTE : Reportez-vous au processus "Pré-traitement" et à l'outil "GEE" ici sur OpenMRV pour plus d'informations et de ressources pour travailler dans Google Earth Engine et les images composites.
 	  - Obtenir un compte utilisateur
 	  - Manipulation des images dans GEE
 	  - Syntaxe de base des fonctions
 	  - Traitement de base des images, y compris le choix des images, le filtrage des nuages, la mosaïque et la composition.
-	* Il est fortement conseillé de terminer les tutoriels précédents:
-	  - Module 1
-	    - 1.1  Création de mosaïque/composite d'images pour Landsat et Sentinel-2 dans Google Earth Engine
-	    - 1.2 Collecte de données d'entraînement 
-	      - 1.2.1 Collecte de données d'entraînement avec QGIS, ou
-	      - 1.2.2 Collecte de données d'entraînement  à l'aide de Google Earth Engine
-	    - 1.3 Classification d'occupation et d'utilisation du sol dans Google Earth Engine
-	  - Module 2
-	    - 2.1 Notions de base sur les méthodes de détection des changements
-
 
 
 ## 3 Démarrage rapide de LandTrendr via une interface graphique sur GEE 
@@ -181,9 +168,9 @@ Pour évaluer les choix d'images et de paramètres de LandTrendr, l'interface gr
 ### 3.2 Mise en place des bibliothèques et de l'interface utilisateur graphique
 L'interface utilisateur graphique (GUI) est fournie par les développeurs de LandTrendr dans le laboratoire eMapR (emapr.ceoas.oregonstate.edu).  Ce tutoriel utilise un snapshot (décembre 2020) de la version actuelle. 
 
-#### 3.2.1 Open the GUI
+#### 3.2.1 L'interface graphique
 
-Dans le répertoire commun OpenMRV, trouvez et ouvrez le script nommé : **LT-GEE-Vis-DownLoad-app_WB_v1.0**.  Une fois chargé et exécuté, ce script crée une interface graphique LandTrendr-GEE. 
+Dans le répertoire commun  de ce tutorial sur OpenMRV, trouvez et ouvrez le script nommé : **LT-GEE-Vis-DownLoad-app_WB_v1.0**.  Une fois chargé et exécuté, ce script crée une interface graphique LandTrendr-GEE. 
 
 Notez que cette interface graphique nécessite l'accès à deux bibliothèques de fonctions utilitaires : Une qui gère le traitement des images, et une autre qui gère l'interface graphique. Les utilisateurs n'ont pas besoin de modifier quoi que ce soit dans le script pour y accéder, mais il est utile de reconnaître que ces bibliothèques externes sont appelées. Bien que développées à l'origine par le laboratoire eMapR, ces bibliothèques ont été copiées fin 2020 dans le référentiel commun de ce module de formation, pour des raisons de commodité, comme indiqué ci-dessus. 
 
@@ -571,7 +558,7 @@ Pour améliorer cela, nous devons définir l'imagerie de base qui sera fournie �
 
 Une vidéo de base montrant ce processus se trouve ici : https://youtu.be/TNQOdHIg24s
 
-#### 3.5.1 Change values in the menu
+#### 3.5.1 Modifier les valeurs dans le menu (Plage de dates)
 
 Dans la section 3.5, nous décrivons d'abord la logique de chaque composante et proposons des recommandations pour de nouvelles valeurs à expérimenter. 
 
@@ -581,7 +568,7 @@ Comme indiqué dans le diagramme de déroulement des opérations (section 2.4), 
 
 Deux groupes de valeurs doivent être déterminés : la plage d'années à partir de laquelle on peut procéder à la segmentation et la plage de dates saisonnières au sein de chaque année à partir de laquelle on peut calculer les composites. 
 
-#### Années d'image
+#### Années des images
 
 Comme indiqué dans la section 2.1.1, l'algorithme LandTrendr est conçu pour fonctionner avec des données provenant de la famille de capteurs Landsat et remontant jusqu'à 1984.  En pratique, de nombreuses régions tropicales du monde ne disposent pas d'assez d'images disponibles dans les premières années des archives Landsat pour fournir des images composites raisonnables. 
 
@@ -641,7 +628,7 @@ En zoomant sur la région de la moitié est de l'image, il apparaît que les pro
 
 
 
-#### 3.5.3 Exploring impacts of the fitting parameters
+#### 3.5.3 Explorer les impacts des paramètres d'ajustement
 
 L'impact de la modification des paramètres d'ajustement de LandTrendr varie selon les pays en raison des différences de densité des archives d'images, des conditions de nuages et de phénologie, et du type de forêt et du processus de changement de la forêt.  Par conséquent, la meilleure approche pour voir comment les paramètres d'ajustement des images fonctionnent est de simplement expérimenter la modification des paramètres et d'évaluer l'impact en utilisant le panneau d'options de séries chronologiques de pixels.  
 
@@ -661,7 +648,7 @@ La vérification de l'absence de parasites a supprimé des caractéristiques de 
 
 ![col_traj_353_despike05](./figures/col_traj_353_despike05.png)
 
-##### Recovery threshold
+##### Recovery threshold (seuil_de_régénération)
 
 Le paramètre de seuil de régénération exerce un fort impact sur l'appareillage.  Rappelons que le paramètre fixe la limite de la vitesse de retour de la valeur spectrale après perturbation.  
 
@@ -685,7 +672,7 @@ Dans le cas de notre pixel test, le réglage du seuil **p-value=0,15** semble en
 
 
 
-##### Best-model proportion
+##### Best-model proportion (meilleure proportion du modèle)
 
 Lorsqu'il est fixé à une valeur inférieure à 1,0, ce paramètre permet de choisir des ajustements plus complexes même s'ils n'ont pas la meilleure valeur p.  Notre valeur par défaut était de 0,75, et le fait de définir la **meilleure proportion du modèle=1,0** ne modifie pas l'ajustement de ce pixel particulier par rapport à notre point de départ :
 
@@ -745,7 +732,7 @@ Par exemple, l'examen des trajectoires au niveau du pixel de certaines de ces pe
 
 Le seuil de changement peut être rendu plus strict afin d'éviter ces cartographies faux positifs.  Cependant, si le seuil est trop conservateur, le changement réel sera manqué (faux négatifs).  Le processus de cartographie, d'ajustement des paramètres et d'évaluation des modèles peut être itératif jusqu'à ce que ces inspections visuelles suggèrent que la carte équilibre à la fois les faux positifs et les faux négatifs. 
 
-Cependant, l'étape finale de l'évaluation a lieu lorsque des données indépendantes sont utilisées pour évaluer la précision de la carte finale.  Cette question est traitée dans un module ultérieur. 
+Cependant, l'étape finale de l'évaluation a lieu lorsque des données indépendantes sont utilisées pour évaluer la précision de la carte finale.  Explorer les impacts des paramètres d'ajustement,ceci est abordé ici sur OpenMRV dans le processus "Estimation de la superficie / Évaluation de la précision".
 
 ## 4 Mise en œuvre avancée de LandTrendr en utilisant Javascript
 
