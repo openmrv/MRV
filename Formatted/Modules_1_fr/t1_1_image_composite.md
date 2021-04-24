@@ -64,13 +64,13 @@ L'intérêt de l'utilisation de Google Earth Engine (GEE) est que GEE contient p
 
 ### 1.2 Répertoire
 
-[Ce Répertoire](https://code.earthengine.google.com/?accept_repo=users/openmrv/MRV) contient un sous-dossier appelé "Composite" avec des scripts qui effectuent toutes les opérations que vous apprendrez dans ce tutoriel. Les principaux scripts sont les suivants :
+[Ce Répertoire](https://code.earthengine.google.com/?accept_repo=users/openmrv/MRV) contient un sous-dossier appelé "OpenMRV_français/Module 1/Composite_fr" avec des scripts qui effectuent toutes les opérations que vous apprendrez dans ce tutoriel. Les principaux scripts sont les suivants :
 
-1. L'option `Landsat_Sentinel2_Median` contient toutes les étapes dans l'ordre que vous allez suivre (sauf pour la section 4.2.6 Medoid composite) pour créer des composites médians en utilisant les collections Landsat et Sentinel-2.
-2. `Landsat_Sentinel2_Median2` est une version optimisée du script ci-dessus. Il contient toutes les variables utilisateur en haut et les fonctions/codes qui n'ont pas besoin d'être modifiés en bas.
-3. `Landsat_Medoid` contient la méthode de composition utilisant le Medoid au lieu du Median pour les collections Landsat.
+1. L'option `Landsat_Sentinel2_Median_fr` contient toutes les étapes dans l'ordre que vous allez suivre (sauf pour la section 4.2.6 Medoid composite) pour créer des composites médians en utilisant les collections Landsat et Sentinel-2.
+2. `Landsat_Sentinel2_Median2_fr` est une version optimisée du script ci-dessus. Il contient toutes les variables utilisateur en haut et les fonctions/codes qui n'ont pas besoin d'être modifiés en bas.
+3. `Landsat_Medoid_fr` contient la méthode de composition utilisant le Medoid au lieu du Median pour les collections Landsat.
 
-En outre, vous trouverez deux scripts qui sont une copie du script 2 `Landsat_Sentinel2_Median2` mais qui s'appliquent à deux autres pays : le Mozambique et le Cambodge. Dans le dépôt, ils sont appelés `Mozambique" et "Cambodia`. Ils sont expliqués dans la section 6. Exemples supplémentaires.
+En outre, vous trouverez deux scripts qui sont une copie du script 2 `Landsat_Sentinel2_Median2_fr` mais qui s'appliquent à deux autres pays : le Mozambique et le Cambodge. Dans le dépôt, ils sont appelés `Mozambique_fr" et "Cambodia_fr`. Ils sont expliqués dans la section 6. Exemples supplémentaires.
 
 Enfin, le script appelé `Video` est le script généré à partir de l'enregistrement des vidéos. Ce script contient toutes les étapes de ce tutoriel, mais avec peu ou pas de documentation écrite.
 
@@ -116,7 +116,7 @@ Veuillez noter que dans ce tutoriel spécifique, nous allons créer un composite
 
 ### 3.1 Zone d'intérêt
 
-> Les étapes suivantes sont démontrées dans le script `1_Landsat_Sentinel2_Median`.  
+> Les étapes suivantes sont démontrées dans le script `1_Landsat_Sentinel2_Median_fr`.  
 > [Instructions vidéo](https://youtu.be/KoEJW1i-v_w)
 
 Pour commencer, nous devons définir notre domaine d'intérêt. Nous utiliserons le [jeu de données simplifié sur la frontière internationale à grande échelle (2017)](https://developers.google.com/earth-engine/datasets/catalog/USDOS_LSIB_SIMPLE_2017) du Département d'État américain (USDOS) qui contient des polygones pour tous les pays du monde. Dans GEE, cet ensemble de données est une "FeatureCollection", c'est-à-dire un groupe de caractéristiques. Vous pouvez considérer les caractéristiques comme vos données vectorielles. Vous pouvez trouver des informations sur la `FeatureCollection` [ici](https://developers.google.com/earth-engine/guides/feature_collections).
@@ -595,7 +595,7 @@ Maintenant, créons un composite médian de 2019 avec le jeu de données Coperni
 
 ### 3.3 Collection Sentinel-2
 
-> Les étapes suivantes sont démontrées dans le script `1_Landsat_Sentinel2_Median`.
+> Les étapes suivantes sont démontrées dans le script `1_Landsat_Sentinel2_Median_fr`.
 >
 > [Instructions vidéo](https://youtu.be/13plGNvnmkI)
 
@@ -779,19 +779,19 @@ Dans ce tutoriel, nous avons créé et exporté différents composites pour le p
 
 ### 4.1 Mozambique
 
-Dans les scripts `1_Landsat_Sentinel2_Median` ou `3_Landsat_Medoid`, il suffit de changer ``Colombie`` à la ligne 15 (ou à la ligne appropriée au cas où il s'agit de votre propre script) en ``Mozambique`` et de cliquer sur *Run*.
+Dans les scripts `1_Landsat_Sentinel2_Median_fr` ou `3_Landsat_Medoid_fr`, il suffit de changer ``Colombie`` à la ligne 15 (ou à la ligne appropriée au cas où il s'agit de votre propre script) en ``Mozambique`` et de cliquer sur *Run*.
 
 ```javascript
 var country = lsib.filterMetadata('country_na','equals','Mozambique');
 ```
 
-Dans le script `2_Landsat_Sentinel2_Median2`, changez simplement ``Colombie`` à la ligne 12 (ou à la ligne appropriée au cas où il s'agirait de votre propre script) en ``Mozambique`` et cliquez sur *Run*. Le script appelé `Mozambique` mentionné dans la section 1.2. Repository est une copie exacte de ce script mais avec le changement déjà effectué.
+Dans le script `2_Landsat_Sentinel2_Median2_fr`, changez simplement ``Colombie`` à la ligne 12 (ou à la ligne appropriée au cas où il s'agirait de votre propre script) en ``Mozambique`` et cliquez sur *Run*. Le script appelé `Mozambique_fr` mentionné dans la section 1.2. Repository est une copie exacte de ce script mais avec le changement déjà effectué.
 
 ```javascript
 var countryName = 'Mozambique';
 ```
 
-De plus, en utilisant le script `2_Landsat_Sentinel2_Median` ou le script `Mozambique` comme références, vous pouvez ajuster toute autre variable utilisateur souhaitée. Par exemple, le niveau de zoom, les dates de début et de fin, les paramètres de visualisation et les paramètres de la moyenne focale. 
+De plus, en utilisant le script `2_Landsat_Sentinel2_Median_fr` ou le script `Mozambique_fr` comme références, vous pouvez ajuster toute autre variable utilisateur souhaitée. Par exemple, le niveau de zoom, les dates de début et de fin, les paramètres de visualisation et les paramètres de la moyenne focale. 
 
 ```javascript
 ////////// variables définies par les utilisateurs et pouvant être modifiées///////
@@ -831,13 +831,13 @@ var iterations = 2;
 
 ### 4.2 Cambodge
 
-Dans les scripts `1_Landsat_Sentinel2_Median` ou `3_Landsat_Medoid`, il suffit de changer ``Colombie`` à la ligne 15 (ou à la ligne appropriée au cas où il s'agit de votre propre script) en ``Cambodge`` et de cliquer sur *Run*.
+Dans les scripts `1_Landsat_Sentinel2_Median_fr` ou `3_Landsat_Medoid_fr`, il suffit de changer ``Colombia`` à la ligne 15 (ou à la ligne appropriée au cas où il s'agit de votre propre script) en ``Cambodia`` et de cliquer sur *Run*.
 
 ```javascript
 var country = lsib.filterMetadata('country_na','equals','Cambodia');
 ```
 
-Dans le script `2_Landsat_Sentinel2_Median2`, changez simplement ``Colombie`` à la ligne 12 (ou à la ligne appropriée au cas où il s'agirait de votre propre script) en ``Cambodge`` et cliquez sur *Run*. Le script appelé `Cambodge` mentionné dans la section 1.2. Repository est une copie exacte de ce script mais avec le changement déjà effectué.
+Dans le script `2_Landsat_Sentinel2_Median2_fr`, changez simplement ``Colombia`` à la ligne 12 (ou à la ligne appropriée au cas où il s'agirait de votre propre script) en ``Cambodia`` et cliquez sur *Run*. Le script appelé `Cambodia_fr` mentionné dans la section 1.2. Repository est une copie exacte de ce script mais avec le changement déjà effectué.
 
 ```javascript
 var countryName = 'Cambodia';
@@ -855,7 +855,7 @@ Plus un multi-polygone est détaillé, plus il a besoin de ressources de calcul.
 
 **J'ai tapé "colombia" pour filtrer les données de la LSIB et cela n'a pas fonctionné. Pourquoi ?**
 
-Les propriétés d'un ensemble de données sont sensibles à la casse. La propriété `country_na` pour le pays de la Colombie est une chaîne qui commence par un "C" majuscule, donc, vous devez filtrer les métadonnées en utilisant `'Colombia'' et non `'colombia''.
+Les propriétés d'un ensemble de données sont sensibles à la casse. La propriété `country_na` pour le pays de la Colombie est une chaîne qui commence par un "C" majuscule, donc, vous devez filtrer les métadonnées en utilisant `Colombia` et non `colombia`.
 
 **Pourquoi utiliser le produit Landsat Surface Reflectance Tier 1 et non Tier 2? ** 
 
