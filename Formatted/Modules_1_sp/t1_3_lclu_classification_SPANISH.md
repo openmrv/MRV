@@ -147,7 +147,7 @@ GEE trabaja con scripts. Como se notó arriba, asumimos que está familiarizado 
 
 ![This is how you do it](./figures/m1.3/GEE_new_repo.png)
 
-3. Si tiene acceso de "reader" en el grupo de openMRV, verá el script en "users/openmrv/MRV/LCLUC/cls_landsat_v2_colombia".  O puede navegar al script directamente usando este enlace al [GEE script](https://code.earthengine.google.com/549b29a5d53880813d9b8f07b839bbb5).
+3. Si tiene acceso de "reader" en el grupo de openMRV, verá el script en "users/openmrv/MRV/OpenMRV_español/Part1/1.3 LCLU Classification/cls_landsat_v2_colombia_esp".  O puede navegar al script directamente usando este enlace al [GEE script](https://code.earthengine.google.com/80a6bba27b6188cea150056dbfaa64e4).
    1. Nos referiremos a este código como el Script Maestro, ya que ejecuta todos los pasos en este tutorial.
 4. Guárdelo a su carpeta preferida. Puede usar el video mencionado previamente como guía. 
 
@@ -412,7 +412,7 @@ Mapas de cobertura terrestre están asociados con el año en el cual las imágen
 
 A pesar de que limitar las imágenes y los datos de entrenamiento a un año singular es loable, mapas con valores ausentes son problemáticos. Dependiendo del objetivo del mapa, una opción para mejorar la cobertura del mapa es expandir la cantidad de años disponible para crear la imagen compuesta.
 
-En nuestro script de GEE de ejemplo, `cls_landsat_v2_colombia`, hemos proveído un ejemplo de como años de imágenes adicionales pueden fusionarse a una colección de imágenes antes de crear el mosaico. El método de fuerza bruta es simplemente construir dos colecciones de imágenes y luego usar el método GEE  `.merge()` para combinarlas.  
+En nuestro script de GEE de ejemplo, `cls_landsat_v2_colombia_esp`, hemos proveído un ejemplo de como años de imágenes adicionales pueden fusionarse a una colección de imágenes antes de crear el mosaico. El método de fuerza bruta es simplemente construir dos colecciones de imágenes y luego usar el método GEE  `.merge()` para combinarlas.  
 
 Si está copiando y pegando a su propio script, agregue la sección 3.7.1.2 a su script ahora. 
 
@@ -648,7 +648,7 @@ Suponiendo que tiene datos de entrenamiento para su nueva situación, pasar a un
 
 ### 5.1 Mozambique
 
-Para completar, hemos proporcionado una versión completa del Script Maestro adaptado a Mozambique. Se puede encontrar en el directorio OpenMRV bajo `cls_landsat_v2_mozambique`, o directamente de [este enlace](https://code.earthengine.google.com/b6c049e0f85da94a4ea392bce261d19c). 
+Para completar, hemos proporcionado una versión completa del Script Maestro adaptado a Mozambique. Se puede encontrar en el directorio OpenMRV bajo `cls_landsat_v2_mozambique_esp`, o directamente de [este enlace](https://code.earthengine.google.com/0e209c181912ab05800ae5448dfcb6f2). 
 
 #### 5.1.1 Ajustes al código
 
@@ -690,7 +690,7 @@ Figura M2. Comparación de tres variantes de clasificación en el esquema de cla
 
 ### 5.2 Camboya
 
-Al igual que en Mozambique, hemos proporcionado una versión completa del Script Maestro adaptada a Camboya. Se puede encontrar en el directorio OpenMRV bajo  `cls_landsat_v2_Camboya`, o directamente de [este enlace](https://code.earthengine.google.com/1fcaac622c0e644bf3139c251657f777). 
+Al igual que en Mozambique, hemos proporcionado una versión completa del Script Maestro adaptada a Camboya. Se puede encontrar en el directorio OpenMRV bajo  `cls_landsat_v2_cambodia_esp`, o directamente de [este enlace](https://code.earthengine.google.com/70f92eb52f7866708d77e6924f940d2b). 
 
 #### 5.2.1 Ajustes al código 
 
