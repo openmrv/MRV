@@ -4,7 +4,7 @@ summary: Ce tutoriel vous explique comment créer un composite à partir d'image
 author: Andrea Puzzi Nicolau
 creation date: Décembre 2020
 language: Français
-publisher and license: Copyright 2020, Banque mondiale. Ce travail est sous licenceCreative Commons Attribution 3.0 IGO
+publisher and license: Copyright 2021, Banque mondiale. Ce travail est sous licenceCreative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
@@ -875,7 +875,7 @@ En général, cette "erreur de script" n'affecte pas votre code. Si les sorties 
 
 Ce travail est sous licence [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/).
 
-Copyright 2020, World Bank
+Copyright 2021, World Bank
 
 Ce travail a été développé par Andrea Puzzi Nicolau dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte de ressources existantes - liées à la mesure, la notification et la vérification afin de soutenir la mise en œuvre du MRV par les pays.
 
@@ -895,7 +895,7 @@ Sofia Garcia, Guatemala, ministère de l'environnement et des ressources naturel
 Tatiana Nana, Cameroun, Secrétariat technique REDD  
 
 Attribution  
-Nicolau, Andrea P. 2020. Création de mosaïques/composites d'images pour Landsat et Sentinel-2 dans Google Earth Engine. © Banque mondiale. Licence : [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+Nicolau, A. P. 2021. Création de mosaïques/composites d'images pour Landsat et Sentinel-2 dans Google Earth Engine. © Banque mondiale. Licence : [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 
 
