@@ -131,7 +131,7 @@ Stehman, S.V., & Czaplewski, R.L., 1998. Design and analysis for thematic map ac
 
 Este trabajo tiene licencia bajo un [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) 
 
-Copyright 2020, World Bank. 
+Copyright 2021, World Bank. 
 
 Este trabajo fue desarrollado por Pontus Olofsson bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionadas a la Medida, Reportaje, y Verificación para el apoyo de implementación MRV en varios países. 
 
@@ -142,5 +142,7 @@ Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natu
 Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat
 
-Atribución: Olofsson, P. (2021). *Open MRV: Response Design*. World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)
+Atribución: 
+Olofsson, P. 2021. Response Design in AREA2. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+
 ![](figures/wb_fcfc_gfoi.png)
