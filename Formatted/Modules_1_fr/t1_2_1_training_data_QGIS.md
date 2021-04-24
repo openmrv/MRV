@@ -88,7 +88,7 @@ Le processus de collecte des données d'entraînement dans QGIS est détaillé d
 2. Chargement d'un fond de carte à l'aide d'un plugin QGIS. 
 3. Rassembler les données d'entraînement en définissant manuellement les points d'entraînement.  
 
-![WB_graphs_v2-05](./figures/m1.2/m1.2.2/WB_graphs_v2-05.png)
+![WB_graphs_v2-05](./figures/m1.2/m1.2.2/WB_graphs_v2-05_fr.png)
 
 
 
