@@ -1,6 +1,6 @@
 ---
 title: Échantillonnage aléatoire simple/systématique
-summary: En télédétection ou dans un contexte géographique, les approches basées sur l'échantillonnage sont nécessaires car elles nous permettent d'estimer le biais de la zone, la précision de la carte et l'incertitude. Une approche d'estimation basée sur l'échantillonnage peut être séparée en trois composantes différentes : le plan d'échantillonnage, le plan de réponse et l'analyse (Stehman & Czaplewski, 1998). La première composante, le plan d'échantillonnage, est illustrée dans ce tutoriel pour le cas d'un plan d'échantillonnage aléatoire simple/systématique. D'autres tutoriels ici sur OpenMRV sous le processus "Plan d'échantillonnage" explorent d'autres approches du plan d'échantillonnage (par exemple, l'échantillonnage aléatoire stratifié).
+summary: En télédétection ou dans un contexte géographique, les approches basées sur l'échantillonnage sont nécessaires car elles nous permettent d'estimer le biais de la zone, la précision de la carte et l'incertitude. Une approche d'estimation basée sur l'échantillonnage peut être séparée en trois composantes différentes - le plan d'échantillonnage, le plan de réponse et l'analyse (Stehman & Czaplewski, 1998). La première composante, le plan d'échantillonnage, est illustrée dans ce tutoriel pour le cas d'un plan d'échantillonnage aléatoire simple/systématique. D'autres tutoriels ici sur OpenMRV sous le processus "Plan d'échantillonnage" explorent d'autres approches du plan d'échantillonnage (par exemple, l'échantillonnage aléatoire stratifié).
 
 author: Pontus Olofsson
 creation date:  Février, 2021
@@ -186,9 +186,17 @@ Stehman, S.V., & Czaplewski, R.L., 1998. Design and analysis for thematic map ac
 
 Cette œuvre est soumise à une licence [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
-Copyright 2020, Banque Mondiale. Ce travail a été développé par Pontus Olofsson dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte de ressources existantes - liées à la mesure, la communication et la vérification pour soutenir la mise en œuvre du MRV dans les pays.
+Copyright 2021, Banque Mondiale. Ce travail a été développé par Pontus Olofsson dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte de ressources existantes - liées à la mesure, la communication et la vérification pour soutenir la mise en œuvre du MRV dans les pays.
 
-Matériel révisé par : Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD) Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS) Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources Paula Andrea Paz, Colombia, International Center for Tropical Agriculture (CIAT) Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD) Rajesh Bahadur Thapa, Nepal, International Centre for Integrated Mountain Development (ICIMOD) Tatiana Nana, Cameroon, REDD+ Technical Secretariat
+Matériel révisé par : 
+Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources  
+Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
+Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS)    
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
+Paula Andrea Paz, Colombia, International Center for Tropical Agriculture (CIAT)    
+Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)   
+Rajesh Bahadur Thapa, Nepal, International Centre for Integrated Mountain Development (ICIMOD)    
+Tatiana Nana, Cameroon, REDD+ Technical Secretariat 
 
 Attribution: Olofsson, P. 2021. Simple random/systematic sampling. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
