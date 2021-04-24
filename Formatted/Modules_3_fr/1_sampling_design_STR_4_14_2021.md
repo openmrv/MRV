@@ -1,71 +1,40 @@
 ---
 
-title: Stratified random sampling
-summary: Sampling-based approaches in a remote sensing or geographical context are necessary because they allow us to estimate area bias, map accuracy and uncertainty. A sampling-based approach to estimation can be separated into three different components - sampling design, response design and analysis (Stehman & Czaplewski, 1998). The first component, sampling design, is illustrated in this tutorial for the case of stratified random sampling design. Other tutorials here on OpenMRV under process "Sampling design" explore other sampling design approaches (e.g. Simple random/systematic sampling design).
+title: Échantillonnage aléatoire stratifié
+summary: Dans le contexte de la télédétection ou de la géographie, les approches basées sur l'échantillonnage sont nécessaires car elles nous permettent d'estimer le biais de la zone, la précision de la carte et l'incertitude. Une approche d'estimation basée sur l'échantillonnage peut être séparée en trois composantes différentes : le plan d'échantillonnage, le plan de réponse et l'analyse (Stehman & Czaplewski, 1998). La première composante, le plan d'échantillonnage, est illustrée dans ce tutoriel pour le cas du plan d'échantillonnage aléatoire stratifié. D'autres tutoriels ici sur OpenMRV sous le processus "Plan d'échantillonnage" explorent d'autres approches de plan d'échantillonnage (par exemple le plan d'échantillonnage aléatoire simple/systématique).
 author: Pontus Olofsson
-creation date: February, 2021
-language: English
-publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+creation date: Février, 2021
+language: Françai
+publisher and license: Copyright 2021, Banque mondiale. Ce travail est sous licence Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
-- Landsat
-- Sentinel 2
-- Sentinel 1
-- Cloud cover
-- Optical sensors
-- Remote sensing
-- Composite
-- Mosaic
-- Time series
-- Change detection
-- Land cover mapping
-- Forest mapping
-- Deforestation mapping
-- Degradation mapping
-- Forest degradation mapping
 - QGIS
 - GEE
-- AREA2
-- Sampling design
-- Sample design
-- Sample selection
-- Sample
-- Sampling frame
-- Stratified
-- Simple Random
-- Systematic
-- Response design
-- Survey
-- Survey design
-- Accuracy
-- Accuracy assessment
-- Area Estimation
-- Reference data
-- Reference classification
-- Reference observations
-- Colombia
+- Plan d'échantillonnage
+- Conception de l'échantillon
+- Sélection de l'échantillon
+- Échantillon
+- Cadre d'échantillonnage
+- Stratifié
+- Colombie
 
 group:
-- category : Stratified
-  stage : Sampling
-- category : Simple Random
-  stage : Sampling
-- category : Cluster
-  stage : Sampling
-- category : Systematic
-  stage : Sampling
-- category : Stratified
-  stage : Area Estimation/Accuracy assessment
-- category : Expansion
-  stage : Area Estimation/Accuracy assessment
-- category : Model-assisted
-  stage : Area Estimation/Accuracy assessment
-- category : Ratio
-  stage : Area Estimation/Accuracy assessment
+- catégorie : Stratifié
+  étape : Echantillonnage
+- catégorie : Cluster
+  étape : Echantillonnage
+- catégorie : Stratifié
+  étape : Calcul de la superficie
+- catégorie : Expansion
+  étape : Calcul de la superficie
+- catégorie : Modèle assisté
+  étape : Calcul de la superficie
+- catégorie : Ratio
+  étape : Calcul de la superficie
 ---
 
-# Stratified random sampling
+# Échantillonnage aléatoire stratifié
 
 ## 1 Contexte
 
@@ -77,18 +46,18 @@ Lors du choix d'un plan d'échantillonnage, nous devons tenir compte de quelques
 
 ## 2 Objectifs d'apprentissage
 
-L'objectif de ce tutoriel est de fournir à l'utilisateur une compréhension des diverses décisions clés impliquées dans la conception d'un effort d'estimation basé sur l'échantillonnage. Il est important de comprendre la relation entre la taille de l'échantillon et l'allocation des unités d'échantillonnage aux strates, ainsi que les objectifs primordiaux de l'estimation tels que la précision cible. À la fin du tutoriel, l'utilisateur devrait être en mesure de choisir une méthode de sélection d'échantillon -- SYS, SRS ou STR --, de déterminer la taille de l'échantillon et d'allouer l'échantillon aux strates, en fonction des objectifs liés à l'estimation.
+Pour ce tutoriel spécifique, nous nous focaliserons sur le plan d'échantillonnage aléatoire stratifié.L'objectif de ce tutoriel est de fournir à l'utilisateur une compréhension des diverses décisions clés impliquées dans la conception d'un effort d'estimation basé sur l'échantillonnage. Il est important de comprendre la relation entre la taille de l'échantillon et l'allocation des unités d'échantillonnage aux strates, ainsi que les objectifs primordiaux de l'estimation tels que la précision cible. À la fin du tutoriel, l'utilisateur devrait être en mesure de choisir une méthode de sélection d'échantillon -- SYS, SRS ou STR --, Déterminer la taille de l'échantillon et l'allouer aux strates, en fonction des objectifs d'estimation pour le plan d'échantillonnage aléatoire stratifié
 
 - Comprendre les différentes décisions clés impliquées dans la conception d'un effort d'estimation basé sur l'échantillonnage
 - Choisir une méthode de sélection d'échantillon -- SYS, SRS ou STR en fonction des objectifs d'estimation.
 - Déterminer la taille de l'échantillon et l'allouer à des strates, en fonction des objectifs d'estimation.
 
-### 2.1 Prérequis pour ce module
+### 2.1 Pré-requis
 
 - Révision de la terminologie pertinente pour les techniques d'échantillonnage dans le tutoriel 3.1 Terminologie
-- Il est fortement conseillé de comprendre les tutoriels précédents des modules 1 et 2.
+- Il est fortement conseillé d'avoir Compte Google Earth Engine (GEE). Veuillez vous référer au processus "Pré-traitement" et à l'outil "GEE" ici sur OpenMRV pour plus d'informations sur le travail dans cet environnement.
 
-## 3 Tutorial: Sampling design for estimation of area and map accuracy - Stratified random sampling
+## 3 Tutoriel : Plan d'échantillonnage pour l'estimation de la superficie et de la précision  - Échantillonnage aléatoire stratifié
 
 ### 3.1 Comment choisir un plan d'échantillonnage?
 
@@ -108,21 +77,22 @@ Une grappe est une unité d'échantillonnage qui consiste en une ou plusieurs un
 
 L'exemple ci-dessus illustre l'inconvénient du SRS/SYS : lorsque nous essayons d'estimer quelque chose qui représente une petite proportion de la population, une très grande taille d'échantillon est nécessaire dans le cadre du SRS/SYS. Dans de telles situations, l'échantillonnage aléatoire stratifié (EAS) est recommandé. On parle de EAS lorsque “l'échantillonnage aléatoire simple est effectué dans chaque strate” (Cochran 1977, p. 89)[^fn4]. Par conséquent, nous divisons la population en strates et sélectionnons un échantillon dans chaque strate sous SRS (ou SYS). Le EAS ajoute un autre niveau de complexité et nous oblige à déterminer comment répartir l'unité d'échantillonnage entre les strates en plus de déterminer la taille totale de l'échantillon.
 
-### 3.2 Stratified random sampling
+### 3.2 Échantillonnage aléatoire stratifié
 
-The motivation to use STR arises when we are trying to estimate something that is a small proportion of the population, and under SRS/SYS, a very large sample size is required. In such situations, stratified random sampling (STR) is recommended. STR is simply when “simple random sampling is taken in each stratum” (Cochran 1977, p. 89). Accordingly, we split the population into strata and select a sample in each strata under SRS (or SYS). STR adds another level of complexity and requires us to determine how to allocate the sample unit to strata in addition to determining the total sample size. For more information about SRS/SYS, please consult here on OpenMRV the tutorials under process "Sampling design".
+La motivation pour utiliser le STR apparaît lorsque nous essayons d'estimer quelque chose qui représente une petite proportion de la population, et que dans le cadre du SRS/SYS, une très grande taille d'échantillon est nécessaire. Dans de telles situations, l'échantillonnage aléatoire stratifié (STR) est recommandé. On parle de STR lorsque " l'échantillonnage aléatoire simple est effectué dans chaque strate " (Cochran 1977, p. 89). En conséquence, nous divisons la population en strates et sélectionnons un échantillon dans chaque strate sous SRS (ou SYS). La STR ajoute un autre niveau de complexité et nous oblige à déterminer comment allouer l'unité d'échantillonnage aux strates en plus de déterminer la taille totale de l'échantillon. Pour plus d'informations sur SRS/SYS, veuillez consulter ici sur OpenMRV les tutoriels sous le processus " Plan d'échantillonnage ".
+Pour plus d'informations sur le SRS/SYS, veuillez consulter ici sur OpenMRV les tutoriels sous le processus " Plan d'échantillonnage ".
 
 #### 3.2.1 Taille de l'échantillon
 
-Comme pour le SRS/SYS, nous devons spécifier un objectif de précision et calculer à l'aide de l'estimateur de variance EAS la taille totale de l'échantillon (*n*) nécessaire pour atteindre la précision cible. En résolvant l'estimateur de variance EAS, on obtient (Olofsson et al., 2014, Eq. 13. modifié à partir de Cochran, 1977, Eq 5.25)[^fn4]
+Comme pour le SRS/SYS, nous devons spécifier un objectif de précision et calculer à l'aide de l'estimateur de variance STR la taille totale de l'échantillon (*n*) nécessaire pour atteindre la précision cible. En résolvant l'estimateur de variance STR, on obtient (Olofsson et al., 2014, Eq. 13. modifié à partir de Cochran, 1977, Eq 5.25)[^fn4]
 
 [![img](https://camo.githubusercontent.com/2ceb9061ac9e8f8c8224ba8a4375927c1025357f1b34e260ca08185a446b1633/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f7376672e6c617465783f2535434c617267652673706163653b6e3d2535436c6566742673706163653b2535422535436672616325374225354373756d5f25374268253744575f6825354374657874757025374253442537445f6825374425374225354374657874253742534525374428702925374425354372696768742673706163653b25354425354532)](https://camo.githubusercontent.com/2ceb9061ac9e8f8c8224ba8a4375927c1025357f1b34e260ca08185a446b1633/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f7376672e6c617465783f2535434c617267652673706163653b6e3d2535436c6566742673706163653b2535422535436672616325374225354373756d5f25374268253744575f6825354374657874757025374253442537445f6825374425374225354374657874253742534525374428702925374425354372696768742673706163653b25354425354532)
 
-*Wh* est le poids de la strate *h*, qui est simplement la superficie de la strate exprimée en proportion de la zone d'étude totale ; SD*h* est l'écart-type de la strate *h*, qui est expliqué ci-dessous. L'erreur standard cible est SE(*p*). Revenons maintenant à l'exemple de la perturbation de forêt en Colombie mais utilisons maintenant la carte que nous avons générée dans le tutoriel CODED de la perturbation, de la forêt stable et de la non-forêt stable. Le calcul de la taille de l'échantillon sous EAS est un peu plus compliqué, nous utiliserons donc une feuille de calcul de Google Sheets (ou Microsoft Excel si vous préférez). La feuille de calcul utilisée dans ce tutoriel est accessible ici : https://docs.google.com/spreadsheets/d/1lmPt35SvR3X7txpn0cwd-xkgwC_4nRPL520OZZcRKX0/edit?usp=sharing
+*Wh* est le poids de la strate *h*, qui est simplement la superficie de la strate exprimée en proportion de la zone d'étude totale ; SD*h* est l'écart-type de la strate *h*, qui est expliqué ci-dessous. L'erreur standard cible est SE(*p*). Nous allons démontrer le calcul en utilisant une carte provenant d'un autre tutoriel ici sur OpenMRV qui peut être trouvé sous le processus "Détection de changement" et l'outil "CODED". Cette carte est une carte de perturbation, de forêt stable et de non-forêt stable et peut être trouvée en tant que ressource GEE [ici](https://code.earthengine.google.com/?asset=users/openmrv/MRV/CODED_Colombia_Stratification_No_Buffer). Le calcul de la taille de l'échantillon sous STR  peut etre compliqué, nous utiliserons donc une feuille de calcul de Google Sheets (ou Microsoft Excel si vous préférez). La feuille de calcul utilisée dans ce tutoriel est accessible ici : https://docs.google.com/spreadsheets/d/1lmPt35SvR3X7txpn0cwd-xkgwC_4nRPL520OZZcRKX0/edit?usp=sharing
 
 ##### Étape 1
 
-Tout d'abord, nous devons calculer le nombre de pixels de chaque strate ; ceci peut être fait en utilisant GDAL, QGIS, Google Earth Engine, etc. ; dans le tutoriel CODED, ces zones sont affichées dans la *Console* de Google Earth Engine. Si ce n'est pas le cas, ou si vous avez un actif GEE existant, chargez l'actif en utilisant le script AREA2 Stratified Random Sampling (https://code.earthengine.google.com/6a0f89221d40ee039362974d303ff5aa) pour calculer les poids des strates. Ajoutez ces chiffres sur la première ligne "Area [px]". Dans la deuxième ligne, exprimez ces surfaces sous forme de proportion (dans la cellule B3 tapez "=B2/sum($B2:$D2") et prolongez jusqu'à E2). Ces proportions sont appelées poids des strates (*Wh*).
+Tout d'abord, nous devons calculer le nombre de pixels de chaque strate ; ceci peut être fait en utilisant GDAL, QGIS, Google Earth Engine, etc. ; Si vous avez utilisé l'outil "CODED" ici sur OpenMRV, ces zones sont affichées dans la *Console* de Google Earth Engine.Si ce n'est pas le cas, ou si vous avez un actif GEE existant, chargez l'actif en utilisant le script AREA2 Stratified Random Sampling (https://code.earthengine.google.com/6a0f89221d40ee039362974d303ff5aa) pour calculer les poids des strates. Ajoutez ces chiffres sur la première ligne "Area [px]". Dans la deuxième ligne, exprimez ces surfaces sous forme de proportion (dans la cellule B3 tapez "=B2/sum($B2:$D2") et prolongez jusqu'à E2). Ces proportions sont appelées poids des strates (*Wh*).
 
 |      | A               | B               | C               | D              | E                 |
 | ---- | --------------- | --------------- | --------------- | -------------- | ----------------- |
@@ -188,7 +158,7 @@ ce qui donne une taille d'échantillon de 599 -- c'est-à-dire environ 1/8 de la
 
 Un problème potentiel dans la situation ci-dessus est que les omissions de perturbations présentes dans la strate de forêt auront un impact important sur la précision des estimations. Ces erreurs d'omission sont des unités d'échantillon dans la strate forêt qui ont été observées dans les données de référence comme étant des perturbations. La question est expliquée en détail dans Olofsson et al. (2020)[^fn6] aet ici nous reconnaissons simplement que la "contribution à l'incertitude" des erreurs d'omission dépend dans une large mesure de la taille de la strate dans laquelle elles se produisent. Nous souhaitons donc diminuer la taille de la strate forêt qui représente actuellement 83% de la zone d'étude. En particulier, nous voulons créer de petites substrats où les omissions de perturbations sont susceptibles de se produire. Une approche explorée dans la littérature est la création de strates tampons autour des strates de changement -- le raisonnement est que les erreurs sont susceptibles de se produire près des changements correctement cartographiés. Dans notre cas, une telle strate tampon pourrait être définie comme les pixels de la strate forêt adjacente à la perturbation.
 
-La création d'un tampon n'est pas illustrée dans les tutoriels précédents, alors faisons-le maintenant. Cliquez sur ce lien : Un script pour créer un tampon dans la sortie CODED est disponible dans AREA2 : https://code.earthengine.google.com/861290ef20f0d76e7639d430471c7eae
+Illustrons la création d'un tampon. Cliquez sur ce lien : Un script pour créer un tampon dans la sortie de l'outil "CODED" ici sur OpenMRV est disponible dans AREA2: https://code.earthengine.google.com/861290ef20f0d76e7639d430471c7eae
 
 Vous pouvez également utiliser cette carte existante de la Colombie basée sur le CODED avec un tampon :
 
@@ -269,13 +239,13 @@ Un deuxième exemple est fourni par Sannier et al. (2013)[^fn9] qui ont estimé 
 
 ### 3.4 Logiciel permettant d'estimer la taille de l'échantillon
 
-SEPAL/CEO a un support intégré pour l'estimation de la taille de l'échantillon comme expliqué dans cette publication (défilement vers le bas jusqu'à la section 14).
+SEPAL/CEO a un support intégré pour estimer la taille de l'échantillon comme expliqué dans [cette documentation](https://sepal-ceo.readthedocs.io/en/latest/).
 
 Similaire à SEPAL est cette feuille de calcul développée par la Banque Mondiale qui calcule également la taille de l'échantillon nécessaire pour atteindre une précision de l'exactitude globale https://onedrive.live.com/view.aspx?resid=9815683804F2F2C7!37340&ithint=file%2cxlsx&authkey=!ANcP-Xna7Knk_EE
 
 ### 3.5 Sélection de l'échantillon
 
-La dernière étape du plan d'échantillonnage consiste à tirer physiquement l'échantillon de la zone d'étude, ce qui est abordé dans le prochain tutoriel.
+La dernière étape du plan d'échantillonnage consiste à tirer physiquement l'échantillon de la zone d'étude, qui est abordé ici sur OpenMRV sous le processus "Plan d'échantillonnage" et les outils "QGIS", "GEE", "AREA2".
 
 ## 4 Foire aux questions (FAQs)
 
