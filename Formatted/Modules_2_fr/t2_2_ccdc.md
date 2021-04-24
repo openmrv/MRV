@@ -73,7 +73,7 @@ Ce tutoriel utilisera l'implémentation du CCDC dans GEE, d'où la nécessité d
 
 Le CCDC utilise toutes les données de réflectance de surface Landsat masquées par les nuages disponibles pour une zone d'étude. Les détails de la mise en œuvre initiale sont décrits dans Zhu et Woodcock (2014). Le CCDC est un algorithme généralisé pour le suivi de différents types de changement au sol. Il ne repose donc pas sur une bande spectrale ou un indice unique, et ne filtre pas les changements en fonction des changements de direction spectrale spécifiques. Un diagramme schématique de CCDC se trouve ci-dessous. 
 
-![image2](./images/CCDC/image2.png)
+![image2](./images/CCDC/image2_fr.png)
 
 
 Comme son nom l'indique, le CCDC se compose d'une composante de détection des changements et d'une composante de classification. La détection des changements est effectuée à l'aide de toutes les images Landsat disponibles et d'un ensemble de bandes spectrales ou d'indices définis par l'utilisateur. Généralement, au moins les bandes verte, rouge, NIR, SWIR1 et SWIR2 sont utilisées pour la détection des changements. Toutes les données sont filtrées au niveau du pixel pour les nuages selon la bande "pixel_qa", ou fMask. 
