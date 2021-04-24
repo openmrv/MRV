@@ -153,11 +153,18 @@ Stehman, S.V. and Wickham, J.D., 2011. Pixels, blocks of pixels, and polygons: C
 
 Este trabajo tiene licencia bajo un [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
-Copyright 2020, World Bank.
+Copyright 2021, World Bank.
 
 Este trabajo fue desarrollado por Pontus Olofsson bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionadas a la Medida, Reportaje, y Verificación para el apoyo de implementación MRV en varios países.
 
-Material revisado por: Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD) Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS) Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources Paula Andrea Paz, Colombia, International Center for Tropical Agriculture (CIAT) Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD) Rajesh Bahadur Thapa, Nepal, International Centre for Integrated Mountain Development (ICIMOD) Tatiana Nana, Cameroon, REDD+ Technical Secretariat
+Material revisado por: 
+Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources  
+Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
+Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS)  
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
+Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)  
+Rajesh Bahadur Thapa, Nepal, International Centre for Integrated Mountain Development (ICIMOD)  
+Tatiana Nana, Cameroon, REDD+ Technical Secretariat 
 
 Atribución: Olofsson, P. 2021. Sample selection using AREA2. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
