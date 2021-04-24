@@ -1,6 +1,6 @@
 ---
 title: Notions de base sur les méthodes de détection des changements
-summary: Ce tutoriel donne un aperçu des bases des méthodes de détection des changements et présente trois algorithmes différents (LandTrendr, CCDC et CODED) pour le suivi des changements du paysage. Il existe des tutoriels approfondis pour ces trois algorithmes si vous souhaitez en savoir plus ou essayer vous-même la détection des changements. 
+summary: Ce tutoriel donne un aperçu des bases des méthodes de détection des changements et présente trois algorithmes différents (LandTrendr, CCDC et CODED) pour le suivi des changements du paysage. Il y a des tutoriels approfondis ici sur OpenMRV sous le processus "Détection de changement" pour ces trois algorithmes si vous voulez en savoir plus ou si vous voulez,vous-même, essayer la détection de changement de l'occupation du sol.
 
 author:
 - Robert E Kennedy
@@ -11,27 +11,9 @@ publisher and license: Copyright 2021, Banque mondiale. Ce travail est sous lice
 
 tags:
 - OpenMRV
-- Landsat
-- Sentinel 2
-- GEE
-- Couverture nuageuse
-- Capteurs optiques
 - Télédétection
-- Composite
-- Mosaïque
-- CCDC
-- CODED
-- LandTrendr
-- Séries chronologiques
 - Détection des changements
-- Cartographie d'occupation du sol
-- Cartographie forestière
-- Cartographie de la déforestation
-- Cartographie de la dégradation
-- Cartographie de la dégradation des forêts
-- Colombie
-- Mozambique
-- Cambodge
+
 
 group:
 - catégorie : Composite ( Médoïde) et
@@ -54,7 +36,7 @@ group:
 
 ## Contexte
 
-L'objectif de la détection des changements par l'image est d'identifier et de cartographier quand et où des changements importants se produisent à la surface de la Terre.  Les méthodes décrites dans les sections suivantes de ce module (LandTrendr, CCDC et CODED) reposent toutes sur un principe simple pour ce faire :  On s'attend à ce que les changements à la surface provoquent une modification de la réflectance spectrale suffisamment distincte pour pouvoir être saisie par un algorithme.  
+L'objectif de la détection des changements par l'image est d'identifier et de cartographier quand et où des changements importants se produisent à la surface de la Terre.  Les méthodes décrites ici sur OpenMRV sous le processus "Détection des changements" et les outils "GEE", "LandTrendr", "CCDC" et "CODED"  reposent toutes sur un principe simple pour ce faire :  On s'attend à ce que les changements à la surface provoquent une modification de la réflectance spectrale suffisamment distincte pour pouvoir être saisie par un algorithme.  
 
 L'objectif de la détection des changements sous-entend plusieurs questions que les utilisateurs doivent prendre en compte lorsqu'ils se lancent dans un exercice de détection des changements.  
 
@@ -62,7 +44,7 @@ Premièrement, la définition de ce qui rend un changement "intéressant" dépen
 
 Deuxièmement, les définitions de "quand" et "où" un changement est cartographié dépendent de la configuration du capteur et de l'algorithme.  La résolution temporelle pour identifier un changement à l'aide de capteurs optiques est limitée par la vitesse de balayage du capteur et les conditions de couverture nuageuse près de la surface.  De plus, la portée de l'imagerie historique impose une limite à la première fois où un changement peut être suivi.  Le "lieu" de la cartographie des changements dépend de la résolution spatiale du capteur. Si la résolution spatiale du capteur est élevée par rapport à l'empreinte du processus de changement qui nous intéresse, la zone réelle cartographiée comme changement peut par un rendu relativement peu satisfaisant du changement réel de la surface. Imaginez de cartographier la construction d'une nouvelle route dans une forêt avec le satellite Landsat de resolution spatiale 30 par 30 m :  Si les propriétés spatiales d'une route beaucoup plus étroite que 30 m peuvent encore faire apparaître que le pixel a changé, la zone de ce changement ne peut pas être résolue en unités plus petites que la taille du pixel entier.  
 
-Une compréhension de base des fondements spectraux du changement aidera les utilisateurs à interpréter comment ces facteurs sont traités par les différents algorithmes de changement qui suivent. 
+Une compréhension de base des fondements spectraux du changement aidera les utilisateurs à interpréter la façon dont ces facteurs sont traités par différents algorithmes de changement qui peuvent être trouvés ici sur OpenMRV sous le processus "Détection des changements" et les outils "GEE", "LandTrendr", "CCDC" et "CODED".
 
 ### 1.1 **Le changement est un mouvement dans le domaine spectral**
 
@@ -94,7 +76,7 @@ Plus nous comprenons le mécanisme de déplacement d'un pixel dans l'espace spec
 
 
 
-Les trois algorithmes décrits dans les sections suivantes s'appuient tous sur ce dernier concept pour reconnaître quand un changement intéressant s'est produit. 
+Les algorithmes décrits ici sur OpenMRV sous le processus "Détection des changements" et les outils "GEE", "LandTrendr", "CCDC" et "CODED" s'appuient tous sur ce dernier concept pour reconnaître quand un changement intéressant s'est produit.
 
 -----
 
