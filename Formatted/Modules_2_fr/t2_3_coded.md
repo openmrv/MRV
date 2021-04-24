@@ -402,7 +402,7 @@ Une *chiSquareProbability* inférieure a pour effet d'augmenter la sensibilité 
 
 Les perturbations sont attribuées à la déforestation ou à la dégradation en fonction d'occupation  des sols après la perturbation. S'il y a une conversion de la forêt en zone non forestière (par exemple, pâturages, habitats ou agriculture), la perturbation est considérée comme une déforestation. Si la régénération commence après la perturbation et qu'il n'y a pas de conversion de la couverture du sol, alors la perturbation est qualifiée de dégradation. Ce processus d'attribution peut généralement être décrit selon l'organigramme suivant :
 
-![img16](./images/CODED/img16.png)
+![img16](./images/CODED/img16_fr.png)
 
 
 ## 4 Running CODED with a Graphical User Interface
