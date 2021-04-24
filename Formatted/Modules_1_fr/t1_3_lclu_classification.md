@@ -20,13 +20,7 @@ tags:
 - Classification non supervisée
 - Cartographie de l'occupation  du sol
 - Cartographie forestière
-- Échantillon
 - Plan d'échantillonnage
-- Plan d'échantillonnage
-- Sélection de l'échantillon
-- Précision
-- Évaluation de l'exactitude
-- Biais
 - Colombie
 - Mozambique
 - Cambodge
@@ -197,7 +191,7 @@ var training = ee.FeatureCollection('users/openmrv/MRV/colombia_training');
 >Terminologie :  Dans GEE, les ensembles de données tels que ces points de formation sont définis comme une "FeatureCollection".  Pour les utilisateurs familiers avec les concepts de shapefiles ou de représentations vectorielles similaires de données géospatiales, les deux sont essentiellement les mêmes. Dans GEE, les données vectorielles ont une "géométrie", qui contient la position géographique des points, des lignes et des polygones d'un objet vectoriel, ainsi que les attributs qui enregistrent les informations sur ces géométries. Pris ensemble, ces éléments constituent une seule "caractéristique", comme un point ou un polygone unique.  La plupart de ces éléments sont considérés comme une "FeatureCollection".  
 
 
-Pour référence, nous avons défini les codes de classe et les étiquettes dans le module précédent comme suit : 
+Pour référence, nous avons défini les codes de classe et les labels pour cet ensemble de données d'entraînement comme suit : 
 
 | **Class code** | **Class label** |
 | :------------: | :-------------: |
@@ -260,7 +254,7 @@ Les noms des bandes peuvent être trouvés dans la description de la source d'im
 ```javascript
 var landcover_labels = 'landcover'
 ```
-Cela permet de spécifier quel attribut de la FeatureCollection contient les valeurs des classes.  Comme indiqué dans le module 1.2, cette étiquette doit être un code numérique. 
+Cela permet de spécifier quel attribut de la FeatureCollection contient les valeurs des classes. Ces lables  doivent être un code au format numérique. 
 
 
 ```javascript
@@ -360,7 +354,7 @@ Il est utile de rappeler que les points d'entraînement utilisés pour construir
 
 ## 3.7 Évaluer et améliorer les cartes
 
-En fin de compte, la précision de la carte sera évaluée à l'aide d'un protocole d échantillonnage   avec un processus décrit dans les modules ultérieurs.  Cependant, il est souvent utile d'évaluer visuellement une carte pour trouver des erreurs flagrantes et l'améliorer de manière itérative avant de prendre le temps de construire un échantillon de précision robuste. [Nous fournissons une courte vidéo pour vous aider à démarrer]( https://youtu.be/A7TEZMi_0cc ) sur l'évaluation des résultats de la classification. 
+En fin de compte, la précision de la carte sera évaluée à l'aide d'un échantillon basé sur le plan d'échantillonnage avec un processus décrit ici sur OpenMRV sous le processus "Sampling design" (plan d'échantillonnage).Cependant, il est souvent utile d'évaluer visuellement une carte pour trouver des erreurs flagrantes et l'améliorer de manière itérative avant de prendre le temps de construire un échantillon de précision robuste. [Nous fournissons une courte vidéo pour vous aider à démarrer]( https://youtu.be/A7TEZMi_0cc ) sur l'évaluation des résultats de la classification. 
 
 Plusieurs problèmes sont évidents dans la carte CART présentée ici. 
 
@@ -656,7 +650,7 @@ Tout d'abord, nous devons préciser les limites spatiales appropriées.  Comme l
 ```javascript
 var country = countries.filter(ee.Filter.eq('country_na', 'Mozambique'));
 ```
-Ensuite, nous identifions les données de formation appropriées, ici la version développée dans le module précédent sur les données de formation utilisant le QGIS. 
+Ensuite, nous identifions les données de formation appropriées, ici la version développée sur OpenMRV sous le processus "Collecte de données d'entraînement" et l'outil "QGIS".
 
 ```javascript
 var training_points = ee.FeatureCollection('users/openmrv/MRV/mozambique_training');
