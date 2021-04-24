@@ -4,7 +4,7 @@ summary: Ce tutoriel montre comment collecter des données d'entraînement caté
 author: Eric Bullock
 creation date: December, 2020
 language: Français
-publisher and license: Copyright 2020, Banque mondiale. Ce travail est sous licence Creative Commons Attribution 3.0 IGO
+publisher and license: Copyright 2021, Banque mondiale. Ce travail est sous licence Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
@@ -601,9 +601,9 @@ Ne vous inquiétez pas ! Ce même tutoriel est disponible ici sur OpenMRV pour l
 
 ![](./figures/m1.1/cc.png)  
 
-Ce travail est sous licence [Creative Commons Attribution 3.0 IGO] (https://creativecommons.org/licenses/by/3.0/igo/) 
+Ce travail est sous licence [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) 
 
-Copyright 2020, Banque mondiale  
+Copyright 2021, Banque mondiale  
 
 Ce travail a été développé par Eric Bullock dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte des ressources existantes - liées à la mesure, la notification et la vérification afin de soutenir la mise en œuvre du MRV par les pays.  
 
@@ -623,7 +623,7 @@ KONAN Yao Eric Landry, Cote d'Ivoire, REDD+ Permanent Executive Secretariat
 Paula Andrea Paz, Colombia, International Center for Tropical Agriculture   
 
 Attribution 
-Bullock, E. 2020. Training Data Collection Using QGIS. © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)   
+Bullock, E. 2021. Training Data Collection Using QGIS. © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)   
 
 ![](figures/m1.1/wb_fcfc_gfoi.png)
 
