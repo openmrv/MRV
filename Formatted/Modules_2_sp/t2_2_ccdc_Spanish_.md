@@ -295,7 +295,7 @@ El caso de prueba en Camboya se demostrará aquí utilizando la API de CCDC. Est
 
 En la [consola Javascript de Google Earth Engine](https://code.earthengine.google.com/), primero debe cargar la API de CCDC y definir los parámetros para la detección de cambios y la región de estudio. Para este ejemplo, usaremos todo el país de Camboya como región de estudio.
 
-Copie y pegue el siguiente script en GEE, o cargue el script en el repositorio Open MRV GEE llamado ‘CCDC/Cambodia_1’: 
+Copie y pegue el siguiente script en GEE, o cargue el script en el repositorio Open MRV GEE llamado ‘OpenMRV_español/Part 2/CCDC_esp/Cambodia_1_esp’: 
 
 
 ```javascript
@@ -813,7 +813,7 @@ Map.addLayer(matchingDate, {min: 1, max: 4, palette: ['##a6d854','##386cb0','##e
 
 
 
-#### 3.2 Mozambique: GUIs de CCDC 
+#### 3.3 Mozambique: GUIs de CCDC 
 
 Para facilitar el acceso a la nueva API, hemos creado una serie de interfaces gráficas de usuario (GUIs por sus siglas en ingles) que no requieren programación de parte del usuario. Descripciones detalladas de estas herramientas se pueden encontrar en [Arevalo et al., 2020](https://doi.org/10.3389/fclim.2020.576740). 
 
@@ -940,7 +940,7 @@ Finalmente, cuando hace clic en "Ejecutar clasificación", la clasificación cor
 
 #### Crear Mapas de Cobertura Terrestre y de Cambio Terrestre 
 
-Una vez que la tarea ha completado el procesamiento, podemos usarla para hacer mapas de cobertura terrestre en cualquier fecha para la región de estudio. Este asset se puede utilizar directamente en la [Aplicación Landcover](https://code.earthengine.google.com/?scriptPath=users%2Fparevalo_bu%2Fgee-ccdc-tools%3AAPPS%2Flandcover_app). Esta aplicación es relativamente simple: todo lo que necesita hacer es especificar la ruta a la imagen del segmento creada anteriormente y una lista de fechas y ¡listo! Un ejemplo del resultado creado siguiendo los pasos anteriores se puede encontrar en: "users / openmrv / MRV / Mozambique_CCDC_Segments".
+Una vez que la tarea ha completado el procesamiento, podemos usarla para hacer mapas de cobertura terrestre en cualquier fecha para la región de estudio. Este asset se puede utilizar directamente en la [Aplicación Landcover](https://code.earthengine.google.com/?scriptPath=users%2Fparevalo_bu%2Fgee-ccdc-tools%3AAPPS%2Flandcover_app). Esta aplicación es relativamente simple: todo lo que necesita hacer es especificar la ruta a la imagen del segmento creada anteriormente y una lista de fechas y ¡listo! Un ejemplo del resultado creado siguiendo los pasos anteriores se puede encontrar en: "users/openmrv/MRV/Mozambique_CCDC_Segments".
 
 Las fechas deben introducirse en el formato "AAAA-MM-DD" y separadas por comas, por ejemplo, "2001-01-15, 2001-07-21, 2014-12-10". Cada banda en la imagen resultante corresponderá a una clasificación de fecha diferente.
 
@@ -969,9 +969,9 @@ Finalmente, la herramienta le permite especificar algunos parámetros de visuali
 
 ![alt_text](./images/CCDC/image28.png "image_tooltip")
 
-#### 3.3 Colombia: API de CCDC para la Estratificación de Cambio Forestal 
+#### 3.4 Colombia: API de CCDC para la Estratificación de Cambio Forestal 
 
-El tutorial final demostrará el uso de la API para crear una estratificación de cambio forestal en Colombia. El código se modifica a partir del tutorial de Mozambique y utiliza el conjunto de datos de coeficientes globales de CCDC. El script se puede encontrar en el repositorio Open MRV en el script 'CCDC / Colombia_1'.
+El tutorial final demostrará el uso de la API para crear una estratificación de cambio forestal en Colombia. El código se modifica a partir del tutorial de Mozambique y utiliza el conjunto de datos de coeficientes globales de CCDC. El script se puede encontrar en el repositorio Open MRV en el script 'OpenMRV_español/Part 2/CCDC_esp/Colombia_1_esp'.
 
 Para la estratificación de salida, queremos clases que representen:
 
