@@ -4,7 +4,7 @@ summary: Este tutorial le mostrará cómo crear una imagen compuesta utilizando 
 author: Andrea Puzzi Nicolau
 creation date: diciembre 2020
 language: Español
-publisher and license: Copyright 2020, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
+publisher and license: Copyright 2021, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
@@ -804,7 +804,7 @@ Usualmente este "Script Error" no afectará su código. Si los resultados se car
 
 Este trabajo tiene licencia bajo un [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/).
 
-Copyright 2020, World Bank
+Copyright 2021, World Bank
 
 Este trabajo fue desarrollado por Andrea Puzzi Nicolau bajo contrato con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionados a la Medida, Reportaje, y Verificación para el apoyo de la implementación MRV en varios países.
 
