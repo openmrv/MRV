@@ -5,7 +5,7 @@ summary: En télédétection ou dans un contexte géographique, les approches ba
 author: Pontus Olofsson
 creation date:  Février, 2021
 language: Français
-publisher and license: opyright 2021, Banque mondiale. Ce travail est sous licence Creative Commons Attribution 3.0 IGO
+publisher and license: Copyright 2021, Banque mondiale. Ce travail est sous licence Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
@@ -118,9 +118,7 @@ La dernière étape du plan d'échantillonnage consiste à tirer physiquement l'
 
 ### 3.4 Logiciel permettant d'estimer la taille de l'échantillon
 
-SEPAL/CEO a un support intégré pour estimer la taille de l'échantillon comme expliqué dans [cette documentation](https://sepal-ceo.readthedocs.io/en/latest/).
-
-Similaire à SEPAL est cette feuille de calcul développée par la Banque Mondiale qui calcule également la taille de l'échantillon nécessaire pour atteindre une précision de l'exactitude globale https://onedrive.live.com/view.aspx?resid=9815683804F2F2C7!37340&ithint=file%2cxlsx&authkey=!ANcP-Xna7Knk_EE
+SEPAL/CEO a un support intégré pour estimer la taille de l'échantillon comme expliqué dans [cette documentation](https://sepal-ceo.readthedocs.io/en/latest/). Similaire à SEPAL est cette feuille de calcul développée par la Banque Mondiale qui calcule également la taille de l'échantillon nécessaire pour atteindre une précision de l'exactitude globale https://onedrive.live.com/view.aspx?resid=9815683804F2F2C7!37340&ithint=file%2cxlsx&authkey=!ANcP-Xna7Knk_EE
 
 
 ## 4 Foire aux questions (FAQs)
