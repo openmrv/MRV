@@ -4,7 +4,7 @@ summary: Este tutorial demostrará cómo recopilar datos de entrenamiento categ�
 author: Karis Tenneson
 creation date:  diciembre 2020
 language: Español
-publisher and license: Copyright 2020, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
+publisher and license: Copyright 2021, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
@@ -402,7 +402,7 @@ Si los datos de entrenamiento fueron colectados oportunistamente, o en otras pal
 
 Este trabajo tiene licencia bajo un [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) 
 
-Copyright 2020, World Bank 
+Copyright 2021, World Bank 
 
 Este trabajo fue desarrollado por Karis Tenneson bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionadas a la Medida, Reportaje, y Verificación para el apoyo de implementación MRV en varios países. 
 
@@ -422,6 +422,6 @@ Justine Bui, Spatial Informatics Group LLC
 Kelsey Herndon, University of Alabama in Huntsville
 
 Atribución
-Tenneson, Karis. 2020. Training Data Collecting Using Google Earth Engine. � World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)
+Tenneson, K. 2021. Training Data Collecting Using Google Earth Engine. © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](figures/m1.1/wb_fcfc_gfoi.png)
