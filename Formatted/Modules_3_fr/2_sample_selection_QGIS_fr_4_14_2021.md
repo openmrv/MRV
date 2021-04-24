@@ -1,10 +1,10 @@
 ---
-title: Sample selection using QGIS
-summary: In sampling design methods for estimation of area and map accuracy, we design a sample by choosing a selection protocol and determining the sample size and allocation. In this tutorial we will physically draw from a study area a sample that was designed based on tutorials here on OpenMRV under process "Sampling design". Here, we illustrate how to draw a sample in QGIS.
+title: Procédure de sélection d'un échantillon à l'aide de QGIS
+summary: Dans les méthodes de conception d'échantillonnage pour l'estimation de la superficie et de la précision des cartes, nous concevons un échantillon en choisissant un protocole de sélection et en déterminant la taille de l'échantillon et son allocation. Dans ce tutoriel, nous allons tirer physiquement d'une zone d'étude un échantillon qui a été conçu sur la base des tutoriels ici sur OpenMRV sous le processus " Plan d'échantillonnage ". Ici, nous illustrons comment procéder au prélèvement d'un échantillon dans QGIS.
 author: Pontus Olofsson
-creation date: February, 2021
-language: English
-publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+creation date: Février, 2021
+language: Français
+publisher and license: Copyright 2021, Banque mondiale. Ce travail est autorisé sous une licence Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
@@ -56,11 +56,11 @@ group:
 
 ---
 
-# Sample selection using QGIS
+# Sélection d'un échantillon à l'aide de QGIS
 
 ## 1 Contexte
 
-Dans le tutoriel précédent, nous avons conçu un échantillon en choisissant un protocole de sélection et en déterminant la taille de l'échantillon et la répartition. Dans ce tutoriel, nous allons physiquement prélever dans une zone d'étude l'échantillon que nous avons conçu. Le tirage d'un échantillon implique la création d'une *cadre d'échantillonnage* qui est une liste d'unités de population pouvant être sélectionnées pour être incluses dans un échantillon. Les unités de population de la liste sont appelées unités d'échantillonnage. En d'autres termes, une base de sondage est un dispositif qui permet d'observer la population en associant les unités de population aux unités d'échantillonnage (Särndal et al., 1992, p. 9)[^fn1]. Dans notre cas, la base de sondage est par exemple une liste de tous les pixels qui composent la zone d'étude. Nous pourrions donc simplement exporter une liste de tous les pixels de la carte avec des identifiants uniques à partir desquels nous sélectionnons aléatoirement *n* unités. Dans le cadre d'un échantillonnage aléatoire stratifié, chaque pixel aurait, en plus de l'identifiant, un code de strate de sorte qu'un échantillon aléatoire soit sélectionné dans chaque strate. Une telle approche peut facilement devenir impraticable car le nombre d'unités de population tend à être important. Au lieu de cela, la sélection d'échantillons est prise en charge par divers outils et logiciels ; ici, nous illustrons comment dessiner un échantillon dans QGIS, Google Earth Engine/AREA2, et un script R.
+Dans le tutoriel précédent, nous avons conçu un échantillon en choisissant un protocole de sélection et en déterminant la taille de l'échantillon et la répartition. Dans ce tutoriel, nous allons physiquement prélever dans une zone d'étude l'échantillon que nous avons conçu. Le tirage d'un échantillon implique la création d'une *cadre d'échantillonnage* qui est une liste d'unités de population pouvant être sélectionnées pour être incluses dans un échantillon. Les unités de population de la liste sont appelées unités d'échantillonnage. En d'autres termes, une base de sondage est un dispositif qui permet d'observer la population en associant les unités de population aux unités d'échantillonnage (Särndal et al., 1992, p. 9)[^fn1]. Dans notre cas, la base de sondage est par exemple une liste de tous les pixels qui composent la zone d'étude. Nous pourrions donc simplement exporter une liste de tous les pixels de la carte avec des identifiants uniques à partir desquels nous sélectionnons aléatoirement *n* unités. Dans les méthodes d'échantillonnage pour l'estimation de la superficie et de la précision des cartes, nous créons un échantillon en choisissant un protocole de sélection et en déterminant la taille de l'échantillon et l'allocation. Dans ce tutoriel, nous allons tirer matériellement d'une zone d'étude un échantillon qui a été conçu sur la base de tutoriels ici sur OpenMRV sous le processus " Plan d'échantillonnage ".
 
 ## 2 Objectifs d'apprentissage
 
