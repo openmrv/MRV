@@ -8,51 +8,23 @@ publisher and license: Copyright 2021, Banque mondiale. Ce travail est autorisé
 
 tags:
 - OpenMRV
-- Landsat
-- Sentinel 2
 - QGIS
-- Cloud cover
-- Optical sensors
-- Remote sensing
-- Composite
-- Mosaic
-- Time series
-- Sampling design
-- Sample design
-- Sample selection
-- Sample
-- Sampling frame
-- Stratified
-- Simple Random
-- Systematic
-- Response design
-- Survey
-- Survey design
-- Accuracy
-- Accuracy assessment
-- Area Estimation
-- Reference data
-- Reference classification
-- Reference observations
-- Colombia
+- Plan d'échantillonnage
+- Conception de l'échantillon
+- Sélection de l'échantillon
+- Échantillon
+- Base d'échantillonnage
+- Colombie
 
 group:
-- category : Stratified
-  stage : Sampling
-- category : Simple Random
-  stage : Sampling
-- category : Cluster
-  stage : Sampling
-- category : Systematic
-  stage : Sampling
-- category : Stratified
-  stage : Area Estimation/Accuracy assessment
-- category : Expansion
-  stage : Area Estimation/Accuracy assessment
-- category : Model-assisted
-  stage : Area Estimation/Accuracy assessment
-- category : Ratio
-  stage : Area Estimation/Accuracy assessment
+- catégorie : Stratifié
+  étape : Échantillonnage
+- catégorie : Aléatoire simple
+  étape : Échantillonnage
+- catégorie : Cluster
+  étape : Échantillonnage
+- catégorie : Systématique
+  étape : Échantillonnage
 
 ---
 
@@ -64,18 +36,18 @@ Dans le tutoriel précédent, nous avons conçu un échantillon en choisissant u
 
 ## 2 Objectifs d'apprentissage
 
-Upon completion of the tutorial, the user should be able to sample an arbitrary study area under either systematic sampling (SYS), or simple random sampling (SRS) using QGIS.
-    - Draw a sample in QGIS under SYS or SRS
+À la fin du tutoriel, l'utilisateur devrait être en mesure d'échantillonner une zone d'étude arbitraire, soit par échantillonnage systématique (SYS), soit par échantillonnage aléatoire simple (SRS), en utilisant QGIS.
+    - Créer un échantillon dans QGIS sous SYS ou SRS
 
-### 2.1 Prérequis pour ce module
+### 2.1 Prérequis 
 
-- Relevant terminology for sampling techniques can be found at the end of this document
+-  Relevant terminology for sampling techniques can be found at the end of this document
 
-## 3 Échantillonnage aléatoire simple et systématique dans QGIS
+## 3 Création d'un échantillon à l'aide de QGIS
 
 QGIS prend en charge l'échantillonnage de populations définies par des données vectorielles. Par conséquent, si vous voulez échantillonner dans des strates définies par un raster, vous devrez d'abord vectoriser les données raster. Ceci se fait par Raster > Conversions > Polygoniser (Raster vers Vecteur). La vectorisation pour les rasters de grande taille prend beaucoup de temps et n'est pas recommandée ; utilisez plutôt les alternatives ci-dessous. Pour les zones d'étude plus petites ou pour les plans SYS et SRS, QGIS fonctionne bien. Passons en revue les étapes nécessaires pour tirer deux échantillons sous SRS et SYS du pays de la Colombie.
 
-### 3.1 Simple random sampling
+### 3.1 Échantillonnage aléatoire simple
 
 1. Nous avons d'abord besoin d'un fichier de format vectoriel délimite notre zone d'étude. Téléchargez un shapefile de la zone de délimitation de la Colombie ici : https://drive.google.com/file/d/1tXvczTra_5wrlXBhe00m_oKRpLK0GwwJ/view?usp=sharing
 2. Affichez le fichier dans QGIS : Calque > Ajouter un couche > Ajouter une couche vectorielle et sélectionnez le fichier de forme colombiaborder.shp pour le dessiner sur le canevas.
@@ -88,7 +60,7 @@ QGIS prend en charge l'échantillonnage de populations définies par des donnée
 
 Le tracé d'un échantillon sous SYS dans QGIS présente l'inconvénient que la population doit être rectangulaire, ce qui rend plus difficile le tracé d'un nombre exact d'unités pour une zone non rectangulaire. Nous pouvons simplement découper les unités d'échantillonnage pour la frontière de la Colombie, mais cela donnera une taille d'échantillon plus petite que celle spécifiée. Une solution consiste à définir une distance entre les unités en fonction de la taille de la zone d'étude. Par exemple, si la zone d'étude est de *x* km^2^, en fixant l'espacement entre les unités à x/100, on obtient un échantillon de 100 unités.
 
-1. Après avoir ajouté le fichier de données vectoriel dans le point 2.1.2 ci-dessus, allez dans Vector > Reserach Tools > Regular Points.
+1. Après avoir ajouté le fichier de données vectoriel dans la section 3.1 étapes 1 et 2 ci-dessus, allez dans **Vector** > **Reserach Tools** > **Regular Points**.
 2. Sélectionnez comme zone d'entrée, le shapefile de la Colombie
 3. Spécifiez l'espacement des points ou le nombre de points -- si vous utilisez le premier, cochez la case "Utiliser l'espacement des points".
 4. Enregistrez dans un fichier et cliquez sur Exécuter pour dessiner l'échantillon.
@@ -97,13 +69,13 @@ Le tracé d'un échantillon sous SYS dans QGIS présente l'inconvénient que la 
 
 ## 4 Foire aux questions (FAQs)
 
-**Dois-je utiliser les applications mentionnées dans ce tutoriel pour sélectionner un échantillon?**
+**Dois-je utiliser QGIS pour creer un échantillon ?**
 
-Non, pas du tout ! Ce ne sont que quelques exemples et il existe de nombreuses autres façons d'échantillonner une zone d'étude. Les applications courantes comprennent R, ENVI et ArcGIS.
+Non, pas du tout ! Ceci n'est qu'un exemple et il existe de nombreuses autres façons d'échantillonner une zone d'étude. Les applications courantes comprennent AREA2, R, ENVI et ArcGIS. Ici, sur OpenMRV, sous le processus " Plan d'échantillonnage " et les outils " AREA2 " et " GEE ", vous pouvez apprendre comment sélectionner un échantillon en utilisant AREA2.
 
 **Dois-je sélectionner des pixels ? Et si je veux sélectionner des segments ou des blocs de pixels?**
 
-L'unité spatiale de l'échantillon ne doit pas nécessairement être un pixel, mais doit être de taille égale pour satisfaire aux critères de l'échantillonnage probabiliste. Les pixels sont utilisés comme unités dans ces tutoriels pour des raisons de simplicité. Pour une discussion approfondie des unités spatiales, voir Stehman et Wickham (2011).
+L'unité spatiale de l'échantillon ne doit pas nécessairement être un pixel, mais doit être de taille égale pour satisfaire aux critères de l'échantillonnage probabiliste. Les pixels sont utilisés comme unités dans ce tutoriel pour des raisons de simplicité. Pour une discussion approfondie des unités spatiales, voir Stehman et Wickham (2011).
 
 ## 5 Terminologie relative aux techniques d'échantillonnage
 
