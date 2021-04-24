@@ -928,9 +928,14 @@ Copyright 2021, World Bank
 
 Este trabajo fue desarrollado por Karis Tenneson y Karen Dyson  bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionadas a la Medida, Reportaje, y Verificación para el apoyo de implementación MRV en varios países. 
 
-Atribución
-Tenneson, Karis and Dyson, Karen. 2021. Module 3.3.3 Survey Form Creation and Reference Observation Collection with Collect Earth Online.  World Bank. 
+Material reviewed by:   
+Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources  
+Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
+Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
 
-License: Creative Commons Attribution license (CC BY 3.0 IGO)
+Atribución
+Tenneson, K., Dyson, K. 2021. Response Design in Collect Earth Online. © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)  
+
 ![](figures/wb_fcfc_gfoi.png)
 
