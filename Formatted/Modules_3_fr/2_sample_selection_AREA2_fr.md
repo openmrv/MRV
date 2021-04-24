@@ -146,10 +146,19 @@ Stehman, S.V. and Wickham, J.D., 2011. Pixels, blocks of pixels, and polygons: C
 
 Ce travail est autorisé sous une licence [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
-Copyright 2020, Banque Mondiale. Ce travail a été développé par Pontus Olofsson dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte de ressources existantes - liées à la mesure, la communication et la vérification pour soutenir la mise en œuvre du MRV dans les pays.
+Copyright 2021, Banque Mondiale. 
 
-Matériel révisé par : Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD) Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS) Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD) Rajesh Bahadur Thapa, Nepal, International Centre for Integrated Mountain Development (ICIMOD) Tatiana Nana, Cameroon, REDD+ Technical Secretariat
+Ce travail a été développé par Pontus Olofsson dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte de ressources existantes - liées à la mesure, la communication et la vérification pour soutenir la mise en œuvre du MRV dans les pays.
 
-Attribution: Olofsson, P. (2021). *Open MRV: Sample Selection*. World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)
+Matériel révisé par : 
+Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources  
+Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
+Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS)  
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
+Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)  
+Rajesh Bahadur Thapa, Nepal, International Centre for Integrated Mountain Development (ICIMOD)  
+Tatiana Nana, Cameroon, REDD+ Technical Secretaria
+
+Olofsson, P. 2021. Sample selection using AREA2. © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](./figures/wb_fcfc_gfoi.png)
