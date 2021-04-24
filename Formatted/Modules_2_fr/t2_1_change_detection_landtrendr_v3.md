@@ -1417,12 +1417,12 @@ Copyright 2021, World Bank
 Ce travail a été développé par Robert E Kennedy dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte des ressources existantes - liées à la mesure, la notification et la vérification afin de soutenir la mise en œuvre du MRV par les pays. 
 
 Matériel révisé par :
-Foster Mensah  / Center for Remote Sensing and Geographic Information Services, Ghana
-Jennifer Juliana Escamilla Valdez / Minsiterio de Medio Ambiente y Recursos Naturales, El Salvador
-Raja Ram Aryal /  Ministry of Forests and Environment, Nepal
-KONAN Yao Eric Landry / REDD+ Permanent Executive Secretariat, Cote d'Ivoire
-Carole Andrianirina / BNCCREDD+, Madagascar
-Tatiana Nana / REDD+ National Coordination MINEPDED Ministry of Environment, Cameroon
+Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
+Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS)  
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources 
+Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat   
+Raja Ram Aryal, Nepal, Forest Research and Training Centre  
+Tatiana Nana, Cameroon, REDD+ Technical Secretariat 
 
 
 
