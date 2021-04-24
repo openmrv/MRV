@@ -9,14 +9,9 @@ publisher and license: Copyright 2021, Banque mondiale. Ce travail est sous lice
 tags:
 - OpenMRV
 - Landsat
-- Sentinel 2
-- Sentinel 1
 - GEE
-- Couverture nuageuse
 - Capteurs optiques
 - Télédétection
-- Composite
-- Mosaïque
 - CODED
 - Séries temporelles
 - Détection des changements
@@ -30,14 +25,6 @@ tags:
 - Cambodge
 
 group:
-- catégorie : Composite (Médiane)
-  étape : Création du composite/Pré-traitement
-- catégorie : Landsat
-  étape : Entrées
-- catégorie : Sentinel-2 Sentinel-2
-  étape : Entrées
-- catégorie : Sentinel-1
-  étape : Entrées
 - catégorie : CODED
   étape : Détection des changements
 ---
@@ -59,7 +46,7 @@ Ce tutoriel présente une méthodologie de monitoring de la dégradation des for
 
 ## 2 Objectifs d'apprentissage
 
-À la fin de ce module, vous serez en mesure de 
+À la fin de tutoriel, vous serez en mesure de 
 
 
 * Identifier les facteurs communs de dégradation des forêts sur des images satellite de moyenne à haute résolution. 
@@ -72,24 +59,14 @@ L'utilisation avancée comprendra également :
 * Le post-traitement des résultats du CODED pour augmenter la précision de détection des changements.
 * L'application d'une version modifiée du CODED pour utiliser l'imagerie radar Sentinel-1. 
 
-### 2.1 Prérequis pour ce module
+### 2.1 Prérequis 
 
-- Google Earth Engine (GEE) concepts (please refer to Section 1.1 of Module 1.1 Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine for useful GEE resources)
+-NOTE : Reportez-vous au processus "Pré-traitement" et à l'outil "GEE" ici sur OpenMRV pour plus d'informations et de ressources pour travailler dans Google Earth Engine. 
   - Obtenir un compte utilisateur
   - Manipulation des images dans GEE
   - Syntaxe de base des fonctions
   - Traitement de base des images, y compris le choix des images, le filtrage des nuages, la mosaïque et la composition.
-- Il est fortement conseillé de terminer les tutoriels précédents:
-  - Module 1
-    - 1.1   Création de mosaïque/composite d'images pour Landsat et Sentinel-2 dans Google Earth Engine
-    - 1.2 Collecte de données d'entraînement 
-      - 1.2.1 Collecte de données d'entraînement avec QGIS, ou
-      - 1.2.2 Collecte de données d'entraînement  à l'aide de Google Earth Engine
-    - 1.3 Classification d'occupation et d'utilisation du sol dans Google Earth Engin
-  - Module 2
-    - 2.1  Notions de base sur les méthodes de détection des changements
-    - 2.2 LandTrendr
-    - 2.3 Détection et classification des changements continus (CCDC)
+
 
 
 ## 3 Détection de la dégradation continue (CODED)
