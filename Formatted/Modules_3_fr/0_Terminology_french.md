@@ -1,67 +1,49 @@
 ---
-title: Terminology relevant to the sampling techniques
-summary: This tutorial will introduce the terminology relevant to the sampling techniques for estimation of area and map accuracy. More information on terminology can be found in the AREA2 documentation - https://area2.readthedocs.io/en/latest/definitions.html
+title: Terminologie relative aux techniques d'échantillonnage
+summary: Ce tutoriel présente la terminologie relative aux techniques d'échantillonnage pour l'estimation de la précision des superficies et des cartes. Vous trouverez plus d'informations sur la terminologie dans la documentation AREA2. https://area2.readthedocs.io/en/latest/definitions.html
 author: Pontus Olofsson
-creation date: February, 2021
-language: English
-publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+creation date: Février 2021
+language: français
+publisher and license: Copyright 2021, Banque mondiale. Ce travail est autorisé sous une licence Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
-- Landsat
-- Sentinel 2
-- Sentinel 1
-- GEE
-- Cloud cover
-- Optical sensors
-- Remote sensing
-- Composite
-- Mosaic
-- Time series
-- Change detection
-- Land cover mapping
-- Forest mapping
-- Deforestation mapping
-- Degradation mapping
-- Forest degradation mapping
-- Sampling design
-- Sample design
-- Sample selection
-- Sample
-- Sampling frame
-- Stratified
-- Simple Random
-- Systematic
-- Response design
-- Survey
-- Survey design
-- Accuracy
-- Accuracy assessment
-- Area Estimation
-- Reference data
-- Reference classification
-- Reference observations
-- Colombia
-- Mozambique
-- Cambodia
+- Plan d'échantillonnage
+- Conception de l'échantillon
+- Sélection de l'échantillon
+- Échantillon
+- Cadre d'échantillonnage
+- Stratifié
+- Aléatoire simple
+- Systématique
+- Plan de réponse
+- Enquête
+- Conception de l'enquête
+- Précision
+- Évaluation de la précision
+- Calcul de la superficie
+- Données de référence
+- Classification de référence
+- Classification de référence
+
 
 group:
-- category: Stratified
-  stage: Sampling
-- category: Simple Random
-  stage: Sampling
-- category: Cluster
-  stage: Sampling
-- category: Systematic
-  stage: Sampling
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
-- category: Expansion
-  stage: Area Estimation/Accuracy assessment
-- category: Model-assisted
-  stage: Area Estimation/Accuracy assessment
-- category: Ratio
-  stage: Area Estimation/Accuracy assessment
+- catégorie: Stratifié
+  étape: Échantillonnage
+- catégorie: Aléatoire Simple
+  étape: Échantillonnage
+- catégorie: Grappe
+  étape: Échantillonnage
+- catégorie: Systematic
+  étape: Échantillonnage
+- catégorie: Stratifié
+  étape: Calcul de la superficie/évaluation de la précision
+- catégorie: Expansion
+  étape: Calcul de la superficie/évaluation de la précision
+- catégorie: Modèle assisté
+  étape: Calcul de la superficie/évaluation de la précision
+- catégorie: Ratio
+  étape: Calcul de la superficie/évaluation de la précision
 ---
 
 # Terminologie relative aux techniques d'échantillonnage
