@@ -62,13 +62,13 @@ El atractivo de usar GEE es que GEE contiene multi-petabytes de imágenes sateli
 
 ### 1.2 Repositorio
 
-[Este repositorio](https://code.earthengine.google.com/?accept_repo=users/openmrv/MRV) contiene una subcarpeta llamada "Composite" con los scripts que ejecutan todas las operaciones que aprenderá en este entrenamiento.  Los scripts principales son: 
+[Este repositorio](https://code.earthengine.google.com/?accept_repo=users/openmrv/MRV) contiene una subcarpeta llamada "OpenMRV_español/Module 1/Composite_esp" con los scripts que ejecutan todas las operaciones que aprenderá en este entrenamiento.  Los scripts principales son: 
 
-1. `Landsat_Sentinel2_Median` contiene todos los pasos en la orden que seguirá en este módulo (con excepción de la Sección 4.2.6 Imagen Compuesta Medoide) para crear imágenes compuestas medianas usando las colecciones de Landsat y Sentinel-2.
-2. `Landsat_Sentinel2_Median2` es una versión optimizada del script anterior. Contiene todas las variables de usuario arriba y las funciones/código que no necesitan ser modificados abajo.
-3. `Landsat_Medoid` contiene el método de composición usando el medoide en lugar del mediano para las colecciones de Landsat. 
+1. `Landsat_Sentinel2_Median_esp` contiene todos los pasos en la orden que seguirá en este módulo (con excepción de la Sección 4.2.6 Imagen Compuesta Medoide) para crear imágenes compuestas medianas usando las colecciones de Landsat y Sentinel-2.
+2. `Landsat_Sentinel2_Median2_esp` es una versión optimizada del script anterior. Contiene todas las variables de usuario arriba y las funciones/código que no necesitan ser modificados abajo.
+3. `Landsat_Medoid_esp` contiene el método de composición usando el medoide en lugar del mediano para las colecciones de Landsat. 
 
-Adicionalmente, encontrará dos scripts que son copia del segundo script `Landsat_Sentienl2_Median2` pero aplicadas a dos países diferentes: Mozambique y Camboya. En el repositorio se llaman `Mozambique` y `Camboya`. Estos se explican en la Sección 6. Ejemplos Adicionales.
+Adicionalmente, encontrará dos scripts que son copia del segundo script `Landsat_Sentienl2_Median2_esp` pero aplicadas a dos países diferentes: Mozambique y Camboya. En el repositorio se llaman `Mozambique_esp` y `Camboya_esp`. Estos se explican en la Sección 6. Ejemplos Adicionales.
 
 Finalmente, el script llamado `Video` es el script generado de las grabaciones de los videos. Este script contiene todos los pasos en este tutorial pero con poca o ninguna documentación. 
 
@@ -109,7 +109,7 @@ Por favor note que en este tutorial especifico, crearemos una imagen compuesta m
 
 ### 3.1 Área de Interés
 
->  Los siguientes pasos están demostrados en el script `1_Landsat_Sentinel2_Median`.
+>  Los siguientes pasos están demostrados en el script `1_Landsat_Sentinel2_Median_esp`.
 >
 > [Instrucciones de video](https://youtu.be/KoEJW1i-v_w)
 
@@ -538,7 +538,7 @@ Ahora, vamos a crear una imagen compuesta mediana con los datos de Copernicus Se
 
 ### 3.3 Colección de Sentinel-2
 
-> Los siguientes pasos están demostrados en el código `1_Landsat_Sentinel2_Median`.
+> Los siguientes pasos están demostrados en el código `1_Landsat_Sentinel2_Median_esp`.
 >
 > [Instrucciones de Video](https://youtu.be/13plGNvnmkI)
 
@@ -714,19 +714,19 @@ En este tutorial, hemos creado y exportado diferentes imágenes compuestas para 
 
 ### 4.1 Mozambique
 
-En los scripts `1_Landsat_Sentinel2_Median`o `3_Landsat_Medoid`, simplemente cambie '`Colombia`' en la línea 15 a '`Mozambique`' (o en la línea apropiada si esta usando su propio script) y haga clic en *Run*. 
+En los scripts `1_Landsat_Sentinel2_Median_esp`o `3_Landsat_Medoid_esp`, simplemente cambie '`Colombia`' en la línea 15 a '`Mozambique`' (o en la línea apropiada si esta usando su propio script) y haga clic en *Run*. 
 
 ```javascript
 var country = lsib.filterMetadata('country_na','equals','Mozambique');
 ```
 
-En el script `2_Landsat_Sentinel2_Median2`, simplemente cambie '`Colombia` en línea 12 a '`Mozambique`' (o la línea apropiada en caso que sea su propio script) y haga clic en *Run*. El script llamado `Mozambique` mencionado en Sección 1.2. Repositorio es una copia exacta del script pero con el cambio ya hecho. 
+En el script `2_Landsat_Sentinel2_Median2_esp`, simplemente cambie '`Colombia` en línea 12 a '`Mozambique`' (o la línea apropiada en caso que sea su propio script) y haga clic en *Run*. El script llamado `Mozambique_esp` mencionado en Sección 1.2. Repositorio es una copia exacta del script pero con el cambio ya hecho. 
 
 ```javascript
 var countryName = 'Mozambique';
 ```
 
-Adicionalmente, usando el script `2_Landsat_Sentinel2_Median` o el script `Mozambique` como referencias, puede ajustar cualquier otra variable de usuario que guste. Ejemplo: nivel de zoom, fechas iniciales y finales, parámetros de visualización, y parámetros de la media focal.
+Adicionalmente, usando el script `2_Landsat_Sentinel2_Median_esp` o el script `Mozambique_esp` como referencias, puede ajustar cualquier otra variable de usuario que guste. Ejemplo: nivel de zoom, fechas iniciales y finales, parámetros de visualización, y parámetros de la media focal.
 
 ```javascript
 /////////////////// Variables definidas por el usuario ////////////////////////////
@@ -766,7 +766,7 @@ var iterations = 2;
 
 ### 4.2 Camboya
 
-En las scripts `1_Landsat_Sentinel2_Median` o `3_Landsat_Medoid`, simplemente cambie 'Colombia' en línea 15 a 'Camboya' (o en la línea apropiada en caso que sea su propio script) y haga clic en *Run*. El script llamado Camboya mencionado en Sección 1.2. Repositorio es una copia exacta de este script pero con el cambio ya hecho. 
+En las scripts `1_Landsat_Sentinel2_Median_esp` o `3_Landsat_Medoid_esp`, simplemente cambie 'Colombia' en línea 15 a 'Cambodia' (o en la línea apropiada en caso que sea su propio script) y haga clic en *Run*. El script llamado `Cambodia_esp` mencionado en Sección 1.2. Repositorio es una copia exacta de este script pero con el cambio ya hecho. 
 
 ```javascript
 var countryName = 'Camboya';
