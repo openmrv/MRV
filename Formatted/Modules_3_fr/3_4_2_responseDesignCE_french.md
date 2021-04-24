@@ -610,13 +610,14 @@ Copyright 2021, World Bank
 
 Ce travail a été développé par Justine Bui et Karen Dyson dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte de ressources existantes - liées à la mesure, la notification et la vérification pour soutenir la mise en œuvre du MRV dans les pays. 
 
-Matériel révisé par :Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)
-Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources
-Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)
-Tatiana Nana, Cameroon, REDD+ Technical Secretariat
+Matériel révisé par :
+Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources  
+Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
+Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)   
+Tatiana Nana, Cameroon, REDD+ Technical Secretariat 
 
 Attribution
-
-Bui, Justine and Dyson, Karen. 2021. Module 3.3.2 How to create surveys in Collect and collect data using Collect Earth Desktop. World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)
+Bui, J., Dyson, K. 2021. Response Design in Collect Earth Desktop. © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)  
 
 ![](figures/wb_fcfc_gfoi.png)
