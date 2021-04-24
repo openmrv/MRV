@@ -126,7 +126,7 @@ Este proceso se conoce como ajuste a vértices o FTV por sus siglas en ingles. A
 
 La aplicación de los algoritmos LandTrendr en GEE implica varios pasos. Los usuarios especifican parámetros que controlan la construcción de pilas de imágenes, el proceso de segmentación temporal en LandTrendr, y el posprocesamiento de salidas segmentadas en mapas de perturbación y recuperación.  
 
-![_figWF1_workflow](./figures/_fig_workflow_v2.png) 
+![_figWF1_workflow](./figures/_fig_workflow_v2_sp.png) 
 
 Para determinar adecuadamente los parámetros de usuario apropiados cada vez que se vaya a aplicar LandTrendr en una nueva región, se recomienda la siguiente secuencia de pasos:
 
