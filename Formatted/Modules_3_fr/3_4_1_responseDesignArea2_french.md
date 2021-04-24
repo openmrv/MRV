@@ -84,7 +84,7 @@ Upon completion of the tutorial, the user should be able to display a set of ref
 ## 3 Tutorial: Response design in Area2
 
 ### 3.1 Préparer les données de référence
- La première étape consiste à extraire les séries temporelles des données Landsat aux localisations de l'échantillon. Pour ce faire, nous utilisons le script Save Feature Timeseries : https://code.earthengine.google.com/?scriptPath=projects%2FGLANCE%3Aglance%2Fsubmit%2FprepareTS%2FextractTS_getRegion Ce script n'a pas d'interface graphique mais tout ce que nous avons à faire est de pointer le script vers l'actif GEE contenant l'échantillon. En haut du script, ajoutez simplement la ligne suivante en spécifiant l'emplacement de l'échantillon sélectionné à l'étape précédente :
+ La première étape consiste à extraire les séries temporelles des données Landsat aux localisations de l'échantillon. Pour ce faire, nous utilisons le script Save Feature Timeseries : https://code.earthengine.google.com/21658946c5c1456003aedcdd2eb303ce Ce script n'a pas d'interface graphique mais tout ce que nous avons à faire est de pointer le script vers l'actif GEE contenant l'échantillon. En haut du script, ajoutez simplement la ligne suivante en spécifiant l'emplacement de l'échantillon sélectionné à l'étape précédente :
  ```javascript
  var sample = ee.FeatureCollection('users/olofsson76/Open_MRV/STR_sample_Col')
  ```
@@ -93,7 +93,7 @@ Upon completion of the tutorial, the user should be able to display a set of ref
 
 ### 3.2 Examiner les données de référence sur les sites d'échantillonnage
 
-Le collecteur de référence se trouve ici: https://code.earthengine.google.com/09964c3fbb9a7d9f8530ee687be8bb90
+Le collecteur de référence se trouve ici: https://code.earthengine.google.com/05e5344851a67c0332134e30a2940249
 Une fois chargé, spécifiez un chemin pour sauvegarder votre travail sous "Inputs and Outputs" et par "Link to FC", spécifiez l'emplacement de l'actif contenant l'échantillon après avoir été traité en utilisant le script Save Feature Timeseries comme décrit ci-dessus. Cochez "Load chart data from feature collection" et cliquez sur "Load". Cela devrait afficher la taille de l'échantillon -- dans mon cas, j'utilise l'échantillon de 535 unités que nous avons conçu dans le tutoriel sur le plan d'échantillonnage.
 
 Pour commencer, sous "Interprétation de l'échantillon", spécifiez "1" et appuyez sur la touche Entrée -- cela affichera les données de référence pour la première unité de l'échantillon. Les graphiques de séries temporelles situés au centre de l'interface sont importants : les séries temporelles sont affichées pour les bandes rouge, NIR et SWIR1 de Landsat, et pour les transformations de Tasseled Cap (Kauth-Thomas) : luminosité, verdure et humidité. Les six premiers graphiques montrent les données des séries temporelles pour la période d'étude spécifiée dans le script Save Features Timeseries ci-dessus ; vous pouvez zoomer sur un certain intervalle de temps et les graphiques peuvent être affichés dans une fenêtre séparée en cliquant sur la flèche à côté de chaque graphique. Les six derniers graphiques sont des graphiques de séries chronologiques annuelles cumulées, de sorte que les données de chaque année sont tracées "au-dessus" les unes des autres.   
