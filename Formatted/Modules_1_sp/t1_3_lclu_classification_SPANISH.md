@@ -4,7 +4,7 @@ summary: Este tutorial demostrará cómo realizar una clasificación de la cober
 author: Robert E Kennedy
 creation date:  diciembre 2020
 language: Español
-publisher and license: Copyright 2020, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
+publisher and license: Copyright 2021, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
@@ -739,19 +739,20 @@ Sin embargo, al desarrollar esquemas de etiquetado de clases más complejos, es 
 
 Este trabajo tiene licencia bajo un [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) 
 
-Copyright 2020, World Bank 
+Copyright 2021, World Bank 
 
 Este trabajo fue desarrollado por Robert E Kennedy bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionadas a la Medida, Reportaje, y Verificación para el apoyo de implementación MRV en varios países. 
 
 Material revisado por:
-Kenset Rosales  & Sofia Garcia / Ministry of Environment and Natural Resources, Guatemala
-Jennifer Juliana Escamilla Valdez / Minsterio de Medio Ambiente y Recursos Naturales, El Salvador
-Raja Ram Aryal /  Ministry of Forests and Environment, Nepal
-KONAN Yao Eric Landry / REDD+ Permanent Executive Secretariat, Cote d'Ivoire
-Carole Andrianirina / BNCCREDD+, Madagascar
-Phoebe Odour / RCMRD, Kenya
+Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
+Kenset Rosales, Guatemala, Ministry of Environment and Natural Resources  
+Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat    
+Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)   
+Raja Ram Aryal, Nepal, Forest Research and Training Centre  
+Sofia Garcia, Guatemala, Ministry of Environment and Natural Resources  
 
 Atribución
-Kennedy, Robert E . 2020. Land Cover and Land Use Classification in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+Kennedy, Robert E . 2021. Land Cover and Land Use Classification in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](./figures/m1.1/wb_fcfc_gfoi.png) 
