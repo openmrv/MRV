@@ -74,7 +74,7 @@ Upon completion of the tutorial, the user should be able to sample an arbitrary 
 
 ## 3 Tutorial: Sample selection using AREA2
 
-#### 3.2 Muestreo aleatorio estratificado en Google Earth Engine/AREA2
+#### 3.1 Muestreo aleatorio estratificado en Google Earth Engine/AREA2
 
 En el script de diseño de muestreo, estimamos el tamaño de muestra requerido para alcanzar el margen de error de 25% de la aproximación de área de disturbio forestal, y asignamos la muestra en estrato para el propósito de estimar el área. Eso nos dio el tamaño de muestra siguiente:
 
@@ -83,7 +83,7 @@ En el script de diseño de muestreo, estimamos el tamaño de muestra requerido p
 | 1    | Estrato (*h*) | Bosque(1) | No-bosque(2) | Dist. Bosq. (3) | Amortiguamiento (4) | Total |
 | 11   | *nh* (final)  | 275       | 200          | 30              | 30                  | 535   |
 
-Para seleccionar una muestra, vamos a usar AREA2 para seleccionar una muestra usando muestreo aleatorio estratificado: [https://code.earthengine.google.com/?accept_repo=users%2Fopenmrv%2FMRV&scriptPath=projects%2FAREA2%2Fpublic%3A1.%20Sampling%20Design%2FStratified%20Random%20Sampling](https://code.earthengine.google.com/?accept_repo=users%2Fopenmrv%2FMRV&scriptPath=projects%2FAREA2%2Fpublic%3A1. Sampling Design%2FStratified Random Sampling).
+Para seleccionar una muestra, vamos a usar AREA2 para seleccionar una muestra usando muestreo aleatorio estratificado: [https://code.earthengine.google.com/48294a6892696c57eda3f65d2ea95a0e](https://code.earthengine.google.com/48294a6892696c57eda3f65d2ea95a0e).
 
 Especifiquemos una ruta al mapa de Colombia basado en CODED (https://code.earthengine.google.com/?asset=users/olofsson76/Open_MRV/Open_MRV_Col_strat_buffer) con un amortiguamiento bajo "Specify stratification/image to define study area" (especificar estratificación/imagen para definir área de estudio); usemos los otros argumentos automáticos y hagamos clic en "Load image" lo cual visualizará áreas de estratos en la Consola (NOTA: esto tomará tiempo). Seleccione "Arbitrary sample size" (Tamaño de muestra arbitrario) bajo "Determine sample size", y en la opción "Allocate sample size to strata" (Asignar tamaño de muestra a estratos), especifique lo siguiente: 275, 200, 30, 30. Haga clic en "Create sample" (Crear muestra), y note que solo debe hacer clic una vez. Aunque parece que GEE no reacciona, esta dibujando la muestra después de su clic.
 
