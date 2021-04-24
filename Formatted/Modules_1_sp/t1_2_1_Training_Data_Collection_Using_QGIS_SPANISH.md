@@ -86,7 +86,7 @@ El proceso para recopilar datos de entrenamiento en QGIS está detallado en los 
 2. Cargar un mapa de base usando un plugin de QGIS
 3. Recopilar los datos de entrenamiento a través de la definición manual de los puntos de entrenamiento 
 
-![](./figures/m1.2/m1.2.2/WB_graphs_v2-05.png)
+![](./figures/m1.2/m1.2.2/WB_graphs_v2-05_sp.png)
 
 # <a name="creating-a-new-layer"></a>
 
