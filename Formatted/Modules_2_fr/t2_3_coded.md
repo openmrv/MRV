@@ -149,7 +149,7 @@ Le modèle SMA utilisé dans le CODED transforme la réflectance en proportion �
 
 **Try it yourself**
 
-Avant de se lancer dans l'utilisation plus complexe du CODED, il est intéressant de regarder les résultats des images fractionnées du SMA sur des images individuelles. Le code Javascript suivant peut être utilisé dans le moteur Google Earth. Le code complet pour SMA peut être trouvé dans le registre Open-MRV dans le fichier "CODED/Unmix". 
+Avant de se lancer dans l'utilisation plus complexe du CODED, il est intéressant de regarder les résultats des images fractionnées du SMA sur des images individuelles. Le code Javascript suivant peut être utilisé dans le moteur Google Earth. Le code complet pour SMA peut être trouvé dans le registre Open-MRV dans le fichier "OpenMRV_français/Part2/CODED_fr/Unmix_fr". 
 
 Tout d'abord, chargez une image Landsat 8 pour une région d'étude en Colombie et ajoutez-la à la carte. La zone d'étude est définie comme une collection de caractéristiques dans la variable "studyArea".
 
@@ -280,7 +280,7 @@ Finalement, nous voyons dans la figure suivante un exemple de forêt touchée pa
 
 Il est relativement simple de tracer les trajectoires temporelles du NDFI sur Google Earth Engine. Cela peut être un exercice utile pour comprendre l'historique de l'utilisation des sols d'un lieu, en plus de la réponse spectrale aux changements du paysage. Pour ce faire, il est nécessaire de calculer d'abord l'indice NDFI pour toute une collection d'images, puis de définir une fonction permettant de tracer l'indice NDFI à l'endroit choisi sur la carte. 
 
-**Note** : Ce code peut être trouvé dans le repo MRV ouvert dans le script "CODED/Unmix Time Series". 
+**Note** : Ce code peut être trouvé dans le repo MRV ouvert dans le script "COpenMRV_français/Part2/CODED_fr/Unmix Time Series_fr". 
 
 ```javascript
 // Définir une fonction pour SMA et  NDFI
@@ -339,7 +339,7 @@ Pour aider à comprendre la réponse du NDFI aux différents événements de dé
 
 **Essayez vous-même**
 
-Un visualiseur de séries chronologiques des exemples de dégradation se trouve dans le répertoire "OpenMRV" dans le fichier "CODED/ Exemples de séries chronologiques" : 
+Un visualiseur de séries chronologiques des exemples de dégradation se trouve dans le répertoire "OpenMRV" dans le fichier "OpenMRV_français/Part2/CODED_fr/Time Series Examples_fr" : 
 
 Une fois que vous avez chargé le script dans GEE, cliquez sur le bouton "Run" pour initialiser l'interface utilisateur graphique.
 
@@ -407,7 +407,7 @@ Les perturbations sont attribuées à la déforestation ou à la dégradation en
 
 ## 4 Running CODED with a Graphical User Interface
 
-Le CODED peut être exécuté à l'aide d'une interface utilisateur graphique (GUI) appelée "Forest Disturbance Mapping GUI", qui se trouve dans le dépôt MRV ouvert. Notez que la version dans le répertoire est un "snapshot" dans le temps et la version la plus récente peut être trouvée ici : [https://coded.readthedocs.io](https://coded.readthedocs.io). 
+Le CODED peut être exécuté à l'aide d'une interface utilisateur graphique (GUI) appelée "OpenMRV_français/Part2/CODED_fr/Forest Disturbance Mapping GUI_fr", qui se trouve dans le dépôt MRV ouvert. Notez que la version dans le répertoire est un "snapshot" dans le temps et la version la plus récente peut être trouvée ici : [https://coded.readthedocs.io](https://coded.readthedocs.io). 
 
 **Note:** L'outil dépend également de bibliothèques externes. Si vous recevez une erreur "Cannot find required repo" qui indique qu'un lien vers un répertoire est rompu. Si c'est le cas, veuillez vous référer à la page CODED ReadTheDocs. 
 
@@ -747,7 +747,7 @@ Jaune : Perturbation non classée
 
 
 1. Si vous ne l'avez pas encore fait, ajoutez le  [Open MRV repository](https://code.earthengine.google.com/?accept_repo=users/openmrv/MR) sur Google Earth Engine. 
-2. Naviguez vers le script appelé  ‘Forest Disturbance Mapping GUI’ dans le dossier CODED du répertoire Open MRV.
+2. Naviguez vers le script appelé  ‘OpenMRV_français/Part2/CODED_fr/Forest Disturbance Mapping GUI_fr.’ 
 3. Cliquez sur  ‘Run’. 
 
 ![img25](./images/CODED/img25.png)
@@ -845,7 +845,7 @@ L'exemple précédent a montré comment obtenir des résultats dans une petite z
 
 1. Pour ce tutoriel, nous utiliserons la limite géographique du Cambodge pour la région d'étude. Cela peut être fait de manière rudimentaire en utilisant le widget "Draw Study Area" de l'outil de cartographie en dessinant une boîte autour du pays. Mieux encore, cela peut être fait en créant une collection de éléments du domaine d'étude.
 
-   1. Ouvrez une nouvelle fenêtre de l'éditeur de code de Google Earth Engine. Une copie de ce script se trouve dans le répertoire Open-MRV intitulé "Create Cambodia boundary feature collection". 
+   1. Ouvrez une nouvelle fenêtre de l'éditeur de code de Google Earth Engine. Une copie de ce script se trouve dans le répertoire Open-MRV intitulé "OpenMRV_français/Part2/CODED_fr/Create Cambodia boundary feature collection_fr". 
    2. Chargement de la limite géographique du pays
 
 ```javascript
