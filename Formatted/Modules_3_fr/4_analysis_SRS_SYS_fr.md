@@ -193,9 +193,9 @@ Stehman, S.V., 2014. Estimating area and map accuracy for stratified random samp
 
 Cet ouvrage est soumis à une licence [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
-Copyright 2020, Banque mondiale. Ce travail a été développé par Pontus Olofsson dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte de ressources existantes - liées à la mesure, la notification et la vérification pour soutenir la mise en œuvre du MRV par les pays.
+Copyright 2020, Banque mondiale. 
 
-
+Ce travail a été développé par Pontus Olofsson dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte de ressources existantes - liées à la mesure, la notification et la vérification pour soutenir la mise en œuvre du MRV par les pays.
 
 Matériel révisé par : 
 
@@ -205,6 +205,8 @@ Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natu
 Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat
 
-Attribution : Olofsson, P. (2021). *MRV ouvert : Analyse d'un échantillon de données*. Banque mondiale. Licence :  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+Attribution : 
+Olofsson, P. 2021. Analysis of sample data collected under simple random and systematic sampling. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+
 
 ![](./figures/wb_fcfc_gfoi.png)
