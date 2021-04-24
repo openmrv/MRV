@@ -171,7 +171,7 @@ La GUI la proporcionan los desarrolladores de LandTrendr en el laboratorio eMapR
 
 #### 3.2.1 Open the GUI
 
-En el repositorio común de OpenMRV, busque y abra el script llamado: **LT-GEE-Vis-DownLoad-app_WB_v1.0**. Cuando se carga y ejecuta, este script crea una GUI LandTrendr-GEE. 
+En el repositorio común de OpenMRV, busque y abra el script llamado: **OpenMRV_español/Part 2/ LandTrendr_esp/LT-GEE-Vis-DownLoad-app_WB_v1.0_esp**. Cuando se carga y ejecuta, este script crea una GUI LandTrendr-GEE. 
 
 Tenga en cuenta que esta GUI requiere acceso a dos bibliotecas de funciones de utilidad: una que maneja el procesamiento de imágenes y otra que maneja la interfaz GUI. Los usuarios no necesitan cambiar nada en el script para acceder a ellos, pero es útil reconocer que se están llamando a estas bibliotecas externas. Aunque originalmente desarrolladas por el laboratorio eMapR, por conveniencia, como se señaló anteriormente, estas bibliotecas se copiaron a fines de 2020 en el repositorio común de este módulo de capacitación.
 
@@ -724,7 +724,7 @@ En esta sección, perfilamos el script maestro que crea mapas de perturbaciones.
 
 El script del mapeador de Disturbios Mayores se puede encontrar en: 
 
- `users/openmrv/MRV/ChangeDetection/LandTrendr Greatest Disturbance Mapping`
+ `users/openmrv/MRV/OpenMRV_español/Part 2/LandTrendr_esp/LandTrendr Greatest Disturbance Mapping_esp`
 
 La primera sección del script permitirá que manualmente ingrese los parámetros que seleccionó cuando estaba utilizando el menú de parámetros en la GUI de LandTrendr:
 
@@ -870,7 +870,7 @@ Tanto la interfaz gráfica de usuario de LandTrendr (Sección 3) como el script 
 La biblioteca LT Javascript mejora con regularidad, pero para mantener la coherencia, hemos proporcionado una copia de la versión de trabajo actual a los usuarios del Banco Mundial. Como se señaló anteriormente, la importación de la biblioteca se realiza con este código:
 
 ```javascript
-var ltgee = require('users/openmrv/MRV:ChangeDetection/LandTrendr_V2.4WB.js'); 
+var ltgee = require('users/openmrv/MRV/ChangeDetection/LandTrendr_V2.4WB.js'); 
 ```
 
 A partir de entonces, se hace referencia a todas las funciones en esa biblioteca con el nombre de la biblioteca seguido del nombre de la función, con un "punto" como separador (por ejemplo, llamar a la función "runLT" con <argumentos> se manejaría:`var lt=ltgee.runLT(<arguments>)`). 
@@ -1208,7 +1208,7 @@ En la fase de exploración inicial de trabajar en un dominio nuevo, recomendamos
 
 #### 6.1.1 Cargar un área de estudio de Mozambique en la GUI de LandTrendr
 
-Exploremos lo que LandTrendr puede lograr en Mozambique. Como recordatorio, encuentre y abra un script llamado **LT-GEE-Vis-DownLoad-app_WB_v1.0**  desde la biblioteca openMRV/ChangeDetection en GEE.
+Exploremos lo que LandTrendr puede lograr en Mozambique. Como recordatorio, encuentre y abra un script llamado **OpenMRV_español/Part 2/ LandTrendr_esp/LT-GEE-Vis-DownLoad-app_WB_v1.0_esp**  desde la biblioteca openMRV en GEE.
 
 Cuando se carga y ejecuta, el script automáticamente visualiza el mapa de Colombia. Puede usar el navegador de mapas para navegar manualmente a diferentes partes del mundo. O, si planea ir regularmente a una ubicación diferente, *haga una copia local del script* y cambie la línea 1341 de: 
 
