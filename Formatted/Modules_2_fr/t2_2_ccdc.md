@@ -1,5 +1,5 @@
 ---
-title: Détection et classification des changements en continu (CCDC)
+title: Détection et classification  continue des changements  (CCDC)
 summary: La détection et la classification des changements continus (CCDC) est un algorithme généralisé qui utilise les sept bandes disponibles de Landsat pour effectuer simultanément la classification et la détection des changements d'occupation du sol, en cherchant à utiliser davantage de données pour atténuer les problèmes dus à des facteurs tels que la couverture nuageuse et la saisonnalité. Dans ce tutoriel, vous apprendrez les principaux composants et paramètres de CCDC, comment utiliser l'algorithme dans Google Earth Engine et créer des cartes de changement . Des exemples sont présentés pour les pays suivants - Mozambique, Cambodge et Colombie. De plus amples informations sur le CCDC sont décrites dans l'article original de Zhu et Woodstock, 2014 (https://doi.org/10.1016/j.rse.2014.01.011) et dans ce répertoire Gituhub (https://gee-ccdc-tools.readthedocs.io/).
 author: Eric Bullock
 creation date: Janvier 2021
@@ -10,13 +10,10 @@ tags:
 - OpenMRV
 - Landsat
 - Sentinel 2
-- Sentinel 1
 - GEE
 - Couverture nuageuse
 - Capteurs optiques
 - Télédétection
-- Composite
-- Mosaïque
 - CCDC
 - Série chronologique
 - Détection des changements
@@ -24,27 +21,18 @@ tags:
 - Cartographie des forêts
 - Cartographie de la déforestation
 - Cartographie de la dégradation
-- Cartographie de la dégradation des forêts
 - Colombie
 - Mozambique
 - Cambodge
 
 group:
-- catégorie : Composite (Médiane)
-  étape : Création du composite/Pré-traitement
-- catégorie : Landsat
-  étape : Entrées
-- catégorie : Sentinel-2
-  étape : Entrées
-- catégorie : Sentinel-1
-  étape : Entrées
 - catégorie : CCDC
   étape : Détection des changements
 ---
 
 
 
-# Détection et classification continues des changements  (CCDC)
+# Détection et classification continue des changements  (CCDC)
 
 ## 1 Contexte
 
@@ -59,25 +47,25 @@ La surveillance des changements de sol à l'aide de données de télédétection
 
 À la fin de ce tutoriel, les utilisateurs devraient être en mesure de
 
-*   Décrivez les principales composantes du CCDC, y compris les différents paramètres de l'algorithme. 
+* Décrivez les principales composantes du CCDC, y compris les différents paramètres de l'algorithme. 
 * Exécuter CCDC en utilisant une interface "pointer et cliquer" et par le biais de scripts avec le langage de programmation Javascript. 
 * Créer des cartes des changements spectraux et de la couverture du sol.
 
-### 2.1 Prérequis pour ce module
+### 2.1 Prérequis
 
-* Google Earth Engine (GEE) concepts
-  * Getting a user account
-  * Image handling in GEE
-  * Basic syntax of functions
-  * Basic image processing, including choice of imagery, cloud-screening, mosaicking and compositing
+* Concepts de Google Earth Engine (GEE)
+  * Obtention d'un compte utilisateur
+  * Traitement des images dans GEE
+  * Syntaxe de base des fonctions
+  * Traitement de base des images, y compris le choix des images, le filtrage des nuages, la mosaïquage et la composition.
 
-> NOTE: Refer to process "Pre-processing" and tool "GEE" here on OpenMRV for more information and resources for working in Google Earth Engine.
+>NOTE : Reportez-vous au processus "Pré-traitement" et à l'outil "GEE" ici sur OpenMRV pour plus d'informations et de ressources pour travailler dans Google Earth Engine. 
 
 ## 3 Tutoriels: Détection et classification continues des changements  (CCDC)
 
 Le CCDC peut être géré à l'aide de Google Earth Engine. D'autres implémentations de CCDC sont accessibles [ici](https://github.com/GERSL/CCDC) et comprennent des implémentations en C, Python et MATLAB. Afin de faciliter l'analyse dans le cadre du GEE, Arevalo et al (2020) ont publié une API et une collection d'applications qui seront présentées [ici](https://gee-ccdc-tools.readthedocs.io/en/latest/). 
 
-Ce tutoriel utilisera l'implémentation du CCDC dans GEE, d'où la nécessité d'un compte GEE. Veuillez vous reporter au module 1 pour de plus amples informations sur GEE. Dans le premier exemple, le processus est démontré en utilisant l'API du CCDC au Cambodge. Dans le second exemple, le processus est démontré au Mozambique en utilisant les interfaces graphiques. Enfin, le processus est réalisé en Colombie pour créer une stratification des pertes et des gains de forêts. 
+Ce tutoriel utilisera l'implémentation du CCDC dans GEE, d'où la nécessité d'un compte GEE. Veuillez vous référer au processus "Pré-traitement" et à l'outil "GEE" ici sur OpenMRV pour des informations supplémentaires sur GEE. Dans le premier exemple, le processus est démontré en utilisant l'API du CCDC au Cambodge. Dans le second exemple, le processus est démontré au Mozambique en utilisant les interfaces graphiques. Enfin, le processus est réalisé en Colombie pour créer une stratification des pertes et des gains de forêts. 
 
 ### 3.1 Algorithm description
 
@@ -449,7 +437,7 @@ La prochaine étape dans l'analyse de l'occupation des sols à l'aide du CCDC es
 * Les données prédicteurs comme attributs pour chaque point et pour l'année qui correspond à l'étiquette de couverture des sols.
 * Les ID d'échantillons uniques comme attributs
 
-Les données d'entraînement pour le Cambodge ont été collectées dans le cadre du module 1.2.2 de cette série de tutoriaux et peuvent être chargées ici. Notez que le code relatif au chargement et au formatage des données de formation se trouve dans le script "CCDC/Cambodia_2" dans le dépôt Open MRV.
+Les données d'entraînement pour le Cambodge ont été collectées dans le cadre de tutoriels ici sur OpenMRV sous le processus "Collecte de données d'entraînement " et les outils "QGIS" et "GEE" et peuvent être chargées ici. Notez que le code relatif au chargement et au formatage des données de formation se trouve dans le script "CCDC/Cambodia_2" dans le dépôt Open MRV.
 
 
 ```javascript
@@ -612,9 +600,9 @@ Export.table.toAsset({
   assetId: 'trainingDataWithPredictors'})
 ```
 
-**Planifier les coefficients des données de formation**
+**Planifier les coefficients des données d'entraînement **
 
-En option, une fois l'exportation terminée, nous pouvons visualiser différents coefficients pour nos classes d'apprentissage. Dans le code suivant, les éléments de references enregistrées sont chargés et un nuage de points est créé, montrant les interceptions NIR et SWIR1 pour les points de formation et organisé par couverture terrestre. Notez que ce code peut être trouvé dans le repo MRV ouvert dans le script 'CCDC/Cambodia_3'.
+En option, une fois l'exportation terminée, nous pouvons visualiser différents coefficients pour nos classes d'apprentissage. Dans le code suivant, les éléments de références enregistrées sont chargés et un nuage de points est créé, montrant les interceptions NIR et SWIR1 pour les points d'entraînement et organisé par occupation de sol. Notez que ce code peut être trouvé dans le répertoire MRV ouvert dans le script 'CCDC/Cambodia_3'.
 
 
 ```javascript
@@ -923,7 +911,7 @@ La dernière série de paramètres concerne les données d'apprentissage. Les do
 
 
 
-* Un exemple d'ensemble de données d'entraînement , tel que développé dans le module 1.2.2, peut être trouvé dans l'actif "users/openmrv/MRV/mozambique_training". 
+* Un exemple d'ensemble de données d'entraînement, construit sur la base de tutoriels ici sur OpenMRV sous le processus " collecte de données d'entraînement " et les outils " QGIS " et " GEE ", peut être trouvé dans l'asset "users/openmrv/MRV/mozambique_training". 
 
 * En supposant que les données sur l'apprentissage proviennent de votre région d'étude, vous pouvez utiliser l'option par défaut _Within Output Extent_. 
 
