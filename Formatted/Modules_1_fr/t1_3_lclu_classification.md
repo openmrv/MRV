@@ -4,7 +4,7 @@ summary: Ce tutoriel montre comment effectuer une classification de l'occupation
 author: Robert E Kennedy
 creation date:  Décembre 2020
 language: Français
-publisher and license:  Copyright 2020, Banque mondiale. Cette œuvre est protégée par une licence Creative Commons Attribution 3.0 IGO.
+publisher and license:  Copyright 2021, Banque mondiale. Cette œuvre est protégée par une licence Creative Commons Attribution 3.0 IGO.
 
 tags:
 - OpenMRV
@@ -725,37 +725,25 @@ Toutefois, lors de l'élaboration de systèmes d'étiquetage de classes plus com
 
 ------
 
-[
-![img](https://lh4.googleusercontent.com/FlTik_kVMvlZvBAPQuX5ijx5rwSVC_7T0zZbh48d415FxyqXrp-ZM_w2TLvmmICTyJVbii4VQJurxJt5-cKnSOOeNQ3-j3BdlK5XNwg4SKDAlVBLoVH25_ssaOgeL6xgLrwvZxjo)](http://creativecommons.org/licenses/by-sa/4.0/)
+![](./figures/m1.1/cc.png)
 
-Ce travail est sous licence [Creative Commons Attribution 3.0 IGO] (https://creativecommons.org/licenses/by/3.0/igo/) 
-
-
+Ce travail est sous licence [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) 
 
 Copyright 2020, Banque mondiale 
 
-
-
 Ce travail a été développé par Robert E Kennedy dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte des ressources existantes - liées à la mesure, la notification et la vérification afin de soutenir la mise en œuvre du MRV par les pays. 
 
-
-
 Matériel examiné par :
-
-Kenset Rosales & Sofia Garcia / Ministère de l'environnement et des ressources naturelles, Guatemala
-
-Jennifer Juliana Escamilla Valdez / Minsiterio de Medio Ambiente y Recursos Naturales, El Salvador
-
-Raja Ram Aryal / Ministère des forêts et de l'environnement, Népal
-
-KONAN Yao Eric Landry / Secrétariat exécutif permanent de REDD+, Côte d'Ivoire
-
-Carole Andrianirina / BNCCREDD+, Madagascar
-
-Phoebe Odour / RCMRD, Kenya
+Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
+Kenset Rosales, Guatemala, Ministry of Environment and Natural Resources  
+Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat    
+Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)   
+Raja Ram Aryal, Nepal, Forest Research and Training Centre  
+Sofia Garcia, Guatemala, Ministry of Environment and Natural Resources  
 
 Attribution
 
-Kennedy, Robert E . 2020. Land Cover and Land Use Classification in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+Kennedy, R. E . 2021. Land Cover and Land Use Classification in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
-![img](https://lh4.googleusercontent.com/6NE8qSB-n0jdUuIJhOi1KCswEq3JTZvc0o-pudDvv_myoESveXmgjnEu2GoRj5wT86x1KNWEVGsvmkpkKfWLUKCx5ThiShCstxc4nrov894b2IC_6-MUNQNG374JiLRnJTi7Stjz)![img](https://lh5.googleusercontent.com/cWpru05JISJZrVmeHUr1bP0abbQL4IRCRotcA2hYICrcOAAYFFG5NkbQ9piU3OLrWnjEWBMQ1bBZKqABIghoz0--lAXlvuxrhMh8icTMJPoDYi4fjWfeODRkRbKduPRcM601lRWh)
+![](figures/m1.1/wb_fcfc_gfoi.png)
