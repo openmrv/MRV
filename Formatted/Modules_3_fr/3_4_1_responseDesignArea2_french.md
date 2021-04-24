@@ -29,7 +29,7 @@ group:
 
 ## 1.Contexte
 
-AREA2, short for Area Estimation & Accuracy Assessment, is a Google Earth Engine application that provides comprehensive support for sampling and estimation in a design-based inference framework. For more information about AREA2 please refer to https://area2.readthedocs.io/en/latest/.
+AREA2, abréviation de Area Estimation & Accuracy Assessment, est une application de Google Earth Engine qui fournit un support complet pour l'échantillonnage et l'estimation dans un cadre d'inférence basé sur la conception. Pour plus d'informations sur AREA2, veuillez consulter le site suivant https://area2.readthedocs.io/en/latest/.
 
 Le plan de réponse définit la " réponse " des unités d'un échantillon. Dans le contexte de l'inférence basée sur le design dans un contexte géographique, " le design de réponse englobe toutes les étapes du protocole qui mènent à une décision concernant la concordance des classifications de référence et de la carte [et] la meilleure classification disponible des [conditions de surface du sol] pour chaque unité spatiale échantillonnée "  (Olofsson et al. 2014) [^fn1].  Les termes suivants sont importants :
 
@@ -62,12 +62,13 @@ Synonyme de plan d'échantillonnage (Sampling Design), qui est le terme préfér
 
 Särndal et al. (1992)[^fn2] définissent une enquête comme une “investigation partielle d'une population finie”, et précisent que “les concepts d ‘enquête’ et ‘enquête par sondage’ sont utilisés pour désigner des enquêtes statistiques présentant les caractéristiques méthodologiques suivantes: [...] échantillonnage aléatoire [...] plan de mesure [et] estimation”. de facon plus precise une enquete par sondage ou un sondage est une enquête effectuee sur une partie de la population. Cette fraction de la population constitue l'échantillon et les méthodes qui permettent de construire cet echantillon s'appellent méthode d'échantillonnage.
 
-**Plan d'enquête**
+**Plan de sondage**
 
-UN “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992)[^fn2]. Lohr (1999)[^fn5] décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
+Un “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992)[^fn2]. Lohr (1999)[^fn5] décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
 
 
-Dans ce tutoriel, nous allons déterminer les conditions de référence en examinant un ensemble de données de référence aux endroits où se trouvent les unités de l'échantillon que nous avons tiré de la Colombie dans le tutoriel précédent. Nous avons défini quatre strates : forêt, non-forêt, perturbation de la forêt et une zone tampon autour de la perturbation de la forêt. L'objectif est d'estimer la zone de perturbation forestière ; par conséquent, nous allons collecter des observations de référence de *forêt, non-forêt* et *perturbation de forêt*.
+Dans ce tutoriel, vous apprendrez à déterminer les conditions de référence en examinant un ensemble de données de référence aux emplacements des unités d'un ensemble de données d'échantillon à l'aide d'AREA2. Cet ensemble de données échantillons comprendra quatre strates : forêt, non-forêt, perturbation forestière et une zone tampon autour de la perturbation forestière. L'objectif est d'estimer la superficie de la perturbation forestière ; par conséquent, vous apprendrez à collecter des observations de référence sur la forêt, la zone non forestière et la perturbation forestière. Vous pouvez également utiliser d'autres outils pour accomplir cette tâche. Vous pouvez trouver d'autres tutoriels ici sur OpenMRV sous " Collecte de données d'échantillonnage " et les outils " CE ", et " CEO ".
+
 
 ## 2 Learning Objectives
 
