@@ -1,70 +1,37 @@
 ---
-title: Simple random/systematic sampling
-summary: Sampling-based approaches in a remote sensing or geographical context are necessary because they allow us to estimate area bias, map accuracy and uncertainty. A sampling-based approach to estimation can be separated into three different components - sampling design, response design and analysis (Stehman & Czaplewski, 1998). The first component, sampling design, is illustrated in this tutorial for the case of simple random/systematic sampling design. Other tutorials here on OpenMRV under process "Sampling design" explore other sampling design approaches (e.g. Stratified Random Sampling).
+title: Échantillonnage aléatoire simple/systématique
+summary: En télédétection ou dans un contexte géographique, les approches basées sur l'échantillonnage sont nécessaires car elles nous permettent d'estimer le biais de la zone, la précision de la carte et l'incertitude. Une approche d'estimation basée sur l'échantillonnage peut être séparée en trois composantes différentes : le plan d'échantillonnage, le plan de réponse et l'analyse (Stehman & Czaplewski, 1998). La première composante, le plan d'échantillonnage, est illustrée dans ce tutoriel pour le cas d'un plan d'échantillonnage aléatoire simple/systématique. D'autres tutoriels ici sur OpenMRV sous le processus "Plan d'échantillonnage" explorent d'autres approches du plan d'échantillonnage (par exemple, l'échantillonnage aléatoire stratifié).
+
 author: Pontus Olofsson
-creation date: February, 2021
-language: English
-publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+creation date:  Février, 2021
+language: Français
+publisher and license: opyright 2021, Banque mondiale. Ce travail est sous licence Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
-- Landsat
-- Sentinel 2
-- Sentinel 1
 - GEE
 - QGIS
 - AREA2
-- Cloud cover
-- Optical sensors
-- Remote sensing
-- Composite
-- Mosaic
-- Time series
-- Change detection
-- Land cover mapping
-- Forest mapping
-- Deforestation mapping
-- Degradation mapping
-- Forest degradation mapping
-- Sampling design
-- Sample design
-- Sample selection
-- Sample
-- Sampling frame
-- Stratified
-- Simple Random
-- Systematic
-- Response design
-- Survey
-- Survey design
-- Accuracy
-- Accuracy assessment
-- Area Estimation
-- Reference data
-- Reference classification
-- Reference observations
-- Colombia
+- Plan d'échantillonnage
+- Conception de l'échantillon
+- Sélection de l'échantillon
+- Échantillon
+- Base d'échantillonnage
+- Aléatoire simple
+- Systématique
+
 
 group:
-- category: Stratified
-  stage: Sampling
-- category: Simple Random
-  stage: Sampling
-- category: Cluster
-  stage: Sampling
-- category: Systematic
-  stage: Sampling
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
-- category: Expansion
-  stage: Area Estimation/Accuracy assessment
-- category: Model-assisted
-  stage: Area Estimation/Accuracy assessment
-- category: Ratio
-  stage: Area Estimation/Accuracy assessment
+
+- catégorie : Simple aléatoire
+  étape: Échantillonnage
+- catégorie : Grappe
+  étape: Échantillonnage
+- catégorie : Systématique
+  étape: Échantillonnage
 ---
 
-# Simple random/systematic sampling
+# Échantillonnage aléatoire simple/systématique
 
 ## 1 Contexte
 
@@ -76,18 +43,18 @@ Lors du choix d'un plan d'échantillonnage, nous devons tenir compte de quelques
 
 ## 2 Objectifs d'apprentissage
 
-L'objectif de ce tutoriel est de fournir à l'utilisateur une compréhension des diverses décisions clés impliquées dans la conception d'un effort d'estimation basé sur l'échantillonnage. Il est important de comprendre la relation entre la taille de l'échantillon et l'allocation des unités d'échantillonnage aux strates, ainsi que les objectifs primordiaux de l'estimation tels que la précision cible. À la fin du tutoriel, l'utilisateur devrait être en mesure de choisir une méthode de sélection d'échantillon -- SYS, SRS ou STR --, de déterminer la taille de l'échantillon et d'allouer l'échantillon aux strates, en fonction des objectifs liés à l'estimation.
+Pour ce tutoriel spécifique, nous nous focaliserons sur le plan d'échantillonnage aléatoire simple/systématique.L'objectif de ce tutoriel est de fournir à l'utilisateur une compréhension des diverses décisions clés impliquées dans la conception d'un effort d'estimation basé sur l'échantillonnage. Il est important de comprendre la relation entre la taille de l'échantillon et l'allocation des unités d'échantillonnage aux strates, ainsi que les objectifs primordiaux de l'estimation tels que la précision cible. À la fin du tutoriel, l'utilisateur devrait être en mesure de choisir une méthode de sélection d'échantillon systématique (SYS), aléatoire simple (SRS) ou aléatoire stratifié (STR), Déterminer la taille de l'échantillon et l'allouer aux strates, en fonction des objectifs d'estimation pour le plan d'échantillonnage aléatoire simple/systématique.
 
 - Comprendre les différentes décisions clés impliquées dans la conception d'un effort d'estimation basé sur l'échantillonnage
-- Choisir une méthode de sélection d'échantillon -- SYS, SRS ou STR en fonction des objectifs d'estimation.
+- Choisir une méthode de sélection d'échantillon -systématique (SYS), aléatoire simple (SRS) ou aléatoire stratifié (STR) en fonction des objectifs d'estimation.
 - Déterminer la taille de l'échantillon et l'allouer à des strates, en fonction des objectifs d'estimation.
 
-### 2.1 Prérequis pour ce module
+### 2.1 Pré-requis 
 
 - Révision de la terminologie pertinente pour les techniques d'échantillonnage dans le tutoriel 3.1 Terminologie
-- Il est fortement conseillé de comprendre les tutoriels précédents des modules 1 et 2.
+- Il est fortement conseillé d'avoir un compte Google Earth Engine (GEE). Veuillez vous référer au processus "Pré-traitement" et à l'outil "GEE" ici sur OpenMRV pour plus d'informations sur le travail dans cet environnement.
 
-## 3 Tutorial: Sampling design for estimation of area and map accuracy - Simple random/systematic sampling
+## 3 Tutorial : Plan d'échantillonnage pour l'estimation de la superficie et de la précision des cartes - Échantillonnage aléatoire simple/systématique
 
 ### 3.1 Comment choisir un plan d'échantillonnage?
 
@@ -95,7 +62,7 @@ Le choix d'un plan d'échantillonnage nécessite souvent des compromis entre dif
 
 #### 3.1.1 Echatillonnnage Stratifié?
 
-Les strates sont “des sous-populations qui ne se chevauchent pas et qui, ensemble, constituent la population entière” (Cochran, 1977, p. 89)[^fn4]. La stratification de la zone d'étude avant la sélection de l'échantillon peut garantir que les estimations de la précision et de la superficie sont obtenues pour certaines sous-régions de la zone d'étude, et il en résulte une plus grande précision des estimations. Par conséquent, il existe plusieurs bonnes raisons d'utiliser des strates. Même avec un échantillonnage aléatoire simple, l'utilisation de strates après la sélection de l'échantillon est une [bonne idée](https://github.com/openmrv/MRV/blob/main/Formatted/Modules_3_fr/3_1_sampling_design_french.md###markdown-header-3.1-Post-stratification). L'échantillonnage stratifié présente un avantage évident si nous nous intéressons à une très petite proportion de la zone d'étude, comme c'est souvent le cas dans les MRV tropicaux. Par exemple, la zone de perte de forêt, même dans les pays où la déforestation est rampante, est souvent une très petite proportion du pays, surtout sur de courts intervalles de temps. L'utilisation d'une carte des pertes de forêts (et d'autres catégories) pour stratifier la zone d'étude dans de telles situations permet un échantillonnage ciblé dans des zones d'intérêt particulier. Ne pas effectuer de stratification dans de telles situations exigera une très grande taille d'échantillon.
+Les strates sont “des sous-populations qui ne se chevauchent pas et qui, ensemble, constituent la population entière” (Cochran, 1977, p. 89)[^fn4]. La stratification de la zone d'étude avant la sélection de l'échantillon peut garantir que les estimations de la précision et de la superficie sont obtenues pour certaines sous-régions de la zone d'étude, et il en résulte une plus grande précision des estimations. Par conséquent, il existe plusieurs bonnes raisons d'utiliser des strates. Même avec un échantillonnage aléatoire simple, l'utilisation de strates après la sélection de l'échantillon est une [voir section 3.2.1 Post stratification ci-dessous](https://github.com/openmrv/MRV/blob/main/Formatted/Modules_3_fr/3_1_sampling_design_french.md###markdown-header-3.1-Post-stratification). L'échantillonnage stratifié présente un avantage évident si nous nous intéressons à une très petite proportion de la zone d'étude, comme c'est souvent le cas dans les MRV tropicaux. Par exemple, la zone de perte de forêt, même dans les pays où la déforestation est rampante, est souvent une très petite proportion du pays, surtout sur de courts intervalles de temps. L'utilisation d'une carte des pertes de forêts (et d'autres catégories) pour stratifier la zone d'étude dans de telles situations permet un échantillonnage ciblé dans des zones d'intérêt particulier. Ne pas effectuer de stratification dans de telles situations exigera une très grande taille d'échantillon.
 
 #### 3.1.2 Utilisation d'une sélection aléatoire simple ou systématique?
 
@@ -135,7 +102,7 @@ ce qui donne une taille d'échantillon égale à
 
 [![img](https://camo.githubusercontent.com/0d228a3402fa0aa5b648553e40ddb50ade37829d771c90cd127f8adae4d5094b/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f7376672e6c617465783f2535434c617267652673706163653b6e3d253543667261632537422535436861742537427025374428312d2535436861742537427025374429253744253742253543686174253742562537442825354368617425374270253744292537443d25354366726163253742302e3828312d302e3829253744253742302e303030342537443d343030)](https://camo.githubusercontent.com/0d228a3402fa0aa5b648553e40ddb50ade37829d771c90cd127f8adae4d5094b/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f7376672e6c617465783f2535434c617267652673706163653b6e3d253543667261632537422535436861742537427025374428312d2535436861742537427025374429253744253742253543686174253742562537442825354368617425374270253744292537443d25354366726163253742302e3828312d302e3829253744253742302e303030342537443d343030)
 
-Bien que l'estimation de la précision globale ait été illustrée dans Olofsson et al. (2014)[^fn5], spécifier une marge d'erreur de la précision globale de la carte n'est pas intuitif et constitue rarement un objectif d'estimation. Un exemple plus réaliste serait l'estimation de la zone de déforestation ou de dégradation des forêts avec une certaine précision. Dans le tutoriel CODED, une carte de la déforestation, de la dégradation forestière, de la forêt et de la non-forêt a été créée pour la Colombie ; pour des raisons de simplicité, nous regroupons la déforestation et la dégradation de forêt en une seule classe de perturbation de forêt, qui a été cartographiée comme représentant 1,4% du pays de 2010 à 2020. Remarque : pour l'estimation des données d'activité dans le cadre de REDD+ (et d'autres initiatives), il est recommandé d'estimer la déforestation et la dégradation séparément - et donc d'utiliser une strate de déforestation et une strate de dégradation - plutôt que de combiner les deux classes en une seule classe de perturbation forestière. Ici, nous utilisons une classe de perturbation combinée pour faciliter l'illustration du flux de travail et des calculs. Supposons que nous voulions estimer la zone de perturbation forestière (encore une fois, déforestation et dégradation combinées) avec une marge d'erreur de 25 %. Notez que 25% est utilisé ici simplement pour illustrer le flux de travail -- l'erreur cible dépendra des circonstances de l'étude. Premièrement, une marge d'erreur de 25% équivaut à une variance de
+Bien que l'estimation de la précision globale ait été illustrée dans Olofsson et al. (2014)[^fn5], spécifier une marge d'erreur de la précision globale de la carte n'est pas intuitif et constitue rarement un objectif d'estimation. Un exemple plus réaliste serait l'estimation de la zone de déforestation ou de dégradation des forêts avec une certaine précision. Dans un autre tutoriel ici sur OpenMRV sous le processus "Détection des changements" et l'outil "CODED", une carte de la déforestation, de la dégradation des forêts, des forêts et des non-forêts a été créée pour la Colombie, et nous l'utiliserons comme exemple [sur ce lien](https://code.earthengine.google.com/?asset=users/openmrv/MRV/CODED_Colombia_Stratification_No_Buffer); pour des raisons de simplicité, nous regroupons la déforestation et la dégradation de forêt en une seule classe de perturbation de forêt, qui a été cartographiée comme représentant 1,4% du pays de 2010 à 2020. Remarque : pour l'estimation des données d'activité dans le cadre de REDD+ (et d'autres initiatives), il est recommandé d'estimer la déforestation et la dégradation séparément - et donc d'utiliser une strate de déforestation et une strate de dégradation - plutôt que de combiner les deux classes en une seule classe de perturbation forestière. Ici, nous utilisons une classe de perturbation combinée pour faciliter l'illustration du flux de travail et des calculs. Supposons que nous voulions estimer la zone de perturbation forestière (encore une fois, déforestation et dégradation combinées) avec une marge d'erreur de 25 %. Notez que 25% est utilisé ici simplement pour illustrer le flux de travail -- l'erreur cible dépendra des circonstances de l'étude. Premièrement, une marge d'erreur de 25% équivaut à une variance de
 
 [![img](https://camo.githubusercontent.com/878db9bbc34df76fd57a2535b9aa88d16dd0ea024275ca53eda70eb81514ad95/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f7376672e6c617465783f2535434c617267652673706163653b253543686174253742562537442825354368617425374270253744293d28253543667261632537424d6f4525354374696d65732673706163653b253543686174253742702537442537442537423225374429253545323d2825354366726163253742302c323525354374696d6573302c3031342537442537423225374429253545323d302c303030303033)](https://camo.githubusercontent.com/878db9bbc34df76fd57a2535b9aa88d16dd0ea024275ca53eda70eb81514ad95/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f7376672e6c617465783f2535434c617267652673706163653b253543686174253742562537442825354368617425374270253744293d28253543667261632537424d6f4525354374696d65732673706163653b253543686174253742702537442537442537423225374429253545323d2825354366726163253742302c323525354374696d6573302c3031342537442537423225374429253545323d302c303030303033)
 
@@ -145,16 +112,16 @@ ce qui donne une taille d'échantillon de
 
 La collecte d'observations sur près de cinq mille sites d'échantillonnage est rarement réalisable pour une étude spécifique. Cet exemple illustre l'un des inconvénients du SRS/SYS : comme nous n'utilisons aucune information sur la localisation de la déforestation, une très grande taille d'échantillon est nécessaire pour obtenir une grande précision. Une autre façon, plus rapide, d'estimer l'échantillon dans ce cas est de supposer que nous avons besoin d'au moins 30 unités dans les zones de déforestation, ce qui nécessiterait une taille d'échantillon de 30/0,014 = 2 142 unités, ce qui est plus acceptable mais toujours important, et nous n'échantillonnons pas pour atteindre un objectif de précision. (Faites défiler vers le bas à **4.3 Allocation** pour une explication de la raison pour laquelle 30 est le "chiffre magique".)
 
+### 3.3 Échantillonnage à deux niveaux/clustering
 
-### 3.3 Logiciel permettant d'estimer la taille de l'échantillon
+La dernière étape du plan d'échantillonnage consiste à tirer physiquement l'échantillon de la zone d'étude, ce qui est abordé dans le prochain tutoriel.
 
-SEPAL/CEO a un support intégré pour l'estimation de la taille de l'échantillon comme expliqué dans cette publication (défilement vers le bas jusqu'à la section 14).
+### 3.4 Logiciel permettant d'estimer la taille de l'échantillon
+
+SEPAL/CEO a un support intégré pour estimer la taille de l'échantillon comme expliqué dans [cette documentation](https://sepal-ceo.readthedocs.io/en/latest/).
 
 Similaire à SEPAL est cette feuille de calcul développée par la Banque Mondiale qui calcule également la taille de l'échantillon nécessaire pour atteindre une précision de l'exactitude globale https://onedrive.live.com/view.aspx?resid=9815683804F2F2C7!37340&ithint=file%2cxlsx&authkey=!ANcP-Xna7Knk_EE
 
-### 3.4 Sélection de l'échantillon
-
-La dernière étape du plan d'échantillonnage consiste à tirer physiquement l'échantillon de la zone d'étude, ce qui est abordé dans le prochain tutoriel.
 
 ## 4 Foire aux questions (FAQs)
 
@@ -162,11 +129,7 @@ La dernière étape du plan d'échantillonnage consiste à tirer physiquement l'
 
 Certains programmes spécifient une précision souhaitée ou requise ; le Forest Carbon Partnership Facility (FCPF), par exemple, stipule une marge d'erreur de 30% au niveau de confiance de 95% pour les estimations de surface des données d'activité. La marge d'erreur est égale à 1,96 fois l'erreur standard divisée par l'estimation de la superficie. Lorsque de telles exigences de précision ne sont pas spécifiées, une erreur standard cible doit être déterminée sur la base d'autres critères. Il est à noter que plus la proportion de surface de la classe recherchée est faible, plus l'échantillon doit être important pour atteindre une faible marge d'erreur. Par conséquent, pour les petites proportions de surface, la précision ciblée devra être allégée pour éviter d'avoir à sélectionner un très grand échantillon.
 
-**How do I determine a target standard error?**
-
-Certain programs specify a desired or required precision; the Forest Carbon Partnership Facility (FCPF) for example stipulate a margin of error of 30% at the 95% confidence level for area estimates of activity data. The margin of error is 1.96 times the standard error divided by the area estimate. When no such precision requirements are specified, a target standard error needs to be determined based on other criteria. Note that the smaller the area proportion of the target class, the larger the sample is needed to reach a small margin of error. Accordingly, for small area proportions, the target precision will need to be relaxed to avoid having to select a very large sample.  
-
-
+'
 ## 5 Terminologie relative aux techniques d'échantillonnage
 
 Une liste de termes relatifs aux techniques d'échantillonnage et d'inférence est fournie dans la documentation d'AREA2 : https://area2.readthedocs.io/en/latest/definitions.html Vous trouverez ci-dessous quelques termes supplémentaires qui ne figurent pas dans la documentation d'AREA2.
