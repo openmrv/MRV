@@ -99,7 +99,7 @@ El canal de YouTube titulado [Open MRV](https://www.youtube.com/channel/UCdPooUC
 
 El flujo de trabajo general del proceso para este tutorial se demuestra a continuación:
 
-![](./figures/m1.1/WB_graphs_v2-02-crop.png)
+![](./figures/m1.1/WB_graphs_v2-02-crop_sp.png)
 
 Ahora completemos cada uno de estos pasos. Abra el Editor de Código escribiendo [https://code.earthengine.google.com](https://code.earthengine.google.com) en su barra de búsqueda. 
 
