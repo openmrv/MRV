@@ -119,7 +119,7 @@ Bien que les spécificités des étapes varient selon le classificateur,  [les �
 
 Graphiquement, les étapes sont les suivantes. 
 
-![WB_graphs_v2-03](./figures/m1.3/WB_graphs_v2-03.png)
+![WB_graphs_v2-03](./figures/m1.3/WB_graphs_v2-03_fr.png)
 
 Cela permet de créer une carte.  Vous devrez ensuite évaluer la précision de cette carte. Il est abordé ici sur OpenMRV sous le nom de "Estimation de la superficie / Évaluation de la précision".
 
