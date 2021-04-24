@@ -296,12 +296,11 @@ Stehman, S.V., 2014. Estimating area and map accuracy for stratified random samp
 
 Esta trabajo tiene licencia bajo un [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
-Copyright 2020, World Bank. 
+Copyright 2021, World Bank. 
 
 Este trabajo fue desarrollado por Pontus Olofsson bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionadas a la Medida, Reportaje, y Verificación para el apoyo de implementación MRV en varios países.
 
 Material revisado por: 
-
 Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources
 Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)
 Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources
