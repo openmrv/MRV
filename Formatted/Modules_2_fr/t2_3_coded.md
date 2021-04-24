@@ -135,7 +135,7 @@ La méthodologie du CODED comporte trois composantes principales (voir Bullock e
 2. Détection des changements à l'aide d'une détection de rupture basée sur la régression.
 3.  Attribution de changement en déforestation ou dégradation en utilisant des données de training et un classificateur d'apprentissage machine. 
 
-![img5](./images/CODED/img5.png)
+![img5](./images/CODED/img5_fr.png)
 
 #### 3.4 Analyse des mixages spectraux
 
