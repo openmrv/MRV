@@ -1,28 +1,28 @@
 ---
-title: Response design in AREA2
-summary: This tutorial will go through how to use AREA2 for response design and collection of reference observations. AREA2, short for Area Estimation & Accuracy Assessment, is a Google Earth Engine application that provides comprehensive support for sampling and estimation in a design-based inference framework. For more information about AREA2 please refer to https://area2.readthedocs.io/en/latest/
+title: Plan de réponse dans AREA2
+summary: Ce tutoriel explique comment utiliser AREA2 pour la conception de réponses et la collecte d'observations de référence. AREA2, abréviation de Area Estimation & Accuracy Assessment, est une application de Google Earth Engine qui fournit un support complet pour l'échantillonnage et l'estimation dans un cadre d'inférence basé sur la conception. Pour plus d'informations sur AREA2, veuillez consulter le site suivant https://area2.readthedocs.io/en/latest/
 author: Pontus Olofsson
-creation date: February, 2021
-language: English
-publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+creation date: Février 2021
+language: Français
+publisher and license: Copyright 2021, Banque mondiale. Cette œuvre est protégée par une licence Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
-- Remote sensing
+- Télédétection
 - GEE
 - AREA2
-- Time series
-- Response design
-- Survey
-- Survey design
-- Reference data
-- Reference classification
-- Reference observations
-- Colombia
+- Série chronologique
+- Plan de réponse
+- Sondage
+- Plan de sondage
+- Données de référence
+- Classification de référence
+- Observations de référence
+- Colombie
 
 group:
-- category: GEE
-  stage: Reference data collection
+- catégorie: GEE
+  étape: Collecte de données de référence
 ---
 
 # Response design in AREA2 
@@ -70,18 +70,18 @@ Un “plan de sondage total” définit les procédures pour “obtenir la plus 
 Dans ce tutoriel, vous apprendrez à déterminer les conditions de référence en examinant un ensemble de données de référence aux emplacements des unités d'un ensemble de données d'échantillon à l'aide d'AREA2. Cet ensemble de données échantillons comprendra quatre strates : forêt, non-forêt, perturbation forestière et une zone tampon autour de la perturbation forestière. L'objectif est d'estimer la superficie de la perturbation forestière ; par conséquent, vous apprendrez à collecter des observations de référence sur la forêt, la zone non forestière et la perturbation forestière. Vous pouvez également utiliser d'autres outils pour accomplir cette tâche. Vous pouvez trouver d'autres tutoriels ici sur OpenMRV sous " Collecte de données d'échantillonnage " et les outils " CE ", et " CEO ".
 
 
-## 2 Learning Objectives
+## 2 Objectifs d'apprentissage
 
-Upon completion of the tutorial, the user should be able to display a set of reference data at locations of sample units designed and drawn from a study area. The user should be able to determine reference conditions at the land surface by examining time series of Landsat data in combination with high resolution data in Google Earth. 
+À la fin du tutoriel, l'utilisateur devrait être en mesure d'afficher un ensemble de données de référence aux emplacements des unités d'échantillonnage conçues et tirées d'une zone d'étude. L'utilisateur doit être capable de déterminer les conditions de référence à la au sol en examinant les séries chronologiques de données Landsat en combinaison avec des données à haute résolution dans Google Earth.  
 
-* Display a set of reference data at locations of sample units in GEE
-* Determine reference conditions at the land surface by examining time series of Landsat data in combination with high resolution data in GEE
+* Afficher un ensemble de données de référence à l'emplacement des unités d'échantillonnage dans GEE.
+* Déterminer les conditions de référence au sol en examinant les séries temporelles de données Landsat en combinaison avec des données à haute résolution dans GEE.
 
 ### 2.1 Pre-requisites
 * A general understanding of image interpretation. Image interpretation is the process of looking at moderate, high, or very high spatial resolution imagery (from satellites or aerial photography) and labeling the objects of interest in your sample locations. Photo interpretation is the core skill needed to effectively determine reference conditions at the land surface.
 
 
-## 3 Tutorial: Response design in Area2
+## 3 TutTutoriel : Conception des réponses dans Area2orial: Response design in Area2
 
 ### 3.1 Préparer les données de référence
  La première étape consiste à extraire les séries temporelles des données Landsat aux localisations de l'échantillon. Pour ce faire, nous utilisons le script Save Feature Timeseries : https://code.earthengine.google.com/21658946c5c1456003aedcdd2eb303ce Ce script n'a pas d'interface graphique mais tout ce que nous avons à faire est de pointer le script vers l'actif GEE contenant l'échantillon. En haut du script, ajoutez simplement la ligne suivante en spécifiant l'emplacement de l'échantillon sélectionné à l'étape précédente :
@@ -97,8 +97,7 @@ Le collecteur de référence se trouve ici: https://code.earthengine.google.com/
 Une fois chargé, spécifiez un chemin pour sauvegarder votre travail sous "Inputs and Outputs" et par "Link to FC", spécifiez l'emplacement de l'actif contenant l'échantillon après avoir été traité en utilisant le script Save Feature Timeseries comme décrit ci-dessus. Cochez "Load chart data from feature collection" et cliquez sur "Load". Cela devrait afficher la taille de l'échantillon -- dans mon cas, j'utilise l'échantillon de 535 unités que nous avons conçu dans le tutoriel sur le plan d'échantillonnage.
 
 Pour commencer, sous "Interprétation de l'échantillon", spécifiez "1" et appuyez sur la touche Entrée -- cela affichera les données de référence pour la première unité de l'échantillon. Les graphiques de séries temporelles situés au centre de l'interface sont importants : les séries temporelles sont affichées pour les bandes rouge, NIR et SWIR1 de Landsat, et pour les transformations de Tasseled Cap (Kauth-Thomas) : luminosité, verdure et humidité. Les six premiers graphiques montrent les données des séries temporelles pour la période d'étude spécifiée dans le script Save Features Timeseries ci-dessus ; vous pouvez zoomer sur un certain intervalle de temps et les graphiques peuvent être affichés dans une fenêtre séparée en cliquant sur la flèche à côté de chaque graphique. Les six derniers graphiques sont des graphiques de séries chronologiques annuelles cumulées, de sorte que les données de chaque année sont tracées "au-dessus" les unes des autres.   
-
-Above the time series data is the outline of the sample unit draped on top of the default GEE satellite imagery -- click "KML" to display high resolution data in Google Earth at sample locations.
+Au-dessus des données de la série chronologique se trouve le contour de l'unité d'échantillonnage drapé sur l'imagerie satellitaire GEE par défaut - cliquez sur "KML" pour afficher les données à haute résolution dans Google Earth aux emplacements des échantillons.
 
  ![](./figures/AREA2_ref_collector.png)
 
@@ -106,15 +105,15 @@ Pour l'instant, nous recommandons à l'utilisateur de noter les étiquettes de r
 * https://drive.google.com/file/d/1Y_D49kE_oiXxGEJEcPGT8FavrzdMj2qh/view?usp=sharing
 * https://drive.google.com/file/d/1Md5NajZAngJsVWWiTCbgSdLiEyw7u6BE/view?usp=sharing
 
-## 4 Frequently Asked Questions (FAQs)
+## 4 Foire aux questions(FAQs)
 
-**If I can't determine the reference conditions at the location of a sample unit, can I discard that unit from the sample?**
+**Si je ne peux pas déterminer les conditions de référence à l'emplacement d'une unité d'échantillonnage, puis-je écarter cette unité de l'échantillon?**
 
-It is imperative that the reference observations represent reference conditions; therefore, it is better to discard a sample unit than guessing. At the same time, removing units because the provision of reference labels is impossible violates the rules of probability sampling. For these reasons, it is difficult to provide guidelines for how many sample units can be discarded. (A renowned colleague of mine once told me that it is acceptable to remove discard up to 15% of the units in sample but he didn't want to be quoted, and I have not found any support for this figure in the literature.)
+Il est impératif que les observations de référence représentent les conditions de référence ; par conséquent, il est préférable d'écarter une unité d'échantillonnage que de deviner. En même temps, éliminer des unités parce que la détermination de labels de référence est impossible viole les règles de l'échantillonnage probabiliste. Pour ces raisons, il est difficile de fournir des directives sur le nombre d'unités d'échantillonnage pouvant être écartées. (Un de mes collègues renommés m'a dit un jour qu'il était acceptable d'éliminer jusqu'à 15 % des unités de l'échantillon, mais il n'a pas voulu être cité, et je n'ai trouvé aucun appui pour ce chiffre dans la littérature).
 
 
 
-## References
+## Références
 Cochran, W.G., 1977. *Sampling Techniques*, John Wiley & Sons, New York, NY.
 
 Lohr, S.L., 1999. *Sampling: Design And Analysis,* CRC Press.
