@@ -1,10 +1,10 @@
 ---
-title: Response design
-summary: This tutorial introduces the concept of response design, lists relevant terms, and highlights different tools that can be used for the collection of reference observations in the context of area estimation and map accuracy. More tutorials can be found here on OpenMRV under process "Sample data collection" and tools "GEE", "AREA2", "CE", and "CEO".
+title: Plan de réponse
+summary: Ce tutoriel présente le concept de plan de réponse, énumère les termes importants et met en évidence différents outils qui peuvent être utilisés pour la collecte d'observations de référence dans le contexte de l'estimation de superficie et de la précision des cartes. D'autres tutoriels peuvent être trouvés ici sur OpenMRV sous le processus " Collecte de données d'échantillon " et les outils " GEE ", " AREA2 ", " CE ", et " CEO 
 author: Pontus Olofsson
-creation date: February, 2021
-language: English
-publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+creation date: Février, 2021
+language: Français
+publisher and license: Copyright 2021, Banque mondiale. Cette œuvre est protégée par une licence Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
@@ -12,27 +12,29 @@ tags:
 - AREA2
 - CEO
 - CE
-- Stratified
-- Simple Random
-- Systematic
-- Response design
-- Survey
-- Survey design
-- Reference data
-- Reference classification
-- Reference observations
+- Stratifié
+- Simple aléatoire
+- Systématique
+- Plan de réponse
+- Sondage
+- Plan de sondage
+- Données de référence
+- Classification de référence
+- Observations de référence
+- Mozambique
+- Cambodge
 
 group:
-- category: Collect Earth
-  stage: Reference data collection
-- category: Collect Earth Online
-  stage: Reference data collection
-- category: GEE
-  stage: Reference data collection
+- catégorie : Collect Earth
+  étape : Collecte de données de référence
+- catégorie : Collect Earth Online
+  étape : Collecte de données de référence
+- catégorie : GEE
+  étape : Collecte de données de référence
 ---
 
 
-# Conception des réponses
+# Plan des réponses
 
 ## 1 Contexte
 
@@ -44,15 +46,16 @@ Le plan de réponse définit la " réponse " des unités d'un échantillon. Dans
 
 **Reference classification** La classification de référence appliquée à la collection de toutes les unités d'échantillonnage.
 
-Dans ce tutoriel, nous allons déterminer les conditions de référence en examinant un ensemble de données de référence aux emplacements des unités de l'échantillon que nous avons tiré de la Colombie dans le tutoriel précédent. Nous avons défini quatre strates : forêt, non-forêt, perturbation de la forêt et une zone tampon autour de la perturbation de la forêt. L'objectif est d'estimer la zone de perturbation forestière ; par conséquent, nous allons collecter des observations de référence de *forêt, non-forêt* et *perturbation forestière*. Cette démonstration sera faite à l'aide de trois outils différents parmi lesquels l'utilisateur peut choisir : AREA2, Collect Earth Desktop et Collect Earth Online.
+Ici, sur OpenMRV, sous " Collecte de données d'échantillons " et les outils " GEE ", " AREA2 ", " CE " et " CEO ", vous trouverez des tutoriels où vous apprendrez à déterminer les conditions de référence. Nous allons examiner les unités d'un ensemble de données d'échantillon. Cet ensemble de données d'échantillon aura quatre strates : forêt, non-forêt, perturbation de la forêt et une zone tampon autour de la perturbation de la forêt. 
+L'objectif est d'estimer la zone de perturbation forestière ; par conséquent, vous allez apprendre à collecter des observations de référence de *forêt, non-forêt* et *perturbation forestière*. Ceci est démontré à l'aide de trois outils différents parmi lesquels l'utilisateur peut choisir : GEE/AREA2, Collect Earth Desktop et Collect Earth Online.
 
 ### 1.1 Tutoriels
 
-- Pour la conception des réponses à l'aide de **AREA2**, veuillez vous référer à  [3.4.1 Response design in AREA2](https://github.com/openmrv/MRV/blob/main/Formatted/Modules_3/3_response_design_feb22_2021.md)
-- Pour la conception des réponses à l'aide de  **Collect Earth Desktop**, veuillez vous référer à [3.4.2 Reponse design in Collect Earth Desktop](https://github.com/openmrv/MRV/blob/main/Formatted/Modules_3/3_response_design_CE.md)
-- Pour la conception des réponses à l'aide de **Collect Earth Online**, veuillez vous référer à [3.4.2 Reponse design in Collect Earth Online](https://github.com/openmrv/MRV/blob/main/Formatted/Modules_3/3_response_design_CEO.md)
+- Pour le plan de réponse utilisant **AREA2**, veuillez vous référer au processus "Collecte des données de l'échantillon" et aux outils "AREA2" et "GEE" ici sur OpenMRV [Lien](https://github.com/openmrv/MRV/blob/main/Formatted/Modules_3/3_response_design_feb22_2021.md)
+- Pour le plan de réponse utilisant **Collect Earth Desktop**, veuillez vous référer au processus " Collecte des données de l'échantillon " et à l'outil " CE " ici sur OpenMRV.
+- Pour le plan de réponse utilisant **Collect Earth Online**, veuillez vous référer au processus " Collecte des données de l'échantillon " et à l'outil " CEO " ici sur OpenMRV.
 
-### 1.2 Additional Terminology 
+### 1.2 Terminologie additionnelle
 
 **Plan de réponse**
 
@@ -70,13 +73,13 @@ Synonyme de plan d'échantillonnage (Sampling Design), qui est le terme préfér
 
 “Le concept de plan d'échantillonnage (sampling design ) est le protocole par lequel les unités de référence de l'échantillon sont sélectionnées” (Stehman and Czaplewski, 1998)[^fn1]. Le terme “Sampling design” est également utilisé par Cochran (1977)[^fn3] and Särndal et al. (1992)[^fn2] -- Le premier utilise également “sampling plan”.
 
-**Sondage/Enquêtee**
+**Sondage/Enquête**
 
 Särndal et al. (1992)[^fn2] définissent une enquête comme une “investigation partielle d'une population finie”, et précisent que “les concepts d ‘enquête’ et ‘enquête par sondage’ sont utilisés pour désigner des enquêtes statistiques présentant les caractéristiques méthodologiques suivantes: [...] échantillonnage aléatoire [...] plan de mesure [et] estimation”. de facon plus precise une enquete par sondage ou un sondage est une enquête effectuee sur une partie de la population. Cette fraction de la population constitue l'échantillon et les méthodes qui permettent de construire cet echantillon s'appellent méthode d'échantillonnage.
 
 **Plan d'enquête**
 
-UN “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992)[^fn2]. Lohr (1999)[^fn5] décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
+Un “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992)[^fn2]. Lohr (1999)[^fn5] décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
 
 ## 2 Références
 
