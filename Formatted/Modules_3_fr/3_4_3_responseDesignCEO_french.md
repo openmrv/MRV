@@ -1,75 +1,64 @@
 ---
-title: Response Design in Collect Earth Online
+title: Plan de réponse dans Collect Earth Online
 summary: Collect Earth Online is a custom built, open-source, satellite image viewing and interpretation system to collect data for use in projects that require land cover and/or land use reference information. In this tutorial you will learn how to draft, review, and publish a project in Collect Earth Online. More information is available on the Collect Earth Online Support Page (https://collect.earth/support).
 author:
 - Karis Tenneson
 - Karen Dyson
-creation date: February, 2021
-language: English
-publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+creation date: Février 2021
+language:Français
+publisher and license: Copyright 2021, Banque mondiale.Cette œuvre est protégée par une licence Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
-- Landsat
-- Sentinel 2
-- Sentinel 1
-- Cloud cover
-- Optical sensors
-- Remote sensing
+- Sentinelle 2
+- Sentinelle 1
+- Couverture nuageuse
+- Capteurs optiques
 - Composite
-- Mosaic
-- Time series
-- GEE
+- Série chronologique
 - CEO
 - Planet Labs
-- Change detection
-- Land cover mapping
-- Forest mapping
-- Deforestation mapping
-- Degradation mapping
-- Forest degradation mapping
-- Sampling design
-- Sample design
-- Sample selection
-- Sample
-- Sampling frame
-- Stratified
-- Simple Random
-- Systematic
-- Response design
-- Survey
-- Survey design
-- Accuracy
-- Accuracy assessment
-- Area Estimation
-- Reference data
-- Reference classification
-- Reference observations
-- Colombia
+- Détection des changements
+- Cartographie  de l'occupation du sol
+- Cartographie forestière
+- Cartographie de la déforestation
+- Cartographie de la dégradation
+- Cartographie de la dégradation des forêts
+- Plan d'échantillonnage
+- Plan  de l'échantillon
+- Sélection de l'échantillon
+- Echantillon
+- Cadre d'échantillonnage
+- Stratifié
+- Aléatoire simple
+- Systématique
+- Plan de réponse
+- Sondage
+- Plan de sondage
+- Données de référence
+- Classification de référence
+- Observations de référence
+- Colombie
 
 group:
-- category: Stratified
-  stage: Sampling
-- category: Simple Random
-  stage: Sampling
-- category: Cluster
-  stage: Sampling
-- category: Systematic
-  stage: Sampling
-- category: Collect Earth Online
-  stage: Reference data collection
-- category: Google Earth Engine
-  stage: Reference data collection
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
+- catégorie : Stratifié
+  étape : Échantillonnage
+- catégorie : aléatoire simple
+  étape : Échantillonnage
+- catégorie : En grappe
+  étape : Échantillonnage
+- catégorie : Systématique
+  étape : Échantillonnage
+- catégorie : Collect Earth Online
+  étape : Collecte de données de référence
 ---
 
 
-# Response Design in Collect Earth Online
+# Plan de réponse dans Collect Earth Online
 
 ## 1 Contexte
 
-Les données de référence sont nécessaires pour calculer des estimations non biaisées de la superficie et de l'incertitude d'une carte. Les observations de référence sont généralement un ensemble de données labellisées, dérivées d'une carte d'activité (p. ex. par un échantillon aléatoire stratifié) et labellisées à l'aide d'imagerie ou de données de terrain. Cet ensemble est comparé aux strates cartographiques d'une carte d'activité pour estimer la précision de la carte et obtenir des estimations de surface non biaisées. Ce tutoriel montre comment recueillir des observations de référence avec des labels catégoriels pour générer des estimations de surface et d'incertitude non biaisées à l'aide de Collect Earth Online. Les utilisateurs doivent ajuster les différentes composantes en fonction des objectifs de leur projet. Le processus est présenté ici pour la Colombie et pour une simple légende de carte indiquant la présence ou l'absence de perte ou de dégradation de la forêt.  
+Les données de référence sont nécessaires pour calculer des estimations non biaisées de la superficie et de l'incertitude d'une carte. Les observations de référence sont généralement un ensemble de données labellisées, dérivées d'une carte d'activité (p. ex. par un échantillon aléatoire stratifié) et labellisées à l'aide d'imagerie ou de données de terrain. Cet ensemble est comparé aux strates cartographiques d'une carte d'activité pour estimer la précision de la carte et obtenir des estimations de surface non biaisées. Ce tutoriel montre comment recueillir des observations de référence avec des labels catégoriels pour générer des estimations de surface et d'incertitude non biaisées à l'aide de Collect Earth Online (CEO). Les utilisateurs doivent ajuster les différentes composantes en fonction des objectifs de leur projet. Le processus est présenté ici pour la Colombie et pour une simple légende de carte indiquant la présence ou l'absence de perte ou de dégradation de la forêt.  
 
 
 ### 1.1 Collect Earth Online
@@ -106,13 +95,13 @@ Vous pouvez accéder aux pages Accueil, À propos, Soutien et Compte à partir d
 
 * Collecte et exportation des observations de référence. 
 
-### 2.1 Pré-requis pour ce module
+### 2.1 Pré-requis 
 
-*  Avoir compris la terminologie du module 3.1, et avoir établi un plan d'échantillonnage et une sélection d'échantillons, qui sont décrits dans les modules 3.2 et 3.3.
+*  La terminologie importante se trouve à la fin de ce document.
 *  Compréhension générale de l'interprétation des images. L'interprétation d'images est le processus qui consiste à regarder des images à résolution spatiale moyenne, élevée ou très élevée (provenant de satellites ou de photographies aériennes) et à labelliser les objets d'intérêt dans vos lieux d'échantillonnage. L'interprétation d'images est la compétence de base nécessaire à la réalisation efficace de tout projet CEO. 
 * Pour plus d'informations, veuillez consulter le manuel de création de projets et d'institutions de Collect Earth Online, disponible à l'adresse suivante [Pages d'assistance en ligne de Collect Earth](https://collect.earth/support). 
 
-## 3 Tutorial: Collect Earth Online
+## 3 Tutoriel: Collect Earth Online
 
 ### 3.1 Configuration des sources des images dans Collect Earth Online
 
@@ -189,7 +178,7 @@ Le système de tuiles Bing utilise la projection de Mercator et dispose de 23 ni
 résolution au zoom maximum est d'environ 0,3 m par pixel. Pour plus d'informations, voir
 [Bing maps tile system](https://docs.microsoft.com/en-us/bingmaps/articles/bing-maps-tile-system).
 
-##### 3.1.3.1 Directions for requesting a Bing maps key:
+##### 3.1.3.1 Instructions pour demander une clé Bing maps :
 
 1. Pour utiliser l'imagerie Bing Maps pour vos projets, vous pouvez créer votre propre clé Bing maps GRATUITE pour connecter les projets de votre institution à votre compte Bing Maps. Les instructions complètes pour la création d'une clé sont ici : [Obtenir une clé Bing maps](https://docs.microsoft.com/en-us/bingmaps/getting-started/bing-maps-devcenter-help/getting-a-bing-maps-key).
 
@@ -222,7 +211,7 @@ f. Vous allez créer une clé de base. Si vous avez besoin de plus d'images, vou
 
 Veuillez consulter le manuel de création d'institutions et de projets de Collect Earth Online pour savoir comment ajouter des sources d'images supplémentaires, telles que des images provenant de Google Earth Engine. Le manuel est accessible ici : [Pages de soutien de Collect Earth Online](https://collect.earth/support).
 
-### 3.2 Response Design
+### 3.2 Plan de réponse
 
 #### 3.2.1 Vue d'ensemble
 
@@ -352,7 +341,7 @@ Le système intégré de CEO permet aux utilisateurs de créer des plans d'écha
 
 ##### Sélection de votre AOI
 
-Pour cet exercice, nous allons utiliser la sélection d'échantillons créée précédemment et exportée sous forme de csv. Ceci définira la zone d'intérêt (AOI) pour le projet. CEO délimite la zone d'intérêt autour des emplacements des parcelles que vous téléchargez. Par conséquent, ne suivez pas les instructions suivantes pour dessiner manuellement la zone d'intérêt. 
+Ici, nous allons démontrer le processus en utilisant le même fichier csv fourni ci-dessus. Ceci définira la zone d'intérêt (AOI) pour le projet. CEO délimite la zone d'intérêt autour des emplacements des parcelles que vous téléchargez. Par conséquent, ne suivez pas les instructions suivantes pour dessiner manuellement la zone d'intérêt. 
 
 Ces étapes sont incluses ci-dessous à titre de référence.
 
@@ -372,17 +361,17 @@ ii. Vous pouvez également saisir manuellement vos coordonnées de délimitation
 
 ![CoordBoundingBox](./figures/CoordBoundingBox.png)
 
-##### Plot Design
+##### Conception du placette
 
 Dans la section Conception des placettes, vous pouvez spécifier le type et le nombre de placettes. Pour cet exercice, nous utiliserons l'échantillon de sélection créé précédemment et exporté sous forme de csv. Il y a trois autres options pour localiser les placettes : aléatoirement, disposition en grille, et chargement d'un shapefile.
 
-Pour cet exercice, suivez les instructions pour charger le csv. Ensuite, passez les instructions suivantes pour travailler avec les options aléatoire, quadrillée ou shapefile. Ces étapes sont incluses ci-dessous pour votre référence future.
+Pour cet exercice, suivez les instructions pour charger le csv fourni ci-dessus. Ensuite, passez les instructions suivantes pour travailler avec les options aléatoire, quadrillée ou shapefile. Ces étapes sont incluses ci-dessous pour votre référence future.
 
 Notes supplémentaires sur le travail avec des fichiers spécifiés par l'utilisateur : En utilisant les fichiers .csv et .shp, le nombre maximum de parcelles est de 50 000 et la limite totale de points d'échantillonnage est de 350 000. Vous devez utiliser le format WGS84 EPSG:4326 pour les coordonnées dans les fichiers .csv et .shp.
 
-Nous devons d'abord ajuster le formatage du fichier .csv. Le fichier que vous téléchargez pour spécifier les centres des placettes doit avoir ces colonnes, dans cet ordre : LON, LAT, PLOTID.
+Nous devons d'abord ajuster le formatage du fichier .csv. Le fichier que vous téléchargez pour spécifier les centres des parcelles doit avoir ces colonnes, dans cet ordre : LON, LAT, PLOTID. Nous allons démontrer le processus en utilisant un fichier de feuille de calcul existant généré ici sur OpenMRV dans le cadre du processus " Collecte de données d'échantillon ". Alternativement, vous pouvez utiliser votre propre ensemble de données d'échantillon.
 
-i.Dans un tableur comme Excel, ouvrez le fichier d'échantillon aléatoire stratifié que vous avez créé dans l'exercice de sélection d'échantillon (Module 3.2). 
+i. Dans un logiciel de mise en forme de feuille de calcul comme Excel, ouvrez le fichier d'échantillon aléatoire stratifié
 
 ![stratSmplRaw](./figures/stratSmplRaw.JPG)
 
@@ -818,6 +807,7 @@ Une fois que les membres ont été ajoutés à l'institution, vous pouvez partag
   - Les plantations d'arbres peuvent ressembler à des forêts naturelles jusqu'à ce que vous fassiez un zoom arrière pour voir le motif régulier des arbres plantés.
 
 ### 3.4 Exportation des données
+
 1. Lorsque vous avez collecté toutes les données de votre projet, retournez à la page de votre institution.
 
 2. À côté de votre projet, vous trouverez deux options de téléchargement de données : Télécharger les données des parcelles, qui permet de télécharger vos données brutes , Le téléchargement des données de parcelles est indiqué par un P et le téléchargement des données d'échantillons est indiqué par un S. Les deux sont téléchargés au format .csv, qui peut être ouvert dans des programmes tels que Microsoft Excel ou importé dans un logiciel d'analyse de données. 
@@ -826,7 +816,7 @@ Une fois que les membres ont été ajoutés à l'institution, vous pouvez partag
 
 4. Téléchargez et sauvegardez les données de l'échantillon.
 
-Vous utiliserez ces données téléchargées dans les modules suivants pour effectuer les estimations de surface.
+Vous pouvez utiliser ces données téléchargées dans d'autres tutoriels ici sur OpenMRV sous le processus " Estimation de la superficie / Évaluation de la précision " pour effectuer des estimations de la superficie et une évaluation de la précision.
 
 ## 4 Foire aux questions (FAQs)
 
@@ -908,11 +898,11 @@ Données caractérisant l'évaluation la plus précise possible de la condition 
 
 L'évaluation la plus exacte possible de l'état réel d'une unité de population.
 
-### 5.9 Reference classification 
+### 5.9 Références classification 
 
 La classification de référence appliquée à la collection de toutes les unités d'échantillonnage.
 
-## 6 References
+## 6 Références
 
 Cochran, W.G., 1977. *Sampling Techniques*, John Wiley & Sons, New York, NY.
 
