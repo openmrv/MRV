@@ -1,88 +1,61 @@
 ---
-title: Sample selection using AREA2
-summary: In sampling design methods for estimation of area and map accuracy, we design a sample by choosing a selection protocol and determining the sample size and allocation. In this tutorial we will physically draw from a study area a sample that was designed based on tutorials here on OpenMRV under process "Sampling design". Here, we illustrate how to draw a sample in AREA2. For more information about AREA2 please refer to https://area2.readthedocs.io/en/latest/
+title: Sélection de l'échantillon en utilisant AREA2
+summary: Dans les méthodes de plan d'échantillonnage pour le calcul de la superficie et de la précision des cartes, nous élaborons un échantillon en choisissant un protocole de sélection et en déterminant la taille de l'échantillon et son allocation. Dans ce tutoriel, nous allons tirer d'une zone d'étude un échantillon qui a été conçu sur la base des tutoriels ici sur OpenMRV sous le processus " Plan d'échantillonnage ". Ici, nous illustrons comment tirer un échantillon dans AREA2. Pour plus d'informations sur AREA2, veuillez vous référer à https://area2.readthedocs.io/en/latest/
 author: Pontus Olofsson
-creation date: February, 2021
-language: English
-publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+creation date: Février 2021
+language: Français
+publisher and license: Copyright 2021, Banque mondiale. Cette œuvre est protégée par une licence Creative Commons Attribution 3.0 IGO
 
-tags:
+tags: 
 - OpenMRV
-- Landsat
-- Sentinel 2
-- GEE
-- AREA2
-- Cloud cover
-- Optical sensors
-- Remote sensing
-- Composite
-- Mosaic
-- Time series
-- Sampling design
-- Sample design
-- Sample selection
-- Sample
-- Sampling frame
-- Stratified
-- Simple Random
-- Systematic
-- Response design
-- Survey
-- Survey design
-- Accuracy
-- Accuracy assessment
-- Area Estimation
-- Reference data
-- Reference classification
-- Reference observations
-- Colombia
+- Plan d'échantillonnage
+- Plan d'échantillonnage
+- Sélection de l'échantillon
+- Echantillon
+- Cadre d'échantillonnage
+
+
 
 group:
-- category: Stratified
-  stage: Sampling
-- category: Simple Random
-  stage: Sampling
-- category: Cluster
-  stage: Sampling
-- category: Systematic
-  stage: Sampling
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
-- category: Expansion
-  stage: Area Estimation/Accuracy assessment
-- category: Model-assisted
-  stage: Area Estimation/Accuracy assessment
-- category: Ratio
-  stage: Area Estimation/Accuracy assessment
+- catégorie : Stratifié
+  étape : Échantillonnage
+- catégorie : aléatoire simple
+  étape : Échantillonnage
+- catégorie : En grappe
+  étape : Échantillonnage
+- catégorie : Systématique
+  étape : Échantillonnage
 ---
 
-# Sample selection using AREA2
+# Procédure de sélection de l'échantillon avec AREA2
 
 ## 1 Contexte
 
-Dans le tutoriel précédent, nous avons conçu un échantillon en choisissant un protocole de sélection et en déterminant la taille de l'échantillon et la répartition. Dans ce tutoriel, nous allons physiquement prélever dans une zone d'étude l'échantillon que nous avons conçu. Le tirage d'un échantillon implique la création d'une *cadre d'échantillonnage* qui est une liste d'unités de population pouvant être sélectionnées pour être incluses dans un échantillon. Les unités de population de la liste sont appelées unités d'échantillonnage. En d'autres termes, une base de sondage est un dispositif qui permet d'observer la population en associant les unités de population aux unités d'échantillonnage (Särndal et al., 1992, p. 9)[^fn1]. Dans notre cas, la base de sondage est par exemple une liste de tous les pixels qui composent la zone d'étude. Nous pourrions donc simplement exporter une liste de tous les pixels de la carte avec des identifiants uniques à partir desquels nous sélectionnons aléatoirement *n* unités. Dans le cadre d'un échantillonnage aléatoire stratifié, chaque pixel aurait, en plus de l'identifiant, un code de strate de sorte qu'un échantillon aléatoire soit sélectionné dans chaque strate. Une telle approche peut facilement devenir impraticable car le nombre d'unités de population tend à être important. Au lieu de cela, la sélection d'échantillons est prise en charge par divers outils et logiciels ; ici, nous illustrons comment dessiner un échantillon dans QGIS, Google Earth Engine/AREA2, et un script R.
+Dans le tutoriel précédent, nous avons conçu un échantillon en choisissant un protocole de sélection et en déterminant la taille de l'échantillon et la répartition. Dans ce tutoriel, nous allons physiquement prélever dans une zone d'étude l'échantillon que nous avons conçu. Le tirage d'un échantillon implique la création d'une *cadre d'échantillonnage* qui est une liste d'unités de population pouvant être sélectionnées pour être incluses dans un échantillon. Les unités de population de la liste sont appelées unités d'échantillonnage. En d'autres termes, une base de sondage est un dispositif qui permet d'observer la population en associant les unités de population aux unités d'échantillonnage (Särndal et al., 1992, p. 9)[^fn1]. Dans notre cas, la base de sondage est par exemple une liste de tous les pixels qui composent la zone d'étude. Nous pourrions donc simplement exporter une liste de tous les pixels de la carte avec des identifiants uniques à partir desquels nous sélectionnons aléatoirement *n* unités. Dans le cadre des méthodes de plan d'échantillonnage pour Le calcul de la superficie et de la précision des cartes, nous élaborons un échantillon en choisissant un protocole de sélection et en déterminant la taille de l'échantillon et son allocation. Dans ce tutoriel, nous effectuerons un tirage physique dans une zone d'étude d'un échantillon qui a été conçu sur la base des tutoriels ici sur OpenMRV sous le processus " Plan d'échantillonnage ".
 
 ## 2 Objectifs d'apprentissage
 
-- Upon completion of the tutorial, the user should be able to sample an arbitrary study area under stratified random sampling (STR) using AREA2.
-  - Draw a sample in GEE/AREA2 under STR
+- À la fin du tutoriel, l'utilisateur devrait être en mesure d'échantillonner une zone d'étude arbitraire sous un échantillonnage aléatoire stratifié (STR) en utilisant AREA2.
+  - Effectuer un échantillonnage dans GEE/AREA2 sous STR
 
-### 2.1 Prérequis pour ce module
+### 2.1 Prérequis 
 
-- Relevant terminology for sampling techniques can be found at the end of this document
+- La terminologie relative aux techniques d'échantillonnage se trouve à la fin de ce document. 
 
-## 3 Tutorial: Sample selection using AREA2
+## 3 Tutorial: Sélection de l'échantillon en utilisant AREA2
+
+Nous allons procéder au tirage d'un échantillon en utilisant un plan aléatoire stratifié dans Google Earth Engine/AREA2.
 
 ### 3.1 Echantillonnage aléatoire stratifié dans Google Earth Engine/AREA2
 
-Dans le script du plan d'échantillonnage, nous avons estimé la taille de l'échantillon nécessaire pour atteindre une marge d'erreur de 25% de l'estimation de la zone de perturbation de la forêt, et nous avons réparti l'échantillon en strates aux fins de l'estimation de la zone. Cela a donné la taille d'échantillon suivante :
+En se basant sur les tutoriels ici sur OpenMRV sous le processus " Plan d'échantillonnage ", où nous avions Forêt, Non-Forêt, Perturbation forestière et Tampon de perturbation forestière comme strates, supposons une taille d'échantillon nécessaire pour atteindre une marge d'erreur de 25% de l'estimation de la zone de perturbation forestière. Nous avons également réparti l'échantillon en strates aux fins de l'estimation de la superficie. Nous utiliserons donc la taille d'échantillon suivante 
 
 |      | A             | B         | C             | D              | E           | F     |
 | ---- | ------------- | --------- | ------------- | -------------- | ----------- | ----- |
 | 1    | Stratum (*h*) | Forêt (1) | Non-Forêt (2) | For. Dist. (3) | FD buf. (4) | Total |
 | 11   | *nh* (final)  | 275       | 200           | 30             | 30          | 535   |
 
-Pour sélectionner cet échantillon, utilisons AREA2 pour sélectionner un échantillon sous échantillonnage aléatoire stratifié : [https://code.earthengine.google.com/a0164c748c4772055214d96e57f43c39](https://code.earthengine.google.com/a0164c748c4772055214d96e57f43c39) et spécifions le chemin d'accès à la carte de la Colombie basée sur le CODED (https://code.earthengine.google.com/?asset=users/olofsson76/Open_MRV/Open_MRV_Col_strat_buffer) avec un tampon sous "Spécifier la stratification/l'image pour définir la zone d'étude" ; utilisez les autres arguments par défaut ; cliquez sur "Charger l'image", ce qui affichera les zones de strates dans la Console (NOTE : cela prendra un certain temps). Sélectionnez une taille d'échantillon arbitraire sous "Determine sample size", et spécifiez sous "Allocate sample size to strata" : 275, 200, 30, 30. Cliquez sur "Create sample" -- note : ne cliquez qu'une seule fois ; il semble que GEE ne réagisse pas mais il dessine l'échantillon après que vous ayez cliqué. En cliquant sur "Add to map", les unités de l'échantillon s'afficheront sous forme de points rouges dans l'affichage de la carte. La dernière étape consiste à exporter l'échantillon : cliquez sur l'onglet Tâches, puis sur Exporter l'échantillon dans la boîte de dialogue - deux entrées nommées "sample_asset" et "sample_CSV" apparaîtront dans Tâches. Elles sont identiques, mais l'une sert à exporter l'échantillon sous forme de fichier CSV, l'autre à l'enregistrer sous forme de fichier GEE Asset à utiliser dans Google Earth Engine. Cliquez sur le bouton Exécuter juste à côté des entrées et enregistrez en tant que GEE Asset et CSV (ce dernier devrait être enregistré dans votre Google Drive). Utilisez le nom "STR_sample_Col" pour GEE Asset et le fichier CSV.
+Pour sélectionner cet échantillon, utilisons AREA2 pour sélectionner un échantillon sous échantillonnage aléatoire stratifié : [https://code.earthengine.google.com/a0164c748c4772055214d96e57f43c39](https://code.earthengine.google.com/a0164c748c4772055214d96e57f43c39) et spécifions le chemin vers une carte de la Colombie, utilisée dans un tutoriel ici sur OpenMRV sous l'outil "CODED" (https://code.earthengine.google.com/?asset=users/olofsson76/Open_MRV/Open_MRV_Col_strat_buffer) avec un tampon sous "Spécifier la stratification/l'image pour définir la zone d'étude" ; utilisez les autres arguments par défaut ; cliquez sur "Charger l'image", ce qui affichera les zones de strates dans la Console (NOTE : cela prendra un certain temps). Sélectionnez une taille d'échantillon arbitraire sous "Determine sample size", et spécifiez sous "Allocate sample size to strata" : 275, 200, 30, 30. Cliquez sur "Create sample" -- note : ne cliquez qu'une seule fois ; il semble que GEE ne réagisse pas mais il dessine l'échantillon après que vous ayez cliqué. En cliquant sur "Add to map", les unités de l'échantillon s'afficheront sous forme de points rouges dans l'affichage de la carte. La dernière étape consiste à exporter l'échantillon : cliquez sur l'onglet Tâches, puis sur Exporter l'échantillon dans la boîte de dialogue - deux entrées nommées "sample_asset" et "sample_CSV" apparaîtront dans Tâches. Elles sont identiques, mais l'une sert à exporter l'échantillon sous forme de fichier CSV, l'autre à l'enregistrer sous forme de fichier GEE Asset à utiliser dans Google Earth Engine. Cliquez sur le bouton Exécuter juste à côté des entrées et enregistrez en tant que GEE Asset et CSV (ce dernier devrait être enregistré dans votre Google Drive). Utilisez le nom "STR_sample_Col" pour GEE Asset et le fichier CSV.
 
 ![](figures/STR_AREA2.png)
 
@@ -90,11 +63,11 @@ Pour sélectionner cet échantillon, utilisons AREA2 pour sélectionner un écha
 
 **Dois-je utiliser les applications mentionnées dans ce tutoriel pour sélectionner un échantillon?**
 
-Non, pas du tout ! Ce ne sont que quelques exemples et il existe de nombreuses autres façons d'échantillonner une zone d'étude. Les applications courantes comprennent R, ENVI et ArcGIS.
+Ce n'est qu'un exemple et il existe de nombreuses autres façons d'échantillonner une zone d'étude. Les applications courantes sont QGIS, R, ENVI et ArcGIS. Ici, sur OpenMRV, sous le processus " Plan d'échantillonnage " et l'outil " QGIS ", vous pouvez apprendre comment sélectionner un échantillon à l'aide de QGIS.
 
 **Dois-je sélectionner des pixels ? Et si je veux sélectionner des segments ou des blocs de pixels?**
 
-L'unité spatiale de l'échantillon ne doit pas nécessairement être un pixel, mais doit être de taille égale pour satisfaire aux critères de l'échantillonnage probabiliste. Les pixels sont utilisés comme unités dans ces tutoriels pour des raisons de simplicité. Pour une discussion approfondie des unités spatiales, voir Stehman et Wickham (2011).
+L'unité spatiale de l'échantillon ne doit pas nécessairement être un pixel, mais doit être de taille égale pour satisfaire aux critères de l'échantillonnage probabiliste. Les pixels sont utilisés comme unités dans ce tutoriels pour des raisons de simplicité. Pour une discussion approfondie des unités spatiales, voir Stehman et Wickham (2011).
 
 ## 5 Terminologie relative aux techniques d'échantillonnage
 
@@ -122,7 +95,7 @@ Särndal et al. (1992)[^fn2] définissent une enquête comme une “investigatio
 
 ### 5.6 Plan d'enquête
 
-UN “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992)[^fn2]. Lohr (1999)[^fn5] décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
+Un “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992)[^fn2]. Lohr (1999)[^fn5] décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
 
 ## References
 
