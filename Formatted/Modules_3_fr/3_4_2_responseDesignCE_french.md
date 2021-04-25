@@ -1,64 +1,46 @@
 ---
-title: Response Design in Collect Earth Desktop
-summary: Collect Earth is a tool that enables data collection through Google Earth. Users can analyze high and very high resolution satellite imagery for a wide variety of purposes. In this tutorial you will learn how to set up Collect Earth, build a survey, generate/import a sampling grid, collect data, and export that data. More information is available on the Collect Earth website (http://www.openforis.org/newwebsite/tools/collect-earth.html).
+title: Plan de réponse dans Collect Earth Desktop
+summary: Collect Earth est un outil qui permet de collecter des données via Google Earth. Les utilisateurs peuvent analyser des images satellites à haute et très haute résolution à des fins très diverses. Dans ce tutoriel, vous apprendrez à configurer Collect Earth, à créer une enquête, à générer/importer une grille d'échantillonnage, à collecter des données et à les exporter. De plus amples informations sont disponibles sur le site Web de Collect Earth (http://www.openforis.org/newwebsite/tools/collect-earth.html).
 author:
 - Justine Bui
 - Karen Dyson
-creation date: February, 2021
-language: English
-publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+creation date: Février 2021
+language: Français
+publisher and license: Copyright 2021, Banque mondiale. Cette œuvre est protégée par une licence  Creative Commons Attribution 3.0 IGO
 
 tags:
-- OpenMRV
-- Landsat
-- Sentinel 2
-- Cloud cover
-- Optical sensors
-- Remote sensing
-- Composite
-- Mosaic
+- Télédétection
 - CE
 - GEE
 - Planet Labs
-- Time series
-- Change detection
-- Land cover mapping
-- Forest mapping
-- Deforestation mapping
-- Degradation mapping
-- Forest degradation mapping
-- Sampling design
-- Sample design
-- Sample selection
-- Sample
-- Sampling frame
-- Stratified
-- Simple Random
-- Systematic
-- Response design
-- Survey
-- Survey design
-- Accuracy
-- Accuracy assessment
-- Area Estimation
-- Reference data
-- Reference classification
-- Reference observations
-- Colombia
+- Séries chronologiques
+- Détection des changements
+- Cartographie de la couverture du sol
+- Conception de l'échantillon
+- Sélection de l'échantillon
+- Echantillon
+- Cadre d'échantillonnage
+- Stratifié
+- Systématique
+- Plan de réponse
+- Sondage
+- Plan de sondage
+- Précision
+- Évaluation de l'exactitude
+- Données de référence
+- Classification de référence
+- Observations de référence
+- Colombie
 
 group:
-- category: Stratified
-  stage: Sampling
-- category: Simple Random
-  stage: Sampling
-- category: Cluster
-  stage: Sampling
-- category: Systematic
-  stage: Sampling
-- category: Collect Earth
-  stage: Reference data collection
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
+- catégorie : Stratifié
+  étape : Échantillonnage
+- catégorie : En grappe
+  étape : Échantillonnage
+- catégorie : Systématique
+  étape : Échantillonnage
+- catégorie : Collect Earth
+  étape : Collecte de données de référence
 ---
 
 # Comment créer des collectes de données dans Collect et obtenir des données à l'aide de Collect Earth Desktop ?
@@ -132,7 +114,7 @@ Dans ce tutoriel, vous apprendrez à :
 
 *   Télécharger et installer Collect et Collect Earth Desktop
 *   Construire un questionnaire dans Collect
-*   [facultatif] Générer une grille d'échantillonnage via Google Earth Engine.
+*   Générer une grille d'échantillonnage via Google Earth Engine
 *   Importer une grille d'échantillonnage dans Collect
 *   Exporter les résultats d'une étude finalisée depuis Collect 
 *   mportez la base de données créée dans Collect dans Collect Earth Desktop.
@@ -142,9 +124,9 @@ Dans ce tutoriel, vous apprendrez à :
 La conception d'un projet est un processus itératif, et vous devrez probablement apporter de nombreuses modifications aux projets dans Collect et Collect Earth à mesure que vous affinerez vos objectifs, vos schémas de classification de l'utilisation ou de la couverture du sol, vos sources d'images, etc. Ces modifications peuvent être apportées à un projet avant sa publication. Ces modifications peuvent être apportées à un projet avant qu'il ne soit publié. Cela signifie que vous pouvez créer un projet et y collecter des données de test, puis corriger les erreurs que vous trouvez avant de publier le projet.
 
 
-### 2.1 Pré-requis pour ce module
+### 2.1 Pré-requis 
 
-* Comprendre la terminologie du module 3.1 et disposer d'un plan d'échantillonnage établi, décrit dans les modules 3.2 et 3.3.
+* La terminologie importante se trouve à la fin de ce document.
 * Une connaissance générale de l'interprétation d'images. L'interprétation d'images est le processus consistant à regarder des images à résolution spatiale modérée, élevée ou très élevée (provenant de satellites ou de photographies aériennes) et à identifier les objets d'intérêt dans vos emplacements d'échantillonnage.L'interprétation d'images est la compétence de base nécessaire à l'exécution efficace de tout projet de Collect Earth desktop . L'interprétation d'images est la compétence de base nécessaire à l'exécution efficace de tout projet de Collect Earth Desktop. 
 
 ## 3 Tutorial: Collect Earth Desktop
@@ -297,7 +279,7 @@ Un aperçu des questions de l'enquête peut être vu en cliquant sur "Preview" e
 Collect a besoin d'une grille d'échantillonnage qui définit où nous allons collecter les données que nous venons de créer. 
 Nous présentons ici deux options :
 
-1. iimporter un plan d'échantillonnage existant, tel que celui créé dans le **Module 3.2**
+1. importer un plan d'échantillonnage existant, (vous pouvez utiliser celui qui est créé dans les tutoriels ici sur OpenMRV sous le processus " Collecte de données d'échantillon " et les outils " QGIS ", " AREA2 ", et " GEE ". Un exemple est disponible [ici](https://drive.google.com/file/d/1D56RnNziNVROjeGro1uwvJAH1DCQceck/view?usp=sharing)).
 2. créer et importer une grille d'échantillonnage à l'aide du générateur de grille de Google Earth Engine.
 
 #### 3.3.1  Importer un plan d'échantillonnage déjà constitué.
@@ -383,9 +365,9 @@ Dans la grille générée pour la Colombie, vous pouvez voir que les colonnes so
 1. Déplacer la colonne   “system:index” qui devient la colonne A et renommer le label "id". Ce sera votre identification pour chaque point. 
 2. Ensuite, déplacez la colonne “latitude” pour qu'elle devienne la colonne B et renommez-la en "YCoordinate". 
 3. Déplacez la colonne “longitude” cen colonne C et renommez-la en  “XCoordinate”. 
-4.  Déplacez la colonne “elevation”pour en faire la colonne D. 
+4. Déplacez la colonne “elevation”pour en faire la colonne D. 
 5. Déplacer la colonne “slope” pour en faire la colonne E. 
-6.  Et enfin, placez la colonne  “aspect” sur la colonne F. 
+6. Et enfin, placez la colonne  “aspect” sur la colonne F. 
 
 Vous pouvez réorganiser ou supprimer le reste des colonnes selon vos préférences, tant que les colonnes de A à F ont le même format que le fichier csv de démonstration. Une fois que vous êtes sûr que la structure correspond, votre fichier csv de grille généré sera prêt à être utilisé dans le Collect Survey Designer.
 
@@ -419,10 +401,7 @@ Pour cet exercice, cliquez sur “Export”, choisissez le type “Unpublished c
 
 Le fichier exporté sera ensuite téléchargé sous forme de fichier .cep à l'emplacement que vous avez indiqué. Il peut ensuite être partagé et s'ouvrira directement dans Collect Earth si vous l'avez déjà téléchargé. 
 
-Veuillez consulter le prochain tutoriel sur la collecte de données dans Collect Earth Desktop pour savoir comment recueillir des données à l'aide d'un sondage.
-
-
-### 3.5 Download and launch Collect Earth
+### 3.5  Téléchargez et lancez Collect EarthDownload and launch Collect Earth
 
 Vous pouvez télécharger Collect Earth sur le site Web d'Open Foris. Visitez le site [Lien site web](http://www.openforis.org/tools/collect-earth.html) .Téléchargez la dernière version, puis sélectionnez la version appropriée pour votre système d'exploitation. Installez en fonction de votre système d'exploitation. Les instructions d'installation se trouvent à l'adresse suivante  [Lien de l'adresse Web](http://www.openforis.org/tools/collect-earth/tutorials/installation.html).
 
@@ -438,7 +417,7 @@ Collect Earth lancera automatiquement Google Earth. Collect Earth et Google Eart
 
 ![google_earth_pro](./figures/google_earth_pro.JPG)
 
-### 3.6 Collect Data
+### 3.6 Collecter des données
 
 *NOTE: En plus de ces documents, il existe également des vidéos YouTube qui montrent comment collecter des données dans Collect Earth desktop, que vous trouverez ici: [Lien Video](https://www.youtube.com/channel/UCxu8NZPvPxGBjBp0g6LCV4w)*
 
@@ -563,6 +542,7 @@ Synonyme de plan d'échantillonnage (Sampling Design), qui est le terme préfér
 ### 5.4 Plan d'échantillonnage
 
 “Le concept de plan d'échantillonnage (sampling design ) est le protocole par lequel les unités de référence de l'échantillon sont sélectionnées” (Stehman and Czaplewski, 1998)[^fn1]. Le terme “Sampling design” est également utilisé par Cochran (1977)[^fn3] and Särndal et al. (1992)[^fn2] -- Le premier utilise également “sampling plan”.
+Des tutoriels traitant du plan d'échantillonnage peuvent être trouvés ici sur OpenMRV sous le processus "Plan d'échantillonnage".
 
 ### 5.5 Sondage/Enquêtee
 
@@ -581,11 +561,11 @@ Données caractérisant l'évaluation la plus précise possible de la condition 
 
 L'évaluation la plus exacte possible de l'état réel d'une unité de population.
 
-### 5.9 Reference classification 
+### 5.9 Référence classification 
 
 La classification de référence appliquée à la collection de toutes les unités d'échantillonnage.
 
-## 6 References
+## 6 Référence
 
 Cochran, W.G., 1977. *Sampling Techniques*, John Wiley & Sons, New York, NY.
 
