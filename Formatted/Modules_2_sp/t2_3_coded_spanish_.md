@@ -9,14 +9,9 @@ publisher and license: Copyright 2021, World Bank. Este trabajo tiene licencia b
 tags:
 - OpenMRV
 - Landsat
-- Sentinel 2
-- Sentinel 1
 - GEE
-- Cobertura de nubes
 - Sensores ópticos
 - Teledetección 
-- Imagen compuesta
-- Mosaico
 - CODED
 - Serie de tiempo
 - Detección de cambio
@@ -30,14 +25,6 @@ tags:
 - Camboya
 
 group:
-- categoría: Imagen compuesta (Mediana)
-  etapa: Creación de imagen compuesta/Pre-procesar
-- categoría: Landsat
-  etapa: Insumos
-- categoría: Sentinel-2
-  etapa: Insumos
-- categoría: Sentinel-1
-  etapa: Insumos
 - categoría: CODED
   etapa: Detección de Cambio
 ---
@@ -59,7 +46,7 @@ Este tutorial presentará una metodología para monitorear la degradación fores
 
 ## 2 Objetivos de Aprendizaje
 
-Al final de este módulo, el usuario podrá: 
+Al final de este tutorial, el usuario podrá: 
 
 *   Identificar los impulsores comunes de degradación forestal con imágenes satelitales de resolución moderada o alta  
 *   Realizar análisis de mezcal espectral con imágenes ópticas y calcular índice de fracción de diferencia normalizada (NDFI por sus siglas en ingles)
@@ -71,7 +58,7 @@ Uso avanzado también incluirá:
 *   Resultados posteriores al procesamiento de CODED para incrementar la precisión de detección de cambio 
 *   Aplicación de versión modificada de CODED para usar imágenes de radar de Sentinel-1
 
-### 2.1 Prerrequisitos para este módulo
+### 2.1 Prerrequisitos
 
 - Conceptos de Google Earth Engine (GEE) (por favor refiérase a Sección 1.1 de Modulo 1.1 Creación de mosaico/imagen compuesta para Landsat y Sentinel-2 en Google Earth Engine para encontrar recursos de GEE útiles)
 
@@ -79,6 +66,8 @@ Uso avanzado también incluirá:
    - Imágenes en GEE
    - Sintaxis básico de funciones
    - Procesamiento básico de imágenes, incluyendo elección de imágenes, filtración de nubes, creación de mosaicos y compuestas 
+
+NOTA: Consulte el proceso "Preprocesamiento" y la herramienta "GEE" aquí en OpenMRV para obtener más información y recursos para trabajar en Google Earth Engine.
 
 ## 3 Detección de Degradación Continua (CODED)
 
