@@ -20,12 +20,12 @@ tags:
 - Sistemático
 
 group:
-- categoría: Simple Random
-  etapa: Sampling
+- categoría: Aleatorio Simple
+  etapa: Muestreo
 - categoría: Cluster
-  etapa: Sampling
+  etapa: Muestreo
 - categoría: Sistemático
-  etapa: Sampling
+  etapa: Muestreo
 ---
 
 # Aleatorio simple/muestreo sistemático
