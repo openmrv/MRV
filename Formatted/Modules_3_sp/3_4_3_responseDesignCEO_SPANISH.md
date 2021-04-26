@@ -1,74 +1,65 @@
 ---
-title: Response Design in Collect Earth Online
-summary: Collect Earth Online is a custom built, open-source, satellite image viewing and interpretation system to collect data for use in projects that require land cover and/or land use reference information. In this tutorial you will learn how to draft, review, and publish a project in Collect Earth Online. More information is available on the Collect Earth Online Support Page (https://collect.earth/support).
+title: Diseño de Respuesta en Collect Earth Online
+summary: Collect Earth Online es un sistema de interpretación y visualización de imágenes satelitales de código abierto y personalizado para recopilar datos para su uso en proyectos que requieren información de referencia sobre la cobertura del suelo y / o el uso del suelo. En este tutorial, aprenderá a redactar, revisar y publicar un proyecto en Collect Earth Online. Más información esta disponible en la página de apoyo de [Collect Earth Online](https://collect.earth/support).
 author:
 - Karis Tenneson
 - Karen Dyson
-creation date: February, 2021
-language: English
-publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+creation date: febrero 2021
+language: español
+publisher and license: Copyright 2021, World Bank. Este trabajo tiene una licencia bajo un Creative Commons Attribution 3.0 IGO
 
 tags:
-- OpenMRV
-- Landsat
 - Sentinel 2
 - Sentinel 1
-- Cloud cover
-- Optical sensors
-- Remote sensing
-- Composite
-- Mosaic
-- Time series
-- GEE
+- Cobertura de nubes
+- Sensores ópticos
+- Imagen compuesta
+- Serie de tiempo
 - CEO
-- Planet Labs
-- Change detection
-- Land cover mapping
-- Forest mapping
-- Deforestation mapping
-- Degradation mapping
-- Forest degradation mapping
-- Sampling design
-- Sample design
-- Sample selection
-- Sample
-- Sampling frame
-- Stratified
-- Simple Random
-- Systematic
-- Response design
-- Survey
-- Survey design
-- Accuracy
-- Accuracy assessment
-- Area Estimation
-- Reference data
-- Reference classification
-- Reference observations
+- Detección de cambio
+- Mapeo de cobertura terrestre
+- Mapeo de bosque
+- Mapeo de deforestación
+- Mapeo de degradación
+- Mapeo de degradación forestal
+- Diseño de muestreo
+- Diseño de muestras
+- Selección de muestras
+- Muestra
+- Marco de muestreo
+- Estratificado
+- Aleatorio Simple
+- Sistemático
+- Diseño de respuesta
+- Encuesta
+- Diseño de encuesta
+- Datos de referencia
+- Clasificación de referencia
+- Observaciones de referencia
 - Colombia
 
 group:
-- category: Stratified
-  stage: Sampling
-- category: Simple Random
-  stage: Sampling
-- category: Cluster
-  stage: Sampling
-- category: Systematic
-  stage: Sampling
-- category: Collect Earth Online
-  stage: Reference data collection
-- category: Google Earth Engine
-  stage: Reference data collection
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
+- categoría: Estratificado
+  etapa: Muestreo
+- categoría: Aleatorio Simple
+  etapa: Muestreo
+- categoría: Cluster
+  etapa: Muestreo
+- categoría: Sistemático
+  etapa: Muestreo
+- categoría: Collect Earth Online
+  etapa: Recopilación de datos de referencia
+- categoría: Google Earth Engine
+  etapa: Recopilación de datos de referencia
+- categoría: Estratificado
+  etapa: Estimación de Area/Evaluación de Precisión
 ---
 
-# Response Design in Collect Earth Online
+# Diseño de respuesta en Collect Earth Online
 
 ## 1 Contexto
 
-Se requieren observaciones de referencia para calcular estimaciones de área e incertidumbre insesgadas a partir de un producto cartográfico. Las observaciones de referencia suelen ser un conjunto de datos etiquetados, derivado de un mapa de actividad (por ejemplo, mediante una muestra aleatoria estratificada) y etiquetado utilizando imágenes o datos de campo. Esto se compara con los estratos del mapa de un mapa de actividad para estimar la precisión del mapa y obtener estimaciones de área no sesgadas. Este tutorial demostrará cómo recopilar observaciones de referencia con etiquetas categóricas para generar estimaciones de incertidumbre y área no sesgadas utilizando Collect Earth Online. Los usuarios deben ajustar los distintos componentes para que coincidan con los objetivos de su proyecto. Aquí, el proceso se demuestra para el país de Colombia y para una leyenda de mapa simple que indica la presencia o ausencia de pérdida o degradación del bosque.
+Se requieren observaciones de referencia para calcular estimaciones de área e incertidumbre insesgadas a partir de un producto cartográfico. Las observaciones de referencia suelen ser un conjunto de datos etiquetados, derivado de un mapa de actividad (por ejemplo, mediante una muestra aleatoria estratificada) y etiquetado utilizando imágenes o datos de campo. Esto se compara con los estratos del mapa de un mapa de actividad para estimar la precisión del mapa y obtener estimaciones de área no sesgadas. Este tutorial demostrará cómo recopilar observaciones de referencia con etiquetas categóricas para generar estimaciones de incertidumbre y área no sesgadas utilizando Collect Earth Online (CEO). Los usuarios deben ajustar los distintos componentes para que coincidan con los objetivos de su proyecto. Aquí, el proceso se demuestra para el país de Colombia y para una leyenda de mapa simple que indica la presencia o ausencia de pérdida o degradación del bosque.
 
 
 ### 1.1 Collect Earth Online
@@ -361,7 +352,7 @@ El sistema integrado de CEO permite que usuarios creen diseños de muestreo usan
 
 #####  Seleccione su área de interés (AOI)
 
-Para este ejercicio usaremos la selección de muestras creado anteriormente y exportado como archivo csv. Esto establecerá el área de interés (AOI por sus siglas en ingles) para el proyecto. CEO limita el AOI alrededor de las ubicaciones de parcela que usted suba. Por eso, salte las próximas instrucciones para dibujar el AOI manualmente. 
+Aquí demostraremos el proceso usando el mismo archivo de csv proveído arriba. Esto establecerá el área de interés (AOI por sus siglas en ingles) para el proyecto. CEO limita el AOI alrededor de las ubicaciones de parcela que usted suba. Por eso, salte las próximas instrucciones para dibujar el AOI manualmente. 
 
 Estos pasos están incluidos próximamente para su referencia. 
 
@@ -383,15 +374,15 @@ ii. Puede incluir manualmente las coordenadas de límites en las cajas provistas
 
 ##### Diseño de Parcela 
 
-En la sección "Plot Design" (Diseño de Parcelas), puede especificar el tipo y número de parcelas. Para este ejercicio usaremos la selección de muestra creada anteriormente y exportada como un csv. Hay otras tres opciones para ubicar parcelas: aleatoriamente, diseño cuadriculado y carga de un shapefile.
+En la sección "Plot Design" (Diseño de Parcelas), puede especificar el tipo y número de parcelas. Hay otras tres opciones para ubicar parcelas: aleatoriamente, diseño cuadriculado y carga de un shapefile.
 
-Para este ejercicio, siga las instrucciones para cargar el archivo csv. Luego, omita las siguientes instrucciones para trabajar con opciones aleatorias, cuadriculadas o shapefile. Estos pasos se incluyen a continuación para su referencia.
+Para este ejercicio, siga las instrucciones para cargar el archivo csv proveidas arriba. Luego, omita las siguientes instrucciones para trabajar con opciones aleatorias, cuadriculadas o shapefile. Estos pasos se incluyen a continuación para su referencia.
 
 Notas adicionales acerca de trabajar con archivos de parcelas especificados por el usuario: Usando archivos .csv y .shp, el numero máximo de parcelas es 50,000 y el limite total de puntos de muestra es 350,000. Debe de usar el formato WGS84 EPSG:4326 para coordenadas en archivos .csv y .shp.
 
-Primero debemos de ajustar el formato del archivo .csv. El archivo que suba para especificar los centros de parcelas debe de contener estas columnas, en este orden: LON, LAT, PLOTID.
+Primero debemos de ajustar el formato del archivo .csv. El archivo que suba para especificar los centros de parcelas debe de contener estas columnas, en este orden: LON, LAT, PLOTID. Aquí demostraremos el proceso utilizando un archivo de hoja de cálculo existente generado aquí en OpenMRV en el proceso "Recopilación de datos de muestra". Alternativamente, puede usar su propio conjunto de datos de muestra.
 
-i. En un software para el formato de hojas de calculo como Excel, abra el archivo de muestra aleatoria estratificada que creo en el ejercicio de selección de muestra (Modulo 3.2). 
+i. En un software para el formato de hojas de calculo como Excel, abra el archivo de muestra aleatoria estratificada que creo en el ejercicio de selección de muestra.
 
 ![](./figures/stratSmplRaw.JPG)
 
@@ -815,8 +806,7 @@ Una vez que se han agregado miembros a la institución, puede compartir el enlac
 
 4. Descargar y guardar datos de muestra.
 
-Usara estos datos descargados en modelos futuros para ejecutar estimaciones de área. 
-
+Puede utilizar estos datos descargados en otros tutoriales aquí en OpenMRV en el proceso "Estimación de área/Evaluación de precisión" para realizar estimaciones de área y evaluación de precisión.
 
 ## 4 Preguntas Frecuentes
 
@@ -928,7 +918,7 @@ Copyright 2021, World Bank
 
 Este trabajo fue desarrollado por Karis Tenneson y Karen Dyson  bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionadas a la Medida, Reportaje, y Verificación para el apoyo de implementación MRV en varios países. 
 
-Material reviewed by:   
+Material revisado por:   
 Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources  
 Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
 Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
