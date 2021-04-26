@@ -1,6 +1,6 @@
 ---
 title: Cobertura Terrestre y Clasificación de Uso Terrestre en Google Earth Engine
-summary: Este tutorial demostrará cómo realizar una clasificación de la cobertura y el uso del suelo en Google Earth Engine. Los usuarios aprenderán a aplicar métodos de clasificación supervisados y no supervisados, así como a manejar problemas de enmascaramiento y clasificaciones erróneas. El proceso se demuestra para los países de Colombia, Mozambique y Camboya. Los datos de muestra para la clasificación se basan en los tutoriales anteriores.
+summary: Este tutorial demostrará cómo realizar una clasificación de la cobertura y el uso del suelo en Google Earth Engine. Los usuarios aprenderán a aplicar métodos de clasificación supervisados y no supervisados, así como a manejar problemas de enmascaramiento y clasificaciones erróneas. El proceso se demuestra para los países de Colombia, Mozambique y Camboya. Los datos de muestra para la clasificación se basan en los tutoriales aquí en OpenMRV bajo "Recopilación de datos de entrenamiento".
 author: Robert E Kennedy
 creation date:  diciembre 2020
 language: Español
@@ -20,13 +20,6 @@ tags:
 - Clasificación no supervisada
 - Mapeo de cobertura terrestre
 - Mapeo de bosques
-- Muestra
-- Diseño de muestra 
-- Diseño de muestreo 
-- Selección de muestras
-- Precisión
-- Evaluación de precisión
-- Sesgo
 - Colombia
 - Mozambique
 - Camboya
@@ -86,7 +79,7 @@ Las propiedades físicas y químicas de la superficie están relacionadas a la c
 
 ## 2 Objetivos de Aprendizaje 
 
-Al final de este módulo, el usuario podrá:  
+Al final de este tutorial, el usuario podrá:  
 
 - Describir como espacio espectral o datos de espacio son usados en clasificación multivariante 
 - Aplicar y comparar 3 algoritmos comunes de clasificación 
@@ -127,18 +120,18 @@ Próximamente, los pasos se muestran de manera visual.
 
 ![Workflow of classification](./figures/m1.3/WB_graphs_v2-03_sp.png)
 
-Esto crea un mapa. Luego necesitará evaluar la precisión del mapa. Este tema se desarrolla en un módulo siguiente acerca de la evaluación de precisión.
+Esto crea un mapa. Luego necesitará evaluar la precisión del mapa. Esto se trata aquí en OpenMRV en el proceso "Estimación de área/Evaluación de precisión"..
 
-Haremos un ejemplo simple con los componentes siguientes, y luego ilustraremos otras variaciones. Estas instrucciones suponen que el usuario ya tiene cuenta de GEE, y que ya tiene familiarización con la configuración, los formatos de datos, y las funciones en GEE. Si necesita volver a repasar estos pasos, por favor regrese al Módulo 1.1. 
+Haremos un ejemplo simple con los componentes siguientes, y luego ilustraremos otras variaciones. Estas instrucciones suponen que el usuario ya tiene cuenta de GEE, y que ya tiene familiarización con la configuración, los formatos de datos, y las funciones en GEE. Si necesita ayuda con estos pasos, consulte el proceso "Preprocesamiento" y la herramienta "GEE" aquí en OpenMRV. 
 
 
 **Classification component**|**Item used here**|**Process on OpenMRV**|**Tool on OpenMRV**
 :-----:|:-----:|:-----:|:-----:|
-Image|Landsat 8 composite from a single year|Pre-processing|GEE
-Training data|Point data|Training data collection|GEE
-Classifier|CART|Classification (current tutorial)|GEE (current tutorial)
+Imagen|Imagen compuesta de Landsat 8 de un solo año|Preprocesamiento|GEE
+Datos de entrenamiento|Datos de punto|Recopilación de datos de entrenamiento|GEE
+Clasificador|CART|Clasificación (tutorial presente)|GEE (tutorial presente)
 
-#### 3.1.1 Preparación:  Cargar el script
+#### 3.1.1 Preparación: Cargar el script
 
 GEE trabaja con scripts. Como se notó arriba, asumimos que está familiarizado con el interfaz de GEE and trabajando con scripts. Todo el código en este tutorial esta capturado en un script. Dependiendo de su nivel de interés, simplemente puede ejecutar el código usted mismo, o puede extraer los fragmentos de código a un script separado. Un tutorial breve acerca de este paso esta disponible en este enlace:  https://youtu.be/jaz-tcwmNLQ
 
@@ -158,13 +151,13 @@ GEE trabaja con scripts. Como se notó arriba, asumimos que está familiarizado 
 
 ## 3.2 Construir Imagen Compuesta
 
-El primer fragmento de código se basa en el módulo anterior acerca de los métodos de crear imágenes compuestas. Construimos una colección de imágenes de Landsat 8 surface reflectance (reflectancia de superficie) del 2019, la filtramos basado en la cobertura de nubes, aplicamos un valor mediano, y redujimos todo a los limites de nuestro país de interés. 
+Construimos una colección de imágenes de Landsat 8 surface reflectance (reflectancia de superficie) del 2019, la filtramos basado en la cobertura de nubes, aplicamos un valor mediano, y redujimos todo a los limites de nuestro país de interés. 
 
-> Nota:  Los detalles del proceso de crear imágenes compuestas se encuentran en el módulo 1.1. Si quiere más repaso, considere regresar a ese módulo. 
+> Nota: Los detalles de la composición de imágenes se pueden encontrar aquí en OpenMRV en el proceso "Preprocesamiento" y la herramienta "GEE". 
 
 Si está copiando y pegando fragmentos de código desde el Script Maestro a un script nuevo, esta sección está etiquetada como Sección 3.2 en el Script Maestro. 
 
-En lugar de replicar un script entero aquí, vamos a resaltar el fragmento central del código. El código siguiente del Módulo 1.1 le será familiar.
+En lugar de replicar un script entero aquí, vamos a resaltar el fragmento central del código. 
 
 ```javascript 
 var l8compositeMasked = l8.filterBounds(country)
@@ -190,7 +183,7 @@ Los datos de entrenamiento son las observaciones que usaremos para construir la 
 
 Si está copiando y pegando el código, agregue "Sección 3.3" en el Script Maestro al código en su script de entrenamiento existente. Para este primer ejemplo acerca de como agregar a un script existente, consulte este [video breve]( https://youtu.be/r2jJrSYgtA8 ).
 
-Para este ejercicio, usaremos datos de entrenamiento recopilados con los métodos descritos en los módulos acerca de la colección de datos de referencia (módulo 1.2).  Como se había mencionado antes, en lugar de replicar todo el código aquí, nos enfocaremos en solo una parte central del código: 
+Para este ejercicio, usaremos los datos de entrenamiento recopilados bajo los métodos descritos aquí en OpenMRV bajo el proceso "Recopilación de datos de entrenamiento" y la herramienta "QGIS". 
 
 ```javascript
 var training = ee.FeatureCollection(
@@ -200,7 +193,7 @@ var training = ee.FeatureCollection(
 >Terminología:  En GEE, conjuntos de datos como estos puntos de entrenamiento se definen como un "FeatureCollection".  Para usuarios familiares con los conceptos de shapefiles u otras representaciones vectoriales similares de datos geoespaciales, ambos son prácticamente la misma cosa. En GEE, datos vectoriales tienen una "geometría", la cual contiene la posición geográfica de los puntos, las líneas, y los polígonos de un objeto vectorial, además de los atributos que registran la información acerca de esas geometrías. Juntos, estos forman un "Feature" (objeto) singular, como un punto o un polígono. Varios de estos "features" juntos son considerados un "FeatureCollection".  
 
 
-Para dar referencia, definimos los códigos de clase y las etiquetas antes del módulo previo de la manera siguiente: 
+Para dar referencia, definimos los códigos de clase y las etiquetas para este conjunto de datos de entrenamiento de la siguiente manera: 
 
 | **Código de Clase** | **Etiqueta de Clase** |
 | :-------------: | :---------------: |
@@ -265,7 +258,7 @@ Los nombres de las bandas se pueden encontrar en la descripción de la fuente or
 var landcover_labels = 'landcover'
 ```
 
-Esto especifica cual atributo en el FeatureCollection tiene los valores etiquetados.  Como se mencionó en el Módulo 1.2, esta etiqueta debe de ser un código numérico. 
+Esto especifica cual atributo en el FeatureCollection tiene los valores etiquetados. Esta etiqueta debe de ser un código numérico. 
 
 
 ```javascript
@@ -364,7 +357,7 @@ Vale la pena reiterar que los puntos de entrenamiento que se usaron para constru
 
 ### 3.7 Evaluando y mejorando mapas  
 
-La precisión del mapa será evaluada usando una muestra basada en diseño con un proceso descrito en módulos posteriores. Sin embargo, frecuentemente vale la pena evaluar un mapa visualmente para encontrar errores graves y mejorar el mapa de forma iterativa antes de tomar el tiempo para crear una muestra de precisión robusta. [Proveemos un video breve para que comience]( https://youtu.be/A7TEZMi_0cc ) a evaluar resultados de la clasificación. 
+En última instancia, la precisión del mapa se evaluará mediante una muestra basada en diseño con un proceso descrito aquí en OpenMRV en el proceso "Diseño de muestreo". Sin embargo, frecuentemente vale la pena evaluar un mapa visualmente para encontrar errores graves y mejorar el mapa de forma iterativa antes de tomar el tiempo para crear una muestra de precisión robusta. [Proveemos un video breve para que comience]( https://youtu.be/A7TEZMi_0cc ) a evaluar resultados de la clasificación. 
 
 Varios problemas son evidentes en el mapa CART mostrado aquí: 
 
@@ -660,8 +653,7 @@ Primero, necesitamos especificar los límites espaciales apropiados. Debido a qu
 var country = countries.filter(ee.Filter.eq('country_na', 'Mozambique'));
 ```
 
-En segundo lugar, identificamos los datos de entrenamiento apropiados, aquí la versión desarrollada en el módulo anterior sobre datos de entrenamiento usando QGIS.
-
+En segundo lugar, identificamos los datos de entrenamiento apropiados, aquí la versión desarrollada en OpenMRV bajo proceso "Recopilación de datos de entrenamiento" y herramienta "QGIS".
 ```javascript
 var training_points = ee.FeatureCollection('users/openmrv/MRV/mozambique_training');
 ```
