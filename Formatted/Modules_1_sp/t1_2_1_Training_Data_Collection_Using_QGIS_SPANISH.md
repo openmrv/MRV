@@ -54,7 +54,7 @@ Este tutorial demostrará como recopilar datos de entrenamiento categóricos par
 
 ### 1.1 QGIS
 
-Quantum GIS (QGIS) es un software GIS de código abierto que se puede correr en Windows, Linux, y Mac OS X. Usuarios deberían de consultar la [página de web QGIS](https:/qgis.org/en/site/forusers/alldownloads.html) para ver más información de contexto e instrucciones de instalación. Ya que hay varias maneras diferentes de instalar QGIS dependiendo de su sistema de operación, instrucciones de instalación no serán detalladas aquí. Si usuarios no pueden instalar QGIS, recomendamos el [Modulo 1.2.2 Recoleccion de Datos de Entrenamiento Usando Google Earth Engine](Tenneson_TrainingData_GEE.md). 
+Quantum GIS (QGIS) es un software GIS de código abierto que se puede correr en Windows, Linux, y Mac OS X. Usuarios deberían de consultar la [página de web QGIS](https:/qgis.org/en/site/forusers/alldownloads.html) para ver más información de contexto e instrucciones de instalación. Ya que hay varias maneras diferentes de instalar QGIS dependiendo de su sistema de operación, instrucciones de instalación no serán detalladas aquí. Si usuarios no pueden instalar QGIS, recomendamos cambiar a este mismo tutorial en OpenMRV para la recopilación de datos de entrenamiento usando Google Earth Engine, ubicado bajo el proceso "Recopilación de datos de entrenamiento" y la herramienta "GEE".
 
 Este tutorial esta basado en el lanzamiento a largo plazo de QGIS [Version 3.10.10](https:/docs.qgis.org/3.10/en/docs/user_manual/). Para las características principales de este tutorial, usuarios solo necesitan instalar QGIS y tener acceso a una conexión de internet. Para acceso a todos los plugins descritos en este tutorial, usuarios necesitarán cuentas de [Google Earth Engine](https:/signup.earthengine.google.com/#!/) y [Planet](https:/www.planet.com/login/?mode=signup).
 
@@ -76,7 +76,7 @@ Al final de este ejercicio, podrá:
   * Conocimientos básicos de las teorías involucradas en clasificación de imágenes
   * Entender como definir una leyenda temática
 
-## 3 Tutorial: Training Data Collection in QGIS
+## 3 Tutorial: Recopilación de Datos en QGIS
 
 ### 3.1 Resumen
 
@@ -122,7 +122,7 @@ Los siguientes plugins (extensiones) ofrecen acceso a imágenes de referencia. C
 
 Usuarios deberían de considerar las opciones siguientes y seleccionar una fuente de datos de referencia que coincida con el periodo de tiempo y extensión geográfica de su región de estudio. Aquí, el proceso demostrado es para Colombia en el año 2018.
 
-**Nota Importante:** Sugerimos que usuarios comiencen primero con QuickMap Services, ya que no requiere una cuenta externa y es el programa mas simple para instalar. El uso de Planet y Google Earth Engine provee datos de referencia mas flexible, sin embargo los plugins son experimentales y requieren cuentas con Earth Engine *y* Planet. Si usuarios no pueden instalar plugins, sugerimos que se cambien al [Módulo 1.2.2 Recoleccion de Datos de Entrenamiento Usando Google Earth Engine](Tenneson_TrainingData_GEE.md).
+**Nota Importante:** Sugerimos que usuarios comiencen primero con QuickMap Services, ya que no requiere una cuenta externa y es el programa mas simple para instalar. El uso de Planet y Google Earth Engine provee datos de referencia mas flexible, sin embargo los plugins son experimentales y requieren cuentas con Earth Engine *y* Planet. Si usuarios no pueden instalar plugins, sugerimos que cambien a este mismo tutorial en OpenMRV para la recopilación de datos de entrenamiento usando Google Earth Engine ubicado bajo el proceso "Recopilación de datos de entrenamiento" y la herramienta "GEE".
 
 # <a name="quickmap"></a>
 
@@ -259,11 +259,11 @@ Google Earth Engine (GEE) es una plataforma en la nube para analizar datos geoes
 
 # <a name="collect"></a>
 
-### 3.4 Recolectar datos de entrenamiento 
+### 3.4 Recopilar datos de entrenamiento 
 
-Una vez que haya seleccionado imágenes de referencia, es hora de recolectar datos de entrenamiento. Navegue por su área de estudio colectando datos de entrenamiento, yendo clase por clase. Aquí hay algunas consideraciones:
+Una vez que haya seleccionado imágenes de referencia, es hora de recopilar datos de entrenamiento. Navegue por su área de estudio colectando datos de entrenamiento, yendo clase por clase. Aquí hay algunas consideraciones:
 
-- Datos de entrenamiento deben de ser representativos de su región de estudio entera. Esto significa que recolectar mas datos en toda la región es mejor que recopilarlos en pocas áreas grandes. 
+- Datos de entrenamiento deben de ser representativos de su región de estudio entera. Esto significa que recopilar mas datos en toda la región es mejor que recopilarlos en pocas áreas grandes. 
 - Asegúrese de incluir ejemplos en las orillas de los límites de cada clase (por ejemplo, el bosque inmediatamente junto a terreno no vegetado, ya que estas áreas serán las más difíciles de distinguir en la fase de clasificación. 
 - No hay numero mágico para el numero adecuado de puntos de entrenamiento. Es importante estar consiente de que este es un proceso iterativo donde recopilan datos de entrenamiento, ejecuta un análisis, y luego se recopilan más datos de entrenamiento para corregir los errores de clasificación. 
 - Tómese su tiempo, ya que este conjunto de datos será invaluable para su investigación y posiblemente la de otros.
@@ -477,7 +477,7 @@ Si no consigue que uno de los plugins se cargue, simplemente use otro. Hay múlt
 
 **¿Que hago si no puede instalar QGIS o conseguir que ningún plugin se cargue?**
 
-No se preocupe! Este mismo tutorial se provee para Google Earth Engine en el Módulo 1.2.2, el cual no requiere ni una instalación. 
+No se preocupe! Este mismo tutorial está disponible aquí en OpenMRV para la recopilación de datos de entrenamiento Utilizando Google Earth Engine ubicado bajo el proceso "Recopilación de datos de entrenamiento" y la herramienta "GEE", y no requiere ninguna instalación. 
 
 -----
 
