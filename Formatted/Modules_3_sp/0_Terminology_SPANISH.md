@@ -8,45 +8,27 @@ publisher and license: Copyright 2021, World Bank. This work is licensed under a
 
 tags:
 - OpenMRV
-- Landsat
-- Sentinel 2
-- Sentinel 1
 - GEE
-- Cloud cover
-- Optical sensors
-- Remote sensing
-- Composite
-- Mosaic
-- Time series
-- Change detection
-- Land cover mapping
-- Forest mapping
-- Deforestation mapping
-- Degradation mapping
-- Forest degradation mapping
-- Sampling design
-- Sample design
-- Sample selection
-- Sample
-- Sampling frame
-- Stratified
-- Simple Random
-- Systematic
-- Response design
-- Survey
-- Survey design
-- Accuracy
-- Accuracy assessment
-- Area Estimation
-- Reference data
-- Reference classification
-- Reference observations
-- Colombia
-- Mozambique
-- Cambodia
+- Diseño de muestreo 
+- Diseño de muestra 
+- Selección de muestra 
+- Muestra
+- Marco de muestreo
+- Estratificado
+- Aleatorio simple 
+- Sistemático
+- Diseño de respuesta
+- Encuesta
+- Diseño de encuesta 
+- Precisión
+- Evaluación de precisión
+- Estimación de área 
+- Datos de referencia
+- Clasificación de referencia
+- Observaciones de referencia
 
 group:
-- category: Stratified
+- categoria: Stratified
   stage: Sampling
 - category: Simple Random
   stage: Sampling
@@ -66,7 +48,7 @@ group:
 
 # Terminología relevante para las técnicas de muestreo 
 
-# 1 Background
+# 1 Contexto
 Una lista de términos relevantes para las técnicas de muestreo e inferencia esta provista en la documentación de AREA2: https://area2.readthedocs.io/en/latest/definitions.html. Abajo hay algunos términos adicionales que no están incluidos en la documentación. 
 
 ### 1.1 Diseño de Respuesta
