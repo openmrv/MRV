@@ -50,7 +50,7 @@ Este tutorial demostrará como recolectar datos de entrenamiento categórico par
 
 ### 1.1 Google Earth Engine
 
-Digitalizaremos datos de entrenamiento en Google Earth Engine. Refiérase al Módulo 1.1 Creación de Imagen Compuesta/Mosaico para Landsat y Sentinel-2 en Google Earth Engine para más información y recursos para trabajar en este entorno. 
+Digitalizaremos datos de entrenamiento en Google Earth Engine. Para la recopilación de datos de entrenamiento usando **QGIS**, consulte el proceso "Recopilación de datos de entrenamiento" y la herramienta "QGIS" aquí en OpenMRV.
 
 ## 2 Objetivos de Aprendizaje
 
@@ -69,15 +69,15 @@ Al final de este ejercicio, podrá:
   * Comprensión básica de teorías involucradas en la clasificación de imágenes
   * Entender como definir una leyenda temática
 
-## 3 Tutorial: Training Data Collection in GEE
+## 3 Tutorial: Recopilación de Datos de Entrenamiento en GEE
 
 ### 3.1 Resumen
 
-El proceso para recolectar datos de entrenamiento en GEE esta detallado en los pasos siguientes. El proceso se puede describir generalmente como 3 pasos principales:
+El proceso para recopilar datos de entrenamiento en GEE esta detallado en los pasos siguientes. El proceso se puede describir generalmente como 3 pasos principales:
 
 1. Crear una clase de objetos nueva para cada tipo de cobertura terrestre para almacenar los datos de entrenamiento.
 2. Cargar un mapa de fondo usando lo que aprendió en el Módulo 1.1 Creación de Imagen Compuesta/Mosaico de Landsat y Sentinel-2.
-3. Recolectar los datos de entrenamiento a través de la definición manual de puntos de entrenamiento. 
+3. Recopilar los datos de entrenamiento a través de la definición manual de puntos de entrenamiento. 
 4. Exportar los datos de entrenamiento.
 
 ![](./figures/m1.2/m1.2.2/diagramGEE.JPG)
@@ -183,11 +183,11 @@ Map.addLayer(image, vis, 'image');
 
 También puede visitar la pagina oficial de [recursos de Earth Engine](https://developers.google.com/earth-engine/tutorials/tutorial_api_04) para mas información acerca de encontrar y visualizar Image Collections (Colecciones de Imágenes).
 
-### 3.4 Recolectar datos de entrenamiento
+### 3.4 Recopilar datos de entrenamiento
 
-Una vez que haya seleccionado las imágenes de referencia, es tiempo de recolectar los datos de entrenamiento. Navegue a su región de estudio recopilando puntos de datos clase por clase. Aquí hay algunas consideraciones: 
+Una vez que haya seleccionado las imágenes de referencia, es tiempo de recopilar los datos de entrenamiento. Navegue a su región de estudio recopilando puntos de datos clase por clase. Aquí hay algunas consideraciones: 
 
-- Datos de entrenamiento deben de ser representativos de su región de estudio entera. Esto significa que recolectar mas datos en toda la región es mejor que recolectarlos en pocas áreas grandes. 
+- Datos de entrenamiento deben de ser representativos de su región de estudio entera. Esto significa que recopilar mas datos en toda la región es mejor que recolectarlos en pocas áreas grandes. 
 - Asegúrese de incluir ejemplos en las orillas de los límites de cada clase (por ejemplo, el bosque inmediatamente junto a terreno no vegetado, ya que estas áreas serán las más difíciles de distinguir en la fase de clasificación. 
 - No hay número mágico para el número adecuado de puntos de entrenamiento. Es importante estar consiente de que este es un proceso iterativo donde recopila los datos de entrenamiento, ejecuta un análisis, y luego recopila más datos de entrenamiento para corregir los errores de clasificación.  
 - Tómese su tiempo, ya que este conjunto de datos será invaluable para su investigación y posiblemente la de otros.
