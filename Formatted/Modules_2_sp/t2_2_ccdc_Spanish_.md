@@ -10,34 +10,22 @@ tags:
 - OpenMRV
 - Landsat
 - Sentinel 2
-- Sentinel 1
 - GEE
 - Cobertura de nube
 - Sensores ópticos 
 - Teledetección
-- Imagen compuesta 
-- Mosaico
 - CCDC
 - Serie de tiempo 
 - Detección de cambio
 - Mapeo de cobertura terrestre
 - Mapeo de bosque
 - Mapeo de deforestación 
-- Mapeo de degradación 
-- Mapeo de degradación de bosque 
+- Mapeo de degradación  
 - Colombia
 - Mozambique
 - Camboya
 
 group:
-- categoría: Imagen compuesta (Mediana)
-  etapa: Creación de imagen compuesta/Pre-procesar
-- categoría: Landsat
-  etapa: Insumos
-- categoría: Sentinel-2
-  etapa: Insumos
-- categoría: Sentinel-1
-  etapa: Insumos
 - categoría: CCDC
   etapa: Detección de cambio
 ---
@@ -62,22 +50,22 @@ Al final de este tutorial, los usuarios podrán:
 *   Ejecutar CCDC usando la interfaz de “apuntar y hacer clic” y a través de usar scripts con el idioma de programación, JavaScript 
 *   Crear mapas de cambio de cobertura terrestre y cambio espectral 
 
-### 2.1 Prerrequisitos para este módulo
+### 2.1 Prerrequisitos
 
-* Google Earth Engine (GEE) concepts
-  * Getting a user account
-  * Image handling in GEE
-  * Basic syntax of functions
-  * Basic image processing, including choice of imagery, cloud-screening, mosaicking and compositing
+* Conceptos de Google Earth Engine (GEE)
+  * Conseguir una cuenta de usuario de GEE
+  * Imágenes en GEE
+  * Sintaxis basicos de funciones
+  * Procesamiento basico de imagenes, incluyendo seleccion de imagenes, filtracion de nubes, mosaicking and compositing
 
-> NOTE: Refer to process "Pre-processing" and tool "GEE" here on OpenMRV for more information and resources for working in Google Earth Engine.
+> NOTA: Consulte el proceso "Preprocesamiento" y la herramienta "GEE" aquí en OpenMRV para obtener más información y recursos para trabajar en Google Earth Engine.
 
 
 
 ## 3 Detección de Cambio y Clasificación Continua (CCDC)
 CCDC se puede ejecutar con Google Earth Engine. Se puede acceder a otras implementaciones de CCDC [aquí](https://github.com/GERSL/CCDC) e incluye implementaciones en C, Python y MATLAB. Para facilitar el análisis en GEE, Arévalo et al (2020) lanzaron una API y una colección de aplicaciones que se demostrarán [aquí](https://gee-ccdc-tools.readthedocs.io/en/latest/).
 
-Este tutorial utilizará la implementación de CCDC en GEE, por lo tanto, se necesita una cuenta de GEE. Consulte el Módulo 1 para obtener información adicional sobre GEE. En el primer ejemplo, el proceso se demuestra utilizando la API de CCDC en Camboya. En el segundo ejemplo, el proceso se demuestra en Mozambique utilizando las interfaces gráficas de usuario. Finalmente, el proceso se realiza en Colombia para crear una estratificación de pérdida y ganancia forestal. 
+Este tutorial utilizará la implementación de CCDC en GEE, por lo tanto, se necesita una cuenta de GEE. Consulte el proceso "Preprocesamiento" y la herramienta "GEE" aquí en OpenMRV para obtener información adicional sobre GEE. En el primer ejemplo, el proceso se demuestra utilizando la API de CCDC en Camboya. En el segundo ejemplo, el proceso se demuestra en Mozambique utilizando las interfaces gráficas de usuario. Finalmente, el proceso se realiza en Colombia para crear una estratificación de pérdida y ganancia forestal. 
 
 ### 3.1 Descripción del Algoritmo
 
@@ -324,7 +312,7 @@ Map.centerObject(studyRegion)
 ```
 
 
-La función [getLandsat](https://gee-ccdc-tools.readthedocs.io/en/latest/api/api.html#getLandsat) del API de CCDC se puede utilizar para obtener todos los datos Landsat para Camboya, para crear una máscara usando la banda  ‘pixel_qa’ , y para la conversión a unidades de reflectancia.  
+La función [getLandsat](https://gee-ccdc-tools.readthedocs.io/en/latest/api/api.html#getLandsat) del API de CCDC se puede utilizar para obtener todos los datos Landsat para Camboya, para crear una máscara usando la banda  ‘pixel_qa’, y para la conversión a unidades de reflectancia.  
 
 
 ```javascript
@@ -447,7 +435,7 @@ Requisitos de datos de entrenamiento**:**
 *   Los datos predictores como atributos para cada punto y para el año que corresponde a la etiqueta de la cobertura terrestre.
 *   Identificación única de muestreo como atributos 
 
-Datos de entrenamiento para Camboya fueron colectados como parte del Módulo 1.2.2 en esta serie de tutoriales y pueden ser cargados aquí. Note que el código relacionado a las tareas de cargar y formatear los datos de entrenamiento se puede encontrar en el script ‘CCDC/Cambodia_2’ en el repositorio de Open MRV. 
+Los datos de entrenamiento para Camboya se recopilaron como parte de los tutoriales aquí en OpenMRV en el proceso "Recopilación de datos de formación" y las herramientas "QGIS" y "GEE", y se pueden cargar aquí. Note que el código relacionado a las tareas de cargar y formatear los datos de entrenamiento se puede encontrar en el script ‘CCDC/Cambodia_2’ en el repositorio de Open MRV. 
 
 
 ```javascript
@@ -924,7 +912,7 @@ Use el método _Country Boundary_ (Limites del País) para definir una región d
 
 El conjunto final de parámetros se relaciona con los datos de entrenamiento. Los datos de entrenamiento requieren que cada punto tenga un atributo que identifique la etiqueta de cobertura terrestre y también debe corresponder a un año específico para el entrenamiento. Tiene la opción de utilizar la FeatureCollection completa o solo los puntos que se encuentran dentro de la región de estudio.
 
-*   Un conjunto de datos de entrenamiento de ejemplo, como se desarrollo en el Modulo 1.2.2, puede ser encontrado en el asset ‘users/openmrv/MRV/mozambique_training’. 
+*  Un ejemplo de conjunto de datos de entrenamiento, construido en base a tutoriales aquí en OpenMRV bajo el proceso "Recopilación de datos de entrenamiento" y herramientas "QGIS" y "GEE", puede ser encontrado en el asset ‘users/openmrv/MRV/mozambique_training’. 
 *   Suponiendo que los datos de entrenamiento provienen de su región de estudio, puede usar la opción por defecto de _Within Output Extent_ (dentro de los limites del resultado).
 *   El _Training Year_ (año de entrenamiento) corresponde al año de las etiquetas de entrenamiento (por ejemplo, en que año una muestra etiquetada como 'Bosque' es en la actualidad un 'bosque'?) Para este conjunto de datos, el año es 2018. 
 *   El _Training Attribute_ (atributo de entrenamiento) corresponde al nombre del atributo en cada objeto que contiene una etiqueta de cobertura terrestre. Para este conjunto de datos, es *landcover.*
