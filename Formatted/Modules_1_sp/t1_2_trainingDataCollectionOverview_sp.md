@@ -57,8 +57,8 @@ Este tutorial demostrará cómo recopilar datos de entrenamiento categóricos pa
 
 ### 1.1 Tutoriales
 
-* For training data collection using **QGIS** please refer to process "Training Data Collection" and tool "QGIS" here on OpenMRV
-* For training data collection using **Google Earth Engine**, please refer to process "Training Data Collection" and tool "GEE" here on OpenMRV
+* Para la recopilación de datos de entrenamiento usando **QGIS**, consulte el proceso "Recopilación de datos de entrenamiento" y la herramienta "QGIS" aquí en OpenMRV.
+* Para la recopilación de datos de entrenamiento usando **GEE**, consulte el proceso "Recopilación de datos de entrenamiento" y la herramienta "GEE" aquí en OpenMRV.
 
 -----
 
@@ -71,6 +71,6 @@ Copyright 2021, World Bank
 Este trabajo fue desarrollado por Eric Bullock y Karis Tenneson bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionados a la Medida, Reportaje, y Verificación para el apoyo de la implementación MRV en varios países.
 
 Atribución
-Bullock, E., Tenneson, K. 2021. Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+Bullock, E., Tenneson, K. 2021. Recopilación de Datos de Entrenamiento. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](./figures/m1.1/wb_fcfc_gfoi.png)
