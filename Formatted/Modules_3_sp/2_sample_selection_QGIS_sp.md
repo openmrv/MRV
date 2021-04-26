@@ -1,78 +1,48 @@
 ---
 
-title: Sample selection using QGIS
-summary: In sampling design methods for estimation of area and map accuracy, we design a sample by choosing a selection protocol and determining the sample size and allocation. In this tutorial we will physically draw from a study area a sample that was designed based on tutorials here on OpenMRV under process "Sampling design". Here, we illustrate how to draw a sample in QGIS.
+title: Selección de muestras usando QGIS
+summary: En los métodos de diseño de muestreo para la estimación del área y la precisión del mapa, diseñamos una muestra eligiendo un protocolo de selección y determinando el tamaño y la asignación de la muestra. En este tutorial sacaremos físicamente de un área de estudio una muestra que fue diseñada en base a tutoriales aquí en OpenMRV bajo el proceso "Diseño de muestreo". Aquí, ilustramos cómo dibujar una muestra en QGIS.
 author: Pontus Olofsson
-creation date: February, 2021
-language: English
-publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+creation date: febrero 2021
+language: español
+publisher and license: Copyright 2021, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
-- Landsat
-- Sentinel 2
 - QGIS
-- Cloud cover
-- Optical sensors
-- Remote sensing
-- Composite
-- Mosaic
-- Time series
 - Sampling design
 - Sample design
 - Sample selection
 - Sample
 - Sampling frame
-- Stratified
-- Simple Random
-- Systematic
-- Response design
-- Survey
-- Survey design
-- Accuracy
-- Accuracy assessment
-- Area Estimation
-- Reference data
-- Reference classification
-- Reference observations
-- Colombia
 
 group:
-- category: Stratified
-  stage: Sampling
+- categoría: Stratified
+  etapa: Sampling
 - category: Simple Random
   stage: Sampling
 - category: Cluster
   stage: Sampling
 - category: Systematic
   stage: Sampling
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
-- category: Expansion
-  stage: Area Estimation/Accuracy assessment
-- category: Model-assisted
-  stage: Area Estimation/Accuracy assessment
-- category: Ratio
-  stage: Area Estimation/Accuracy assessment
-
 ---
 
-# Sample selection using QGIS
+# Selección de muestras usando QGIS
 
 ## 1 Contexto
 
-En el tutorial anterior, diseñamos una muestra eligiendo un protocolo de selección y determinando el tamaño y la asignación de la muestra. En este tutorial sacaremos físicamente de un área de estudio la muestra que diseñamos. La extracción de una muestra implica la creación de un *marco de muestreo* que es una lista de unidades de población que se pueden seleccionar para su inclusión en una muestra. Las unidades de población de la lista se denominan unidades de muestreo. En otras palabras, un marco es un dispositivo que proporciona acceso de observación a la población al asociar las unidades de población con las unidades de muestreo (Särndal et al., 1992, p. 9) [^ fn1]. En nuestro caso, el marco de muestreo es, por ejemplo, una lista de todos los píxeles que componen el área de estudio. Por lo tanto, podríamos simplemente exportar una lista de todos los píxeles del mapa con identificadores únicos de los que seleccionamos aleatoriamente *n* unidades. En un muestreo aleatorio estratificado, cada píxel, además del identificador, también tendría un código de estrato de modo que se seleccione una muestra aleatoria de cada estrato. Este enfoque puede resultar fácilmente impráctico ya que el número de unidades de población tiende a ser grande. En cambio, la selección de muestras es compatible con varias herramientas y software; aquí, ilustramos cómo dibujar una muestra en Google Earth Engine / AREA2.
+En los métodos de diseño de muestreo para la estimación del área y la precisión del mapa, diseñamos una muestra eligiendo un protocolo de selección y determinando el tamaño y la asignación de la muestra. En este tutorial sacaremos físicamente de un área de estudio una muestra que fue diseñada en base a tutoriales aquí en OpenMRV bajo el proceso "Diseño de muestreo". La extracción de una muestra implica la creación de un *marco de muestreo* que es una lista de unidades de población que se pueden seleccionar para su inclusión en una muestra. Las unidades de población de la lista se denominan unidades de muestreo. En otras palabras, un marco es un dispositivo que proporciona acceso de observación a la población al asociar las unidades de población con las unidades de muestreo (Särndal et al., 1992, p. 9) [^ fn1]. En nuestro caso, el marco de muestreo es, por ejemplo, una lista de todos los píxeles que componen el área de estudio. Por lo tanto, podríamos simplemente exportar una lista de todos los píxeles del mapa con identificadores únicos de los que seleccionamos aleatoriamente *n* unidades. En un muestreo aleatorio estratificado, cada píxel, además del identificador, también tendría un código de estrato de modo que se seleccione una muestra aleatoria de cada estrato. Este enfoque puede resultar fácilmente impráctico ya que el número de unidades de población tiende a ser grande. En cambio, la selección de muestras es compatible con varias herramientas y software; aquí, ilustramos cómo dibujar una muestr.
 
 ## 2 Objetivos de Aprendizaje
 
-- Upon completion of the tutorial, the user should be able to sample an arbitrary study area under either systematic sampling (SYS), or simple random sampling (SRS) using QGIS.
-  - Draw a sample in QGIS under SYS or SRS
+-Despues de completar este tutorial, el usuario podra muestrear un area de estudio arbitraria bajo un muestreo sistematico (SYS) o muestreo aleatorio simple (SRS) usando QGIS.
+  - Dibujar una muestra en QGIS bajo SYS o SRS.
 
-### 2.1 Prerrequisitos para este módulo
+### 2.1 Prerrequisitos
 
-- Relevant terminology for sampling techniques can be found at the end of this document
+- Se puede encontrar la terminología relevante para técnicas de muestreo al final de este documento.  
 
-## 3 Tutorial: Sample selection using QGIS
+## 3 Tutorial: Selección de muestras usando QGIS
 
 QGIS proporciona soporte para el muestreo de poblaciones definidas por datos vectoriales. Por lo tanto, si desea muestrear en estratos definidos por un ráster, primero deberá vectorizar los datos ráster. Esto se hace usando la herramienta Raster> Conversions> "Polygonize (Raster to Vector)". La vectorización de rásteres grandes llevará mucho tiempo y no se recomienda; en su lugar, use las alternativas a continuación. Para áreas de estudio más pequeñas o para diseños SYS y SRS, QGIS funciona bien; repasemos los pasos necesarios para extraer dos muestras bajo SRS y SYS del país de Colombia.
 
@@ -89,7 +59,7 @@ QGIS proporciona soporte para el muestreo de poblaciones definidas por datos vec
 
 Dibujar una muestra bajo SYS en QGIS tiene el inconveniente de que la población tiene que ser rectangular, lo que dificulta dibujar un número exacto de unidades para un área no rectangular. Simplemente podemos recortar las unidades de muestra para la frontera con Colombia, pero eso dará como resultado un tamaño de muestra más pequeño que el especificado. Una solución alternativa es establecer una distancia entre ellos según el tamaño del área de estudio. Por ejemplo, si el área de estudio es *x* km^2^, establecer un espacio entre unidades ax/100 daría como resultado una muestra de 100 unidades.
 
-1. Después de agregar el shapefile en la sección 2.1.2 arriba, vaya a Vector > Research Tools > "Regular Points"
+1. Después de agregar el shapefile en la sección 3.1 pasos 1 y 2 arriba, vaya a Vector > Research Tools > "Regular Points"
 2. Seleccione la frontera de Colombia como la extensión de insumo
 3. Especifique el espacio de los puntos (Point spacing) o la cantidad de puntos (Point count) -- si usa el espacio, active la cajilla "Use point spacing"
 4. Guarde esto a un archivo y haga clic en Run para visualizar la muestra.
@@ -98,13 +68,13 @@ Dibujar una muestra bajo SYS en QGIS tiene el inconveniente de que la población
 
 ## 4 Preguntas Frecuentes
 
-**¿Debo usar las aplicaciones mencionadas en este tutorial para seleccionar una muestra?**
+**¿Debo usar QGIS para seleccionar una muestra?**
 
-¡No, en absoluto! Estos son solo algunos ejemplos y hay muchas otras formas de muestrear un área de estudio. Las aplicaciones comunes incluyen R, ENVI y ArcGIS.
+¡No, en absoluto! Este es solo un ejemplo y hay muchas otras formas de muestrear un área de estudio. Las aplicaciones comunes incluyen R, ENVI y ArcGIS.
 
 **¿Tengo que seleccionar píxeles? ¿Qué pasa si quiero seleccionar segmentos o bloques de píxeles?**
 
-La unidad espacial de la muestra no tiene que ser un píxel, pero debe tener el mismo tamaño para satisfacer los criterios del muestreo probabilístico. Los píxeles se utilizan como unidades en estos tutoriales en aras de la simplicidad. Para un análisis en profundidad de las unidades espaciales, consulte Stehman y Wickham (2011).
+La unidad espacial de la muestra no tiene que ser un píxel, pero debe tener el mismo tamaño para satisfacer los criterios del muestreo probabilístico. Los píxeles se utilizan como unidades en este tutorial en aras de la simplicidad. Para un análisis en profundidad de las unidades espaciales, consulte Stehman y Wickham (2011).
 
 ## 5 Terminología relevante para las técnicas de muestreo
 
