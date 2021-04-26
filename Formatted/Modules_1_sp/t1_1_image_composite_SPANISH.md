@@ -1,6 +1,7 @@
 ---
 title: Creacion de mosaico/imagen compuesta para Landsat y Sentinel-2 en Google Earth Engine
-summary: Este tutorial le mostrará cómo crear una imagen compuesta utilizando imágenes Landsat y / o Sentinel-2 a nivel nacional en Google Earth Engine (GEE). El proceso se demuestra para los países de Colombia, Mozambique y Camboya. El tutorial viene acompañado de un repositorio GEE y una serie de videos que lo guían a través de algunas de las secciones. Los scripts le permiten crear una imagen compuesta que se puede utilizar en secciones posteriores de esta capacitación. Si es nuevo en GEE, se proporcionan recursos útiles.
+summary: Este tutorial le mostrará cómo crear una imagen compuesta utilizando imágenes Landsat y / o Sentinel-2 a nivel nacional en Google Earth Engine (GEE). El proceso se demuestra para los países de Colombia, Mozambique y Camboya. El tutorial viene acompañado de un repositorio GEE y una serie de videos que lo guían a través de algunas de las secciones. Los scripts le permiten crear una imagen compuesta que se puede utilizar en otros tutoriales aquí en OpenMRV. Si es nuevo en GEE, se proporcionan recursos útiles.
+
 author: Andrea Puzzi Nicolau
 creation date: diciembre 2020
 language: Español
@@ -35,7 +36,7 @@ group:
 
 ## 1 Contexto
 
-Este tutorial le explicará como crear una imagen compuesta usando imágenes de Landsat y/o Sentinel-2 a un nivel nacional en Google Earth Engine (GEE). Aquí, el proceso es demostrado para el país de Colombia. El tutorial viene acompañado por un repositorio de GEE que contiene 3 scripts y una serie de videos que explican algunas de las secciones. Los scripts le dan la habilidad de crear una imagen compuesta que puede ser utilizada en las siguientes secciones de este entrenamiento. 
+Este tutorial le explicará como crear una imagen compuesta usando imágenes de Landsat y/o Sentinel-2 a un nivel nacional en Google Earth Engine (GEE). Aquí, el proceso es demostrado para el país de Colombia. El tutorial viene acompañado por un repositorio de GEE que contiene 3 scripts y una serie de videos que explican algunas de las secciones. Los scripts le permiten crear una imagen compuesta que se puede utilizar en otros tutoriales aquí en OpenMRV.
 
 ## 1.1 Google Earth Engine (GEE)
 
@@ -76,7 +77,7 @@ Se le aconseja que siga los pasos siguientes escribiendo los scripts usted mismo
 
 ### 1.3 Videos
 
-El canal de YouTube titulado [Open MRV](https://www.youtube.com/channel/UCdPooUCxF3HRIWdEh4pwrqQ) contiene videos que explican algunas secciones de este y otros módulos. Para este modulo, un video fue creado para cada subsección de la Sección 4. Creando una imagen compuesta. Por favor note que el desarrollo del script en los videos pueda que no sea idéntico al del tutorial (por ejemplo, el orden de las líneas de código y los nombres de las variables pueden ser diferentes, etc.), y que cada video le da seguimiento a los videos previos. De cualquier modo, los resultados son los mismos. Puede encontrar un enlace en cada sección siguiente al video correspondiente. Se le recomienda que complete cada sección antes de mirar los videos.
+El canal de YouTube titulado [Open MRV](https://www.youtube.com/channel/UCdPooUCxF3HRIWdEh4pwrqQ) contiene videos que explican algunas secciones de este y otros tutoriales aquí en OpenMRV. Para este tutorial, un video fue creado para cada subsección de la Sección 4. Creando una imagen compuesta. Por favor note que el desarrollo del script en los videos pueda que no sea idéntico al del tutorial (por ejemplo, el orden de las líneas de código y los nombres de las variables pueden ser diferentes, etc.), y que cada video le da seguimiento a los videos previos. De cualquier modo, los resultados son los mismos. Puede encontrar un enlace en cada sección siguiente al video correspondiente. Se le recomienda que complete cada sección antes de mirar los videos.
 
 ## 2 Objetivos de Aprendizaje
 
@@ -84,7 +85,7 @@ El canal de YouTube titulado [Open MRV](https://www.youtube.com/channel/UCdPooUC
 - Familiarizarse con una variedad de opciones que incluyen: seleccionar fechas, sensores, y métodos de mosaico
 - Aprender como exportar el mosaico/imagen compuesta
 
-### 2.1 Prerrequisitos para este módulo
+### 2.1 Prerrequisitos
 
 - Conocimiento básico a intermedio de conceptos de teledetección
   - Puede referirse al entrenamiento de [NASA ARSET, Fundamentales de Teledetección](https://appliedsciences.nasa.gov/join-mission/training/english/fundamentals-remote-sensing). Incluye conceptos básicos de teledetección satelital, incluyendo orbitas de satélites, tipos, resoluciones, sensores, y niveles de procesamiento. Está bajo demanda y cualquier persona lo puede tomar (solo está disponible en ingles)
@@ -707,7 +708,7 @@ Export.image.toCloudStorage({
 
 ## 4 Ejemplos Adicionales
 
-En este tutorial, hemos creado y exportado diferentes imágenes compuestas para el país de Colombia. Ahora, puede intentar crear imágenes compuestas para el país que sea de su interés. Los scripts están diseñados de tal manera que lo único que necesita hacer es cambiar alguna líneas de código. Veremos ejemplos para Mozambique y Camboya. En todos los casos, el proceso general es igual al que fue demostrado para Colombia. Sin embargo, para otros países, se deben de tomar en cuenta algunas consideraciones en cuanto a clasificaciones de diferentes coberturas terrestres o la detección de cambios en el paisaje. Algunas consideraciones que vera en los próximos módulos incluirán: 
+En este tutorial, hemos creado y exportado diferentes imágenes compuestas para el país de Colombia. Ahora, puede intentar crear imágenes compuestas para el país que sea de su interés. Los scripts están diseñados de tal manera que lo único que necesita hacer es cambiar alguna líneas de código. Veremos ejemplos para Mozambique y Camboya. En todos los casos, el proceso general es igual al que fue demostrado para Colombia. Sin embargo, para otros países, se deben de tomar en cuenta algunas consideraciones en cuanto a clasificaciones de diferentes coberturas terrestres o la detección de cambios en el paisaje. Algunas consideraciones que verá en otros tutoriales de OpenMRV serán: 
 
 - Considerando Estacionalidad - Variación estacional puede presentar un desafío cuando se lleva acabo una clasificación de coberturas terrestres. En una imagen de la temporada seca sobre Mozambique, un bosque caducifolio puede ser confundido con clases de cobertura no forestadas o herbáceas dada la poca vegetación durante el periodo sin hojas. Dado esto, pueda que necesite crear imágenes compuestas separadas para las temporadas húmedas y secas. Puede hacer esto cambiando las variables de fecha inicial `startDate`y fecha final `endDate` en los scripts. 
 - Considerando Topografía - Muchos de los bosques restantes en Camboya están ubicados en terreno montañosos. Dado a que estas características pueden crear sombras, la reflectancia del paisaje dentro de la sombra puede ser menos que paisajes similares que no están en sombra. De esta manera, la topografía también puede introducir desafíos para la clasificación de coberturas terrestres o la detección de cambio en el paisaje. 
@@ -774,7 +775,7 @@ var countryName = 'Camboya';
 
 Como se mencionó arriba en el ejemplo de Mozambique, puede ajustar cualquier otro variable de usuario que desee. Ejemplo: nivel de zoom, fechas iniciales y finales, parámetros de visualización, y parámetros de la media focal.
 
-Felicidades! Ha llegado al final de este módulo. En los próximos  módulos, aprenderá como coleccionar datos de entrenamiento usando QGIS y GEE.
+Felicitaciones, ha llegado al final de este tutorial.
 
 ## 5 Preguntas Frecuentes
 
