@@ -1,64 +1,45 @@
 ---
-title: Response Design in Collect Earth Desktop
-summary: Collect Earth is a tool that enables data collection through Google Earth. Users can analyze high and very high resolution satellite imagery for a wide variety of purposes. In this tutorial you will learn how to set up Collect Earth, build a survey, generate/import a sampling grid, collect data, and export that data. More information is available on the Collect Earth website (http://www.openforis.org/newwebsite/tools/collect-earth.html).
+title: Diseño de Respuesta en Collect Earth Desktop
+summary: Collect Earth es una herramienta que permite la recopilación de datos a través de Google Earth. Los usuarios pueden analizar imágenes satelitales de alta y muy alta resolución para una amplia variedad de propósitos. En este tutorial, aprenderá a configurar Collect Earth, crear una encuesta, generar / importar una cuadrícula de muestreo, recopilar datos y exportarlos. Hay más información disponible en el sitio web de [Collect Earth](http://www.openforis.org/newwebsite/tools/collect-earth.html).
+
 author:
 - Justine Bui
 - Karen Dyson
-creation date: February, 2021
-language: English
-publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+creation date: febrero 2021
+language: español
+publisher and license: Copyright 2021, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
 
 tags:
-- OpenMRV
-- Landsat
-- Sentinel 2
-- Cloud cover
-- Optical sensors
-- Remote sensing
-- Composite
-- Mosaic
+- Teledetección
 - CE
-- GEE
-- Planet Labs
-- Time series
-- Change detection
-- Land cover mapping
-- Forest mapping
-- Deforestation mapping
-- Degradation mapping
-- Forest degradation mapping
-- Sampling design
-- Sample design
-- Sample selection
-- Sample
-- Sampling frame
-- Stratified
-- Simple Random
-- Systematic
-- Response design
-- Survey
-- Survey design
-- Accuracy
-- Accuracy assessment
-- Area Estimation
-- Reference data
-- Reference classification
-- Reference observations
+- Serie de tiempo
+- Detección de cambio
+- Mapeo de cobertura terrestre
+- Diseño de muestreo 
+- Selección de muestra
+- Muestra
+- Marco de muestreo
+- Estratificado
+- Sistematico
+- Diseño de respuesta
+- Encuesta
+- Diseño de encuesta
+- Precisión
+- Evaluación de precisión
+- Datos de referencia
+- Clasificación de referencia
+- Observaciones de referencia
 - Colombia
 
 group:
-- category: Stratified
-  stage: Sampling
-- category: Simple Random
-  stage: Sampling
-- category: Cluster
-  stage: Sampling
-- category: Systematic
-  stage: Sampling
-- category: Collect Earth
-  stage: Reference data collection
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
+- categoría: Estratificado
+  etapa: Muestreo
+- categoría: Cluster
+  etapa: Muestreo
+- categoría: Sistematico
+  etapa: Muestreo
+- categoría: Collect Earth
+  etapa: Recopilacion de datos de referencia
 ---
 
 #  Como crear encuestas en Collect y colectar datos usando Collect Earth Desktop 
@@ -140,10 +121,10 @@ En este tutorial aprenderá como:
 El diseño de un proyecto es un proceso iterativo y probablemente necesitará realizar varias ediciones en los proyectos en Collect y Collect Earth a medida que refina sus objetivos, los esquemas de clasificación de la cobertura terrestre, las fuentes de imágenes, etc. Estos cambios se le pueden hacer a un proyecto antes de que se publique. Esto significa que puede crear un proyecto y recopilar datos de prueba dentro de él, y editar cualquier error que encuentre antes de publicar el proyecto.
 
 
-### 2.1 Prerrequisitos para este modulo
+### 2.1 Prerrequisitos
 
-* Comprender la terminología del Módulo 3.1 y tener un diseño de muestra establecido, que se describe en los Módulos 3.2 y 3.3.
 * Un entendimiento general de la interpretación de imágenes. La interpretación de imágenes es el proceso de mirar imágenes de resolución espacial moderada, alta, o muy alta (de satélites o fotografía aérea) y etiquetar los objetos de interés en sus ubicaciones de muestra. Interpretación de imágenes es la habilidad clave para efectivamente ejecutar cualquier proyecto de Collect Earth desktop. 
+* La terminologia relevante se puede encontrar al final de este documento.
 
 ## 3 Tutorial: Collect Earth Desktop
 
@@ -274,7 +255,7 @@ Se puede ver una vista previa de las preguntas de la encuesta haciendo clic en "
 Collect necesita una cuadricula de muestreo que define en donde colectamos datos de la encuesta que acabamos de crear. 
 Presentamos dos opciones aquí:
 
-1. Importar un diseño de muestreo existente, como uno creado en Modulo 3.2
+1. Importar un diseño de muestreo existente (puede usar uno creado en tutoriales aquí en OpenMRV en el proceso "Recopilación de datos de muestra" y herramientas "QGIS", "AREA2" y "GEE". Uno está disponible [aquí](https://drive.google .com / file / d / 1D56RnNziNVROjeGro1uwvJAH1DCQceck / view? usp = sharing) como ejemplo).
 2. Creando e importando una cuadricula de muestreo usando el Generador de Cuadriculas en Google Earth Engine
 
 #### 3.3.1 Importar un diseño existente de muestreo
@@ -385,9 +366,6 @@ Para compartir su encuesta Collect Earth, vaya a la "List of Surveys" (Lista de 
 Para este ejercicio, haga clic en "Exportar", elija el tipo "Unpublished Changes" (Cambios no publicados) si aún no ha publicado su encuesta. Utilice el modo de exportación "Collect Earth" y elija el idioma para su encuesta. Las opciones de idioma incluyen inglés, español y francés.
 
 El archivo exportado se descargará como un archivo .cep en la ubicación que haya especificado. Luego se puede compartir y se abrirá directamente en Collect Earth si ya lo tiene descargado.
-
-Consulte el siguiente tutorial sobre Collect Earth Desktop Data Collection para saber cómo recopilar datos mediante una encuesta.
-
 
 ### 3.5 Descargar y lanzar Collect Earth
 
@@ -527,7 +505,9 @@ Sinónimo de diseño de muestreo, que es el término preferido en la literatura 
 
 ### 5.4 Diseño de Muestreo
 
-"El diseño de muestreo es el protocolo mediante el cual se seleccionan las unidades de muestra de referencia". (Stehman y Czaplewski, 1998) [^ fn1]. El “diseño de muestreo” también es utilizado por Cochran (1977) [^ fn3] y Särndal et al. (1992) [^ fn2]- el primero también usa "plan de muestreo".
+"El diseño de muestreo es el protocolo mediante el cual se seleccionan las unidades de muestra de referencia". (Stehman y Czaplewski, 1998) [^ fn1]. El “diseño de muestreo” también es utilizado por Cochran (1977) [^ fn3] y Särndal et al. (1992) [^ fn2]- el primero también usa "plan de muestreo". 
+
+Los tutoriales que abordan el diseño de muestreo se pueden encontrar aquí en OpenMRV en el proceso "Diseño de muestreo".
 
 ### 5.5 Encuesta
 
