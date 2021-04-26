@@ -10,21 +10,21 @@ publisher and license: Copyright 2021, World Bank. Este trabajo tiene licencia b
 tags:
 - OpenMRV
 - QGIS
-- Sampling design
-- Sample design
-- Sample selection
-- Sample
-- Sampling frame
+- Diseño de muestreo
+- Diseño de muestra
+- Selección de muestra
+- Muestra
+- Marco de muestreo
 
 group:
-- categoría: Stratified
-  etapa: Sampling
-- category: Simple Random
-  stage: Sampling
-- category: Cluster
-  stage: Sampling
-- category: Systematic
-  stage: Sampling
+- categoría: Estratificado
+  etapa: Muestreo
+- categoría: Aleatorio Simple 
+  etapa: Muestreo
+- categoría: Cluster
+  etapa: Muestreo
+- categoría: Sistemático
+  etapa: Muestreo
 ---
 
 # Selección de muestras usando QGIS
