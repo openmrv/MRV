@@ -1,26 +1,26 @@
 ---
-title: Analysis of sample data collected under SRS/SYS
-summary: In this tutorial we will apply various estimators to a sample dataset to estimate characteristics of the population sampled -- i.e. characteristics of the study area such as the area of forest disturbance. This tutorial focus on sample data collected under SRS/SYS.
+title: Análisis de datos de muestra recopilados bajo SRS/SYS
+summary: En este tutorial aplicaremos varios estimadores a un conjunto de datos de muestra para estimar las características de la población muestreada, es decir, características del área de estudio, como el área de perturbación del bosque. Este tutorial se centra en los datos de muestra recopilados en SRS/SYS.
 author: Pontus Olofsson
-creation date: February, 2021
-language: English
-publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+creation date: febrero 2021
+language: español
+publisher and license: Copyright 2021, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
 - AREA2
 - GEE
-- Accuracy
-- Accuracy assessment
-- Area Estimation
+- Precision
+- Evaluación de precisión 
+- Estimación de Area
 - Colombia
 
 group:
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
+- categoría: Estratificado
+  etapa: Estimación de Area/Evaluación de Precisión
 ---
 
-# Analysis of sample data collected under SRS/SYS
+# Análisis de datos de muestra recopilados bajo SRS/SYS 
 
 ## 1 Contexto
 
@@ -32,22 +32,22 @@ A partir de aquí, podemos introducir dos medidas de propagación más important
 
 Las dos propiedades, sesgo y varianza, son importantes porque podemos asegurarnos de que el estimador que utilizamos sea insesgado y podemos expresar la incertidumbre en estimaciones. Tampoco es posible cuando se utiliza el recuento de píxeles en mapas o cuando se toman muestras sin adherirse al muestreo probabilístico. Otro aspecto importante de un estimador es que es una función de la muestra, lo que significa que el estimador debe corresponder al diseño muestral. Por ejemplo, la media muestral es un estimador insesgado de la media poblacional para muestreo aleatorio simple; para el muestreo aleatorio estratificado, necesitamos utilizar un estimador estratificado que se expresa como la suma de las medias de las muestras aleatorias simples dentro de los estratos ponderados por los pesos de estrato.
 
-## 2 Learning Objectives
+## 2 Objetivos de aprendizaje
 
-- Construct SRS/SYS estimator and SRS/SYS variance estimator
-- Estimate overall user’s producer’s accuracy of a map using reference observations
-- Estimate map accuracy and area estimation
+- Construir el estimador SRS/SYS y el estimador de varianza SRS/SYS
+- Estimar la precisión general del productor del usuario de un mapa utilizando observaciones de referencia
+- Estimar la precisión del mapa y la estimación del área.
 
-### 2.1 Pre-requisites for this module
+### 2.1 Prerrequisitos
 
-- Relevant terminology is found at the end of this document
-- More information about sampling design, and response design can be found here on OpenMRV under processes "Sampling design", and "Sample data collection".
+- La terminología relevante se encuentra al final de este documento.
+- Puede encontrar más información sobre el diseño de muestreo y el diseño de respuesta aquí en OpenMRV en los procesos "Diseño de muestreo" y "Recopilación de datos de muestra".
 
-## 3 Tutorial: Analysis of sample data collected under SRS/SYS
+## 3 Tutorial: Análisis de datos de muestra recopilados bajo SRS/SYS
 
-### 3.1 Construction of SRS estimators
+### 3.1 Construcción de estimadores de SRS
 
-Los resultados de la muestra recopilados con muestreo aleatorio simple son los más sencillos de analizar (se utilizan los mismos estimadores tanto para el muestreo aleatorio simple como para el sistemático). Debido a que no se utilizan mapas / estratificaciones y debido a que la media de la muestra es un estimador insesgado de la media de la población, el análisis de los resultados de la muestra de SRS / SYS se puede completar fácilmente en una hoja de cálculo. El muestreo aleatorio estratificado se ilustró en tutoriales anteriores, y aquí solo se proporcionan datos ficticios para ilustrar la construcción de estimadores SRS / SYS. Supongamos que los datos de esta hoja de cálculo son mapas y etiquetas de referencia en ubicaciones seleccionadas en SRS: https://drive.google.com/file/d/19MnbicvFpf-D5-if_Dry4MgHJyLAP-3U/view?usp=sharing El tamaño de la muestra es *n* = 100, y una etiqueta de 1 es perturbación del bosque, 2 es bosque, y 3 es no bosque.
+Los resultados de la muestra recopilados con muestreo aleatorio simple son los más sencillos de analizar (se utilizan los mismos estimadores tanto para el muestreo aleatorio simple como para el sistemático). Debido a que no se utilizan mapas/estratificaciones y debido a que la media de la muestra es un estimador insesgado de la media de la población, el análisis de los resultados de la muestra de SRS/SYS se puede completar fácilmente en una hoja de cálculo. El muestreo aleatorio estratificado se ilustró en tutoriales anteriores, y aquí solo se proporcionan datos ficticios para ilustrar la construcción de estimadores SRS/SYS. Supongamos que los datos de esta hoja de cálculo son mapas y etiquetas de referencia en ubicaciones seleccionadas en SRS: https://drive.google.com/file/d/19MnbicvFpf-D5-if_Dry4MgHJyLAP-3U/view?usp=sharing El tamaño de la muestra es *n* = 100, y una etiqueta de 1 es perturbación del bosque, 2 es bosque, y 3 es no bosque.
 
 Debido a que la media muestral es un estimador insesgado de la media poblacional, el cálculo de las proporciones del área es sencillo; defina *y_i* = 1 si se observó alteración del bosque en la ubicación de la muestra *i* y 0 en caso contrario; el área de perturbación del bosque viene dada por (Cochran, 1977, p. 22)[^fn1]:
 
@@ -121,15 +121,15 @@ Finalmente, en celula G1 type "Prec. Prod. Dist." y en G2 "=countifs(A1:A101,"1"
 
 La aplicación AREA2 en Google Earth Engine tiene ecuaciones para todos los estimadores descritos en este tutorial. Note que en AREA2, se le refiere al estimador SRS por su nombre formal, estimador de expansión. AREA2 esta disponible aquí: https://code.earthengine.google.com/?accept_repo=projects/AREA2/public y mas documentación detallada aquí: https://area2.readthedocs.io/
 
-## 4 Frequently Asked Questions (FAQs)
+## 4 Preguntas Frecuentes
 
-**Are the estimators above the only option I have when working with sample results collected under SRS/SYS?**
+**¿Son los estimadores anteriores la única opción que tengo cuando trabajo con resultados de muestra recopilados bajo SRS / SYS?**
 
-No! You can stratify the study area after selection of the sample which will allow you to use a stratified estimator, which in this case is then referred to as a post-stratified estimator. You can also use a regression estimator which often works well when the map and reference observations are expressed as proportions.
+¡No! Puede estratificar el área de estudio después de seleccionar la muestra, lo que le permitirá utilizar un estimador estratificado, que en este caso se denomina estimador posestratificado. También puede utilizar un estimador de regresión que a menudo funciona bien cuando el mapa y las observaciones de referencia se expresan como proporciones.
 
-**Will SRS/SYS result in less precise estimates compared to stratified random sampling?**
+**¿El SRS/SYS dará como resultado estimaciones menos precisas en comparación con el muestreo aleatorio estratificado??**
 
-It is hard to say that one sampling design and family of estimators are more or less precise in general, as the final precision will depend on several factors. To achieve the same precision as in stratified design, you would typically need a larger sample under SRS/SYS. This is especially true if the parameters of interest are small proportions of the study area.
+Es difícil decir que un diseño muestral y una familia de estimadores sean más o menos precisos en general, ya que la precisión final dependerá de varios factores. Para lograr la misma precisión que en el diseño estratificado, normalmente necesitaría una muestra más grande en SRS/SYS. Esto es especialmente cierto si los parámetros de interés son pequeñas proporciones del área de estudio.
 
 ## 5 Terminología relevante para las técnicas de muestreo
 
