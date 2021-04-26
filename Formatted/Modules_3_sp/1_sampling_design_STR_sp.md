@@ -5,7 +5,7 @@ summary: Los enfoques basados en el muestreo en un contexto geográfico o de tel
 author: Pontus Olofsson
 creation date: febrero 2021
 language: español
-publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+publisher and license: Copyright 2021, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
@@ -21,10 +21,10 @@ tags:
 - Colombia
 
 group:
-- categoría: Stratified
-  etapa: Sampling
+- categoría: Estratificado
+  etapa: Muestreo
 - categoría: Cluster
-  etapa: Sampling
+  etapa: Muestreo
 ---
 
 # Diseño de muestreo aleatorio estratificado
