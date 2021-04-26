@@ -9,7 +9,6 @@ publisher and license: Copyright 2021, World Bank. Este trabajo tiene licencia b
 tags:
 - OpenMRV
 - Landsat
-- Sentinel 2
 - GEE
 - Cobertura de nubes
 - Sensores ópticos
@@ -18,9 +17,7 @@ tags:
 - Mosaico
 - LandTrendr
 - Serie de tiempo 
-- Detección de cambio
-- Mapeo de cobertura terrestre
-- Mapeo de bosque 
+- Detección de cambio 
 - Mapeo de deforestación
 - Mapeo de degradación 
 - Mapeo de degradación de bosque
@@ -139,7 +136,7 @@ A continuación, describimos cómo se pueden abordar estos pasos utilizando una 
 
 ## 2 Objetivos de aprendizaje
 
-Al final del módulo, usuarios podrán: 
+Al final de este tutorial, los usuarios podrán: 
 
 - Interpretar valores espectrales de series temporales anuales para discriminar entre cambio real en la condición de cobertura terrestre y artefactos espectrales causados por otros factores. 
 - Identificar índices espectrales y ventanas de temporalidad que mejor capturan regímenes de disturbios deseados. 
@@ -151,13 +148,15 @@ Adicionalmente, usuarios avanzados podrán:
 
 - Adaptar scripts de LandTrendr GEE para crear mapas de disturbios y recuperación en áreas de interés 
 
-### 2.1 Prerrequisitos para este módulo
+### 2.1 Prerrequisitos
 
-* Conceptos de Google Earth Engine (GEE) (por favor refiérase a la Sección 1.1 de Modulo 1.1 Creación de mosaico/imagen compuesta para Landsat y Sentinel-2 en Google Earth Engine para encontrar recursos de GEE útiles)
+* Conceptos de Google Earth Engine (GEE) (por favor refiérase a la Sección 1.1 del tutorial de Creación de mosaico/imagen compuesta para Landsat y Sentinel-2 en Google Earth Engine para encontrar recursos de GEE útiles)
   - Obtener una cuenta de usuario
   - Imágenes en GEE
   - Sintaxis básico de funciones
   - Procesamiento básico de imágenes, incluyendo elección de imágenes, filtración de nubes, creación de mosaicos y compuestas 
+
+NOTA: Consulte el proceso "Preprocesamiento" y la herramienta "GEE" aquí en OpenMRV para obtener más información y recursos para trabajar en Google Earth Engine y para compuestos de imágenes.
 
 ## 3 Quickstart LandTrendr a través de la GUI en GEE
 
@@ -173,7 +172,7 @@ La GUI la proporcionan los desarrolladores de LandTrendr en el laboratorio eMapR
 
 En el repositorio común de OpenMRV, busque y abra el script llamado: **OpenMRV_español/Part 2/ LandTrendr_esp/LT-GEE-Vis-DownLoad-app_WB_v1.0_esp**. Cuando se carga y ejecuta, este script crea una GUI LandTrendr-GEE. 
 
-Tenga en cuenta que esta GUI requiere acceso a dos bibliotecas de funciones de utilidad: una que maneja el procesamiento de imágenes y otra que maneja la interfaz GUI. Los usuarios no necesitan cambiar nada en el script para acceder a ellos, pero es útil reconocer que se están llamando a estas bibliotecas externas. Aunque originalmente desarrolladas por el laboratorio eMapR, por conveniencia, como se señaló anteriormente, estas bibliotecas se copiaron a fines de 2020 en el repositorio común de este módulo de capacitación.
+Tenga en cuenta que esta GUI requiere acceso a dos bibliotecas de funciones de utilidad: una que maneja el procesamiento de imágenes y otra que maneja la interfaz GUI. Los usuarios no necesitan cambiar nada en el script para acceder a ellos, pero es útil reconocer que se están llamando a estas bibliotecas externas. Aunque originalmente desarrolladas por el laboratorio eMapR, por conveniencia, como se señaló anteriormente, estas bibliotecas se copiaron a fines de 2020 en el repositorio común de este tutorial de capacitación.
 
 > Nota: Las versiones originales de estas bibliotecas y scripts (incluidas las posibles actualizaciones a lo largo del tiempo) están disponibles en GEE a través de la carpeta / users / emaprlab / public.
 
@@ -561,7 +560,7 @@ Por lo tanto, **recomendamos establecer 1990 como el año inicial**, y dejar el 
 
 ##### Rango de Datos
 
-LT asume que cada píxel tiene una observación por año. Como se describió en módulos anteriores, minimizar el impacto de las nubes requiere que construyamos estas observaciones componiendo múltiples imágenes dentro de una ventana de fecha por año. Si la ventana es demasiado estrecha, es posible que no haya suficientes imágenes a partir de las cuales se pueda realizar una composición clara. Si la ventana es demasiado amplia, los efectos de la estacionalidad de la vegetación podrían introducir cambios espectrales indeseables que no están relacionados con el cambio real en el suelo.
+LT asume que cada píxel tiene una observación por año. Minimizar el impacto de las nubes requiere que construyamos estas observaciones componiendo múltiples imágenes dentro de una ventana de fecha por año. Si la ventana es demasiado estrecha, es posible que no haya suficientes imágenes a partir de las cuales se pueda realizar una composición clara. Si la ventana es demasiado amplia, los efectos de la estacionalidad de la vegetación podrían introducir cambios espectrales indeseables que no están relacionados con el cambio real en el suelo.
 
 La elección del rango de fechas es una de las opciones más importantes en el proceso de implementación de LandTrendr. El usuario debe equilibrar el objetivo de utilizar imágenes en las épocas del año en que es más probable que haya observaciones claras con el objetivo de encontrar el cambio de interés.
 
@@ -681,7 +680,7 @@ Una simple consulta sobre el cambio en el índice espectral puede identificar se
 
 Por supuesto, no todos los cambios similares a perturbaciones en el valor espectral son perturbaciones verdaderas. Como ya habrá descubierto al consultar píxeles individuales, los segmentos similares a perturbaciones también pueden ocurrir si el algoritmo se confunde con un índice espectral de pequeño cambio. Por lo tanto, a menudo es deseable eliminar de la consideración aquellos segmentos de disturbio cuyo cambio es menor que algún valor umbral de magnitud.
 
-Además, puede que un usuario solo esta interesado en perturbaciones abruptas, para concentrarse en la actividad de desmonte.
+Además, puede que un usuario solo esté interesado en perturbaciones abruptas, para concentrarse en la actividad de desmonte.
 
 Por último, es probable que haya algunos píxeles individuales que aún estén sujetos a ruido en los datos de origen y parezcan perturbaciones en los datos ajustados. Si hacemos cumplir las reglas que establecen que los parches de perturbación deben contener un número mínimo de píxeles adyacentes, podemos eliminar estos pequeños errores.
 
@@ -709,7 +708,7 @@ Por ejemplo, el examen de las trayectorias a nivel de píxeles de algunas de est
 
 El umbral de cambio puede hacerse más estricto para evitar estas asignaciones de falsos positivos. Sin embargo, si el umbral es demasiado conservador, se perderá el cambio real (falsos negativos). El proceso de mapeo, ajuste de parámetros, y evaluación de patrones puede ser iterativo hasta que tales inspecciones visuales sugieran que el mapa equilibra tanto los falsos positivos como los falsos negativos.
 
-Sin embargo, el paso final de la evaluación ocurre cuando se utilizan datos independientes para evaluar la precisión del mapa final. Esto se trata en un módulo posterior.
+Sin embargo, el paso final de la evaluación ocurre cuando se utilizan datos independientes para evaluar la precisión del mapa final. Este tema se trata aquí en OpenMRV en el proceso "Estimación de área/Evaluación de precisión".
 
 # 4 Implementación detallada de LandTrendr usando Javascript
 
