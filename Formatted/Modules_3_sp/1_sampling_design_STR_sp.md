@@ -14,7 +14,7 @@ tags:
 - AREA2
 - Diseño de muestreo 
 - Diseño de muestra
-- Seleccion de muestra
+- Selección de muestra
 - Muestra
 - Marco de muestreo
 - Estratificado
