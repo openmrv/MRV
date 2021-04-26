@@ -1,65 +1,34 @@
 ---
-title: Response design
-summary: This tutorial introduces the concept of response design, lists relevant terms, and highlights different tools that can be used for the collection of reference observations in the context of area estimation and map accuracy. More tutorials can be found here on OpenMRV under process "Sample data collection" and tools "GEE", "AREA2", "CE", and "CEO".
+title: Diseño de respuesta
+summary: Este tutorial presenta el concepto de diseño de respuesta, enumera términos relevantes y destaca diferentes herramientas que se pueden utilizar para la recopilación de observaciones de referencia en el contexto de la estimación del área y la precisión del mapa. Se pueden encontrar más tutoriales aquí sobre OpenMRV en el proceso "Recolección de datos de muestra" y herramientas "GEE", "AREA2", "CE" y "CEO".
 author: Pontus Olofsson
-creation date: February, 2021
-language: English
-publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+creation date: febrero 2021
+language: español
+publisher and license: Copyright 2021, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
-- Landsat
-- Sentinel 2
-- Cloud cover
-- Optical sensors
-- Remote sensing
-- Composite
-- Mosaic
 - GEE
 - AREA2
 - CEO
 - CE
-- Time series
-- Change detection
-- Land cover mapping
-- Forest mapping
-- Deforestation mapping
-- Degradation mapping
-- Forest degradation mapping
-- Sampling design
-- Sample design
-- Sample selection
-- Sample
-- Sampling frame
-- Stratified
-- Simple Random
-- Systematic
-- Response design
-- Survey
-- Survey design
-- Accuracy
-- Accuracy assessment
-- Area Estimation
-- Reference data
-- Reference classification
-- Reference observations
-- Colombia
-- Mozambique
-- Cambodia
+- Estratificado
+- Aleatorio Simple
+- Sistemático
+- Diseño de respuesta
+- Encuesta
+- Diseño de encuesta
+- Datos de referencia
+- Clasificación de referencia
+- Observaciones de referencia
 
 group:
-- category: Stratified
-  stage: Sampling
-- category: Simple Random
-  stage: Sampling
-- category: Cluster
-  stage: Sampling
-- category: Systematic
-  stage: Sampling
-- category: Collect Earth
-  stage: Reference data collection
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
+- categoría: Collect Earth
+  etapa: Recopilación de datos de referencia
+- categoría: GEE
+  etapa: Recopilación de datos de referencia
+- categoría: Estratificado
+  etapa: Estimación de Area/Evaluación de Precisión
 ---
 
 # Diseño de Respuesta
@@ -74,13 +43,15 @@ El diseño de respuesta define la "respuesta" de las unidades en una muestra. En
 
 **Clasificación de referencia:** La clasificación de referencia aplicada a la colección de todas las unidades de muestra.
 
-En este tutorial, determinaremos las condiciones de referencia examinando un conjunto de datos de referencia en ubicaciones de las unidades de la muestra que extrajimos de Colombia en el tutorial anterior. Definimos cuatro estratos: bosque, no bosque, disturbio del bosque, y un amortiguador alrededor de la perturbación del bosque. El objetivo es estimar el área del disturbio forestal; en consecuencia, recopilaremos observaciones de referencia de * bosque, no bosque * y * disturbio del bosque *. Esto se demostrará en tres herramientas diferentes entre las que el usuario puede elegir: AREA2, Collect Earth Desktop y Collect Earth Online.
+Aquí en OpenMRV, en "Recopilación de datos de muestra" y las herramientas "GEE", "AREA2", "CE" y "CEO", encontrará tutoriales en los que podrá aprender a determinar las condiciones de referencia examinando un conjunto de datos de referencia en ubicaciones del conjunto de datos de muestra. Este conjunto de datos tendrá cuatro estratos: bosque, no bosque, disturbio de bosque, y un amortiguador alrededor de la perturbación del bosque. El objetivo es estimar el área del disturbio forestal; en consecuencia, aprenderá a recopilar observaciones de referencia de *bosque, no bosque* y *disturbio del bosque*. Esto se demuestra en tres herramientas diferentes entre las que el usuario puede elegir: GEE/AREA2, Collect Earth Desktop y Collect Earth Online.
+
+Se puede encontrar terminología adicional con respecto a las técnicas de muestreo a continuación en 1.2 Terminología adicional.
 
 ### 1.1 Tutoriales
 
-- Para diseño de respuesta usando **AREA2**, por favor refiérase a [3.4.1 Diseño de Respuesta en AREA2](https://github.com/openmrv/MRV/blob/main/Formatted/Modules_3/3_response_design_feb22_2021.md)
-- Para diseño de respuesta usando **Collect Earth Desktop**, por favor refiérase a [3.4.2 Diseño de Respuesta en Collect Earth Desktop](https://github.com/openmrv/MRV/blob/main/Formatted/Modules_3/3_response_design_CE.md)
-- Para diseño de respuesta usando **Collect Earth Online**, por favor refiérase a [3.4.2 Diseño de Respuesta en Collect Earth Online](https://github.com/openmrv/MRV/blob/main/Formatted/Modules_3/3_response_design_CEO.md)
+- Para el diseño de respuesta utilizando **AREA2**, consulte el proceso "Recopilación de datos de muestra" y las herramientas "AREA2" y "GEE" aquí en OpenMRV.
+- Para el diseño de respuesta utilizando **Collect Earth Desktop**, consulte el proceso "Recopilación de datos de muestra" y la herramienta "CE" aquí en OpenMRV.
+- Para el diseño de respuesta utilizando **Collect Earth Online**, consulte el proceso "Recopilación de datos de muestra" y la herramienta "CEO" aquí en OpenMRV.
 
 ## 1.2 Terminología relevante para las técnicas de muestreo
 
