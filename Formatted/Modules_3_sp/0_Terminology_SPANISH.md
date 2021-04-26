@@ -1,10 +1,10 @@
 ---
-title: Terminology relevant to the sampling techniques
-summary: This tutorial will introduce the terminology relevant to the sampling techniques for estimation of area and map accuracy. More information on terminology can be found in the AREA2 documentation - https://area2.readthedocs.io/en/latest/definitions.html
+title: Terminología relevante a las técnicas de muestreo
+summary: Este tutorial presentará la terminología relevante a las técnicas de muestreo para la estimación del área y la precisión del mapa. Puede encontrar más información sobre terminología en la documentación de AREA2 - https://area2.readthedocs.io/en/latest/definitions.html
 author: Pontus Olofsson
-creation date: February, 2021
-language: English
-publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+creation date: febrero 2021
+language: español
+publisher and license: Copyright 2021, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
@@ -28,22 +28,22 @@ tags:
 - Observaciones de referencia
 
 group:
-- categoria: Stratified
-  stage: Sampling
-- category: Simple Random
-  stage: Sampling
-- category: Cluster
-  stage: Sampling
-- category: Systematic
-  stage: Sampling
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
-- category: Expansion
-  stage: Area Estimation/Accuracy assessment
-- category: Model-assisted
-  stage: Area Estimation/Accuracy assessment
-- category: Ratio
-  stage: Area Estimation/Accuracy assessment
+- categoría: Estratificado
+  etapa: Muestreo
+- categoría: Aleatorio Simple
+  etapa: Muestreo
+- categoría: Cluster
+  etapa: Muestreo
+- categoría: Sistemático
+  etapa: Muestreo
+- categoría: Estratificado
+  etapa: Estimación de Area/Evaluación de Precisión 
+- categoría: Expansión
+  etapa: Estimación de Area/Evaluación de Precisión 
+- categoría: Asistido por Modelo
+  etapa: Estimación de Area/Evaluación de Precisión 
+- categoría: Ratio
+  etapa: Estimación de Area/Evaluación de Precisión 
 ---
 
 # Terminología relevante para las técnicas de muestreo 
@@ -67,7 +67,7 @@ Sinónimo de diseño de muestreo, que es el término preferido en la literatura 
 Särndal y col. (1992) [^ fn2] define una encuesta como una “investigación parcial de una población finita”, y además que “los términos 'encuesta' y 'encuesta por muestreo' se utilizan para denotar investigaciones estadísticas con las siguientes características metodológicas: [. ..] plan de medición [...] de muestreo probabilístico [y] estimación."
 
 
-### 1.6Diseño de Encuesta
+### 1.6 Diseño de Encuesta
 Un "diseño total de la encuesta" define los procedimientos para "obtener la posible precisión en las estimaciones de la encuesta mientras se logra un equilibrio entre los errores de muestreo y los no muestrales [...] El diseño de la encuesta da lugar a operaciones de encuesta" como la selección de la muestra (Särndal et al., 1992) [^ fn2]. Lohr (1999) [^ fn5] describe un diseño de encuesta total como "Una filosofía de diseño de encuesta para minimizar los errores de muestreo y de no muestreo". Además, en Lohr (1999) “diseño de encuestas” es sinónimo de diseño de muestreo.
 
 
