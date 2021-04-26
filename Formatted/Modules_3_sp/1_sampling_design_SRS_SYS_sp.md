@@ -1,70 +1,34 @@
 ---
-title: Simple random/systematic sampling
-summary: Sampling-based approaches in a remote sensing or geographical context are necessary because they allow us to estimate area bias, map accuracy and uncertainty. A sampling-based approach to estimation can be separated into three different components - sampling design, response design and analysis (Stehman & Czaplewski, 1998). The first component, sampling design, is illustrated in this tutorial for the case of simple random/systematic sampling design. Other tutorials here on OpenMRV under process "Sampling design" explore other sampling design approaches (e.g. Stratified Random Sampling).
+title: Aleatorio simple/muestreo sistemático
+summary: Los enfoques basados en el muestreo en un contexto geográfico o de teledetección son necesarios porque nos permiten estimar el sesgo del área, la precisión del mapa y la incertidumbre. Un enfoque de estimación basado en muestreo puede dividirse en tres componentes diferentes: diseño de muestreo, diseño de respuesta y análisis (Stehman y Czaplewski, 1998). El primer componente, el diseño de muestreo, se ilustra en este tutorial para el caso del diseño de muestreo aleatorio/sistemático simple. Otros tutoriales aquí sobre OpenMRV bajo el proceso "Diseño de muestreo" exploran otros enfoques de diseño de muestreo (por ejemplo, muestreo aleatorio estratificado).
 author: Pontus Olofsson
-creation date: February, 2021
-language: English
-publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+creation date: febrero 2021
+language: español
+publisher and license: Copyright 2021, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
-- Landsat
-- Sentinel 2
-- Sentinel 1
 - GEE
 - QGIS
 - AREA2
-- Cloud cover
-- Optical sensors
-- Remote sensing
-- Composite
-- Mosaic
-- Time series
-- Change detection
-- Land cover mapping
-- Forest mapping
-- Deforestation mapping
-- Degradation mapping
-- Forest degradation mapping
-- Sampling design
-- Sample design
-- Sample selection
-- Sample
-- Sampling frame
-- Stratified
-- Simple Random
-- Systematic
-- Response design
-- Survey
-- Survey design
-- Accuracy
-- Accuracy assessment
-- Area Estimation
-- Reference data
-- Reference classification
-- Reference observations
-- Colombia
+- Diseño de muestreo
+- Diseño de muestra 
+- Selección de muestras 
+- Muestra
+- Marco de muestreo
+- Aleatorio simple
+- Sistemático
 
 group:
-- category: Stratified
-  stage: Sampling
-- category: Simple Random
-  stage: Sampling
-- category: Cluster
-  stage: Sampling
-- category: Systematic
-  stage: Sampling
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
-- category: Expansion
-  stage: Area Estimation/Accuracy assessment
-- category: Model-assisted
-  stage: Area Estimation/Accuracy assessment
-- category: Ratio
-  stage: Area Estimation/Accuracy assessment
+- categoría: Simple Random
+  etapa: Sampling
+- categoría: Cluster
+  etapa: Sampling
+- categoría: Sistemático
+  etapa: Sampling
 ---
 
-# Simple random/systematic sampling
+# Aleatorio simple/muestreo sistemático
 
 ## 1 Contexto
 
@@ -76,32 +40,32 @@ Al elegir un diseño de muestreo, debemos considerar algunos importantes criteri
 
 ## 2 Objetivos de Aprendizaje
 
-El objetivo de este tutorial es proporcionar al usuario una comprensión de las diversas decisiones clave involucradas en el diseño de un esfuerzo de estimación basado en muestreo. Es importante comprender la relación entre el tamaño de la muestra y la asignación de unidades de muestra a los estratos, y los objetivos críticos de estimación, como la precisión del objetivo. Una vez completado el tutorial, el usuario debe poder elegir un método de selección de la muestra (SYS, SRS o STR), determinar el tamaño de la muestra y asignar la muestra a los estratos, en función de los objetivos de estimación.
+El objetivo de este tutorial es proporcionar al usuario una comprensión de las diversas decisiones clave involucradas en el diseño de un esfuerzo de estimación basado en muestreo. Es importante comprender la relación entre el tamaño de la muestra y la asignación de unidades de muestra a los estratos, y los objetivos críticos de estimación, como la precisión del objetivo. Para este tutorial específico, nos centraremos en el diseño de muestreo simple aleatorio/sistemático. Una vez completado el tutorial, el usuario debe poder elegir un método de selección de la muestra (sistematico (SYS), aleatorio simple (SRS), o aleatorio estratificado (STR)), determinar el tamaño de la muestra y asignar la muestra a los estratos, en función de los objetivos de estimación.
 
 - Comprender las diversas decisiones clave involucradas en el diseño de un esfuerzo de estimación basado en muestreo
 - Elija un método de selección de muestras: SYS, SRS o STR según los objetivos de estimación
-- Determinar el tamaño de la muestra y asignar la muestra a los estratos, en función de los objetivos de estimación.
+- Determinar el tamaño de la muestra y asignar la muestra a los estratos, en función de los objetivos de estimación para el diseño de muestreo aleatorio/sistemático simple.
 
-### 2.1 Prerrequisitos para este módulo
+### 2.1 Prerrequisitos
 
-- Repaso de la terminología relevante para las técnicas de muestreo en el tutorial 3.1 Terminología
-- Es altamente recomendado que tenga un entendimiento de los tutoriales previos en Módulos 1 y 2
+- Repaso de la terminología relevante para las técnicas de muestreo en el tutorial de Terminología.
+- Una cuenta de Google Earth Engine (GEE). Por favor consulte el proceso "Preprocesamiento" y la herramienta "GEE" aqui en OpenMRV para mas información acerca de como trabajar en este entorno.
 
-## 3 Tutorial: Sampling design for estimation of area and map accuracy - Simple random/systematic sampling
+## 3 Tutorial: Diseño de muestreo para la estimación del área y la precisión del mapa - Muestreo aleatorio/sistemático simple
 
-### 3.1 Como escoger un diseño de muestreo?
+### 3.1 ¿Como escoger un diseño de muestreo?
 
 La elección de un diseño de muestreo a menudo implica compensaciones entre diferentes criterios y prioridades. El deseo de proporcionar estimaciones para las subregiones o la necesidad de alcanzar objetivos de precisión deberá equilibrarse con los criterios de diseño de muestreo deseables, como la facilidad y practicidad de la implementación, la rentabilidad, y la facilidad para adaptarse a los cambios en el tamaño de la muestra. Stehman (2009) [^ fn3] proporciona un repaso detallado de las opciones, objetivos, y criterios de diseño de muestreo, pero la decisión generalmente se reduce a tres decisiones clave: si usar estratos, si usar conglomerados, y si implementar un sistema sistemático o un protocolo simple de selección aleatoria.
 
-#### 3.1.1 Usar estratos?
+#### 3.1.1 ¿Usar estratos?
 
-Los estratos son “subpoblaciones que no se superponen y que juntas comprenden toda la población” (Cochran, 1977, p. 89) [^ fn4]. La estratificación del área de estudio antes de la selección de la muestra puede garantizar que se obtengan estimaciones de precisión y área para ciertas subregiones en el área de estudio, y da como resultado una mayor precisión de las estimaciones. En consecuencia, existen varias buenas razones para utilizar estratos. Incluso con un muestreo aleatorio simple, el uso de estratos después de seleccionar la muestra es una [buena idea](### markdown-header-3.1-Post-estratificación). El muestreo estratificado proporciona una ventaja obvia si estamos interesados en una proporción muy pequeña del área de estudio, como suele ser el caso de los MRV tropicales. Por ejemplo, el área de pérdida de bosques, incluso en países con una deforestación desenfrenada, a menudo es una proporción muy pequeña del país, especialmente en intervalos de tiempo cortos. El uso de un mapa de pérdida de bosques (y otras categorías) para estratificar el área de estudio en tales situaciones permite un muestreo específico en áreas de interés particular. No estratificar en tales situaciones requerirá un tamaño de muestra muy grande.
+Los estratos son “subpoblaciones que no se superponen y que juntas comprenden toda la población” (Cochran, 1977, p. 89) [^ fn4]. La estratificación del área de estudio antes de la selección de la muestra puede garantizar que se obtengan estimaciones de precisión y área para ciertas subregiones en el área de estudio, y da como resultado una mayor precisión de las estimaciones. En consecuencia, existen varias buenas razones para utilizar estratos. Incluso con un muestreo aleatorio simple, el uso de estratos después de seleccionar la muestra es una (ver Sección 3.2.1 Posestratificación abajo). El muestreo estratificado proporciona una ventaja obvia si estamos interesados en una proporción muy pequeña del área de estudio, como suele ser el caso de los MRV tropicales. Por ejemplo, el área de pérdida de bosques, incluso en países con una deforestación desenfrenada, a menudo es una proporción muy pequeña del país, especialmente en intervalos de tiempo cortos. El uso de un mapa de pérdida de bosques (y otras categorías) para estratificar el área de estudio en tales situaciones permite un muestreo específico en áreas de interés particular. No estratificar en tales situaciones requerirá un tamaño de muestra muy grande.
 
-#### 3.1.2 Usar selección simple aleatoria o sistemática?
+#### 3.1.2 ¿Usar selección simple aleatoria o sistemática?
 
 La selección sistemática implica seleccionar un punto de partida al azar con la misma probabilidad y luego muestrear con una distancia fija entre las ubicaciones de las muestras. En resumen, la selección aleatoria simple es preferible si se recopilan observaciones de referencia en datos satelitales, mientras que la selección sistemática es preferible si se visitan ubicaciones de muestreo in situ (Olofsson et al. 2014) [^ fn5]. El fundamento de esta recomendación es que las unidades seleccionadas sistemáticamente son más fáciles de ubicar en el campo, mientras que la selección aleatoria es más fácil de aumentar. Tenga en cuenta que los mismos estimadores se utilizan tanto con selección aleatoria simple como con selección sistemática.
 
-#### 3.1.3 Usar conglomerado?
+#### 3.1.3 ¿Usar conglomerado?
 
 Un conglomerado es una unidad de muestreo que consta de una o más de las unidades de evaluación básicas especificadas por el diseño de respuesta. Por ejemplo, un grupo podría ser un bloque de 9 pixeles 3 × 3 o un grupo de 1 km × 1 km que contenga 100 unidades de evaluación de 1 ha. En el muestreo de conglomerados, se selecciona una muestra de conglomerados y, por lo tanto, las unidades espaciales dentro de cada conglomerado se seleccionan como un grupo en lugar de seleccionarse como entidades individuales. El muestreo en dos etapas es una forma de muestreo por conglomerados en el que se seleccionan grandes unidades primarias de muestreo (UPM) en la primera etapa. Las unidades de muestreo secundarias (SSU por sus siglas en ingles) más pequeñas se seleccionan dentro de cada UPM en la segunda etapa. Dichos diseños tienen la ventaja de requerir datos de referencia (es decir, los datos utilizados para recopilar observaciones de referencia) solo sobre las UPM en lugar de toda el área de estudio, como es el caso de los diseños mencionados anteriormente. Sin embargo, a menos que los ahorros de costos sean considerables, los diseños basados en conglomerados no se recomiendan ya que la correlación entre SSU a menudo reduce la precisión en relación con una muestra aleatoria simple de igual tamaño, y porque son diseños complicados que son difíciles de aumentar con resultados de muestra que son difícil de analizar.
 
@@ -135,7 +99,7 @@ el cual nos da un tamaño de muestra de
 
 [![img](https://camo.githubusercontent.com/0d228a3402fa0aa5b648553e40ddb50ade37829d771c90cd127f8adae4d5094b/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f7376672e6c617465783f2535434c617267652673706163653b6e3d253543667261632537422535436861742537427025374428312d2535436861742537427025374429253744253742253543686174253742562537442825354368617425374270253744292537443d25354366726163253742302e3828312d302e3829253744253742302e303030342537443d343030)](https://camo.githubusercontent.com/0d228a3402fa0aa5b648553e40ddb50ade37829d771c90cd127f8adae4d5094b/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f7376672e6c617465783f2535434c617267652673706163653b6e3d253543667261632537422535436861742537427025374428312d2535436861742537427025374429253744253742253543686174253742562537442825354368617425374270253744292537443d25354366726163253742302e3828312d302e3829253744253742302e303030342537443d343030)
 
-Aunque la estimación de la precisión general se ilustró en Olofsson et al. (2014) [^ fn5], especificar un margen de error de la precisión general del mapa no es intuitivo y rara vez constituye un objetivo de estimación. Un ejemplo más realista sería la estimación del área de deforestación o degradación forestal con cierta precisión. En el tutorial CODED, se creó un mapa de deforestación, degradación forestal, forestal y no forestal para Colombia; para simplificar el asunto, agrupemos la deforestación y la degradación forestal en una sola clase de perturbación forestal, que fue mapeada como 1.4% del país de 2010 a 2020. Note, para la estimación de datos de actividad dentro de REDD+ (y otras iniciativas), se recomienda estimar la deforestación y la degradación por separado y, por lo tanto, utilizar un estrato de deforestación y un estrato de degradación, en lugar de combinar las dos clases en una sola clase de perturbación forestal. Aquí, estamos usando una clase de perturbación combinada para facilitar la ilustración del flujo de trabajo y los cálculos. Supongamos que queremos estimar el área de perturbación del bosque (nuevamente, deforestación y degradación combinadas) con un margen de error del 25%. Tenga en cuenta que el 25% se utiliza aquí simplemente para ilustrar el flujo de trabajo; el error objetivo dependerá de las circunstancias del estudio. Primero, un margen de error de 25% es equivalente a una varianza de
+Aunque la estimación de la precisión general se ilustró en Olofsson et al. (2014) [^ fn5], especificar un margen de error de la precisión general del mapa no es intuitivo y rara vez constituye un objetivo de estimación. Un ejemplo más realista sería la estimación del área de deforestación o degradación forestal con cierta precisión. En otro tutorial aquí sobre OpenMRV bajo el proceso "Detección de cambios" y herramienta "CODIFICADO", se creó un mapa de deforestación, degradación forestal, forestal y no forestal para Colombia, y lo usaremos como ejemplo (https://code.earthengine.google.com/?asset=users/openmrv/MRV/CODED_Colombia_Stratification_No_Buffer); para simplificar el asunto, agrupemos la deforestación y la degradación forestal en una sola clase de perturbación forestal, que fue mapeada como 1.4% del país de 2010 a 2020. Note, para la estimación de datos de actividad dentro de REDD+ (y otras iniciativas), se recomienda estimar la deforestación y la degradación por separado y, por lo tanto, utilizar un estrato de deforestación y un estrato de degradación, en lugar de combinar las dos clases en una sola clase de perturbación forestal. Aquí, estamos usando una clase de perturbación combinada para facilitar la ilustración del flujo de trabajo y los cálculos. Supongamos que queremos estimar el área de perturbación del bosque (nuevamente, deforestación y degradación combinadas) con un margen de error del 25%. Tenga en cuenta que el 25% se utiliza aquí simplemente para ilustrar el flujo de trabajo; el error objetivo dependerá de las circunstancias del estudio. Primero, un margen de error de 25% es equivalente a una varianza de
 
 [![img](https://camo.githubusercontent.com/93e57726bc514bee06e8d0b73ecfc4cccf4373b8366d7a5064b9bb64aabfe0e3/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f7376672e6c617465783f2535434c617267652673706163653b253543686174253742562537442825354368617425374270253744293d28253543667261632537424d6f4525354374696d65732673706163653b253543686174253742702537442537442537423225374429253545323d2825354366726163253742302e323525354374696d6573302e3031342537442537423225374429253545323d302e303030303033)](https://camo.githubusercontent.com/93e57726bc514bee06e8d0b73ecfc4cccf4373b8366d7a5064b9bb64aabfe0e3/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f7376672e6c617465783f2535434c617267652673706163653b253543686174253742562537442825354368617425374270253744293d28253543667261632537424d6f4525354374696d65732673706163653b253543686174253742702537442537442537423225374429253545323d2825354366726163253742302e323525354374696d6573302e3031342537442537423225374429253545323d302e303030303033)
 
@@ -148,13 +112,13 @@ La recopilación de observaciones en casi cinco mil ubicaciones de muestra rara 
 
 ### 3.3 Software que permite la estimación de tamaño de muestra
 
-SEPAL/CEO tiene apoyo integrado para estimar el tamaño de muestra como se explica en esta documentación siguiente (en la sección 14).
+SEPAL/CEO tiene apoyo integrado para estimar el tamaño de muestra como se explica en [esta documentación](https://sepal-ceo.readthedocs.io/en/latest/).
 
 Esta hoja de calculo es similar a SEPAL y fue desarrollada por el Banco Mundial. También calcula el tamaño de muestra requerido para obtener una precisión de exactitud general: https://onedrive.live.com/view.aspx?resid=9815683804F2F2C7!37340&ithint=file%2cxlsx&authkey=!ANcP-Xna7Knk_EE
 
 ### 3.4 Seleccionando la muestra
 
-El paso final del diseño de muestreo es extraer físicamente la muestra del área de estudio, que se trata en el siguiente tutorial.
+El paso final del diseño de muestreo es extraer físicamente la muestra del área de estudio, que se trata aqui en OpenMRV bajo el proceso "Diseño de Muestreo" y herramientas "QGIS", "GEE", "AREA2". 
 
 ## 4 Preguntas Frecuentes
 
@@ -162,10 +126,9 @@ El paso final del diseño de muestreo es extraer físicamente la muestra del ár
 
 Ciertos programas especifican una precisión deseada o requerida; el Forest Carbon Partnership Facility (FCPF), por ejemplo, estipula un margen de error del 30% con un nivel de confianza del 95% para las estimaciones de superficie de los datos de actividad. El margen de error es 1,96 veces el error estándar dividido por el área estimada. Cuando no se especifican tales requisitos de precisión, es necesario determinar un error estándar objetivo en función de otros criterios. Tenga en cuenta que cuanto menor sea la proporción de área de la clase objetivo, mayor será la muestra necesaria para alcanzar un pequeño margen de error. En consecuencia, para proporciones de área pequeñas, la precisión del objetivo deberá relajarse para evitar tener que seleccionar una muestra muy grande.
 
-**How do I know if I can use SRS or if I will need a more complex design such as STR?**
+**¿Cómo se si puedo usar SRS o si necesitare un diseño más complejo como STR?**
 
-The easiest way to determine if simple designs such as SRS and SYS viable is to following the equations in this tutorial to determine the sample size required to reach a certain precision. If the sample size required is too large to be managable, then you might need have to use strata when sampling.
-
+La forma más sencilla de determinar si los diseños simples como SRS y SYS son viables es seguir las ecuaciones de este tutorial para determinar el tamaño de muestra necesario para alcanzar una cierta precisión. Si el tamaño de la muestra requerido es demasiado grande para ser manejable, es posible que deba utilizar estratos al realizar el muestreo.
 
 ## 5 Terminología relevante para las técnicas de muestreo
 
