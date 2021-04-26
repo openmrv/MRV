@@ -1,72 +1,33 @@
 ---
 
-title: Stratified random sampling
-summary: Sampling-based approaches in a remote sensing or geographical context are necessary because they allow us to estimate area bias, map accuracy and uncertainty. A sampling-based approach to estimation can be separated into three different components - sampling design, response design and analysis (Stehman & Czaplewski, 1998). The first component, sampling design, is illustrated in this tutorial for the case of stratified random sampling design. Other tutorials here on OpenMRV under process "Sampling design" explore other sampling design approaches (e.g. Simple random/systematic sampling design).
+title: Diseño de muestreo aleatorio estratificado
+summary: Los enfoques basados en el muestreo en un contexto geográfico o de teledetección son necesarios porque nos permiten estimar el sesgo del área, la precisión del mapa y la incertidumbre. Un enfoque de estimación basado en muestreo puede dividirse en tres componentes diferentes: diseño de muestreo, diseño de respuesta y análisis (Stehman y Czaplewski, 1998). El primer componente, el diseño de muestreo, se ilustra en este tutorial para el caso del diseño de muestreo aleatorio estratificado. Otros tutoriales aquí sobre OpenMRV en el proceso "Diseño de muestreo" exploran otros enfoques de diseño de muestreo (por ejemplo, diseño de muestreo simple aleatorio/sistemático).
 author: Pontus Olofsson
-creation date: February, 2021
-language: English
+creation date: febrero 2021
+language: español
 publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
-- Landsat
-- Sentinel 2
-- Sentinel 1
-- Cloud cover
-- Optical sensors
-- Remote sensing
-- Composite
-- Mosaic
-- Time series
-- Change detection
-- Land cover mapping
-- Forest mapping
-- Deforestation mapping
-- Degradation mapping
-- Forest degradation mapping
 - QGIS
 - GEE
 - AREA2
-- Sampling design
-- Sample design
-- Sample selection
-- Sample
-- Sampling frame
-- Stratified
-- Simple Random
-- Systematic
-- Response design
-- Survey
-- Survey design
-- Accuracy
-- Accuracy assessment
-- Area Estimation
-- Reference data
-- Reference classification
-- Reference observations
+- Diseño de muestreo 
+- Diseño de muestra
+- Seleccion de muestra
+- Muestra
+- Marco de muestreo
+- Estratificado
 - Colombia
 
 group:
-- category: Stratified
-  stage: Sampling
-- category: Simple Random
-  stage: Sampling
-- category: Cluster
-  stage: Sampling
-- category: Systematic
-  stage: Sampling
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
-- category: Expansion
-  stage: Area Estimation/Accuracy assessment
-- category: Model-assisted
-  stage: Area Estimation/Accuracy assessment
-- category: Ratio
-  stage: Area Estimation/Accuracy assessment
-
+- categoría: Stratified
+  etapa: Sampling
+- categoría: Cluster
+  etapa: Sampling
 ---
 
-# Stratified random sampling
+# Diseño de muestreo aleatorio estratificado
 
 ## 1 Contexto
 
@@ -78,54 +39,56 @@ Al elegir un diseño de muestreo, debemos considerar algunos importantes criteri
 
 ## 2 Objetivos de Aprendizaje
 
-El objetivo de este tutorial es proporcionar al usuario una comprensión de las diversas decisiones clave involucradas en el diseño de un esfuerzo de estimación basado en muestreo. Es importante comprender la relación entre el tamaño de la muestra y la asignación de unidades de muestra a los estratos, y los objetivos críticos de estimación, como la precisión del objetivo. Una vez completado el tutorial, el usuario debe poder elegir un método de selección de la muestra (SYS, SRS o STR), determinar el tamaño de la muestra y asignar la muestra a los estratos, en función de los objetivos de estimación.
+El objetivo de este tutorial es proporcionar al usuario una comprensión de las diversas decisiones clave involucradas en el diseño de un esfuerzo de estimación basado en muestreo. Es importante comprender la relación entre el tamaño de la muestra y la asignación de unidades de muestra a los estratos, y los objetivos críticos de estimación, como la precisión del objetivo. Para este tutorial en especifico, nos enfocaremos en el diseño de muestreo aleatorio simple. Una vez completado el tutorial, el usuario debe poder elegir un método de selección de la muestra (SYS, SRS o STR), determinar el tamaño de la muestra y asignar la muestra a los estratos, en función de los objetivos de estimación.
 
 - Comprender las diversas decisiones clave involucradas en el diseño de un esfuerzo de estimación basado en muestreo
 - Elija un método de selección de muestras: SYS, SRS o STR según los objetivos de estimación
-- Determinar el tamaño de la muestra y asignar la muestra a los estratos, en función de los objetivos de estimación.
+- Determinar el tamaño de la muestra y asignar la muestra a los estratos, en función de los objetivos de estimación para el diseño de muestreo aleatorio estratificado.
 
-### 2.1 Prerrequisitos para este módulo
+### 2.1 Prerrequisitos
 
-- Repaso de la terminología relevante para las técnicas de muestreo en el tutorial 3.1 Terminología
+- Repaso de la terminología relevante para las técnicas de muestreo en el tutorial de Terminología
 - Es altamente recomendado que tenga un entendimiento de los tutoriales previos en Módulos 1 y 2
 
-## 3  Tutorial: Sampling design for estimation of area and map accuracy - Stratified random sampling
+## 3  Tutorial: Diseño de muestreo para la estimacion de area y precision de mapa - Muestreo aleatorio estratificado
 
-### 3.1 Como escoger un diseño de muestreo?
+### 3.1 ¿Cómo escoger un diseño de muestreo?
 
 La elección de un diseño de muestreo a menudo implica compensaciones entre diferentes criterios y prioridades. El deseo de proporcionar estimaciones para las subregiones o la necesidad de alcanzar objetivos de precisión deberá equilibrarse con los criterios de diseño de muestreo deseables, como la facilidad y practicidad de la implementación, la rentabilidad, y la facilidad para adaptarse a los cambios en el tamaño de la muestra. Stehman (2009) [^ fn3] proporciona un repaso detallado de las opciones, objetivos, y criterios de diseño de muestreo, pero la decisión generalmente se reduce a tres decisiones clave: si usar estratos, si usar conglomerados, y si implementar un sistema sistemático o un protocolo simple de selección aleatoria.
 
-#### 3.1.1 Usar estratos?
+#### 3.1.1 ¿Usar estratos?
 
 Los estratos son “subpoblaciones que no se superponen y que juntas comprenden toda la población” (Cochran, 1977, p. 89) [^ fn4]. La estratificación del área de estudio antes de la selección de la muestra puede garantizar que se obtengan estimaciones de precisión y área para ciertas subregiones en el área de estudio, y da como resultado una mayor precisión de las estimaciones. En consecuencia, existen varias buenas razones para utilizar estratos. Incluso con un muestreo aleatorio simple, el uso de estratos después de seleccionar la muestra es una [buena idea](### markdown-header-3.1-Post-estratificación). El muestreo estratificado proporciona una ventaja obvia si estamos interesados en una proporción muy pequeña del área de estudio, como suele ser el caso de los MRV tropicales. Por ejemplo, el área de pérdida de bosques, incluso en países con una deforestación desenfrenada, a menudo es una proporción muy pequeña del país, especialmente en intervalos de tiempo cortos. El uso de un mapa de pérdida de bosques (y otras categorías) para estratificar el área de estudio en tales situaciones permite un muestreo específico en áreas de interés particular. No estratificar en tales situaciones requerirá un tamaño de muestra muy grande.
 
-#### 3.1.2 Usar selección simple aleatoria o sistemática?
+#### 3.1.2 ¿Usar selección simple aleatoria o sistemática?
 
 La selección sistemática implica seleccionar un punto de partida al azar con la misma probabilidad y luego muestrear con una distancia fija entre las ubicaciones de las muestras. En resumen, la selección aleatoria simple es preferible si se recopilan observaciones de referencia en datos satelitales, mientras que la selección sistemática es preferible si se visitan ubicaciones de muestreo in situ (Olofsson et al. 2014) [^ fn5]. El fundamento de esta recomendación es que las unidades seleccionadas sistemáticamente son más fáciles de ubicar en el campo, mientras que la selección aleatoria es más fácil de aumentar. Tenga en cuenta que los mismos estimadores se utilizan tanto con selección aleatoria simple como con selección sistemática.
 
-#### 3.1.3 Usar conglomerado?
+#### 3.1.3 ¿Usar conglomerado?
 
 Un conglomerado es una unidad de muestreo que consta de una o más de las unidades de evaluación básicas especificadas por el diseño de respuesta. Por ejemplo, un grupo podría ser un bloque de 9 pixeles 3 × 3 o un grupo de 1 km × 1 km que contenga 100 unidades de evaluación de 1 ha. En el muestreo de conglomerados, se selecciona una muestra de conglomerados y, por lo tanto, las unidades espaciales dentro de cada conglomerado se seleccionan como un grupo en lugar de seleccionarse como entidades individuales. El muestreo en dos etapas es una forma de muestreo por conglomerados en el que se seleccionan grandes unidades primarias de muestreo (UPM) en la primera etapa. Las unidades de muestreo secundarias (SSU por sus siglas en ingles) más pequeñas se seleccionan dentro de cada UPM en la segunda etapa. Dichos diseños tienen la ventaja de requerir datos de referencia (es decir, los datos utilizados para recopilar observaciones de referencia) solo sobre las UPM en lugar de toda el área de estudio, como es el caso de los diseños mencionados anteriormente. Sin embargo, a menos que los ahorros de costos sean considerables, los diseños basados en conglomerados no se recomiendan ya que la correlación entre SSU a menudo reduce la precisión en relación con una muestra aleatoria simple de igual tamaño, y porque son diseños complicados que son difíciles de aumentar con resultados de muestra que son difícil de analizar.
 
 ### 3.2 Muestreo aleatorio estratificado
 
-El ejemplo anterior ilustra el inconveniente de SRS / SYS: cuando intentamos estimar algo que es una pequeña proporción de la población, se requiere un tamaño de muestra muy grande bajo SRS / SYS. En tales situaciones, se recomienda el muestreo aleatorio estratificado (STR). STR es simplemente cuando “se toma un muestreo aleatorio simple en cada estrato” (Cochran 1977, p. 89) [^ fn4]. En consecuencia, dividimos la población en estratos y seleccionamos una muestra en cada estrato bajo SRS (o SYS). STR agrega otro nivel de complejidad y requiere que determinemos cómo asignar la unidad de muestra a los estratos, además de determinar el tamaño total de la muestra.
+La motivación para usar STR surge cuando intentamos estimar algo que es una pequeña proporción de la población, y bajo SRS / SYS, se requiere un tamaño de muestra muy grande. En tales situaciones, se recomienda el muestreo aleatorio estratificado (STR). STR es simplemente cuando “se toma un muestreo aleatorio simple en cada estrato” (Cochran 1977, p. 89) [^ fn4]. En consecuencia, dividimos la población en estratos y seleccionamos una muestra en cada estrato bajo SRS (o SYS). STR agrega otro nivel de complejidad y requiere que determinemos cómo asignar la unidad de muestra a los estratos, además de determinar el tamaño total de la muestra.
+
+Para obtener más información sobre SRS/SYS, consulte aquí en OpenMRV los tutoriales en el proceso "Diseño de muestreo".
 
 #### 3.2.1 Tamaño de muestra
 
-Al igual que con SRS / SYS, necesitamos especificar un objetivo de precisión y calcularlo utilizando el estimador de varianza STR y el tamaño total de la muestra (*n*) requerido para alcanzar la precisión objetivo. Resolver el estimador de varianza STR da (Olofsson et al., 2014, Eq. 13. modificado de Cochran, 1977, Eq 5.25)[^fn4]
+Al igual que con SRS/SYS, necesitamos especificar un objetivo de precisión y calcularlo utilizando el estimador de varianza STR y el tamaño total de la muestra (*n*) requerido para alcanzar la precisión objetivo. Resolver el estimador de varianza STR da (Olofsson et al., 2014, Eq. 13. modificado de Cochran, 1977, Eq 5.25)[^fn4]
 
 [![img](https://camo.githubusercontent.com/2ceb9061ac9e8f8c8224ba8a4375927c1025357f1b34e260ca08185a446b1633/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f7376672e6c617465783f2535434c617267652673706163653b6e3d2535436c6566742673706163653b2535422535436672616325374225354373756d5f25374268253744575f6825354374657874757025374253442537445f6825374425374225354374657874253742534525374428702925374425354372696768742673706163653b25354425354532)](https://camo.githubusercontent.com/2ceb9061ac9e8f8c8224ba8a4375927c1025357f1b34e260ca08185a446b1633/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f7376672e6c617465783f2535434c617267652673706163653b6e3d2535436c6566742673706163653b2535422535436672616325374225354373756d5f25374268253744575f6825354374657874757025374253442537445f6825374425374225354374657874253742534525374428702925374425354372696768742673706163653b25354425354532)
 
-*Wh* es el peso del estrato *h*, que es simplemente el área del estrato expresada como una proporción del área total de estudio; SD *h* es la desviación estándar del estrato *h*, que se explica a continuación. El error estándar objetivo es SE (*p*). Ahora, volvamos al ejemplo de perturbación forestal de Colombia, pero ahora usemos el mapa que generamos en el tutorial CODED de perturbación, bosque estable y no bosque estable. El cálculo del tamaño de la muestra en STR es un poco más complicado, por lo que usaremos una hoja de cálculo de Google Sheets (o Microsoft Excel si lo prefiere). Se puede acceder a la hoja de cálculo utilizada en este tutorial aquí: https://drive.google.com/file/d/1i8nA0Zz-HojOS0Sg_2v-Smzn1rS5D1vR/view?usp=sharing
+*Wh* es el peso del estrato *h*, que es simplemente el área del estrato expresada como una proporción del área total de estudio; SD *h* es la desviación estándar del estrato *h*, que se explica a continuación. El error estándar objetivo es SE (*p*). Demostraremos el cálculo usando un mapa de otro tutorial aquí en OpenMRV que se puede encontrar en el proceso "Detección de cambios" y la herramienta "CODED". Este mapa es un mapa de perturbación, bosque estable y no bosque estable y se puede encontrar como un activo de GEE [aquí](https://code.earthengine.google.com/?asset=users/openmrv/MRV/CODED_Colombia_Stratification_No_Buffer). El cálculo del tamaño de la muestra en STR puede ser complicado, por lo que usaremos una hoja de cálculo de Google Sheets (o Microsoft Excel si lo prefiere). Se puede acceder a la hoja de cálculo utilizada en este tutorial aquí: https://drive.google.com/file/d/1i8nA0Zz-HojOS0Sg_2v-Smzn1rS5D1vR/view?usp=sharing
 
 ##### Paso 1
 
-Primero necesitamos calcular el número de píxeles de cada estrato; esto se puede hacer usando GDAL, QGIS, Google Earth Engine, etc.; en el tutorial CODED, estas áreas están impresas en la *Consola* en Google Earth Engine. De lo contrario, o si tiene un activo GEE existente, cargue el activo utilizando el script de muestreo aleatorio estratificado AREA2 (https://code.earthengine.google.com/48294a6892696c57eda3f65d2ea95a0e para calcular los pesos de los estratos. Agregue estos números en la primera fila "Área [px]". En la segunda fila, exprese estas áreas como una proporción (en célula B3 escriba "=B2/sum($B2:$D2") y extiéndalo a E2). A estas proporciones se les refiere como los pesos de los estratos (*Wh*).
+Primero necesitamos calcular el número de píxeles de cada estrato; esto se puede hacer usando GDAL, QGIS, Google Earth Engine, etc.; si completó la herramienta "CODED" aquí en OpenMRV, estas áreas están impresas en la *Consola* en Google Earth Engine. De lo contrario, o si tiene un activo GEE existente, cargue el activo utilizando el script de muestreo aleatorio estratificado AREA2 (https://code.earthengine.google.com/48294a6892696c57eda3f65d2ea95a0e para calcular los pesos de los estratos. Agregue estos números en la primera fila "Área [px]". En la segunda fila, exprese estas áreas como una proporción (en célula B3 escriba "=B2/sum($B2:$D2") y extiéndalo a E2). A estas proporciones se les refiere como los pesos de los estratos (*Wh*).
 
 |      | A             | B               | C               | D              | E                 |
 | ---- | ------------- | --------------- | --------------- | -------------- | ----------------- |
-| 1    | Estrato (*h*) | Bosque (1)      | No-Bosque (2)   | For. Dist. (3) | Total             |
+| 1    | Estrato (*h*) | Bosque (1)      | No-Bosque (2)   | Dist. Bosq (3) | Total             |
 | 2    | Área [m2]     | 658,196,561,513 | 462,219,395,097 | 15,594,353,281 | 1,136,010,309,891 |
 | 3    | *Wh*          | 0.579           | 0.407           | 0.0137         | 1                 |
 
@@ -187,17 +150,17 @@ lo cual nos da un tamaño de muestra de 599 -- o sea aproximadamente 1/8 del tam
 
 Un problema potencial en la situación anterior es que las omisiones de perturbación presentes en el estrato de bosque tendrán un gran impacto en la precisión de las estimaciones. Dichos errores de omisión son unidades de muestra en el estrato de bosque que se observaron en los datos de referencia como perturbaciones. El problema se explica en detalle en Olofsson et al. (2020) [^ fn6] y aquí simplemente reconocemos que la "contribución a la incertidumbre" de los errores de omisión depende en gran medida del tamaño del estrato en el que ocurren. Por lo tanto, nos gustaría disminuir el tamaño del estrato de bosque que actualmente es el 83% del área de estudio. En particular, queremos crear pequeños sustratos donde es probable que ocurran omisiones de disturbios. Un enfoque explorado en la literatura es la creación de estratos de amortiguamiento alrededor de los estratos de cambio; la razón es que es probable que los errores ocurran cerca del cambio correctamente mapeado. En nuestro caso, dicho estrato de amortiguamiento podría definirse como los píxeles en el estrato del bosque adyacente al disturbio.
 
-La creación de un amortiguamiento no se ilustra en los tutoriales anteriores, así que hagámoslo ahora. Haga clic en este enlace para encontrar un script para crear un amortiguamiento en la salida CODED que está disponible en AREA2: https://code.earthengine.google.com/175b379e71239b16b38abf4eaf68c6fc Alternativamente, puede usar este mapa de Colombia basado en CODED con un amortiguamiento: https://code.earthengine.google.com/?asset=users/olofsson76/Open_MRV/Open_MRV_Col_strat_buffer Para obtener los pesos de estratos, abra el script en AREA2 para seleccionar una muestra con muestreo aleatorio estratificado: [https://code.earthengine.google.com/48294a6892696c57eda3f65d2ea95a0e](https://code.earthengine.google.com/?accept_repo=users%2Fopenmrv%2FMRV&scriptPath=projects%2FAREA2%2Fpublic%3A1. Sampling Design%2FStratified Random Sampling) y especifique la ruta al mapa de Colombia basado en CODED con un amortiguamiento bajo "Specify stratification/image to define study area" (Especifique estratificación/imagen para definir area de estudio); use los otros argumentos automáticos y haga clic en "Load image" lo cual visualizara las áreas de estratos en la Consola (NOTA: esto tomará tiempo). Consiga las siguientes áreas de Bosque (0), No-bosque (1), Disturbio de Bosque (2) y un amortiguamiento de 2-pixeles (3) [m^2^]:
+Ilustremos la creación de un búfer. Haga clic en este enlace para encontrar un script para crear un búfer en el resultado de la herramienta "CODED" aquí en OpenMRV, en AREA2: https://code.earthengine.google.com/175b379e71239b16b38abf4eaf68c6fc. Alternativamente, puede usar este mapa de Colombia basado en CODED con un amortiguamiento: https://code.earthengine.google.com/?asset=users/olofsson76/Open_MRV/Open_MRV_Col_strat_buffer. Para obtener los pesos de estratos, abra el script en AREA2 para seleccionar una muestra con muestreo aleatorio estratificado: [https://code.earthengine.google.com/48294a6892696c57eda3f65d2ea95a0e](https://code.earthengine.google.com/?accept_repo=users%2Fopenmrv%2FMRV&scriptPath=projects%2FAREA2%2Fpublic%3A1. Sampling Design%2FStratified Random Sampling) y especifique la ruta al mapa de Colombia basado en CODED con un amortiguamiento bajo "Specify stratification/image to define study area" (Especifique estratificación/imagen para definir area de estudio); use los otros argumentos automáticos y haga clic en "Load image" lo cual visualizara las áreas de estratos en la Consola (NOTA: esto tomará tiempo). Consiga las siguientes áreas de Bosque (0), No-bosque (1), Disturbio de Bosque (2) y un amortiguamiento de 2-pixeles (3) [m^2^]:
 
 0: 625,597,113,080 1: 462,219,395,097 2: 15,594,353,281 3: 32,599,448,433
 
 Vamos a agregar estos números en la segunda pestaña en la hoja de cálculo y calcular los pesos de estratos:
 
-|      | A            | B               | C               | D              | E              | F                 |
-| ---- | ------------ | --------------- | --------------- | -------------- | -------------- | ----------------- |
-| 1    | Estrato(*h*) | Bosque (1)      | No-Bosque (2)   | For. Dist. (3) | FD buf. (4)    | Total             |
-| 2    | Área [m2]    | 625,597,113,080 | 462,219,395,097 | 15,594,353,281 | 32,599,448,433 | 1,136,010,309,891 |
-| 3    | *Wh*         | 0.551           | 0.407           | 0.0137         | 0.0287         | 1                 |
+|      | A            | B               | C               | D              | E                   | F                 |
+| ---- | ------------ | --------------- | --------------- | -------------- | ------------------- | ----------------- |
+| 1    | Estrato(*h*) | Bosque (1)      | No-Bosque (2)   | Dist. Bosq (3) | Amortiguamiento (4) | Total             |
+| 2    | Área [m2]    | 625,597,113,080 | 462,219,395,097 | 15,594,353,281 | 32,599,448,433      | 1,136,010,309,891 |
+| 3    | *Wh*         | 0.551           | 0.407           | 0.0137         | 0.0287              | 1                 |
 
 Si creemos que el estrato de amortiguamiento es eficiente para capturar errores de omisión, podemos disminuir *qh* para el estrato de bosque - si asumimos que la mitad de los píxeles de disturbio en el estrato de bosque serán "capturados" por el estrato de amortiguamiento, entonces *q1* = 0.0005 y *q4* = 0.0075. Con un margen de error objetivo del 25%, el tamaño de la muestra se reduce a 502.
 
@@ -257,7 +220,7 @@ El teorema del límite central es importante porque establece que la suma de las
 
 ### 3.3 Muestreo en dos etapas/conglomerado
 
-Debido a la complejidad asociada con el muestreo en dos etapas, hay muchos menos ejemplos de este tipo de diseños en la literatura en comparación con STR y SRS / SYS. Además, no existen reglas fijas para guiar el tamaño de la muestra y las unidades primarias de muestreo (UPM) más que para encontrar un compromiso entre el número total de observaciones y un nivel razonable de incertidumbre para las estimaciones dentro de la UPM (Sannier et al. , 2013) [^ fn9]. En lugar de crear ejemplos, revisaremos dos ejemplos en la literatura.
+Debido a la complejidad asociada con el muestreo en dos etapas, hay menos ejemplos de este tipo de diseños en la literatura en comparación con STR y SRS/SYS. Además, no existen reglas fijas para guiar el tamaño de la muestra y las unidades primarias de muestreo (UPM) más que para encontrar un compromiso entre el número total de observaciones y un nivel razonable de incertidumbre para las estimaciones dentro de la UPM (Sannier et al. , 2013) [^ fn9]. En lugar de crear ejemplos, revisaremos dos ejemplos en la literatura.
 
 El primer ejemplo es Potapov et al. (2014) [^ fn7] quien estimó el área de pérdida forestal 2000-2011 en la Amazonía peruana en apoyo de REDD +. La principal fuente de datos de referencia fueron las imágenes comerciales de alta resolución. Se eligió un diseño de dos etapas para ahorrar costos, ya que el presupuesto permitía comprar solo 30 conjuntos de datos de alta resolución. En un diseño de dos etapas, los datos de referencia solo son necesarios para las UPM y no para toda el área de estudio. En consecuencia, el tamaño de la muestra de las 30 UPM se determinó sobre la base de razones presupuestarias y no especificando una precisión objetivo como en los ejemplos anteriores. Se eligió el tamaño de las unidades de suministro de energía de 12 × 12 km para alinearse con las imágenes de alta resolución. Los 5,532 bloques que cubren el área de estudio, cada uno de 12 × 12 km, se separaron en un estrato de cambio forestal alto (337 bloques) y bajo (5,195 bloques), de los cuales se seleccionaron 21 y 9 UPM bajo STR. Esta selección se guió por las reglas de asignación de muestra óptima de Cochran (1977) [^ fn4]. Dentro de cada una de las 30 UPM, se seleccionaron 100 unidades de muestreo secundarias (SSU) según el SRS en la segunda etapa del muestreo.
 
@@ -265,13 +228,13 @@ Un segundo ejemplo se proporciona en Sannier et al. (2013) [^ fn9] quien estimó
 
 ### 3.4 Software que permite la estimación de tamaño de muestra
 
-SEPAL/CEO tiene apoyo integrado para estimar el tamaño de muestra como se explica en esta documentación siguiente (en la sección 14).
+SEPAL/CEO tiene soporte incorporado para estimar el tamaño de la muestra como se explica en [esta documentación](https://sepal-ceo.readthedocs.io/en/latest/).
 
 Esta hoja de calculo es similar a SEPAL y fue desarrollada por el Banco Mundial. También calcula el tamaño de muestra requerido para obtener una precisión de exactitud general: https://onedrive.live.com/view.aspx?resid=9815683804F2F2C7!37340&ithint=file%2cxlsx&authkey=!ANcP-Xna7Knk_EE
 
 ### 3.5 Seleccionando la muestra
 
-El paso final del diseño de muestreo es extraer físicamente la muestra del área de estudio, que se trata en el siguiente tutorial.
+El paso final del diseño de muestreo es extraer físicamente la muestra del área de estudio, que se trata aquí en OpenMRV en el proceso "Diseño de muestreo" y herramientas "QGIS", "GEE", "AREA2".
 
 ## 4 Preguntas Frecuentes
 
@@ -366,6 +329,6 @@ Rajesh Bahadur Thapa, Nepal, International Centre for Integrated Mountain Develo
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat
 
 Atribución: 
-Olofsson, P. 2021. Stratified random sampling. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+Olofsson, P. 2021. Stratified random sampling design. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](./figures/wb_fcfc_gfoi.png)
