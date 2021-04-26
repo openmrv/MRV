@@ -1,34 +1,36 @@
 ---
-title: Response design in AREA2
-summary: This tutorial will go through how to use AREA2 for response design and collection of reference observations. AREA2, short for Area Estimation & Accuracy Assessment, is a Google Earth Engine application that provides comprehensive support for sampling and estimation in a design-based inference framework. For more information about AREA2 please refer to https://area2.readthedocs.io/en/latest/
+title: Diseño de respuesta en AREA2
+summary: Este tutorial explicará cómo utilizar AREA2 para el diseño de respuestas y la recopilación de observaciones de referencia. AREA2, abreviatura de Area Estimation & Accuracy Assessment, es una aplicación de Google Earth Engine que brinda soporte integral para muestreo y estimación en un marco de inferencia basado en diseño. Para obtener más información sobre AREA2, consulte https://area2.readthedocs.io/en/latest/.
 author: Pontus Olofsson
-creation date: February, 2021
-language: English
-publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+creation date: febrero 2021
+language: español
+publisher and license: Copyright 2021, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
-- Remote sensing
+- Teledetección
 - GEE
 - AREA2
-- Time series
-- Response design
-- Survey
-- Survey design
-- Reference data
-- Reference classification
-- Reference observations
+- Serie de tiempo
+- Diseño de respuesta
+- Encuesta
+- Diseño de encuesta 
+- Datos de referencia
+- Clasificación de referencia
+- Observaciones de referencia
 - Colombia
 
 group:
-- category: GEE
-  stage: Reference data collection
+- categoría: GEE
+  etapa: Colección de datos de referencia
 ---
 
 # Diseño de Respuesta en AREA2 
 
 ## 1 Contexto
-AREA2, short for Area Estimation & Accuracy Assessment, is a Google Earth Engine application that provides comprehensive support for sampling and estimation in a design-based inference framework. For more information about AREA2 please refer to https://area2.readthedocs.io/en/latest/. 
+En este tutorial, aprenderá a determinar las condiciones de referencia examinando un conjunto de datos de referencia en ubicaciones de las unidades de un conjunto de datos de muestra utilizando AREA2. Este conjunto de datos de muestra tendrá cuatro estratos: bosque, no bosque, perturbación del bosque y una zona de amortiguamiento alrededor de la perturbación del bosque. El objetivo es estimar el área de perturbación forestal; en consecuencia, aprenderá a recopilar observaciones de referencia de bosques, no bosques y perturbaciones forestales. También puede utilizar otras herramientas para lograr esto. Puede encontrar más tutoriales aquí sobre OpenMRV en "Recopilación de datos de muestra" y herramientas "CE" y "CEO".
+
+AREA2, abreviatura de Area Estimation & Accuracy Assessment (Estimación de Area y de Precisión de Mapa), es una aplicación de Google Earth Engine que brinda soporte integral para muestreo y estimación en un marco de inferencia basado en diseño. Para obtener más información sobre AREA2, consulte https://area2.readthedocs.io/en/latest/. 
 
 El diseño de respuesta define la "respuesta" de las unidades en una muestra. En el contexto de la inferencia basada en el diseño en un contexto geográfico, "el diseño de respuesta abarca todos los pasos del protocolo que conducen a una decisión sobre el acuerdo de las clasificaciones de referencia y mapa [y] la mejor clasificación disponible de [condiciones de la superficie terrestre] para cada unidad espacial muestreada "(Olofsson et al. 2014) [^ fn1]. De importancia los siguientes términos:
 
@@ -70,20 +72,20 @@ Un "diseño total de la encuesta" define los procedimientos para "obtener la pos
 
 En este tutorial, determinaremos las condiciones de referencia examinando un conjunto de datos de referencia en ubicaciones de las unidades de la muestra que extrajimos de Colombia en el tutorial anterior. Definimos cuatro estratos: bosque, no bosque, disturbio del bosque, y un amortiguador alrededor de la perturbación del bosque. El objetivo es estimar el área de disturbio forestal; en consecuencia, recopilaremos observaciones de referencia de *bosque, no bosque* y *disturbio del bosque*.
 
-## 2 Learning Objectives
+## 2 Objetivos de Aprendizaje
 
-Upon completion of the tutorial, the user should be able to display a set of reference data at locations of sample units designed and drawn from a study area. The user should be able to determine reference conditions at the land surface by examining time series of Landsat data in combination with high resolution data in Google Earth. 
+Al completar el tutorial, el usuario debería poder mostrar un conjunto de datos de referencia en ubicaciones de unidades de muestra diseñadas y extraídas de un área de estudio. El usuario debería poder determinar las condiciones de referencia en la superficie terrestre examinando series de tiempo de datos Landsat en combinación con datos de alta resolución en Google Earth.
 
-* Display a set of reference data at locations of sample units in GEE
-* Determine reference conditions at the land surface by examining time series of Landsat data in combination with high resolution data in GEE
+* Mostrar un conjunto de datos de referencia en ubicaciones de unidades de muestra en GEE
+* Determinar las condiciones de referencia en la superficie terrestre examinando series de tiempo de datos Landsat en combinación con datos de alta resolución en GEE
 
-### 2.1 Pre-requisites
-* A general understanding of image interpretation. Image interpretation is the process of looking at moderate, high, or very high spatial resolution imagery (from satellites or aerial photography) and labeling the objects of interest in your sample locations. Photo interpretation is the core skill needed to effectively determine reference conditions at the land surface.
+### 2.1 Prerrequisitos
+* Comprensión general de la interpretación de imágenes. La interpretación de imágenes es el proceso de observar imágenes de resolución espacial moderada, alta o muy alta (de satélites o fotografías aéreas) y etiquetar los objetos de interés en las ubicaciones de las muestras. La interpretación de fotografías es la habilidad central necesaria para determinar de manera efectiva las condiciones de referencia en la superficie terrestre.
 
-## 3 Tutorial: Response design in AREA2
+## 3 Tutorial: Diseño de respuesta en AREA2
 
 ### 3.1 Preparar datos de referencia
-El primer paso es extraer series de tiempo de datos Landsat en ubicaciones de muestra. Hacemos esto usando el script Save Feature Timeseries: https://code.earthengine.google.com/f358347952e3c362f3bb930e3eda095d Este script no tiene una GUI pero todo lo que tenemos que hacer es dirigir el script al asset de GEE que contiene la muestra. En la parte superior del script, simplemente agregue la siguiente línea especificando la ubicación de la muestra seleccionada en el paso anterior:
+El primer paso es extraer series de tiempo de datos Landsat en ubicaciones de muestra. Hacemos esto usando el script Save Feature Timeseries: https://code.earthengine.google.com/f358347952e3c362f3bb930e3eda095d. Este script no tiene una GUI, pero todo lo que tenemos que hacer es apuntar el script al activo GEE que contiene la muestra. En la parte superior del script, simplemente agregue la siguiente línea especificando la ubicación de la muestra (aquí estamos demostrando el ejercicio usando un conjunto de datos de muestra generado en otro tutorial aquí en OpenMRV bajo el proceso "Selección de muestra" y las herramientas "AREA2" y "QGIS "):
  ```
  var sample = ee.FeatureCollection('users/olofsson76/Open_MRV/STR_sample_Col')
  ```
@@ -104,11 +106,11 @@ Por ahora, recomendamos al usuario que anote las etiquetas de referencia en una 
 https://drive.google.com/file/d/1Y_D49kE_oiXxGEJEcPGT8FavrzdMj2qh/view?usp=sharing
 https://drive.google.com/file/d/1Md5NajZAngJsVWWiTCbgSdLiEyw7u6BE/view?usp=sharing
 
-## 4 Frequently Asked Questions (FAQs)
+## 4 Preguntas Frecuentes
 
-**If I can't determine the reference conditions at the location of a sample unit, can I discard that unit from the sample?**
+**¿Si no puedo determinar las condiciones de referencia en la ubicación de la unidad de muestra, puedo descartar esa unidad de la muestra?**
 
-It is imperative that the reference observations represent reference conditions; therefore, it is better to discard a sample unit than guessing. At the same time, removing units because the provision of reference labels is impossible violates the rules of probability sampling. For these reasons, it is difficult to provide guidelines for how many sample units can be discarded. (A renowned colleague of mine once told me that it is acceptable to remove discard up to 15% of the units in sample but he didn't want to be quoted, and I have not found any support for this figure in the literature.)
+Es imperativo que las observaciones de referencia representen condiciones de referencia; por lo tanto, es mejor descartar una unidad de muestra que adivinar. Al mismo tiempo, la eliminación de unidades porque la provisión de etiquetas de referencia es imposible viola las reglas del muestreo probabilístico. Por estas razones, es difícil proporcionar consejos acerca de cuántas unidades de muestra se pueden descartar. (Un colega de renombre me dijo una vez que es aceptable eliminar descarte hasta el 15% de las unidades de la muestra, pero no quería que se le cotizara, y no he encontrado ningún apoyo para esta cifra en la literatura).
 
 
 
@@ -135,7 +137,7 @@ Copyright 2021, World Bank.
 
 Este trabajo fue desarrollado por Pontus Olofsson bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionadas a la Medida, Reportaje, y Verificación para el apoyo de implementación MRV en varios países. 
 
-Material reviewed by:
+Material revisado por:
 Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources
 Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)
 Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources
