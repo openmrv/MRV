@@ -1,6 +1,6 @@
 ---
 title: Recopilación de Datos de Entrenamiento Usando Google Earth Engine
-summary: Este tutorial demostrará cómo recopilar datos de entrenamiento categóricos para la clasificación de la cobertura terrestre utilizando Google Earth Engine. Los usuarios deben ajustar los distintos componentes para que coincidan con los objetivos de su proyecto. Aquí, el proceso se demuestra para los países de Colombia, Mozambique y Camboya, y para una leyenda simple de cuatro clases de cobertura terrestre - bosque, agua, herbáceo y desarrollado. Consulte el Módulo 1.1 Creación de mosaicos / compuestos de imágenes para Landsat y Sentinel-2 en Google Earth Engine para obtener más información y recursos para trabajar en este entorno.
+summary: Este tutorial demostrará cómo recopilar datos de entrenamiento categóricos para la clasificación de la cobertura terrestre utilizando Google Earth Engine. Los usuarios deben ajustar los distintos componentes para que coincidan con los objetivos de su proyecto. Aquí, el proceso se demuestra para los países de Colombia, Mozambique y Camboya, y para una leyenda simple de cuatro clases de cobertura terrestre - bosque, agua, herbáceo y desarrollado. Consulte el proceso "Preprocesamiento" y la herramienta "GEE" aquí en OpenMRV para obtener más información y recursos para trabajar en este entorno.
 author: Karis Tenneson
 creation date:  diciembre 2020
 language: Español
@@ -50,7 +50,7 @@ Este tutorial demostrará como recolectar datos de entrenamiento categórico par
 
 ### 1.1 Google Earth Engine
 
-Digitalizaremos datos de entrenamiento en Google Earth Engine. Para la recopilación de datos de entrenamiento usando **QGIS**, consulte el proceso "Recopilación de datos de entrenamiento" y la herramienta "QGIS" aquí en OpenMRV.
+Digitalizaremos datos de entrenamiento en Google Earth Engine. Para la recopilación de datos de entrenamiento usando **QGIS**, Consulte el proceso "Preprocesamiento" y la herramienta "GEE" aquí en OpenMRV para obtener más información y recursos para trabajar en este entorno.
 
 ## 2 Objetivos de Aprendizaje
 
@@ -76,7 +76,7 @@ Al final de este ejercicio, podrá:
 El proceso para recopilar datos de entrenamiento en GEE esta detallado en los pasos siguientes. El proceso se puede describir generalmente como 3 pasos principales:
 
 1. Crear una clase de objetos nueva para cada tipo de cobertura terrestre para almacenar los datos de entrenamiento.
-2. Cargar un mapa de fondo usando lo que aprendió en el Módulo 1.1 Creación de Imagen Compuesta/Mosaico de Landsat y Sentinel-2.
+2. Cargar un mapa de fondo.
 3. Recopilar los datos de entrenamiento a través de la definición manual de puntos de entrenamiento. 
 4. Exportar los datos de entrenamiento.
 
@@ -84,7 +84,7 @@ El proceso para recopilar datos de entrenamiento en GEE esta detallado en los pa
 
 ### 3.2 Creando Nuevas Colecciones de Objetos 
 
-Como se puede ver en Módulo 1.2.1 Colección de Datos de Entrenamiento Usando QGIS, los datos de entrenamiento se pueden crear en una variedad de plataformas. En este tutorial, crearemos datos de entrenamiento con Feature Collections (Colecciones de Objetos) de puntos con etiquetas únicas de cobertura terrestres identificadas con el atributo de "label" (etiqueta). Por ejemplo, bosques pueden llevar el atributo "label" de 1, agricultura de 2, y así sucesivamente. Un método simple para desarrollar datos de entrenamiento es simplemente crear un Feature Collection para cada tipo de cobertura terrestre usando los datos y las imágenes disponibles en Google Earth Engine. Este tutorial demostrará como crear datos de entrenamiento que son geometrías de punto. Un proceso similar se puede usar con datos de polígonos.
+Los datos de entrenamiento se pueden crear en una variedad de plataformas. En este tutorial, crearemos datos de entrenamiento con Feature Collections (Colecciones de Objetos) de puntos con etiquetas únicas de cobertura terrestres identificadas con el atributo de "label" (etiqueta). Por ejemplo, bosques pueden llevar el atributo "label" de 1, agricultura de 2, y así sucesivamente. Un método simple para desarrollar datos de entrenamiento es simplemente crear un Feature Collection para cada tipo de cobertura terrestre usando los datos y las imágenes disponibles en Google Earth Engine. Este tutorial demostrará como crear datos de entrenamiento que son geometrías de punto. Un proceso similar se puede usar con datos de polígonos.
 
 Para comenzar, abra un browser de web y navegue a [Google Earth Engine](https://code.earthengine.google.com/). 
 
@@ -137,7 +137,7 @@ Los datos de referencia son críticos para la colección de datos de entrenamien
 
 Hay un mapa de base de imágenes de referencia de alta resolución disponible directamente dentro de GEE. La desventaja es que este producto es un mosaico de varias imágenes de alta resolución, y no hay información disponible acerca de la fecha de adquisición.
 
-Para aumentar la información disponible en estos mosaicos de imágenes de alta resolución, se sugiere que también cargue el mosaico de imágenes que usará para ejecutar la clasificación supervisada. Esta es la imagen que creó en el Módulo 1.1 Creación de Imagen Compuesta/Mosaico para Landsat y Sentinel-2. Después puede hacer clic entre las imágenes de alta resolución disponibles y la imagen compuesta para la fecha de interés para asegurarse que no hayan ocurrido cambios de cobertura terrestre entre las dos fechas de adquisición. 
+Para aumentar la información disponible en estos mosaicos de imágenes de alta resolución, se sugiere que también cargue el mosaico de imágenes que usará para ejecutar la clasificación supervisada. Los tutoriales en el proceso "Preprocesamiento" y la herramienta "GEE" aquí en OpenMRV muestran cómo crear una imagen compuesta / mosaico. Después puede hacer clic entre las imágenes de alta resolución disponibles y la imagen compuesta para la fecha de interés para asegurarse que no hayan ocurrido cambios de cobertura terrestre entre las dos fechas de adquisición. 
 
 Recuerde, quiere que los datos de referencia coincidan con el periodo de tiempo y el alcance geográfico de su región de estudio. Aquí, el proceso es demostrado para Colombia en el año 2019. 
 
@@ -247,7 +247,7 @@ Export.table.toDrive({
 
 ```
 
-3. Luego haga clic en Run para ejecutar. Esto le permitirá navegar a la pestaña de tarea 'Task' y completar la exportación. Si no recuerda como completar el proceso de exportación, por favor vuelva a repasar el Módulo 1.1 Creación de Imagen Compuesta/mosaico con Landsat y Sentinel-2 en Google Earth Engine. 
+3. Luego haga clic en Run para ejecutar. Esto le permitirá navegar a la pestaña de tarea 'Task' y completar la exportación. Puede encontrar información adicional sobre cómo exportar datos en GEE [aquí] (https://developers.google.com/earth-engine/guides/exporting)
 
 ## 4 Ejemplos: Mozambique y Camboya 
 
