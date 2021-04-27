@@ -58,7 +58,6 @@ At the end of this exercise, you will be able to:
 
 * Google Earth Engine
   * Have a GEE account
-
 * Remote sensing concepts
   * Basic understanding on theories involved in image classification.
   * Defining a thematic legend
@@ -387,7 +386,7 @@ Copyright 2021, World Bank
 
 This work was developed by Karis Tenneson under World Bank contract with GRH Consulting, LLC for the development of new -and collection of existing- Measurement, Reporting, and Verification related resources to support countries' MRV implementation. 
 
-Material reviewed by:
+Material reviewed by:   
 Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
 Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS)  
 Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
@@ -397,7 +396,7 @@ Paula Andrea Paz, Colombia, International Center for Tropical Agriculture (CIAT)
 Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)   
 Raja Ram Aryal, Nepal, Forest Research and Training Centre   
 
-Attribution
+Attribution   
 Tenneson, K. 2021. Training Data Collecting Using Google Earth Engine. © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](figures/m1.1/wb_fcfc_gfoi.png)
