@@ -1,28 +1,28 @@
 ---
-title: Analysis of sample data collected under stratified random sampling
-summary: In this tutorial we will apply various estimators to a sample dataset to estimate characteristics of the population sampled -- i.e. characteristics of the study area such as the area of forest disturbance. This tutorial will focus on sampled data collected under stratified random sampling
+title:  Analyse des données de l'échantillon obtenues par échantillonnage aléatoire stratifié
+summary: Dans ce tutoriel, nous appliquerons divers estimateurs à un ensemble de données d'échantillon pour estimer les caractéristiques de la population échantillonnée -- c'est-à-dire les caractéristiques de la zone d'étude telles que la zone de perturbation forestière. Ce tutoriel se concentrera sur les données échantillonnées collectées sous échantillonnage aléatoire stratifié.
 author: Pontus Olofsson
-creation date: February, 2021
-language: English
-publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+creation date: Février 2021
+language: Français
+publisher and license: Copyright 2021, Banque mondiale. Cette œuvre est protégée par une licence a Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
 - GEE
 - AREA2
-- Accuracy
-- Accuracy assessment
-- Area Estimation
-- Colombia
+- Précision
+- Évaluation de la précision
+- Estimation de la superficie
+- Colombie
 
 group:
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
+- catégorie : Stratifié
+  étape : Estimation de la superficie/évaluation de la précision
 ---
 
 
 
-# Analysis of sample data collected under stratified random sampling
+#  Analyse des données de l'échantillon obtenue dans le contexte d'un échantillonnage aléatoire stratifié.
 
 ## 1. Contexte
 
@@ -34,20 +34,20 @@ A partir de là, nous pouvons introduire deux mesures plus importantes de la dis
 
 Les deux propriétés, biais et variance, sont importantes car nous pouvons nous assurer que l'estimateur que nous utilisons est sans biais et nous pouvons exprimer l'incertitude des estimations. Ni l'un ni l'autre n'est possible lorsqu'on utilise le comptage de pixels dans les cartes ou lorsqu'on procède à un échantillonnage sans appliquer le principe de l'échantillonnage probabiliste. Un autre aspect important d'un estimateur est qu'il est une fonction de l'échantillon, ce qui signifie que l'estimateur doit correspondre au plan d'échantillonnage. Par exemple, la moyenne de l'échantillon est un estimateur sans biais de la moyenne de la population pour un échantillonnage aléatoire simple ; pour un échantillonnage aléatoire stratifié, nous devons utiliser un estimateur stratifié qui est exprimé comme la somme des moyennes des échantillons aléatoires simples dans les strates pondérées par les poids des strates.
 
-## 2 Learning Objectives
+## 2  Objectifs d'apprentissage
 
-- Construct STR estimator and STR variance estimator
-- Estimate overall user’s producer’s accuracy of a map using reference observations
-- Estimate map accuracy and area estimation
+- Construire un estimateur STR et un estimateur de variance STR
+- Estimer la précision globale de l'utilisateur et du producteur d'une carte en utilisant des observations de référence.
+- Estimer la précision de la carte et l'estimation de la surface
 
-### 2.1 Pre-requisites for this module
+### 2.1 Pré-requis 
 
-- Relevant terminology is found at the end of this document
-- More information about sampling design, and response design can be found here on OpenMRV under processes "Sampling design", and "Sample data collection".
+- La terminologie pertinente se trouve à la fin de ce document.
+- Plus d'informations sur le plan d'échantillonnage et le plan de réponse peuvent être trouvées ici sur OpenMRV sous les processus "Plan d'échantillonnage" et "Collecte de données d'échantillon".
 
 
 
-## 3 Tutorial: Analysis of sample data collected under stratified random sampling
+## 3 Tutoriel: Analyse des données de l'échantillon obtenues par échantillonnage aléatoire stratifié
 
 ### 3.1 L'estimation stratifiée
 
@@ -104,7 +104,7 @@ Les proportions de surface estimées d'une cellule appartenant à la strate *h* 
 
 [![img](https://camo.githubusercontent.com/8114430fcfeb669d64ee2d62542e599a957d120a573e279309a8352e52a65de6/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f2535434c617267652673706163653b253543686174253742702537445f253742686a2537442673706163653b3d2673706163653b575f682673706163653b253543667261632537426e5f253742686a2537442537442537426e5f253742682b253744253744)](https://camo.githubusercontent.com/8114430fcfeb669d64ee2d62542e599a957d120a573e279309a8352e52a65de6/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f2535434c617267652673706163653b253543686174253742702537445f253742686a2537442673706163653b3d2673706163653b575f682673706163653b253543667261632537426e5f253742686a2537442537442537426e5f253742682b253744253744)
 
-To estimate the area proportions, type in G13: "=$L12*G4/$K4" and expand to J13. Redo the calculation for the rows, which should give the following matrix:
+Pour estimer les proportions de la superficie, tapez G13: "=$L12*G4/$K4" et étendre à J13. Redo the calculation for the Refaites le calcul pour les lignes, ce qui devrait donner la matrice suivante
 
 |      | A    | B    | C    | D    | E       | F             | G       | H          | I         | J      | K       | L      |
 | ---- | ---- | ---- | ---- | ---- | ------- | ------------- | ------- | ---------- | --------- | ------ | ------- | ------ |
@@ -177,7 +177,7 @@ Pour la précision de l'utilisateur de la nouvelle carte, définissez les deux v
 
 [![img](https://camo.githubusercontent.com/41c2101f8cad7329ae3a8e99bf81e437a3ea25cac7c0184cc9c44bbea41ff32a/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f785f7525354555253230253344253230253543626567696e253742636173657325374425323031253230253236253230253543746578742537426966253230756e69742532302535437465787469742537427525374425323069732532306d6170253230636c617373253230666f72657374253230646973742e25374425354325354325323030253230253236253230253543746578742537426f74686572776973652e253744253230253543656e642537426361736573253744)](https://camo.githubusercontent.com/41c2101f8cad7329ae3a8e99bf81e437a3ea25cac7c0184cc9c44bbea41ff32a/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f785f7525354555253230253344253230253543626567696e253742636173657325374425323031253230253236253230253543746578742537426966253230756e69742532302535437465787469742537427525374425323069732532306d6170253230636c617373253230666f72657374253230646973742e25374425354325354325323030253230253236253230253543746578742537426f74686572776973652e253744253230253543656e642537426361736573253744)
 
-and for producer's accuracy:
+et pour l'exactitude du producteur:
 
 [![img](https://camo.githubusercontent.com/0864d1be4a4e15a66c356607c7fbf556ccf7bb4a1bb6210beaa09f99f71c661b/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f795f7525354550253230253344253230253543626567696e253742636173657325374425323031253230253236253230253543746578742537426966253230756e6974253230253234752532342532306973253230636f72726563746c79253230636c6173736966696564253230616e642532307265666572656e6365253230636c617373253230666f72657374253230646973742e25374425354325354325323030253230253236253230253543746578742537426f7468657277697365253342253744253230253543656e642537426361736573253744)](https://camo.githubusercontent.com/0864d1be4a4e15a66c356607c7fbf556ccf7bb4a1bb6210beaa09f99f71c661b/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f6769662e6c617465783f795f7525354550253230253344253230253543626567696e253742636173657325374425323031253230253236253230253543746578742537426966253230756e6974253230253234752532342532306973253230636f72726563746c79253230636c6173736966696564253230616e642532307265666572656e6365253230636c617373253230666f72657374253230646973742e25374425354325354325323030253230253236253230253543746578742537426f7468657277697365253342253744253230253543656e642537426361736573253744)
 
@@ -225,19 +225,19 @@ L'application AREA2 de Google Earth Engine contient les équations de tous les e
 
 L'estimation stratifiée est automatisée dans SEPAL ; la documentation est disponible ici: https://github.com/sig-gis/SEPAL-CEO Faites défiler la page jusqu'à *Exercice 4.3 : Estimation de la surface et de l'incertitude* pour une description de l'estimation stratifiée.
 
-## 4 Frequently Asked Questions (FAQs)
+## 4 Foire aux questions(FAQs)
 
-**I have seen in the literature that regression estimators have been used with sample data collected under stratified random sampling -- is the regression a more precise estimators than the STR estimator?**
+**J'ai lu dans la littérature que des estimateurs de régression ont été utilisés avec des données d'échantillon collectées sous échantillonnage aléatoire stratifié - la régression est-elle un estimateur plus précis que l'estimateur STR?**
 
-A regression estimator -- often referred to as a model-assisted regression estimator when making of map data -- will yield the exact same estimates if applied to the sample data used in this tutorial. The regression variance estimator is slightly different and less precise in a situations where we have categorical map and reference observations. When the map and reference observation are expressed as proportions, the regression estimator is likely to be more precise. For an in-depth discussion of the different estimators when applied to an error matrix, see Stehman (2013).
+Un estimateur de régression -- souvent appelé estimateur de régression assistée par modèle lorsqu'il s'agit de données cartographiques -- produira exactement les mêmes estimations s'il est appliqué aux données de l'échantillon utilisé dans ce tutoriel. L'estimateur de régression de la variance est légèrement différent et moins précis dans les situations où nous avons des observations catégorielles de la carte et de la référence. Lorsque les observations de la carte et de la référence sont exprimées sous forme de proportions, l'estimateur par régression est probablement plus précis. Pour une discussion approfondie des différents estimateurs lorsqu'ils sont appliqués à une matrice d'erreurs, voir Stehman (2013).
 
-**How do I know if I should post-stratify or not?**
+**Comment puis-je savoir si je dois post-stratifier ou non ?**
 
-If you have sample data collected under a simple design, there are several compelling reasons to post-stratify the study area. The main reason is that you are likely to obtain more precise estimates. Note that you will need a map though with a legend that corresponds to that of the sample data.
+Si vous disposez de données d'échantillon collectées selon un plan simple, il existe plusieurs raisons impérieuses de post-stratifier la zone d'étude. La principale raison est que vous êtes susceptible d'obtenir des estimations plus précises. Notez que vous aurez besoin d'une carte avec une légende qui correspond à celle des données d'échantillon.
 
-**I have an existing sample collected under STR that I now want to use to assess the accuracy of a map that was not used to define strata. I understand I need to the construct the indicator function-based estimator described above but they math is too complicated -- what do I do?**
+**J'ai un échantillon existant collecté sous STR que je veux maintenant utiliser pour évaluer la précision d'une carte qui n'a pas été utilisée pour définir les strates. Je comprends que je dois construire l'estimateur basé sur la fonction d'indicateur décrit ci-dessus mais les calculs sont trop compliqués - que dois-je faire ?**
 
-Read Stehman (2013)! Consulting Steve Stehman's papers is always a good idea, especially in this case. Stehman (2013) provides a numerical example with test data that is easy to follow. The math will be feel much less intimidating after going trough Steve's example!
+Lisez Stehman (2013) ! Consulter les articles de Steve Stehman est toujours une bonne idée, surtout dans ce cas. Stehman (2013) fournit un exemple numérique avec des données de test qui est facile à suivre. Les mathématiques seront beaucoup moins intimidantes après avoir parcouru l'exemple de Steve !
 
 ## 5 Terminologie relative aux techniques d'échantillonnage
 
@@ -263,9 +263,9 @@ Synonyme de plan d'échantillonnage (Sampling Design), qui est le terme préfér
 
 Särndal et al. (1992)[^fn2] définissent une enquête comme une “investigation partielle d'une population finie”, et précisent que “les concepts d ‘enquête’ et ‘enquête par sondage’ sont utilisés pour désigner des enquêtes statistiques présentant les caractéristiques méthodologiques suivantes: [...] échantillonnage aléatoire [...] plan de mesure [et] estimation”. de facon plus precise une enquete par sondage ou un sondage est une enquête effectuee sur une partie de la population. Cette fraction de la population constitue l'échantillon et les méthodes qui permettent de construire cet echantillon s'appellent méthode d'échantillonnage.
 
-### 5.6 Plan d'enquête
+### 5.6 Plan de sondage
 
-UN “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992)[^fn2]. Lohr (1999)[^fn5] décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
+Un “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992)[^fn2]. Lohr (1999)[^fn5] décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
 
 ### 5.7 Données de référence
 
@@ -275,11 +275,11 @@ Données caractérisant l'évaluation la plus précise possible de la condition 
 
 L'évaluation la plus exacte possible de l'état réel d'une unité de population.
 
-### 5.9 Reference classification 
+### 5.9Classification de référence 
 
 La classification de référence appliquée à la collection de toutes les unités d'échantillonnage.
 
-## 6 References
+## 6 Références
 
 Cochran, W.G., 1977. *Sampling Techniques*, John Wiley & Sons, New York, NY.
 
