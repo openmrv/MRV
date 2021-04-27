@@ -77,9 +77,8 @@ Dans ce tutoriel, vous apprendrez à déterminer les conditions de référence e
 * Afficher un ensemble de données de référence à l'emplacement des unités d'échantillonnage dans GEE.
 * Déterminer les conditions de référence au sol en examinant les séries temporelles de données Landsat en combinaison avec des données à haute résolution dans GEE.
 
-### 2.1 Pre-requisites
-* A general understanding of image interpretation. Image interpretation is the process of looking at moderate, high, or very high spatial resolution imagery (from satellites or aerial photography) and labeling the objects of interest in your sample locations. Photo interpretation is the core skill needed to effectively determine reference conditions at the land surface.
-
+### 2.1 Pré-requis
+* Une compréhension générale de l'interprétation des images. L'interprétation d'images est le processus consistant à regarder des images à résolution spatiale modérée, élevée ou très élevée (provenant de satellites ou de photographies aériennes) et à labelliser les objets d'intérêt dans vos emplacements d'échantillonnage. L'interprétation d'images est la compétence de base nécessaire pour déterminer avec précision les conditions de référence à la surface du sol.
 
 ## 3 TutTutoriel : Conception des réponses dans Area2orial: Response design in Area2
 
