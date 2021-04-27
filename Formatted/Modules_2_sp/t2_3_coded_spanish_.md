@@ -3,7 +3,7 @@ title: Detección de Degradación Continua (CODED)
 summary: Este tutorial presentará una metodología para monitorear la degradación forestal llamada Detección Continua de Degradación (CODED). CODED fue creado con el objetivo específico de detectar la degradación forestal que, como se describirá en las siguientes secciones, ha demostrado ser un desafío al utilizar enfoques tradicionales para la detección de cambios. La aplicación de CODED se realiza en Google Earth Engine y se demuestra para estudios de casos en Colombia, Mozambique y Camboya. Puede encontrar más información en coded.readthedocs.io
 author: Eric Bullock
 creation date: enero 2021
-language: Español
+language: español
 publisher and license: Copyright 2021, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
 
 tags:
