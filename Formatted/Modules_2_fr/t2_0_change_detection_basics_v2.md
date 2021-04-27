@@ -34,7 +34,7 @@ group:
 
 # Basics of Change Detection methods
 
-## Contexte
+## 1 Contexte
 
 L'objectif de la détection des changements par l'image est d'identifier et de cartographier quand et où des changements importants se produisent à la surface de la Terre.  Les méthodes décrites ici sur OpenMRV sous le processus "Détection des changements" et les outils "GEE", "LandTrendr", "CCDC" et "CODED"  reposent toutes sur un principe simple pour ce faire :  On s'attend à ce que les changements à la surface provoquent une modification de la réflectance spectrale suffisamment distincte pour pouvoir être saisie par un algorithme.  
 
@@ -88,7 +88,7 @@ Copyright 2021, World Bank
 
 Ce travail a été développé par Robert E Kennedy, Eric Bullock dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte des ressources existantes - liées à la mesure, la notification et la vérification afin de soutenir la mise en œuvre du MRV par les pays. 
 
-Attribution
+Attribution  
 Kennedy, R. E., Bullock, E. 2021. Basics of Change Detection methods. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](figures/wb_fcfc_gfoi.png)
