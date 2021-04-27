@@ -477,6 +477,6 @@ Konan Yao Eric Landry, Cote d'Ivoire, REDD+ Permanent Executive Secretariat
 Paula Andrea Paz, Colombia, International Center for Tropical Agriculture  
 
 Attribution  
-Bullock, E. 2021. Training Data Collection Using QGIS. © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO) 
+Bullock, E. 2021. Training Data Collection Using QGIS. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](https://creativecommons.org/licenses/by/3.0/igo/)  
 
 ![](figures/m1.1/wb_fcfc_gfoi.png)
