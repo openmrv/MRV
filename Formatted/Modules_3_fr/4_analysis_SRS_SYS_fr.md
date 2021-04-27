@@ -1,28 +1,28 @@
 ---
-title: Analysis of sample data collected under SRS/SYS
-summary: In this tutorial we will apply various estimators to a sample dataset to estimate characteristics of the population sampled -- i.e. characteristics of the study area such as the area of forest disturbance. This tutorial focus on sample data collected under SRS/SYS.
+title: Analyse des données d'échantillons collectées suivant le protocole SRS/SYS
+summary: Dans ce tutoriel, nous appliquerons divers estimateurs à un ensemble de données d'échantillon pour estimer les caractéristiques de la population échantillonnée -- c'est-à-dire les caractéristiques de la zone d'étude telles que la zone de perturbation forestière. Ce tutoriel se concentre sur les données d'échantillon collectées dans le cadre du SRS/SYS. 
 author: Pontus Olofsson
-creation date: February, 2021
-language: English
-publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+creation date: Février 2021
+language: Français
+publisher and license: Copyright 2021, Banque mondiale. Cette œuvre est protégée par une licence Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
 - AREA2
 - GEE
-- Accuracy
-- Accuracy assessment
-- Area Estimation
-- Colombia
+- Précision
+- Évaluation de la précision
+- Estimation de la superficie
+- Colombie
 
 group:
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
+- catégorie : Stratifié
+  étape : Estimation de la surface/évaluation de la précision
 ---
 
 
 
-# Analysis of sample data collected under SRS/SYS
+# Analyse des données d'échantillons collectées suivant le protocole SRS/SYS
 
 ## 1 Contexte
 
@@ -34,22 +34,22 @@ A partir de là, nous pouvons introduire deux mesures plus importantes de la dis
 
 Les deux propriétés, biais et variance, sont importantes car nous pouvons nous assurer que l'estimateur que nous utilisons est sans biais et nous pouvons exprimer l'incertitude des estimations. Ni l'un ni l'autre n'est possible lorsqu'on utilise le comptage de pixels dans les cartes ou lorsqu'on procède à un échantillonnage sans appliquer le principe de l'échantillonnage probabiliste. Un autre aspect important d'un estimateur est qu'il est une fonction de l'échantillon, ce qui signifie que l'estimateur doit correspondre au plan d'échantillonnage. Par exemple, la moyenne de l'échantillon est un estimateur sans biais de la moyenne de la population pour un échantillonnage aléatoire simple ; pour un échantillonnage aléatoire stratifié, nous devons utiliser un estimateur stratifié qui est exprimé comme la somme des moyennes des échantillons aléatoires simples dans les strates pondérées par les poids des strates.
 
-## 2 Learning Objectives
+## 2 Objectifs d'apprentissage
 
-- Construct SRS/SYS estimator and SRS/SYS variance estimator
-- Estimate overall user’s producer’s accuracy of a map using reference observations
-- Estimate map accuracy and area estimation
+- Construire un estimateur sous SRS/SYS et un estimateur de variance SRS/SYS
+- Estimer la précision globale de l'utilisateur et du producteur d'une carte en utilisant des observations de référence.
+- Estimer la précision de la carte et l'estimation de la superficie.
 
-### 2.1 Pre-requisites for this module
+### 2.1 Pré-requis 
 
-- Relevant terminology is found at the end of this document
-- More information about sampling design, and response design can be found here on OpenMRV under processes "Sampling design", and "Sample data collection".
+- La terminologie importante se trouve à la fin de ce document.
+- Plus d'informations sur le plan d'échantillonnage et le plan de réponse peuvent être trouvées ici sur OpenMRV sous les processus "Plan d'échantillonnage" et "Collecte de données d'échantillon".
 
 
 
-## 3 Tutorial: Analysis of sample data collected under SRS/SYS
+## 3 Tutoriel : Analyse des données d'échantillons collectées sous SRS/SYS
 
-### 3.1 Construction of SRS estimators
+### 3.1 Construction d'estimateurs SRS
 
 Les résultats des échantillons collectés par échantillonnage aléatoire simple sont les plus simples à analyser (les mêmes estimateurs sont utilisés pour l'échantillonnage aléatoire simple et systématique). Étant donné qu'aucune carte/stratification n'est utilisée et que la moyenne de l'échantillon est un estimateur non biaisé de la moyenne de la population, l'analyse des résultats des échantillons SRS/SYS peut facilement être réalisée dans une feuille de calcul. L'échantillonnage aléatoire stratifié a été illustré dans les tutoriels précédents, et seules des données fictives sont fournies ici pour illustrer la construction des estimateurs SRS/SYS. Supposons que les données de cette feuille de calcul soient des cartes et des labels de référence à des emplacements sélectionnés dans le cadre du SRS :[Lien](https://drive.google.com/file/d/1Bn8whN8r0L8u_z7IGhLswd2Qqd92CUOK/view?usp=sharing) .La taille de l'échantillon est *n* = 100 et la classe 1 correspond à une perturbation de la forêt, 2 à une forêt et 3 à une zone non forestière.
 
@@ -125,15 +125,16 @@ Enfin, dans la cellule G1, tapez "Prod. acc. FD" et dans G2 "=countifs(A1:A101, 
 
 L'application AREA2 de Google Earth Engine contient les équations de tous les estimateurs décrits dans ce tutoriel. Notez que dans AREA2, l'estimateur SRS est désigné par son nom officiel, l'estimateur d'expansion. AREA2 est disponible ici : [Lien application AREA2](https://code.earthengine.google.com/?accept_repo=projects/AREA2/public) et une documentation plus détaillée ici :[Lien documentation plus approfondie](https://area2.readthedocs.io/)
 
-## 4 Frequently Asked Questions (FAQs)
+## 4 Foire aux questions (FAQs)
 
-**Are the estimators above the only option I have when working with sample results collected under SRS/SYS?**
+**Les estimateurs ci-dessus sont-ils la seule option dont je dispose lorsque je travaille avec des résultats d'échantillons collectés sous SRS/SYS?**
 
-No! You can stratify the study area after selection of the sample which will allow you to use a stratified estimator, which in this case is then referred to as a post-stratified estimator. You can also use a regression estimator which often works well when the map and reference observations are expressed as proportions.
+Non ! Vous pouvez stratifier la zone d'étude après la sélection de l'échantillon, ce qui vous permettra d'utiliser un estimateur stratifié, que l'on appelle alors dans ce cas un estimateur post-stratifié. Vous pouvez également utiliser un estimateur par régression qui fonctionne souvent bien lorsque les observations de la carte et de la référence sont exprimées en proportions.
 
-**Will SRS/SYS result in less precise estimates compared to stratified random sampling?**
+**Le SRS/SYS donnera-t-il des estimations moins précises que l'échantillonnage aléatoire stratifié?**
 
-It is hard to say that one sampling design and family of estimators are more or less precise in general, as the final precision will depend on several factors. To achieve the same precision as in stratified design, you would typically need a larger sample under SRS/SYS. This is especially true if the parameters of interest are small proportions of the study area.
+Il est difficile d'affirmer qu'un plan d'échantillonnage et une famille d'estimateurs sont plus ou moins précis en général, car la précision finale dépendra de plusieurs facteurs. Pour obtenir la même précision qu'avec un plan stratifié, il faut généralement un échantillon plus grand avec le SRS/SYS. Ceci est particulièrement vrai si les paramètres d'intérêt sont de petites proportions de la zone d'étude.
+
 
 ## 5 Terminologie relative aux techniques d'échantillonnage
 
