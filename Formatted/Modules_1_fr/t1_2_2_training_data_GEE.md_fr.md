@@ -356,7 +356,7 @@ La plupart des forêts restantes au Cambodge sont situées sur des terrains vall
 4. N'oubliez pas de sauvegarder fréquemment.
 
 
-## 5. Foire aux questions
+## 5 Foire aux questions
 
 **Pourquoi utilisons-nous des géométries de points plutôt que des polygones?**
 
