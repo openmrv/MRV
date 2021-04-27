@@ -3,7 +3,7 @@ title: LandTrendr
 summary: Este tutorial presenta un enfoque para mapear el cambio forestal llamado LandTrendr. Los algoritmos LandTrendr se desarrollaron originalmente para detectar cambios tanto de corta como de larga duración en la cubierta forestal utilizando imágenes Landsat de series de tiempo anuales. LandTrendr incluye un paso de identificación del punto de interrupción y un paso de ajuste del modelo para interpretar imágenes de series de tiempo y detectar estas perturbaciones. En este tutorial, aprenderá a identificar cambios reales en la cobertura terrestre, a elegir los parámetros que mejor se ajusten, y a implementar scripts de mapeo de perturbaciones LandTrendr a través de una interfaz gráfica de usuario. Se muestran ejemplos para los países de Mozambique, Camboya y Colombia. Más información está disponible en el documento original Kennedy, Yang y Cohen, 2010 (https://doi.org/10.1016/j.rse.2010.07.008) y el repositorio GitHub (https://github.com/eMapR/LT-GEE).
 author: Robert E Kennedy
 creation date: enero 2021
-language: Español
+language: español
 publisher and license: Copyright 2021, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
 
 tags:
