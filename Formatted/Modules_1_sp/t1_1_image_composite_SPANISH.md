@@ -1,10 +1,10 @@
 ---
-title: Creacion de mosaico/imagen compuesta para Landsat y Sentinel-2 en Google Earth Engine
+title: Creación de mosaico/imagen compuesta para Landsat y Sentinel-2 en Google Earth Engine
 summary: Este tutorial le mostrará cómo crear una imagen compuesta utilizando imágenes Landsat y / o Sentinel-2 a nivel nacional en Google Earth Engine (GEE). El proceso se demuestra para los países de Colombia, Mozambique y Camboya. El tutorial viene acompañado de un repositorio GEE y una serie de videos que lo guían a través de algunas de las secciones. Los scripts le permiten crear una imagen compuesta que se puede utilizar en otros tutoriales aquí en OpenMRV. Si es nuevo en GEE, se proporcionan recursos útiles.
 
 author: Andrea Puzzi Nicolau
 creation date: diciembre 2020
-language: Español
+language: español
 publisher and license: Copyright 2021, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
 
 tags:
