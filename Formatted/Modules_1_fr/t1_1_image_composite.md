@@ -78,7 +78,7 @@ Nous vous encourageons à suivre les étapes ci-dessous en écrivant vous-même 
 
 ### 1.3 Vidéos
 
-Le [canal MRV YouTube](https://www.youtube.com/channel/UCdPooUCxF3HRIWdEh4pwrqQ) contient des vidéos qui vous guident à travers de ce tutoriel et d'autres sur openMRV. Pour ce tutoriel, une vidéo a été créée pour chaque sous-section de la section 3: Création d'une vidéo composite. Veuillez noter que le développement du script dans les vidéos peut ne pas être exactement le même que celui démontré à chaque étape du tutoriel (c'est-à-dire que l'ordre des lignes de code et des noms de variables peut différer, etc. ) et que chaque vidéo est construite sur les précédentes. Dans tous les cas, les mêmes résultats sont produits. Vous trouverez dans chaque section ci-dessous un hyperlien vers la vidéo correspondante. Il est recommandé de parcourir chaque section avant de visionner les vidéos. 
+Le [canal MRV YouTube](https://www.youtube.com/channel/UCdPooUCxF3HRIWdEh4pwrqQ) contient des vidéos qui vous guident à travers de ce tutoriel et d'autres sur openMRV. Pour ce tutoriel, une vidéo a été créée pour chaque sous-section de la Section 3. Tutoriel: Création d'une vidéo composite. Veuillez noter que le développement du script dans les vidéos peut ne pas être exactement le même que celui démontré à chaque étape du tutoriel (c'est-à-dire que l'ordre des lignes de code et des noms de variables peut différer, etc. ) et que chaque vidéo est construite sur les précédentes. Dans tous les cas, les mêmes résultats sont produits. Vous trouverez dans chaque section ci-dessous un hyperlien vers la vidéo correspondante. Il est recommandé de parcourir chaque section avant de visionner les vidéos. 
 
 
 ## 2 Objectif du cours
@@ -96,11 +96,11 @@ Le [canal MRV YouTube](https://www.youtube.com/channel/UCdPooUCxF3HRIWdEh4pwrqQ)
 * Compte Google Earth Engine 
   * Tout le monde peut s'inscrire à Google Earth Engine. GEE est gratuit pour une utilisation non commerciale. Pour vous inscrire, veuillez remplir [ce formulaire](https://earthengine.google.com/signup/). Une fois que vous aurez été accepté, vous recevrez un courriel contenant des informations supplémentaires
 * Connaissances de base et intermédiaires en programmation
-  * Voir les tutoriels et informations utiles sur la programmation JavaScript GEE dans la section 3 de Google Earth Engine
+  * Voir les tutoriels et informations utiles sur la programmation JavaScript GEE dans la Section 1.1 de Google Earth Engine
 * Le GEE fonctionne mieux avec [le navigateur Google Chrome](https://www.google.com/chrome/)
 
 
-## 3 Création d'un composite
+## 3 Tutoriel: Création d'un composite
 
 Le déroulement général du processus de ce tutoriel est présenté ci-dessous : 
 
@@ -781,7 +781,7 @@ Dans les scripts `1_Landsat_Sentinel2_Median_fr` ou `3_Landsat_Medoid_fr`, il su
 var country = lsib.filterMetadata('country_na','equals','Mozambique');
 ```
 
-Dans le script `2_Landsat_Sentinel2_Median2_fr`, changez simplement `'Colombia'` à la ligne 12 (ou à la ligne appropriée au cas où il s'agirait de votre propre script) en `'Mozambique'` et cliquez sur *Run*. Le script appelé `Mozambique_fr` mentionné dans la section 1.2. Repository est une copie exacte de ce script mais avec le changement déjà effectué.
+Dans le script `2_Landsat_Sentinel2_Median2_fr`, changez simplement `'Colombia'` à la ligne 12 (ou à la ligne appropriée au cas où il s'agirait de votre propre script) en `'Mozambique'` et cliquez sur *Run*. Le script appelé `Mozambique_fr` mentionné dans la Section 1.2. Répertoire est une copie exacte de ce script mais avec le changement déjà effectué.
 
 ```javascript
 var countryName = 'Mozambique';
@@ -833,7 +833,7 @@ Dans les scripts `1_Landsat_Sentinel2_Median_fr` ou `3_Landsat_Medoid_fr`, il su
 var country = lsib.filterMetadata('country_na','equals','Cambodia');
 ```
 
-Dans le script `2_Landsat_Sentinel2_Median2_fr`, changez simplement `'Colombia'` à la ligne 12 (ou à la ligne appropriée au cas où il s'agirait de votre propre script) en `'Cambodia'` et cliquez sur *Run*. Le script appelé `Cambodia_fr` mentionné dans la section 1.2. Repository est une copie exacte de ce script mais avec le changement déjà effectué.
+Dans le script `2_Landsat_Sentinel2_Median2_fr`, changez simplement `'Colombia'` à la ligne 12 (ou à la ligne appropriée au cas où il s'agirait de votre propre script) en `'Cambodia'` et cliquez sur *Run*. Le script appelé `Cambodia_fr` mentionné dans la Section 1.2. Répertoire est une copie exacte de ce script mais avec le changement déjà effectué.
 
 ```javascript
 var countryName = 'Cambodia';
@@ -863,7 +863,7 @@ Non. Google Earth Engine est une plateforme basée sur le cloud, par conséquent
 
 **J'ai eu une "Erreur de script" sur la console mais je ne suis pas sûr de ce que cela signifie ou comment cela affecte le script.**
 
-En général, cette "erreur de script" n'affecte pas votre code. Si les sorties sont chargées correctement sur la console et que les couches sont ajoutées à la carte, vous ne devriez pas vous inquiéter de cette erreur. Une erreur réelle qui empêche l'utilisateur d'accomplir un résultat affichera un message indiquant *quelle* est l'erreur. Pour obtenir de l'aide afin de débugguer votre code, veuillez consulter le [Guide de débuggage](https://developers.google.com/earth-engine/guides/debugging) et les liens internet [Comment obtenir de l'aide](https://developers.google.com/earth-engine/help) disponibles dans la section 3. Google Earth Engine.
+En général, cette "erreur de script" n'affecte pas votre code. Si les sorties sont chargées correctement sur la console et que les couches sont ajoutées à la carte, vous ne devriez pas vous inquiéter de cette erreur. Une erreur réelle qui empêche l'utilisateur d'accomplir un résultat affichera un message indiquant *quelle* est l'erreur. Pour obtenir de l'aide afin de débugguer votre code, veuillez consulter le [Guide de débuggage](https://developers.google.com/earth-engine/guides/debugging) et les liens internet [Comment obtenir de l'aide](https://developers.google.com/earth-engine/help) disponibles dans la Section 1.1 Google Earth Engine.
 
 -----
 
