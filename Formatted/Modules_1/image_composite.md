@@ -720,7 +720,7 @@ In this tutorial, we have created and exported different composites for the coun
 
 ### 4.1 Mozambique
 
-In the scripts `1_Landsat_Sentinel2_Median` or `3_Landsat_Medoid`, simply change `'Colombia'` in line 15 (or in the appropriate line in case it's your own script) to `'Mozambique'  ` and click *Run*.
+In the scripts `1_Landsat_Sentinel2_Median` or `3_Landsat_Medoid`, simply change `'Colombia'` in line 15 (or in the appropriate line in case it's your own script) to `'Mozambique'` and click *Run*.
 
 ```javascript
 var country = lsib.filterMetadata('country_na','equals','Mozambique');
@@ -772,7 +772,7 @@ var iterations = 2;
 
 ### 4.2 Cambodia
 
-In the scripts `1_Landsat_Sentinel2_Median` or `3_Landsat_Medoid`, simply change `'Colombia'` in line 15 (or in the appropriate line in case it's your own script) to `'Cambodia'  ` and click *Run*.
+In the scripts `1_Landsat_Sentinel2_Median` or `3_Landsat_Medoid`, simply change `'Colombia'` in line 15 (or in the appropriate line in case it's your own script) to `'Cambodia'` and click *Run*.
 
 ```javascript
 var country = lsib.filterMetadata('country_na','equals','Cambodia');
