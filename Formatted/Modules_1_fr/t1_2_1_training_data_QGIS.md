@@ -377,7 +377,7 @@ Ici, notre objectif est de nous assurer que notre classe "Forêt" contient des e
     - Une façon simple et préliminaire de tenir compte de la saisonnalité dans une classification consiste à fournir des données de formation représentatives.  
     - GEE nous permet d'identifier facilement les forêts saisonnières en fonction de la variance des valeurs NDVI sur une année.  
     - L'ensemble de données UMD-Hansen aide à la collecte de données d'entrainement en masquant les pixels non forestiers. 
-11. Il est nécessaire d'ajouter une carte de base standard en plus de la couche NDVI. Tous les exemples ci-dessus peuvent être utilisés, le plus simple étant le [QuickMap Services] (#quickmap). Assurez-vous que vous pouvez identifier vos classes dans l'imagerie que vous utilisez. Si vous ne le pouvez pas, essayez d'autres sources d'imagerie de référence ou envisagez de simplifier vos classes. Vous trouverez ci-dessous des exemples de classes utilisées ici dans l'imagerie ESRI disponible dans les services QuickMap. 
+11. Il est nécessaire d'ajouter une carte de base standard en plus de la couche NDVI. Tous les exemples ci-dessus peuvent être utilisés, le plus simple étant le QuickMap Services. Assurez-vous que vous pouvez identifier vos classes dans l'imagerie que vous utilisez. Si vous ne le pouvez pas, essayez d'autres sources d'imagerie de référence ou envisagez de simplifier vos classes. Vous trouverez ci-dessous des exemples de classes utilisées ici dans l'imagerie ESRI disponible dans les services QuickMap. 
 
     ![lc_examples](./figures/m1.2/m1.2.2/lc_examples.jpeg)
 
