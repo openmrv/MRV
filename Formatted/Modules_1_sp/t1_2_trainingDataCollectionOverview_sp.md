@@ -5,7 +5,7 @@ author:
 - Eric Bullock
 - Karis Tenneson
 creation date: diciembre 2020
-language: Español
+language: español
 publisher and license: Copyright 2021, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
 
 tags:
@@ -71,6 +71,6 @@ Copyright 2021, World Bank
 Este trabajo fue desarrollado por Eric Bullock y Karis Tenneson bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionados a la Medida, Reportaje, y Verificación para el apoyo de la implementación MRV en varios países.
 
 Atribución
-Bullock, E., Tenneson, K. 2021. Recopilación de Datos de Entrenamiento. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+Bullock, E., Tenneson, K. 2021. Training Data Collection. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](./figures/m1.1/wb_fcfc_gfoi.png)
