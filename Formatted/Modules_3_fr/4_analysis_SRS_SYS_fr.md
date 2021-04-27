@@ -1,5 +1,5 @@
 ---
-title: Analyse des données d'échantillons collectées suivant le protocole SRS/SYS
+title: Analyse des données d'échantillons obtenues par  SRS/SYS
 summary: Dans ce tutoriel, nous appliquerons divers estimateurs à un ensemble de données d'échantillon pour estimer les caractéristiques de la population échantillonnée -- c'est-à-dire les caractéristiques de la zone d'étude telles que la zone de perturbation forestière. Ce tutoriel se concentre sur les données d'échantillon collectées dans le cadre du SRS/SYS. 
 author: Pontus Olofsson
 creation date: Février 2021
@@ -22,7 +22,7 @@ group:
 
 
 
-# Analyse des données d'échantillons collectées suivant le protocole SRS/SYS
+# Analyse des données d'échantillons obtenues par suivant le protocole SRS/SYS
 
 ## 1 Contexte
 
@@ -47,7 +47,7 @@ Les deux propriétés, biais et variance, sont importantes car nous pouvons nous
 
 
 
-## 3 Tutoriel : Analyse des données d'échantillons collectées sous SRS/SYS
+## 3 Tutoriel : Analyse des données d'échantillons obtenues par  SRS/SYS
 
 ### 3.1 Construction d'estimateurs SRS
 
