@@ -1,9 +1,9 @@
 ---
 title: Recopilación de Datos de Entrenamiento Usando QGIS
-summary: This tutorial will demonstrate how to collect categorical training data for land cover classification using QGIS. The procedures that are demonstrate leverage QGIS plugins to access different image sources including Planet, Google Earth Engine, and high resolution basemaps. Users should adjust the various components to match their project objectives. Here, the process is demonstrated for the countries of Colombia, Mozambique, and Cambodia, and for a simple legend of four land cover classes - Forest, Water, Herbaceous, and Developed. Documentation on QGIS (https://docs.qgis.org/3.10/en/docs/user_manual/) is available here for further reference.
+summary: Este tutorial demostrará cómo recopilar datos de capacitación categóricos para la clasificación de la cobertura terrestre utilizando QGIS. Los procedimientos que se muestran aprovechan los complementos de QGIS para acceder a diferentes fuentes de imágenes, incluidos Planet, Google Earth Engine y mapas base de alta resolución. Los usuarios deben ajustar los distintos componentes para que coincidan con los objetivos de su proyecto. Aquí, el proceso se demuestra para los países de Colombia, Mozambique y Camboya, y para una leyenda simple de cuatro clases de cobertura terrestre: bosque, agua, herbáceo y desarrollado. La documentación sobre QGIS (https://docs.qgis.org/3.10/en/docs/user_manual/) está disponible aquí para mayor referencia.
 author: Eric Bullock
 creation date: diciembre 2020
-language: Español
+language: español
 publisher and license: Copyright 2021, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
 
 tags:
