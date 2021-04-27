@@ -301,7 +301,7 @@ Il est utile d'avoir un identifiant unique pour chaque point d'entrainement. Cel
 
 Les méthodes décrites ci-dessus sont démontrées pour les pays du Mozambique et du Cambodge. Le processus général est le même que celui qui a été démontré en Colombie. Toutefois, quelques considérations relatives à l'adoption de l'approche des conditions de chaque pays sont décrites ci-dessous. Notez que ces étapes supplémentaires sont facultatives et qu'il est recommandé de procéder d'abord à la collecte de données suivant les étapes ci-dessus. .Ces exemples montreront comment collecter des données d'entraînement d'une manière robuste aux différents types de forêts et à la topographie. L'objectif est d'améliorer la robustesse des données d’entrainement, ce qui peut en fin de compte améliorer la qualité de votre classification de l'occupation des sols. Les utilisateurs doivent tenir compte des conditions climatiques et topographiques de leur région d'étude pour déterminer si ces étapes supplémentaires sont nécessaires. 
 
-### 4.1  Mozambique : Prise en compte de la saisonnalité 
+### 4.1 Mozambique 
 
 Le Mozambique est un pays écologiquement diversifié qui se compose d'un mélange de zones climatiques tropicales et tempérées. De ce fait, il existe de grandes étendues d'écosystèmes forestiers à feuilles persistantes et à feuilles caduques. En Colombie, nous n'avons pas directement pris en compte les effets saisonniers des forêts, car celles-ci couvrent une proportion relativement faible du pays. La superficie des forêts de feuillus est beaucoup plus importante au Mozambique, ce qui peut présenter un défi pour la classification de la couverture terrestre en raison de la variabilité intra-annuelle de la réflectance entre les stades phénologiques. 
 
@@ -391,7 +391,7 @@ Ici, notre objectif est de nous assurer que notre classe "Forêt" contient des e
 
     ![moz_td](./figures/m1.2/m1.2.2/moz_td.JPG)
 
-## 4.2 Le Cambodge : Prise en compte de la topographie 
+## 4.2 Cambodge 
 
 Le dernier exemple de collecte de données d'entrainement dans Qgis est celui du Cambodge. Le Cambodge a un climat de mousson tropicale avec une saison des pluies allant de mai à octobre environ. Ces dernières années, le Cambodge a connu un taux relativement élevé de changement d'occupation de sol, souvent sous la forme de déforestation.  
 
