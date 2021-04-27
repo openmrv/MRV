@@ -22,7 +22,7 @@ group:
 
 
 
-# Analyse des données d'échantillons obtenues par suivant le protocole SRS/SYS
+# Analyse des données d'échantillons obtenues suivant le protocole SRS/SYS
 
 ## 1 Contexte
 
@@ -44,8 +44,6 @@ Les deux propriétés, biais et variance, sont importantes car nous pouvons nous
 
 - La terminologie importante se trouve à la fin de ce document.
 - Plus d'informations sur le plan d'échantillonnage et le plan de réponse peuvent être trouvées ici sur OpenMRV sous les processus "Plan d'échantillonnage" et "Collecte de données d'échantillon".
-
-
 
 ## 3 Tutoriel : Analyse des données d'échantillons obtenues par  SRS/SYS
 
