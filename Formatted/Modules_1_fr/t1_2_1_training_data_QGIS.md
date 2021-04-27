@@ -468,8 +468,7 @@ Copyright 2021, Banque mondiale
 
 Ce travail a été développé par Eric Bullock dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte des ressources existantes - liées à la mesure, la notification et la vérification afin de soutenir la mise en œuvre du MRV par les pays.  
 
-Matériel examiné par : 
-
+Matériel examiné par:      
 Kenset Rosales, Guatemala, Ministry of Environment and Natural Resources   
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat   
 Rajesh Bahadur Thapai, Nepal, International Centre for Integrated Mountain Development   
@@ -484,6 +483,6 @@ KONAN Yao Eric Landry, Cote d'Ivoire, REDD+ Permanent Executive Secretariat
 Paula Andrea Paz, Colombia, International Center for Tropical Agriculture   
 
 Attribution   
-Bullock, E. 2021. Training Data Collection Using QGIS. © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)   
+Bullock, E. 2021. Training Data Collection Using QGIS. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](https://creativecommons.org/licenses/by/3.0/igo/)    
 
 ![](figures/m1.1/wb_fcfc_gfoi.png)
