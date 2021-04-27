@@ -44,9 +44,9 @@ group:
 
 # Classification de l'occupation et de l'utilisation du sol dans Google Earth Engine
 
-# 1 Contexte
+## 1 Contexte
 
-## 1.1  Classificateurs en dimension spectrale
+### 1.1  Classificateurs en dimension spectrale
 Avant de se lancer dans un exercice de classification d'images, il est important de comprendre ce qui doit être classifié. 
 
 L'imagerie géospatiale en télédétection, qu'elle provienne de capteurs passifs ou actifs, réagit aux propriétés physiques et chimiques de la surface de la terre.  La réflectance et l'absorption  de l'énergie électromagnétique sont enregistrées dans différentes bandes d'un capteur, et les valeurs numériques enregistrées dans ces bandes définissent un espace spectral (ou plus largement, un espace de données à n dimensions). Tous les pixels d'une image sont placés dans cet espace de données en raison de leur réflectance mesurée dans chaque bande spectrale du capteur. 
@@ -63,20 +63,20 @@ Une fois que les limites de la classe ont été définies dans l'espace spectral
 
 ![Un pixel de l'image dont les valeurs spectrales le placent à l'endroit indiqué par le "Pixel D" atterrit dans les limites de la classe 3, et sera donc étiqueté Classe 3.](./figures/m1.3/spectral_space_classifier_new_pixel.png)
 
-## 1.2 Occupation et utilisation du sol
+### 1.2 Occupation et utilisation du sol
 
 Les propriétés physiques et chimiques de la surface sont liées à l'occupation du sol. Lors de la collecte de données d'entraînement pour construire une classification, plus les définitions de l'occupation du sol correspondent aux propriétés physiques de la surface qui contrôlent l'espace des données spectrales, plus l'exercice de classification est réussi.  
 
 "Utilisation des sols" se réfère à une définition humaine (observationnelle)  de l'occupation du sol sous-jacente.  La même couverture végétale herbacée peut avoir différentes désignations d'utilisation du sol: l'herbe dans une zone urbaine peut être définie comme "espace ouvert" ou "parc", tandis que la même herbe dans une zone agricole peut être considérée comme "pâturage".  Lors de la définition des étiquettes de classification, il faut être conscient des ambiguïtés potentielles dans les propriétés spectrales des classes. 
 
-## 1.3 Autres ressources
+### 1.3 Autres ressources
 
 |          **Concept**           |          **Source**          |                                                     **Site** |
 | :----------------------------: | :--------------------------: | -----------------------------------------------------------: |
 |    Basics of remote sensing    |   Natural Resources Canada   | https://www.nrcan.gc.ca/maps-tools-publications/satellite-imagery-air-photos/tutorial-fundamentals-remote-sensing/9309 |
 | Fundamentals of Remote Sensing | ARSET (NASA Applied Science) | https://appliedsciences.nasa.gov/join-mission/training/english/fundamentals-remote-sensing |
 
-# 2 Objectifs d'apprentissage
+## 2 Objectifs d'apprentissage
 
 À la fin de ce tutoriel, vous serez en mesure de 
 
@@ -85,7 +85,7 @@ Les propriétés physiques et chimiques de la surface sont liées à l'occupatio
 - Évaluer les sources d'erreur possibles dans le processus de classification, découlant du prétraitement, du choix des capteurs et de la conception de l'échantillon de formation
 
 
-## 2.1 Pré-requis 
+### 2.1 Pré-requis 
 
 * Concepts de Google Earth Engine (GEE)
 	* Obtenir un compte d'utilisateur
@@ -104,9 +104,9 @@ Les propriétés physiques et chimiques de la surface sont liées à l'occupatio
 
 
 
-# 3 Classification supervisée dans Google Earth Engine
+## 3 Tutoriel: Classification supervisée dans Google Earth Engine
 
-## 3.1 Aperçu du flux de travail
+### 3.1 Aperçu du flux de travail
 
 La classification supervisée fait référence au processus d'utilisation d'un ensemble de données d'entrainement avec des étiquettes (labels) connues pour guider un classificateur mathématique dans la tâche d'étiquetage de l'espace spectral (correspondre a chaque pixel une classe). La caractéristique principale est que l'ensemble de données d'apprentissage guide (ou "supervise") la labélisation des pixels. 
 
@@ -132,7 +132,7 @@ Image|Landsat 8 composite from a single year|Pre-processing|GEE
 Training data|Point data|Training data collection|GEE
 Classifier|CART|Classification (current tutorial)|GEE (current tutorial)
 
-### 3.1.1 Préparez-vous :  Charger le script
+#### 3.1.1 Préparez-vous :  Charger le script
 
 GEE fonctionne par le biais de scripts.  Comme indiqué ci-dessus, nous supposons que vous êtes familier avec l'interface GEE et que vous travaillez avec des scripts.   L'intégralité du code de ce tutoriel est capturée dans un script.  Selon votre niveau d'intérêt, vous pouvez simplement exécuter le code vous-même, ou vous pouvez en extraire des morceaux dans un script séparé.  Un bref tutoriel sur cette étape est disponible sur ce lien : https://youtu.be/jaz-tcwmNLQ
 
@@ -149,7 +149,7 @@ GEE fonctionne par le biais de scripts.  Comme indiqué ci-dessus, nous supposon
 
 ![GEE_save_as](./figures/m1.3/GEE_save_as.png)
 
-## 3.2 Construire une image composite
+### 3.2 Construire une image composite
 
 Nous construisons une collection d'images Landsat 8 à réflectance de surface à partir de 2019, filtrée par la couverture nuageuse, appliquée à une valeur médiane et découpée aux limites du pays.  
 
@@ -177,7 +177,7 @@ Notez qu'il y a des zones en gris pour lesquelles aucun pixel valide n'a été t
 ![landsat8_composite](./figures/m1.3/landsat8_composite.png)
 
 
-## 3.3 Charger les données d'entraînement
+### 3.3 Charger les données d'entraînement
 Les données d'entraînement sont les observations que nous utiliserons pour construire la classification. Comme indiqué ci-dessus, les définitions des étiquettes de classe de ces données d'entraînement doivent être définies en tenant compte des propriétés spectrales de la surface.  
 
 Si vous faites un copier-coller du code, ajoutez "Section 3.3" dans le Master Script au code de votre script de formation existant.  Pour ce premier exemple d'ajout à un script existant, consultez [cette courte vidéo.]( https://youtu.be/r2jJrSYgtA8 )  
@@ -220,7 +220,7 @@ Les couleurs sont en code hexadécimal, l'approche standard pour le codage des c
 
 ![training_points_colombia](./figures/m1.3/training_points_colombia.png)
 
-## 3.4 Associer les points d'entrainement aux valeurs spectrales
+### 3.4 Associer les points d'entrainement aux valeurs spectrales
 
 Ensuite, les valeurs spectrales de l'image sont extraites aux endroits associés aux points d'entraînement.  Il faut d'abord spécifier les bandes spectrales de l'image, puis l'opération ".sampleRegions" est appliquée à l'image.  
 
@@ -278,7 +278,7 @@ La FeatureCollection a autant de caractéristiques que les données d'entraînem
 Notez que cette FeatureCollection de base peut maintenant être utilisée dans n'importe lequel des classificateurs GEE. 
 
 
-## 3.5 Construire un classificateur CART
+### 3.5 Construire un classificateur CART
 
 Ensuite, nous utilisons un classificateur CART pour trouver la meilleure méthode d'utilisation des valeurs spectrales pour séparer les classes.  Les classificateurs connus sous le nom d'arbres de classification et de régression (CART) divisent l'espace de données spectrales en fractionnements binaires successifs disposés sous forme d'arbre. 
 
@@ -303,7 +303,7 @@ En visualisant l'objet à l'aide de la fonction `print()` dans GEE, les caracté
 
 ![classifier_console](./figures/m1.3/classifier_console.png)
 
-## 3.6 Appliquer le classificateur à l'image
+### 3.6 Appliquer le classificateur à l'image
 
 Une fois qu'un classificateur a été construit, l'application des règles mathématiques à l'image originale donne une carte étiquetée.  Chaque pixel de l'image spectrale est évalué en fonction des règles mathématiques du classificateur, et l'étiquette est attribuée à l'aide de ces règles. 
 
@@ -352,7 +352,7 @@ Appliquée au pays de la Colombie, la carte apparaît comme suit :
 
 Il est utile de rappeler que les points d'entraînement utilisés pour construire cette carte n'étaient pas destinés à être utilisés pour la création de cartes de haute qualité. Ainsi, la carte créée ici est simplement un exercice, et ne se veut pas une véritable carte d'occupation du sol en Colombie.  Cependant, nous l'utiliserons pour montrer les étapes de son évaluation et de son amélioration. 
 
-## 3.7 Évaluer et améliorer les cartes
+### 3.7 Évaluer et améliorer les cartes
 
 En fin de compte, la précision de la carte sera évaluée à l'aide d'un échantillon basé sur le plan d'échantillonnage avec un processus décrit ici sur OpenMRV sous le processus "Sampling design" (plan d'échantillonnage).Cependant, il est souvent utile d'évaluer visuellement une carte pour trouver des erreurs flagrantes et l'améliorer de manière itérative avant de prendre le temps de construire un échantillon de précision robuste. [Nous fournissons une courte vidéo pour vous aider à démarrer]( https://youtu.be/A7TEZMi_0cc ) sur l'évaluation des résultats de la classification. 
 
@@ -370,11 +370,11 @@ Dans le nord du pays, sur la péninsule de Guajira, toute la zone est classée c
 Dans les plaines du nord-est du pays, la classification herbacée est entrecoupée de classes développées. 
 
 
-### 3.7.1 Options pour les questions de masquage des nuages
+#### 3.7.1 Options pour les questions de masquage des nuages
 
 Lorsque l'on travaille avec des données optiques passives, la présence de nuage est un problème courant dans de nombreuses régions du monde.  Il existe plusieurs options pour améliorer la disponibilité des images, que nous examinons ci-dessous. 
 
-#### 3.7.1.1 Ajuster les seuils pour masquer les images nuageuses
+##### 3.7.1.1 Ajuster les seuils pour masquer les images nuageuses
 Dans nos exemples jusqu'à présent, nous avons filtré les images Landsat individuelles dont plus de 50 % de la zone est nuageuse, selon les métadonnées de l'image.  Ce filtrage a eu lieu lors de notre étape de composition d'images : `.filterMetadata('CLOUD_COVERT', 'less_than', 50)`.  Cela permet de filtrer des acquisitions d'images Landsat entières, même si certains des pixels de ces images peuvent être utiles. 
 
 Bien qu'il soit souvent conseillé d'être prudent lors du filtrage des nuages, si cela conduit à de grandes lacunes dans l'imagerie comme on l'observe ici, il vaut la peine d'omettre le filtre à l'échelle d'images entières, et de se fier plutôt au filtrage par pixel capturé dans la fonction appelée `.map(maskL8srClouds)`. 
@@ -392,7 +392,7 @@ Dans la première partie de la section 3.7 (jusqu'à 3.7.1.1 dans le script prin
 
 Cela améliore considérablement la situation, mais ne la résout pas entièrement. 
 
-#### 3.7.1.2 Élargir la mosaïque pour inclure plus d'années de données  
+##### 3.7.1.2 Élargir la mosaïque pour inclure plus d'années de données  
 
 Les cartes de l'occupation du sol sont associées à l'année d'acquisition des images. Dans les exemples donnés jusqu'à présent, nous nous sommes concentrés sur les images de l'année 2019. Des points de données d'entraînement ont également été acquis en 2019 pour cet exercice. 
 
@@ -464,7 +464,7 @@ L'image résultante présente beaucoup moins de gaps.
 
 Il y a encore des gaps près de la côte et à haute altitude. Il est peut-être nécessaire de passer à une troisième année, ou d'envisager une approche pour faire venir d'autres sources d'images. 
 
-#### 3.7.1.3 Exécuter CART en utilisant un composite sur deux ans
+##### 3.7.1.3 Exécuter CART en utilisant un composite sur deux ans
 
 Pour faire fonctionner le CART avec ces nouvelles données, nous devons réextraire les valeurs spectrales aux points, et reconstruire le classificateur.  
 
@@ -486,7 +486,7 @@ En utilisant le composite de deux ans et en relançant le classificateur CART, l
 
 ![cart_classifier_with_two_year_composite](./figures/m1.3/cart_classifier_with_two_year_composite.png)
 
-### 3.7.2 Gérer les erreurs de classification
+#### 3.7.2 Gérer les erreurs de classification
 
 Comme indiqué ci-dessus, l'évaluation visuelle de la classification originale du CART a révélé des zones où la classe "urbaine" était étiquetée de manière inappropriée.  Après avoir ajouté notre deuxième année à l'image composite, le problème existe toujours : l'inspection visuelle confirme que la classe "développée" est attribuée à des pixels qui sont soit herbacés, soit même stériles.  Bien que nos échantillons de formation ne soient pas destinés à être une source réelle de cartographie robuste, nous pouvons utiliser cet exemple de classification erronée pour illustrer la manière dont elle peut être traitée. 
 
@@ -498,7 +498,7 @@ De même façon, une évaluation minutieuse des plaines de l'est et du nord-est 
 
 ![figure_overclass_developed_plains](./figures/m1.3/figure_overclass_developed_plains.png)
 
-#### 3.7.2.1. Options pour traiter les erreurs de classification
+##### 3.7.2.1. Options pour traiter les erreurs de classification
 
 Pour comprendre comment corriger les erreurs de classification, il faut avoir une appréciation de la cause : Une erreur de classification se produit lorsqu'un pixel d'une classe atterrit dans l'espace de données spectrales que le classificateur a attribué à une autre classe. 
 
@@ -522,7 +522,7 @@ Il existe au moins trois recours pour le cas 1 :
 Le cas 2 est un exemple classique d'extension d'un modèle statistique en dehors des limites pour lesquelles il a été construit.  Le meilleur remède à ce cas est d'obtenir plus de points d'échantillonnage dans la région où la confusion se produit, dans le but d'étendre le domaine de la formation. 
 
 
-## 3.8 Appliquer un autre classificateur supervisé : Random Forests
+### 3.8 Appliquer un autre classificateur supervisé : Random Forests
 
 L'algorithme de Random Forests (Breiman 2001 : "Random Forests". Apprentissage automatique. 45 (1) : 5-32) s'appuie sur les concepts des arbres de décision, mais ajoute des stratégies pour les rendre plus puissants. Bien qu'un traitement approfondi des Random Forests (RF) dépasse la portée de cette formation, un bref aperçu est présenté ici. 
 
@@ -569,17 +569,17 @@ La classification Random Forests de la péninsule de Guajira, montrant que la cl
 ![guajira_rf](./figures/m1.3/guajira_rf.png)
 
 
-# 4.0 Classification non supervisée
+## 4 Tutoriel: Classification non supervisée
 
 L'un des principaux défis de la classification supervisée est de définir des classes qui peuvent être séparées de manière adéquate dans l'espace spectral de l'imagerie.  Si les définitions des classes ne doivent pas être strictement définies à l'avance, il est possible de laisser l'imagerie trouver des groupements (clusters) dans l'espace spectral, puis de tenter d'attacher des étiquettes descriptives à ces clusters.  Comme les données d'entraînement avec des classes prédéfinies ne sont pas utilisées pour superviser (guider) ce processus, on parle de classification "non supervisée".
 
-## 4.1 L'algorithme *k*-means
+### 4.1 L'algorithme *k*-means
 
 Les algorithmes de clustering sont nombreux.  Le lecteur intéressé peut consulter https://en.wikipedia.org/wiki/Cluster_analysis ou d'autres introductions génériques. En télédétection, une approche couramment utilisée est le clusterer *k*-means, implémenté sur GEE sous la fonction `ee.Clusterer.wekaKMeans`.  
 
 L'approche *k*-means utilise une stratégie de regroupement itératif pour identifier des groupes de pixels proches les uns des autres dans l'espace spectral. L'utilisateur fournit un nombre souhaité (*k*) de groupes, et l'algorithme distribue ensuite ce nombre de points de départ dans l'espace spectral. Ces points d'amorçage sont considérés comme les points de départ des classes éventuelles. L'emplacement de ces points d'amorçage est par défaut un placement aléatoire dans l'implémentation GEE de l'algorithme. Un grand échantillon de pixels dans l'image est alors attribué à son point d'origine le plus proche, et la valeur spectrale moyenne de ces pixels est calculée.  Cette valeur moyenne s'apparente au centre de masse des points, et est connue sous le nom de centroïde.  À moins que les points les plus proches d'un point d'origine ne soient disposés symétriquement autour de celui-ci, ce centroïde calculé sera légèrement déplacé par rapport à son point de départ.  Tous les pixels de l'image sont maintenant rattachés à des centroïdes - souvent, certains pixels changent de centroïde à cause du mouvement des centroïdes. Lorsque le nouveau groupe de pixels est utilisé pour le calcul des centroïdes, le nouveau centroïde va se déplacer à nouveau.  Le processus est répété jusqu'à ce que les centroïdes restent relativement stables et que peu de pixels changent de classe lors des itérations suivantes. 
 
-## 4.2 Application des *k*-moyens dans le GEE
+### 4.2 Application des *k*-moyens dans le GEE
 
 L'application dans GEE suit le même processus que celui utilisé pour la classification supervisée, sauf que les échantillons d'entrainement sont générés de manière aléatoire plutôt que d'être tirés d'un ensemble de données d'apprentissage comme dans le cas de la classification supervisée.  Il ne s'agit pas de données strictement "d'apprentissage", puisqu'elles n'ont pas d'étiquettes.  Il s'agit plutôt d'un simple sous-échantillon aléatoire de l'espace de données spectral. 
 
@@ -615,7 +615,7 @@ Une sortie classifiée de l'algorithme de classification non supervisé *k*-mean
 ![figure_kmeans_examples](./figures/m1.3/figure_kmeans_examples.png)
 
 
-## 4.3 Evaluation
+### 4.3 Evaluation
 
 Une fois l'image groupée créée, expert peut évaluer si les choix utilisés sont efficaces et peut commencer à attribuer des étiquettes d'occupation de sol aux groupes. Il s'agit nécessairement d'une stratégie plus subjective qui nécessite de comprendre à la fois le paysage et l'espace de données spectrales. 
 
@@ -625,23 +625,23 @@ Le second critère (et connexe) est de savoir si les groupes peuvent recevoir de
 
 La solution à un nombre trop élevé ou trop faible de classes consistent simplement à relancer la classification, ou à prendre des mesures plus avancées consistant à subdiviser l'image en classes de composants et à relancer le classificateur sur le sous-ensemble.  
 
-## 4.4 Avantages et inconvénients
+### 4.4 Avantages et inconvénients
 
 La classification supervisée présume des classes qui sont intéressantes ou pertinentes, mais il est rare que ces étiquettes de classe soient construites en fonction de la façon dont elles seront saisies dans l'espace de données spectrales.  Ainsi, l'approche supervisée peut essayer de faire en sorte qu'un espace de données spectrales sépare des classes qui ne sont pas séparables. 
 
 La classification non supervisée dépend entièrement de l'imagerie, et de la séparabilité des classes.  Ainsi, elle peut mieux représenter les modèles du paysage.  Mais l'étiquetage de ces classes peut ne pas être utile pour un utilisateur final.  De plus, la méthode dépend entièrement de l'espace de données, et donc une répétition des mêmes étapes de base sur un ensemble différent d'images pour le même endroit pourrait très bien conduire à une carte différente.  
 
-# 5.0 Application à d'autres pays tests
+## 5 Autres exemples : Mozambique et Cambodge
 
 Bien que le travail avec des scripts dans GEE exige plus d'un utilisateur qu'une simple interface graphique, c'est dans l'application à de nouvelles situations que la puissance de la plate-forme de script devient évidente. 
 
 En supposant que vous disposiez de données de formation pour votre nouvelle situation, passer à une nouvelle situation peut être aussi simple que de modifier quelques variables dans le script et de le relancer.  Bien entendu, nous voulons interpréter les résultats et adapter certains choix clés à chaque situation. 
 
-## 5.1 Mozambique
+### 5.1 Mozambique
 
 Par souci d'exhaustivité, nous avons fourni une version complète du scripte principale adaptée au Mozambique.  Elle peut être trouvée dans le répertoire OpenMRV sous `cls_landsat_v2_mozambique_fr`, ou directement à partir de [ce lien](https://code.earthengine.google.com/ffbc576d3666b8efe808dd42c14785f5). 
 
-### 5.1.1 Ajustements du code
+#### 5.1.1 Ajustements du code
 
 Seuls quelques éléments clés ont dû être modifiés pour fournir une classification initiale.
 
@@ -662,7 +662,7 @@ Pour que le Script principal fonctionne dans son intégralité, ces deux modific
 
 Figure M1.  Exemples de cartes générées par un simple transfert du script de classification de la Colombie au Mozambique.
 
-### 5.1.2 Conclusions
+#### 5.1.2 Conclusions
 
 En exécutant l'ensemble du script principal et en évaluant les cartes, les résultats suivants sont remarquables : 
 
@@ -678,22 +678,22 @@ Dans un environnement plus sec, les espèces ligneuses du Mozambique introduisen
 
 Figure M2.  Comparaison de trois variantes de classification dans le système de classification supervisé.  Notez que la variabilité du schéma spatial des labels forestiers parmi les trois est plus prononcée aux niveaux intermédiaires du couvert forestier. 
 
-## 5.2 Cambodge
+### 5.2 Cambodge
 
 Comme pour le Mozambique, nous avons fourni une version complète du script principal adaptée au Cambodge.  Elle peut être trouvée dans le répertoire **OpenMRV** sous `cls_landsat_v2_cambodia_fr`, ou directement à partir de [ce lien](https://code.earthengine.google.com/d485ddd4d17c54bcdef1d5d62b559ef4). 
 
-### 5.2.1 Ajustements du code
+#### 5.2.1 Ajustements du code
 
 Au Cambodge comme au Mozambique, seuls quelques changements sont nécessaires pour appliquer la même structure de classification, toujours en supposant que les données de d'apprentissage existent : changement du chemin vers les données de formation, et du nom du pays utilisé pour l'analyse de délimitation. 
 
-### 5.2.2  Conclusions
+#### 5.2.2  Conclusions
 
 Bien que le Cambodge n'ait pas les régions semi-arides du Mozambique, il est moins affecté par les nuages que la Colombie :  Le composite d'une année utilisant le criblage des nuages au niveau du pixel ne montre aucune zone importante de données manquantes.  Comme auparavant, l'application du modèle des forêts aléatoires diminue la sur-classification des zones urbaines dans des zones autrement herbacées ou à faible végétation, mais ne supprime pas complètement le problème (figure C1).
 
 ![fig_camb_fourmaps](./figures/m1.3/fig_camb_fourmaps.png)
 
 
-# 6.0 FAQs
+## 6 Foire aux questions
 
 **Et si certaines zones sont presque toujours nuageuses, quel que soit le nombre d'années d'imagerie dont je dispose?**
 
@@ -717,7 +717,7 @@ En dernier recours, vous pourriez simplement délimiter des strates dans votre p
 
 Les impacts de la topographie montagneuse sur les caractéristiques de l'image peuvent souvent être graves.  L'ombrage topographique provoque à la fois des effets évidents (réduction globale de la réflectance) et des effets moins évidents (réduction différentielle de la luminosité sur différentes bandes spectrales en raison d'un éclairage direct-vs-indirect différentiel).  Bien qu'il existe des méthodes pour compenser les impacts visuels des effets topographiques, le fait est malheureusement que le signal sur les aspects ombragés des montagnes est simplement différent.  En pratique, une approche raisonnable pour traiter ces effets consiste à : 1) s'assurer que les données de formation sont réparties sur tous les aspects, 2) inclure les variables topographiques dans la pile de classification et 3) s'assurer que le classificateur utilisé a la capacité d'attribuer la même étiquette de classe aux parties disjointes de l'espace de données.   
 
-* Cet exemple ne comporte que quatre classes, mais il nous en faut beaucoup plus.  En quoi cela nous aide-t-il ?
+**Cet exemple ne comporte que quatre classes, mais il nous en faut beaucoup plus.  En quoi cela nous aide-t-il ?**
 
 En effet, les exemples utilisés dans ce tutoriel se limitent à un ensemble très simple et restreint de labels de classification.  Toutefois, les méthodes utilisées ici pourraient s'appliquer également à un système de classification comportant autant de classes que souhaité. 
 
@@ -729,11 +729,11 @@ Toutefois, lors de l'élaboration de systèmes d'étiquetage de classes plus com
 
 Ce travail est sous licence [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) 
 
-Copyright 2020, Banque mondiale 
+Copyright 2021, Banque mondiale 
 
 Ce travail a été développé par Robert E Kennedy dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte des ressources existantes - liées à la mesure, la notification et la vérification afin de soutenir la mise en œuvre du MRV par les pays. 
 
-Matériel examiné par :
+Matériel examiné par :   
 Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
 Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
 Kenset Rosales, Guatemala, Ministry of Environment and Natural Resources  
@@ -742,8 +742,7 @@ Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (R
 Raja Ram Aryal, Nepal, Forest Research and Training Centre  
 Sofia Garcia, Guatemala, Ministry of Environment and Natural Resources  
 
-Attribution
-
+Attribution   
 Kennedy, R. E . 2021. Land Cover and Land Use Classification in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](figures/m1.1/wb_fcfc_gfoi.png)
