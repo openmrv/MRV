@@ -90,24 +90,24 @@ Ensuite, vous devrez définir une nouvelle classe d'éléments pour chaque occup
 
 1. Lorsque vous êtes dans le Earth Engine, naviguez vers les outils de dessin dans le coin supérieur gauche de la fenêtre de la carte. Cliquez sur l'icône pour ajouter des marqueurs de points. 
 
-![AddMarker](./figures/m1.2/m1.2.2/AddMarker.jpg)
+    ![AddMarker](./figures/m1.2/m1.2.2/AddMarker.jpg)
 
 2. Cela ajoutera un nouveau panneau *Geometry Imports* dans votre fenêtre de carte, avec une étiquette pour les nouvelles propriétés. Vous pouvez maintenant dessiner dans la fenêtre de carte. Le nom par défaut de cette nouvelle couche est "geometry".
 
-![GeometryImports](./figures/m1.2/m1.2.2/GeometryImports.JPG)
+    ![GeometryImports](./figures/m1.2/m1.2.2/GeometryImports.JPG)
 
 3. Maintenez votre curseur sur le nom "geometry" dans ce panneau jusqu'à ce qu'une icône d'engrenage apparaisse sur le côté droit de l'étiquette. Cliquez sur l'engrenage pour ouvrir le panneau afin de modifier la configuration de la couche.
 
-![Settings](./figures/m1.2/m1.2.2/Settings.JPG)
+    ![Settings](./figures/m1.2/m1.2.2/Settings.JPG)
 
 4. Donnez ensuite à la couche un nom lié à l'occupation du sol qui vous intéresse, par exemple "forêt". 
 
-Pour ce tutoriel, nous vous recommandons d'utiliser cette clé de classification de la l'occupation du sol et les codes de classe numériques :
+    Pour ce tutoriel, nous vous recommandons d'utiliser cette clé de classification de la l'occupation du sol et les codes de classe numériques :
 
-- 1 Forest
-- 2 Water
-- 3 Herbaceous
-- 4 Developed 
+    - 1 Forest
+    - 2 Water
+    - 3 Herbaceous
+    - 4 Developed 
 
 5. Définissez ensuite le type (importation sous) sur FeatureCollection.
 6. Ajoutez une propriété en cliquant sur la case *+ Property*. 
@@ -115,15 +115,13 @@ Pour ce tutoriel, nous vous recommandons d'utiliser cette clé de classification
 8. Enfin, changez la couleur si vous le souhaitez. Par exemple, vous pouvez choisir d'utiliser des marqueurs verts pour les étiquettes de forêt.
 9. Cliquez sur *OK* pour enregistrer vos modifications.
 
-Votre panel devrait ressembler à ceci :
+    Votre panel devrait ressembler à ceci :
 
-![GeomSettings](./figures/m1.2/m1.2.2/GeomSettings.jpg)
-
-
+    ![GeomSettings](./figures/m1.2/m1.2.2/GeomSettings.jpg)
 
 10. De retour à la fenêtre de la carte, passez votre souris sur les importations de la géomérie et cliquez sur l'option *+ new layer*.
 
-![NewGeom](./figures/m1.2/m1.2.2/NewGeom.jpg)
+    ![NewGeom](./figures/m1.2/m1.2.2/NewGeom.jpg)
 
 11. Répétez les étapes 3 à 10 jusqu'à ce qu'une collection éléments soit établie pour chaque type de classe d'occupation des sols.
 
@@ -141,47 +139,41 @@ N'oubliez pas que vous voulez que les données de référence correspondent à l
 
 1. Vous pouvez créer un composite Sentinel-2 pour 2019 à la volée et l'ajouter à la carte. Collez le code suivant dans la fenêtre de l'éditeur de code et cliquez sur *Run* pour charger le composite dans la fenêtre de la carte.
 
-   
+    ```javascript
+    var countries = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017");
+    var colombia = countries.filter(ee.Filter.eq('country_na','Colombia'));
+    Map.centerObject(colombia, 8);
 
-   ```javascript
-   var countries = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017");
-   var colombia = countries.filter(ee.Filter.eq('country_na', 'Colombia'));
-   Map.centerObject(colombia, 8);
-   
-   function maskS2clouds(image){
-       return image.updateMask(image.select('QA60').eq(0))}
-   
-   var s1_collection = ee.ImageCollection("COPERNICUS/S2_SR");
-   
-   var s1_composite_masked = s1_collection.filterBounds(colombia) 
-       .filterDate('2019-01-01','2019-12-31') 
-       .map(maskS2clouds) 
-       .median();
-   
-   var vis = {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 1250};
-   Map.addLayer(s1_composite_masked, vis, 'Sentinel 2 2019 Masked');
-   ```
+    function maskS2clouds(image){
+        return image.updateMask(image.select('QA60').eq(0))}
 
-![gee](./figures/m1.2/m1.2.2/gee.JPG)
+    var s1_collection = ee.ImageCollection("COPERNICUS/S2_SR");
 
+    var s1_composite_masked = s1_collection.filterBounds(colombia) 
+        .filterDate('2019-01-01','2019-12-31') 
+        .map(maskS2clouds) 
+        .median();
 
+    var vis = {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 1250};
+    Map.addLayer(s1_composite_masked, vis, 'Sentinel 2 2019 Masked');
+    ````
+
+    ![gee](./figures/m1.2/m1.2.2/gee.JPG)
 
 2. Il existe également une autre façon de charger des images dans GEE, cette deuxième option consiste à charger une image à partir de l'onglet Actifs. Si vous avez exporté une image composite dans votre dossier GEE Asset, vous pouvez l'importer en naviguant dans le dossier Assets. Ensuite, passez votre souris sur le nom de l'image composite et sélectionnez la flèche à importer dans l'éditeur de code. Assurez-vous que l'image que vous chargez à partir de votre dossier Asset est définie comme "image" afin que le code GEE fonctionne. 
 
-![import](./figures/m1.2/m1.2.2/import.jpg)
-
+    ![import](./figures/m1.2/m1.2.2/import.jpg)
 
 3. Copiez ensuite le texte suivant dans l'éditeur de code pour le charger dans la fenêtre de la carte et cliquez sur *Run*.
 
-```javascript
-Map.centerObject(image, 8);
-var vis = {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 1250};
-Map.addLayer(image, vis, 'image');
-```
+    ```javascript
+    Map.centerObject(image, 8);
+    
+    var vis = {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 1250};
+    Map.addLayer(image, vis, 'image');
+    ```
 
-
-
-Vous pouvez également consulter le site officiel [Earth Engine resources](https://developers.google.com/earth-engine/tutorials/tutorial_api_04) pour obtenir des informations sur la recherche et l'affichage des collections d'images.
+    Vous pouvez également consulter le site officiel [Earth Engine resources](https://developers.google.com/earth-engine/tutorials/tutorial_api_04) pour obtenir des informations sur la recherche et l'affichage des collections d'images.
 
 ### 3.4 Collecter des données d' entraînement
 
@@ -195,7 +187,7 @@ Une fois que vous avez décidé de l'imagerie de référence, il est temps de co
 1. Sélectionnez la couche d'occupation de sol dans le panneau *Importations géométriques* de la fenêtre de la carte.
 2. Sélectionnez le marqueur de points et cliquez dans la carte pour ajouter des points de cette occupation du sol (voici une brève [vidéo](https://youtu.be/tJx7plJLqW4) pour illustrer la manière de procéder). Vous pouvez activer et désactiver l'image composite dans le panneau des couches. Vous pouvez également basculer entre la carte et le composite satellite dans le coin supérieur droit de la fenêtre de la carte.
 
-![ToggleImage](./figures/m1.2/m1.2.2/ToggleImage.jpg)
+    ![ToggleImage](./figures/m1.2/m1.2.2/ToggleImage.jpg)
 
 3. Si vous laissez tomber un point par accident, vous pouvez le déplacer ou le supprimer en utilisant la main panoramique, sélectionner le point et le modifier en le faisant glisser pour le déplacer ou le supprimer (voici une brève [vidéo](https://youtu.be/Q6QElHXYOT0) pour illustrer la manière de procéder). Cliquez sur *Exit* pour quitter les points d'édition.
 
@@ -213,13 +205,11 @@ L'étape finale consiste à fusionner chaque élément de l'occupation des sols 
 
 1. Les éléments de formation peuvent être combinés avec la méthode de "fusion". Par exemple, pour "Forest", "Water", "Herbaceous" et "Developed", qui représentent tous des collections d'éléments, vous pouvez entrer le code suivant N'oubliez pas que JavaScript est sensible à la casse, alors vérifiez la capitalisation entre vos déclarations de fusion et vos noms de géométrie.
 
-   ````javascript
-   var training = Forest.merge(Water)
-                        .merge(Herbaceous)
-                        .merge(Developed);
-   ````
-
-   
+    ```javascript
+    var training = Forest.merge(Water)
+                         .merge(Herbaceous)
+                         .merge(Developed);
+    ```
 
 2. Les résultats doivent ensuite être enregistrés sous forme de Earth Engine asset pour la classification dans GEE, ou exportés vers votre Google Drive pour la classification à l'aide d'un SIG de bureau. 
 
@@ -231,31 +221,27 @@ L'étape finale consiste à fusionner chaque élément de l'occupation des sols 
       description: 'LCsample2019',
       assetId: 'LCsample2019'
     });
-    
     ```
-    
-    
 
    2b. Vous pouvez exporter vers Google Drive avec le code suivant.
 
-````javascript
-Export.table.toDrive({
-  collection: training,
-  description: 'LCsample2019',
-  fileFormat: 'SHP'
-});
-
-````
+    ```javascript
+    Export.table.toDrive({
+      collection: training,
+      description: 'LCsample2019',
+      fileFormat: 'SHP'
+    });
+    ```
 
 3. Cliquez ensuite sur Run pour exécuter. Cela vous permettra d'aller dans l'onglet Tasks et d'exécuter l'exportation. Des informations supplémentaires sur la façon d'exporter des données dans GEE sont disponibles [ici](https://developers.google.com/earth-engine/guides/exporting).
 
-## 4. Exemples : Mozambique et Cambodge 
+## 4 Autres exemples : Mozambique et Cambodge 
 Essayons maintenant de reproduire le même processus que ci-dessus dans de nouvelles régions d'étude : le Mozambique et le Cambodge. Cette section est facultative et vous permettra de vous entraîner à collecter des données dans différentes régions d'étude. Le processus général est le même que celui qui a été démontré en Colombie. 
 Ces exemples montreront comment collecter des données de formation d'une manière qui soit robuste aux différents types de forêts et à la topographie. L'objectif est d'améliorer la robustesse des données d'entraînement, ce qui peut en fin de compte améliorer la qualité de votre classification de l'occupation du sol. Les utilisateurs doivent tenir compte des conditions climatiques et topographiques de leur région d'étude pour déterminer si ces étapes supplémentaires sont nécessaires. 
 
 Effacez votre code précédent en allant sur le bouton *Reset* à côté du bouton *Run*, en cliquant sur la flèche vers le bas, et en cliquant sur *Clear Script*. 
 
-### 4.1 Mozambique: Prise en compte de la saisonnalité
+### 4.1 Mozambique
 
 Le Mozambique est un pays écologiquement diversifié qui se compose d'un mélange de zones climatiques tropicales et tempérées. De ce fait, il existe de grandes étendues d'écosystèmes forestiers à feuilles persistantes et à feuilles caduques. En Colombie, nous n'avons pas directement pris en compte les effets saisonniers des forêts, car celles-ci couvrent une proportion relativement faible du pays. La superficie des forêts de feuillus est beaucoup plus importante au Mozambique, ce qui peut présenter un défi pour la classification de l'occupation des sols en raison de la variabilité intra-annuelle de la réflectance entre les stades phénologiques. 
 
@@ -267,63 +253,59 @@ Notre objectif est de faire en sorte que notre classe "Forêt" contienne des exe
 
 1. Tout d'abord, faisons du Mozambique notre nouvelle région d'étude pour l'année 2019. Pour vous installer, collez le code suivant dans la fenêtre de l'éditeur de code et cliquez sur *Run* pour charger le composite dans la fenêtre de la carte. Cela inclut la fonction de masquage des nuages introduite dans la section 3.3 de ce matériel de formation.
 
-   ```javascript
-   var countries = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017");
-   var mozambique = countries.filter(ee.Filter.eq('country_na', 'Mozambique'));
-   Map.centerObject(mozambique, 8);
-   ```
-
-   
-
-Poursuivez maintenant la formation à partir d'ici, en commençant par la section 3.4, afin de recueillir de nouvelles données d'entraînement pour le Mozambique.
+    ```javascript
+    var countries = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017");
+    var mozambique = countries.filter(ee.Filter.eq('country_na', 'Mozambique'));
+    Map.centerObject(mozambique, 8);
+    ```
+    
+    Poursuivez maintenant la formation à partir d'ici, en commençant par la section 3.4, afin de recueillir de nouvelles données d'entraînement pour le Mozambique.
 
 2. Calculer l' NDVI en utilisant les bandes Rouge (B4) et NIR (B8) de l'imagerie Sentinel-2. Nous aurons également besoin de la fonction de masquage des nuages présentée dans la section 3.3. 
 
-   ```javascript
-   function doNDVI(image){
-     return image.normalizedDifference(['B4','B8']).rename('NDVI')
-   }
-   
-   function maskS2clouds(image){
-       return image.updateMask(image.select('QA60').eq(0))}
-   ```
+    ```javascript
+    function doNDVI(image){
+      return image.normalizedDifference(['B4','B8']).rename('NDVI')
+    }
+
+    function maskS2clouds(image){
+        return image.updateMask(image.select('QA60').eq(0))}
+    ```
+
 3. Maintenant, nous pouvons filtrer la collection Sentinel-2 en deux groupes : les images pendant le pic de la saison sèche et les images pendant le pic de la saison des pluies. Nous pouvons ensuite cartographier les collections pour appliquer les masques de nuages et calculer le NDVI. 
 
-   ```javascript
-   var s1_collection = ee.ImageCollection("COPERNICUS/S2_SR").map(maskS2clouds);
-   
-   var dry_season = s1_collection.filterBounds(mozambique).filterDate('2019-09-01','2019-11-01').map(doNDVI);
-   
-   var rainy_season = s1_collection.filterBounds(mozambique).filterDate('2019-01-01','2019-04-01').map(doNDVI);
-   ```
+    ```javascript
+    var s1_collection = ee.ImageCollection("COPERNICUS/S2_SR").map(maskS2clouds);
+
+    var dry_season = s1_collection.filterBounds(mozambique).filterDate('2019-09-01','2019-11-01').map(doNDVI);
+
+    var rainy_season = s1_collection.filterBounds(mozambique).filterDate('2019-01-01','2019-04-01').map(doNDVI);
+    ```
+
 4. Pour calculer la variabilité saisonnière, nous pouvons alors combiner ces deux collections et calculer la variance NDVI par pixel en utilisant un [reducer](https:/developers.google.com/earth-engine/guides/reducers_intro). 
 
-   ```javascript
-   var combined = rainy_season.merge(dry_season);
-   var variance = combined.reduce(ee.Reducer.variance()); 
-   
-   var viz = {'min': 0, 'max': 0.1, 'palette': ['red','yellow','green']};
-   Map.addLayer(variance, viz);
-   ```
+    ```javascript
+    var combined = rainy_season.merge(dry_season);
+    var variance = combined.reduce(ee.Reducer.variance()); 
 
-   
+    var viz = {'min': 0, 'max': 0.1, 'palette': ['red','yellow','green']};
+    Map.addLayer(variance, viz);
+    ```
 
-![MozambiqueNDVI](./figures/m1.2/m1.2.2/MozambiqueNDVI.JPG)
+    ![MozambiqueNDVI](./figures/m1.2/m1.2.2/MozambiqueNDVI.JPG)
 
-La carte qui est chargée est la variance saisonnière de NDVI, dans laquelle le rouge indique une variabilité moindre et le vert une variabilité plus importante. 
+    La carte qui est chargée est la variance saisonnière de NDVI, dans laquelle le rouge indique une variabilité moindre et le vert une variabilité plus importante. 
 
 5. Une étape supplémentaire que nous pouvons faire pour aider à l'identification des forêts est d'utiliser un ensemble de données sur le couvert forestier pour masquer les pixels non forestiers. L'ensemble de données mondiales UMD-Hansen sur la couverture forestière, la perte et le gain est parfait à cet effet. Bien qu'il ne soit pas recommandé d'utiliser cet ensemble de données directement comme données d'entraînement, il s'agit d'un bon outil pour identifier les éventuels lieux de changement des forêts. Ici, nous utiliserons la couche "Tree Cover 2000" pour masquer notre couche de variance NDVI en pixels qui étaient inférieurs à 30% de couverture de la canopée des arbres en 2000. 
 
-   ```javascript
-   var umd_hansen = ee.Image("UMD/hansen/global_forest_change_2019_v1_7").select('treecover2000');
-   var mask = umd_hansen.gt(30);
-   var variance_masked = variance.updateMask(mask);
-   Map.addLayer(variance_masked, viz);
-   ```
+    ```javascript
+    var umd_hansen = ee.Image("UMD/hansen/global_forest_change_2019_v1_7").select('treecover2000');
+    var mask = umd_hansen.gt(30);
+    var variance_masked = variance.updateMask(mask);
+    Map.addLayer(variance_masked, viz);
+    ```
 
-   
-
-![MozambiqueNDVImasked](./figures/m1.2/m1.2.2/MozambiqueNDVImasked.JPG)
+    ![MozambiqueNDVImasked](./figures/m1.2/m1.2.2/MozambiqueNDVImasked.JPG)
 
 6. Maintenant que nous collectons des données d'entraînement pour la classe "Forêt", il est important de référencer cette couche pour s'assurer que les données d'entraînement tiennent compte des différences de variabilité spectrale saisonnière dans les forêts. Tout d'abord, voyons pourquoi il pourrait être avantageux d'effectuer les étapes énumérées ci-dessus : 
     - Certaines forêts ont des modèles saisonniers de productivité. 
@@ -336,7 +318,7 @@ La carte qui est chargée est la variance saisonnière de NDVI, dans laquelle le
 
 8. N'oubliez pas de sauvegarder fréquemment. 
 
-### 4.2 Cambodge: 
+### 4.2 Cambodge
 
 Le dernier exemple de collecte de données sur la formation en matière de GEE est celui du Cambodge. Le Cambodge a un climat de mousson tropicale avec une saison des pluies allant de mai à octobre environ. Ces dernières années, le Cambodge a connu un taux relativement élevé de changement d'utilisation des terres, souvent sous la forme de déforestation. 
 
@@ -344,40 +326,37 @@ La plupart des forêts restantes au Cambodge sont situées sur des terrains vall
 
 1. Si vous souhaitez plutôt vous entraîner à collecter des données d'entraînement au Cambodge, collez le code suivant dans l'éditeur de code et passez ensuite à la section 3.4 pour continuer. 
 
-   ```javascript
-   var countries = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017");
-   var cambodia = countries.filter(ee.Filter.eq('country_na', 'Cambodia'));
-   Map.centerObject(cambodia, 8);
-   
-   function maskS2clouds(image){
-       return image.updateMask(image.select('QA60').eq(0))}
-   
-   var s1_collection = ee.ImageCollection("COPERNICUS/S2_SR");
-   
-   var s1_composite_masked = s1_collection.filterBounds(cambodia) 
-       .filterDate('2019-01-01','2019-12-31') 
-       .map(maskS2clouds) 
-       .median();
-   
-   var vis = {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 1250};
-   Map.addLayer(s1_composite_masked, vis, 'Sentinel 2 2019 Masked');
-   
-   ```
+    ```javascript
+    var countries = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017");
+    var cambodia = countries.filter(ee.Filter.eq('country_na', 'Cambodia'));
+    Map.centerObject(cambodia, 8);
 
-   
+    function maskS2clouds(image){
+        return image.updateMask(image.select('QA60').eq(0))}
+
+    var s1_collection = ee.ImageCollection("COPERNICUS/S2_SR");
+
+    var s1_composite_masked = s1_collection.filterBounds(cambodia) 
+        .filterDate('2019-01-01','2019-12-31') 
+        .map(maskS2clouds) 
+        .median();
+
+    var vis = {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 1250};
+    Map.addLayer(s1_composite_masked, vis, 'Sentinel 2 2019 Masked');
+    ```
 
 2. Naviguez jusqu'au bouton 'Map / Satellite' situé sur le côté droit de l'écran et cliquez sur "Satellite". Cela vous permettra de voir la carte de terrain qui facilitera la visualisation des caractéristiques topographiques dans l'imagerie de référence, afin qu'elle puisse être utilisée comme information supplémentaire lors de la collecte des données de référence. Veillez à collecter des échantillons d'entraînement pour les forêts qui varient en fonction de leur disposition topographique. Par exemple, les échantillons doivent être collectés sur un terrain qui diffère par sa pente et son aspect. Il n'est pas nécessaire d'être précis, et cela peut être fait de manière optionnelle pour n'importe quelle occupation du sol. 
 
-![MapSatellite](./figures/m1.2/m1.2.2/MapSatellite.JPG)
+    ![MapSatellite](./figures/m1.2/m1.2.2/MapSatellite.JPG)
 
 3. Vous pouvez également modifier la transparence des couches que vous créez en cliquant sur "Layers" sur le côté droit de l'écran et en ajustant la couche, comme le montre l'image ci-dessous. 
 
-![LayerTransparency](./figures/m1.2/m1.2.2/LayerTransparency.JPG)
+    ![LayerTransparency](./figures/m1.2/m1.2.2/LayerTransparency.JPG)
 
 4. N'oubliez pas de sauvegarder fréquemment.
 
 
-## 5. Questions fréquemment posées
+## 5. Foire aux questions
 
 **Pourquoi utilisons-nous des géométries de points plutôt que des polygones?**
 
@@ -412,7 +391,7 @@ Copyright 2021, Banque mondiale
 
 Ce travail a été développé par Karis Tenneson dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte des ressources existantes - liées à la mesure, la notification et la vérification afin de soutenir la mise en œuvre du MRV par les pays. 
 
-Matériel examiné par :
+Matériel examiné par :   
 Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
 Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS)  
 Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
@@ -422,14 +401,7 @@ Paula Andrea Paz, Colombia, International Center for Tropical Agriculture (CIAT)
 Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)   
 Raja Ram Aryal, Nepal, Forest Research and Training Centre 
 
-Attribution
+Attribution   
 Tenneson, K. 2021. Formation à la collecte de données à l'aide de Google Earth Engine.  Banque mondiale. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/
 
 ![](./figures/m1.1/wb_fcfc_gfoi.png)
-
-
-
-
-
-
-
