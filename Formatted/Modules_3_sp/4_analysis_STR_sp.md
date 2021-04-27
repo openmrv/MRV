@@ -1,28 +1,28 @@
 ---
 
-title: Analysis of sample data collected under stratified random sampling
-summary: In this tutorial we will apply various estimators to a sample dataset to estimate characteristics of the population sampled -- i.e. characteristics of the study area such as the area of forest disturbance. This tutorial will focus on sampled data collected under stratified random sampling
+title: Análisis de datos de muestra recopilados bajo un muestreo aleatorio estratificado 
+summary: En este tutorial aplicaremos varios estimadores a un conjunto de datos de muestra para estimar las características de la población muestreada, es decir, características del área de estudio, como el área de perturbación del bosque. Este tutorial se centrará en los datos muestreados recopilados mediante un muestreo aleatorio estratificado.
 author: Pontus Olofsson
-creation date: February, 2021
-language: English
-publisher and license: Copyright 2021, World Bank. This work is licensed under a Creative Commons Attribution 3.0 IGO
+creation date: febrero 2021
+language: español
+publisher and license: Copyright 2021, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
 
 tags:
 - OpenMRV
 - GEE
 - AREA2
-- Accuracy
-- Accuracy assessment
-- Area Estimation
+- Precisión
+- Evaluación de Precisión
+- Estimación de Area
 - Colombia
 
 group:
-- category: Stratified
-  stage: Area Estimation/Accuracy assessment
+- categoría: Estratificado
+  etapa: Estimación de Area/Evaluación de Precisión
 
 ---
 
-# Analysis of sample data collected under stratified random sampling
+# Análisis de datos de muestra recopilados bajo un muestreo aleatorio estratificado 
 
 ## 1 Contexto
 
@@ -34,18 +34,18 @@ A partir de aquí, podemos introducir dos medidas de propagación más important
 
 Las dos propiedades, sesgo y varianza, son importantes porque podemos asegurarnos de que el estimador que utilizamos sea insesgado y podemos expresar la incertidumbre en estimaciones. Tampoco es posible cuando se utiliza el recuento de píxeles en mapas o cuando se toman muestras sin adherirse al muestreo probabilístico. Otro aspecto importante de un estimador es que es una función de la muestra, lo que significa que el estimador debe corresponder al diseño muestral. Por ejemplo, la media muestral es un estimador insesgado de la media poblacional para muestreo aleatorio simple; para el muestreo aleatorio estratificado, necesitamos utilizar un estimador estratificado que se expresa como la suma de las medias de las muestras aleatorias simples dentro de los estratos ponderados por los pesos de estrato.
 
-## 2 Learning Objectives
+## 2 Objetivos de aprendizaje
 
-- Construct STR estimator and STR variance estimator
-- Estimate overall user’s producer’s accuracy of a map using reference observations
-- Estimate map accuracy and area estimation
+- Construir estimador STR y estimador de varianza STR
+- Estimar la precisión general del productor del usuario de un mapa utilizando observaciones de referencia
+- Estimar la precisión del mapa y la estimación del área.
 
-### 2.1 Pre-requisites for this module
+### 2.1 Prerrequisitos
 
-- Relevant terminology is found at the end of this document
-- More information about sampling design, and response design can be found here on OpenMRV under processes "Sampling design", and "Sample data collection".
+- La terminología relevante se encuentra al final de este documento.
+- Puede encontrar más información sobre el diseño de muestreo y el diseño de respuesta aquí en OpenMRV en los procesos "Diseño de muestreo" y "Recopilación de datos de muestra".
 
-## 3 Tutorial: Analysis of sample data collected under stratified random sampling
+## 3 Tutorial: Análisis de datos de muestra recopilados bajo un muestreo aleatorio estratificado 
 
 ### 3.1 Estimación estratificada
 
@@ -222,19 +222,19 @@ La aplicación AREA2 en Google Earth Engine tiene ecuaciones para todos los esti
 
 Estimación estratificada es automatizada en SEPAL; la documentación esta disponible aquí: https://github.com/sig-gis/SEPAL-CEO Baje a *Ejercicio 4.3: Estimación de área e incertidumbre* para una descripción de estimación estratificada.
 
-## 4 Frequently Asked Questions (FAQs)
+## 4 Preguntas Frecuentes
 
-**I have seen in the literature that regression estimators have been used with sample data collected under stratified random sampling -- is the regression a more precise estimators than the STR estimator?**
+**He visto en la literatura que los estimadores de regresión se han utilizado con datos de muestra recopilados mediante muestreo aleatorio estratificado. ¿Es la regresión un estimador más preciso que el estimador STR?**
 
-A regression estimator -- often referred to as a model-assisted regression estimator when making of map data -- will yield the exact same estimates if applied to the sample data used in this tutorial. The regression variance estimator is slightly different and less precise in a situations where we have categorical map and reference observations. When the map and reference observation are expressed as proportions, the regression estimator is likely to be more precise. For an in-depth discussion of the different estimators when applied to an error matrix, see Stehman (2013).
+Un estimador de regresión, a menudo denominado estimador de regresión asistido por modelo al hacer datos de mapas, producirá exactamente las mismas estimaciones si se aplica a los datos de muestra utilizados en este tutorial. El estimador de la varianza de regresión es ligeramente diferente y menos preciso en situaciones en las que tenemos un mapa categórico y observaciones de referencia. Cuando el mapa y la observación de referencia se expresan como proporciones, es probable que el estimador de regresión sea más preciso. Para una discusión en profundidad de los diferentes estimadores cuando se aplican a una matriz de errores, ver Stehman (2013).
 
-**How do I know if I should post-stratify or not?**
+**¿Cómo sé si debo posestratificar o no?**
 
-If you have sample data collected under a simple design, there are several compelling reasons to post-stratify the study area. The main reason is that you are likely to obtain more precise estimates. Note that you will need a map though with a legend that corresponds to that of the sample data.
+Si tiene datos de muestra recopilados con un diseño simple, existen varias razones de peso para post-estratificar el área de estudio. La razón principal es que es probable que obtenga estimaciones más precisas. Tenga en cuenta que necesitará un mapa con una leyenda que se corresponda con la de los datos de muestra.
 
-**I have an existing sample collected under STR that I now want to use to assess the accuracy of a map that was not used to define strata. I understand I need to the construct the indicator function-based estimator described above but they math is too complicated -- what do I do?**
+**Tengo una muestra existente recolectada bajo STR que ahora quiero usar para evaluar la precisión de un mapa que no se usó para definir estratos. Entiendo que necesito construir el estimador basado en la función del indicador descrito anteriormente, pero las matemáticas son demasiado complicadas, ¿qué hago?**
 
-Read Stehman (2013)! Consulting Steve Stehman's papers is always a good idea, especially in this case. Stehman (2013) provides a numerical example with test data that is easy to follow. The math will be feel much less intimidating after going trough Steve's example!
+¡Lea a Stehman (2013)! Consultar los artículos de Steve Stehman siempre es una buena idea, especialmente en este caso. Stehman (2013) proporciona un ejemplo numérico con datos de prueba que es fácil de seguir. ¡Las matemáticas se sentirán mucho menos intimidantes después de seguir el ejemplo de Steve!
 
 ## 5 Terminología relevante para las técnicas de muestreo
 
