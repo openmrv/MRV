@@ -2,9 +2,9 @@
 title: Classification de l'occupation et de l'utilisation du sol dans Google Earth Engine
 summary: Ce tutoriel montre comment effectuer une classification de l'occupation et de l'utilisation des sols dans Google Earth Engine. Les utilisateurs apprendront à appliquer des méthodes de classification supervisée et non supervisée, ainsi qu'à gérer les problèmes de masque et les erreurs de classification. Le processus est démontré pour les pays suivants - Colombie, Mozambique et Cambodge. Les données d'échantillon pour la classification sont basées sur les tutoriels  sur OpenMRV sous "Collecte de Données d'Entraînement ".
 author: Robert E Kennedy
-creation date:  Décembre 2020
+creation date: Décembre 2020
 language: Français
-publisher and license:  Copyright 2021, Banque mondiale. Cette œuvre est protégée par une licence Creative Commons Attribution 3.0 IGO.
+publisher and license: Copyright 2021, Banque mondiale. Cette œuvre est protégée par une licence Creative Commons Attribution 3.0 IGO.
 
 tags:
 - OpenMRV
@@ -93,16 +93,13 @@ Les propriétés physiques et chimiques de la surface sont liées à l'occupatio
 	* Syntaxe de base des fonctions
 	* Traitement de base des images, y compris le choix du type d'image, le filtrage des nuages, la mosaïque et la création d'image composite
 
-> NOTE : Ces sujets sont traités dans le module 1.1 : Création de mosaïques/composites d'images pour Landsat et Sentinel-2 dans Google Earth Engine
+> NOTE : Reportez-vous au processus "Pré-traitement" et à l'outil "GEE" ici sur OpenMRV pour plus d'informations et de ressources pour travailler dans Google Earth Engine et les images composites.
 
 
 * Concepts de base de la télédétection
 	* Le spectre électromagnétique
 	* Réflexion spectrale
 	* Sauvegarde de la réflectance 
-
-
-
 
 ## 3 Tutoriel: Classification supervisée dans Google Earth Engine
 
@@ -139,10 +136,10 @@ GEE fonctionne par le biais de scripts.  Comme indiqué ci-dessus, nous supposon
 1. Connectez-vous à l'éditeur de code Javascript du GEE à l'adresse suivante : code.earthengine.google.com
 2. *Facultatif* Mettre en place un nouveau répertoire pour votre travail  
 
-![GEE_new_repo](./figures/m1.3/GEE_new_repo.png)
+    ![GEE_new_repo](./figures/m1.3/GEE_new_repo.png)
 
 3. Si vous êtes un lecteur sur le groupe openMRV, vous verrez le script dans "users/openmrv/MRV/OpenMRV_français/Part1/1.3 LCLU Classification/cls_landsat_v2_colombia_fr".  Vous pouvez également y accéder directement en utilisant le lien [GEE script](https://code.earthengine.google.com/2455cc293e19606c2070603c7270d413)
-   1. Nous appellerons ce script le "script maître", car il exécute toutes les étapes du tutoriel.  
+    1. Nous appellerons ce script le "script maître", car il exécute toutes les étapes du tutoriel.  
 4. Enregistrez-le dans votre dossier préféré.  Vous pouvez utiliser la vidéo mentionnée ci-dessus pour vous guider. 
 
 > Conseil : vous devrez apporter une modification au fichier pour pouvoir l'enregistrer sous un nom local.  Ajoutez un espace quelque part dans le script, puis utilisez la fonction "Enregistrer sous". 
@@ -743,6 +740,6 @@ Raja Ram Aryal, Nepal, Forest Research and Training Centre
 Sofia Garcia, Guatemala, Ministry of Environment and Natural Resources  
 
 Attribution   
-Kennedy, R. E . 2021. Land Cover and Land Use Classification in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+Kennedy, R. E. 2021. Land Cover and Land Use Classification in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](figures/m1.1/wb_fcfc_gfoi.png)
