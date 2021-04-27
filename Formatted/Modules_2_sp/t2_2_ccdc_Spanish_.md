@@ -3,7 +3,7 @@ title: Detección y Clasificación Continua de Cambio (CCDC)
 summary: La detección y clasificación continua de cambios (CCDC) es un algoritmo generalizado que utiliza las siete bandas disponibles de Landsat para realizar simultáneamente la clasificación de la cobertura terrestre y la detección de cambios de la cobertura terrestre, buscando utilizar más datos para mitigar problemas de causas como la cobertura de nubes y la estacionalidad. En este tutorial, aprenderá los componentes y parámetros clave de CCDC, cómo usar el algoritmo en Google Earth Engine, y crear mapas de cambio de tierra. Se muestran ejemplos para los países de Mozambique, Camboya y Colombia. Se describe más información sobre la CCDC en el documento original Zhu y Woodstock, 2014 (https://doi.org/10.1016/j.rse.2014.01.011) y en este repositorio de Gituhub (https://gee-ccdc-tools.readthedocs.io/).
 author: Eric Bullock
 creation date: enero 2021
-language: Español
+language: español
 publisher and license: Copyright 2021, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
 
 tags:
