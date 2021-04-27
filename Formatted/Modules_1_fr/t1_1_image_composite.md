@@ -843,7 +843,7 @@ Comme mentionné ci-dessus dans l'exemple du Mozambique, vous pouvez ajuster tou
 
 Bravo, vous avez atteint la fin de ce tutoriel. Dans les prochains modules, vous apprendrez comment collecter des données de formation en utilisant le QGIS et le GEE.
 
-## 5 FAQs
+## 5 Foire aux questions
 
 **Pourquoi utilisons-nous [LSIB Simplifiée](https://developers.google.com/earth-engine/datasets/catalog/USDOS_LSIB_SIMPLE_2017) et non [LSIB Détaillée](https://developers.google.com/earth-engine/datasets/catalog/USDOS_LSIB_2017)?**
 
