@@ -3,7 +3,7 @@ title: Cobertura Terrestre y Clasificación de Uso Terrestre en Google Earth Eng
 summary: Este tutorial demostrará cómo realizar una clasificación de la cobertura y el uso del suelo en Google Earth Engine. Los usuarios aprenderán a aplicar métodos de clasificación supervisados y no supervisados, así como a manejar problemas de enmascaramiento y clasificaciones erróneas. El proceso se demuestra para los países de Colombia, Mozambique y Camboya. Los datos de muestra para la clasificación se basan en los tutoriales aquí en OpenMRV bajo "Recopilación de datos de entrenamiento".
 author: Robert E Kennedy
 creation date:  diciembre 2020
-language: Español
+language: español
 publisher and license: Copyright 2021, World Bank. Este trabajo tiene licencia bajo un Creative Commons Attribution 3.0 IGO
 
 tags:
