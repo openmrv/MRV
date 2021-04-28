@@ -706,7 +706,7 @@ Export.image.toCloudStorage({
 });
 ```
 
-## 4 Ejemplos Adicionales
+## 4 Ejemplos Adicionales: Mozambique y Camboya
 
 En este tutorial, hemos creado y exportado diferentes imágenes compuestas para el país de Colombia. Ahora, puede intentar crear imágenes compuestas para el país que sea de su interés. Los scripts están diseñados de tal manera que lo único que necesita hacer es cambiar alguna líneas de código. Veremos ejemplos para Mozambique y Camboya. En todos los casos, el proceso general es igual al que fue demostrado para Colombia. Sin embargo, para otros países, se deben de tomar en cuenta algunas consideraciones en cuanto a clasificaciones de diferentes coberturas terrestres o la detección de cambios en el paisaje. Algunas consideraciones que verá en otros tutoriales de OpenMRV serán: 
 
