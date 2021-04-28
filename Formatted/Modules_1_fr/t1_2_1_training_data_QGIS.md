@@ -295,7 +295,7 @@ Il est utile d'avoir un identifiant unique pour chaque point d'entrainement. Cel
     ![id](./figures/m1.2/m1.2.2/id.JPG)
 5. Cliquez sur "Ok" et terminez l'édition en utilisant le bouton "Toggle editing mode" ![toggle](./figures/m1.2/m1.2.2/toggle.JPG)  
 
-## 4. Exemples : Mozambique et Cambodge 
+## 4. Autres exemples : Mozambique et Cambodge 
 
 **Utilisation avancée** 
 
