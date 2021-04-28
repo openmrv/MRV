@@ -278,7 +278,7 @@ var unmixAndNDFI = function(image) {
 var ndfiCollection = l8Masked.map(unmixAndNDFI).select('NDFI')
 ```
 
-The following code demonstrates how you can create a geometry from the location clicked on the map ("var point"), and plot the NDFI time series ("var chart") for all data intersecting that location. The plots have a callback function that will load the corresponding image to the map when an observation is selected on the plot. 
+Le script suivant montre comment créer une géométrie à partir de l'emplacement cliqué sur la carte ("var point"), et tracer la série chronologique du NDFI ("var chart") pour toutes les données intersectant cet emplacement. Les courbes ont une fonction de rappel qui chargera l'image correspondante sur la carte lorsqu'une observation est sélectionnée sur la courbe.
 
 ```javascript
 // Fonction permettant de faire un graphique NDFI à l'endroit choisi par clic 
@@ -404,7 +404,7 @@ Comme on peut le voir dans la figure 1, la demande contient divers éléments qu
 
 *   Les commandes de la carte contiennent deux boutons : "Dessiner la zone d'étude" et "Basculer la visionneuse de séries chronologiques". Après avoir cliqué sur le premier bouton, une importation de géométrie est créée sous le nom de "StudyArea". Utilisez cette boîte pour définir la zone d'étude de votre analyse. La zone d'étude peut être réinitialisée en cliquant sur le bouton. Le deuxième bouton est utilisé pour afficher ou supprimer le panneau de séries chronologiques de la carte.
 
-**Time series panel (D)**
+**Panneau des séries temporelles (D)**
 
 *   Le panneau des séries temporelles affiche la trajectoire temporelle de la collection définie dans le panneau des paramètres. La bande qui est visualisée peut être définie sous les paramètres de visualisation. Chaque point du diagramme de dispersion représente une observation à partir de l'endroit cliqué sur la carte. En cliquant sur un point du nuage de points, l'image correspondante sera chargée sur la carte. Les options de combinaison de bandes et d'étirement de l'image affichée peuvent être modifiées dans la section de visualisation du panneau de paramètres. 
 
