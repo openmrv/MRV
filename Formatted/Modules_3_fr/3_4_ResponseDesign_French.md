@@ -40,18 +40,24 @@ group:
 
 Le plan de réponse définit la " réponse " des unités d'un échantillon. Dans le cadre de l'inférence basée sur le plan de sondage dans un contexte géographique, " le plan de sondage englobe toutes les étapes du protocole qui conduisent à une décision concernant la concordance entre les classifications de référence et cartographiques et la meilleure classification disponible des conditions d'occupation des sols pour chaque unité spatiale échantillonnée " (Olofsson et al. 2014). Les termes suivants sont importants :
 
-**Données de référence** Données caractérisant l'évaluation la plus précise possible de la condition réelle à l'emplacement de l'échantillon (exemple : imagerie satellite à haute résolution).
+**Données de référence** 
 
-**Les observations de référence** L'évaluation la plus exacte possible de l'état réel d'une unité de population.
+Données caractérisant l'évaluation la plus précise possible de la condition réelle à l'emplacement de l'échantillon (exemple : imagerie satellite à haute résolution).
 
-**Reference classification** La classification de référence appliquée à la collection de toutes les unités d'échantillonnage.
+**Les observations de référence** 
+
+L'évaluation la plus exacte possible de l'état réel d'une unité de population.
+
+**Reference classification** 
+
+La classification de référence appliquée à la collection de toutes les unités d'échantillonnage.
 
 Ici, sur OpenMRV, sous " Collecte de données d'échantillons " et les outils " GEE ", " AREA2 ", " CE " et " CEO ", vous trouverez des tutoriels où vous apprendrez à déterminer les conditions de référence. Nous allons examiner les unités d'un ensemble de données d'échantillon. Cet ensemble de données d'échantillon aura quatre strates : forêt, non-forêt, perturbation de la forêt et une zone tampon autour de la perturbation de la forêt. 
 L'objectif est d'estimer la zone de perturbation forestière ; par conséquent, vous allez apprendre à collecter des observations de référence de *forêt, non-forêt* et *perturbation forestière*. Ceci est démontré à l'aide de trois outils différents parmi lesquels l'utilisateur peut choisir : GEE/AREA2, Collect Earth Desktop et Collect Earth Online.
 
 ### 1.1 Tutoriels
 
-- Pour le plan de réponse utilisant **AREA2**, veuillez vous référer au processus "Collecte des données de l'échantillon" et aux outils "AREA2" et "GEE" ici sur OpenMRV [Lien](https://github.com/openmrv/MRV/blob/main/Formatted/Modules_3/3_response_design_feb22_2021.md)
+- Pour le plan de réponse utilisant **AREA2**, veuillez vous référer au processus "Collecte des données de l'échantillon" et aux outils "AREA2" et "GEE" ici sur OpenMRV.
 - Pour le plan de réponse utilisant **Collect Earth Desktop**, veuillez vous référer au processus " Collecte des données de l'échantillon " et à l'outil " CE " ici sur OpenMRV.
 - Pour le plan de réponse utilisant **Collect Earth Online**, veuillez vous référer au processus " Collecte des données de l'échantillon " et à l'outil " CEO " ici sur OpenMRV.
 
@@ -59,7 +65,7 @@ L'objectif est d'estimer la zone de perturbation forestière ; par conséquent, 
 
 **Plan de réponse**
 
-Défini par (Stehman and Czaplewski, 1998)[^fn1]: “La référence ou classe réelle est obtenue pour chaque unité d'échantillonnage sur la base de l'interprétation de photographies aériennes ou de vidéographies, d'une observation au sol ou d'une combinaison de ces sources. Les méthodes utilisées pour déterminer cette référence de classification sont appelées "plan de réponse". Le plan d'intervention comprend les procédures de collecte des informations relatives à la détermination de la occupation du sol de référence, et les règles d'attribution d'une ou plusieurs [labels] de référence à chaque unité d'échantillonnage.” Connu sous le nom de “plan de mesure” par Särndal et al. (1992)[^fn2].
+Défini par (Stehman and Czaplewski, 1998): “La référence ou classe réelle est obtenue pour chaque unité d'échantillonnage sur la base de l'interprétation de photographies aériennes ou de vidéographies, d'une observation au sol ou d'une combinaison de ces sources. Les méthodes utilisées pour déterminer cette référence de classification sont appelées "plan de réponse". Le plan d'intervention comprend les procédures de collecte des informations relatives à la détermination de la occupation du sol de référence, et les règles d'attribution d'une ou plusieurs [labels] de référence à chaque unité d'échantillonnage.” Connu sous le nom de “plan de mesure” par Särndal et al. (1992).
 
 **Echantillon**
 
@@ -67,19 +73,19 @@ Un sous-ensemble de la population sélectionné parmi les unités de la populati
 
 **Plan d'échantillonnage**
 
-Synonyme de plan d'échantillonnage (Sampling Design), qui est le terme préféré dans la littérature de référence (Cochran, 1977[^fn3], Särndal et al., 1992[^fn2]). Le terme apparaît chez Rice (1995)[^fn4] ui utilise à la fois “sampling design, ***plan d'echantillonnage\***” et “sample design, ***plan d'echantillon\***”.
+Synonyme de plan d'échantillonnage (Sampling Design), qui est le terme préféré dans la littérature de référence (Cochran, 1977, Särndal et al., 1992). Le terme apparaît chez Rice (1995) ui utilise à la fois “plan d'echantillonnage” et “plan d'echantillon”.
 
 **Plan d'échantillonnage**
 
-“Le concept de plan d'échantillonnage (sampling design ) est le protocole par lequel les unités de référence de l'échantillon sont sélectionnées” (Stehman and Czaplewski, 1998)[^fn1]. Le terme “Sampling design” est également utilisé par Cochran (1977)[^fn3] and Särndal et al. (1992)[^fn2] -- Le premier utilise également “sampling plan”.
+“Le concept de plan d'échantillonnage (sampling design ) est le protocole par lequel les unités de référence de l'échantillon sont sélectionnées” (Stehman and Czaplewski, 1998). Le terme “Sampling design” est également utilisé par Cochran (1977) and Särndal et al. (1992) -- Le premier utilise également “sampling plan”.
 
 **Sondage/Enquête**
 
-Särndal et al. (1992)[^fn2] définissent une enquête comme une “investigation partielle d'une population finie”, et précisent que “les concepts d ‘enquête’ et ‘enquête par sondage’ sont utilisés pour désigner des enquêtes statistiques présentant les caractéristiques méthodologiques suivantes: [...] échantillonnage aléatoire [...] plan de mesure [et] estimation”. de facon plus precise une enquete par sondage ou un sondage est une enquête effectuee sur une partie de la population. Cette fraction de la population constitue l'échantillon et les méthodes qui permettent de construire cet echantillon s'appellent méthode d'échantillonnage.
+Särndal et al. (1992) définissent une enquête comme une “investigation partielle d'une population finie”, et précisent que “les concepts d ‘enquête’ et ‘enquête par sondage’ sont utilisés pour désigner des enquêtes statistiques présentant les caractéristiques méthodologiques suivantes: [...] échantillonnage aléatoire [...] plan de mesure [et] estimation”. de facon plus precise une enquete par sondage ou un sondage est une enquête effectuee sur une partie de la population. Cette fraction de la population constitue l'échantillon et les méthodes qui permettent de construire cet echantillon s'appellent méthode d'échantillonnage.
 
 **Plan d'enquête**
 
-Un “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992)[^fn2]. Lohr (1999)[^fn5] décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
+Un “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992). Lohr (1999) décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
 
 ## 2 Références
 
@@ -105,7 +111,7 @@ Copyright 2021, Banque Mondiale
 
 Ce travail a été développé par Pontus Olofsson dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte de ressources existantes - liées à la mesure, la notification et la vérification pour soutenir la mise en œuvre du MRV dans les pays.
 
-Attribution
+Attribution  
 Olofsson, P. 2021. Response Design. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](figures/wb_fcfc_gfoi.png)
