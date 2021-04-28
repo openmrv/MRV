@@ -81,7 +81,7 @@ Un sous-ensemble de la population sélectionné parmi les unités de la populati
 
 ### 5.3 Plan d'échantillonnage
 
-Synonyme de plan d'échantillonnage (Sampling Design), qui est le terme préféré dans la littérature de référence (Cochran, 1977[^fn3], Särndal et al., 1992[^fn2]). Le terme apparaît chez Rice (1995)[^fn4] ui utilise à la fois “sampling design, ***plan d'echantillonnage\***” et “sample design, ***plan d'echantillon\***”.
+Synonyme de plan d'échantillonnage (Sampling Design), qui est le terme préféré dans la littérature de référence (Cochran, 1977[^fn3], Särndal et al., 1992[^fn2]). Le terme apparaît chez Rice (1995)[^fn4] ui utilise à la fois “plan d'echantillonnage” et “plan d'echantillon”.
 
 ### 5.4 Plan d'échantillonnage
 
