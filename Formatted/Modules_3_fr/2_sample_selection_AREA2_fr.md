@@ -35,8 +35,8 @@ Dans le tutoriel précédent, nous avons conçu un échantillon en choisissant u
 
 ## 2 Objectifs d'apprentissage
 
-- À la fin du tutoriel, l'utilisateur devrait être en mesure d'échantillonner une zone d'étude arbitraire sous un échantillonnage aléatoire stratifié (STR) en utilisant AREA2.
-  - Effectuer un échantillonnage dans GEE/AREA2 sous STR
+À la fin du tutoriel, l'utilisateur devrait être en mesure d'échantillonner une zone d'étude arbitraire sous un échantillonnage aléatoire stratifié (STR) en utilisant AREA2.
+- Effectuer un échantillonnage dans GEE/AREA2 sous STR
 
 ### 2.1 Prérequis 
 
@@ -44,11 +44,9 @@ Dans le tutoriel précédent, nous avons conçu un échantillon en choisissant u
 
 ## 3 Tutorial: Sélection de l'échantillon en utilisant AREA2
 
-Nous allons procéder au tirage d'un échantillon en utilisant un plan aléatoire stratifié dans Google Earth Engine/AREA2.
-
 ### 3.1 Echantillonnage aléatoire stratifié dans Google Earth Engine/AREA2
 
-En se basant sur les tutoriels ici sur OpenMRV sous le processus " Plan d'échantillonnage ", où nous avions Forêt, Non-Forêt, Perturbation forestière et Tampon de perturbation forestière comme strates, supposons une taille d'échantillon nécessaire pour atteindre une marge d'erreur de 25% de l'estimation de la zone de perturbation forestière. Nous avons également réparti l'échantillon en strates aux fins de l'estimation de la superficie. Nous utiliserons donc la taille d'échantillon suivante 
+Nous allons procéder au tirage d'un échantillon en utilisant un plan aléatoire stratifié dans Google Earth Engine/AREA2. En se basant sur les tutoriels ici sur OpenMRV sous le processus " Plan d'échantillonnage ", où nous avions Forêt, Non-Forêt, Perturbation forestière et Tampon de perturbation forestière comme strates, supposons une taille d'échantillon nécessaire pour atteindre une marge d'erreur de 25% de l'estimation de la zone de perturbation forestière. Nous avons également réparti l'échantillon en strates aux fins de l'estimation de la superficie. Nous utiliserons donc la taille d'échantillon suivante 
 
 |      | A             | B         | C             | D              | E           | F     |
 | ---- | ------------- | --------- | ------------- | -------------- | ----------- | ----- |
@@ -59,7 +57,7 @@ Pour sélectionner cet échantillon, utilisons AREA2 pour sélectionner un écha
 
 ![](figures/STR_AREA2.png)
 
-## 4 Foire aux questions (FAQs)
+## 4 Foire aux questions
 
 **Dois-je utiliser les applications mentionnées dans ce tutoriel pour sélectionner un échantillon?**
 
@@ -111,8 +109,6 @@ Stehman, S.V., & Czaplewski, R.L., 1998. Design and analysis for thematic map ac
 
 Stehman, S.V. and Wickham, J.D., 2011. Pixels, blocks of pixels, and polygons: Choosing a spatial unit for thematic accuracy assessment. Remote Sensing of Environment, 115(12), pp.3044-3055. https://doi.org/10.1016/j.rse.2011.06.007
 
-
-
 -----
 
 ![](./figures/cc.png)  
@@ -123,7 +119,7 @@ Copyright 2021, Banque Mondiale.
 
 Ce travail a été développé par Pontus Olofsson dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte de ressources existantes - liées à la mesure, la communication et la vérification pour soutenir la mise en œuvre du MRV dans les pays.
 
-Matériel révisé par : 
+Matériel révisé par :   
 Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources  
 Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
 Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS)  
@@ -132,6 +128,7 @@ Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (R
 Rajesh Bahadur Thapa, Nepal, International Centre for Integrated Mountain Development (ICIMOD)  
 Tatiana Nana, Cameroon, REDD+ Technical Secretaria
 
+Attribution   
 Olofsson, P. 2021. Sample selection using AREA2. © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](./figures/wb_fcfc_gfoi.png)
