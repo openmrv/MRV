@@ -44,9 +44,11 @@ Dans le tutoriel précédent, nous avons conçu un échantillon en choisissant u
 
 ## 3 Tutoriel: Sélection de l'échantillon en utilisant AREA2
 
+Nous allons procéder au tirage d'un échantillon en utilisant un plan aléatoire stratifié dans Google Earth Engine/AREA2. 
+
 ### 3.1 Echantillonnage aléatoire stratifié dans Google Earth Engine/AREA2
 
-Nous allons procéder au tirage d'un échantillon en utilisant un plan aléatoire stratifié dans Google Earth Engine/AREA2. En se basant sur les tutoriels ici sur OpenMRV sous le processus " Plan d'échantillonnage ", où nous avions Forêt, Non-Forêt, Perturbation forestière et Tampon de perturbation forestière comme strates, supposons une taille d'échantillon nécessaire pour atteindre une marge d'erreur de 25% de l'estimation de la zone de perturbation forestière. Nous avons également réparti l'échantillon en strates aux fins de l'estimation de la superficie. Nous utiliserons donc la taille d'échantillon suivante 
+En se basant sur les tutoriels ici sur OpenMRV sous le processus " Plan d'échantillonnage ", où nous avions Forêt, Non-Forêt, Perturbation forestière et Tampon de perturbation forestière comme strates, supposons une taille d'échantillon nécessaire pour atteindre une marge d'erreur de 25% de l'estimation de la zone de perturbation forestière. Nous avons également réparti l'échantillon en strates aux fins de l'estimation de la superficie. Nous utiliserons donc la taille d'échantillon suivante 
 
 |      | A             | B         | C             | D              | E           | F     |
 | ---- | ------------- | --------- | ------------- | -------------- | ----------- | ----- |
