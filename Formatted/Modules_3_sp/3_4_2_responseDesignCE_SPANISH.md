@@ -42,7 +42,7 @@ group:
   etapa: Recopilacion de datos de referencia
 ---
 
-#  Como crear encuestas en Collect y colectar datos usando Collect Earth Desktop 
+# Diseño de Respuesta en Collect Earth Desktop
 
 ## 1 Contexto
 
@@ -141,9 +141,11 @@ Una vez que la aplicación de “Collect” esta instalada, encuentre la aplicac
 La ventana del Panel de Control de OpenForis Collect Control Panel se abrirá y necesitara estar abierta durante todo el tiempo que este usando Collect.  
 
 ![](./figures/collect_controlpanel.JPG)
+
 La ventana del Panel de Control de OpenForis Collect Control Panel se abrirá antes que el navegador con la interfaz de Collect se abre. La ventana del Panel de Control le dirá que Collect esta activo.
 
 ![](./figures/open_foris_collect.JPG)
+
 Después de algunos minutos, un navegador nuevo se abrirá automáticamente en la interfaz de Collect. 
 
 
@@ -181,7 +183,7 @@ Collect Earth - Los controles de Plot Layout controlan el tamaño de la trama y 
 
 Collect Earth - Otras configuraciones le permiten abrir fuentes de imágenes adicionales automáticamente de Collect Earth. Para este ejemplo, dejaremos las configuraciones automáticas. 
 
-Asegúrese de guardar su encuesta usando el botón "Save" en la parte inferior de su pantalla. Si le interesa aprender mas acerca de diseñar una encuesta, mas información esta disponible en http://www.openforis.org/tools/collect/tutorials/survey-designer.html](http://www.openforis.org/tools/collect/tutorials/survey-designer.html).
+Asegúrese de guardar su encuesta usando el botón "Save" en la parte inferior de su pantalla. Si le interesa aprender mas acerca de diseñar una encuesta, mas información esta disponible en [http://www.openforis.org/tools/collect/tutorials/survey-designer.html](http://www.openforis.org/tools/collect/tutorials/survey-designer.html).
 
 ![](./figures/collect_edit_survey.JPG)
 
@@ -255,7 +257,7 @@ Se puede ver una vista previa de las preguntas de la encuesta haciendo clic en "
 Collect necesita una cuadricula de muestreo que define en donde colectamos datos de la encuesta que acabamos de crear. 
 Presentamos dos opciones aquí:
 
-1. Importar un diseño de muestreo existente (puede usar uno creado en tutoriales aquí en OpenMRV en el proceso "Recopilación de datos de muestra" y herramientas "QGIS", "AREA2" y "GEE". Uno está disponible [aquí](https://drive.google .com / file / d / 1D56RnNziNVROjeGro1uwvJAH1DCQceck / view? usp = sharing) como ejemplo).
+1. Importar un diseño de muestreo existente (puede usar uno creado en tutoriales aquí en OpenMRV en el proceso "Recopilación de datos de muestra" y herramientas "QGIS", "AREA2" y "GEE". Uno está disponible [aquí](https://drive.google.com/file/d/1D56RnNziNVROjeGro1uwvJAH1DCQceck/view?usp=sharing) como ejemplo.
 2. Creando e importando una cuadricula de muestreo usando el Generador de Cuadriculas en Google Earth Engine
 
 #### 3.3.1 Importar un diseño existente de muestreo
@@ -426,8 +428,8 @@ Continúe con el resto de los puntos de la trama de esta manera. Habrá completa
 
 * Los problemas de estacionalidad pueden ocurrir cuando los diferentes usos del suelo parecen diferentes entre las estaciones. Por ejemplo, una pradera puede ser de un verde brillante en primavera pero verse marrón en verano. Si solo vio las imágenes marrones, podría pensar que el marrón es tierra y clasificar incorrectamente la pradera como tierra estéril.
 * Acercar y alejar el zoom para recopilar pistas contextuales del paisaje es importante para múltiples usos del suelo y tipos de cobertura del suelo. Por ejemplo:
-- El agua en cuerpos de agua más grandes a menudo aparece negra u oscura hasta que se aleja.
-- Las plantaciones de árboles pueden parecer bosques hasta que se aleje y vea el patrón regular de árboles plantados.
+    - El agua en cuerpos de agua más grandes a menudo aparece negra u oscura hasta que se aleja.
+    - Las plantaciones de árboles pueden parecer bosques hasta que se aleje y vea el patrón regular de árboles plantados.
 
 
 ### 3.7 Exportar sus datos 
@@ -476,10 +478,8 @@ El archivo csv debe contener las siguientes categorías en el siguiente orden:
 
 **¿Cuáles son algunos consejos para la interpretación de imágenes?**
 
-- A continuación se ofrecen algunos consejos para la interpretación de imágenes:
-
-  - Los problemas de estacionalidad pueden ocurrir cuando los diferentes usos de la tierra parecen diferentes entre las estaciones. Por ejemplo, una pradera puede ser de un verde brillante en primavera pero verse marrón en verano. Si solo vio las imágenes marrones, podría pensar que el marrón es tierra y clasificar incorrectamente la pradera como tierra estéril.
-  - Acercar y alejar el zoom para recopilar pistas contextuales del paisaje es importante para múltiples usos del suelo y tipos de cobertura del suelo. Por ejemplo:
+- Los problemas de estacionalidad pueden ocurrir cuando los diferentes usos de la tierra parecen diferentes entre las estaciones. Por ejemplo, una pradera puede ser de un verde brillante en primavera pero verse marrón en verano. Si solo vio las imágenes marrones, podría pensar que el marrón es tierra y clasificar incorrectamente la pradera como tierra estéril.
+- Acercar y alejar el zoom para recopilar pistas contextuales del paisaje es importante para múltiples usos del suelo y tipos de cobertura del suelo. Por ejemplo:
    - El agua en cuerpos de agua más grandes a menudo aparece negra u oscura hasta que se aleja.
    - Las plantaciones de árboles pueden parecer bosques hasta que se aleje y vea el patrón regular de árboles plantados.
 
@@ -487,13 +487,19 @@ El archivo csv debe contener las siguientes categorías en el siguiente orden:
 
 Para obtener más ayuda con Collect Earth, vaya a openforis.org y haga clic en "Community Support" en la barra de navegación superior.
 
+![](figures/openforis_community_support.png)
+
+Aquí puede crear una cuenta y hacer una pregunta a OpenForis directamente.
+
+![](figures/openforis_community_support1.JPG)
+
 ## 5 Terminología relevante para las técnicas de muestreo
 
 Una lista de términos relevantes para las técnicas de muestreo e inferencia esta provista en la documentación de AREA2: https://area2.readthedocs.io/en/latest/definitions.html. Abajo hay algunos términos adicionales que no están incluidos en la documentación.
 
 ### 5.1 Diseño de Respuesta
 
-Definido por Stehman and Czaplewski, 1998[^fn1]: “La referencia o clasificación 'verdadera' se obtiene para cada unidad de muestreo en función de la interpretación de fotografías aéreas o videografías, una visita terrestre o una combinación de estas fuentes. Los métodos utilizados para determinar esta clasificación de referencia se denominan "diseño de respuesta". El diseño de respuesta incluye procedimientos para recopilar información relacionada con la determinación de la cobertura terrestre de referencia y reglas para asignar una o más [etiquetas] de referencia a cada unidad de muestreo ". Conocido como "plan de medición" por Särndal et al. (1992)[^fn2].
+Definido por Stehman and Czaplewski, 1998: “La referencia o clasificación 'verdadera' se obtiene para cada unidad de muestreo en función de la interpretación de fotografías aéreas o videografías, una visita terrestre o una combinación de estas fuentes. Los métodos utilizados para determinar esta clasificación de referencia se denominan "diseño de respuesta". El diseño de respuesta incluye procedimientos para recopilar información relacionada con la determinación de la cobertura terrestre de referencia y reglas para asignar una o más [etiquetas] de referencia a cada unidad de muestreo ". Conocido como "plan de medición" por Särndal et al. (1992).
 
 ### 5.2 Muestra
 
@@ -501,21 +507,21 @@ Un subconjunto de unidades de población seleccionadas de la población.
 
 ### 5.3 Diseño de Muestra
 
-Sinónimo de diseño de muestreo, que es el término preferido en la literatura fundamental (Cochran, 1977 [^ fn3], Särndal et al., 1992 [^ fn2]). El término aparece en Rice (1995) [^ fn4] que utiliza tanto "diseño de muestreo" como "diseño de muestra".
+Sinónimo de diseño de muestreo, que es el término preferido en la literatura fundamental (Cochran, 1977, Särndal et al., 1992). El término aparece en Rice (1995) que utiliza tanto "diseño de muestreo" como "diseño de muestra".
 
 ### 5.4 Diseño de Muestreo
 
-"El diseño de muestreo es el protocolo mediante el cual se seleccionan las unidades de muestra de referencia". (Stehman y Czaplewski, 1998) [^ fn1]. El “diseño de muestreo” también es utilizado por Cochran (1977) [^ fn3] y Särndal et al. (1992) [^ fn2]- el primero también usa "plan de muestreo". 
+"El diseño de muestreo es el protocolo mediante el cual se seleccionan las unidades de muestra de referencia". (Stehman y Czaplewski, 1998). El “diseño de muestreo” también es utilizado por Cochran (1977) y Särndal et al. (1992) - el primero también usa "plan de muestreo". 
 
 Los tutoriales que abordan el diseño de muestreo se pueden encontrar aquí en OpenMRV en el proceso "Diseño de muestreo".
 
 ### 5.5 Encuesta
 
-Särndal y col. (1992) [^ fn2] define una encuesta como una “investigación parcial de una población finita”, y además que “los términos 'encuesta' y 'encuesta por muestreo' se utilizan para denotar investigaciones estadísticas con las siguientes características metodológicas: [. ..] plan de medición [...] de muestreo probabilístico [y] estimación."
+Särndal y col. (1992) define una encuesta como una “investigación parcial de una población finita”, y además que “los términos 'encuesta' y 'encuesta por muestreo' se utilizan para denotar investigaciones estadísticas con las siguientes características metodológicas: [...] plan de medición [...] de muestreo probabilístico [y] estimación."
 
 ### 5.6 Diseño de Encuesta
 
-Un "diseño total de la encuesta" define los procedimientos para "obtener la posible precisión en las estimaciones de la encuesta mientras se logra un equilibrio entre los errores de muestreo y los no muestrales [...] El diseño de la encuesta da lugar a operaciones de encuesta" como la selección de la muestra (Särndal et al., 1992) [^ fn2]. Lohr (1999) [^ fn5] describe un diseño de encuesta total como "Una filosofía de diseño de encuesta para minimizar los errores de muestreo y de no muestreo". Además, en Lohr (1999) “diseño de encuestas” es sinónimo de diseño de muestreo.
+Un "diseño total de la encuesta" define los procedimientos para "obtener la posible precisión en las estimaciones de la encuesta mientras se logra un equilibrio entre los errores de muestreo y los no muestrales [...] El diseño de la encuesta da lugar a operaciones de encuesta" como la selección de la muestra (Särndal et al., 1992). Lohr (1999) describe un diseño de encuesta total como "Una filosofía de diseño de encuesta para minimizar los errores de muestreo y de no muestreo". Además, en Lohr (1999) “diseño de encuestas” es sinónimo de diseño de muestreo.
 
 ### 5.7 Datos de referencia 
 
@@ -554,14 +560,14 @@ Copyright 2021, World Bank
 
 Este trabajo fue desarrollado por Justine Bui y Karen Dyson bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionadas a la Medida, Reportaje, y Verificación para el apoyo de implementación MRV en varios países. 
 
-Material revisado por:
-Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources
-Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)
-Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources
-Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)
+Material revisado por:   
+Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources   
+Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)   
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
+Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)   
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat
 
-Atribución 
+Atribución    
 Bui, J., Dyson, K. 2021. Response Design in Collect Earth Desktop. © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)  
 
 ![](figures/wb_fcfc_gfoi.png)
