@@ -160,7 +160,7 @@ De plus, les utilisateurs avancés pourront
 
 ## 3 Tutoriel : Démarrage rapide de LandTrendr via une interface graphique sur GEE 
 
-### 3.1 Overview
+### 3.1 Aperçu
 
 Pour évaluer les choix d'images et de paramètres de LandTrendr, l'interface graphique de LandTrendr est un excellent endroit pour travailler.  L'interface permet un retour d'information rapide sur les choix de fenêtres de date des images, sur les choix de paramètres et sur la réalisation de cartes. 
 
@@ -178,7 +178,7 @@ Notez que cette interface graphique nécessite l'accès à deux bibliothèques d
 
 > Note : Les versions originales de ces bibliothèques et scripts (y compris les mises à jour probables au fil du temps) sont disponibles dans GEE via le dossier /users/emaprlab/public.  
 
-#### 3.2.2 Basic orientation to the GUI
+#### 3.2.2 Orientation de base de l'interface graphique
 
 Le LT GUI se compose de trois panneaux :  Un panneau de contrôle à gauche, un panneau de rapport à droite et un panneau de carte au centre.
 
@@ -357,7 +357,7 @@ Que pourrait-il se passer ?  Étant donné que nous travaillons dans une région
 
 Comment pouvons-nous y remédier ?  Dans l'interface graphique, la meilleure façon de résoudre ce problème est de modifier les fenêtres de date de la collection d'images.  Nous verrons dans une section ultérieure comment nous pourrions résoudre ces problèmes. 
 
-##### 3.3.4.2 Poor fitting
+##### 3.3.4.2 Mauvais ajustement
 
 Il arrive que le signal source ait une forme assez évidente pour l'œil humain, mais l'algorithme ne le capte pas.  
 
@@ -440,7 +440,7 @@ Cliquez sur "Add RGB Imagery", et attendez patiemment.  Le chargement complet de
 
 ![_fig_rgb_change_initial](./figures/_fig_rgb_change_initial.png)
 
-> Remarque : certaines zones du bord gauche de cette zone d'étude présentent des données manquantes (indiquées par la possibilité de voir l'image sous-jacente au lieu des valeurs ajustées).  Ces zones n'ont pas suffisamment d'observations non masquées pour effectuer l'ajustement temporel (le paramètre "observations minimales nécessaires" est une quantité définie par l'utilisateur (section 1.2 ci-dessus).  Il est possible que
+> Remarque : certaines zones du bord gauche de cette zone d'étude présentent des données manquantes (indiquées par la possibilité de voir l'image sous-jacente au lieu des valeurs ajustées).  Ces zones n'ont pas suffisamment d'observations non masquées pour effectuer l'ajustement temporel (le paramètre "observations minimales nécessaires" est une quantité définie par l'utilisateur (section 1.2 ci-dessus).  S'il y a réellement moins de six observations (la valeur par défaut du paramètre), l'exécution de l'algorithme risque d'entraîner un overfitting ou un mauvais ajustement, car il y a tout simplement trop peu d'observations. Ainsi, plutôt que de réduire la valeur de ce paramètre pour permettre l'exécution de l'algorithme sur un plus grand nombre de zones, il est conseillé de rechercher pourquoi il existe si peu d'observations valides.  S'il y a vraiment peu d'observations valides, alors d'autres approches devront être entreprises dans ces régions, ou elles devront être explicitement exclues du rapport.
 
 ##### 3.4.2.2 Interprétation des changements comme des couleurs
 
