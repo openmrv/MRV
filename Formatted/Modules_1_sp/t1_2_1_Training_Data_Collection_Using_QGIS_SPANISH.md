@@ -43,7 +43,7 @@ group:
   etapa: Recopilación de datos de entrenamiento
 ---
 
-# Recolección de Datos de Entrenamiento Usando QGIS
+# Recopilación de Datos de Entrenamiento Usando QGIS
 
 ## 1 Contexto
 
