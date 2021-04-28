@@ -571,7 +571,7 @@ Export.table.toAsset({
   assetId: 'trainingDataWithPredictors'})
 ```
 
-**Planifier les coefficients des données d'entraînement **
+**Planifier les coefficients des données d'entraînement**
 
 En option, une fois l'exportation terminée, nous pouvons visualiser différents coefficients pour nos classes d'apprentissage. Dans le code suivant, les éléments de références enregistrées sont chargés et un nuage de points est créé, montrant les interceptions NIR et SWIR1 pour les points d'entraînement et organisé par occupation de sol. Notez que ce code peut être trouvé dans le répertoire MRV ouvert dans le script 'CCDC/Cambodia_3'.
 
