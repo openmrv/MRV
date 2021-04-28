@@ -267,7 +267,7 @@ Cette section vous permet d'ajouter des informations générales sur le projet, 
 
     * Si la case Copy Template Plots and Samples est cochée, les sections Plot Review et Sample Design n'afficheront qu'un aperçu du nombre de parcelles, etc. Décochez cette case pour modifier ces paramètres.
     
-    * Copy Template Widgets fait référence aux options de Geo-Dash couvertes dans la partie 6 : Mise en œuvre de Geo-Dash.
+    * Copy Template Widgets fait référence aux options de Geo-Dash couvertes dans la partie 3.2.2.8 : Configurer le GeoDash.
 
 2. Saisissez le nom et la description du projet. Le nom doit être court et sera affiché sur la page d'accueil ainsi que sur la page de collecte de données du projet. 
 
