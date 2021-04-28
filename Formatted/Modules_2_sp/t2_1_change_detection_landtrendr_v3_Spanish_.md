@@ -271,7 +271,6 @@ Al ver la foto aérea de la región, vemos evidencia de actividad humana alreded
 ![pixel_degradation_maybe_airphoto](./figures/pixel_degradation_maybe_airphoto.png)
 
 
-
 ##### 3.3.2.3 Perturbación y recuperación ribereña
 
 Los humanos no son los únicos agentes de cambio en los bosques. Los procesos naturales pueden eliminar la vegetación, solo para que el bosque vuelva a crecer. Los ríos son agentes notables de tal cambio.
@@ -430,14 +429,13 @@ Sin embargo, si en el futuro desea ejecutar el mapeador RGB de diferentes formas
 Un video básico que muestra la herramienta RGB está aquí: https://youtu.be/VSeia3NRa3c
 
 
-
 ![_fig_rgb_menu_instructions](./figures/_fig_rgb_menu_instructions.png)
 
 Haga clic en "Add RGB Imagery" (Agregar imágenes RGB), y espere pacientemente.  Puede tomar un minuto para cargar enteramente el área seleccionada. Cuando termine, debería de ver algo así: 
 
 ![_fig_rgb_change_initial](./figures/_fig_rgb_change_initial.png)
 
-> Nota: Hay algunas áreas en el borde izquierdo de esta área de estudio que tienen datos faltantes (indicado al poder ver la imagen subyacente en lugar de los valores ajustados). Estas áreas no tienen suficientes observaciones desenmascaradas para ejecutar el ajuste temporal (el parámetro "minimum observations needed" (observaciones mínimas necesarias) es una cantidad definida por el usuario (Sección 1.2 anterior).
+> Nota: Hay algunas áreas en el borde izquierdo de esta área de estudio que tienen datos faltantes (indicado al poder ver la imagen subyacente en lugar de los valores ajustados). Estas áreas no tienen suficientes observaciones desenmascaradas para ejecutar el ajuste temporal (el parámetro "minimum observations needed" (observaciones mínimas necesarias) es una cantidad definida por el usuario (Sección 1.2 anterior). Si realmente hay menos de seis observaciones (el valor predeterminado para el parámetro), es probable que la ejecución del algoritmo dé como resultado un sobreajuste o ajustes deficientes, ya que simplemente hay muy pocas observaciones. Por lo tanto, en lugar de reducir el valor de ese parámetro para permitir que se ejecuten más áreas con el algoritmo, es aconsejable investigar por qué existen tan pocas observaciones válidas. Si realmente hay pocas observaciones válidas, es posible que sea necesario emprender otros métodos en estas regiones, o es posible que deban excluirse explícitamente de la presentación de informes.
 
 #### 3.4.2.2 Interpretar cambio como colores
 
