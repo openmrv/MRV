@@ -582,11 +582,11 @@ This rule uses the JavaScript RegExp function, documentation for writing a regul
 
     ii. If you notice a mistake, click Continue Editing to fix it.
 
-4. After you click Create Project, a pop-up window will ask 'Do you REALLY want to create this project?' 
+3. After you click Create Project, a pop-up window will ask 'Do you REALLY want to create this project?' 
 
-5. Click OK.
+4. Click OK.
 
-6. After you Create the project, you will be taken to the Project Information panel. You can manage your project using this menu.
+5. After you Create the project, you will be taken to the Project Information panel. You can manage your project using this menu.
 
 ##### 3.2.2.8 Setting up the GeoDash
 
