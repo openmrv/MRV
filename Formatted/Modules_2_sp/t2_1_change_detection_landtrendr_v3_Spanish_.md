@@ -40,9 +40,9 @@ group:
 
 # LandTrendr
 
-# 1 Contexto
+## 1 Contexto
 
-## 1.1  Fundamentos Conceptuales de LandTrendr
+### 1.1 Fundamentos Conceptuales de LandTrendr
 
 A medida que los procesos biofísicos, ecológicos y antropogénicos actúan sobre la superficie terrestre, la reflectancia espectral de la superficie cambia con el tiempo. La trayectoria temporal de la reflectancia espectral evoluciona a una forma que es indicativa de los procesos que están actuando: el crecimiento y el declive vegetativo, la perturbación y la transición de la cobertura terrestre afectan la progresión temporal de los valores espectrales de formas distintas. La estrategia del algoritmo LandTrendr es destilar una trayectoria espectral de varios años en segmentos secuenciales de línea recta que capturan adecuadamente el carácter de esos cambios progresivos y luego aprovechar esa interpretación simplificada de la serie temporal para extraer información útil.
 
@@ -133,7 +133,6 @@ Para determinar adecuadamente los parámetros de usuario apropiados cada vez que
 
 A continuación, describimos cómo se pueden abordar estos pasos utilizando una interfaz gráfica de usuario (Sección 3), y cómo la detección de cambios se puede personalizar adaptando los scripts GEE existentes (Sección 4).
 
-
 ## 2 Objetivos de aprendizaje
 
 Al final de este tutorial, los usuarios podrán: 
@@ -150,7 +149,7 @@ Adicionalmente, usuarios avanzados podrán:
 
 ### 2.1 Prerrequisitos
 
-* Conceptos de Google Earth Engine (GEE) (por favor refiérase a la Sección 1.1 del tutorial de Creación de mosaico/imagen compuesta para Landsat y Sentinel-2 en Google Earth Engine para encontrar recursos de GEE útiles)
+* Conceptos de Google Earth Engine (GEE)
   - Obtener una cuenta de usuario
   - Imágenes en GEE
   - Sintaxis básico de funciones
@@ -158,9 +157,9 @@ Adicionalmente, usuarios avanzados podrán:
 
 NOTA: Consulte el proceso "Preprocesamiento" y la herramienta "GEE" aquí en OpenMRV para obtener más información y recursos para trabajar en Google Earth Engine y para compuestos de imágenes.
 
-## 3 Quickstart LandTrendr a través de la GUI en GEE
+## 3 Tutorial: Quickstart LandTrendr a través de la GUI en GEE
 
-## 3.1 Descripción General
+### 3.1 Descripción General
 
 Para evaluar las opciones de imagen y parámetros de LandTrendr, la GUI de LandTrendr es un excelente lugar para trabajar. La interfaz permite una evaluación rápida acerca de las opciones de la ventana de fecha de la imagen, sobre la elección de parámetros y sobre la creación de mapas.
 
@@ -170,11 +169,11 @@ La GUI la proporcionan los desarrolladores de LandTrendr en el laboratorio eMapR
 
 #### 3.2.1 Open the GUI
 
-En el repositorio común de OpenMRV, busque y abra el script llamado: **OpenMRV_español/Part 2/ LandTrendr_esp/LT-GEE-Vis-DownLoad-app_WB_v1.0_esp**. Cuando se carga y ejecuta, este script crea una GUI LandTrendr-GEE. 
+En el [repositorio común de OpenMRV](https://code.earthengine.google.com/?accept_repo=users/openmrv/MRV), busque y abra el script llamado: **OpenMRV_español/Part 2/LandTrendr_esp/LT-GEE-Vis-DownLoad-app_WB_v1.0_esp**. Cuando se carga y ejecuta, este script crea una GUI LandTrendr-GEE. 
 
 Tenga en cuenta que esta GUI requiere acceso a dos bibliotecas de funciones de utilidad: una que maneja el procesamiento de imágenes y otra que maneja la interfaz GUI. Los usuarios no necesitan cambiar nada en el script para acceder a ellos, pero es útil reconocer que se están llamando a estas bibliotecas externas. Aunque originalmente desarrolladas por el laboratorio eMapR, por conveniencia, como se señaló anteriormente, estas bibliotecas se copiaron a fines de 2020 en el repositorio común de este tutorial de capacitación.
 
-> Nota: Las versiones originales de estas bibliotecas y scripts (incluidas las posibles actualizaciones a lo largo del tiempo) están disponibles en GEE a través de la carpeta / users / emaprlab / public.
+> Nota: Las versiones originales de estas bibliotecas y scripts (incluidas las posibles actualizaciones a lo largo del tiempo) están disponibles en GEE a través de la carpeta /users/emaprlab/public.
 
 #### 3.2.2 Orientación básica a la GUI
 
@@ -710,9 +709,9 @@ El umbral de cambio puede hacerse más estricto para evitar estas asignaciones d
 
 Sin embargo, el paso final de la evaluación ocurre cuando se utilizan datos independientes para evaluar la precisión del mapa final. Este tema se trata aquí en OpenMRV en el proceso "Estimación de área/Evaluación de precisión".
 
-# 4 Implementación detallada de LandTrendr usando Javascript
+## 4 Tutorial: Implementación detallada de LandTrendr usando Javascript
 
-## 4.1 Reseña
+### 4.1 Reseña
 Mientras que muchos usuarios satisfacen sus necesidades a través del uso de la GUI, usuarios intermedios o avanzados pueden implementar LT directamente usando scripts. Esta sección introduce la funcionalidad central de LT manejada por scripts. 
 
 ### 4.2  Script del Disturbio Mayor (Greatest Disturbance)
@@ -860,7 +859,7 @@ Después de cargar el mapa de disturbios de nuevo como una capa separada, podemo
 
 Basado en esta simple evaluación del año de detección, el umbral para mapear cambio podría ser alterado a 200 en lugar de 100, como se uso en el parámetro `changeParams.mag`de la exportación original.
 
-## 5 La Biblioteca LandTrendr Javascript 
+## 5 Tutorial: La Biblioteca LandTrendr Javascript 
 
 Tanto la interfaz gráfica de usuario de LandTrendr (Sección 3) como el script Javascript (Sección 4) se basan en funciones en la biblioteca de LandTrendr Javascript para llevar a cabo todos los pasos importantes en el proceso de detección de cambios. Si bien no se necesita un conocimiento detallado de las funciones para ejecutar ninguna de las herramientas, recomendamos que la mayoría de los usuarios desarrollen una comprensión básica de las suposiciones encapsuladas en estas funciones, ya que ayuda a comprender dónde puede estar fallando el mapeo. Además, los usuarios avanzados querrán acceder a estas funciones para ajustarlas o personalizarlas. Por lo tanto, las siguientes secciones detallan las piezas centrales de las bibliotecas LandTrendr en GEE.
 
@@ -1192,7 +1191,7 @@ Adicionalmente, el filtro `mmu`  permite la eliminación de grupos de pixeles qu
 
 El resultado de la función `getChangeMap` es la imagen de disturbio con las capas notadas en Sección 4 anteriormente. 
 
-# 6 Implementando LandTrendr en Mozambique y Camboya
+## 6 Ejemplos Adicionales: Mozambique y Camboya
 
 Cuando se implementa una detección de cambio forestal de LandTrendr en un área nueva, los mismos problemas descritos en la Sección 3 deben de ser considerados. Estos incluyen: 
 
@@ -1312,7 +1311,7 @@ Al igual que en Colombia y Mozambique, la segmentación temporal podría convert
 
 ## 7 Preguntas Frecuentes
 
-*¿Como selecciono los parámetros de ajuste? Hay un método automatizado?*
+**¿Como selecciono los parámetros de ajuste? Hay un método automatizado?**
 
 La elección de los parámetros de ajuste es una de las preocupaciones más comunes de los nuevos usuarios. Nuestros ejemplos a lo largo de este tutorial deben proporcionar orientación, pero como observamos, la combinación específica de parámetros que se utilizará para una región determinada probablemente dependa de las idiosincrasias del archivo de imágenes, los bosques y los procesos de cambio.
 
@@ -1322,11 +1321,11 @@ Sin embargo, en la práctica, ningún conjunto de parámetros de ajuste e índic
 
 Actualmente no existe una forma automatizada de seleccionar parámetros. Sin embargo, continuamos trabajando hacia el desarrollo de dichas herramientas, y se le anima a los usuarios interesados que sigan los desarrollos en el sitio LT-GEE GitHub.
 
-*Noto más problemas con las nubes y el ruido de la imagen cerca del comienzo (o el final) de la serie temporal. ¿Por qué es esto?*
+**Noto más problemas con las nubes y el ruido de la imagen cerca del comienzo (o el final) de la serie temporal. ¿Por qué es esto?**
 
 El poder de cualquier método de serie de tiempo es su capacidad para aprovechar múltiples observaciones para examinar patrones reales de falsos. En la mitad de la serie de tiempo, el ruido residual causa señales intermitentes en la señal de origen, pero debido a que vuelven a la "normalidad" después de la señal, el algoritmo las entiende como ruido. Pero para las señales que ocurren al principio o al final de la serie de tiempo, no hay datos más allá de la señal para ayudar a determinar si el ruido es real o no. Por lo tanto, el algoritmo puede crear con más frecuencia falsos positivos al principio y al final de la serie temporal.
 
-*Hay algunos lugares con nubosidad persistente y sin datos. ¿Que puedo hacer?*
+**Hay algunos lugares con nubosidad persistente y sin datos. ¿Que puedo hacer?**
 
 La primera opción es cambiar la ventana de fecha considerada para construir colecciones de imágenes. Es posible que haya elegido una ventana de fecha que sea 1) centrada más en la temporada de nubes o 2) demasiado estrecha para encontrar píxeles sin nubes.
 
@@ -1334,14 +1333,13 @@ También es posible que el algoritmo de enmascaramiento de nubes incorporado hay
 
 Finalmente, es posible que algunas áreas tengan una nubosidad tan persistente que un intervalo de tiempo anual no sea suficiente para encontrar una imagen razonable. Aunque LandTrendr funciona mejor con un intervalo de tiempo anual, es posible construir colecciones de imágenes que utilicen imágenes bienales (o incluso más años) para construir compuestos para el algoritmo. En la actualidad, nuestra biblioteca estándar no incluye esta funcionalidad, pero permanezca atento al sitio de LT-GEE GitHub (https://github.com/eMapR/LT-GEE) para obtener actualizaciones. Usuarios avanzados pueden construir su propia biblioteca si adaptan los módulos de `buildSRcollection`, `buildMosaic`, `getCombinedSRcollection`, y `getSRcollection`.
 
-*¿Puedo usar un sensor diferente a Landsat?* 
+**¿Puedo usar un sensor diferente a Landsat?** 
 
 Talvez. En principio, al algoritmo LandTrendr no le importa cuál sea la señal que le des. Sin embargo, los algoritmos requieren que la señal sea consistente y estable cuando no se produzcan cambios; por tanto, los pasos de preprocesamiento deben dar como resultado una señal suave. Además, requiere que haya suficientes observaciones para asignar segmentos, aproximadamente 3-4 observaciones por segmento máximo deseado. Para muchos sensores, como Sentinel 1 y 2, no existe un registro lo suficientemente extenso para realizar análisis de cambios anuales. Es posible considerar proporcionar los datos del algoritmo a una escala sub-anual, pero necesitaría engañar al algoritmo para que piense que los intervalos son de un año. Esto puede generar desafíos en la interpretación de los productos, pero no es insuperable.
 
 Mezclar tipos de sensores puede resultar muy complicado. Requiere un procesamiento previo que coloca todas las medidas exactamente en la misma escala. Incluso la transición de Landsat 8 a Landsat 7 y 5 es complicada porque los pasos de banda de los sensores son ligeramente diferentes. Por lo tanto, si bien no es teóricamente imposible reunir las imágenes de Sentinel-2 y Landsat, en la práctica los pasos de preprocesamiento probablemente sean bastante desafiantes.
 
 ## 8 Referencias
-
 
 Crist, E.P., 1985. A TM tasseled cap equivalent transformation for reflectance factor data. *Remote Sensing of Environment*, *17*(3), pp.301-306. https://doi.org/10.1016/0034-4257(85)90102-6
 
@@ -1367,15 +1365,15 @@ Copyright 2021, World Bank
 
 Este trabajo fue desarrollado por Robert E Kennedy bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionadas a la Medida, Reportaje, y Verificación para el apoyo de implementación MRV en varios países. 
 
-Material revisado por:
-Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
-Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS)  
-Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources 
-Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat   
-Raja Ram Aryal, Nepal, Forest Research and Training Centre  
+Material revisado por:   
+Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)     
+Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS)     
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources    
+Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat      
+Raja Ram Aryal, Nepal, Forest Research and Training Centre     
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
 
 Atribución:
-Kennedy, Robert E . 2021. Change detection with LandTrendr in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+Kennedy, R. E. 2021. Change detection with LandTrendr in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
  ![](figures/wb_fcfc_gfoi.png)
