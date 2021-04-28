@@ -437,7 +437,7 @@ Haga clic en "Add RGB Imagery" (Agregar imágenes RGB), y espere pacientemente. 
 
 ![_fig_rgb_change_initial](./figures/_fig_rgb_change_initial.png)
 
-> Nota: Hay algunas áreas en el borde izquierdo de esta área de estudio que tienen datos faltantes (indicado al poder ver la imagen subyacente en lugar de los valores ajustados). Estas áreas no tienen suficientes observaciones desenmascaradas para ejecutar el ajuste temporal (el parámetro "minimum observations needed" (observaciones mínimas necesarias) es una cantidad definida por el usuario (Sección 2 anterior).
+> Nota: Hay algunas áreas en el borde izquierdo de esta área de estudio que tienen datos faltantes (indicado al poder ver la imagen subyacente en lugar de los valores ajustados). Estas áreas no tienen suficientes observaciones desenmascaradas para ejecutar el ajuste temporal (el parámetro "minimum observations needed" (observaciones mínimas necesarias) es una cantidad definida por el usuario (Sección 1.2 anterior).
 
 #### 3.4.2.2 Interpretar cambio como colores
 
@@ -541,13 +541,13 @@ En la Sección 3.5, primero describimos la lógica para cada componente y provee
 
 ![_figY1_landtrendr_options](./figures/_figY1_landtrendr_options.png)
 
-Como se noto en el diagrama de flujo de trabajo  (Sección 2.4), el primer paso en el flujo de trabajo de LandTrendr es para procesar archivos de imágenes en compuestas anuales. Crear imágenes compuestas recude el ruido en la serie temporal; en las bibliotecas estándares de LandTrendr, utilizamos un método de composición con medoide (Descrito en Sección 5 abajo). 
+Como se noto en el diagrama de flujo de trabajo  (Sección 1.4), el primer paso en el flujo de trabajo de LandTrendr es para procesar archivos de imágenes en compuestas anuales. Crear imágenes compuestas recude el ruido en la serie temporal; en las bibliotecas estándares de LandTrendr, utilizamos un método de composición con medoide (Descrito en Sección 5 abajo). 
 
 Necesitamos determinar dos grupos de valores: el rango de años a partir del cual extraer para la segmentación y el rango de fechas estacionales dentro de cada año a partir del cual calcular los compuestos.
 
 ##### Años de Imágenes
 
-Como se señaló en la Sección 2.1.1, el algoritmo LandTrendr está diseñado para trabajar con datos de la familia de sensores Landsat que se remontan a 1984. En la práctica, muchas áreas tropicales del mundo no tienen suficiente disponibilidad de imágenes en los primeros años del archivo Landsat para proporcionar composiciones de imágenes razonables.
+Como se señaló en la Sección 1.1.1, el algoritmo LandTrendr está diseñado para trabajar con datos de la familia de sensores Landsat que se remontan a 1984. En la práctica, muchas áreas tropicales del mundo no tienen suficiente disponibilidad de imágenes en los primeros años del archivo Landsat para proporcionar composiciones de imágenes razonables.
 
 Si no hay imágenes al principio de la serie de tiempo, el algoritmo simplemente iniciará el proceso de segmentación temporal en el primer año que tenga datos desenmascarado. Por lo tanto, es razonable comenzar un proceso de segmentación con el año inicial establecido en 1984 y el último año establecido en el año más actual.
 
@@ -782,7 +782,7 @@ var lt = ltgee.runLT(startYear, endYear, startDay, endDay, aoi, index, [], runPa
 
 Notar que la biblioteca `ltgee` es la que se acaba de importar. Usuarios avanzados pueden examinar esa biblioteca para rastrear los pasos en la llamada al algoritmo LandTrendr (Ver Sección 5 abajo). 
 
-El algoritmo LT-GEE  devuelve un objeto llamado imagen, pero el cual no es una imagen en el sentido que normalmente consideramos: No puede ser mapeado fácilmente. Al contrario, es de una forma descrita arriba en la Sección 2.3.1. Para mapear un disturbio, necesitamos reempaquetar ese resultado. Por lo tanto, una segunda función es necesaria para ese proceso: 
+El algoritmo LT-GEE  devuelve un objeto llamado imagen, pero el cual no es una imagen en el sentido que normalmente consideramos: No puede ser mapeado fácilmente. Al contrario, es de una forma descrita arriba en la Sección 1.3.1. Para mapear un disturbio, necesitamos reempaquetar ese resultado. Por lo tanto, una segunda función es necesaria para ese proceso: 
 
 ```javascript
 var changeImg = ltgee.getChangeMap(lt, changeParams);
@@ -1018,7 +1018,7 @@ ee.Algorithms.TemporalSegmentation.LandTrendr(runParams);
 
 donde el `annualLTcollection` es la colección de valores invariados calculados de la manera descrita en la Sección 5.2.2. 
 
-Como se notó arriba en la Sección 2.3 , el resultado de la llamada al algoritmo principal de LandTrendr en GEE es una matriz de imágenes. La próxima sección describe la función `ltgee` que puede ser usada para convertir esa matriz de imágenes a un mapa de disturbios o de (recuperación).
+Como se notó arriba en la Sección 1.3 , el resultado de la llamada al algoritmo principal de LandTrendr en GEE es una matriz de imágenes. La próxima sección describe la función `ltgee` que puede ser usada para convertir esa matriz de imágenes a un mapa de disturbios o de (recuperación).
 
 ### 5.3 Mapeo de Disturbios
 
@@ -1067,7 +1067,7 @@ var segInfo = getSegmentData(lt, changeParams.index, changeParams.delta);
 
 Para comprender cómo se traduce la información de los vértices en información de segmentos, considere que cada segmento está delimitado por dos vértices. El carácter del segmento en sí se describe por el año del vértice inicial y el valor espectral (la condición "anterior al cambio"), el año del vértice final y el valor espectral (la condición "posterior al cambio"), así como por la diferencia de tiempo entre los vértices delimitadores (la "duración") y la diferencia en el valor espectral de los vértices delimitadores (la "magnitud"). Por lo tanto, para generar información sobre los segmentos, debemos considerar las características de ambos vértices individuales en cada extremo del segmento, así como las relaciones entre ellos. Esto se logró mediante una serie de manipulaciones de matriz de la información de vértice devuelta por el algoritmo LT en el objeto LT.
 
-Como se indica en la Sección 2.3.1, el objeto LT devuelto por la función LT es al menos una imagen de dos bandas por píxel. La primera banda se llama banda "LandTrendr" y es en sí misma una matriz de tamaño 4 x *n*, donde *n* es el número de años en la serie de tiempo. La segunda banda es un escalar que representa el error cuadrático medio total (RMSE por sus siglas en ingles) del ajuste. Surge una tercera banda opcional si el usuario ha pasado datos para el proceso FTV; aquí no tratamos a esta tercera banda.  
+Como se indica en la Sección 1.3.1, el objeto LT devuelto por la función LT es al menos una imagen de dos bandas por píxel. La primera banda se llama banda "LandTrendr" y es en sí misma una matriz de tamaño 4 x *n*, donde *n* es el número de años en la serie de tiempo. La segunda banda es un escalar que representa el error cuadrático medio total (RMSE por sus siglas en ingles) del ajuste. Surge una tercera banda opcional si el usuario ha pasado datos para el proceso FTV; aquí no tratamos a esta tercera banda.  
 
 La traducción de la información de vértice en operación de segmento se centra en la banda 4 x *n* LandTrendr del Objeto LT. El código completo se reproduce aquí, con comentarios que describen cada pieza. Brevemente, los vértices se extraen de la fila de vértices y luego se convierten en dos listas de vértices (`leftList` y` rightList`), una desplazada en relación con la otra. Luego, estos se manipulan para obtener los resultados deseados.
 
