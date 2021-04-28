@@ -86,7 +86,7 @@ Al final de este tutorial, el usuario podrá:
 - Evaluar posible fuentes de error en el proceso de clasificación que surgen del pre-procesamiento, el sensor elegido, y el diseño de muestras de entrenamiento  
 
 
-## 2.1 Prerrequisitos para este módulo
+### 2.1 Prerrequisitos
 
 * Conceptos de Google Earth Engine (GEE) 
   * Conseguir una cuenta de usuario 
@@ -94,7 +94,7 @@ Al final de este tutorial, el usuario podrá:
   * La sintaxis básica de funciones 
   * Procesamiento básico de imágenes en GEE, incluyendo selección de imágenes, filtrando nubes, creando mosaicos e imágenes compuestas 
 
-> NOTA: Estos temas se explican en el Módulo 1.1: Creación de Imagen Compuesta/Mosaico de Landsat y Sentinel-2 en Google Earth Engine
+> NOTA: Consulte el proceso "Preprocesamiento" y la herramienta "GEE" aquí en OpenMRV para obtener más información y recursos para trabajar en este entorno.
 
 
 * Conceptos básicos de teledetección 
@@ -103,7 +103,7 @@ Al final de este tutorial, el usuario podrá:
   * Registro de la reflectancia en las bandas
 
 
-## 3 Clasificación Supervisada en Google Earth Engine
+## 3 Tutorial: Clasificación Supervisada en Google Earth Engine
 
 ### 3.1 Descripción general del flujo de trabajo
 
@@ -138,16 +138,16 @@ GEE trabaja con scripts. Como se notó arriba, asumimos que está familiarizado 
 1. Ingrese a su editor de código Javascript de GEE en [code.earthengine.google.com](code.earthengine.google.com)
 2. *Opcional* Prepare repositorio nuevo para su trabajo
 
-![This is how you do it](./figures/m1.3/GEE_new_repo.png)
+    ![This is how you do it](./figures/m1.3/GEE_new_repo.png)
 
 3. Si tiene acceso de "reader" en el grupo de openMRV, verá el script en "users/openmrv/MRV/OpenMRV_español/Part1/1.3 LCLU Classification/cls_landsat_v2_colombia_esp".  O puede navegar al script directamente usando este enlace al [GEE script](https://code.earthengine.google.com/80a6bba27b6188cea150056dbfaa64e4).
+   
    1. Nos referiremos a este código como el Script Maestro, ya que ejecuta todos los pasos en este tutorial.
 4. Guárdelo a su carpeta preferida. Puede usar el video mencionado previamente como guía. 
 
 > Pista: Necesitará hacer una alteración al archivo para guardarlo bajo un nombre local. Agregue un espacio en alguna parte del script, y use la función "Save As".
 
 ![The Save As Function](./figures/m1.3/GEE_save_as.png)
-
 
 ## 3.2 Construir Imagen Compuesta
 
@@ -364,15 +364,13 @@ Varios problemas son evidentes en el mapa CART mostrado aquí:
 ![Examples of classification problems, including missing pixels and over-prediction of developed areas.](./figures/m1.3/classification_problems.png)
 
 1. Pixeles ausentes, causado por nubes
-
+   
    Como se mencionó arriba, la imagen compuesta para esta región en el 2019 tenia un área considerable donde la máscara de nubes resulto en pocos pixeles válidos para la imagen compuesta. Estas áreas no pueden ser clasificadas, ya que no tienen valores espectrales en los cuales se pueda aplicar el clasificador. 
-
 2. Áreas geográficas grandes clasificadas como "Desarrollado"
-
+   
    En el norte del país en la Península Guajira, toda el área esta clasificada como "desarrollado", cuando en realidad el área es muy seca y poco vegetada, y con muy poco desarrollo urbano
-
 3. Áreas substanciales de la clase "desarrollado" intercaladas con praderas
-
+   
    En los planos en el noreste del país, la clasificación herbácea esta intercalada con la clase de "desarrollado"
 
 #### 3.7.1 Opciones para problemas con la máscara de nubes
@@ -571,7 +569,7 @@ El área en la Península Guajira en su mayoría aun sigue clasificada de manera
 ![The Random Forests classification of the Guajira peninsula, showing that the developed class remains overpredicted.](./figures/m1.3/guajira_rf.png)
 
 
-## 4 Clasificación No Supervisada
+## 4 Tutorial: Clasificación No Supervisada
 
 Un desafío clave de la clasificación supervisada es definir clases que puedan ser adecuadamente separadas en el espacio espectral de las imágenes. Si las definiciones de las clases no necesitan estar estrictamente definidas con anticipación, es posible permitir que las imágenes encuentren agrupamientos en el espacio espectral, y luego intentar asignarles a estos grupos una etiqueta descriptiva. Ya que datos de entrenamiento etiquetados no se usan para guiar este proceso, se le refiere a este proceso como una clasificación no supervisada. 
 
@@ -581,7 +579,7 @@ Algoritmos de agrupamiento son númerosos. El lector interesado puede consultar 
 
 El método *k*-means utiliza una estrategia de reagrupación iterativa para identificar grupos de píxeles cercanos entre sí en el espacio espectral. El usuario proporciona el número deseado (*k*) de clusters, y el algoritmo distribuye ese número de puntos semilla al espacio espectral. Estas ubicaciones semilla son consideradas puntos de partida de las clases eventuales. La ubicación de estos puntos semilla se predetermina a una ubicación aleatoria en la implementación GEE del algoritmo. Una muestra grande de pixeles en la imagen es asignada a su punto semilla más cercano, y el valor espectral medio de esos pixeles es calculado. Ese valor medio es similar al centro de una masa de puntos, y se le conoce como el centroide. A menos que los puntos que estaban más cerca de un punto semilla estuvieran dispuestos simétricamente alrededor de él, este centroide calculado se moverá ligeramente desde donde comenzó. Todos los píxeles de la imagen ahora se vuelven a adjuntar a los centroides -- a menudo, algunos píxeles cambian de centroide debido al movimiento de los centroides. Cuando el nuevo grupo de píxeles se usa para la calculación del centroide, el nuevo centroide se moverá nuevamente. El proceso se repite hasta que los centroides permanecen relativamente estables y pocos píxeles cambian de una clase a otra en las iteraciones posteriores.
 
-## 4.2 Aplicación de *k*-means en GEE
+### 4.2 Aplicación de *k*-means en GEE
 
 La aplicación en GEE sigue generalmente el mismo flujo de trabajo que el que se utilizó para la clasificación supervisada, excepto que las muestras de entrenamiento se generan al azar en lugar de tomarse de un conjunto de entrenamiento interpretado. Estos no son datos estrictamente de "entrenamiento", ya que no tienen etiquetas. Más bien, son simplemente una submuestra aleatoria del espacio de datos espectrales.
 
@@ -633,7 +631,7 @@ La clasificación supervisada supone qué clases son interesantes o relevantes, 
 
 La clasificación sin supervisión depende completamente de las imágenes y de la separabilidad de las clases. Por lo tanto, puede representar mejor patrones en el paisaje. Pero el etiquetado de esas clases puede no ser útil para el usuario. Además, el método depende completamente del espacio de datos y, por lo tanto, una repetición de los mismos pasos básicos en un conjunto diferente de imágenes para la misma ubicación podría conducir a un mapa diferente.
 
-# 5 Aplicación a otros países de ejemplo
+## 5 Ejemplos Adicionales: Mozambique y Camboya
 
 Aunque trabajar con scripts en GEE exige más de un usuario que una simple interfaz gráfica de usuario, es en la aplicación a nuevas situaciones donde se hace evidente el poder de la plataforma.
 
@@ -654,6 +652,7 @@ var country = countries.filter(ee.Filter.eq('country_na', 'Mozambique'));
 ```
 
 En segundo lugar, identificamos los datos de entrenamiento apropiados, aquí la versión desarrollada en OpenMRV bajo proceso "Recopilación de datos de entrenamiento" y herramienta "QGIS".
+
 ```javascript
 var training_points = ee.FeatureCollection('users/openmrv/MRV/mozambique_training');
 ```
@@ -724,9 +723,8 @@ De hecho, los ejemplos utilizados en este tutorial se limitan a un conjunto muy 
 
 Sin embargo, al desarrollar esquemas de etiquetado de clases más complejos, es importante recordar que 1) para que un clasificador basado en datos espectrales distinga entre píxeles en diferentes clases, esas clases deben ser separables en alguna parte de su dominio de señal, y 2) en cuanto más fino se divida el espacio de datos en muchas clases, menos precisa se espera que sea una clase determinada.
 
-
-
 ------
+
 ![](./figures/m1.1/cc.png)
 
 Este trabajo tiene licencia bajo un [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) 
@@ -735,16 +733,16 @@ Copyright 2021, World Bank
 
 Este trabajo fue desarrollado por Robert E Kennedy bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionadas a la Medida, Reportaje, y Verificación para el apoyo de implementación MRV en varios países. 
 
-Material revisado por:
-Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
-Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
-Kenset Rosales, Guatemala, Ministry of Environment and Natural Resources  
-Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat    
-Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)   
-Raja Ram Aryal, Nepal, Forest Research and Training Centre  
-Sofia Garcia, Guatemala, Ministry of Environment and Natural Resources  
+Material revisado por:  
+Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)    
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources     
+Kenset Rosales, Guatemala, Ministry of Environment and Natural Resources    
+Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat      
+Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)     
+Raja Ram Aryal, Nepal, Forest Research and Training Centre    
+Sofia Garcia, Guatemala, Ministry of Environment and Natural Resources    
 
-Atribución
-Kennedy, Robert E . 2021. Land Cover and Land Use Classification in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+Atribución  
+Kennedy, R. E. 2021. Land Cover and Land Use Classification in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](./figures/m1.1/wb_fcfc_gfoi.png) 
