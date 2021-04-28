@@ -150,27 +150,26 @@ De plus, les utilisateurs avancés pourront
 
 ### 2.1 Pré-requis
 
-*  NOTE : Reportez-vous au processus "Pré-traitement" et à l'outil "GEE" ici sur OpenMRV pour plus d'informations et de ressources pour travailler dans Google Earth Engine et les images composites.
-	  - Obtenir un compte utilisateur
-	  - Manipulation des images dans GEE
-	  - Syntaxe de base des fonctions
-	  - Traitement de base des images, y compris le choix des images, le filtrage des nuages, la mosaïque et la composition.
+* Concepts de Google Earth Engine (GEE
+	* Obtenir un compte utilisateur
+	* Manipulation des images dans GEE
+	* Syntaxe de base des fonctions
+	* Traitement de base des images, y compris le choix des images, le filtrage des nuages, la mosaïque et la composition.
 
+> NOTE : Reportez-vous au processus "Pré-traitement" et à l'outil "GEE" ici sur OpenMRV pour plus d'informations et de ressources pour travailler dans Google Earth Engine et les images composites.
 
-## 3 Démarrage rapide de LandTrendr via une interface graphique sur GEE 
-
+## 3 Tutoriel : Démarrage rapide de LandTrendr via une interface graphique sur GEE 
 
 ### 3.1 Overview
 
 Pour évaluer les choix d'images et de paramètres de LandTrendr, l'interface graphique de LandTrendr est un excellent endroit pour travailler.  L'interface permet un retour d'information rapide sur les choix de fenêtres de date des images, sur les choix de paramètres et sur la réalisation de cartes. 
-
 
 ### 3.2 Mise en place des bibliothèques et de l'interface utilisateur graphique
 L'interface utilisateur graphique (GUI) est fournie par les développeurs de LandTrendr dans le laboratoire eMapR (emapr.ceoas.oregonstate.edu).  Ce tutoriel utilise un snapshot (décembre 2020) de la version actuelle. 
 
 #### 3.2.1 L'interface graphique
 
-Dans le répertoire commun  de ce tutorial sur OpenMRV, trouvez et ouvrez le script nommé : **OpenMRV_français/Part2/ LandTrendr_fr/LT-GEE-Vis-DownLoad-app_WB_v1.0_fr**.  Une fois chargé et exécuté, ce script crée une interface graphique LandTrendr-GEE. 
+Dans le [répertoire commun  de ce tutorial sur OpenMRV](https://code.earthengine.google.com/?accept_repo=users/openmrv/MRV), trouvez et ouvrez le script nommé : **OpenMRV_français/Part2/ LandTrendr_fr/LT-GEE-Vis-DownLoad-app_WB_v1.0_fr**.  Une fois chargé et exécuté, ce script crée une interface graphique LandTrendr-GEE. 
 
 Notez que cette interface graphique nécessite l'accès à deux bibliothèques de fonctions utilitaires : Une qui gère le traitement des images, et une autre qui gère l'interface graphique. Les utilisateurs n'ont pas besoin de modifier quoi que ce soit dans le script pour y accéder, mais il est utile de reconnaître que ces bibliothèques externes sont appelées. Bien que développées à l'origine par le laboratoire eMapR, ces bibliothèques ont été copiées fin 2020 dans le référentiel commun de ce module de formation, pour des raisons de commodité, comme indiqué ci-dessus. 
 
@@ -402,25 +401,16 @@ Examinons l'outil de visualisation RGB.
 
 #### 3.4.1 Charger une zone d'étude à partir de la Colombie
 
-1. Les algorithmes de LandTrendr sont gourmands en calculs et prennent un certain temps pour fonctionner.   Pour des raisons de formation, il est utile de limiter notre analyse à un domaine géographique relativement restreint.  
+Les algorithmes de LandTrendr sont gourmands en calculs et prennent un certain temps pour fonctionner.   Pour des raisons de formation, il est utile de limiter notre analyse à un domaine géographique relativement restreint.  
 
-   Ainsi, la première étape consiste à charger un actif GEE pour définir la zone d'intérêt.  Dans le panneau de contrôle, sélectionnez le menu "Options de superposition des actifs" (Figure P1), et entrez ces valeurs :
+Ainsi, la première étape consiste à charger un actif GEE pour définir la zone d'intérêt.  Dans le panneau de contrôle, sélectionnez le menu "Options de superposition des actifs" (Figure P1), et entrez ces valeurs :
 
-   1. Dans la première case, entrez le chemin d'accès à l'actif :   **utilisateurs/openmrv/MRV/ColombiaRectangle**
-   
-   2. Dans la première case de la section "Définir le nom de la couche", entrez un nom que vous reconnaîtrez lorsqu'il apparaîtra dans les couches de la carte.  "ColombiaRectangle" est un bon choix. 
-   
-   3. Près du bas, **cliquez sur la case à cocher** qui fait de la première couche celle à utiliser pour contraindre les analyses ultérieures. 
-   
-   4. Cliquez sur "Ajouter un actif à la carte". **Add asset to map'**
-   
-      
+1. Dans la première case, entrez le chemin d'accès à l'actif :   **utilisateurs/openmrv/MRV/ColombiaRectangle**
+2. Dans la première case de la section "Définir le nom de la couche", entrez un nom que vous reconnaîtrez lorsqu'il apparaîtra dans les couches de la carte.  "ColombiaRectangle" est un bon choix.    
+3. Près du bas, **cliquez sur la case à cocher** qui fait de la première couche celle à utiliser pour contraindre les analyses ultérieures. 
+4. Cliquez sur "Ajouter un actif à la carte". **Add asset to map'**
 
 ![_figP1_asset_overlay](./figures/_figP1_asset_overlay.png)
-
-
-
-
 
 Figure P1.  Le menu "Asset Overlay Options", utilisé pour ajouter une boîte contraignante à la carte pour une analyse et une visualisation ultérieures. 
 
@@ -429,8 +419,6 @@ Lorsque vous avez effectué ces étapes, la limite de la zone d'intérêt doit a
 > NOTE : Vous pouvez utiliser ce même outil de gestion des actifs pour charger une zone de délimitation différente de votre choix.  La seule contrainte est qu'il doit s'agir d'un actif GEE que vous avez le droit de visualiser.  
 
 ![_fig_colombia_rectangle](./figures/_fig_colombia_rectangle.png)
-
-
 
 #### 3.4.2 Visualisation et interprétation des images ajustées en mode RGB
 
@@ -446,27 +434,21 @@ Si, à l'avenir, vous souhaitez utiliser le mappeur RGB de différentes manière
 
 Une vidéo de base montrant l'outil RGB se trouve ici : https://youtu.be/VSeia3NRa3c
 
-
-
 ![_fig_rgb_menu_instructions](./figures/_fig_rgb_menu_instructions.png)
 
 Cliquez sur "Add RGB Imagery", et attendez patiemment.  Le chargement complet de la zone que nous avons choisie peut prendre une minute.  Quand ce sera fait, vous devriez voir quelque chose comme ceci : 
 
 ![_fig_rgb_change_initial](./figures/_fig_rgb_change_initial.png)
 
+> Remarque : certaines zones du bord gauche de cette zone d'étude présentent des données manquantes (indiquées par la possibilité de voir l'image sous-jacente au lieu des valeurs ajustées).  Ces zones n'ont pas suffisamment d'observations non masquées pour effectuer l'ajustement temporel (le paramètre "observations minimales nécessaires" est une quantité définie par l'utilisateur (section 1.2 ci-dessus).  Il est possible que
 
-
-> Remarque : certaines zones du bord gauche de cette zone d'étude présentent des données manquantes (indiquées par la possibilité de voir l'image sous-jacente au lieu des valeurs ajustées).  Ces zones n'ont pas suffisamment d'observations non masquées pour effectuer l'ajustement temporel (le paramètre "observations minimales nécessaires" est une quantité définie par l'utilisateur (section 2 ci-dessus).  Il est possible que
-
-##### 3.4.2.1 Interprétation des changements comme des couleurs
+##### 3.4.2.2 Interprétation des changements comme des couleurs
 
 Comment interpréter les couleurs ?  Supposons que nous travaillons avec un indice tel que le NBR ou le NDVI où des valeurs élevées indiquent plus de végétation et des valeurs faibles indiquent moins de végétation. 
 
 Tout d'abord, considérons ce qu'est une zone sans couleur, c'est-à-dire une zone qui est noire, blanche ou grise entre les deux.  Si une zone est noire ou blanche, la trajectoire des valeurs spectrales est stable au fil des ans.  Dans le schéma ci-dessous, les lignes noires horizontales représentent trois trajectoires de pixels différentes, toutes parfaitement planes (c'est-à-dire stables dans le temps) :
 
 ![rgb_interp_stable](./figures/rgb_interp_stable.png)
-
-
 
 Si nous avons une perturbation entre les années verte et bleue, cela signifie que l'indice sera élevé dans les couleurs rouge et verte, mais faible dans le bleu.  Selon la théorie de la couleur additive (voir https://en.wikipedia.org/wiki/Additive_color), cela se traduirait par une couleur jaune. 
 
@@ -475,8 +457,6 @@ Si nous avons une perturbation entre les années verte et bleue, cela signifie q
 Si, en revanche, la perturbation s'est produite avant l'année verte et qu'il n'y a pas eu beaucoup de reprise avant l'année bleue, nous aurions des valeurs élevées, principalement en rouge. 
 
 ![rgb_interp_red](./figures/rgb_interp_red.png)
-
-
 
 S'il y avait une régénération au moment de l'année bleue, alors il y aurait beaucoup de rouge et de bleu, ce qui donnerait une certaine nuance de violet ou de magenta
 
@@ -506,13 +486,11 @@ Maintenant, vous pouvez cliquer dans l'image RGB pour voir à quoi ressemblent l
 
 Tout d'abord, regardez quelques pixels dans la large bande de bleu :
 
-<img src="./figures/_fig_rgb_with_blue_arrowed.png" alt="_fig_rgb_with_blue_arrowed" style="zoom:80%;" />
-
-
+![_fig_rgb_with_blue_arrowed](./figures/_fig_rgb_with_blue_arrowed.png)
 
 Voici la série chronologique d'un de ces événements dans cette région : 
 
-<img src="./figures/rgb_pixel_bluezone.png" alt="rgb_pixel_bluezone" style="zoom:100%;" />
+![rgb_pixel_bluezone](./figures/rgb_pixel_bluezone.png)
 
 Comme le suggère notre guide d'interprétation des couleurs ci-dessus, la ligne ajustée (en rouge) augmente tout au long de la série chronologique.   Mais nous pouvons voir que cela, comme un exemple dans la section 3.3, est le résultat de l'algorithme qui a été déclenché par des problèmes apparents dans la première année de la série temporelle.  
 
@@ -522,7 +500,7 @@ Une autre zone où les motifs spatiaux des couleurs de l'image RGB ne correspond
 
 Zoomez sur l'une des bandes violettes et cliquez dessus.  
 
-> NB : lorsque vous modifiez l'étendue de l'image, GEE recalculera l'image ajustée, alors soyez patient ! 
+> Note : lorsque vous modifiez l'étendue de l'image, GEE recalculera l'image ajustée, alors soyez patient ! 
 
 En voici un exemple :
 
@@ -626,8 +604,6 @@ En zoomant sur la région de la moitié est de l'image, il apparaît que les pro
 
 ![_fig_newparams_easternzone_stable](./figures/_fig_newparams_easternzone_stable.png)
 
-
-
 #### 3.5.3 Explorer les impacts des paramètres d'ajustement
 
 L'impact de la modification des paramètres d'ajustement de LandTrendr varie selon les pays en raison des différences de densité des archives d'images, des conditions de nuages et de phénologie, et du type de forêt et du processus de changement de la forêt.  Par conséquent, la meilleure approche pour voir comment les paramètres d'ajustement des images fonctionnent est de simplement expérimenter la modification des paramètres et d'évaluer l'impact en utilisant le panneau d'options de séries chronologiques de pixels.  
@@ -670,8 +646,6 @@ Dans le cas de notre pixel test, le réglage du seuil **p-value=0,15** semble en
 
 ![col_traj_353_pval15](./figures/col_traj_353_pval15.png)
 
-
-
 ##### Best-model proportion (meilleure proportion du modèle)
 
 Lorsqu'il est fixé à une valeur inférieure à 1,0, ce paramètre permet de choisir des ajustements plus complexes même s'ils n'ont pas la meilleure valeur p.  Notre valeur par défaut était de 0,75, et le fait de définir la **meilleure proportion du modèle=1,0** ne modifie pas l'ajustement de ce pixel particulier par rapport à notre point de départ :
@@ -683,8 +657,6 @@ Dans la pratique, ce paramètre a rarement des impacts importants.
 Cependant, il peut fonctionner avec d'autres paramètres pour provoquer une légère modification de l'ajustement. Par exemple, le fait de fixer le seuil de la valeur p à 0,15 et la proportion du meilleur modèle à 1,0 entraîne un ajustement légèrement différent : 
 
 ![col_traj_353_bestmodel1_pval15](./figures/col_traj_353_bestmodel1_pval15.png)
-
-
 
 ### 3.6 Cartographie des perturbations
 
@@ -734,8 +706,7 @@ Le seuil de changement peut être rendu plus strict afin d'éviter ces cartograp
 
 Cependant, l'étape finale de l'évaluation a lieu lorsque des données indépendantes sont utilisées pour évaluer la précision de la carte finale.  Explorer les impacts des paramètres d'ajustement,ceci est abordé ici sur OpenMRV dans le processus "Estimation de la superficie / Évaluation de la précision".
 
-## 4 Mise en œuvre avancée de LandTrendr en utilisant Javascript
-
+## 4 Tutoriel: Mise en œuvre avancée de LandTrendr en utilisant Javascript
 
 ### 4.1 Vue d'ensemble
 Bien que de nombreux utilisateurs puissent trouver leurs besoins satisfaits grâce à l'interface graphique, les utilisateurs intermédiaires ou avancés peuvent souhaiter mettre en œuvre LT directement par le biais de scripts.  Cette section présente les principales fonctionnalités de LT telles qu'elles sont gérées par les scripts.    
@@ -869,8 +840,6 @@ Démarrez QGIS (ou tout autre logiciel similaire de type SIG pouvant visualiser 
 
 Nous recommandons de visualiser le fichier une couche à la fois.  Vous trouverez ci-dessous un exemple de visualisation de la première couche - '"Year of detection, ou "yod".  Nous avons utilisé une palette de couleurs pour montrer la perturbation de 1999 à 2020 :  
 
-
-
 ![_fig_qgis_console_yod](./figures/_fig_qgis_console_yod.png)
 
 ##### Examiner l'année et le degré de perturbation 
@@ -918,15 +887,15 @@ Un bref traitement de chaque argument suit.
 
 ##### **Fenêtres temporelles** (**Temporal windows**)
 
-Les variables "startYear" et "endYear" sont des variables numériques qui définissent la période pour laquelle une collection d'images sera construite.  Le simple fait de définir ces années ne garantit pas que les images de toutes les années soient disponibles ; en effet, dans de nombreuses régions du monde, il y a des lacunes dans les archives Landsat.  Si, par exemple, votre région ne dispose pas d'images avant 1999, le fait de fixer l'année de départ à 1984 ne fera pas planter l'algorithme, mais il commencera sa série chronologique en 1999.  
+Les variables `startYear` et `endYear` sont des variables numériques qui définissent la période pour laquelle une collection d'images sera construite.  Le simple fait de définir ces années ne garantit pas que les images de toutes les années soient disponibles ; en effet, dans de nombreuses régions du monde, il y a des lacunes dans les archives Landsat.  Si, par exemple, votre région ne dispose pas d'images avant 1999, le fait de fixer l'année de départ à 1984 ne fera pas planter l'algorithme, mais il commencera sa série chronologique en 1999.  
 
-Les variables "startDay" et "endDay" sont des chaînes de dates qui définissent les périodes de chaque année à partir desquelles on peut construire des images composites. Elles sont définies en utilisant le format GEE avec deux chiffres pour le mois et le jour séparés par un trait d'union, par exemple "04-01" correspond au 1er avril.  
+Les variables `startDay` et `endDay` sont des chaînes de dates qui définissent les périodes de chaque année à partir desquelles on peut construire des images composites. Elles sont définies en utilisant le format GEE avec deux chiffres pour le mois et le jour séparés par un trait d'union, par exemple `04-01` correspond au 1er avril.  
 
 La composition d'images est effectuée en utilisant la stratégie médoïde (discutée plus en détail ci-dessous) et donne une image par an à partir de la période indiquée par ces dates. 
 
 ##### **Zone d'intérêt** (**Area of interest**)
 
-L'argument "aoi" est une variable correspondant à une "ee.FeatureCollection" qui définit la région géographique d'intérêt pour le traitement.  
+L'argument `aoi` est une variable correspondant à une `ee.FeatureCollection` qui définit la région géographique d'intérêt pour le traitement.  
 
 La définition d'une telle variable de collection de caractéristiques à partir d'un actif GEE est réalisée avec une déclaration telle que la suivante : 
 
@@ -950,11 +919,11 @@ Actuellement, les indices suivants sont inclus :
 | TCB, TCG, TCW          | Tasseled-cap La brillance, la verdeur et l'humidité du bouchon sont calculées à l'aide de la réflectance                                                                                                                                les coefficients de Landsat 5 tels que documentés à l'origine par Crist (1985).  Voir la variable `tcTransform` dans la bibliothèque Javascript de LandTrendr. |
 | TCA                    | L'"angle" de Tasseled-cap, défini comme l'angle entre TCB et TCG.  Défini à l'origine par Powell et al. (2010) ; une valeur plus élevée indique plus de végétation. |
 
-La variable "index" est suivie d'une variable de liste qui comprend une liste d'indices spectraux pour lesquels la stratégie "fit to vertex" (FTV) serait employée.  L'approche FTV n'est pas nécessaire pour la détection de base des changements, mais peut être utilisée pour la cartographie de la couverture terrestre.  Pour plus de détails, voir Kennedy et al. (2018).  Pour laisser la variable en blanc, utilisez la liste vide comme suit : `[]`.
+La variable `index` est suivie d'une variable de liste qui comprend une liste d'indices spectraux pour lesquels la stratégie "fit to vertex" (FTV) serait employée.  L'approche FTV n'est pas nécessaire pour la détection de base des changements, mais peut être utilisée pour la cartographie de la couverture terrestre.  Pour plus de détails, voir Kennedy et al. (2018).  Pour laisser la variable en blanc, utilisez la liste vide comme suit : `[]`.
 
 ##### **Paramètres d'ajustement**
 
-L'algorithme LT est contrôlé par l'ajustement des paramètres décrits à la section 3.5.1 ci-dessus.  La variable "runParams" est un objet du dictionnaire qui est défini dans le script appelant.  Un exemple dans le script LandTrendr Greatest Disturbance est le suivant : 
+L'algorithme LT est contrôlé par l'ajustement des paramètres décrits à la section 3.5.1 ci-dessus.  La variable `runParams` est un objet du dictionnaire qui est défini dans le script appelant.  Un exemple dans le script LandTrendr Greatest Disturbance est le suivant : 
 
 ```javascript
 var runParams = { 
@@ -973,9 +942,9 @@ var runParams = {
 
 ##### **Masking**
 
-Lors de la constitution des collections d'images qui sont transmises à l'algorithme, différents types de conditions peuvent être signalés et masqués.  La variable "maskThese" est une liste avec des chaînes de caractères pour indiquer les types de conditions à signaler.  
+Lors de la constitution des collections d'images qui sont transmises à l'algorithme, différents types de conditions peuvent être signalés et masqués.  La variable `maskThese` est une liste avec des chaînes de caractères pour indiquer les types de conditions à signaler.  
 
-Dans la bibliothèque Javascript LandTrendr, ces conditions sont gérées dans la fonction "getSRcollection".  Les options suivantes sont valables.
+Dans la bibliothèque Javascript LandTrendr, ces conditions sont gérées dans la fonction `getSRcollection`.  Les options suivantes sont valables.
 
 | Code du masque                     | Description                                                  |
 | ---------------------------------- | ------------------------------------------------------------ |
@@ -1010,13 +979,13 @@ Deux étapes séquentielles sont nécessaires. Tout d'abord, la fonction `buildS
 
 ##### Fonctions pour construire une collection d'images composites
 
-La fonction "buildSRcollection" analyse les données saisies par l'utilisateur, puis passe en boucle toutes les années de la collection, en appelant la fonction "buildMosaic" chaque année pour créer une collection d'images avec une seule image par an. 
+La fonction `buildSRcollection` analyse les données saisies par l'utilisateur, puis passe en boucle toutes les années de la collection, en appelant la fonction `buildMosaic` chaque année pour créer une collection d'images avec une seule image par an. 
 
-L'objectif principal de la fonction "buildMosaic" est d'appeler la fonction "getCombinedSRcollection" pour construire une collection multi-capteurs d'images Landsat de réflectance de surface pour une seule année, puis d'utiliser la fonction "medoidMosaic" pour créer une image composite pour cette année.  
+L'objectif principal de la fonction `buildMosaic` est d'appeler la fonction `getCombinedSRcollection` pour construire une collection multi-capteurs d'images Landsat de réflectance de surface pour une seule année, puis d'utiliser la fonction `medoidMosaic` pour créer une image composite pour cette année.  
 
-Pour créer la collection d'images de réflectance de surface, la fonction "getCombinedSRcollection" appelle la fonction "getSRcollection" séparément pour le cartographe thématique Landsat 5, le cartographe thématique amélioré Landsat 7+ et l'imageur opérationnel Landsat 8, puis fusionne les collections. 
+Pour créer la collection d'images de réflectance de surface, la fonction `getCombinedSRcollection` appelle la fonction `getSRcollection` séparément pour le cartographe thématique Landsat 5, le cartographe thématique amélioré Landsat 7+ et l'imageur opérationnel Landsat 8, puis fusionne les collections. 
 
-Ainsi, pour comprendre d'où viennent les valeurs des images, **il faut comprendre la fonction de base** :  la "collection GetSR".  Cette fonction d'environ 80 lignes de code GEE filtre l'ensemble de la collection Landsat à la période appropriée, applique des coefficients de correction à l'imagerie Landsat 8 pour harmoniser la réflectance avec les capteurs précédents, et applique les masques définis par l'utilisateur (voir ci-dessus). 
+Ainsi, pour comprendre d'où viennent les valeurs des images, **il faut comprendre la fonction de base** :  la `getSRcollection`.  Cette fonction d'environ 80 lignes de code GEE filtre l'ensemble de la collection Landsat à la période appropriée, applique des coefficients de correction à l'imagerie Landsat 8 pour harmoniser la réflectance avec les capteurs précédents, et applique les masques définis par l'utilisateur (voir ci-dessus). 
 
 Certaines décisions clés sont encapsulées dans ce code :
 
@@ -1068,15 +1037,13 @@ var changeParams = {
 };
 ```
 
-- Ci-dessous, nous décortiquons comment la fonction `getChangeMap` traduit un objet LT en cartes de perturbations. La séquence générale est la suivante : 
+Ci-dessous, nous décortiquons comment la fonction `getChangeMap` traduit un objet LT en cartes de perturbations. La séquence générale est la suivante : 
 
-  - Extraire les informations sur les segments à partir des informations sur les sommets
-  - Identifier le segment cible en fonction des caractéristiques souhaitées
-  - Construire une image avec des couches correspondant à l'année du changement, à l'ampleur du changement, etc. 
-  - Filtrer par l'année cible, la magnitude, la durée et les valeurs de pré-changement
-  - Filtrer par unité cartographique minimale de pixels adjacents
-
-
+- Extraire les informations sur les segments à partir des informations sur les sommets
+- Identifier le segment cible en fonction des caractéristiques souhaitées
+- Construire une image avec des couches correspondant à l'année du changement, à l'ampleur du changement, etc. 
+- Filtrer par l'année cible, la magnitude, la durée et les valeurs de pré-changement
+- Filtrer par unité cartographique minimale de pixels adjacents
 
 ### 5.3.1 Extraction de l'information par segment
 
@@ -1092,7 +1059,7 @@ var segInfo = getSegmentData(lt, changeParams.index, changeParams.delta);
 
 Pour comprendre comment l'information de vertex est traduite en information de segment, considérez que chaque segment est délimité par deux sommets. Le caractère du segment lui-même est décrit par l'année et la valeur spectrale du sommet de départ (la condition "avant changement"), l'année et la valeur spectrale du sommet de fin (la condition "après changement"), ainsi que par la différence de temps entre les sommets limitrophes (la "durée") et la différence de valeur spectrale des sommets limitrophes (la "magnitude").  Ainsi, pour construire des informations sur les segments, nous devons considérer les caractéristiques des deux sommets individuels à chaque extrémité du segment, ainsi que les relations entre eux.  Ceci est réalisé par une série de manipulations de tableaux des informations sur les sommets renvoyées par l'algorithme LT dans l'objet LT. 
 
-Comme indiqué dans la section 2.3.1, l'objet LT renvoyé par la fonction LT est au moins une image à deux bandes par pixel. La première bande est appelée la bande "LandTrendr", et est elle-même un tableau de taille 4 x *n*, où *n* est le nombre d'années dans la série temporelle. La deuxième bande est un scalaire représentant la moyenne quadratique totale (RMSE) de l'ajustement. Une troisième bande facultative apparaît si l'utilisateur a transmis des données pour le processus de TVF ; nous ne traitons pas cette troisième bande ici.  
+Comme indiqué dans la section 1.3.1, l'objet LT renvoyé par la fonction LT est au moins une image à deux bandes par pixel. La première bande est appelée la bande "LandTrendr", et est elle-même un tableau de taille 4 x *n*, où *n* est le nombre d'années dans la série temporelle. La deuxième bande est un scalaire représentant la moyenne quadratique totale (RMSE) de l'ajustement. Une troisième bande facultative apparaît si l'utilisateur a transmis des données pour le processus de TVF ; nous ne traitons pas cette troisième bande ici.  
 
 La traduction des informations sur les sommets en opérations de segments se concentre sur la bande 4 x *n* LandTrendr de l'objet LT. Le code complet est reproduit ici, avec des commentaires décrivant chaque morceau.  En bref, les sommets sont extraits de la ligne de sommets, puis convertis en deux listes de sommets (`leftList` et `rightList`), l'une décalée par rapport à l'autre. Ces listes sont ensuite manipulées pour obtenir les résultats souhaités.  
 
@@ -1137,13 +1104,13 @@ var ltlt = lt.select('LandTrendr');          // sélectionnez la bande LandTrend
   var dsnr = mag.divide(rmse);              
 ```
 
-L'utilisateur avancé est renvoyé à un traitement détaillé de la manière d'interpréter et de manipuler les données relatives aux sommets, qui figure dans la [section 5 du guide LT-GEE GitHub)(https://emapr.github.io/LT-GEE/lt-gee-outputs.html)  
+L'utilisateur avancé est renvoyé à un traitement détaillé de la manière d'interpréter et de manipuler les données relatives aux sommets, qui figure dans la [section 5 du guide LT-GEE GitHub](https://emapr.github.io/LT-GEE/lt-gee-outputs.html)
 
 ##### Filtrage par perte ou gain
 
 Une fois que les caractéristiques de chaque segment ont été calculées, la routine `getSegmentData` filtre ensuite ces segments selon que l'utilisateur demande une "perte" ou un "gain" de végétation (via la variable de chaîne `changeParams.delta`). La direction du changement associée à ces segments dépend de l'indice spectral.  Pour les indices tels que le NDVI, le NBR ou la verdeur de la calotte de Tasseled, une réduction de la valeur de l'indice est associée à une perte de végétation.  Pour les indices tels que la bande SWIR1 ou l'indice de luminosité Tasseled-cap, une *augmentation* de la valeur de l'indice est associée à une perte de végétation.  
 
-La direction du changement est définie dans la fonction "indexFlipper". Comme l'algorithme LandTrendr a été défini à l'origine en utilisant la bande SWIR1, la fonction indexFlipper attribue un 1 positif à la bande SWIR1 et aux bandes similaires, et un 1 négatif (-1) aux indices tels que le NDVI.  Les parties pertinentes de la fonction sont reproduites ici à titre de référence : 
+La direction du changement est définie dans la fonction `indexFlipper`. Comme l'algorithme LandTrendr a été défini à l'origine en utilisant la bande SWIR1, la fonction indexFlipper attribue un 1 positif à la bande SWIR1 et aux bandes similaires, et un 1 négatif (-1) aux indices tels que le NDVI.  Les parties pertinentes de la fonction sont reproduites ici à titre de référence : 
 
 ```javascript
 var indexFlipper = function(index){
@@ -1158,7 +1125,7 @@ Notez que pour certaines bandes, la direction du changement de la végétation n
 
 ##### Résultats
 
-Le résultat de l'appel à "getSegmentData" est un "ee.Array" avec les lignes suivantes : 
+Le résultat de l'appel à `getSegmentData` est un `ee.Array` avec les lignes suivantes : 
 
 | Rang | Nom       | Description                                                  |
 | ---- | --------- | ------------------------------------------------------------ |
@@ -1179,11 +1146,11 @@ Chaque ligne contient autant de colonnes qu'il y a de segments qui répondent au
 
 Comme indiqué à la section 3.5, la cartographie exige qu'un seul segment soit identifié. Comme il y a souvent plus d'un segment de perte ou de gain, nous devons identifier le segment à cibler pour la cartographie. En outre, nous souhaitons souvent ignorer les segments qui ne dépassent pas des seuils spécifiques, par exemple en ce qui concerne le moment, la durée ou l'ampleur du changement.  Les différentes caractéristiques de chaque segment peuvent être utilisées pour déterminer s'il est le plus approprié pour la cartographie.  
 
-Dans la fonction "getChangeMap", l'identification du segment cible est traitée en deux grandes étapes. Tout d'abord, le `ee.Array` renvoyé par l'appel à `getSegmentData` est trié en fonction de l'ampleur, du moment ou de la durée du segment, et le résultat le mieux classé est identifié comme étant le segment cible.  Ensuite, ce segment cible est filtré en fonction de seuils numériques.  
+Dans la fonction `getChangeMap`, l'identification du segment cible est traitée en deux grandes étapes. Tout d'abord, le `ee.Array` renvoyé par l'appel à `getSegmentData` est trié en fonction de l'ampleur, du moment ou de la durée du segment, et le résultat le mieux classé est identifié comme étant le segment cible.  Ensuite, ce segment cible est filtré en fonction de seuils numériques.  
 
-##### triage
+##### Triage
 
-L'étape de tri permet d'évaluer les segments en fonction de plusieurs caractéristiques. Un cas d'utilisation courant serait de rechercher le segment de perturbation (avec "perte") qui a eu la plus grande magnitude de changement spectral, car cela peut indiquer la perturbation la plus grave subie par le pixel.  On peut aussi s'intéresser au segment qui a connu une croissance végétative ("gain") pendant la plus longue période.  Ou encore, nous pouvons nous intéresser uniquement à la perturbation la plus récente.  Chacun de ces éléments peut être exprimé sous la forme d'un classement de magnitude ou de temps du segment, et ils sont stockés dans la variable "changeParams.sort".  Les descriptions des critères de tri saisis dans cette variable sont fournies ci-dessous. 
+L'étape de tri permet d'évaluer les segments en fonction de plusieurs caractéristiques. Un cas d'utilisation courant serait de rechercher le segment de perturbation (avec "perte") qui a eu la plus grande magnitude de changement spectral, car cela peut indiquer la perturbation la plus grave subie par le pixel.  On peut aussi s'intéresser au segment qui a connu une croissance végétative ("gain") pendant la plus longue période.  Ou encore, nous pouvons nous intéresser uniquement à la perturbation la plus récente.  Chacun de ces éléments peut être exprimé sous la forme d'un classement de magnitude ou de temps du segment, et ils sont stockés dans la variable `changeParams.sort`.  Les descriptions des critères de tri saisis dans cette variable sont fournies ci-dessous. 
 
 | Name             | Description                                                  |
 | ---------------- | ------------------------------------------------------------ |
@@ -1204,33 +1171,28 @@ var distImg = ee.Image.cat(distArray.arraySlice(0,0,1).arrayProject([1]).arrayFl
 
 
 
-Ces bandes sont dérivées d'un sous-ensemble des valeurs du "ee.Array".    Les descriptions suivent celles qui sont indiquées au point 5.3.1 ci-dessus, avec "yod" remplacé par "startYear" et "preval" par "startVal".  Pour rappel, la variable "yod" n'est pas l'année du sommet au début du segment, mais plutôt cette année *plus un*, pour refléter le fait que le changement de direction du segment n'est évident qu'après qu'une année se soit écoulée depuis le sommet initial. 
+Ces bandes sont dérivées d'un sous-ensemble des valeurs du `ee.Array`.    Les descriptions suivent celles qui sont indiquées au point 5.3.1 ci-dessus, avec "yod" remplacé par "startYear" et "preval" par "startVal".  Pour rappel, la variable "yod" n'est pas l'année du sommet au début du segment, mais plutôt cette année *plus un*, pour refléter le fait que le changement de direction du segment n'est évident qu'après qu'une année se soit écoulée depuis le sommet initial. 
 
 ##### Filtrage et seuil
 
-L'image après tri est adaptée à la cartographie si vous le souhaitez, chaque bande étant affichée séparément.  Cependant, nous souhaitons généralement filtrer davantage la carte en fonction de critères du processus de changement.  Une fois que le segment cible a été identifié et qu'une image provisoire a été produite, les étapes du "getChangeMap" peuvent être utilisées pour filtrer la carte et en définir le seuil. 
+L'image après tri est adaptée à la cartographie si vous le souhaitez, chaque bande étant affichée séparément.  Cependant, nous souhaitons généralement filtrer davantage la carte en fonction de critères du processus de changement.  Une fois que le segment cible a été identifié et qu'une image provisoire a été produite, les étapes du `getChangeMap` peuvent être utilisées pour filtrer la carte et en définir le seuil. 
 
-Ces étapes comprennent le filtrage par "yod", par "mag" et par "dur".  Par exemple, les récoltes forestières pourraient être ciblées en choisissant uniquement les changements qui dépassent un seuil de magnitude de changement, qui sont de courte durée, et qui ont une valeur de pré-perturbation supérieure à une certaine valeur. 
+Ces étapes comprennent le filtrage par `yod`, par `mag` et par `dur`.  Par exemple, les récoltes forestières pourraient être ciblées en choisissant uniquement les changements qui dépassent un seuil de magnitude de changement, qui sont de courte durée, et qui ont une valeur de pré-perturbation supérieure à une certaine valeur. 
 
-En outre, le filtre "mmu" permet de supprimer les groupes de pixels plus petits que la valeur indiquée par la valeur "mmu" (en pixels).   Les groupes de pixels sont ceux qui partagent le même "yod".   
+En outre, le filtre `mmu` permet de supprimer les groupes de pixels plus petits que la valeur indiquée par la valeur `mmu` (en pixels).   Les groupes de pixels sont ceux qui partagent le même "yod".   
 
 ##### Sorties
 
 Le résultat de la fonction `getChangeMap` est l'image de la perturbation avec les couches notées dans la section 4 ci-dessus. 
 
-## 6 Mise en application de LandTrendr au Mozambique et au Cambodge
+## 6 Autres exemples : Mozambique et Cambodge
 
 Lors de la mise en œuvre de la détection des changements des forêts LandTrendr dans une nouvelle zone, les mêmes questions décrites dans la section 3 ci-dessus doivent être prises en compte.  Il s'agit notamment des points suivants
 
 - La profondeur historique de l'imagerie Landsat
-
 - Plages de dates intra-annuelles utilisées pour construire des images composites
-
 - Pertinence d'un indice spectral donné pour les types de forêts concernés
-
 - Processus de changement d'intérêt
-
-  
 
 ### 6.1 Mozambique
 
@@ -1274,8 +1236,6 @@ En avançant légèrement les dates dans l'année, on obtient une pile RGB ajust
 
 ![_fig_moz_march_oct_RGB_studyarea](./figures/_fig_moz_march_oct_RGB_studyarea.png)
 
-
-
 #### 6.1.3 Explorer les archives d'images et les mécanismes de changement
 
 Avec l'image RGB en arrière-plan, considérez les dimensions temporelles du changement au Mozambique.  Nous cherchons à comprendre les modèles spatiaux de changement évidents dans l'image RGB, et vérifions que les archives d'images sont suffisantes pour la série initiale d'années d'imagerie.  L'interface "Pixel Time Series Options" est un excellent outil pour explorer ces questions. 
@@ -1311,11 +1271,9 @@ L'interprétation des processus à l'origine de ces modèles serait plus facile 
 
 Les preuves de la déforestation provoquée anthropique semblent être plus nombreuses dans la région autour de la colonie de Nicuadala, où les processus d'abattage se déplacent vers l'extérieur en un anneau presque concentrique, loin de la zone centrale de la colonie. Les trajectoires d'enlèvement au début de la série chronologique semblent rester faibles et assez variables d'une année à l'autre, ce qui suggère une transition soutenue vers l'abandon de l'état boisé. 
 
-
-
 ![_fig_moz_nicuadala](./figures/_fig_moz_nicuadala.png)
 
-### 6.2 Cambodia
+### 6.2 Cambodge
 
 Dans la section 6.1, nous avons abordé les sujets clés du passage de notre exploration initiale en Colombie à un nouveau lieu.  Ici, nous ne mettons en évidence que les questions qui diffèrent lors d'une exploration initiale de la cartographie des perturbations au Cambodge.  
 
@@ -1347,8 +1305,7 @@ De l'autre côté de la frontière, dans la province de Steung Treng, à l'ouest
 
 Comme pour la Colombie et le Mozambique, la segmentation temporelle pourrait être transformée en cartes de l'année de perturbation, de l'ampleur de la perturbation et de la durée de la perturbation. 
 
-# 7 FAQ
-
+# 7 Foire aux questions
 
 **Comment choisir les paramètres d'ajustement ?  Y a-t-il une approche automatisée ?**
 
@@ -1364,8 +1321,6 @@ Il n'existe actuellement aucun moyen automatisé de choisir les paramètres.  Ce
 
 La puissance de toute méthode de séries temporelles réside dans sa capacité à exploiter de multiples observations pour examiner les modèles réels et faux.  Au milieu de la série temporelle, le bruit résiduel provoque des blips dans le signal source, mais comme ils reviennent à la "normale" après le blip, l'algorithme les comprend comme du bruit.  Cependant, pour les blips qui se produisent au début ou à la fin de la série temporelle, il n'y a pas de données au-delà du blip pour aider à déterminer si le bruit est réel ou non.  Ainsi, l'algorithme peut le plus souvent créer des faux positifs au début et à la fin de la série temporelle.  
 
-
-
 **Il y a certains endroits où le bruit est persistant et où il n'y a pas de données.  Que puis-je faire ?**
 
 La première option consiste à modifier la fenêtre de date envisagée pour la constitution des collections d'images.  Il est possible que vous ayez choisi une fenêtre de date qui est soit 1) plus centrée sur la saison des nuages, soit 2) trop étroite pour trouver des pixels sans nuages.  
@@ -1380,27 +1335,21 @@ Peut-être.  En principe, l'algorithme LandTrendr ne se soucie pas du signal que
 
 Le mixage des types de capteurs peut être très difficile.  Il faut un prétraitement qui place toutes les mesures exactement à la même échelle.  Même la transition de Landsat 8 à Landsats 7 et 5 est délicate car les passages de bande des capteurs sont légèrement différents.  Ainsi, bien qu'il ne soit pas théoriquement impossible de réunir les images de Sentinel-2 et de Landsat, en pratique, les étapes de prétraitement sont probablement assez difficiles.  
 
-
-
 ## 8 References
 
-Crist, E. P. 1985, A TM tasseled cap equivalent transformation for re􏰝flectance factor data. __Remote Sensing of Environment__, 17: 301–306.
+Crist, E.P., 1985. A TM tasseled cap equivalent transformation for reflectance factor data. *Remote Sensing of Environment*, *17*(3), pp.301-306. https://doi.org/10.1016/0034-4257(85)90102-6
 
-Kennedy, Robert E.; Yang, Zhiqiang; Cohen, Warren B.  2010, Detecting trends in forest disturbance and recovery using yearly Landsat time series: 1. LandTrendr - Temporal segmentation algorithms. **Remote Sensing of Environment** 114(12): 2897-2910.
+Kennedy, R.E., Yang, Z. and Cohen, W.B., 2010. Detecting trends in forest disturbance and recovery using yearly Landsat time series: 1. LandTrendr—Temporal segmentation algorithms. *Remote Sensing of Environment*, *114*(12), pp.2897-2910. https://doi.org/10.1016/j.rse.2010.07.008
 
-Cohen, Warren B; Yang, Zhiqiang; Kennedy, Robert E.  2010, Detecting trends in forest disturbance and recovery using yearly Landsat time series: 2. TimeSync - Tools for calibration and validation. **Remote Sensing of Environment** 114(12): 2911-2924.
+Cohen, W.B., Yang, Z. and Kennedy, R., 2010. Detecting trends in forest disturbance and recovery using yearly Landsat time series: 2. TimeSync—Tools for calibration and validation. *Remote Sensing of Environment*, *114*(12), pp.2911-2924. https://doi.org/10.1016/j.rse.2010.07.010
 
-Cohen, Warren B; Yang, Zhiqiang; Healey, Sean P.; Kennedy, Robert E.; Gorelick, Noel. 2018, A LandTrendr multispectral ensemble for forest disturbance detection. **Remote Sensing of Environment** 205: 131-140. 
+Cohen, W.B., Yang, Z., Healey, S.P., Kennedy, R.E. and Gorelick, N., 2018. A LandTrendr multispectral ensemble for forest disturbance detection. *Remote Sensing of environment*, *205*, pp.131-140. https://doi.org/10.1016/j.rse.2017.11.015
 
-Kennedy, Robert E.; Ohmann, Janet; Gregory, Matt; Roberts, Heather; Yang, Zhiqiang; Bell, David M.; Hughes, M. Joseph; Cohen, Warren B.; Powell, Scott. 2018, An empirical, integrated forest biomass monitoring system. __Environ. Res. Lett.__ 13: 025004
+Kennedy, R.E., Ohmann, J., Gregory, M., Roberts, H., Yang, Z., Bell, D.M., Kane, V., Hughes, M.J., Cohen, W.B., Powell, S. and Neeti, N., 2018. An empirical, integrated forest biomass monitoring system. *Environmental Research Letters*, *13*(2), p.025004. https://doi.org/10.1088/1748-9326/aa9d9e
 
-Powell, S.L.; Cohen, W.B.; Healey, S.P.; Kennedy, R.E.; Moisen, G.G.; Pierce, K.B.; Pierce, K.B.; Ohmann, J.L., 2010, Quantification of live aboveground forest biomass dynamics with Landsat time-series and field inventory data: A comparison of empirical modelling approaches. __Remote Sens. Environ.__ **2010**, 114: 1053–1068.
+Powell, S.L., Cohen, W.B., Healey, S.P., Kennedy, R.E., Moisen, G.G., Pierce, K.B. and Ohmann, J.L., 2010. Quantification of live aboveground forest biomass dynamics with Landsat time-series and field inventory data: A comparison of empirical modeling approaches. *Remote Sensing of Environment*, *114*(5), pp.1053-1068. https://doi.org/10.1016/j.rse.2009.12.018
 
-Roy, D.P., Kovalskyy, V., Zhang, H.K., Vermote, E.F., Yan, L., Kumar, S.S, Egorov, A., 2016, Characterization of Landsat-7 to Landsat-8 reflective wavelength and normalized difference vegetation index continuity, Remote Sensing of Environment, 185, 57-70.(http://dx.doi.org/10.1016/j.rse.2015.12.024)
-
-
-
-
+Roy, D.P., Kovalskyy, V., Zhang, H.K., Vermote, E.F., Yan, L., Kumar, S.S. and Egorov, A., 2016. Characterization of Landsat-7 to Landsat-8 reflective wavelength and normalized difference vegetation index continuity. *Remote Sensing of Environment*, *185*, pp.57-70. http://dx.doi.org/10.1016/j.rse.2015.12.024
 
 -----
 
@@ -1408,11 +1357,7 @@ Roy, D.P., Kovalskyy, V., Zhang, H.K., Vermote, E.F., Yan, L., Kumar, S.S, Egoro
 
 This work is licensed under a [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/) 
 
-
-
 Copyright 2021, World Bank 
-
-
 
 Ce travail a été développé par Robert E Kennedy dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte des ressources existantes - liées à la mesure, la notification et la vérification afin de soutenir la mise en œuvre du MRV par les pays. 
 
@@ -1424,10 +1369,7 @@ Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat
 Raja Ram Aryal, Nepal, Forest Research and Training Centre  
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat 
 
-
-
-Attribution
-Kennedy, Robert E . 2021. Change detection with LandTrendr in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
-
+Attribution  
+Kennedy, R. E. 2021. Change detection with LandTrendr in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](figures/wb_fcfc_gfoi.png)
