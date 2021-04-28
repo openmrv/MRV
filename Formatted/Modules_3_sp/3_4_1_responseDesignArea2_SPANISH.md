@@ -28,11 +28,10 @@ group:
 # Diseño de Respuesta en AREA2 
 
 ## 1 Contexto
-En este tutorial, aprenderá a determinar las condiciones de referencia examinando un conjunto de datos de referencia en ubicaciones de las unidades de un conjunto de datos de muestra utilizando AREA2. Este conjunto de datos de muestra tendrá cuatro estratos: bosque, no bosque, perturbación del bosque y una zona de amortiguamiento alrededor de la perturbación del bosque. El objetivo es estimar el área de perturbación forestal; en consecuencia, aprenderá a recopilar observaciones de referencia de bosques, no bosques y perturbaciones forestales. También puede utilizar otras herramientas para lograr esto. Puede encontrar más tutoriales aquí sobre OpenMRV en "Recopilación de datos de muestra" y herramientas "CE" y "CEO".
 
 AREA2, abreviatura de Area Estimation & Accuracy Assessment (Estimación de Area y de Precisión de Mapa), es una aplicación de Google Earth Engine que brinda soporte integral para muestreo y estimación en un marco de inferencia basado en diseño. Para obtener más información sobre AREA2, consulte https://area2.readthedocs.io/en/latest/. 
 
-El diseño de respuesta define la "respuesta" de las unidades en una muestra. En el contexto de la inferencia basada en el diseño en un contexto geográfico, "el diseño de respuesta abarca todos los pasos del protocolo que conducen a una decisión sobre el acuerdo de las clasificaciones de referencia y mapa [y] la mejor clasificación disponible de [condiciones de la superficie terrestre] para cada unidad espacial muestreada "(Olofsson et al. 2014) [^ fn1]. De importancia los siguientes términos:
+El diseño de respuesta define la "respuesta" de las unidades en una muestra. En el contexto de la inferencia basada en el diseño en un contexto geográfico, "el diseño de respuesta abarca todos los pasos del protocolo que conducen a una decisión sobre el acuerdo de las clasificaciones de referencia y mapa [y] la mejor clasificación disponible de [condiciones de la superficie terrestre] para cada unidad espacial muestreada "(Olofsson et al. 2014). De importancia los siguientes términos:
 
 **Datos de referencia**
 
@@ -46,9 +45,11 @@ La evaluación disponible más precisa de la verdadera condición de una unidad 
 
 La clasificación de referencia aplicada a la colección de todas las unidades de muestra.
 
-**Diseño de Respuesta**
+Terminología adicional sobre técnicas de muestreo e inferencia están disponibles en la documentación de AREA2: https://area2.readthedocs.io/en/latest/definitions.html. Abajo se muestran algunos términos que no se incluyen en la documentación de AREA2:
 
-Definido por Stehman and Czaplewski, 1998[^fn1]: “La referencia o clasificación 'verdadera' se obtiene para cada unidad de muestreo en función de la interpretación de fotografías aéreas o videografías, una visita terrestre o una combinación de estas fuentes. Los métodos utilizados para determinar esta clasificación de referencia se denominan "diseño de respuesta". El diseño de respuesta incluye procedimientos para recopilar información relacionada con la determinación de la cobertura terrestre de referencia y reglas para asignar una o más [etiquetas] de referencia a cada unidad de muestreo ". Conocido como "plan de medición" por Särndal et al. (1992)[^fn2].
+**Diseño de Respuesta** (definiciones similares)
+
+Definido por Stehman and Czaplewski, 1998: “La referencia o clasificación 'verdadera' se obtiene para cada unidad de muestreo en función de la interpretación de fotografías aéreas o videografías, una visita terrestre o una combinación de estas fuentes. Los métodos utilizados para determinar esta clasificación de referencia se denominan "diseño de respuesta". El diseño de respuesta incluye procedimientos para recopilar información relacionada con la determinación de la cobertura terrestre de referencia y reglas para asignar una o más [etiquetas] de referencia a cada unidad de muestreo ". Conocido como "plan de medición" por Särndal et al. (1992).
 
 **Muestra**
 
@@ -56,21 +57,23 @@ Un subconjunto de unidades de población seleccionadas de la población.
 
 **Diseño de Muestra**
 
-Sinónimo de diseño de muestreo, que es el término preferido en la literatura fundamental (Cochran, 1977 [^ fn3], Särndal et al., 1992 [^ fn2]). El término aparece en Rice (1995) [^ fn4] que utiliza tanto "diseño de muestreo" como "diseño de muestra".
+Sinónimo de diseño de muestreo, que es el término preferido en la literatura fundamental (Cochran, 1977, Särndal et al., 1992). El término aparece en Rice (1995) que utiliza tanto "diseño de muestreo" como "diseño de muestra".
 
 **Diseño de Muestreo**
 
-"El diseño de muestreo es el protocolo mediante el cual se seleccionan las unidades de muestra de referencia". (Stehman y Czaplewski, 1998) [^ fn1]. El “diseño de muestreo” también es utilizado por Cochran (1977) [^ fn3] y Särndal et al. (1992) [^ fn2]- el primero también usa "plan de muestreo".
+"El diseño de muestreo es el protocolo mediante el cual se seleccionan las unidades de muestra de referencia". (Stehman y Czaplewski, 1998). El “diseño de muestreo” también es utilizado por Cochran (1977) y Särndal et al. (1992) - el primero también usa "plan de muestreo".
 
 **Encuesta**
 
-Särndal y col. (1992) [^ fn2] define una encuesta como una “investigación parcial de una población finita”, y además que “los términos 'encuesta' y 'encuesta por muestreo' se utilizan para denotar investigaciones estadísticas con las siguientes características metodológicas: [. ..] plan de medición [...] de muestreo probabilístico [y] estimación."
+Särndal y col. (1992) define una encuesta como una “investigación parcial de una población finita”, y además que “los términos 'encuesta' y 'encuesta por muestreo' se utilizan para denotar investigaciones estadísticas con las siguientes características metodológicas: [...] plan de medición [...] de muestreo probabilístico [y] estimación."
 
 **Diseño de Encuesta**
 
-Un "diseño total de la encuesta" define los procedimientos para "obtener la posible precisión en las estimaciones de la encuesta mientras se logra un equilibrio entre los errores de muestreo y los no muestrales [...] El diseño de la encuesta da lugar a operaciones de encuesta" como la selección de la muestra (Särndal et al., 1992) [^ fn2]. Lohr (1999) [^ fn5] describe un diseño de encuesta total como "Una filosofía de diseño de encuesta para minimizar los errores de muestreo y de no muestreo". Además, en Lohr (1999) “diseño de encuestas” es sinónimo de diseño de muestreo.
+Un "diseño total de la encuesta" define los procedimientos para "obtener la posible precisión en las estimaciones de la encuesta mientras se logra un equilibrio entre los errores de muestreo y los no muestrales [...] El diseño de la encuesta da lugar a operaciones de encuesta" como la selección de la muestra (Särndal et al., 1992). Lohr (1999) describe un diseño de encuesta total como "Una filosofía de diseño de encuesta para minimizar los errores de muestreo y de no muestreo". Además, en Lohr (1999) “diseño de encuestas” es sinónimo de diseño de muestreo.
 
 En este tutorial, determinaremos las condiciones de referencia examinando un conjunto de datos de referencia en ubicaciones de las unidades de la muestra que extrajimos de Colombia en el tutorial anterior. Definimos cuatro estratos: bosque, no bosque, disturbio del bosque, y un amortiguador alrededor de la perturbación del bosque. El objetivo es estimar el área de disturbio forestal; en consecuencia, recopilaremos observaciones de referencia de *bosque, no bosque* y *disturbio del bosque*.
+
+También puede utilizar otras herramientas para lograr esto. Puede encontrar más tutoriales aquí sobre OpenMRV en "Recopilación de datos de muestra" y herramientas "CE" y "CEO".
 
 ## 2 Objetivos de Aprendizaje
 
@@ -112,9 +115,7 @@ https://drive.google.com/file/d/1Md5NajZAngJsVWWiTCbgSdLiEyw7u6BE/view?usp=shari
 
 Es imperativo que las observaciones de referencia representen condiciones de referencia; por lo tanto, es mejor descartar una unidad de muestra que adivinar. Al mismo tiempo, la eliminación de unidades porque la provisión de etiquetas de referencia es imposible viola las reglas del muestreo probabilístico. Por estas razones, es difícil proporcionar consejos acerca de cuántas unidades de muestra se pueden descartar. (Un colega de renombre me dijo una vez que es aceptable eliminar descarte hasta el 15% de las unidades de la muestra, pero no quería que se le cotizara, y no he encontrado ningún apoyo para esta cifra en la literatura).
 
-
-
-## Referencias
+## 5 Referencias
 Cochran, W.G., 1977. *Sampling Techniques*, John Wiley & Sons, New York, NY.
 
 Lohr, S.L., 1999. *Sampling: Design And Analysis,* CRC Press.
@@ -137,14 +138,14 @@ Copyright 2021, World Bank.
 
 Este trabajo fue desarrollado por Pontus Olofsson bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionadas a la Medida, Reportaje, y Verificación para el apoyo de implementación MRV en varios países. 
 
-Material revisado por:
-Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources
-Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)
-Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources
-Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)
+Material revisado por:   
+Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources   
+Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)   
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
+Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)   
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat
 
-Atribución: 
+Atribución   
 Olofsson, P. 2021. Response Design in AREA2. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](figures/wb_fcfc_gfoi.png)
