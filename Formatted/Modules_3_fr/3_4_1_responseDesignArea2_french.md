@@ -45,7 +45,9 @@ L'évaluation disponible la plus précise de l'état réel d'une unité de popul
 
 La classification de référence appliquée à la collection de toutes les unités d'échantillonnage.
 
-**Plan de réponse**
+Terminologie supplémentaire concernant les techniques d'échantillonnage et d'inférence peut être trouvée dans la documentation AREA2: https://area2.readthedocs.io/en/latest/definitions.html. Trouver ci-dessous termes non inclus dans la documentation AREA2:
+
+**Plan de réponse** (définition similaire)
 
 Défini par (Stehman and Czaplewski, 1998): “La référence ou classe réelle est obtenue pour chaque unité d'échantillonnage sur la base de l'interprétation de photographies aériennes ou de vidéographies, d'une observation au sol ou d'une combinaison de ces sources. Les méthodes utilisées pour déterminer cette référence de classification sont appelées "plan de réponse". Le plan d'intervention comprend les procédures de collecte des informations relatives à la détermination de la occupation du sol de référence, et les règles d'attribution d'une ou plusieurs [labels] de référence à chaque unité d'échantillonnage.” Connu sous le nom de “plan de mesure” par Särndal et al. (1992).
 
