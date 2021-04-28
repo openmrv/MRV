@@ -68,7 +68,7 @@ Les strates sont “des sous-populations qui ne se chevauchent pas et qui, ensem
 
 La sélection systématique consiste à choisir un point de départ au hasard avec une probabilité égale, puis à échantillonner avec une distance fixe entre les emplacements d'échantillonnage. En bref, la sélection aléatoire simple est préférable si l'on recueille des observations de référence dans les données satellitaires alors que la sélection systématique est préférable si l'on visite les sites d'échantillonnage in situ (Olofsson et al. 2014). Cette recommandation se justifie par le fait que les unités sélectionnées systématiquement sont plus faciles à localiser sur le terrain tandis que la sélection aléatoire est plus facile à faire augmenter. Notez que les mêmes estimateurs sont utilisés avec la sélection aléatoire simple ou systématique.
 
-#### 3.1.3 Echatillonnnage par grappes?
+#### 3.1.3 Echatillonnnage par grappes (clustering)?
 
 Une grappe est une unité d'échantillonnage qui consiste en une ou plusieurs unités d'évaluation de base spécifiées par le plan d'échantillonnage. Par exemple, une grappe peut être un bloc 3 × 3 de 9 pixels ou une grappe de 1 km × 1 km contenant 100 unités d'évaluation de 1 ha. Dans l'échantillonnage en grappes, un échantillon de grappes est sélectionné et les unités spatiales de chaque grappe sont donc sélectionnées en tant que groupe plutôt qu'en tant qu'entités individuelles. L'échantillonnage en deux étapes est une forme d'échantillonnage en grappes où de grandes unités primaires d'échantillonnage (UPE) sont sélectionnées à la première étape ; de plus petites unités secondaires d'échantillonnage (USE) sont sélectionnées dans chaque UPE à la deuxième étape. Ces plans ont l'avantage de ne nécessiter des données de référence (c'est-à-dire les données utilisées pour collecter les observations de référence) que sur les PSU au lieu de la zone d'étude entière comme c'est le cas avec les plans susmentionnés. Cependant, à moins que les économies ne soient considérables, les plans en grappes ne sont pas recommandés car la corrélation entre les UPE réduit souvent la précision par rapport à un simple échantillon aléatoire de taille égale, et parce qu'il s'agit de plans compliqués qu'il est difficile d'enrichir de résultats d'échantillons difficiles à analyser.
 
@@ -134,9 +134,9 @@ Similaire à SEPAL est cette feuille de calcul développée par la Banque Mondia
 
 Certains programmes spécifient une précision souhaitée ou requise ; le Forest Carbon Partnership Facility (FCPF), par exemple, stipule une marge d'erreur de 30% au niveau de confiance de 95% pour les estimations de surface des données d'activité. La marge d'erreur est égale à 1,96 fois l'erreur standard divisée par l'estimation de la superficie. Lorsque de telles exigences de précision ne sont pas spécifiées, une erreur standard cible doit être déterminée sur la base d'autres critères. Il est à noter que plus la proportion de surface de la classe recherchée est faible, plus l'échantillon doit être important pour atteindre une faible marge d'erreur. Par conséquent, pour les petites proportions de surface, la précision ciblée devra être allégée pour éviter d'avoir à sélectionner un très grand échantillon.
 
-**How do I determine a target standard error?**
+**Comment déterminer une erreur standard théorique?**
 
-Certain programs specify a desired or required precision; the Forest Carbon Partnership Facility (FCPF) for example stipulate a margin of error of 30% at the 95% confidence level for area estimates of activity data. The margin of error is 1.96 times the standard error divided by the area estimate. When no such precision requirements are specified, a target standard error needs to be determined based on other criteria. Note that the smaller the area proportion of the target class, the larger the sample is needed to reach a small margin of error. Accordingly, for small area proportions, the target precision will need to be relaxed to avoid having to select a very large sample. 
+Certains programmes spécifient une précision souhaitée ou requise ; le Forest Carbon Partnership Facility (FCPF), par exemple, stipule une marge d'erreur de 30% a un niveau de confiance de 95% pour les estimations de surface des données d'activité. La marge d'erreur est égale à 1,96 fois l'erreur standard divisée par l'estimation de la superficie. Lorsque de telles exigences de précision ne sont pas spécifiées, une erreur standard théorique doit être déterminée sur la base d'autres critères. Il est à noter que plus la proportion de surface de la classe cible est faible, plus l'échantillon doit être important pour atteindre une faible marge d'erreur. Par conséquent, pour les petites proportions de surface, la précision cible devra être modérée pour éviter d'avoir à sélectionner un très grand échantillon.
 
 ## 5 Terminologie relative aux techniques d'échantillonnage
 
@@ -158,15 +158,15 @@ Synonyme de plan d'échantillonnage (Sampling Design), qui est le terme préfér
 
 “Le concept de plan d'échantillonnage (sampling design ) est le protocole par lequel les unités de référence de l'échantillon sont sélectionnées” (Stehman and Czaplewski, 1998). Le terme “Sampling design” est également utilisé par Cochran (1977) and Särndal et al. (1992) -- Le premier utilise également “sampling plan”.
 
-### 5.5 Sondage/Enquêtee
+### 5.5 Sondage/Enquête
 
 Särndal et al. (1992) définissent une enquête comme une “investigation partielle d'une population finie”, et précisent que “les concepts d ‘enquête’ et ‘enquête par sondage’ sont utilisés pour désigner des enquêtes statistiques présentant les caractéristiques méthodologiques suivantes: [...] échantillonnage aléatoire [...] plan de mesure [et] estimation”. de facon plus precise une enquete par sondage ou un sondage est une enquête effectuee sur une partie de la population. Cette fraction de la population constitue l'échantillon et les méthodes qui permettent de construire cet echantillon s'appellent méthode d'échantillonnage.
 
 ### 5.6 Plan d'enquête
 
-UN “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992). Lohr (1999) décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
+Un “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992). Lohr (1999) décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
 
-## 6 References
+## 6 Références
 
 Cochran, W.G., 1977. *Sampling Techniques*, John Wiley & Sons, New York, NY.
 
