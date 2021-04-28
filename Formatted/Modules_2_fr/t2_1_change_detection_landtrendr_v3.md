@@ -110,7 +110,7 @@ La première bande s'appelle "LandTrendr" et présente un grand intérêt.  Il s
 
 La deuxième bande est un scalaire qui correspond à la racine carrée moyenne globale de l'ajustement -- le résidu entre les valeurs spectrales source d'origine et les valeurs ajustées. 
 
-#### 1.3.2 Optional outputs
+#### 1.3.2 Sorties optionnelles
 
 En option, un utilisateur peut passer plus d'une bande à l'algorithme de segmentation LandTrendr.  La première bande est toujours utilisée pour le processus de segmentation : trouver les vertex et ajuster le meilleur modèle de segmentation.  Pour toutes les bandes supplémentaires passées à l'algorithme, seule la deuxième moitié du processus de segmentation est entreprise :   Les années de vertex à partir de l'ajustement du premier indice sont utilisées pour contraindre un processus de segmentation linéaire des bandes supplémentaires. 
 
@@ -134,7 +134,7 @@ Pour déterminer correctement les paramètres d'utilisation appropriés, chaque 
 
 Nous décrivons ci-dessous comment ces étapes peuvent être abordées à l'aide d'une interface utilisateur graphique (section 3), et comment la détection des changements peut ensuite être adaptée en adaptant les scripts GEE existants (section 4). 
 
-## 2 Learning objectives
+## 2 Objectifs pédagogiques
 
 Au terme de ce tutoriel, vous serez en mesure de:   
 
@@ -663,7 +663,7 @@ Le fait de désactiver le seuil en le réglant sur **recovery_threshold=1,0** pe
 
 <img src="./figures/col_traj_353_recovery_thre_10.png" alt="col_traj_353_recovery_thre_10" style="zoom:100%;" />
 
-##### P-value threshold
+##### P-value seuil
 
 L'augmentation du seuil de la valeur p permet de saisir les ajustements qui conservent plus de bruit résiduel après l'ajustement. 
 
@@ -1253,7 +1253,7 @@ Pour les besoins de ce document, nous avons délimité une simple zone d'étude 
 
 ![_fig_moz_add_study_area](./figures/_fig_moz_add_study_area.png)
 
-#### 6.1.2 Determine date windows
+#### 6.1.2 Délimitation des fenêtres de dates
 
 Comme toujours, nous recherchons des fenêtres de date saisonnières qui soient suffisamment larges et chronométrées pour maximiser le changement de la recherche de pixels clairs la plupart des années, mais qui soient suffisamment étroites pour éviter une trop grande variabilité phénologique dans la fenêtre de date.  Un bon point de départ est de comprendre la saisonnalité des précipitations. 
 
@@ -1316,7 +1316,7 @@ Les preuves de la déforestation provoquée anthropique semblent être plus nomb
 
 ![_fig_moz_nicuadala](./figures/_fig_moz_nicuadala.png)
 
-### 6.2 Cambodia
+### 6.2 Cambodge
 
 Dans la section 6.1, nous avons abordé les sujets clés du passage de notre exploration initiale en Colombie à un nouveau lieu.  Ici, nous ne mettons en évidence que les questions qui diffèrent lors d'une exploration initiale de la cartographie des perturbations au Cambodge.  
 
@@ -1361,7 +1361,7 @@ Dans la pratique, cependant, aucun ensemble de paramètres d'ajustement et d'ind
 
 Il n'existe actuellement aucun moyen automatisé de choisir les paramètres.  Cependant, nous continuons à travailler au développement de tels outils, et l'utilisateur intéressé est encouragé à suivre les développements sur le site GitHub de LT-GEE. 
 
-**Je remarque davantage de problèmes avec les nuages et le bruit des images vers le début (ou la fin) de la série temporelle.   Pourquoi ? **
+**Je remarque davantage de problèmes avec les nuages et le bruit des images vers le début (ou la fin) de la série temporelle.   Pourquoi ?**
 
 La puissance de toute méthode de séries temporelles réside dans sa capacité à exploiter de multiples observations pour examiner les modèles réels et faux.  Au milieu de la série temporelle, le bruit résiduel provoque des blips dans le signal source, mais comme ils reviennent à la "normale" après le blip, l'algorithme les comprend comme du bruit.  Cependant, pour les blips qui se produisent au début ou à la fin de la série temporelle, il n'y a pas de données au-delà du blip pour aider à déterminer si le bruit est réel ou non.  Ainsi, l'algorithme peut le plus souvent créer des faux positifs au début et à la fin de la série temporelle.  
 
@@ -1375,7 +1375,7 @@ Il est également possible que l'algorithme de masquage des nuages intégré ait
 
 Enfin, il est possible que certaines zones présentent une nébulosité si persistante qu'une étape annuelle ne suffit pas pour trouver une image raisonnable.  Bien que LandTrendr fonctionne mieux avec un pas de temps annuel, il est possible de construire des collections d'images qui utilisent des images bisannuelles (ou même plus d'années) pour construire des composites pour l'algorithme.  Actuellement, notre bibliothèque standard n'inclut pas cette fonctionnalité, mais restez à l'écoute sur le site GitHub de LT-GEE (https://github.com/eMapR/LT-GEE) pour les mises à jour.  Les utilisateurs avancés peuvent construire leurs propres composites en adaptant les modules `buildSRcollection`, `buildMosaic`, `getCombinedSRcollection` et `getSRcollection`. 
 
-**Puis-je utiliser un capteur différent de celui de Landsat?* **
+**Puis-je utiliser un capteur différent de celui de Landsat?**
 
 Peut-être.  En principe, l'algorithme LandTrendr ne se soucie pas du signal que vous lui donnez.  Cependant, l'algorithme exige que le signal soit cohérent et stable quand aucun changement ne se produit ; ainsi, les étapes de prétraitement doivent aboutir à un signal lisse.  De plus, il faut qu'il y ait suffisamment d'observations pour assigner des segments - environ 3-4 observations par segment maximum souhaité.   Pour de nombreux capteurs, tels que les Sentinelles 1 et 2, il n'y a pas d'enregistrement assez long pour effectuer une analyse annuelle des changements.  Il est possible d'envisager de donner à l'algorithme des données à une échelle infra-annuelle, mais il faudrait tromper l'algorithme en lui faisant croire que les intervalles sont d'un an.  Cela peut entraîner des difficultés dans l'interprétation des résultats, mais ce n'est pas insurmontable. 
 
