@@ -1373,7 +1373,7 @@ Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat
 Raja Ram Aryal, Nepal, Forest Research and Training Centre     
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
 
-Atribución:
+Atribución   
 Kennedy, R. E. 2021. Change detection with LandTrendr in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
  ![](figures/wb_fcfc_gfoi.png)
