@@ -267,7 +267,7 @@ Here, our goal is ensure that our 'Forest' class contains examples of different 
         return image.updateMask(image.select('QA60').eq(0))}
     ```
 
-3. Now, we can filter the Sentinel-2 collection into two groups: images during the peak of the dry season and images during the peak of the rainy season. We can then map over the collections to apply the cloud masks and calculate NDVI. 
+3. Now, we can filter the Sentinel-2 collection into two groups: images during the peak of the dry season and images during the peak of the rainy season. We can then [map](https:/developers.google.com/earth-engine/guides/ic_mapping) over the collections to apply the cloud masks and calculate NDVI. 
 
     ```javascript
     var s1_collection = ee.ImageCollection("COPERNICUS/S2_SR").map(maskS2clouds);
