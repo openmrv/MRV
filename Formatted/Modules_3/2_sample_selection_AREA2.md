@@ -44,7 +44,7 @@ Upon completion of the tutorial, the user should be able to sample an arbitrary 
 
 ## 3 Tutorial: Sample selection using AREA2
 
-### 3.2 Stratified random sampling in Google Earth Engine/AREA2
+### 3.1 Stratified random sampling in Google Earth Engine/AREA2
 We will draw a sample using a stratified random design in Google Earth Engine/AREA2. Based on tutorials here on OpenMRV under process "Sampling design", where we had Forest, Non-Forest, Forest Disturbance and Forest Disturbance buffer as strata, let's assume a sample size required to reach a 25% margin of error of the forest disturbance area estimate. We also allocated the sample in strata for the purpose of area estimation. Then we will use the following sample size:
 
 | | A             | B            | C              |D              |E             |F         |
