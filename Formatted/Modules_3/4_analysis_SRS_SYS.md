@@ -38,7 +38,7 @@ The two properties, bias and variance, are important because we can ensure that 
 * Estimate overall user’s producer’s accuracy of a map using reference observations
 * Estimate map accuracy and area estimation
 
-### 2.1 Pre-requisites for this module
+### 2.1 Pre-requisites
 
 * Relevant terminology is found at the end of this document
 * More information about sampling design, and response design can be found here on OpenMRV under processes "Sampling design", and "Sample data collection".
@@ -121,7 +121,7 @@ For analysis of sampled data under stratified random sampling (STR), please chec
 
 ### 3.2 Software to automate the analysis of sample results 
 
-### AREA2
+#### AREA2
 
 The AREA2 application in Google Earth Engine has equations for all estimators described in this is tutorial. Note that in AREA2, the SRS estimator is referred to by its formal name, expansion estimator.  AREA2 is available here: https://code.earthengine.google.com/?accept_repo=projects/AREA2/public and more detailed documentation here: https://area2.readthedocs.io/
 
