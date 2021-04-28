@@ -419,8 +419,8 @@ Continue with the rest of the plot points this way. You will have completed your
 
 * Seasonality issues can occur when different land uses appear different between seasons. For example, a grassland might be bright green in spring but look brown in the summer. If you saw just the brown imagery, you might think the brown is dirt and incorrectly classify the grassland as barren dirt.
 * Zooming in and out to gather contextual clues from the landscape is important for multiple land use and land cover types. For example:
-- Water in larger water bodies often appears black or dark until you zoom out.
-- Tree plantations may look like forests until you zoom out and see the regular pattern of planted trees.
+    - Water in larger water bodies often appears black or dark until you zoom out.
+    - Tree plantations may look like forests until you zoom out and see the regular pattern of planted trees.
 
 
 ### 3.7 Export your data 
