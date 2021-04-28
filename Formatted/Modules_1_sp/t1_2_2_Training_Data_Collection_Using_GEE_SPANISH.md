@@ -64,7 +64,6 @@ Al final de este ejercicio, podrá:
 
 * Google Earth Engine
   * Tener una cuenta de GEE
-
 * Conceptos de Teledetección
   * Comprensión básica de teorías involucradas en la clasificación de imágenes
   * Entender como definir una leyenda temática
@@ -92,7 +91,7 @@ Luego será necesario definir un Feature Class (Clase de Objetos) nuevo para cad
 
 1. En Earth Engine, navegue a las herramientas de dibujo en la esquina izquierda superior en la ventana del mapa.  Hacerle clic al ícono y agregar marcadores de puntos. 
 
-![](./figures/m1.2/m1.2.2/AddMarker.jpg)
+    ![](./figures/m1.2/m1.2.2/AddMarker.jpg)
 
 2. Esto agregará un panel nuevo de *Geometry Imports* en la ventana del mapa, con una etiqueta para las propiedades nuevas que ya puede dibujar en la ventana del mapa. El nombre predeterminado de esta capa nueva es 'geometry'.
 
@@ -100,17 +99,16 @@ Luego será necesario definir un Feature Class (Clase de Objetos) nuevo para cad
 
 3. Sostenga su cursor sobre el nombre 'geometry' en este panel hasta que aparezca un ícono de engranaje en la maño derecha de la etiqueta. Haga clic en el ícono para abrir el panel y editar la configuración de la capa. 
 
-![](./figures/m1.2/m1.2.2/Settings.JPG)
-
+    ![](./figures/m1.2/m1.2.2/Settings.JPG)
 
 4. Ahora dele un nombre a la capa relacionado a la cobertura terrestre de interés, por ejemplo 'Bosque'. 
 
-Para este tutorial, recomendamos el uso de una leyenda de clasificación de cobertura terrestre y códigos de clase numéricos:
+    Para este tutorial, recomendamos el uso de una leyenda de clasificación de cobertura terrestre y códigos de clase numéricos:
 
-- 1 Bosque
-- 2 Agua
-- 3 Herbáceo
-- 4 Desarrollado
+    - 1 Bosque
+    - 2 Agua
+    - 3 Herbáceo
+    - 4 Desarrollado
 
 5. Luego establezca el tipo (función 'import as') al FeatureCollection.
 6. Haga clic en *+ Property*  (Propiedad) en la caja para agregar una propiedad. 
@@ -118,9 +116,9 @@ Para este tutorial, recomendamos el uso de una leyenda de clasificación de cobe
 8. Finalmente, cambie el color si gusta. Por ejemplo, puede seleccionar marcadores verdes para representar la clase de bosque.
 9. Haga clic *OK* para guardar los cambios.
 
-Su panel debería de aparecer así:
+    Su panel debería de aparecer así:
 
-   ![](figures/m1.2/m1.2.2/GeomSettings.jpg)
+    ![](figures/m1.2/m1.2.2/GeomSettings.jpg)
 
 10. En la ventana del mapa, sostenga su cursor sobre las importaciones de geometrías y hacer clic en la opción + *new layer* (capa nueva). 
 
@@ -143,45 +141,43 @@ Recuerde, quiere que los datos de referencia coincidan con el periodo de tiempo 
 
 1. Puede crear una imagen compuesta de Sentinel-2  para el 2019 rápidamente y agregarla al mapa. Pegue el código siguiente en la ventana del editor de código y haga clic en *Run* para cargar la imagen compuesta en la ventana del mapa. 
 
-```javascript
-var countries = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017");
-var colombia = countries.filter(ee.Filter.eq('country_na', 'Colombia'));
-Map.centerObject(colombia, 8);
+    ```javascript
+    var countries = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017");
+    var colombia = countries.filter(ee.Filter.eq('country_na','Colombia'));
+    Map.centerObject(colombia, 8);
 
-function maskS2clouds(image){
-    return image.updateMask(image.select('QA60').eq(0))}
+    function maskS2clouds(image){
+        return image.updateMask(image.select('QA60').eq(0))}
 
-var s1_collection = ee.ImageCollection("COPERNICUS/S2_SR");
+    var s1_collection = ee.ImageCollection("COPERNICUS/S2_SR");
 
-var s1_composite_masked = s1_collection.filterBounds(colombia) 
-    .filterDate('2019-01-01','2019-12-31') 
-    .map(maskS2clouds) 
-    .median();
+    var s1_composite_masked = s1_collection.filterBounds(colombia) 
+        .filterDate('2019-01-01','2019-12-31') 
+        .map(maskS2clouds) 
+        .median();
 
-var vis = {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 1250};
-Map.addLayer(s1_composite_masked, vis, 'Sentinel 2 2019 Masked');
+    var vis = {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 1250};
+    Map.addLayer(s1_composite_masked, vis, 'Sentinel 2 2019 Masked');
+    ````
 
-```
-
-![](./figures/m1.2/m1.2.2/gee.JPG)
+    ![](./figures/m1.2/m1.2.2/gee.JPG)
 
 2. También hay otra manera de cargar las imágenes a GEE, puede cargar la imagen desde la pestaña Assets (Recursos). Si exportó una imagen compuesta de su carpeta de GEE Assets, también puede importar esa misma imagen. Navegue a su carpeta de Assets y sostenga su mouse sobre el nombre de la imagen compuesta y seleccione la flecha para importarla al editor de código. Asegúrese que la imagen que cargue de su carpeta Asset este definida como una imagen ("image") para que funcione el código de GEE. 
 
-![](figures/m1.2/m1.2.2/import.jpg)
+    ![](figures/m1.2/m1.2.2/import.jpg)
 
 
 3. Copiar y pegar el texto siguiente en el editor de código para cargarlo en la ventana de mapa y hacer clic en *Run*.
 
 
-```javascript
-Map.centerObject(image, 8);
+    ```javascript
+    Map.centerObject(image, 8);
+    
+    var vis = {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 1250};
+    Map.addLayer(image, vis, 'image');
+    ```
 
-var vis = {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 1250};
-Map.addLayer(image, vis, 'image');
-
-```
-
-También puede visitar la pagina oficial de [recursos de Earth Engine](https://developers.google.com/earth-engine/tutorials/tutorial_api_04) para mas información acerca de encontrar y visualizar Image Collections (Colecciones de Imágenes).
+    También puede visitar la pagina oficial de [recursos de Earth Engine](https://developers.google.com/earth-engine/tutorials/tutorial_api_04) para mas información acerca de encontrar y visualizar Image Collections (Colecciones de Imágenes).
 
 ### 3.4 Recopilar datos de entrenamiento
 
@@ -195,10 +191,9 @@ Una vez que haya seleccionado las imágenes de referencia, es tiempo de recopila
 1. Seleccionar la capa de coberturas terrestres en el panel de  *Geometry imports* en la ventana de mapa.
 2. Seleccionar el marcador de puntos y hacer clic en el mapa para agregar puntos de esa cobertura terrestre (aquí hay un [video](https://youtu.be/tJx7plJLqW4) breve para ilustrar como hacerlo). Puede prender y apagar la imagen compuesta en el panel de Layers (Capas). También puede alternar entre el mapa y la imagen compuesta satelital en la esquina superior a la derecha de la ventana del mapa. 
 
-
     ![](figures/m1.2/m1.2.2/ToggleImage.jpg)
 
-3. Si crea un punto accidentalmente, puede moverlo o eliminarlo usando la herramienta de la mano. Seleccione el punto y arrástrelo o elimínelo (aquí hay un [video]((https://youtu.be/Q6QElHXYOT0) ) breve para ilustrar como hacerlo). 
+3. Si crea un punto accidentalmente, puede moverlo o eliminarlo usando la herramienta de la mano. Seleccione el punto y arrástrelo o elimínelo (aquí hay un [video](https://youtu.be/Q6QElHXYOT0) breve para ilustrar como hacerlo). 
 
 4. Repetir el proceso hasta que tenga muchas muestras de cada una de las cuatro clases de cobertura terrestre a través de su región de estudio. Se le aconseja guardar el script durante el proceso. Seleccione el botón *Save* en la parte superior de la ventana del editor de código. 
 
@@ -215,41 +210,37 @@ El paso final es fusionar cada clase de cobertura terrestre en una sola clase de
 
 1. Los objetos de entrenamiento se pueden combinar con el método de "merge" (fusionar). Por ejemplo, para 'Bosque', 'Agua', 'Herbáceo', y 'Desarrollado' todos representan Feature Collections que se pueden fusionar con el código siguiente. Recuerde, JavaScript distingue entre mayúsculas y minúsculas, así que revise la capitalización entre las funciones de `merge` y los nombres de sus clases. 
 
-
-```javascript
-var training = Forest.merge(Water)
-                     .merge(Herbaceous)
-                     .merge(Developed);
-
-```
+    ```javascript
+    var training = Forest.merge(Water)
+                         .merge(Herbaceous)
+                         .merge(Developed);
+    ```
 
 2. Los resultados deben guardarse como assets de Earth Engine para ejecutar la clasificación en GEE, o exportarlos a su Google Drive para ejecutar la clasificación en otro programa de GIS. 
 
-   2a. Puede exportar a 'Asset' con el código siguiente: 
+    2a. Puede exportar a 'Asset' con el código siguiente: 
 
-```javascript
-Export.table.toAsset({
-  collection: training,
-  description: 'LCsample2019',
-  assetId: 'LCsample2019'
-});
+    ```javascript
+    Export.table.toAsset({
+      collection: training,
+      description: 'LCsample2019',
+      assetId: 'LCsample2019'
+    });
+    ```
 
-```
+    2b. Puede exportar a Google Drive con el código siguiente. 
 
-2b. Puede exportar a Google Drive con el código siguiente. 
+    ```javascript
+    Export.table.toDrive({
+      collection: training,
+      description: 'LCsample2019',
+      fileFormat: 'SHP'
+    });
+    ```
 
-```javascript
-Export.table.toDrive({
-  collection: training,
-  description: 'LCsample2019',
-  fileFormat: 'SHP'
-});
+3. Luego haga clic en Run para ejecutar. Esto le permitirá navegar a la pestaña de tarea 'Task' y completar la exportación. Puede encontrar información adicional sobre cómo exportar datos en GEE [aquí](https://developers.google.com/earth-engine/guides/exporting)
 
-```
-
-3. Luego haga clic en Run para ejecutar. Esto le permitirá navegar a la pestaña de tarea 'Task' y completar la exportación. Puede encontrar información adicional sobre cómo exportar datos en GEE [aquí] (https://developers.google.com/earth-engine/guides/exporting)
-
-## 4 Ejemplos: Mozambique y Camboya 
+## 4 Ejemplos Adicionales: Mozambique y Camboya 
 
 Ahora intentemos replicar este mismo proceso con nuevas regiones de estudio: Mozambique y Camboya. Esta sección es opcional y le permitirá practicar el proceso de colección de datos en diferentes regiones de estudio. El proceso general es igual al que se demostró para Colombia. 
 
@@ -257,7 +248,7 @@ Estos ejemplos demostrará como recolectar datos de entrenamiento de una manera 
 
 Para borrar su código previo, navegue al botón *Reset* junto al botón *Run*. Luego haga clic en la flecha que apunta hacia abajo, y haga clic en *Clear Script*. 
 
-### 4.1 Mozambique: Contabilizando la Estacionalidad
+### 4.1 Mozambique
 
 Mozambique es un país de mucho diversidad ecológica, la cual consiste de una mezcla de zonas climáticas tropicales y templadas. Como resultado, hay grandes franjas de ecosistemas forestales, tanto de bosque perenne como bosque caducifolio. En Colombia, no contabilizamos los efectos estacionales en bosques porque cubren una proporción del país relativamente pequeña. El área cubierta por bosque caducifolio es mucho más alto en Mozambique, lo cual puede presentar un desafío para la clasificación de cobertura terrestre dado la variabilidad intra-anual en reflectancia entre etapas fenológicos.  
 
@@ -269,73 +260,72 @@ Aquí, nuestra meta es asegurar que nuestra clase "Bosque" contenga ejemplos de 
 
 1. Primero, vamos a hacer que Mozambique sea nuestra nueva región de estudio para el año 2019. Para hacer esto, pegue el código siguiente en su ventana de editor de código y haga clic en *Run* para cargar la imagen compuesta en su ventana de mapa. Esto incluye una función de máscara de nubes, la cual se introdujo en la sección 3.3 de este material de entrenamiento.  
 
-```javascript
-var countries = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017");
-var mozambique = countries.filter(ee.Filter.eq('country_na', 'Mozambique'));
-Map.centerObject(mozambique, 8);
-```
+    ```javascript
+    var countries = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017");
+    var mozambique = countries.filter(ee.Filter.eq('country_na', 'Mozambique'));
+    Map.centerObject(mozambique, 8);
+    ```
 
-Ahora continúe con el entrenamiento comenzando con la sección 3.4 para recolectar nuevos datos de entrenamiento para Mozambique. 
+    Ahora continúe con el entrenamiento comenzando con la sección 3.4 para recolectar nuevos datos de entrenamiento para Mozambique. 
 
-2. Calcular NDVI usando las bandas Rojas (B4) e Infrarroja Cercana (B8) de las imágenes Sentinel-2. También necesitaremos la función de máscara de nube en 3.3.3.  
+2. Calcular NDVI usando las bandas Rojas (B4) e Infrarroja Cercana (B8) de las imágenes Sentinel-2. También necesitaremos la función de máscara de nube en 3.3.  
 
-```javascript
-function doNDVI(image){
-  return image.normalizedDifference(['B4','B8']).rename('NDVI')
-}
+    ```javascript
+    function doNDVI(image){
+      return image.normalizedDifference(['B4','B8']).rename('NDVI')
+    }
 
-function maskS2clouds(image){
-    return image.updateMask(image.select('QA60').eq(0))}
-```
+    function maskS2clouds(image){
+        return image.updateMask(image.select('QA60').eq(0))}
+    ```
 
 3. Ahora, podemos filtrar la colección de Sentinel-2 en dos grupos: imágenes adquiridas durante el pico de la estación seca, e imágenes durante el pico de la estación de lluvia. Luego podemos [mapear](https:/developers.google.com/earth-engine/guides/ic_mapping) sobre las colecciones para aplicar las máscaras de nube y calcular NDVI.  
 
-``` javascript
-var s1_collection = ee.ImageCollection("COPERNICUS/S2_SR").map(maskS2clouds);
+    ```javascript
+    var s1_collection = ee.ImageCollection("COPERNICUS/S2_SR").map(maskS2clouds);
 
-var dry_season = s1_collection.filterBounds(mozambique).filterDate('2019-09-01','2019-11-01').map(doNDVI);
+    var dry_season = s1_collection.filterBounds(mozambique).filterDate('2019-09-01','2019-11-01').map(doNDVI);
 
-var rainy_season = s1_collection.filterBounds(mozambique).filterDate('2019-01-01','2019-04-01').map(doNDVI);
-```
+    var rainy_season = s1_collection.filterBounds(mozambique).filterDate('2019-01-01','2019-04-01').map(doNDVI);
+    ```
 
 4. Para calcular variabilidad estacional, podemos combinar estas dos colecciones y calcular variancia de NDVI por pixel usando un [reducer](https:/developers.google.com/earth-engine/guides/reducers_intro) (reductor). 
 
-```javascript
-var combined = rainy_season.merge(dry_season);
-var variance = combined.reduce(ee.Reducer.variance()); 
+    ```javascript
+    var combined = rainy_season.merge(dry_season);
+    var variance = combined.reduce(ee.Reducer.variance()); 
 
-var viz = {'min': 0, 'max': 0.1, 'palette': ['red','yellow','green']};
-Map.addLayer(variance, viz);
-```
+    var viz = {'min': 0, 'max': 0.1, 'palette': ['red','yellow','green']};
+    Map.addLayer(variance, viz);
+    ```
 
-![](./figures/m1.2/m1.2.2/MozambiqueNDVI.JPG)
+    ![](./figures/m1.2/m1.2.2/MozambiqueNDVI.JPG)
 
-El mapa que esta cargado es el de variancia estacional de NDVI, en donde rojo indica menos variabilidad y verde indica más.  
+    El mapa que esta cargado es el de variancia estacional de NDVI, en donde rojo indica menos variabilidad y verde indica más.  
 
 5. Un paso adicional que podemos tomar para asistir en la identificación de bosques es usar un conjunto de datos auxiliares de cobertura de árboles para "enmascarar" a o excluir a los pixeles no forestales. El conjunto de datos de la perdida, ganancia, y cobertura de árboles de UMD-Hansen es perfecto para este propósito. No se recomienda usar este conjunto de datos para entrenar el clasificador, pero es una buena herramienta para identificar ubicaciones de bosque o cambios en bosques. Aquí usaremos la capa 'Tree Cover 2000' como máscara para nuestra capa de variancia NDVI, para excluir pixeles que tenían menos de 30% cobertura de árboles en el 2000.  
 
-```javascript
-var umd_hansen = ee.Image("UMD/hansen/global_forest_change_2019_v1_7").select('treecover2000');
-var mask = umd_hansen.gt(30);
-var variance_masked = variance.updateMask(mask);
-Map.addLayer(variance_masked, viz);
-```
+    ```javascript
+    var umd_hansen = ee.Image("UMD/hansen/global_forest_change_2019_v1_7").select('treecover2000');
+    var mask = umd_hansen.gt(30);
+    var variance_masked = variance.updateMask(mask);
+    Map.addLayer(variance_masked, viz);
+    ```
 
-![](./figures/m1.2/m1.2.2/MozambiqueNDVImasked.JPG)
+    ![](./figures/m1.2/m1.2.2/MozambiqueNDVImasked.JPG)
 
 6. Ahora, mientras estamos recopilando datos de entrenamiento para la clase 'Bosque', es importante referir esta capa para asegurar que estos datos de entrenamiento contabilicen las diferencias es la variabilidad estacional espectral en bosques. Primero, vamos a repasar porque esto pueda ser de gran beneficio hacer los pasos descritos arriba: 
-
    - Algunos bosques tienen patrones estacionales en productividad. 
    - Queremos asegurar que nuestros datos de entrenamiento 'Bosque' incluyan ejemplos de todos los tipos de bosque en nuestra área de estudio. 
    - Una manera fácil y preliminar de acomodar la estacionalidad en una clasificación es proveyendo datos de entrenamiento representativos.  
    - GEE nos permite identificar bosques estacionales fácilmente a base de la variancia de NDVI en el transcurso de un año.
    - El conjunto de datos de UMD-Hansen crea una máscara para excluir pixeles no forestales, y así nos ayuda con la recolección de datos de entrenamiento
 
-7. Usando las direcciones descritas [arriba](#collection), recopile puntos de entrenamiento clase por clase. Para la clase de Bosque, se le sugiere ocasionalmente sobreponer los puntos de entrenamiento en el mapa de variancia NDVI. No es necesario hacer un análisis detallado, pero vale la pena hacer una breve evaluación visual para asegurar que las muestras de entrenamiento representan bosques estacionales y no estacionales. Esto se puede llevar acabo si alterna entre áreas rojas, amarillas, y verdes en la capa de variabilidad NDVI, y también entre esa capa y la imagen de referencia para asegurar que esas ubicaciones en realidad sean bosques. 
+7. Usando las direcciones descritas arriba, recopile puntos de entrenamiento clase por clase. Para la clase de Bosque, se le sugiere ocasionalmente sobreponer los puntos de entrenamiento en el mapa de variancia NDVI. No es necesario hacer un análisis detallado, pero vale la pena hacer una breve evaluación visual para asegurar que las muestras de entrenamiento representan bosques estacionales y no estacionales. Esto se puede llevar acabo si alterna entre áreas rojas, amarillas, y verdes en la capa de variabilidad NDVI, y también entre esa capa y la imagen de referencia para asegurar que esas ubicaciones en realidad sean bosques. 
 
 8. Recuerde que debe de guardar su trabajo frecuentemente, seleccionando el botón *Save Layer Edits*. 
 
-### 4.2 Camboya: Contabilizando la Topografía
+### 4.2 Camboya
 
 El ejemplo final de colección de datos de entrenamiento en QGIS es para el país de Camboya. Camboya tiene un clima tropical de monzones con una temporada de lluvia desde Mayo a Octubre. En años recientes, Camboya ha experimentado una cantidad considerable de cambio terrestre, frecuentemente en la forma de deforestación.
 
@@ -343,38 +333,37 @@ Muchos de los bosques restantes en Camboya están ubicados en terreno montañoso
 
 1. Si quisiera practicar la colección de datos de entrenamiento para Camboya, pegue el código siguiente en su editor de código y proceda a la sección 3.4 para continuar.
 
-```javascript
-var countries = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017");
-var Camboya = countries.filter(ee.Filter.eq('country_na', 'Camboya'));
-Map.centerObject(Camboya, 8);
+    ```javascript
+    var countries = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017");
+    var cambodia = countries.filter(ee.Filter.eq('country_na', 'Cambodia'));
+    Map.centerObject(cambodia, 8);
 
-function maskS2clouds(image){
-    return image.updateMask(image.select('QA60').eq(0))}
+    function maskS2clouds(image){
+        return image.updateMask(image.select('QA60').eq(0))}
 
-var s1_collection = ee.ImageCollection("COPERNICUS/S2_SR");
+    var s1_collection = ee.ImageCollection("COPERNICUS/S2_SR");
 
-var s1_composite_masked = s1_collection.filterBounds(Camboya) 
-    .filterDate('2019-01-01','2019-12-31') 
-    .map(maskS2clouds) 
-    .median();
+    var s1_composite_masked = s1_collection.filterBounds(cambodia) 
+        .filterDate('2019-01-01','2019-12-31') 
+        .map(maskS2clouds) 
+        .median();
 
-var vis = {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 1250};
-Map.addLayer(s1_composite_masked, vis, 'Sentinel 2 2019 Masked');
-
-```
+    var vis = {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 1250};
+    Map.addLayer(s1_composite_masked, vis, 'Sentinel 2 2019 Masked');
+    ```
 
 2. Navegue a la palanca 'Map / Satellite' en la parte derecha de la pantalla y haga clic en 'Satellite'. Esto visualizará el mapa de terreno, lo cual facilitará la distinción de las características topográficas en las imágenes de referencia, para que se puede utilizar como información suplemental para la colección de datos de entrenamiento. Asegúrese de recolectar muestras de entrenamiento para bosque que varíen en sus características topográficas. Por ejemplo, muestras deberían de recolectarse en terrenos de diversos pendientes y aspectos. Esto no necesita ser preciso, y se puede hacer opcionalmente para cualquier tipo de cobertura terrestre. 
 
-![](./figures/m1.2/m1.2.2/MapSatellite.JPG)
+    ![](./figures/m1.2/m1.2.2/MapSatellite.JPG)
 
 3. También puede cambiar las transparencia de las capas que creó si navega a 'Layers' en la parte derecha de la pantalla y ajusta la capa, como se ilustra en la imagen siguiente. 
 
-![](./figures/m1.2/m1.2.2/LayerTransparency.JPG)
+    ![](./figures/m1.2/m1.2.2/LayerTransparency.JPG)
 
 4. Acuérdese de guardar su trabajo frecuentemente.
 
 
-## 5. Preguntas Frecuentes
+## 5 Preguntas Frecuentes
 
 **¿Porque estamos usando geometrías de punto en lugar de polígonos?**
 
@@ -406,7 +395,7 @@ Copyright 2021, World Bank
 
 Este trabajo fue desarrollado por Karis Tenneson bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionadas a la Medida, Reportaje, y Verificación para el apoyo de implementación MRV en varios países. 
 
-Material revisado por:
+Material revisado por:   
 Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
 Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS)  
 Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
@@ -414,14 +403,9 @@ Kenset Rosales, Guatemala, Ministry of Environment and Natural Resources
 Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat     
 Paula Andrea Paz, Colombia, International Center for Tropical Agriculture (CIAT)  
 Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)   
-Raja Ram Aryal, Nepal, Forest Research and Training Centre  
+Raja Ram Aryal, Nepal, Forest Research and Training Centre   
 
-Kenset Rosales, Guatemalan Ministry of Environment 
-Tatiana Nana, Cameroon, REDD+ Technical Secretariat
-Justine Bui, Spatial Informatics Group LLC
-Kelsey Herndon, University of Alabama in Huntsville
-
-Atribución
+Atribución   
 Tenneson, K. 2021. Training Data Collecting Using Google Earth Engine. © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](figures/m1.1/wb_fcfc_gfoi.png)
