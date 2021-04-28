@@ -853,7 +853,7 @@ En chargeant à nouveau la carte des perturbations comme une couche séparée, n
 
 Sur la base de cette simple évaluation de l'année de détection, le seuil de modification de la carte a pu être modifié pour être fixé à 200 au lieu de 100, comme c'était le cas dans le paramètre "changeParams.mag" de l'exportation originale. 
 
-## 5 La bibliothèque Javascript de LandTrendr 
+## 5 Tutoriel : La bibliothèque Javascript de LandTrendr 
 
 L'interface utilisateur graphique LandTrendr (section 3) et le script JavaScript (section 4) s'appuient tous deux sur les fonctions de la bibliothèque JavaScript LandTrendr pour réaliser toutes les étapes importantes du processus de détection des changements.  Bien qu'une connaissance détaillée des fonctions ne soit pas nécessaire pour utiliser ces deux outils, nous recommandons à la plupart des utilisateurs de développer une compréhension de base des hypothèses encapsulées dans ces fonctions, car cela aide à comprendre où la cartographie peut se tromper.  De plus, les utilisateurs avancés voudront accéder à ces fonctions pour les ajuster ou les personnaliser.  Ainsi, les sections suivantes détaillent les éléments de base des bibliothèques LandTrendr sur GEE. 
 
