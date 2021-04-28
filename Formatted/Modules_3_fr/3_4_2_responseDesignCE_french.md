@@ -424,8 +424,8 @@ Continuez avec le reste des points  de cette façon. Vous aurez terminé votre i
 
 * Des problèmes de saisonnalité peuvent survenir lorsque différentes utilisations du sol semblent différentes selon les saisons. Par exemple, une prairie peut être d'un vert vif au printemps, mais paraître brune en été. Si vous ne voyez que l'image brune, vous pourriez penser que le brun est de la terre et classer à tort la prairie comme de la terre stérile.
 * Le zoom avant et arrière pour recueillir des indices contextuels du paysage est important pour plusieurs types d'utilisation et de la surface du sol. Par exemple :
-- L'eau des grands plans d'eau apparaît souvent noire ou sombre jusqu'à ce que vous fassiez un dézoom.
-- Les plantations d'arbres peuvent ressembler à des forêts jusqu'à ce que vous fassiez un zoom arrière pour voir le motif régulier des arbres plantés.
+    - L'eau des grands plans d'eau apparaît souvent noire ou sombre jusqu'à ce que vous fassiez un dézoom.
+    - Les plantations d'arbres peuvent ressembler à des forêts jusqu'à ce que vous fassiez un zoom arrière pour voir le motif régulier des arbres plantés.
 
 ### 3.7 Exportez vos données  
 
@@ -483,6 +483,12 @@ Voici quelques astuces pour l'interprétation des images :
 **Où puis-je trouver de l'aide supplémentaire?**
 
 Pour obtenir une aide supplémentaire sur l'utilisation de Collect Earth, rendez-vous sur openforis.org et cliquez sur "Community Support" dans la barre de navigation supérieure.
+
+![](figures/openforis_community_support.png)
+
+Ici, vous pouvez créer un compte et poser une question qui atteindra OpenForis directement
+
+![](figures/openforis_community_support1.JPG)
 
 ## 5 Terminologie relative aux techniques d'échantillonnage
 
