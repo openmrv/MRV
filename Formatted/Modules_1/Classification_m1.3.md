@@ -358,12 +358,14 @@ Several problematic issues are evident in the CART map shown here.
 ![Examples of classification problems, including missing pixels and over-prediction of developed areas.](./figures/m1.3/classification_problems.png)
 
 1. Missing pixels caused by cloudiness
-As noted above, the image composite for this region in 2019 had substantial area where the masking of pixels for clouds resulted in no valid pixels for the image composite. These areas cannot be classified, as they have no spectral values on which to apply the classifier. 
+    
+    As noted above, the image composite for this region in 2019 had substantial area where the masking of pixels for clouds resulted in no valid pixels for the image composite. These areas cannot be classified, as they have no spectral values on which to apply the classifier. 
 2. Large geographic areas classified as "developed" 
-In the north of the country on the Guajira Peninsula, the entire area is classified as developed, when in fact the area is dry and sparesely vegetated with little urban development. 
+    
+    In the north of the country on the Guajira Peninsula, the entire area is classified as developed, when in fact the area is dry and sparesely vegetated with little urban development. 
 3. Substantial areas of developed interspersed with grassland
-In the plains of the northeast of the country, herbaceous classification is interspersed with developed classes. 
-
+    
+    In the plains of the northeast of the country, herbaceous classification is interspersed with developed classes. 
 
 #### 3.7.1 Options for cloud masking issues
 
@@ -731,7 +733,7 @@ Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (R
 Raja Ram Aryal, Nepal, Forest Research and Training Centre  
 Sofia Garcia, Guatemala, Ministry of Environment and Natural Resources  
 
-Attribution
+Attribution  
 Kennedy, R. E. 2021. Land Cover and Land Use Classification in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](figures/m1.1/wb_fcfc_gfoi.png)
