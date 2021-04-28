@@ -43,7 +43,7 @@ group:
   étape : Collecte de données de référence
 ---
 
-# Comment créer des collectes de données dans Collect et obtenir des données à l'aide de Collect Earth Desktop ?
+# Plan de réponse dans Collect Earth Desktop
 
 ## 1 Contexte
 
@@ -51,10 +51,7 @@ group:
 
 “Collect” est l'outil utilisé pour gérer les données et créer un questionnaire. Il offre un moyen rapide, facile et flexible de mettre en place un sondage avec une interface conviviale. Collect gère plusieurs types de données et des règles de validation complexes, le tout dans un environnement multilingue. Cette application est entièrement gratuite. 
 
-
-
 ![collect_openforis](./figures/collect_openforis.JPG)
-
 
 ### 1.2 Collect Earth
 
@@ -95,8 +92,7 @@ Collect Earth Desktop (CE) et Collect Earth Online (CEO) sont deux outils de col
 
 *Gestion des données*
 
-- Toutes les données sont stockées dans le cloud dans une seule base de données. Plusieurs utilisateurs peuvent collecter simultanément des informations dans le même projet. Les utilisateurs peuvent exporter les données compilées pour une parcelle ou un échantillon. Actuellement, peu d'options pour le format des données, mais compatible avec un outil d'analyse simple dans SEPAL. L. 
-
+- Toutes les données sont stockées dans le cloud dans une seule base de données. Plusieurs utilisateurs peuvent collecter simultanément des informations dans le même projet. Les utilisateurs peuvent exporter les données compilées pour une parcelle ou un échantillon. Actuellement, peu d'options pour le format des données, mais compatible avec un outil d'analyse simple dans SEPAL. 
 
 ### 1.4 Description générale
 
@@ -129,21 +125,17 @@ La conception d'un projet est un processus itératif, et vous devrez probablemen
 * La terminologie importante se trouve à la fin de ce document.
 * Une connaissance générale de l'interprétation d'images. L'interprétation d'images est le processus consistant à regarder des images à résolution spatiale modérée, élevée ou très élevée (provenant de satellites ou de photographies aériennes) et à identifier les objets d'intérêt dans vos emplacements d'échantillonnage.L'interprétation d'images est la compétence de base nécessaire à l'exécution efficace de tout projet de Collect Earth desktop . L'interprétation d'images est la compétence de base nécessaire à l'exécution efficace de tout projet de Collect Earth Desktop. 
 
-## 3 Tutorial: Collect Earth Desktop
+## 3 Tutoriel: Collect Earth Desktop
 
 ### 3.1 Téléchargement et installation de Collect 
 
 La première étape consiste à télécharger "Collect" sur le site Web d'OpenForis, à l'adresse suivante [openforis](http://openforis.org/).  Allez à [Lien de la version recente](http://www.openforis.org/tools/collect.html). Vous pouvez y télécharger l'application "Collect" en cliquant sur "Télécharger la dernière version" et en sélectionnant la bonne version. Téléchargez et installez Collect sur votre ordinateur. Si nécessaire, veuillez consulter l'aide à l'installation disponible à l'adresse suivante [Lien aide d'installation de OpenForis](http://www.openforis.org/tools/collect/tutorials/installation.html).
-
-
 
 ![download_collect](./figures/download_collect.JPG)
 
 Une fois l'application "Collect" installée, trouvez l'application dans votre explorateur de fichiers et cliquez sur "Open Foris Collect" pour lancer l'application. 
 
 La fenêtre du panneau de configuration OpenForis Collect s'ouvre et doit rester ouverte pendant toute la durée de l'utilisation de Collect. 
-
-
 
 ![collect_controlpanel](./figures/collect_controlpanel.JPG)
 
@@ -152,7 +144,6 @@ La fenêtre du panneau de configuration d'OpenForis Collect s'ouvre avant que le
 ![open_foris_collect](./figures/open_foris_collect.JPG)
 
 Après quelques minutes, une nouvelle fenêtre de navigateur s'ouvrira automatiquement avec l'interface Collect. 
-
 
 ### 3.2 Création du formulaire d'enquête 
 
@@ -163,8 +154,6 @@ Dans cette section, nous allons vous montrer comment créer une étude et la mod
 Aller dans le  “Survey Designer” à gauche de l'écran et cliquer sur  “New Survey”. 
 
 ![collect_survey_designer](./figures/collect_survey_designer.JPG)
-
-
 
 Il y a quatre champs que vous devrez remplir pour créer une étude. Premièrement, donnez un titre à votre questionnaire, par ex : "training_survey. Votre titre doit être tout en minuscules, sans espace. L'outil convertira automatiquement les majuscules en minuscules et les espaces en caractères de soulignement (_). 
 
@@ -191,8 +180,6 @@ Collect Earth - Plot Layout contrôle la taille de la placette et le nombre de p
 Collect Earth - D'autres paramètres vous permettent d'ouvrir automatiquement d'autres sources d'imagerie à partir de Collect Earth. Nous allons laisser ces paramètres par défaut.
 
 Assurez-vous de sauvegarder votre étude en utilisant le bouton "Save" au bas de l'écran. Si vous souhaitez en savoir plus sur la conception d'une collecte, vous trouverez de plus amples informations à l'adresse suivante [Lien conception d'une collecte de data](http://www.openforis.org/tools/collect/tutorials/survey-designer.html).
-
-
 
 ![collect_edit_survey](./figures/collect_edit_survey.JPG)
 
@@ -232,17 +219,11 @@ Nous utiliserons cet onglet pour ajouter des questions sur l'occupation du sol e
 
 Pour créer une nouvelle question pour une étude, faites un clic droit sur votre unité d'échantillonnage "Plot" et sélectionnez "Ajouter un attribut". Dans la liste qui s'affiche, choisissez "Code". L'ajout d'un attribut de code vous permettra d'utiliser n'importe laquelle de vos listes de codes précédemment créées et de les saisir comme options pour vos questions d'enquête.
 
-
-
-   ![collect_add_attribute](./figures/collect_add_attribute.JPG)
-
-
+![collect_add_attribute](./figures/collect_add_attribute.JPG)
 
 Le formulaire d'attribut de code s'affiche dans la colonne de droite. Dans le champ Nom, tapez "current_land_cover", notez que vous ne pouvez pas mettre de chiffres au début de ce champ. Ajoutez un libellé dans la section "Label" tel que "Current Land Cover" et ensuite ajoutez une description dans la section "Tooltip text" tel que "2020 land cover classes". Ensuite, pour la liste de codes, sélectionnez votre liste de codes "land_cover". Par défaut, la question de l'enquête sera obligatoire. Laissez ce paramètre par défaut. Vous pouvez ajouter un texte d'info-bulle, tel que "Quelle est l'occupation du sol en 2020 ?"
 
 ![collect_code_attribute](./figures/collect_code_attribute.JPG)
-
-
 
 Nous allons maintenant répéter cette opération pour la liste des codes de changement de l'occupation du sol. Créez un autre attribut Code. Dans le champ Nom, tapez "land_cover_change", ajoutez une description et sélectionnez la liste de codes "land_cover_change_yr". Ajoutez une info-bulle, par exemple "Pas de changement ou indiquer l'année du changement".
 
@@ -256,11 +237,7 @@ Nous voulons que cette question n'apparaisse que lorsqu'un changement de couvert
 
 ![collect_code_attribute_prev_lc](./figures/collect_code_attribute_prev_lc.jpg)
 
-
-
 Nous voulons également ajouter une règle de validation à cette question. Nous voulons créer une erreur si les l'occupation du sol actuelle et précédente sont les mêmes, car cela signifie qu'il n'y a pas de changement. Faites défiler vers le bas et développez les “Checks (Validation Rules)”.  Cliquez sur le bouton plus vert et sélectionnez " Custom ". 
-
-
 
 ![checks_validation_rules](./figures/checks_validation_rules.jpg)
 
@@ -269,9 +246,6 @@ Pour cette étude, ajoutez jusqu'à trois pas de temps. Cela signifie qu'il faut
 Un aperçu des questions de l'enquête peut être vu en cliquant sur "Preview" en bas à droite de la page. N'oubliez pas de continuer à sauvegarder votre travail en bas de la page. 
 
 ![collect_preview](./figures/collect_preview.JPG)
-
-
-
 ![collect_preview2](./figures/collect_preview2.jpg)
 
 ### 3.3 Ajouter une grille d'échantillonnage à Collect
@@ -315,8 +289,6 @@ Le générateur de grille est une application Google Earth Engine créée avec l
 
 Pour accéder au générateur de grilles du moteur Google Earth, visitez ce site web ([Lien Gnerateur de Grille](http://www.openforis.org/tools/collect-earth/tutorials/grid-generation-through-google-earth-engine.html)) et cliquez sur "Generated Grid through GEE". Ce site Web contient également d'autres guides qui peuvent être utiles pour l'utilisation de cette application. 
 
-
-
 ![gee_grid_generator_page](./figures/gee_grid_generator_page.JPG)
 
 ![gee_grid_generator](./figures/gee_grid_generator.JPG)
@@ -341,8 +313,6 @@ Après avoir tout défini, cliquez sur "Generate grid" en bas et la grille sera 
 
 ![colombia_excel](./figures/colombia_excel.JPG)
 
-
-
 Ensuite, la structure du fichier csv devra être adaptée à la structure de l'enquête Collect. Un fichier de démonstration du format csv de Collect se trouve dans le Open Foris Collect Survey Designer. Pour trouver ce fichier de démonstration :
 
 1. Allez sur votre page “Edit survey” 
@@ -358,8 +328,6 @@ Dans le fichier csv de démonstration, les colonnes sont intitulées "id", "YCoo
 
 ![colombia_excel_6000](./figures/colombia_excel_6000.JPG)
 
-
-
 Dans la grille générée pour la Colombie, vous pouvez voir que les colonnes sont libellées différemment. Vous allez maintenant devoir modifier votre grille générée pour qu'elle corresponde à la structure de l'enquête Collect survey. Pour ce faire, vous devez : 
 
 1. Déplacer la colonne   “system:index” qui devient la colonne A et renommer le label "id". Ce sera votre identification pour chaque point. 
@@ -374,11 +342,7 @@ Vous pouvez réorganiser ou supprimer le reste des colonnes selon vos préféren
 Dans l'onglet  “Info”  de votre éditeur de survey, allez dans la section “Attached Files” et cliquez sur le bouton vert d'ajout pour joindre votre fichier de grille csv. 
 ![collect_earth_grid_template](./figures/collect_earth_grid_template.JPG)
 
-
-
 ![attach_grid_file](./figures/attach_grid_file.JPG)
-
-
 
 ![attached_files](./figures/attached_files.JPG)
 
@@ -387,7 +351,6 @@ Si votre fichier contient plus de 4000 points, il sera trop volumineux pour êtr
 ![divide_csv](./figures/divide_csv.png)
 
 Maintenant que vous avez répondu aux questions de votre étude et joint les fichiers de grille pour indiquer l'emplacement de votre collecte de données, vous pouvez maintenant exporter et partager votre étude Collect Earth, ce qui est décrit dans la section suivante. 
-
 
 ### 3.4 Exportez et partagez votre étude sur Collect Earth 
 
@@ -429,8 +392,6 @@ Une fois que votre fichier .cep s'ouvre dans Google Earth Pro, cliquez sur un po
 
 ![colombia_plot_point](./figures/colombia_plot_point.JPG)
 
-
-
 Dans ce cas, Collect Earth Plot Imagery and Statistics, NICFI Planet basemaps, et Earth Map s'ouvrent automatiquement dans votre navigateur. Connectez-vous à ces cartes en conséquence et utilisez ces cartes pour répondre aux questions de votre étude. Les cartes de base Planet de NICFI s'ouvrent automatiquement. Earth Map vous permettra de vous connecter ou de continuer en tant qu'invité. Il n'est pas nécessaire d'avoir un compte pour ces sites. Ces cartes vous aideront à mieux comprendre les changements survenus dans les occupations du sol pour ce point particulier de la placette. int. 
 
 ![collect_earth_maps](./figures/collect_earth_maps.JPG)
@@ -448,6 +409,7 @@ Après avoir examiné l'imagerie plus en détail, en utilisant les cartes additi
 Si vous regardez la fenêtre de Earth Map et que vous examinez les données, vous pouvez voir qu'il n'y a pas eu de changement dans les occupations des sols au cours des années, donc dans le menu déroulant   “Land Use Change Year” vous pouvez choisir   “There has been no change in Land Use in the previous years”
 
 ![earthmap_1778](./figures/earthmap_1778.JPG)
+
 ![nochange](./figures/nochange.JPG)
 
 Comme vous pouvez le voir, une fois que vous avez répondu aux questions requises, le titre passe du rouge au noir. Vous pouvez également inclure des commentaires ou des balises s'il y a des informations supplémentaires que vous souhaitez inclure lors de votre collecte de données. Une fois que vous avez terminé de remplir le formulaire, cliquez sur “Send” idans le coin inférieur droit de la fenêtre pop-up. Vous verrez alors que vos données ont été sauvegardées et que la placette dans la liste des placettes de droite est maintenant cochée en vert. Lorsque vous cliquez sur  “Ok” l'application vous fait passer à la placette suivante. 
@@ -465,7 +427,6 @@ Continuez avec le reste des points  de cette façon. Vous aurez terminé votre i
 - L'eau des grands plans d'eau apparaît souvent noire ou sombre jusqu'à ce que vous fassiez un dézoom.
 - Les plantations d'arbres peuvent ressembler à des forêts jusqu'à ce que vous fassiez un zoom arrière pour voir le motif régulier des arbres plantés.
 
-
 ### 3.7 Exportez vos données  
 
 Lorsque vous avez terminé votre collecte de données et que vous voulez exporter vos données Collect Earth, allez à votre fenêtre principale Collect Earth et cliquez sur “Data Import/Export” dans le menu Tools menu. Vous pouvez alors exporter votre fichier au format CSV, XML, Collect Backup ou Fusion Table. Nommez et sauvez votre fichier. 
@@ -474,7 +435,7 @@ Le fichier CSV, qui peut être ouvert dans Excel, présente sous forme de tablea
 
 ![collect_earth_export](./figures/collect_earth_export.JPG)
 
-## 4 Foire aux questions (FAQs)
+## 4 Foire aux questions
 
 **Quand dois-je utiliser  le CE?**
 
@@ -529,7 +490,7 @@ Une liste de termes relatifs aux techniques d'échantillonnage et d'inférence e
 
 ### 5.1 Plan de réponse
 
-Défini par (Stehman and Czaplewski, 1998)[^fn1]: “La référence ou classe réelle est obtenue pour chaque unité d'échantillonnage sur la base de l'interprétation de photographies aériennes ou de vidéographies, d'une observation au sol ou d'une combinaison de ces sources. Les méthodes utilisées pour déterminer cette référence de classification sont appelées "plan de réponse". Le plan d'intervention comprend les procédures de collecte des informations relatives à la détermination de la occupation du sol de référence, et les règles d'attribution d'une ou plusieurs [labels] de référence à chaque unité d'échantillonnage.” Connu sous le nom de “plan de mesure” par Särndal et al. (1992)[^fn2].
+Défini par (Stehman and Czaplewski, 1998): “La référence ou classe réelle est obtenue pour chaque unité d'échantillonnage sur la base de l'interprétation de photographies aériennes ou de vidéographies, d'une observation au sol ou d'une combinaison de ces sources. Les méthodes utilisées pour déterminer cette référence de classification sont appelées "plan de réponse". Le plan d'intervention comprend les procédures de collecte des informations relatives à la détermination de la occupation du sol de référence, et les règles d'attribution d'une ou plusieurs [labels] de référence à chaque unité d'échantillonnage.” Connu sous le nom de “plan de mesure” par Särndal et al. (1992).
 
 ### 5.2 Echantillon
 
@@ -537,21 +498,20 @@ Un sous-ensemble de la population sélectionné parmi les unités de la populati
 
 ### 5.3 Plan d'échantillonnage
 
-Synonyme de plan d'échantillonnage (Sampling Design), qui est le terme préféré dans la littérature de référence (Cochran, 1977[^fn3], Särndal et al., 1992[^fn2]). Le terme apparaît chez Rice (1995)[^fn4] ui utilise à la fois “sampling design, ***plan d'echantillonnage\***” et “sample design, ***plan d'echantillon\***”.
+Synonyme de plan d'échantillonnage (Sampling Design), qui est le terme préféré dans la littérature de référence (Cochran, 1977, Särndal et al., 1992). Le terme apparaît chez Rice (1995) ui utilise à la fois “plan d'echantillonnage” et “plan d'echantillon”.
 
 ### 5.4 Plan d'échantillonnage
 
-“Le concept de plan d'échantillonnage (sampling design ) est le protocole par lequel les unités de référence de l'échantillon sont sélectionnées” (Stehman and Czaplewski, 1998)[^fn1]. Le terme “Sampling design” est également utilisé par Cochran (1977)[^fn3] and Särndal et al. (1992)[^fn2] -- Le premier utilise également “sampling plan”.
+“Le concept de plan d'échantillonnage (sampling design ) est le protocole par lequel les unités de référence de l'échantillon sont sélectionnées” (Stehman and Czaplewski, 1998). Le terme “Sampling design” est également utilisé par Cochran (1977) and Särndal et al. (1992) -- Le premier utilise également “sampling plan”.
 Des tutoriels traitant du plan d'échantillonnage peuvent être trouvés ici sur OpenMRV sous le processus "Plan d'échantillonnage".
 
 ### 5.5 Sondage/Enquêtee
 
-Särndal et al. (1992)[^fn2] définissent une enquête comme une “investigation partielle d'une population finie”, et précisent que “les concepts d ‘enquête’ et ‘enquête par sondage’ sont utilisés pour désigner des enquêtes statistiques présentant les caractéristiques méthodologiques suivantes: [...] échantillonnage aléatoire [...] plan de mesure [et] estimation”. de facon plus precise une enquete par sondage ou un sondage est une enquête effectuee sur une partie de la population. Cette fraction de la population constitue l'échantillon et les méthodes qui permettent de construire cet echantillon s'appellent méthode d'échantillonnage.
+Särndal et al. (1992) définissent une enquête comme une “investigation partielle d'une population finie”, et précisent que “les concepts d ‘enquête’ et ‘enquête par sondage’ sont utilisés pour désigner des enquêtes statistiques présentant les caractéristiques méthodologiques suivantes: [...] échantillonnage aléatoire [...] plan de mesure [et] estimation”. de facon plus precise une enquete par sondage ou un sondage est une enquête effectuee sur une partie de la population. Cette fraction de la population constitue l'échantillon et les méthodes qui permettent de construire cet echantillon s'appellent méthode d'échantillonnage.
 
 ### 5.6 Plan d'enquête
 
-UN “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992)[^fn2]. Lohr (1999)[^fn5] décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
-
+UN “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992). Lohr (1999) décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
 
 ### 5.7 Données de référence
 
@@ -565,7 +525,7 @@ L'évaluation la plus exacte possible de l'état réel d'une unité de populatio
 
 La classification de référence appliquée à la collection de toutes les unités d'échantillonnage.
 
-## 6 Référence
+## 6 Références
 
 Cochran, W.G., 1977. *Sampling Techniques*, John Wiley & Sons, New York, NY.
 
@@ -579,7 +539,6 @@ Särndal, C.E., Svensson, B.H., & Wretman, J.H., 1992. *Model assisted survey sa
 
 Stehman, S.V., & Czaplewski, R.L., 1998. Design and analysis for thematic map accuracy assessment: fundamental principles. *Remote Sensing of Environment*, 64(3), 331-344. https://doi.org/10.1016/S0034-4257(98)00010-8
 
-
 -----
 
 ![](figures/cc.png) 
@@ -590,14 +549,14 @@ Copyright 2021, World Bank
 
 Ce travail a été développé par Justine Bui et Karen Dyson dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte de ressources existantes - liées à la mesure, la notification et la vérification pour soutenir la mise en œuvre du MRV dans les pays. 
 
-Matériel révisé par :
+Matériel révisé par :   
 Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources  
 Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
 Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
 Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)   
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat 
 
-Attribution
+Attribution   
 Bui, J., Dyson, K. 2021. Response Design in Collect Earth Desktop. © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)  
 
 ![](figures/wb_fcfc_gfoi.png)
