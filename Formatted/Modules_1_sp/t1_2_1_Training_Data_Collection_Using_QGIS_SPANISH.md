@@ -262,8 +262,10 @@ Una vez que haya seleccionado imágenes de referencia, es hora de recopilar dato
 2.  Seleccionar el botón con figura de lápiz (*Toggle Editing*) para habilitar la función de editar capas ![](./figures/m1.2/m1.2.2/toggle.JPG).
 3. Seleccionar el ícono de *Add Point* (Agregar Punto) ![](./figures/m1.2/m1.2.2/addpoint.JPG).
 4. Definir un código numérico de clase. Aquí, usaremos 1 para Bosque, 2 para Agua, 3 para Herbáceo, y 4 para Desarrollado. 
+    
     ![](./figures/m1.2/m1.2.2/examples_colombia.png)
 5. Comenzando con la clase de Bosque, haga clic en el mapa para agregar un punto de entrenamiento. En el panel que enseña el mapa, tendrá la opción de llenar el campo de *clase* para el punto que acaba de agregar.  Ya que estamos comenzando con Bosque, use el código de clase 1. Basado en los códigos de clase arriba, escriba 2 para Agua, 3 para Herbáceo, y 4 para Desarrollado.
+
     ![](./figures/m1.2/m1.2.2/point1.JPG)
 6. Seleccione *OK* para guardar el punto de entrenamiento.    
 7. Repetir para varias muestras de Bosque a través de su región de estudio. Se le aconseja guardar la capa durante el proceso usando el botón *Save Layer Edits*. 
