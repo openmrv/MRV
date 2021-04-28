@@ -1,5 +1,5 @@
 ---
-title: Analyse des données d'échantillons obtenues par  SRS/SYS
+title: Analyse des données d'échantillons obtenues suivant le protocole SRS/SYS
 summary: Dans ce tutoriel, nous appliquerons divers estimateurs à un ensemble de données d'échantillon pour estimer les caractéristiques de la population échantillonnée -- c'est-à-dire les caractéristiques de la zone d'étude telles que la zone de perturbation forestière. Ce tutoriel se concentre sur les données d'échantillon collectées dans le cadre du SRS/SYS. 
 author: Pontus Olofsson
 creation date: Février 2021
@@ -45,7 +45,7 @@ Les deux propriétés, biais et variance, sont importantes car nous pouvons nous
 - La terminologie importante se trouve à la fin de ce document.
 - Plus d'informations sur le plan d'échantillonnage et le plan de réponse peuvent être trouvées ici sur OpenMRV sous les processus "Plan d'échantillonnage" et "Collecte de données d'échantillon".
 
-## 3 Tutoriel : Analyse des données d'échantillons obtenues par  SRS/SYS
+## 3 Tutoriel : Analyse des données d'échantillons obtenues suivant le protocole SRS/SYS
 
 ### 3.1 Construction d'estimateurs SRS
 
@@ -115,15 +115,13 @@ Enfin, dans la cellule G1, tapez "Prod. acc. FD" et dans G2 "=countifs(A1:A101, 
 | 9    | 2    | 1    | 1    | Margin of error |              |                |               |
 | 10   | 2    | 2    | 0    | 53%             |              |                |               |
 
-
-
 ### 3.2  Logiciel pour automatiser l'analyse des résultats des échantillons
 
 #### AREA2
 
 L'application AREA2 de Google Earth Engine contient les équations de tous les estimateurs décrits dans ce tutoriel. Notez que dans AREA2, l'estimateur SRS est désigné par son nom officiel, l'estimateur d'expansion. AREA2 est disponible ici : [Lien application AREA2](https://code.earthengine.google.com/?accept_repo=projects/AREA2/public) et une documentation plus détaillée ici :[Lien documentation plus approfondie](https://area2.readthedocs.io/)
 
-## 4 Foire aux questions (FAQs)
+## 4 Foire aux questions
 
 **Les estimateurs ci-dessus sont-ils la seule option dont je dispose lorsque je travaille avec des résultats d'échantillons collectés sous SRS/SYS?**
 
@@ -133,14 +131,13 @@ Non ! Vous pouvez stratifier la zone d'étude après la sélection de l'échanti
 
 Il est difficile d'affirmer qu'un plan d'échantillonnage et une famille d'estimateurs sont plus ou moins précis en général, car la précision finale dépendra de plusieurs facteurs. Pour obtenir la même précision qu'avec un plan stratifié, il faut généralement un échantillon plus grand avec le SRS/SYS. Ceci est particulièrement vrai si les paramètres d'intérêt sont de petites proportions de la zone d'étude.
 
-
 ## 5 Terminologie relative aux techniques d'échantillonnage
 
 Une liste de termes relatifs aux techniques d'échantillonnage et d'inférence est fournie dans la documentation d'AREA2 : https://area2.readthedocs.io/en/latest/definitions.html Vous trouverez ci-dessous quelques termes supplémentaires qui ne figurent pas dans la documentation d'AREA2.
 
 ### 5.1 Plan de réponse
 
-Défini par (Stehman and Czaplewski, 1998)[^fn1]: “La référence ou classe réelle est obtenue pour chaque unité d'échantillonnage sur la base de l'interprétation de photographies aériennes ou de vidéographies, d'une observation au sol ou d'une combinaison de ces sources. Les méthodes utilisées pour déterminer cette référence de classification sont appelées "plan de réponse". Le plan d'intervention comprend les procédures de collecte des informations relatives à la détermination de la occupation du sol de référence, et les règles d'attribution d'une ou plusieurs [labels] de référence à chaque unité d'échantillonnage.” Connu sous le nom de “plan de mesure” par Särndal et al. (1992)[^fn2].
+Défini par (Stehman and Czaplewski, 1998): “La référence ou classe réelle est obtenue pour chaque unité d'échantillonnage sur la base de l'interprétation de photographies aériennes ou de vidéographies, d'une observation au sol ou d'une combinaison de ces sources. Les méthodes utilisées pour déterminer cette référence de classification sont appelées "plan de réponse". Le plan d'intervention comprend les procédures de collecte des informations relatives à la détermination de la occupation du sol de référence, et les règles d'attribution d'une ou plusieurs [labels] de référence à chaque unité d'échantillonnage.” Connu sous le nom de “plan de mesure” par Särndal et al. (1992).
 
 ### 5.2 Echantillon
 
@@ -148,19 +145,19 @@ Un sous-ensemble de la population sélectionné parmi les unités de la populati
 
 ### 5.3 Plan d'échantillonnage
 
-Synonyme de plan d'échantillonnage (Sampling Design), qui est le terme préféré dans la littérature de référence (Cochran, 1977[^fn3], Särndal et al., 1992[^fn2]). Le terme apparaît chez Rice (1995)[^fn4] ui utilise à la fois “sampling design, ***plan d'echantillonnage\***” et “sample design, ***plan d'echantillon\***”.
+Synonyme de plan d'échantillonnage (Sampling Design), qui est le terme préféré dans la littérature de référence (Cochran, 1977, Särndal et al., 1992). Le terme apparaît chez Rice (1995) ui utilise à la fois “plan d'echantillonnage” et “plan d'echantillon”.
 
 ### 5.4 Plan d'échantillonnage
 
-“Le concept de plan d'échantillonnage (sampling design ) est le protocole par lequel les unités de référence de l'échantillon sont sélectionnées” (Stehman and Czaplewski, 1998)[^fn1]. Le terme “Sampling design” est également utilisé par Cochran (1977)[^fn3] and Särndal et al. (1992)[^fn2] -- Le premier utilise également “sampling plan”.
+“Le concept de plan d'échantillonnage (sampling design ) est le protocole par lequel les unités de référence de l'échantillon sont sélectionnées” (Stehman and Czaplewski, 1998). Le terme “Sampling design” est également utilisé par Cochran (1977) and Särndal et al. (1992) -- Le premier utilise également “sampling plan”.
 
 ### 5.5 Sondage/Enquêtee
 
-Särndal et al. (1992)[^fn2] définissent une enquête comme une “investigation partielle d'une population finie”, et précisent que “les concepts d ‘enquête’ et ‘enquête par sondage’ sont utilisés pour désigner des enquêtes statistiques présentant les caractéristiques méthodologiques suivantes: [...] échantillonnage aléatoire [...] plan de mesure [et] estimation”. de facon plus precise une enquete par sondage ou un sondage est une enquête effectuee sur une partie de la population. Cette fraction de la population constitue l'échantillon et les méthodes qui permettent de construire cet echantillon s'appellent méthode d'échantillonnage.
+Särndal et al. (1992) définissent une enquête comme une “investigation partielle d'une population finie”, et précisent que “les concepts d ‘enquête’ et ‘enquête par sondage’ sont utilisés pour désigner des enquêtes statistiques présentant les caractéristiques méthodologiques suivantes: [...] échantillonnage aléatoire [...] plan de mesure [et] estimation”. de facon plus precise une enquete par sondage ou un sondage est une enquête effectuee sur une partie de la population. Cette fraction de la population constitue l'échantillon et les méthodes qui permettent de construire cet echantillon s'appellent méthode d'échantillonnage.
 
 ### 5.6 Plan d'enquête
 
-UN “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992)[^fn2]. Lohr (1999)[^fn5] décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
+UN “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992). Lohr (1999) décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
 
 ### 5.7 Données de référence
 
@@ -192,19 +189,18 @@ Stehman, S.V., 2014. Estimating area and map accuracy for stratified random samp
 
 Cet ouvrage est soumis à une licence [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
-Copyright 2020, Banque mondiale. 
+Copyright 2021, Banque mondiale. 
 
 Ce travail a été développé par Pontus Olofsson dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte de ressources existantes - liées à la mesure, la notification et la vérification pour soutenir la mise en œuvre du MRV par les pays.
 
-Matériel révisé par : 
-
+Matériel révisé par :   
 Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources
 Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)
 Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources
 Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat
 
-Attribution : 
+Attribution  
 Olofsson, P. 2021. Analysis of sample data collected under simple random and systematic sampling. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 
