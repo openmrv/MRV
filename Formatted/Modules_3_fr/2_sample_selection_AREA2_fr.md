@@ -42,7 +42,7 @@ Dans le tutoriel précédent, nous avons conçu un échantillon en choisissant u
 
 - La terminologie relative aux techniques d'échantillonnage se trouve à la fin de ce document. 
 
-## 3 Tutorial: Sélection de l'échantillon en utilisant AREA2
+## 3 Tutoriel: Sélection de l'échantillon en utilisant AREA2
 
 ### 3.1 Echantillonnage aléatoire stratifié dans Google Earth Engine/AREA2
 
