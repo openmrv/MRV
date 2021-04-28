@@ -1,7 +1,7 @@
 ---
 
 title: Diseño de muestreo aleatorio estratificado
-summary: Los enfoques basados en el muestreo en un contexto geográfico o de teledetección son necesarios porque nos permiten estimar el sesgo del área, la precisión del mapa y la incertidumbre. Un enfoque de estimación basado en muestreo puede dividirse en tres componentes diferentes: diseño de muestreo, diseño de respuesta y análisis (Stehman y Czaplewski, 1998). El primer componente, el diseño de muestreo, se ilustra en este tutorial para el caso del diseño de muestreo aleatorio estratificado. Otros tutoriales aquí sobre OpenMRV en el proceso "Diseño de muestreo" exploran otros enfoques de diseño de muestreo (por ejemplo, diseño de muestreo simple aleatorio/sistemático).
+summary: Los enfoques basados en el muestreo en un contexto geográfico o de teledetección son necesarios porque nos permiten estimar el sesgo del área, la precisión del mapa y la incertidumbre. Un enfoque de estimación basado en muestreo puede dividirse en tres componentes diferentes - diseño de muestreo, diseño de respuesta y análisis (Stehman y Czaplewski, 1998). El primer componente, el diseño de muestreo, se ilustra en este tutorial para el caso del diseño de muestreo aleatorio estratificado. Otros tutoriales aquí sobre OpenMRV en el proceso "Diseño de muestreo" exploran otros enfoques de diseño de muestreo (por ejemplo, diseño de muestreo simple aleatorio/sistemático).
 author: Pontus Olofsson
 creation date: febrero 2021
 language: español
@@ -31,11 +31,11 @@ group:
 
 ## 1 Contexto
 
-Un método de estimación basado en muestreo puede dividirse en tres componentes diferentes: diseño de muestreo, diseño de respuesta, y análisis (Stehman & Czaplewski, 1998) [^ fn1]. El primer componente, el diseño de muestreo, se ilustra en este tutorial. El diseño de muestreo define el protocolo para seleccionar el subconjunto de unidades, es decir, la muestra, de una población más grande. En nuestro caso, la población es el equivalente al área de estudio, y las características del área de estudio, como el área de una cobertura de suelo, se estiman mediante el análisis de la muestra. Los métodos basados en el muestreo en un contexto geográfico o de teledetección son necesarios porque nos permiten estimar el sesgo del área, la precisión del mapa, y la incertidumbre. Como se explica en el Documento de orientación y métodos de GFOI, simplemente contando píxeles en los mapas para la estimación de las áreas de cobertura terrestre y el cambio de cobertura terrestre producirá resultados erróneos debido a errores de clasificación (GFOI, 2016, p. 125)[^fn2]:
+Un método de estimación basado en muestreo puede dividirse en tres componentes diferentes: diseño de muestreo, diseño de respuesta, y análisis (Stehman & Czaplewski, 1998). El primer componente, el diseño de muestreo, se ilustra en este tutorial. El diseño de muestreo define el protocolo para seleccionar el subconjunto de unidades, es decir, la muestra, de una población más grande. En nuestro caso, la población es el equivalente al área de estudio, y las características del área de estudio, como el área de una cobertura de suelo, se estiman mediante el análisis de la muestra. Los métodos basados en el muestreo en un contexto geográfico o de teledetección son necesarios porque nos permiten estimar el sesgo del área, la precisión del mapa, y la incertidumbre. Como se explica en el Documento de orientación y métodos de GFOI, simplemente contando píxeles en los mapas para la estimación de las áreas de cobertura terrestre y el cambio de cobertura terrestre producirá resultados erróneos debido a errores de clasificación (GFOI, 2016, p. 125):
 
 > Los métodos que producen estimaciones de datos de actividad como sumas de áreas de unidades de mapa asignadas a clases de mapa se caracterizan como recuento de píxeles y, en general, no contemplan los efectos de los errores de clasificación de mapas. Además, aunque las matrices de confusión o error y los índices de precisión del mapa pueden informar problemas de precisión y errores sistemáticos, no producen directamente la información necesaria para construir intervalos de confianza. Por lo tanto, los métodos de recuento de píxeles no garantizan que las estimaciones “no sean ni sobreestimadas ni subestimadas” o que “las incertidumbres se reduzcan en la medida de lo posible”. La función de los datos de referencia, también caracterizados como datos de evaluación de la precisión, es proporcionar dicha garantía ajustando los errores de clasificación sistemáticos estimados y estimando la incertidumbre, proporcionando así la información necesaria para la construcción de intervalos de confianza para el cumplimiento de la guía de buenas prácticas del IPCC.
 
-Al elegir un diseño de muestreo, debemos considerar algunos importantes criterios de diseño. De primordial importancia es la adherencia al muestreo probabilístico. El muestreo probabilístico se define en términos de probabilidades de inclusión, donde una probabilidad de inclusión se relaciona con la probabilidad de que una unidad determinada se incluya en la muestra; la probabilidad de inclusión debe ser conocida para cada unidad seleccionada en la muestra y la probabilidad de inclusión debe ser mayor que cero para todas las unidades en el área de estudio (Stehman, 2009) [^ fn3]. Varios diseños de muestreo probabilístico son aplicables a la precisión y la estimación de áreas. Los diseños más comúnmente usados son aleatorios simple, aleatorio estratificado, y sistemático. El muestreo en dos fases (también llamado doble), en dos etapas y por conglomerados es aplicable pero más complicado.
+Al elegir un diseño de muestreo, debemos considerar algunos importantes criterios de diseño. De primordial importancia es la adherencia al muestreo probabilístico. El muestreo probabilístico se define en términos de probabilidades de inclusión, donde una probabilidad de inclusión se relaciona con la probabilidad de que una unidad determinada se incluya en la muestra; la probabilidad de inclusión debe ser conocida para cada unidad seleccionada en la muestra y la probabilidad de inclusión debe ser mayor que cero para todas las unidades en el área de estudio (Stehman, 2009). Varios diseños de muestreo probabilístico son aplicables a la precisión y la estimación de áreas. Los diseños más comúnmente usados son aleatorios simple, aleatorio estratificado, y sistemático. El muestreo en dos fases (también llamado doble), en dos etapas y por conglomerados es aplicable pero más complicado.
 
 ## 2 Objetivos de Aprendizaje
 
@@ -46,23 +46,22 @@ El objetivo de este tutorial es proporcionar al usuario una comprensión de las 
 - Determinar el tamaño de la muestra y asignar la muestra a los estratos, en función de los objetivos de estimación para el diseño de muestreo aleatorio estratificado.
 
 ### 2.1 Prerrequisitos
+- La terminología relevante se encuentra al final de este documento.
+- Una cuenta de Google Earth Engine (GEE). Por favor consulte el proceso "Preprocesamiento" y la herramienta "GEE" aqui en OpenMRV para mas información acerca de como trabajar en este entorno.
 
-- Repaso de la terminología relevante para las técnicas de muestreo en el tutorial de Terminología
-- Es altamente recomendado que tenga un entendimiento de los tutoriales previos en Módulos 1 y 2
-
-## 3  Tutorial: Diseño de muestreo para la estimacion de area y precision de mapa - Muestreo aleatorio estratificado
+## 3 Tutorial: Diseño de muestreo para la estimacion de area y precision de mapa - Muestreo aleatorio estratificado
 
 ### 3.1 ¿Cómo escoger un diseño de muestreo?
 
-La elección de un diseño de muestreo a menudo implica compensaciones entre diferentes criterios y prioridades. El deseo de proporcionar estimaciones para las subregiones o la necesidad de alcanzar objetivos de precisión deberá equilibrarse con los criterios de diseño de muestreo deseables, como la facilidad y practicidad de la implementación, la rentabilidad, y la facilidad para adaptarse a los cambios en el tamaño de la muestra. Stehman (2009) [^ fn3] proporciona un repaso detallado de las opciones, objetivos, y criterios de diseño de muestreo, pero la decisión generalmente se reduce a tres decisiones clave: si usar estratos, si usar conglomerados, y si implementar un sistema sistemático o un protocolo simple de selección aleatoria.
+La elección de un diseño de muestreo a menudo implica compensaciones entre diferentes criterios y prioridades. El deseo de proporcionar estimaciones para las subregiones o la necesidad de alcanzar objetivos de precisión deberá equilibrarse con los criterios de diseño de muestreo deseables, como la facilidad y practicidad de la implementación, la rentabilidad, y la facilidad para adaptarse a los cambios en el tamaño de la muestra. Stehman (2009) proporciona un repaso detallado de las opciones, objetivos, y criterios de diseño de muestreo, pero la decisión generalmente se reduce a tres decisiones clave: si usar estratos, si usar conglomerados, y si implementar un sistema sistemático o un protocolo simple de selección aleatoria.
 
 #### 3.1.1 ¿Usar estratos?
 
-Los estratos son “subpoblaciones que no se superponen y que juntas comprenden toda la población” (Cochran, 1977, p. 89) [^ fn4]. La estratificación del área de estudio antes de la selección de la muestra puede garantizar que se obtengan estimaciones de precisión y área para ciertas subregiones en el área de estudio, y da como resultado una mayor precisión de las estimaciones. En consecuencia, existen varias buenas razones para utilizar estratos. Incluso con un muestreo aleatorio simple, el uso de estratos después de seleccionar la muestra es una [buena idea](### markdown-header-3.1-Post-estratificación). El muestreo estratificado proporciona una ventaja obvia si estamos interesados en una proporción muy pequeña del área de estudio, como suele ser el caso de los MRV tropicales. Por ejemplo, el área de pérdida de bosques, incluso en países con una deforestación desenfrenada, a menudo es una proporción muy pequeña del país, especialmente en intervalos de tiempo cortos. El uso de un mapa de pérdida de bosques (y otras categorías) para estratificar el área de estudio en tales situaciones permite un muestreo específico en áreas de interés particular. No estratificar en tales situaciones requerirá un tamaño de muestra muy grande.
+Los estratos son “subpoblaciones que no se superponen y que juntas comprenden toda la población” (Cochran, 1977, p. 89). La estratificación del área de estudio antes de la selección de la muestra puede garantizar que se obtengan estimaciones de precisión y área para ciertas subregiones en el área de estudio, y da como resultado una mayor precisión de las estimaciones. En consecuencia, existen varias buenas razones para utilizar estratos. Incluso con un muestreo aleatorio simple, el uso de estratos después de seleccionar la muestra es una buena idea. El muestreo estratificado proporciona una ventaja obvia si estamos interesados en una proporción muy pequeña del área de estudio, como suele ser el caso de los MRV tropicales. Por ejemplo, el área de pérdida de bosques, incluso en países con una deforestación desenfrenada, a menudo es una proporción muy pequeña del país, especialmente en intervalos de tiempo cortos. El uso de un mapa de pérdida de bosques (y otras categorías) para estratificar el área de estudio en tales situaciones permite un muestreo específico en áreas de interés particular. No estratificar en tales situaciones requerirá un tamaño de muestra muy grande.
 
 #### 3.1.2 ¿Usar selección simple aleatoria o sistemática?
 
-La selección sistemática implica seleccionar un punto de partida al azar con la misma probabilidad y luego muestrear con una distancia fija entre las ubicaciones de las muestras. En resumen, la selección aleatoria simple es preferible si se recopilan observaciones de referencia en datos satelitales, mientras que la selección sistemática es preferible si se visitan ubicaciones de muestreo in situ (Olofsson et al. 2014) [^ fn5]. El fundamento de esta recomendación es que las unidades seleccionadas sistemáticamente son más fáciles de ubicar en el campo, mientras que la selección aleatoria es más fácil de aumentar. Tenga en cuenta que los mismos estimadores se utilizan tanto con selección aleatoria simple como con selección sistemática.
+La selección sistemática implica seleccionar un punto de partida al azar con la misma probabilidad y luego muestrear con una distancia fija entre las ubicaciones de las muestras. En resumen, la selección aleatoria simple es preferible si se recopilan observaciones de referencia en datos satelitales, mientras que la selección sistemática es preferible si se visitan ubicaciones de muestreo in situ (Olofsson et al. 2014). El fundamento de esta recomendación es que las unidades seleccionadas sistemáticamente son más fáciles de ubicar en el campo, mientras que la selección aleatoria es más fácil de aumentar. Tenga en cuenta que los mismos estimadores se utilizan tanto con selección aleatoria simple como con selección sistemática.
 
 #### 3.1.3 ¿Usar conglomerado?
 
@@ -70,13 +69,13 @@ Un conglomerado es una unidad de muestreo que consta de una o más de las unidad
 
 ### 3.2 Muestreo aleatorio estratificado
 
-La motivación para usar STR surge cuando intentamos estimar algo que es una pequeña proporción de la población, y bajo SRS / SYS, se requiere un tamaño de muestra muy grande. En tales situaciones, se recomienda el muestreo aleatorio estratificado (STR). STR es simplemente cuando “se toma un muestreo aleatorio simple en cada estrato” (Cochran 1977, p. 89) [^ fn4]. En consecuencia, dividimos la población en estratos y seleccionamos una muestra en cada estrato bajo SRS (o SYS). STR agrega otro nivel de complejidad y requiere que determinemos cómo asignar la unidad de muestra a los estratos, además de determinar el tamaño total de la muestra.
+La motivación para usar STR surge cuando intentamos estimar algo que es una pequeña proporción de la población, y bajo SRS / SYS, se requiere un tamaño de muestra muy grande. En tales situaciones, se recomienda el muestreo aleatorio estratificado (STR). STR es simplemente cuando “se toma un muestreo aleatorio simple en cada estrato” (Cochran 1977, p. 89). En consecuencia, dividimos la población en estratos y seleccionamos una muestra en cada estrato bajo SRS (o SYS). STR agrega otro nivel de complejidad y requiere que determinemos cómo asignar la unidad de muestra a los estratos, además de determinar el tamaño total de la muestra.
 
 Para obtener más información sobre SRS/SYS, consulte aquí en OpenMRV los tutoriales en el proceso "Diseño de muestreo".
 
 #### 3.2.1 Tamaño de muestra
 
-Al igual que con SRS/SYS, necesitamos especificar un objetivo de precisión y calcularlo utilizando el estimador de varianza STR y el tamaño total de la muestra (*n*) requerido para alcanzar la precisión objetivo. Resolver el estimador de varianza STR da (Olofsson et al., 2014, Eq. 13. modificado de Cochran, 1977, Eq 5.25)[^fn4]
+Al igual que con SRS/SYS, necesitamos especificar un objetivo de precisión y calcularlo utilizando el estimador de varianza STR y el tamaño total de la muestra (*n*) requerido para alcanzar la precisión objetivo. Resolver el estimador de varianza STR da (Olofsson et al., 2014, Eq. 13. modificado de Cochran, 1977, Eq 5.25)
 
 [![img](https://camo.githubusercontent.com/2ceb9061ac9e8f8c8224ba8a4375927c1025357f1b34e260ca08185a446b1633/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f7376672e6c617465783f2535434c617267652673706163653b6e3d2535436c6566742673706163653b2535422535436672616325374225354373756d5f25374268253744575f6825354374657874757025374253442537445f6825374425374225354374657874253742534525374428702925374425354372696768742673706163653b25354425354532)](https://camo.githubusercontent.com/2ceb9061ac9e8f8c8224ba8a4375927c1025357f1b34e260ca08185a446b1633/68747470733a2f2f6c617465782e636f6465636f67732e636f6d2f7376672e6c617465783f2535434c617267652673706163653b6e3d2535436c6566742673706163653b2535422535436672616325374225354373756d5f25374268253744575f6825354374657874757025374253442537445f6825374425374225354374657874253742534525374428702925374425354372696768742673706163653b25354425354532)
 
@@ -148,9 +147,9 @@ lo cual nos da un tamaño de muestra de 599 -- o sea aproximadamente 1/8 del tam
 
 #### 3.2.2 Estratos de amortiguamiento
 
-Un problema potencial en la situación anterior es que las omisiones de perturbación presentes en el estrato de bosque tendrán un gran impacto en la precisión de las estimaciones. Dichos errores de omisión son unidades de muestra en el estrato de bosque que se observaron en los datos de referencia como perturbaciones. El problema se explica en detalle en Olofsson et al. (2020) [^ fn6] y aquí simplemente reconocemos que la "contribución a la incertidumbre" de los errores de omisión depende en gran medida del tamaño del estrato en el que ocurren. Por lo tanto, nos gustaría disminuir el tamaño del estrato de bosque que actualmente es el 83% del área de estudio. En particular, queremos crear pequeños sustratos donde es probable que ocurran omisiones de disturbios. Un enfoque explorado en la literatura es la creación de estratos de amortiguamiento alrededor de los estratos de cambio; la razón es que es probable que los errores ocurran cerca del cambio correctamente mapeado. En nuestro caso, dicho estrato de amortiguamiento podría definirse como los píxeles en el estrato del bosque adyacente al disturbio.
+Un problema potencial en la situación anterior es que las omisiones de perturbación presentes en el estrato de bosque tendrán un gran impacto en la precisión de las estimaciones. Dichos errores de omisión son unidades de muestra en el estrato de bosque que se observaron en los datos de referencia como perturbaciones. El problema se explica en detalle en Olofsson et al. (2020) y aquí simplemente reconocemos que la "contribución a la incertidumbre" de los errores de omisión depende en gran medida del tamaño del estrato en el que ocurren. Por lo tanto, nos gustaría disminuir el tamaño del estrato de bosque que actualmente es el 83% del área de estudio. En particular, queremos crear pequeños sustratos donde es probable que ocurran omisiones de disturbios. Un enfoque explorado en la literatura es la creación de estratos de amortiguamiento alrededor de los estratos de cambio; la razón es que es probable que los errores ocurran cerca del cambio correctamente mapeado. En nuestro caso, dicho estrato de amortiguamiento podría definirse como los píxeles en el estrato del bosque adyacente al disturbio.
 
-Ilustremos la creación de un búfer. Haga clic en este enlace para encontrar un script para crear un búfer en el resultado de la herramienta "CODED" aquí en OpenMRV, en AREA2: https://code.earthengine.google.com/175b379e71239b16b38abf4eaf68c6fc. Alternativamente, puede usar este mapa de Colombia basado en CODED con un amortiguamiento: https://code.earthengine.google.com/?asset=users/olofsson76/Open_MRV/Open_MRV_Col_strat_buffer. Para obtener los pesos de estratos, abra el script en AREA2 para seleccionar una muestra con muestreo aleatorio estratificado: [https://code.earthengine.google.com/48294a6892696c57eda3f65d2ea95a0e](https://code.earthengine.google.com/?accept_repo=users%2Fopenmrv%2FMRV&scriptPath=projects%2FAREA2%2Fpublic%3A1. Sampling Design%2FStratified Random Sampling) y especifique la ruta al mapa de Colombia basado en CODED con un amortiguamiento bajo "Specify stratification/image to define study area" (Especifique estratificación/imagen para definir area de estudio); use los otros argumentos automáticos y haga clic en "Load image" lo cual visualizara las áreas de estratos en la Consola (NOTA: esto tomará tiempo). Consiga las siguientes áreas de Bosque (0), No-bosque (1), Disturbio de Bosque (2) y un amortiguamiento de 2-pixeles (3) [m^2^]:
+Ilustremos la creación de un búfer. Haga clic en este enlace para encontrar un script para crear un búfer en el resultado de la herramienta "CODED" aquí en OpenMRV, en AREA2: https://code.earthengine.google.com/175b379e71239b16b38abf4eaf68c6fc. Alternativamente, puede usar este mapa de Colombia basado en CODED con un amortiguamiento: https://code.earthengine.google.com/?asset=users/olofsson76/Open_MRV/Open_MRV_Col_strat_buffer. Para obtener los pesos de estratos, abra el script en AREA2 para seleccionar una muestra con muestreo aleatorio estratificado: [https://code.earthengine.google.com/48294a6892696c57eda3f65d2ea95a0e](https://code.earthengine.google.com/?accept_repo=users%2Fopenmrv%2FMRV&scriptPath=projects%2FAREA2%2Fpublic%3A1.%20Sampling%20 Design%2FStratified%20Random%20Sampling) y especifique la ruta al mapa de Colombia basado en CODED con un amortiguamiento bajo "Specify stratification/image to define study area" (Especifique estratificación/imagen para definir area de estudio); use los otros argumentos automáticos y haga clic en "Load image" lo cual visualizara las áreas de estratos en la Consola (NOTA: esto tomará tiempo). Consiga las siguientes áreas de Bosque (0), No-bosque (1), Disturbio de Bosque (2) y un amortiguamiento de 2-pixeles (3) [m^2^]:
 
 0: 625,597,113,080 1: 462,219,395,097 2: 15,594,353,281 3: 32,599,448,433
 
@@ -176,7 +175,7 @@ Si creemos que el estrato de amortiguamiento es eficiente para capturar errores 
 | 8    | ES(*p^*)     |                 |                 | 0.001716        |                     |                   |
 | 9    | *n*          |                 |                 |                 |                     | 502               |
 
-Un amortiguamiento de tres pixeles fue usado aquí solo como ejemplo. Para mas información acerca de como determinar el tamaño del estrato de amortiguamiento, por favor refiérase a Olofsson et al. (2020)[^fn6].
+Un amortiguamiento de tres pixeles fue usado aquí solo como ejemplo. Para mas información acerca de como determinar el tamaño del estrato de amortiguamiento, por favor refiérase a Olofsson et al. (2020).
 
 #### 3.2.3 Asignación
 
@@ -212,7 +211,7 @@ Esto parece razonable, pero necesitamos al menos 30 unidades por estrato, por lo
 | 10   | *nh* (prop.)  | 277             | 204             | 7               | 14                  | 502               |
 | 11   | *nh* (final)  | 275             | 200             | 30              | 30                  | 535               |
 
-La razón por la cual 30 se considera el tamaño de muestra mínimo se describe mejor por Lohr (1999).[^fn8]:
+La razón por la cual 30 se considera el tamaño de muestra mínimo se describe mejor por Lohr (1999):
 
 > El término impreciso "suficientemente grande" aparece en el teorema del límite central porque la adecuación de la aproximación normal depende de n y de cuán cerca se parece la población {yi, i = 1, ..., N} a una población generada a partir de la distribución normal . El "número mágico" de n = 30 [se] suele citar en los libros de introducción a la estadística como un tamaño de muestra que es "suficientemente grande" para que se aplique el teorema del límite central.
 
@@ -220,11 +219,11 @@ El teorema del límite central es importante porque establece que la suma de las
 
 ### 3.3 Muestreo en dos etapas/conglomerado
 
-Debido a la complejidad asociada con el muestreo en dos etapas, hay menos ejemplos de este tipo de diseños en la literatura en comparación con STR y SRS/SYS. Además, no existen reglas fijas para guiar el tamaño de la muestra y las unidades primarias de muestreo (UPM) más que para encontrar un compromiso entre el número total de observaciones y un nivel razonable de incertidumbre para las estimaciones dentro de la UPM (Sannier et al. , 2013) [^ fn9]. En lugar de crear ejemplos, revisaremos dos ejemplos en la literatura.
+Debido a la complejidad asociada con el muestreo en dos etapas, hay menos ejemplos de este tipo de diseños en la literatura en comparación con STR y SRS/SYS. Además, no existen reglas fijas para guiar el tamaño de la muestra y las unidades primarias de muestreo (UPM) más que para encontrar un compromiso entre el número total de observaciones y un nivel razonable de incertidumbre para las estimaciones dentro de la UPM (Sannier et al. , 2013). En lugar de crear ejemplos, revisaremos dos ejemplos en la literatura.
 
-El primer ejemplo es Potapov et al. (2014) [^ fn7] quien estimó el área de pérdida forestal 2000-2011 en la Amazonía peruana en apoyo de REDD +. La principal fuente de datos de referencia fueron las imágenes comerciales de alta resolución. Se eligió un diseño de dos etapas para ahorrar costos, ya que el presupuesto permitía comprar solo 30 conjuntos de datos de alta resolución. En un diseño de dos etapas, los datos de referencia solo son necesarios para las UPM y no para toda el área de estudio. En consecuencia, el tamaño de la muestra de las 30 UPM se determinó sobre la base de razones presupuestarias y no especificando una precisión objetivo como en los ejemplos anteriores. Se eligió el tamaño de las unidades de suministro de energía de 12 × 12 km para alinearse con las imágenes de alta resolución. Los 5,532 bloques que cubren el área de estudio, cada uno de 12 × 12 km, se separaron en un estrato de cambio forestal alto (337 bloques) y bajo (5,195 bloques), de los cuales se seleccionaron 21 y 9 UPM bajo STR. Esta selección se guió por las reglas de asignación de muestra óptima de Cochran (1977) [^ fn4]. Dentro de cada una de las 30 UPM, se seleccionaron 100 unidades de muestreo secundarias (SSU) según el SRS en la segunda etapa del muestreo.
+El primer ejemplo es Potapov et al. (2014) quien estimó el área de pérdida forestal 2000-2011 en la Amazonía peruana en apoyo de REDD +. La principal fuente de datos de referencia fueron las imágenes comerciales de alta resolución. Se eligió un diseño de dos etapas para ahorrar costos, ya que el presupuesto permitía comprar solo 30 conjuntos de datos de alta resolución. En un diseño de dos etapas, los datos de referencia solo son necesarios para las UPM y no para toda el área de estudio. En consecuencia, el tamaño de la muestra de las 30 UPM se determinó sobre la base de razones presupuestarias y no especificando una precisión objetivo como en los ejemplos anteriores. Se eligió el tamaño de las unidades de suministro de energía de 12 × 12 km para alinearse con las imágenes de alta resolución. Los 5,532 bloques que cubren el área de estudio, cada uno de 12 × 12 km, se separaron en un estrato de cambio forestal alto (337 bloques) y bajo (5,195 bloques), de los cuales se seleccionaron 21 y 9 UPM bajo STR. Esta selección se guió por las reglas de asignación de muestra óptima de Cochran (1977). Dentro de cada una de las 30 UPM, se seleccionaron 100 unidades de muestreo secundarias (SSU) según el SRS en la segunda etapa del muestreo.
 
-Un segundo ejemplo se proporciona en Sannier et al. (2013) [^ fn9] quien estimó la proporción de cobertura forestal y deforestación neta en Gabón utilizando un muestreo en dos etapas. Se eligió el muestreo en dos etapas porque representaba un compromiso entre la facilidad de recopilación de datos y la distribución geográfica. El área de estudio se dividió en 251 bloques de 20 × 20 km, cada uno de los cuales se dividió en 100 bloques de 2 × 2 km. En la primera etapa, se seleccionó una PSU de 2 × 2 km en cada uno de los 251 bloques de 20 x 20 km bajo SRS. En la segunda etapa, se seleccionaron 50 SSU correspondientes a un píxel Landsat bajo SRS.
+Un segundo ejemplo se proporciona en Sannier et al. (2013) quien estimó la proporción de cobertura forestal y deforestación neta en Gabón utilizando un muestreo en dos etapas. Se eligió el muestreo en dos etapas porque representaba un compromiso entre la facilidad de recopilación de datos y la distribución geográfica. El área de estudio se dividió en 251 bloques de 20 × 20 km, cada uno de los cuales se dividió en 100 bloques de 2 × 2 km. En la primera etapa, se seleccionó una PSU de 2 × 2 km en cada uno de los 251 bloques de 20 x 20 km bajo SRS. En la segunda etapa, se seleccionaron 50 SSU correspondientes a un píxel Landsat bajo SRS.
 
 ### 3.4 Software que permite la estimación de tamaño de muestra
 
@@ -260,7 +259,7 @@ Una lista de términos relevantes para las técnicas de muestreo e inferencia es
 
 ### 5.1 Diseño de Respuesta
 
-Definido por Stehman and Czaplewski, 1998[^fn1]: “La referencia o clasificación 'verdadera' se obtiene para cada unidad de muestreo en función de la interpretación de fotografías aéreas o videografías, una visita terrestre o una combinación de estas fuentes. Los métodos utilizados para determinar esta clasificación de referencia se denominan "diseño de respuesta". El diseño de respuesta incluye procedimientos para recopilar información relacionada con la determinación de la cobertura terrestre de referencia y reglas para asignar una o más [etiquetas] de referencia a cada unidad de muestreo ". Conocido como "plan de medición" por Särndal et al. (1992)[^fn2].
+Definido por Stehman and Czaplewski, 1998: “La referencia o clasificación 'verdadera' se obtiene para cada unidad de muestreo en función de la interpretación de fotografías aéreas o videografías, una visita terrestre o una combinación de estas fuentes. Los métodos utilizados para determinar esta clasificación de referencia se denominan "diseño de respuesta". El diseño de respuesta incluye procedimientos para recopilar información relacionada con la determinación de la cobertura terrestre de referencia y reglas para asignar una o más [etiquetas] de referencia a cada unidad de muestreo ". Conocido como "plan de medición" por Särndal et al. (1992).
 
 ### 5.2 Muestra
 
@@ -268,21 +267,21 @@ Un subconjunto de unidades de población seleccionadas de la población.
 
 ### 5.3 Diseño de Muestra
 
-Sinónimo de diseño de muestreo, que es el término preferido en la literatura fundamental (Cochran, 1977 [^ fn3], Särndal et al., 1992 [^ fn2]). El término aparece en Rice (1995) [^ fn4] que utiliza tanto "diseño de muestreo" como "diseño de muestra".
+Sinónimo de diseño de muestreo, que es el término preferido en la literatura fundamental (Cochran, 1977, Särndal et al., 1992). El término aparece en Rice (1995) que utiliza tanto "diseño de muestreo" como "diseño de muestra".
 
 ### 5.4 Diseño de Muestreo
 
-"El diseño de muestreo es el protocolo mediante el cual se seleccionan las unidades de muestra de referencia". (Stehman y Czaplewski, 1998) [^ fn1]. El “diseño de muestreo” también es utilizado por Cochran (1977) [^ fn3] y Särndal et al. (1992) [^ fn2]- el primero también usa "plan de muestreo".
+"El diseño de muestreo es el protocolo mediante el cual se seleccionan las unidades de muestra de referencia". (Stehman y Czaplewski, 1998). El “diseño de muestreo” también es utilizado por Cochran (1977) y Särndal et al. (1992) - el primero también usa "plan de muestreo".
 
 ### 5.5 Encuesta
 
-Särndal y col. (1992) [^ fn2] define una encuesta como una “investigación parcial de una población finita”, y además que “los términos 'encuesta' y 'encuesta por muestreo' se utilizan para denotar investigaciones estadísticas con las siguientes características metodológicas: [. ..] plan de medición [...] de muestreo probabilístico [y] estimación."
+Särndal y col. (1992) define una encuesta como una “investigación parcial de una población finita”, y además que “los términos 'encuesta' y 'encuesta por muestreo' se utilizan para denotar investigaciones estadísticas con las siguientes características metodológicas: [...] plan de medición [...] de muestreo probabilístico [y] estimación."
 
 ### 5.6 Diseño de Encuesta
 
-Un "diseño total de la encuesta" define los procedimientos para "obtener la posible precisión en las estimaciones de la encuesta mientras se logra un equilibrio entre los errores de muestreo y los no muestrales [...] El diseño de la encuesta da lugar a operaciones de encuesta" como la selección de la muestra (Särndal et al., 1992) [^ fn2]. Lohr (1999) [^ fn5] describe un diseño de encuesta total como "Una filosofía de diseño de encuesta para minimizar los errores de muestreo y de no muestreo". Además, en Lohr (1999) “diseño de encuestas” es sinónimo de diseño de muestreo.
+Un "diseño total de la encuesta" define los procedimientos para "obtener la posible precisión en las estimaciones de la encuesta mientras se logra un equilibrio entre los errores de muestreo y los no muestrales [...] El diseño de la encuesta da lugar a operaciones de encuesta" como la selección de la muestra (Särndal et al., 1992). Lohr (1999) describe un diseño de encuesta total como "Una filosofía de diseño de encuesta para minimizar los errores de muestreo y de no muestreo". Además, en Lohr (1999) “diseño de encuestas” es sinónimo de diseño de muestreo.
 
-## Referencias
+## 6 Referencias
 
 Cochran, W.G., 1977. *Sampling Techniques*, John Wiley & Sons, New York, NY.
 
@@ -306,29 +305,27 @@ Stehman, S.V., 2009. Sampling designs for accuracy assessment of land cover. Int
 
 Stehman, S.V., & Czaplewski, R.L., 1998. Design and analysis for thematic map accuracy assessment: fundamental principles. *Remote Sensing of Environment*, 64(3), 331-344. https://doi.org/10.1016/S0034-4257(98)00010-8
 
-
-
 -----
 
 ![](./figures/cc.png)  
 
 Este trabajo tiene licencia bajo [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
-Copyright 2020, World Bank. 
+Copyright 2021, World Bank. 
 
 Este trabajo fue desarrollado por Pontus Olofsson bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionadas a la Medida, Reportaje, y Verificación para el apoyo de implementación MRV en varios países.
 
-Material revisado por: 
-Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources  
-Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
-Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS)    
-Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
-Paula Andrea Paz, Colombia, International Center for Tropical Agriculture (CIAT)    
-Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)   
-Rajesh Bahadur Thapa, Nepal, International Centre for Integrated Mountain Development (ICIMOD)    
+Material revisado por:    
+Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources     
+Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)     
+Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS)       
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources      
+Paula Andrea Paz, Colombia, International Center for Tropical Agriculture (CIAT)       
+Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)      
+Rajesh Bahadur Thapa, Nepal, International Centre for Integrated Mountain Development (ICIMOD)       
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat
 
-Atribución: 
+Atribución    
 Olofsson, P. 2021. Stratified random sampling design. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](./figures/wb_fcfc_gfoi.png)
