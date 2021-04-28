@@ -38,7 +38,7 @@ group:
 
 Este tutorial le explicará como crear una imagen compuesta usando imágenes de Landsat y/o Sentinel-2 a un nivel nacional en Google Earth Engine (GEE). Aquí, el proceso es demostrado para el país de Colombia. El tutorial viene acompañado por un repositorio de GEE que contiene 3 scripts y una serie de videos que explican algunas de las secciones. Los scripts le permiten crear una imagen compuesta que se puede utilizar en otros tutoriales aquí en OpenMRV.
 
-## 1.1 Google Earth Engine (GEE)
+### 1.1 Google Earth Engine (GEE)
 
 El atractivo de usar GEE es que GEE contiene multi-petabytes de imágenes satelitales y datos geoespaciales, permitiendo que sus usuarios computen análisis a escala masiva en una plataforma basada en la nube.  GEE contiene JavaScript (usado en este caso) y una Interfaz de programación de aplicaciones (API por sus siglas en ingles) de Python, donde usuarios pueden subir sus propios conjuntos de datos y usar funciones integradas para completar **una enorme variedad de tareas geoespaciales a velocidades y escalas sin precedente.** Para mas información acerca de GEE por favor refiérase [a la página principal de GEE](https://earthengine.google.com/). Ahí puede encontrar tutoriales y documentación útil. Algunos enlaces relevantes se destacan a continuación:
 
@@ -77,7 +77,7 @@ Se le aconseja que siga los pasos siguientes escribiendo los scripts usted mismo
 
 ### 1.3 Videos
 
-El canal de YouTube titulado [Open MRV](https://www.youtube.com/channel/UCdPooUCxF3HRIWdEh4pwrqQ) contiene videos que explican algunas secciones de este y otros tutoriales aquí en OpenMRV. Para este tutorial, un video fue creado para cada subsección de la Sección 4. Creando una imagen compuesta. Por favor note que el desarrollo del script en los videos pueda que no sea idéntico al del tutorial (por ejemplo, el orden de las líneas de código y los nombres de las variables pueden ser diferentes, etc.), y que cada video le da seguimiento a los videos previos. De cualquier modo, los resultados son los mismos. Puede encontrar un enlace en cada sección siguiente al video correspondiente. Se le recomienda que complete cada sección antes de mirar los videos.
+El canal de YouTube titulado [Open MRV](https://www.youtube.com/channel/UCdPooUCxF3HRIWdEh4pwrqQ) contiene videos que explican algunas secciones de este y otros tutoriales aquí en OpenMRV. Para este tutorial, un video fue creado para cada subsección de la Sección 3.  Creando una imagen compuesta. Por favor note que el desarrollo del script en los videos pueda que no sea idéntico al del tutorial (por ejemplo, el orden de las líneas de código y los nombres de las variables pueden ser diferentes, etc.), y que cada video le da seguimiento a los videos previos. De cualquier modo, los resultados son los mismos. Puede encontrar un enlace en cada sección siguiente al video correspondiente. Se le recomienda que complete cada sección antes de mirar los videos.
 
 ## 2 Objetivos de Aprendizaje
 
@@ -92,11 +92,11 @@ El canal de YouTube titulado [Open MRV](https://www.youtube.com/channel/UCdPooUC
 - Cuenta de GEE
   - Cualquier persona puede inscribirse a GEE. GEE es gratis para el uso no comercial. Para inscribirse, por favor complete [este formulario](https://earthengine.google.com/signup/). Una vez que haya sido aceptado/a, recibirá un correo electrónico con información adicional. 
 - Conocimiento básico a intermedio de la programación
-  - Ver entrenamientos útiles e información acerca de la programación JavaScript para GEE en la Sección 3 de GEE
+  - Ver entrenamientos útiles e información acerca de la programación JavaScript para GEE en la Sección 1.1 de GEE
 - GEE funciona mejor con el navegador [Google Chrome](https://www.google.com/chrome/) 
 
 
-## 3 Creando una Imagen Compuesta
+## 3 Tutorial: Creando una Imagen Compuesta
 
 El flujo de trabajo general del proceso para este tutorial se demuestra a continuación:
 
@@ -770,7 +770,7 @@ var iterations = 2;
 En las scripts `1_Landsat_Sentinel2_Median_esp` o `3_Landsat_Medoid_esp`, simplemente cambie 'Colombia' en línea 15 a 'Cambodia' (o en la línea apropiada en caso que sea su propio script) y haga clic en *Run*. El script llamado `Cambodia_esp` mencionado en Sección 1.2. Repositorio es una copia exacta de este script pero con el cambio ya hecho. 
 
 ```javascript
-var countryName = 'Camboya';
+var countryName = 'Cambodia';
 ```
 
 Como se mencionó arriba en el ejemplo de Mozambique, puede ajustar cualquier otro variable de usuario que desee. Ejemplo: nivel de zoom, fechas iniciales y finales, parámetros de visualización, y parámetros de la media focal.
@@ -797,7 +797,7 @@ No. GEE es una plataforma basada en la nube, así que todo el procesamiento ocur
 
 **Obtuve un "Script Error" en la Consola pero no estoy seguro/a a que se refiere o como afecta al script.** 
 
-Usualmente este "Script Error" no afectará su código. Si los resultados se cargan correctamente en la consola y las capas son agregadas al Mapa, no necesita preocuparse por este error. Un error real que prohíbe que el usuario obtenga un resultado enseñara un mensaje explicando *cual* es el error. Para asistencia en resolver estos problemas en su código, por favor consulte el [Debugging Guide](https://developers.google.com/earth-engine/guides/debugging) y los enlaces de [How to get help](https://developers.google.com/earth-engine/help) disponibles en la Sección 3. Google Earth Engine.
+Usualmente este "Script Error" no afectará su código. Si los resultados se cargan correctamente en la consola y las capas son agregadas al Mapa, no necesita preocuparse por este error. Un error real que prohíbe que el usuario obtenga un resultado enseñara un mensaje explicando *cual* es el error. Para asistencia en resolver estos problemas en su código, por favor consulte el [Debugging Guide](https://developers.google.com/earth-engine/guides/debugging) y los enlaces de [How to get help](https://developers.google.com/earth-engine/help) disponibles en la Sección 1.1 Google Earth Engine.
 
 -----
 
@@ -809,22 +809,21 @@ Copyright 2021, World Bank
 
 Este trabajo fue desarrollado por Andrea Puzzi Nicolau bajo contrato con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionados a la Medida, Reportaje, y Verificación para el apoyo de la implementación MRV en varios países.
 
-Material revisado por: 
-
+Material revisado por:   
 Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources  
-Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
-Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS)  
-Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources 
-Kenset Rosales, Guatemala, Ministry of Environment and Natural Resources  
-Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat   
-Paula Andrea Paz, Colombia, International Center for Tropical Agriculture (CIAT)  
-Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD) 
-Raja Ram Aryal, Nepal, Forest Research and Training Centre  
-Rajesh Bahadur Thapa, Nepal, International Centre for Integrated Mountain Development (ICIMOD)  
-Sofia Garcia, Guatemala, Ministry of Environment and Natural Resources  
+Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)    
+Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS)    
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
+Kenset Rosales, Guatemala, Ministry of Environment and Natural Resources    
+Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat     
+Paula Andrea Paz, Colombia, International Center for Tropical Agriculture (CIAT)    
+Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)   
+Raja Ram Aryal, Nepal, Forest Research and Training Centre    
+Rajesh Bahadur Thapa, Nepal, International Centre for Integrated Mountain Development (ICIMOD)    
+Sofia Garcia, Guatemala, Ministry of Environment and Natural Resources    
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
 
-Atribución 
-Nicolau, Andrea P. 2020. Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+Atribución   
+Nicolau, A. P. 2021. Image mosaic/composite creation for Landsat and Sentinel-2 in Google Earth Engine. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](figures/m1.1/wb_fcfc_gfoi.png)
