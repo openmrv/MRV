@@ -473,7 +473,7 @@ iii. Move to the next top-level question (new question card) & repeat until all 
 
 For the Survey Question tab, the left panel allows you to enter questions while the right panel provides a preview of how these questions will appear to your data collectors. We will now go into more detail about how to add a question and answers, the types of questions that can be asked and when these questions might be useful.
 
-##### **How to add questions and answers**
+**How to add questions and answers**
 
 CEO provides a straightforward way to ask multiple-choice questions. As the most common question type used, we will use it for this example. In CEO, these questions are called "button-text" questions as in data collection they display as a button with text.
 
@@ -535,7 +535,7 @@ Questions of this type are useful for land use and land cover inventories, or an
 
 11. Once you are happy with the question list, click Next to proceed to the Survey Rules panel.
 
-##### **Notes, tips and tricks for creating questions in CEO**
+**Notes, tips and tricks for creating questions in CEO**
 
 * You can delete a question by clicking the red [X]. Deleting a parent question with children will delete the children questions as well. 
 * You can collapse a survey card by clicking the [-] symbol in the upper left.
@@ -606,7 +606,7 @@ For this exercise we will only add one of the many available Geo-dash widgets. H
 
 ![](figures/geodashHelp.JPG)
 
-##### **Adding ChronoSequence Images to the GeoDash, the Forest Degradation Widget**
+**Adding ChronoSequence Images to the GeoDash, the Forest Degradation Widget**
 
 The Degradation widget provides time series information on forest degradation from selective logging, fire, and other large and small disturbances. The Normalized Difference Fraction Index (NDFI) allows for enhanced detection of forest canopy damage from multiple sources, including selective logging and forest fires. It is calculated with the methodology found in Souza et. al. (2005). 
 
