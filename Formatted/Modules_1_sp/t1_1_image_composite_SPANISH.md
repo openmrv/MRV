@@ -783,7 +783,7 @@ Felicitaciones, ha llegado al final de este tutorial.
 
 Entre más detallado sea el multi-polígono, más recursos de computación son requeridos. Ya que estamos haciendo computaciones a una escala nacional, usamos la versión simplificada para evitar errores de "runtime" (exceso de tiempo) o retrasos. El uso de la versión detallada puede causar un error conocido como `Earth Engine memory capacity exceeded ` (la capacidad de memoria de GEE ha sido excedida) y/o causar que el script corra un poco mas lento.
 
-**Escribí 'colombia' para filtrar el conjunto de datos LSIB y no funciono. ¿Porque? **
+**Escribí 'colombia' para filtrar el conjunto de datos LSIB y no funciono. ¿Porque?**
 
 Las propiedades del conjunto de datos son sensibles a mayúsculas y minúsculas. La propiedad `country_na` para el país de Colombia es un string que comienza con la C capital, así que debe de filtrar sus metadatos usando `'Colombia'` y no `'colombia'`. 
 
@@ -791,7 +791,7 @@ Las propiedades del conjunto de datos son sensibles a mayúsculas y minúsculas.
 
 Escenas de Nivel-2 adhieren a el mismo estándar radiométrico que las escenas de Nivel-1, pero no llenan la especificación de geometría Nivel-1 dada la información orbital menos precisa (especifico a sensores de Landsat), cobertura de nube considerable, <u>control terrestre insuficiente</u>, y otros factores. Puede encontrar información acerca de los diferentes niveles [aqui](https://www.usgs.gov/media/videos/landsat-collections-what-are-tiers) y [aqui](https://www.usgs.gov/core-science-systems/nli/landsat/landsat-collection-1?qt-science_support_page_related_con=1#qt-science_support_page_related_con). 
 
-**¿Hay problemas con el procesamiento y visualización lenta dado a la capacidad de procesamiento computacional y memoria? **
+**¿Hay problemas con el procesamiento y visualización lenta dado a la capacidad de procesamiento computacional y memoria?**
 
 No. GEE es una plataforma basada en la nube, así que todo el procesamiento ocurre en la nube de Google, no en su máquina local. Lo único que necesita es una conexión de internet. 
 
