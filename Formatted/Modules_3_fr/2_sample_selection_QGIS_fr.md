@@ -32,18 +32,19 @@ group:
 
 ## 1 Contexte
 
-Dans le tutoriel précédent, nous avons conçu un échantillon en choisissant un protocole de sélection et en déterminant la taille de l'échantillon et la répartition. Dans ce tutoriel, nous allons physiquement prélever dans une zone d'étude l'échantillon que nous avons conçu. Le tirage d'un échantillon implique la création d'une *cadre d'échantillonnage* qui est une liste d'unités de population pouvant être sélectionnées pour être incluses dans un échantillon. Les unités de population de la liste sont appelées unités d'échantillonnage. En d'autres termes, une base de sondage est un dispositif qui permet d'observer la population en associant les unités de population aux unités d'échantillonnage (Särndal et al., 1992, p. 9)[^fn1]. Dans notre cas, la base de sondage est par exemple une liste de tous les pixels qui composent la zone d'étude. Nous pourrions donc simplement exporter une liste de tous les pixels de la carte avec des identifiants uniques à partir desquels nous sélectionnons aléatoirement *n* unités. Dans les méthodes d'échantillonnage pour l'estimation de la superficie et de la précision des cartes, nous créons un échantillon en choisissant un protocole de sélection et en déterminant la taille de l'échantillon et l'allocation. Dans ce tutoriel, nous allons tirer matériellement d'une zone d'étude un échantillon qui a été conçu sur la base de tutoriels ici sur OpenMRV sous le processus " Plan d'échantillonnage ".
+Dans le tutoriel précédent, nous avons conçu un échantillon en choisissant un protocole de sélection et en déterminant la taille de l'échantillon et la répartition. Dans ce tutoriel, nous allons physiquement prélever dans une zone d'étude l'échantillon que nous avons conçu. Le tirage d'un échantillon implique la création d'une *cadre d'échantillonnage* qui est une liste d'unités de population pouvant être sélectionnées pour être incluses dans un échantillon. Les unités de population de la liste sont appelées unités d'échantillonnage. En d'autres termes, une base de sondage est un dispositif qui permet d'observer la population en associant les unités de population aux unités d'échantillonnage (Särndal et al., 1992, p. 9). Dans notre cas, la base de sondage est par exemple une liste de tous les pixels qui composent la zone d'étude. Nous pourrions donc simplement exporter une liste de tous les pixels de la carte avec des identifiants uniques à partir desquels nous sélectionnons aléatoirement *n* unités. Dans les méthodes d'échantillonnage pour l'estimation de la superficie et de la précision des cartes, nous créons un échantillon en choisissant un protocole de sélection et en déterminant la taille de l'échantillon et l'allocation. Dans ce tutoriel, nous allons tirer matériellement d'une zone d'étude un échantillon qui a été conçu sur la base de tutoriels ici sur OpenMRV sous le processus " Plan d'échantillonnage ".
 
 ## 2 Objectifs d'apprentissage
 
 À la fin du tutoriel, l'utilisateur devrait être en mesure d'échantillonner une zone d'étude arbitraire, soit par échantillonnage systématique (SYS), soit par échantillonnage aléatoire simple (SRS), en utilisant QGIS.
-    - Créer un échantillon dans QGIS sous SYS ou SRS
+
+- Créer un échantillon dans QGIS sous SYS ou SRS
 
 ### 2.1 Prérequis 
 
 -  Relevant terminology for sampling techniques can be found at the end of this document
 
-## 3 Création d'un échantillon à l'aide de QGIS
+## 3 Tutoriel: Création d'un échantillon à l'aide de QGIS
 
 QGIS prend en charge l'échantillonnage de populations définies par des données vectorielles. Par conséquent, si vous voulez échantillonner dans des strates définies par un raster, vous devrez d'abord vectoriser les données raster. Ceci se fait par Raster > Conversions > Polygoniser (Raster vers Vecteur). La vectorisation pour les rasters de grande taille prend beaucoup de temps et n'est pas recommandée ; utilisez plutôt les alternatives ci-dessous. Pour les zones d'étude plus petites ou pour les plans SYS et SRS, QGIS fonctionne bien. Passons en revue les étapes nécessaires pour tirer deux échantillons sous SRS et SYS du pays de la Colombie.
 
@@ -67,7 +68,7 @@ Le tracé d'un échantillon sous SYS dans QGIS présente l'inconvénient que la 
 
 ![](figures/SYS_QGIS.PNG)
 
-## 4 Foire aux questions (FAQs)
+## 4 Foire aux questions
 
 **Dois-je utiliser QGIS pour creer un échantillon ?**
 
@@ -83,7 +84,7 @@ Une liste de termes relatifs aux techniques d'échantillonnage et d'inférence e
 
 ### 5.1 Plan de réponse
 
-Défini par (Stehman and Czaplewski, 1998)[^fn1]: “La référence ou classe réelle est obtenue pour chaque unité d'échantillonnage sur la base de l'interprétation de photographies aériennes ou de vidéographies, d'une observation au sol ou d'une combinaison de ces sources. Les méthodes utilisées pour déterminer cette référence de classification sont appelées "plan de réponse". Le plan d'intervention comprend les procédures de collecte des informations relatives à la détermination de la occupation du sol de référence, et les règles d'attribution d'une ou plusieurs [labels] de référence à chaque unité d'échantillonnage.” Connu sous le nom de “plan de mesure” par Särndal et al. (1992)[^fn2].
+Défini par (Stehman and Czaplewski, 1998): “La référence ou classe réelle est obtenue pour chaque unité d'échantillonnage sur la base de l'interprétation de photographies aériennes ou de vidéographies, d'une observation au sol ou d'une combinaison de ces sources. Les méthodes utilisées pour déterminer cette référence de classification sont appelées "plan de réponse". Le plan d'intervention comprend les procédures de collecte des informations relatives à la détermination de la occupation du sol de référence, et les règles d'attribution d'une ou plusieurs [labels] de référence à chaque unité d'échantillonnage.” Connu sous le nom de “plan de mesure” par Särndal et al. (1992).
 
 ### 5.2 Echantillon
 
@@ -91,19 +92,19 @@ Un sous-ensemble de la population sélectionné parmi les unités de la populati
 
 ### 5.3 Plan d'échantillonnage
 
-Synonyme de plan d'échantillonnage (Sampling Design), qui est le terme préféré dans la littérature de référence (Cochran, 1977[^fn3], Särndal et al., 1992[^fn2]). Le terme apparaît chez Rice (1995)[^fn4] ui utilise à la fois “sampling design, ***plan d'echantillonnage\***” et “sample design, ***plan d'echantillon\***”.
+Synonyme de plan d'échantillonnage (Sampling Design), qui est le terme préféré dans la littérature de référence (Cochran, 1977, Särndal et al., 1992). Le terme apparaît chez Rice (1995) ui utilise à la fois “sampling design, ***plan d'echantillonnage\***” et “sample design, ***plan d'echantillon\***”.
 
 ### 5.4 Plan d'échantillonnage
 
-“Le concept de plan d'échantillonnage (sampling design ) est le protocole par lequel les unités de référence de l'échantillon sont sélectionnées” (Stehman and Czaplewski, 1998)[^fn1]. Le terme “Sampling design” est également utilisé par Cochran (1977)[^fn3] and Särndal et al. (1992)[^fn2] -- Le premier utilise également “sampling plan”.
+“Le concept de plan d'échantillonnage (sampling design ) est le protocole par lequel les unités de référence de l'échantillon sont sélectionnées” (Stehman and Czaplewski, 1998). Le terme “Sampling design” est également utilisé par Cochran (1977) and Särndal et al. (1992) -- Le premier utilise également “sampling plan”.
 
 ### 5.5 Sondage/Enquêtee
 
-Särndal et al. (1992)[^fn2] définissent une enquête comme une “investigation partielle d'une population finie”, et précisent que “les concepts d ‘enquête’ et ‘enquête par sondage’ sont utilisés pour désigner des enquêtes statistiques présentant les caractéristiques méthodologiques suivantes: [...] échantillonnage aléatoire [...] plan de mesure [et] estimation”. de facon plus precise une enquete par sondage ou un sondage est une enquête effectuee sur une partie de la population. Cette fraction de la population constitue l'échantillon et les méthodes qui permettent de construire cet echantillon s'appellent méthode d'échantillonnage.
+Särndal et al. (1992) définissent une enquête comme une “investigation partielle d'une population finie”, et précisent que “les concepts d ‘enquête’ et ‘enquête par sondage’ sont utilisés pour désigner des enquêtes statistiques présentant les caractéristiques méthodologiques suivantes: [...] échantillonnage aléatoire [...] plan de mesure [et] estimation”. de facon plus precise une enquete par sondage ou un sondage est une enquête effectuee sur une partie de la population. Cette fraction de la population constitue l'échantillon et les méthodes qui permettent de construire cet echantillon s'appellent méthode d'échantillonnage.
 
 ### 5.6 Plan d'enquête
 
-UN “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992)[^fn2]. Lohr (1999)[^fn5] décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
+UN “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992). Lohr (1999) décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
 
 ## References
 
@@ -119,19 +120,17 @@ Stehman, S.V., & Czaplewski, R.L., 1998. Design and analysis for thematic map ac
 
 Stehman, S.V. and Wickham, J.D., 2011. Pixels, blocks of pixels, and polygons: Choosing a spatial unit for thematic accuracy assessment. Remote Sensing of Environment, 115(12), pp.3044-3055. https://doi.org/10.1016/j.rse.2011.06.007
 
-
-
 -----
 
 ![](./figures/cc.png)  
 
 Ce travail est autorisé sous une licence [Creative Commons Attribution 3.0 IGO](https://creativecommons.org/licenses/by/3.0/igo/)
 
-Copyright 2020, Banque Mondiale. 
+Copyright 2021, Banque Mondiale. 
 
 Ce travail a été développé par Pontus Olofsson dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte de ressources existantes - liées à la mesure, la communication et la vérification pour soutenir la mise en œuvre du MRV dans les pays.
 
-Matériel révisé par : 
+Matériel révisé par :   
 Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources  
 Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
 Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS)  
@@ -140,6 +139,7 @@ Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (R
 Rajesh Bahadur Thapa, Nepal, International Centre for Integrated Mountain Development (ICIMOD)  
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat
 
-Attribution: Olofsson, P. 2021. Sample selection using QGIS. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
+Attribution   
+Olofsson, P. 2021. Sample selection using QGIS. © World Bank. License: [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)
 
 ![](./figures/wb_fcfc_gfoi.png)
