@@ -39,7 +39,7 @@ group:
 
 ---
 
-# Recolección de Datos de Entrenamiento Usando Google Earth Engine 
+# Recopilación de Datos de Entrenamiento Usando Google Earth Engine 
 
 ## 1 Contexto
 
@@ -193,7 +193,7 @@ Una vez que haya seleccionado las imágenes de referencia, es tiempo de recopila
 
     ![](figures/m1.2/m1.2.2/ToggleImage.jpg)
 
-3. Si crea un punto accidentalmente, puede moverlo o eliminarlo usando la herramienta de la mano. Seleccione el punto y arrástrelo o elimínelo (aquí hay un [video](https://youtu.be/Q6QElHXYOT0) breve para ilustrar como hacerlo). 
+3. Si crea un punto accidentalmente, puede moverlo o eliminarlo usando la herramienta de la mano. Seleccione el punto y arrástrelo o elimínelo (aquí hay un [video](https://youtu.be/Q6QElHXYOT0) breve para ilustrar como hacerlo). Haga clic en *Exit* para dejar de editar los puntos.
 
 4. Repetir el proceso hasta que tenga muchas muestras de cada una de las cuatro clases de cobertura terrestre a través de su región de estudio. Se le aconseja guardar el script durante el proceso. Seleccione el botón *Save* en la parte superior de la ventana del editor de código. 
 
