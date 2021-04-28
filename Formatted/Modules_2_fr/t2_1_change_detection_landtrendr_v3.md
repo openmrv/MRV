@@ -542,13 +542,13 @@ Dans la section 3.5, nous décrivons d'abord la logique de chaque composante et 
 
 ![_figY1_landtrendr_options](./figures/_figY1_landtrendr_options.png)
 
-Comme indiqué dans le diagramme de déroulement des opérations (section 2.4), la première étape du déroulement des opérations de LandTrendr consiste à transformer les archives d'images en composites annuels.  La composition réduit le bruit dans les séries chronologiques ; dans les bibliothèques LandTrendr standard, nous utilisons une approche de composition de médoïdes (décrite dans la section 5 ci-dessous). 
+Comme indiqué dans le diagramme de déroulement des opérations (section 1.4), la première étape du déroulement des opérations de LandTrendr consiste à transformer les archives d'images en composites annuels.  La composition réduit le bruit dans les séries chronologiques ; dans les bibliothèques LandTrendr standard, nous utilisons une approche de composition de médoïdes (décrite dans la section 5 ci-dessous). 
 
 Deux groupes de valeurs doivent être déterminés : la plage d'années à partir de laquelle on peut procéder à la segmentation et la plage de dates saisonnières au sein de chaque année à partir de laquelle on peut calculer les composites. 
 
 #### Années des images
 
-Comme indiqué dans la section 2.1.1, l'algorithme LandTrendr est conçu pour fonctionner avec des données provenant de la famille de capteurs Landsat et remontant jusqu'à 1984.  En pratique, de nombreuses régions tropicales du monde ne disposent pas d'assez d'images disponibles dans les premières années des archives Landsat pour fournir des images composites raisonnables. 
+Comme indiqué dans la section 1.1.1, l'algorithme LandTrendr est conçu pour fonctionner avec des données provenant de la famille de capteurs Landsat et remontant jusqu'à 1984.  En pratique, de nombreuses régions tropicales du monde ne disposent pas d'assez d'images disponibles dans les premières années des archives Landsat pour fournir des images composites raisonnables. 
 
 S'il n'y a pas d'images au début de la série temporelle, l'algorithme démarrera simplement le processus de segmentation temporelle à l'année où les données ont été démasquées pour la première fois.  Ainsi, il est raisonnable de commencer un processus de segmentation avec la première année fixée à 1984 et la dernière année fixée à l'année la plus récente. 
 
@@ -779,7 +779,7 @@ var lt = ltgee.runLT(startYear, endYear, startDay, endDay, aoi, index, [], runPa
 
 A noter que la bibliothèque "ltgee" est celle qui vient d'être importée.  Les utilisateurs avancés peuvent examiner cette bibliothèque pour suivre les étapes de l'appel à l'algorithme LandTrendr (voir la section 5 ci-dessous). 
 
-L'algorithme LT-GEE renvoie un objet appelé image, mais qui n'est pas une image au sens où nous l'entendons habituellement :  Il n'est pas facile à cartographier.  Il est plutôt de la forme décrite au point 2.3.1 ci-dessus.  Pour cartographier une perturbation, nous devons reconditionner cette sortie.  Une deuxième fonction s'occupe donc de ce processus : 
+L'algorithme LT-GEE renvoie un objet appelé image, mais qui n'est pas une image au sens où nous l'entendons habituellement :  Il n'est pas facile à cartographier.  Il est plutôt de la forme décrite au point 1.3.1 ci-dessus.  Pour cartographier une perturbation, nous devons reconditionner cette sortie.  Une deuxième fonction s'occupe donc de ce processus : 
 
 ```javascript
 var changeImg = ltgee.getChangeMap(lt, changeParams);
@@ -1012,7 +1012,7 @@ ee.Algorithms.TemporalSegmentation.LandTrendr(runParams);
 
 où la `annualLTcollection` est la collection de valeurs univariées calculées comme décrit à la section 5.2.2.
 
-Comme indiqué dans la section 2.3 ci-dessus, la sortie de l'appel à l'algorithme LandTrendr de base dans GEE est un tableau d'images.  La section suivante décrit la fonction `ltgee` qui peut être utilisée pour convertir ce tableau d'images en une carte de perturbation (ou de récupération).
+Comme indiqué dans la section 1.3 ci-dessus, la sortie de l'appel à l'algorithme LandTrendr de base dans GEE est un tableau d'images.  La section suivante décrit la fonction `ltgee` qui peut être utilisée pour convertir ce tableau d'images en une carte de perturbation (ou de récupération).
 
 ## 5.3 Cartographie des perturbations
 
@@ -1179,7 +1179,7 @@ L'image après tri est adaptée à la cartographie si vous le souhaitez, chaque 
 
 Ces étapes comprennent le filtrage par `yod`, par `mag` et par `dur`.  Par exemple, les récoltes forestières pourraient être ciblées en choisissant uniquement les changements qui dépassent un seuil de magnitude de changement, qui sont de courte durée, et qui ont une valeur de pré-perturbation supérieure à une certaine valeur. 
 
-En outre, le filtre `mmu` permet de supprimer les groupes de pixels plus petits que la valeur indiquée par la valeur `mmu` (en pixels).   Les groupes de pixels sont ceux qui partagent le même "yod".   
+En outre, le filtre `mmu` permet de supprimer les groupes de pixels plus petits que la valeur indiquée par la valeur `mmu` (en pixels).   Les groupes de pixels sont ceux qui partagent le même `yod`.   
 
 ##### Sorties
 
@@ -1317,7 +1317,7 @@ Dans la pratique, cependant, aucun ensemble de paramètres d'ajustement et d'ind
 
 Il n'existe actuellement aucun moyen automatisé de choisir les paramètres.  Cependant, nous continuons à travailler au développement de tels outils, et l'utilisateur intéressé est encouragé à suivre les développements sur le site GitHub de LT-GEE. 
 
-**Je remarque davantage de problèmes avec les nuages et le bruit des images vers le début (ou la fin) de la série temporelle.   Pourquoi ? **
+**Je remarque davantage de problèmes avec les nuages et le bruit des images vers le début (ou la fin) de la série temporelle.   Pourquoi ?**
 
 La puissance de toute méthode de séries temporelles réside dans sa capacité à exploiter de multiples observations pour examiner les modèles réels et faux.  Au milieu de la série temporelle, le bruit résiduel provoque des blips dans le signal source, mais comme ils reviennent à la "normale" après le blip, l'algorithme les comprend comme du bruit.  Cependant, pour les blips qui se produisent au début ou à la fin de la série temporelle, il n'y a pas de données au-delà du blip pour aider à déterminer si le bruit est réel ou non.  Ainsi, l'algorithme peut le plus souvent créer des faux positifs au début et à la fin de la série temporelle.  
 
@@ -1329,7 +1329,7 @@ Il est également possible que l'algorithme de masquage des nuages intégré ait
 
 Enfin, il est possible que certaines zones présentent une nébulosité si persistante qu'une étape annuelle ne suffit pas pour trouver une image raisonnable.  Bien que LandTrendr fonctionne mieux avec un pas de temps annuel, il est possible de construire des collections d'images qui utilisent des images bisannuelles (ou même plus d'années) pour construire des composites pour l'algorithme.  Actuellement, notre bibliothèque standard n'inclut pas cette fonctionnalité, mais restez à l'écoute sur le site GitHub de LT-GEE (https://github.com/eMapR/LT-GEE) pour les mises à jour.  Les utilisateurs avancés peuvent construire leurs propres composites en adaptant les modules `buildSRcollection`, `buildMosaic`, `getCombinedSRcollection` et `getSRcollection`. 
 
-**Puis-je utiliser un capteur différent de celui de Landsat?* **
+**Puis-je utiliser un capteur différent de celui de Landsat?**
 
 Peut-être.  En principe, l'algorithme LandTrendr ne se soucie pas du signal que vous lui donnez.  Cependant, l'algorithme exige que le signal soit cohérent et stable quand aucun changement ne se produit ; ainsi, les étapes de prétraitement doivent aboutir à un signal lisse.  De plus, il faut qu'il y ait suffisamment d'observations pour assigner des segments - environ 3-4 observations par segment maximum souhaité.   Pour de nombreux capteurs, tels que les Sentinelles 1 et 2, il n'y a pas d'enregistrement assez long pour effectuer une analyse annuelle des changements.  Il est possible d'envisager de donner à l'algorithme des données à une échelle infra-annuelle, mais il faudrait tromper l'algorithme en lui faisant croire que les intervalles sont d'un an.  Cela peut entraîner des difficultés dans l'interprétation des résultats, mais ce n'est pas insurmontable. 
 
@@ -1361,10 +1361,10 @@ Copyright 2021, World Bank
 
 Ce travail a été développé par Robert E Kennedy dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte des ressources existantes - liées à la mesure, la notification et la vérification afin de soutenir la mise en œuvre du MRV par les pays. 
 
-Matériel révisé par :
+Matériel révisé par :  
 Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
 Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services (CERGIS)  
-Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources 
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
 Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat   
 Raja Ram Aryal, Nepal, Forest Research and Training Centre  
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat 
