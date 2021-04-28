@@ -58,7 +58,7 @@ Définie par (Stehman and Czaplewski, 1998):  “La référence ou classe réell
 Un sous-ensemble de la population sélectionné parmi les unités de la population.
 
 ### 1.3 Plan d'échantillonnage
-Synonyme de plan d'échantillonnage (Sampling Design), qui est le terme préféré dans la littérature de référence (Cochran, 1977, Särndal et al., 1992).  Le terme apparaît chez  Rice (1995) ui utilise à la fois “sampling design, **_plan d'echantillonnage_**” et “sample design, **_plan d'echantillon_**”. 
+Synonyme de plan d'échantillonnage (Sampling Design), qui est le terme préféré dans la littérature de référence (Cochran, 1977, Särndal et al., 1992).  Le terme apparaît chez  Rice (1995) ui utilise à la fois “plan d'echantillonnage” et “plan d'echantillon”. 
 
 ### 1.4 Plan d'échantillonnage
 “Le concept de plan d'échantillonnage (sampling design ) est le protocole par lequel les unités de référence de l'échantillon sont sélectionnées” (Stehman and Czaplewski, 1998). Le terme “Sampling design” est également utilisé par Cochran (1977) and Särndal et al. (1992) -- Le premier utilise également “sampling plan”. 
