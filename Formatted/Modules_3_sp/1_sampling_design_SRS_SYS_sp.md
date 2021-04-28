@@ -46,7 +46,7 @@ El objetivo de este tutorial es proporcionar al usuario una comprensión de las 
 - Determinar el tamaño de la muestra y asignar la muestra a los estratos, en función de los objetivos de estimación para el diseño de muestreo aleatorio/sistemático simple.
 
 ### 2.1 Prerrequisitos
-- Repaso de la terminología relevante para las técnicas de muestreo en el tutorial de Terminología.
+- La terminología relevante se encuentra al final de este documento.
 - Una cuenta de Google Earth Engine (GEE). Por favor consulte el proceso "Preprocesamiento" y la herramienta "GEE" aqui en OpenMRV para mas información acerca de como trabajar en este entorno.
 
 ## 3 Tutorial: Diseño de muestreo para la estimación del área y la precisión del mapa - Muestreo aleatorio/sistemático simple
