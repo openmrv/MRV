@@ -1,6 +1,6 @@
 ---
 title: Recopilación de Datos de Entrenamiento Usando QGIS
-summary: Este tutorial demostrará cómo recopilar datos de capacitación categóricos para la clasificación de la cobertura terrestre utilizando QGIS. Los procedimientos que se muestran aprovechan los complementos de QGIS para acceder a diferentes fuentes de imágenes, incluidos Planet, Google Earth Engine y mapas base de alta resolución. Los usuarios deben ajustar los distintos componentes para que coincidan con los objetivos de su proyecto. Aquí, el proceso se demuestra para los países de Colombia, Mozambique y Camboya, y para una leyenda simple de cuatro clases de cobertura terrestre: bosque, agua, herbáceo y desarrollado. La documentación sobre QGIS (https://docs.qgis.org/3.10/en/docs/user_manual/) está disponible aquí para mayor referencia.
+summary: Este tutorial demostrará cómo recopilar datos de capacitación categóricos para la clasificación de la cobertura terrestre utilizando QGIS. Los procedimientos que se muestran aprovechan los complementos de QGIS para acceder a diferentes fuentes de imágenes, incluidos Planet, Google Earth Engine y mapas base de alta resolución. Los usuarios deben ajustar los distintos componentes para que coincidan con los objetivos de su proyecto. Aquí, el proceso se demuestra para los países de Colombia, Mozambique y Camboya, y para una leyenda simple de cuatro clases de cobertura terrestre - bosque, agua, herbáceo y desarrollado. La documentación sobre QGIS (https://docs.qgis.org/3.10/en/docs/user_manual/) está disponible aquí para mayor referencia.
 author: Eric Bullock
 creation date: diciembre 2020
 language: español
@@ -88,8 +88,6 @@ El proceso para recopilar datos de entrenamiento en QGIS está detallado en los 
 
 ![](./figures/m1.2/m1.2.2/WB_graphs_v2-05_sp.png)
 
-# <a name="creating-a-new-layer"></a>
-
 ### 3.2 Creando una nueva capa
 
 Este tutorial demostrará como crear datos de entrenamiento que son geometrías de punto. Un proceso similar se puede usar con datos de polígono, pero tenga en mente que es generalmente recomendado tener regiones de entrenamiento más diversas para minimizar el efecto de autocorrelación espacial.  
@@ -124,8 +122,6 @@ Usuarios deberían de considerar las opciones siguientes y seleccionar una fuent
 
 **Nota Importante:** Sugerimos que usuarios comiencen primero con QuickMap Services, ya que no requiere una cuenta externa y es el programa mas simple para instalar. El uso de Planet y Google Earth Engine provee datos de referencia mas flexible, sin embargo los plugins son experimentales y requieren cuentas con Earth Engine *y* Planet. Si usuarios no pueden instalar plugins, sugerimos que cambien a este mismo tutorial en OpenMRV para la recopilación de datos de entrenamiento usando Google Earth Engine ubicado bajo el proceso "Recopilación de datos de entrenamiento" y la herramienta "GEE".
 
-# <a name="quickmap"></a>
-
 #### 3.3.1 Servicios QuickMap 
 
 **Quien**: [NextGIS](https:/nextgis.com/)
@@ -145,8 +141,6 @@ QuickMap Services (QMS) es un servicio para acceder y compartir datos espaciales
 3. En el panel que aparece en la parte derecha de la pantalla, buscar "Satellite" y hacer clic en *Add* para escoger su conjunto de datos. El mapa de fondo será agregado al mapa. En este ejemplo, seleccionamos la capa de 'ESRI Satellite'. Puede navegar al mapa usando su mouse, y acercarse/alejarse del mapa con zoom usando la barra de desplazamiento del mouse. 
 
 ![](./figures/m1.2/m1.2.2/quickservice.JPG)
-
-# <a name="planet-explorer"></a>
 
 #### 3.3.2. Planet Explorer  
 
@@ -169,8 +163,6 @@ La constelación de satélites de Planet ofrece imágenes diarias de alta resolu
 5. Hacer clic doble en uno de los mosaicos bianuales o mensuales para agregarlo al mapa.
 
 ![](./figures/m1.2/m1.2.2/planetexplorer.JPG)
-
-# <a name="gee"></a>
 
 #### 3.3.3 Google Earth Engine (Uso Avanzado)  
 
@@ -200,64 +192,62 @@ Google Earth Engine (GEE) es una plataforma en la nube para analizar datos geoes
 
 4. En la consola de Python, primero cargue el API de GEE Python:
 
-   ```python
-   import ee
-   ```
+    ```python
+    import ee
+    ```
 
-   Su consola debería de verse así: 
+    Su consola debería de verse así: 
 
-   ![](./figures/m1.2/m1.2.2/gee1.JPG) 
+    ![](./figures/m1.2/m1.2.2/gee1.JPG) 
 
 5. Cargar la función *Map* del módulo del ee_plugin y  probar si funciona apropiadamente: 
 
-   ```python
-   from ee_plugin import Map
-   print(ee.String('The plugin is working!').getInfo())
-   ```
+    ```python
+    from ee_plugin import Map
+    print(ee.String('The plugin is working!').getInfo())
+    ```
 
 6. Centrar la vista del mapa sobre los límites de Colombia:
 
-   ```python
-   countries = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017")
-   colombia = countries.filter(ee.Filter.eq('country_na', 'Colombia'))
-   Map.centerObject(colombia, 8)
-   ```
+    ```python
+    countries = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017")
+    colombia = countries.filter(ee.Filter.eq('country_na', 'Colombia'))
+    Map.centerObject(colombia, 8)
+    ```
 
 7. Crear una imagen compuesta de Sentinel-2 para el 2019 y agregarla al mapa:
 
-   ```python
-   s1_collection = ee.ImageCollection("COPERNICUS/S2_SR")
+    ```python
+    s1_collection = ee.ImageCollection("COPERNICUS/S2_SR")
    
-   s1_composite = s1_collection.filterBounds(colombia) \
-       .filterDate('2019-01-01','2019-12-31') \
-       .median()
+    s1_composite = s1_collection.filterBounds(colombia) \
+        .filterDate('2019-01-01','2019-12-31') \
+        .median()
    
-   vis = {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 1250}
+    vis = {'bands': ['B4', 'B3', 'B2'], 'min': 0, 'max': 1250}
    
-   Map.addLayer(s1_composite, vis, 'Sentinel 2 2019')
-   ```
+    Map.addLayer(s1_composite, vis, 'Sentinel 2 2019')
+    ```
 
-   Debería de ver una imagen muy nublada agregada al mapa.
+    Debería de ver una imagen muy nublada agregada al mapa.
 
-   ![](./figures/m1.2/m1.2.2/gee2.JPG) 
+    ![](./figures/m1.2/m1.2.2/gee2.JPG) 
 
 8. Ahora intentémoslo de nuevo cuando aplicamos la máscara de nubes antes de crear el mosaico: 
 
-   ```python
-   def maskS2clouds(image):
-       return image.updateMask(image.select('QA60').eq(0))
+    ```python
+    def maskS2clouds(image):
+        return image.updateMask(image.select('QA60').eq(0))
    
-   s1_composite_masked = s1_collection.filterBounds(colombia) \
-       .filterDate('2019-01-01','2019-12-31') \
-       .map(maskS2clouds) \
-       .median()
+    s1_composite_masked = s1_collection.filterBounds(colombia) \
+        .filterDate('2019-01-01','2019-12-31') \
+        .map(maskS2clouds) \
+        .median()
    
-   Map.addLayer(s1_composite_masked, vis, 'Sentinel 2 2019 Masked')
-   ```
+    Map.addLayer(s1_composite_masked, vis, 'Sentinel 2 2019 Masked')
+    ```
 
-   ![](./figures/m1.2/m1.2.2/gee3.JPG)
-
-# <a name="collect"></a>
+    ![](./figures/m1.2/m1.2.2/gee3.JPG)
 
 ### 3.4 Recopilar datos de entrenamiento 
 
@@ -269,26 +259,17 @@ Una vez que haya seleccionado imágenes de referencia, es hora de recopilar dato
 - Tómese su tiempo, ya que este conjunto de datos será invaluable para su investigación y posiblemente la de otros.
 
 1. Seleccionar la capa de datos de entrenamiento en el panel de *Layers* (Capas). 
-
 2.  Seleccionar el botón con figura de lápiz (*Toggle Editing*) para habilitar la función de editar capas ![](./figures/m1.2/m1.2.2/toggle.JPG).
-
 3. Seleccionar el ícono de *Add Point* (Agregar Punto) ![](./figures/m1.2/m1.2.2/addpoint.JPG).
-
 4. Definir un código numérico de clase. Aquí, usaremos 1 para Bosque, 2 para Agua, 3 para Herbáceo, y 4 para Desarrollado. 
-   ![](./figures/m1.2/m1.2.2/examples_colombia.png)
-
+    ![](./figures/m1.2/m1.2.2/examples_colombia.png)
 5. Comenzando con la clase de Bosque, haga clic en el mapa para agregar un punto de entrenamiento. En el panel que enseña el mapa, tendrá la opción de llenar el campo de *clase* para el punto que acaba de agregar.  Ya que estamos comenzando con Bosque, use el código de clase 1. Basado en los códigos de clase arriba, escriba 2 para Agua, 3 para Herbáceo, y 4 para Desarrollado.
-   ![](./figures/m1.2/m1.2.2/point1.JPG)
-
+    ![](./figures/m1.2/m1.2.2/point1.JPG)
 6. Seleccione *OK* para guardar el punto de entrenamiento.    
-
 7. Repetir para varias muestras de Bosque a través de su región de estudio. Se le aconseja guardar la capa durante el proceso usando el botón *Save Layer Edits*. 
-   ![](./figures/m1.2/m1.2.2/save.JPG)  
-
+    ![](./figures/m1.2/m1.2.2/save.JPG)  
 8. Unidades de muestra se pueden borrar si selecciona el botón  *Select Feature(s)* ![](figures/m1.2/m1.2.2/select.JPG)  y hace clic en un objeto, o si arrastra una caja para seleccionar múltiples objetos, y luego hace clic al botón *Delete* ![](figures/m1.2/m1.2.2/trash.JPG). 
-
 9. Continúe este proceso para cada clase en el mapa. 
-
 10. Seleccione el botón *Toggle Editing* para parar de editar la capa.
 
 ### 3.5 Visualizando los datos de entrenamiento 
@@ -297,15 +278,15 @@ Una vez que haya recolectado los datos de entrenamiento para cada clase, ayuda e
 
 1. Haga clic derecho en el icono del panel *Layer* y seleccione *Properties*.
 2. En el lado izquierdo del panel de *Propiedades*, seleccione *Symbology* (Simbología)
-   ![Control feature symbology](./figures/m1.2/m1.2.2/symbology.JPG) 
+    ![Control feature symbology](./figures/m1.2/m1.2.2/symbology.JPG) 
 3. Seleccione *Categorized* (Categorizado) para el tipo de símbolo.
 4. Debajo de *Value* (Valor) seleccione el atributo que contenga la etiqueta de clase, es este caso es *clase*. 
 5. Seleccione *Classify* (Clasificar) para popular la tabla de simbología. Opcionalmente puede cambiar los colores a su preferencia. 
 6. Revise los valores del *Legend* (Leyenda) para coincidir con nuestra leyenda. Su panel debería de verse así:  
-   ![](./figures/m1.2/m1.2.2/style.JPG)
+    ![](./figures/m1.2/m1.2.2/style.JPG)
 7. Seleccionar *OK* para aplicar el estilo. 
 8. Tome tiempo para mirar su muestra y asegurarse de que no haya "vacíos" grandes en los datos de entrenamiento. 
-   ![](./figures/m1.2/m1.2.2/samples.JPG)
+    ![](./figures/m1.2/m1.2.2/samples.JPG)
 
 ### 3.6 Agregando un ID único 
 
@@ -313,19 +294,19 @@ Es útil tener un identificador único para cada punto de entrenamiento. Esto se
 
 1. Haga clic derecho en el nombre de la capa en el panel *Layer* y seleccione *Open Attribute Table* (Abrir Tabla de Atributos).
 2. Para agregar una columna nueva, seleccione *Open field calculator* (Abrir calculadora de campo).
-   ![](./figures/m1.2/m1.2.2/attribute.JPG)
+    ![](./figures/m1.2/m1.2.2/attribute.JPG)
 3. Debajo de *Output field name* (Nombre de campo de resultado) escriba 'ID'. 
 4. Haga clic doble en el selector 'row_number'. Su panel se debería de ver así:
-   ![](./figures/m1.2/m1.2.2/id.JPG)
+    ![](./figures/m1.2/m1.2.2/id.JPG)
 5. Haga clic en 'Ok' y termine de editar usando el botón 'Toggle editing mode' ![](./figures/m1.2/m1.2.2/toggle.JPG). 
 
-## 4 Ejemplos: Mozambique y Camboya
+## 4 Ejemplos Adicionales: Mozambique y Camboya
 
 **Uso Avanzado**
 
 Los métodos descritos arriba están demostrados para los países de Mozambique y Camboya. El proceso general es igual a ese demostrado para Colombia. Sin embargo, hay algunas consideraciones para adoptar el método a las condiciones de cada país, las cuales se encuentran próximamente. Note que estos pasos adicionales son opcionales, y primero se recomienda hacer la recopilación de datos de entrenamiento usando los pasos previos. Estos ejemplos demostrarán como recolectar datos de entrenamiento de una manera robusta para los diferentes tipos de bosque y de topografías. El propósito es mejorar la robustez de los datos de entrenamiento, lo cual ultimadamente puede mejorar la calidad de la clasificación de coberturas terrestres.  Usuarios deberían de considerar las condiciones climáticas y topográficas de su regio de estudio para determinar si estos pasos adicionales son necesarios.  
 
-### 4.1 Mozambique: Contabilizando la Estacionalidad
+### 4.1 Mozambique
 
 Mozambique es un país de mucha diversidad ecológica, la cual consiste de una mezcla de zonas climáticas tropicales y templadas. Como resultado, hay grandes franjas de ecosistemas forestales, tanto de bosque perenne como bosque caducifolio. En Colombia, no contabilizamos los efectos estacionales en bosques porque cubren una proporción del país relativamente pequeña. El área cubierta por bosque caducifolio es mucho más alto en Mozambique, lo cual puede presentar un desafío para la clasificación de cobertura terrestre dada la variabilidad intra-anual en reflectancia entre etapas fenológicas. 
 
@@ -337,31 +318,28 @@ La variabilidad estacional puede presentar un reto cuando se ejecuta una clasifi
 
 Aquí, nuestra meta es asegurar que nuestra clase "Bosque" contenga ejemplos de diferentes tipos de bosque, indicado por sus diferentes trayectorias estacionales. Hay muchas maneras de hacer esto, y aquí vamos a usar Google Earth Engine para mirar la variabilidad intra-anual en NDVI. 
 
-1. Primero, crear una capa nueva de shapefile usando las instrucciones en [3.2 Creating a new layer](#creating-a-new-layer).
-
-2. Cargar el plugin de [Google Earth Engine](#gee).
-
+1. Primero, crear una capa nueva de shapefile usando las instrucciones en 3.2 Creating a new layer.
+2. Cargar el plugin de Google Earth Engine.
 3. Navegar a 'Plugins' -> 'Python Console' para abrir la consola de Python. 
+4. Usar las instrucciones en 3.3.3 para cargar los módulos requeridos y navegar a Mozambique. Si necesita refrescar su memoria, el código para hacer esto se encuentra aquí: 
 
-4. Usar las instrucciones en [3.3.3](#gee) para cargar los módulos requeridos y navegar a Mozambique. Si necesita refrescar su memoria, el código para hacer esto se encuentra aquí: 
-
-   ```python
-   import ee
-   from ee_plugin import Map
-   countries = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017")
-   mozambique = countries.filter(ee.Filter.eq('country_na', 'Mozambique'))
-   Map.centerObject(mozambique, 8)
-   ```
+    ```python
+    import ee
+    from ee_plugin import Map
+    countries = ee.FeatureCollection("USDOS/LSIB_SIMPLE/2017")
+    mozambique = countries.filter(ee.Filter.eq('country_na', 'Mozambique'))
+    Map.centerObject(mozambique, 8)
+    ```
 
 5. Crear una función para calcular NDVI usando las bandas Rojas (B4) e Infrarrojo Cercano (B8) de imágenes de Sentinel-2. También necesitaremos la función de máscara de nube en 3.3.3.  
 
-   ```python
-   def doNDVI(image):
-       return image.normalizedDifference(['B4','B8']).rename('NDVI')
+    ```python
+    def doNDVI(image):
+        return image.normalizedDifference(['B4','B8']).rename('NDVI')
    
-   def maskS2clouds(image):
-       return image.updateMask(image.select('QA60').eq(0))
-   ```
+    def maskS2clouds(image):
+        return image.updateMask(image.select('QA60').eq(0))
+    ```
 
 6. Ahora, podemos filtrar la colección de Sentinel-2 en dos grupos: imágenes adquiridas durante el pico de la estación seca, e imágenes durante el pico de la estación de lluvia. Luego podemos [mapear](https:/developers.google.com/earth-engine/guides/ic_mapping) sobre las colecciones para aplicar las máscaras de nube y calcular NDVI. 
 
@@ -374,28 +352,27 @@ Aquí, nuestra meta es asegurar que nuestra clase "Bosque" contenga ejemplos de 
 
 7. Para calcular variabilidad estacional, podemos combinar estas dos Recolecciones y calcular variancia de NDVI por pixel usando un [reducer](https:/developers.google.com/earth-engine/guides/reducers_intro) (reductor). 
 
-   ```python
-   combined = rainy_season.merge(dry_season)
-   variance = combined.reduce(ee.Reducer.variance())
+    ```python
+    combined = rainy_season.merge(dry_season)
+    variance = combined.reduce(ee.Reducer.variance())
    
-   viz = {'min': 0, 'max': .1, 'palette': ['red','yellow','green']}
-   Map.addLayer(variance, viz)
-   ```
+    viz = {'min': 0, 'max': .1, 'palette': ['red','yellow','green']}
+    Map.addLayer(variance, viz)
+    ```
 
-   ![](./figures/m1.2/m1.2.2/mozambique_ndvi_var.JPG)
+    ![](./figures/m1.2/m1.2.2/mozambique_ndvi_var.JPG)
 
 8. El mapa que está cargado es el de variancia estacional de NDVI, en donde rojo indica menos variabilidad y verde indica más. 
-
 9. Un paso adicional que podemos tomar para asistir en la identificación de bosques es usar un conjunto de datos auxiliares de cobertura de árboles para "enmascarar" a o excluir a los pixeles no forestales. El conjunto de datos de la perdida, la ganancia, y la cobertura de árboles de UMD-Hansen es perfecto para este propósito. No se recomienda usar este conjunto de datos para entrenar el clasificador, pero es una buena herramienta para identificar ubicaciones de bosque o cambios en bosques. Aquí usaremos la capa 'Tree Cover 2000' como máscara para nuestra capa de variancia NDVI, para excluir pixeles que tenían menos de 30% cobertura de árboles en el 2000.  
 
-   ```python
-   umd_hansen = ee.Image("UMD/hansen/global_forest_change_2019_v1_7").select('treecover2000')
-   mask = umd_hansen.gt(30)
-   variance_masked = variance.updateMask(mask)
-   Map.addLayer(variance_masked, viz)
-   ```
+    ```python
+    umd_hansen = ee.Image("UMD/hansen/global_forest_change_2019_v1_7").select('treecover2000')
+    mask = umd_hansen.gt(30)
+    variance_masked = variance.updateMask(mask)
+    Map.addLayer(variance_masked, viz)
+    ```
 
-   ![](./figures/m1.2/m1.2.2/mozambique_ndvi_var_masked.JPG)
+    ![](./figures/m1.2/m1.2.2/mozambique_ndvi_var_masked.JPG)
 
 10. Ahora, mientras estamos recopilando datos de entrenamiento para la clase 'Bosque', es importante referir esta capa para asegurar que estos datos de entrenamiento contabilicen las diferencias es la variabilidad estacional espectral en bosques. Primero, vamos a repasar porque pueda ser de gran beneficio hacer los pasos descritos arriba: 
 
@@ -405,37 +382,40 @@ Aquí, nuestra meta es asegurar que nuestra clase "Bosque" contenga ejemplos de 
     - GEE nos permite identificar bosques estacionales fácilmente a base de la variancia de NDVI en el transcurso de un año.
     - El conjunto de datos de UMD-Hansen crea una máscara para excluir pixeles no forestales, y así nos ayuda con la colección de datos de entrenamiento 
 
-11. Es necesario agregar un mapa de fondo además de la capa de NDVI. Cualquiera de los ejemplos previos se puede usar, y el más simple es [QuickMap Services](#quickmap). Asegúrese que pueda identificar sus clases en las imágenes que utiliza. Si no puede, pruebe otra fuentes de imágenes de referencia o considere simplificar sus clases. Abajo hay ejemplos de las clases usadas aquí en las Imágenes ESRI, disponibles en QuickMap Services.
+11. Es necesario agregar un mapa de fondo además de la capa de NDVI. Cualquiera de los ejemplos previos se puede usar, y el más simple es QuickMap Services. Asegúrese que pueda identificar sus clases en las imágenes que utiliza. Si no puede, pruebe otra fuentes de imágenes de referencia o considere simplificar sus clases. Abajo hay ejemplos de las clases usadas aquí en las Imágenes ESRI, disponibles en QuickMap Services.
     ![](./figures/m1.2/m1.2.2/lc_examples.jpeg)
 
-12. Usando las direcciones descritas [arriba](#collection), recolecte puntos de entrenamiento clase por clase. Para la clase de Bosque, se le sugiere ocasionalmente sobreponer los puntos de entrenamiento en el mapa de variancia NDVI. No es necesario hacer un análisis detallado, pero vale la pena hacer una breve evaluación visual para asegurar que las muestras de entrenamiento representan bosques estacionales y no estacionales. Esto se puede llevar acabo si alterna entre áreas rojas, amarillas, y verdes en la capa de variabilidad NDVI, y también entre esa capa y la imagen de referencia para asegurar que esas ubicaciones en realidad sean bosques. Note en el ejemplo siguiente como hay puntos de entrenamiento (azules) en bosques con variabilidad estacional (o variancia NDVI) diferentes.
+12. Usando las direcciones descritas arriba, recolecte puntos de entrenamiento clase por clase. Para la clase de Bosque, se le sugiere ocasionalmente sobreponer los puntos de entrenamiento en el mapa de variancia NDVI. No es necesario hacer un análisis detallado, pero vale la pena hacer una breve evaluación visual para asegurar que las muestras de entrenamiento representan bosques estacionales y no estacionales. Esto se puede llevar acabo si alterna entre áreas rojas, amarillas, y verdes en la capa de variabilidad NDVI, y también entre esa capa y la imagen de referencia para asegurar que esas ubicaciones en realidad sean bosques. Note en el ejemplo siguiente como hay puntos de entrenamiento (azules) en bosques con variabilidad estacional (o variancia NDVI) diferentes.
     ![](./figures/m1.2/m1.2.2/moz_forest_exs.png)
 
 13. Recuerde que debe de guardar su trabajo frecuentemente, seleccionando el botón *Save Layer Edits*. 
-
 14. Cuando complete estos pasos, seleccione el botón *Toggle Editing* para terminar de editar.
-
 15. Opcionalmente, puede visualizar los datos de entrenamiento: 
     ![](./figures/m1.2/m1.2.2/moz_td.JPG)  
 
-### 4.2 Camboya: Contabilizando la Topografía
+### 4.2 Camboya
 
 El ejemplo final de colección de datos de entrenamiento en QGIS es para el país de Camboya. Camboya tiene un clima tropical de monzones con una temporada de lluvia desde Mayo a Octubre. En años recientes, Camboya ha experimentado una cantidad considerable de cambio terrestre, frecuentemente en la forma de deforestación.
 
 Muchos de los bosques restantes en Camboya están ubicados en terreno montañoso. La topografía puede presentar un reto para la clasificación de cobertura terrestre. Ya que las características topográficas pueden crear sombras, la reflectancia del paisaje dentro de la sombra puede ser más baja que un paisaje similar fuera de los límites de la sombra. Para reducir este efecto, es importante recolectar datos que sean representativos de las diferentes condiciones topográficas de una región de estudio. Este ejemplo demostrará como hacer eso. 
 
-1. Primero, crear una capa nueva de Shapefile usando las instrucciones en [3.2 Creating a new layer](#creating-a-new-layer).
-2. Usaremos un mapa de terreno además de las imágenes de referencia cuando estemos recopilando datos de entrenamiento en este ejemplo. Usando la búsqueda en [QuickMap Services](#quickmap), busque dos mapas de fondo y agréguelos al mapa: Esri Imagery y Google Terrain Hybrid. 
+1. Primero, crear una capa nueva de Shapefile usando las instrucciones en 3.2 Creating a new layer.
+2. Usaremos un mapa de terreno además de las imágenes de referencia cuando estemos recopilando datos de entrenamiento en este ejemplo. Usando la búsqueda en QuickMap Services, busque dos mapas de fondo y agréguelos al mapa: Esri Imagery y Google Terrain Hybrid. 
 3. Después, ajustaremos los parámetros, de renderizado de capas para "mezclar" ambas capas. El objetivo es tener una imagen de alta resolución que tenga características topográficas exageradas y visualmente obvias. 
 4. En el panel de *Layers*, asegúrese de que la capa de Esri Imagery este puesta encima de la capa de Google Terrain Hybrid. Se puede ajustar el arreglo de las capas si selecciona la capa con su mouse y la arrastra a la ubicación deseada dentro del panel. 
 5. Para abrir el panel de *Layer Properties* para la capa de Esri Imagery, haga clic doble en su nombre en el panel de *Layers* o haga clic derecho y seleccione "Properties" (Propiedades). 
 6. Seleccione el panel de *Symbology* (Simbología). Para hacer esto, selecciónelo en el lado izquierdo del panel de *Layer Properties*.
 7. Cambie el *Blending mode* (Modo de mezcla) a 'Multiply' y haga clic en 'OK'. Ambas capas serán visualizadas como una imagen compuesta mezclada. Note la diferencia antes y después de mezclar la capa de Esri Imagery con la de Google Terrain Hybrid: 
-   ![](./figures/m1.2/m1.2.2/terrain1.jpeg)
+
+    ![](./figures/m1.2/m1.2.2/terrain1.jpeg)
+
 8. El propósito de esto es facilitar la visualización de las características topográficas en las imágenes de referencia, para que se puedan usar como información suplementaria cuando se colecten datos de referencia. Asegúrese de recolectar muestras de entrenamiento para bosque que varíen en sus características topográficas. Por ejemplo, muestras deberían de recolectarse en terrenos de diversos pendientes y aspectos. Esto no necesita ser preciso, y se puede hacer opcionalmente para cualquier tipo de cobertura terrestre. Una manera simple de observar diferencias en el terreno es basada en las sombras en la imagen de referencia: 
-   ![](./figures/m1.2/m1.2.2/training_terrain.JPG) 
+
+    ![](./figures/m1.2/m1.2.2/training_terrain.JPG) 
+
 9. Use la imagen compuesta de referencia para recolectar al menos 100 muestras de entrenamiento por clase. Recuerde que debe guardar su trabajo frecuentemente. Cuando haya completado esto, seleccione el botón *Toggle Editing* para terminar de editar. 
-   ![](./figures/m1.2/m1.2.2/cam_td.JPG) 
+
+    ![](./figures/m1.2/m1.2.2/cam_td.JPG) 
 
 ## 5 Preguntas Frecuentes 
 
@@ -467,7 +447,7 @@ Asegúrese de que la capa este cargada en el panel de 'Layers'. Si no lo está, 
 
 No es necesario, pero puede ayudar a mejorar la clasificación. Queremos que nuestros datos de entrenamiento representen la variabilidad espectral en nuestras clases. Una manera fácil de identificar diferencias en los tipos de bosques es a través de la variabilidad estacional. 
 
-**Si mi área de estudio es plana, ¿aun me debo de preocupar por la topografía? **
+**Si mi área de estudio es plana, ¿aun me debo de preocupar por la topografía?**
 
 No, no hay necesidad de preocuparse por la topografía en un área completamente plana.
 
@@ -489,21 +469,20 @@ Copyright 2021, World Bank
 
 Este trabajo fue desarrollado por Eric Bullock bajo contrato del World Bank con GRH Consulting, LLC para el desarrollo de recursos nuevos o existentes relacionadas a la Medida, Reportaje, y Verificación para el apoyo de implementación MRV en varios países. 
 
-Material revisado por:
-Kenset Rosales, Guatemala, Ministry of Environment and Natural Resources  
-Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
-Rajesh Bahadur Thapai, Nepal, International Centre for Integrated Mountain Development  
-Kenset Rosales, Guatemala, Ministry of Environment and Natural Resources  
-Sofia Garcia, Guatemala, Ministry of Environment and Natural Resources  
-Jennifer Juliana Escamilla Valdez, El Salvador, Ministerio de Medio Ambiente y Recursos Naturales  
-Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services  
-Ana Mirian Villalobos, El Salvador, Ministerio de Medio Ambiente y Recursos Naturales  
-Carole Andrianirina, Madagascar, Bureau National de Coordination REDD+  
-Phoebe Oduor, Kenya, Regional Center For Mapping of Resources for Development  
-KONAN Yao Eric Landry, Cote d'Ivoire, REDD+ Permanent Executive Secretariat  
-Paula Andrea Paz, Colombia, International Center for Tropical Agriculture  
+Material revisado por:  
+Kenset Rosales, Guatemala, Ministry of Environment and Natural Resources    
+Tatiana Nana, Cameroon, REDD+ Technical Secretariat    
+Rajesh Bahadur Thapai, Nepal, International Centre for Integrated Mountain Development    
+Kenset Rosales, Guatemala, Ministry of Environment and Natural Resources    
+Sofia Garcia, Guatemala, Ministry of Environment and Natural Resources    
+Jennifer Juliana Escamilla Valdez, El Salvador, Ministerio de Medio Ambiente y Recursos Naturales    
+Foster Mensah, Ghana, Center for Remote Sensing and Geographic Information Services    
+Ana Mirian Villalobos, El Salvador, Ministerio de Medio Ambiente y Recursos Naturales    
+Carole Andrianirina, Madagascar, Bureau National de Coordination REDD+    
+Phoebe Oduor, Kenya, Regional Center For Mapping of Resources for Development    
+KONAN Yao Eric Landry, Cote d'Ivoire, REDD+ Permanent Executive Secretariat    
+Paula Andrea Paz, Colombia, International Center for Tropical Agriculture    
 
-Atribución
-
-Bullock, E. 2020. Training Data Collection Using QGIS. © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)  
+Atribución  
+Bullock, E. 2021. Training Data Collection Using QGIS. © World Bank. License: Creative Commons Attribution license (CC BY 3.0 IGO)  
 ![](figures/m1.1/wb_fcfc_gfoi.png)
