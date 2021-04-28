@@ -313,10 +313,10 @@ La variabilité saisonnière peut représenter un défi lors de la classificatio
 
 Ici, notre objectif est de nous assurer que notre classe "Forêt" contient des exemples de différents types de forêts, comme indiqué par leurs trajectoires saisonnières. Il existe de nombreuses façons de le faire, et nous allons ici utiliser Google Earth Engine pour examiner la variabilité intra-annuelle de l'NDVI.   
 
-1. Tout d'abord, créez une nouvelle couche Shapefile en suivant les instructions de [3.2 Création d'une nouvelle couche] (#creating-a-new-layer). 
-2. Charger le plugin [Google Earth Engine](#gee). 
+1. Tout d'abord, créez une nouvelle couche Shapefile en suivant les instructions de 3.2 Création d'une nouvelle couche. 
+2. Charger le plugin Google Earth Engine. 
 3. Ouvrez la *Console Python* en naviguant sur "Plugins" -> "Python Console".  
-4. Utilisez les instructions du [3.3.3](#gee) pour charger les modules requis et naviguer sur  Mozambique. Si vous avez besoin d'une mise à jour, le code pour le faire se trouve ci-dessous. 
+4. Utilisez les instructions du 3.3.3 pour charger les modules requis et naviguer sur  Mozambique. Si vous avez besoin d'une mise à jour, le code pour le faire se trouve ci-dessous. 
 
     ```python
     import ee
@@ -381,7 +381,7 @@ Ici, notre objectif est de nous assurer que notre classe "Forêt" contient des e
 
     ![lc_examples](./figures/m1.2/m1.2.2/lc_examples.jpeg)
 
-12. En suivant les instructions décrites [ci-dessus] (#collection), allez classe par classe pour collecter des points d'entraînement. Pour la classe Forest, superposez occasionnellement les points d'entraînement sur la carte de variance de l'NDVI. Il n'est pas nécessaire de faire une évaluation détaillée, mais il vaut la peine de s'assurer visuellement que les échantillons d'entraînement représentent les forêts saisonnières et non saisonnières. Pour ce faire, il suffit d'alterner les zones rouges, vertes et jaunes sur la couche de variabilité de l'NDVI et de basculer entre cette couche et l'image de référence pour s'assurer que les endroits sont bien des forêts. Notez dans l'exemple suivant comment il y a des points d'entraînement (bleu) dans les forêts ayant une variabilité saisonnière différente (ou variance NDVI). 
+12. En suivant les instructions décrites ci-dessus, allez classe par classe pour collecter des points d'entraînement. Pour la classe Forest, superposez occasionnellement les points d'entraînement sur la carte de variance de l'NDVI. Il n'est pas nécessaire de faire une évaluation détaillée, mais il vaut la peine de s'assurer visuellement que les échantillons d'entraînement représentent les forêts saisonnières et non saisonnières. Pour ce faire, il suffit d'alterner les zones rouges, vertes et jaunes sur la couche de variabilité de l'NDVI et de basculer entre cette couche et l'image de référence pour s'assurer que les endroits sont bien des forêts. Notez dans l'exemple suivant comment il y a des points d'entraînement (bleu) dans les forêts ayant une variabilité saisonnière différente (ou variance NDVI). 
 
     ![moz_forest_exs](./figures/m1.2/m1.2.2/moz_forest_exs.png)
 
