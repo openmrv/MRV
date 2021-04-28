@@ -25,26 +25,29 @@ group:
   étape: Collecte de données de référence
 ---
 
-# Response design in AREA2 
+# Plan de réponse dans AREA2
 
 ## 1.Contexte
 
 AREA2, abréviation de Area Estimation & Accuracy Assessment, est une application de Google Earth Engine qui fournit un support complet pour l'échantillonnage et l'estimation dans un cadre d'inférence basé sur la conception. Pour plus d'informations sur AREA2, veuillez consulter le site suivant https://area2.readthedocs.io/en/latest/.
 
-Le plan de réponse définit la " réponse " des unités d'un échantillon. Dans le contexte de l'inférence basée sur le design dans un contexte géographique, " le design de réponse englobe toutes les étapes du protocole qui mènent à une décision concernant la concordance des classifications de référence et de la carte [et] la meilleure classification disponible des [conditions de surface du sol] pour chaque unité spatiale échantillonnée "  (Olofsson et al. 2014) [^fn1].  Les termes suivants sont importants :
+Le plan de réponse définit la " réponse " des unités d'un échantillon. Dans le contexte de l'inférence basée sur le design dans un contexte géographique, " le design de réponse englobe toutes les étapes du protocole qui mènent à une décision concernant la concordance des classifications de référence et de la carte [et] la meilleure classification disponible des conditions de surface du sol pour chaque unité spatiale échantillonnée " (Olofsson et al. 2014).  Les termes suivants sont importants :
 
 **Données de référence**
+
 Données caractérisant l'évaluation disponible la plus précise de la condition réelle à la localisation de l'échantillon (exemple : imagerie satellitaire à résolution fine).
 
 **Observations de référence**
+
 L'évaluation disponible la plus précise de l'état réel d'une unité de population.
 
 **Classification de référence**
+
 La classification de référence appliquée à la collection de toutes les unités d'échantillonnage.
 
 **Plan de réponse**
 
-Défini par (Stehman and Czaplewski, 1998)[^fn1]: “La référence ou classe réelle est obtenue pour chaque unité d'échantillonnage sur la base de l'interprétation de photographies aériennes ou de vidéographies, d'une observation au sol ou d'une combinaison de ces sources. Les méthodes utilisées pour déterminer cette référence de classification sont appelées "plan de réponse". Le plan d'intervention comprend les procédures de collecte des informations relatives à la détermination de la occupation du sol de référence, et les règles d'attribution d'une ou plusieurs [labels] de référence à chaque unité d'échantillonnage.” Connu sous le nom de “plan de mesure” par Särndal et al. (1992)[^fn2].
+Défini par (Stehman and Czaplewski, 1998): “La référence ou classe réelle est obtenue pour chaque unité d'échantillonnage sur la base de l'interprétation de photographies aériennes ou de vidéographies, d'une observation au sol ou d'une combinaison de ces sources. Les méthodes utilisées pour déterminer cette référence de classification sont appelées "plan de réponse". Le plan d'intervention comprend les procédures de collecte des informations relatives à la détermination de la occupation du sol de référence, et les règles d'attribution d'une ou plusieurs [labels] de référence à chaque unité d'échantillonnage.” Connu sous le nom de “plan de mesure” par Särndal et al. (1992).
 
 **Echantillon**
 
@@ -52,19 +55,19 @@ Un sous-ensemble de la population sélectionné parmi les unités de la populati
 
 **Plan d'échantillonnage**
 
-Synonyme de plan d'échantillonnage (Sampling Design), qui est le terme préféré dans la littérature de référence (Cochran, 1977[^fn3], Särndal et al., 1992[^fn2]). Le terme apparaît chez Rice (1995)[^fn4] ui utilise à la fois “sampling design, ***plan d'echantillonnage\***” et “sample design, ***plan d'echantillon\***”.
+Synonyme de plan d'échantillonnage (Sampling Design), qui est le terme préféré dans la littérature de référence (Cochran, 1977, Särndal et al., 1992). Le terme apparaît chez Rice (1995) ui utilise à la fois “plan d'echantillonnage” et “plan d'echantillon”.
 
 **Plan d'échantillonnage**
 
-“Le concept de plan d'échantillonnage (sampling design ) est le protocole par lequel les unités de référence de l'échantillon sont sélectionnées” (Stehman and Czaplewski, 1998)[^fn1]. Le terme “Sampling design” est également utilisé par Cochran (1977)[^fn3] and Särndal et al. (1992)[^fn2] -- Le premier utilise également “sampling plan”.
+“Le concept de plan d'échantillonnage (sampling design ) est le protocole par lequel les unités de référence de l'échantillon sont sélectionnées” (Stehman and Czaplewski, 1998). Le terme “Sampling design” est également utilisé par Cochran (1977) and Särndal et al. (1992) -- Le premier utilise également “sampling plan”.
 
 **Sondage/Enquêtee**
 
-Särndal et al. (1992)[^fn2] définissent une enquête comme une “investigation partielle d'une population finie”, et précisent que “les concepts d ‘enquête’ et ‘enquête par sondage’ sont utilisés pour désigner des enquêtes statistiques présentant les caractéristiques méthodologiques suivantes: [...] échantillonnage aléatoire [...] plan de mesure [et] estimation”. de facon plus precise une enquete par sondage ou un sondage est une enquête effectuee sur une partie de la population. Cette fraction de la population constitue l'échantillon et les méthodes qui permettent de construire cet echantillon s'appellent méthode d'échantillonnage.
+Särndal et al. (1992) définissent une enquête comme une “investigation partielle d'une population finie”, et précisent que “les concepts d ‘enquête’ et ‘enquête par sondage’ sont utilisés pour désigner des enquêtes statistiques présentant les caractéristiques méthodologiques suivantes: [...] échantillonnage aléatoire [...] plan de mesure [et] estimation”. de facon plus precise une enquete par sondage ou un sondage est une enquête effectuee sur une partie de la population. Cette fraction de la population constitue l'échantillon et les méthodes qui permettent de construire cet echantillon s'appellent méthode d'échantillonnage.
 
 **Plan de sondage**
 
-Un “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992)[^fn2]. Lohr (1999)[^fn5] décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
+Un “plan de sondage total” définit les procédures pour “obtenir la plus grande précision possible dans les estimations de l'enquête tout en trouvant un équilibre entre les erreurs d'échantillonnage et les erreurs non dues à l'échantillonnage [...] Le plan de sondage donne lieu à des opérations d'enquête” sélection de l'échantillon (Särndal et al., 1992). Lohr (1999) décrit un plan de sondage total comme “Une philosophie de conception d'enquête visant à minimiser les erreurs de non-échantillonnage ainsi que les erreurs d'échantillonnage..” De plus, dans Lohr (1999) “plan d'enquête” est synonyme de plan d'échantillonnage.
 
 
 Dans ce tutoriel, vous apprendrez à déterminer les conditions de référence en examinant un ensemble de données de référence aux emplacements des unités d'un ensemble de données d'échantillon à l'aide d'AREA2. Cet ensemble de données échantillons comprendra quatre strates : forêt, non-forêt, perturbation forestière et une zone tampon autour de la perturbation forestière. L'objectif est d'estimer la superficie de la perturbation forestière ; par conséquent, vous apprendrez à collecter des observations de référence sur la forêt, la zone non forestière et la perturbation forestière. Vous pouvez également utiliser d'autres outils pour accomplir cette tâche. Vous pouvez trouver d'autres tutoriels ici sur OpenMRV sous " Collecte de données d'échantillonnage " et les outils " CE ", et " CEO ".
@@ -72,7 +75,7 @@ Dans ce tutoriel, vous apprendrez à déterminer les conditions de référence e
 
 ## 2 Objectifs d'apprentissage
 
-À la fin du tutoriel, l'utilisateur devrait être en mesure d'afficher un ensemble de données de référence aux emplacements des unités d'échantillonnage conçues et tirées d'une zone d'étude. L'utilisateur doit être capable de déterminer les conditions de référence à la au sol en examinant les séries chronologiques de données Landsat en combinaison avec des données à haute résolution dans Google Earth.  
+À la fin du tutoriel, l'utilisateur devrait être en mesure d'afficher un ensemble de données de référence aux emplacements des unités d'échantillonnage conçues et tirées d'une zone d'étude. L'utilisateur doit être capable de déterminer les conditions de référence à la au sol en examinant les séries chronologiques de données Landsat en combinaison avec des données à haute résolution dans Google Earth. 
 
 * Afficher un ensemble de données de référence à l'emplacement des unités d'échantillonnage dans GEE.
 * Déterminer les conditions de référence au sol en examinant les séries temporelles de données Landsat en combinaison avec des données à haute résolution dans GEE.
@@ -80,13 +83,16 @@ Dans ce tutoriel, vous apprendrez à déterminer les conditions de référence e
 ### 2.1 Pré-requis
 * Une compréhension générale de l'interprétation des images. L'interprétation d'images est le processus consistant à regarder des images à résolution spatiale modérée, élevée ou très élevée (provenant de satellites ou de photographies aériennes) et à labelliser les objets d'intérêt dans vos emplacements d'échantillonnage. L'interprétation d'images est la compétence de base nécessaire pour déterminer avec précision les conditions de référence à la surface du sol.
 
-## 3 TutTutoriel : Conception des réponses dans Area2orial: Response design in Area2
+## 3 Tutoriel : Conception des réponses dans Area2orial: Response design in Area2
 
 ### 3.1 Préparer les données de référence
- La première étape consiste à extraire les séries temporelles des données Landsat aux localisations de l'échantillon. Pour ce faire, nous utilisons le script Save Feature Timeseries : https://code.earthengine.google.com/21658946c5c1456003aedcdd2eb303ce Ce script n'a pas d'interface graphique mais tout ce que nous avons à faire est de pointer le script vers l'actif GEE contenant l'échantillon. En haut du script, ajoutez simplement la ligne suivante en spécifiant l'emplacement de l'échantillon sélectionné à l'étape précédente :
+
+La première étape consiste à extraire les séries temporelles des données Landsat aux localisations de l'échantillon. Pour ce faire, nous utilisons le script Save Feature Timeseries : https://code.earthengine.google.com/21658946c5c1456003aedcdd2eb303ce Ce script n'a pas d'interface graphique mais tout ce que nous avons à faire est de pointer le script vers l'actif GEE contenant l'échantillon. En haut du script, ajoutez simplement la ligne suivante en spécifiant l'emplacement de l'échantillon sélectionné à l'étape précédente :
+
  ```javascript
  var sample = ee.FeatureCollection('users/olofsson76/Open_MRV/STR_sample_Col')
  ```
+ 
  Changez également les dates de 'début' et de 'fin' dans le script en fonction de votre période d'étude. Cliquez sur Exécuter dans Tâches et enregistrez le résultat sous forme de ressource GEE en le nommant "[filename]_TS".
 
 
@@ -101,18 +107,17 @@ Au-dessus des données de la série chronologique se trouve le contour de l'unit
  ![](./figures/AREA2_ref_collector.png)
 
 Pour l'instant, nous recommandons à l'utilisateur de noter les étiquettes de référence dans une feuille de calcul séparée, car la mise en œuvre de la sauvegarde des étiquettes de référence dans une collection unique de caractéristiques est en cours. Des vidéos illustrant la manière d'observer les conditions de référence en examinant les données de référence sont fournies ici (les vidéos font partie du projet NASA MEaSUREs GLanCE à l'Université de Boston http://sites.bu.edu/measures/):  
-* https://drive.google.com/file/d/1Y_D49kE_oiXxGEJEcPGT8FavrzdMj2qh/view?usp=sharing
-* https://drive.google.com/file/d/1Md5NajZAngJsVWWiTCbgSdLiEyw7u6BE/view?usp=sharing
+https://drive.google.com/file/d/1Y_D49kE_oiXxGEJEcPGT8FavrzdMj2qh/view?usp=sharing
+https://drive.google.com/file/d/1Md5NajZAngJsVWWiTCbgSdLiEyw7u6BE/view?usp=sharing
 
-## 4 Foire aux questions(FAQs)
+## 4 Foire aux questions
 
 **Si je ne peux pas déterminer les conditions de référence à l'emplacement d'une unité d'échantillonnage, puis-je écarter cette unité de l'échantillon?**
 
 Il est impératif que les observations de référence représentent les conditions de référence ; par conséquent, il est préférable d'écarter une unité d'échantillonnage que de deviner. En même temps, éliminer des unités parce que la détermination de labels de référence est impossible viole les règles de l'échantillonnage probabiliste. Pour ces raisons, il est difficile de fournir des directives sur le nombre d'unités d'échantillonnage pouvant être écartées. (Un de mes collègues renommés m'a dit un jour qu'il était acceptable d'éliminer jusqu'à 15 % des unités de l'échantillon, mais il n'a pas voulu être cité, et je n'ai trouvé aucun appui pour ce chiffre dans la littérature).
 
+## 5 Références
 
-
-## Références
 Cochran, W.G., 1977. *Sampling Techniques*, John Wiley & Sons, New York, NY.
 
 Lohr, S.L., 1999. *Sampling: Design And Analysis,* CRC Press.
@@ -135,14 +140,14 @@ Copyright 2021, Banque Mondiale.
 
 Ce travail a été développé par Pontus Olofsson dans le cadre d'un contrat de la Banque mondiale avec GRH Consulting, LLC pour le développement de nouvelles ressources - et la collecte de ressources existantes - liées à la mesure, la notification et la vérification pour soutenir la mise en œuvre du MRV par les pays. 
 
-Material reviewed by:   
+Matériel révisé par:   
 Ana Mirian Villalobos, El Salvador, Ministry of Environment and Natural Resources  
 Carole Andrianirina, Madagascar, National Coordination Bureau REDD+ (BNCCREDD)  
 Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natural Resources   
 Phoebe Oduor, Kenya, Regional Centre For Mapping Of Resources For Development (RCMRD)   
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat
 
-Attribution: 
+Attribution  
 Olofsson, P. 2021. Sample selection using QGIS. © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/) 
 
 ![](figures/wb_fcfc_gfoi.png)
