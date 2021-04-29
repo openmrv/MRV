@@ -60,7 +60,7 @@ Al final de este ejercicio, podrá:
 - Cargar su imagen compuesta de Landsat o Sentinel para usar como imagen de fondo y como referencia.
 - Recolectar y exportar datos de entrenamiento para hacer una clasificación categórica.
 
-### 2.1 Prerrequisitos para este módulo
+### 2.1 Prerrequisitos
 
 * Google Earth Engine
   * Tener una cuenta de GEE
