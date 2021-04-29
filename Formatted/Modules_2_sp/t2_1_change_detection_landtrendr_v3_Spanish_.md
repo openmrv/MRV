@@ -155,7 +155,7 @@ Adicionalmente, usuarios avanzados podrán:
   - Sintaxis básico de funciones
   - Procesamiento básico de imágenes, incluyendo elección de imágenes, filtración de nubes, creación de mosaicos y compuestas 
 
-NOTA: Consulte el proceso "Preprocesamiento" y la herramienta "GEE" aquí en OpenMRV para obtener más información y recursos para trabajar en Google Earth Engine y para compuestos de imágenes.
+> NOTA: Consulte el proceso "Preprocesamiento" y la herramienta "GEE" aquí en OpenMRV para obtener más información y recursos para trabajar en Google Earth Engine y para compuestos de imágenes.
 
 ## 3 Tutorial: Quickstart LandTrendr a través de la GUI en GEE
 
