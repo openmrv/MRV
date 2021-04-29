@@ -69,7 +69,7 @@ Uso avanzado también incluirá:
 
 NOTA: Consulte el proceso "Preprocesamiento" y la herramienta "GEE" aquí en OpenMRV para obtener más información y recursos para trabajar en Google Earth Engine.
 
-## 3 Detección de Degradación Continua (CODED)
+## 3 Tutorial: Detección de Degradación Continua (CODED)
 
 
 ### 3.1 Motivación
@@ -391,7 +391,7 @@ Disturbios son atribuidos como deforestación o degradación basado en la cobert
 ![alt_text](./images/CODED/img16_sp.png "image_tooltip")
 
 
-## 4 Ejecutar CODED con una Interfaz de Usuario Grafica 
+## 4 Tutorial: Ejecutar CODED con una Interfaz de Usuario Grafica 
 
 CODED se puede ejecutar con una interfaz de usuario grafica (GUI por sus siglas en ingles) llamada ‘OpenMRV_español/Part 2/CODED_esp/Forest Disturbance Mapping GUI_esp’ (GUI de Mapeo de Perturbaciones Forestales), la cual se puede encontrar en el repositorio Open MRV. Note que la versión en el repositorio es un momento en el tiempo y la versión mas reciente se puede encontrar aquí: [https://coded.readthedocs.io](https://coded.readthedocs.io). 
 
@@ -442,7 +442,7 @@ Como se puede ver en la Figura 1, la aplicación contiene varios componentes que
 *   La pestaña de tareas es una característica predeterminada de la interfaz web de GEE y se utiliza para enviar trabajos para su procesamiento. Las tareas se pueden utilizar para exportar imágenes y colecciones de características como activos o para almacenamiento externo como Google Drive.
 
 
-## 5 Parametrización
+## 5 Tutorial: Parametrización
 
 
 ### 5.1 Máscara de Bosque
@@ -672,7 +672,7 @@ Amarillo: Disturbio No Clasificado
 </table>
 
 
-## 6 Additional Examples: Colombia, Cambodia, Mozambique
+## 6 Ejemplos Adicionales: Colombia, Camboya, Mozambique
 
 #### 6.1 Colombia
 
@@ -754,7 +754,7 @@ Las siguientes son unas recomendación acerca de los parámetros que se deben ut
 
 
 
-### 6.2 Tutorial: Creando resultados nacionales en Camboya
+### 6.2 Camboya (resultados nacionales)
 
 El ejemplo anterior demostró cómo crear resultados en una pequeña área de estudio en Colombia. Si bien esto es útil para la parametrización, ya que los resultados se pueden crear rápidamente, a menudo es el caso que el análisis debe realizarse a escala nacional.
 
@@ -866,7 +866,7 @@ Export.image.toAsset({
 
 
 
-### 6.3 Tutorial: CODED Usando Sentinel-2 en Mozambique
+### 6.3 Mozambique (Sentinel-2)
 
 CODED se diseño para ser usado con datos Landsat. Sin embargo, las diferencias radiométricas entre Landsat y Sentinel-2 son mínimas, y por lo tanto una extensión de CODED para Sentinel-2 no es complicada. Sentinel-2 no tiene banda térmica, pero el modelo SMA usado aquí no requiere una. Las ventajas principales de Sentinel-2 son frecuencia de datos mas alta (después del 2015), y resolución espacial mas alta para la mayoría de bandas. A pesar de que no se probado la aplicación de CODED con Sentinel-2 ampliamente, por el momento es apoyado en la GUI de Forest Disturbance Mapping.  
 
@@ -975,35 +975,35 @@ Sentinel-2 RGB Composite
 
 ## 7 Preguntas Frecuentes
 
-**¿Cómo CODED se adapta a la estacionalidad? **
+**¿Cómo CODED se adapta a la estacionalidad?**
 
 CODED utiliza la regresión estacional para modelar los cambios estacionales debidos a la fenología. Dado que la estadística de prueba para la detección de cambios se basa en los residuos del modelo, la regresión armónica actúa para "destrendir estacionalmente" el NDFI.
 
-**En el contexto de CODED, ¿cuál es la definición de degradación forestal? **
+**En el contexto de CODED, ¿cuál es la definición de degradación forestal?**
 
 La degradación forestal se define aquí como una perturbación en un bosque que reduce la biomasa, la productividad ecológica y / o la cubierta del dosel, pero no da como resultado una conversión de la cubierta terrestre. Los ejemplos incluyen la tala selectiva, la extracción de madera a pequeña escala, los incendios y la conversión de un bosque natural a una plantación.
 
-**¿Cómo se pueden considerar los claros completos del dosel como degradación, en lugar de deforestación? **
+**¿Cómo se pueden considerar los claros completos del dosel como degradación, en lugar de deforestación?**
 
 La tierra forestal que se despeja pero comienza a regenerarse inmediatamente, sin un uso de la tierra no forestal, se considera en este contexto como un bosque en regeneración. La definición de deforestación utilizada aquí requiere una conversión de la clase de cobertura terrestre (por ejemplo, bosque en tierra de cultivo). Por lo tanto, una perturbación en un bosque que sigue siendo bosque se considera degradación independientemente de la cantidad de cobertura arbórea afectada.
 
-** ¿Se puede aplicar CODED a datos de alta resolución? **
+**¿Se puede aplicar CODED a datos de alta resolución?**
 
 CODED puede aplicarse técnicamente a cualquier fuente de datos ópticos. Sin embargo, requiere una serie de tiempo de observaciones temporalmente consistentes.
 
-**¿Por qué CODED usa NDFI e imágenes de fracciones en lugar de bandas espectrales originales? **
+**¿Por qué CODED usa NDFI e imágenes de fracciones en lugar de bandas espectrales originales?**
 
 Investigaciones anteriores en la Amazonía brasileña (es decir, Souza et al., 2003, 2005, 2013) encontraron que el NDFI es más sensible a la degradación de subpíxeles por fuego y tala que las bandas o índices espectrales.
 
-**Mis resultados tienen demasiados o pocos cambios detectados, ¿qué puedo hacer? **
+**Mis resultados tienen demasiados o pocos cambios detectados, ¿qué puedo hacer?**
 
 El cambio de "Obs consecutivos" y "chiSquareProbability" controlará la sensibilidad del algoritmo al cambio.
 
-**¿Cómo se pueden utilizar los resultados para crear datos de actividad? **
+**¿Cómo se pueden utilizar los resultados para crear datos de actividad?**
 
 Los datos de actividad pueden derivarse de los mapas basados en CODED directamente o en un diseño de muestreo.
 
-**¿Qué hacer si la precisión de los resultados es baja? **
+**¿Qué hacer si la precisión de los resultados es baja?**
 
 El proceso está destinado a ser iterativo. Sugerimos comenzar con un área de estudio pequeña, luego ejecutar los parámetros predeterminados, luego mirar los resultados del mapa y los ejemplos de series de tiempo, y probar un nuevo conjunto de parámetros. Además, si los resultados se utilizan en un marco de muestreo para la estimación estadística, no importa demasiado la precisión del mapa. En este contexto, los errores del mapa se acomodan utilizando un estimador estadístico insesgado.
 
@@ -1059,7 +1059,7 @@ Jennifer Juliana Escamilla Valdez, El Salvador, Ministry of Environment and Natu
 Konan Yao Eric Landry, Côte d'Ivoire, REDD+ Permanent Executive Secretariat   
 Tatiana Nana, Cameroon, REDD+ Technical Secretariat  
 
-Atribución
+Atribución  
 Bullock, E. 2021. Continuous Degradation Detection (CODED). © World Bank. License:  [Creative Commons Attribution license (CC BY 3.0 IGO)](http://creativecommons.org/licenses/by/3.0/igo/)  
 
 ![](figures/wb-fcfc-gfoi.png)
