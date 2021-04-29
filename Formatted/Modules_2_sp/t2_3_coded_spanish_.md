@@ -60,14 +60,13 @@ Uso avanzado también incluirá:
 
 ### 2.1 Prerrequisitos
 
-- Conceptos de Google Earth Engine (GEE) (por favor refiérase a Sección 1.1 de Modulo 1.1 Creación de mosaico/imagen compuesta para Landsat y Sentinel-2 en Google Earth Engine para encontrar recursos de GEE útiles)
-
+- Conceptos de Google Earth Engine (GEE)
   - Obtener una cuenta de usuario
-   - Imágenes en GEE
-   - Sintaxis básico de funciones
-   - Procesamiento básico de imágenes, incluyendo elección de imágenes, filtración de nubes, creación de mosaicos y compuestas 
+  - Imágenes en GEE
+  - Sintaxis básico de funciones
+  - Procesamiento básico de imágenes, incluyendo elección de imágenes, filtración de nubes, creación de mosaicos y compuestas 
 
-NOTA: Consulte el proceso "Preprocesamiento" y la herramienta "GEE" aquí en OpenMRV para obtener más información y recursos para trabajar en Google Earth Engine.
+> NOTA: Consulte el proceso "Preprocesamiento" y la herramienta "GEE" aquí en OpenMRV para obtener más información y recursos para trabajar en Google Earth Engine.
 
 ## 3 Tutorial: Detección de Degradación Continua (CODED)
 
