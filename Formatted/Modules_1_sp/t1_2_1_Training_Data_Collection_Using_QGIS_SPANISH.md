@@ -66,7 +66,7 @@ Al final de este ejercicio, podrá:
 - Cargar múltiples fuentes de imágenes de alta resolución para usar como referencia
 - Recopilar datos de entrenamiento para clasificación categórica
 
-### 2.1 Prerrequisitos para este módulo
+### 2.1 Prerrequisitos
 
 * Conceptos QGIS
   * Instalación
