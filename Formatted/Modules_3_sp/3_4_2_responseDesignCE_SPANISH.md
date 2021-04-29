@@ -128,7 +128,7 @@ El diseño de un proyecto es un proceso iterativo y probablemente necesitará re
 
 ## 3 Tutorial: Collect Earth Desktop
 
-## 3.1 Descargar e instalar Collect 
+### 3.1 Descargar e instalar Collect 
 
 El primer paso es descargar “Collect” del sitio de OpenForis ([http://openforis.org/](http://openforis.org/)).
 
