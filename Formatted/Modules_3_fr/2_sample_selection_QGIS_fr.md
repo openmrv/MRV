@@ -42,7 +42,7 @@ Dans le tutoriel précédent, nous avons conçu un échantillon en choisissant u
 
 ### 2.1 Prérequis 
 
--  Relevant terminology for sampling techniques can be found at the end of this document
+- La terminologie relative aux techniques d'échantillonnage se trouve à la fin de ce document.
 
 ## 3 Tutoriel: Création d'un échantillon à l'aide de QGIS
 
