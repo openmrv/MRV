@@ -96,7 +96,7 @@ Al final de este ejercicio, podrá redactar, revisar y publicar un proyecto en C
 * Selección de imágenes para ver para la interpretación de datos.
 * Recopilar y exportar observaciones de referencia.
 
-### 2.1 Prerrequisitos para este modulo
+### 2.1 Prerrequisitos
 
 * La terminologia relevante se puede encontrar al final de este documento.
 * Un entendimiento general de la interpretación de imágenes. La interpretación de imágenes es el proceso de mirar imágenes de resolución espacial moderada, alta, o muy alta (de satélites o fotografía aérea) y etiquetar los objetos de interés en sus ubicaciones de muestra. Interpretación de imágenes es la habilidad clave para efectivamente ejecutar cualquier proyecto de Collect Earth Online.
@@ -274,7 +274,7 @@ Esta sección le permite agregar información general acerca del proyecto, inclu
 
     * Si está activada la casilla de 'Copy Template Plots and Samples', las secciones de Plot Review and Sample Design (Repaso de Parcela y Diseño de Muestra) solo mostraran una vision general del numero de las parcelas, etc. Desactive esta casilla para cambiar esos parámetros. 
     
-    * La casilla de 'Copy Template Widgets' se refiere a las opciones de Geo-Dash cubiertas en Parte 6: Implementación de Geo-Dash.
+    * La casilla de 'Copy Template Widgets' se refiere a las opciones de Geo-Dash cubiertas en Parte 3.2.2.8 Configurando Geo-Dash.
 
 2. Llene el nombre y la descripción del proyecto. El Nombre debe de ser corto y será mostrado en la pagina de Inicio además de la pagina de Colección de Datos.
 
