@@ -27,7 +27,7 @@ group:
 
 # Plan de réponse dans AREA2
 
-## 1.Contexte
+## 1 Contexte
 
 AREA2, abréviation de Area Estimation & Accuracy Assessment, est une application de Google Earth Engine qui fournit un support complet pour l'échantillonnage et l'estimation dans un cadre d'inférence basé sur la conception. Pour plus d'informations sur AREA2, veuillez consulter le site suivant https://area2.readthedocs.io/en/latest/.
 
