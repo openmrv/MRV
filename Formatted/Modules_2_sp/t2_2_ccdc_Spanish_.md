@@ -62,7 +62,7 @@ Al final de este tutorial, los usuarios podrán:
 
 
 
-## 3 Detección de Cambio y Clasificación Continua (CCDC)
+## 3 Tutorial: Detección de Cambio y Clasificación Continua (CCDC)
 CCDC se puede ejecutar con Google Earth Engine. Se puede acceder a otras implementaciones de CCDC [aquí](https://github.com/GERSL/CCDC) e incluye implementaciones en C, Python y MATLAB. Para facilitar el análisis en GEE, Arévalo et al (2020) lanzaron una API y una colección de aplicaciones que se demostrarán [aquí](https://gee-ccdc-tools.readthedocs.io/en/latest/).
 
 Este tutorial utilizará la implementación de CCDC en GEE, por lo tanto, se necesita una cuenta de GEE. Consulte el proceso "Preprocesamiento" y la herramienta "GEE" aquí en OpenMRV para obtener información adicional sobre GEE. En el primer ejemplo, el proceso se demuestra utilizando la API de CCDC en Camboya. En el segundo ejemplo, el proceso se demuestra en Mozambique utilizando las interfaces gráficas de usuario. Finalmente, el proceso se realiza en Colombia para crear una estratificación de pérdida y ganancia forestal. 
