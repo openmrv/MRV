@@ -269,7 +269,7 @@ Finalmente, vemos en la siguiente figura un ejemplo de un bosque afectado por un
 
 Es relativamente sencillo trazar las trayectorias temporales de NDFI en Google Earth Engine. Este puede hacer un ejercicio útil para comprender el historial de uso de la tierra de una ubicación además de la respuesta espectral a los cambios del paisaje. Para hacerlo, es necesario calcular primero el NDFI para una colección de imágenes completa y luego definir una función para trazar el NDFI en la ubicación seleccionada en el mapa.
 
-**Nota **: Este código se puede encontrar en el repositorio de Open MRV en el script "OpenMRV_español/Part 2/CODED_esp/Unmix Time Series_esp". 
+**Nota**: Este código se puede encontrar en el repositorio de Open MRV en el script "OpenMRV_español/Part 2/CODED_esp/Unmix Time Series_esp". 
 
 ```javascript
 // Definir una función para SMA y calcular NDFI
@@ -814,7 +814,7 @@ En la GUI ‘Forest Disturbance Mapping GUI’, defina el área de estudio usand
     - Abrir la caja de herramientas _Visualization parameter_ seleccionando la caja de engranaje junto al nombre de la capa.  
     - Cambiar la visualización a 1 banda (Greyscale), con la banda ‘lossyear’, un rango de 0-20, y una paleta de un color que resaltará bien en el mapa (en el siguiente ejemplo escogimos rojo). Hacer clic en _Apply_. 
 
-![alt_text](./images/CODED/img37.png "image_tooltip")  
+    ![alt_text](./images/CODED/img37.png "image_tooltip")  
 
     - **Nota:** Este conjunto de datos no es perfecto, y puede omitir eventos de pérdida de cobertura de árboles que no reemplazan a rodales. Sin embargo, sirve bien para propósitos exploratorios.
 
@@ -822,18 +822,18 @@ En la GUI ‘Forest Disturbance Mapping GUI’, defina el área de estudio usand
 6. Tómese algo de tiempo haciéndole clic a las áreas clasificadas como perdida de cobertura arbórea y visualizando la serie de tiempo. Esta es una buena oportunidad para cambiar los parámetros de _Consecutive Obs_ y _chiSquareProbability_ . 
 7. El ejemplo se puede encontrar en Latitud, Longitud 13.307, 104.587. Puede agregar este punto al mapa de la misma manera que la capa de Global Forest Watch usando la ruta de asset ‘users/openmrv/MRV/Cambodia_Example_Point’. Note el declive dramático en NDFI que no se detecta como cambio. 
 
-![alt_text](./images/CODED/img38.png "image_tooltip")  
-Este disturbio se puede ver haciéndole clic a la observación en el tramo junto al error indicando el error de omisión. Note que los datos faltantes son debidos al problema del corrector de línea de escaneo de Landsat 7. 
-![alt_text](./images/CODED/img39.png "image_tooltip")  
-Experimente con diferentes valores para _Consecutive Obs_ y _chiSquareProbability_ para intentar detectar este cambio correctamente.  Rangos típicos para _Consecutive Obs_ son de 3 (mas cambio) a 8 (menos cambio), mientras que _chiSquareProbability_ típicamente tiene un rango de .9 (mas cambio) a .999 (menos cambio). Después de cambiar el parámetro, haga clic en _Run_ para que entren en efecto. Asegúrese de que _Reset Map_ y _Center Zoom_ no estén seleccionados bajo _Visualization_. De esta manera pueden cambiar los parámetros sin restablecer ninguna de las capas del mapa o sin cambiar el visor del mapa.
+    ![alt_text](./images/CODED/img38.png "image_tooltip")  
+    Este disturbio se puede ver haciéndole clic a la observación en el tramo junto al error indicando el error de omisión. Note que los datos faltantes son debidos al problema del corrector de línea de escaneo de Landsat 7. 
+    ![alt_text](./images/CODED/img39.png "image_tooltip")  
+    Experimente con diferentes valores para _Consecutive Obs_ y _chiSquareProbability_ para intentar detectar este cambio correctamente.  Rangos típicos para _Consecutive Obs_ son de 3 (mas cambio) a 8 (menos cambio), mientras que _chiSquareProbability_ típicamente tiene un rango de .9 (mas cambio) a .999 (menos cambio). Después de cambiar el parámetro, haga clic en _Run_ para que entren en efecto. Asegúrese de que _Reset Map_ y _Center Zoom_ no estén seleccionados bajo _Visualization_. De esta manera pueden cambiar los parámetros sin restablecer ninguna de las capas del mapa o sin cambiar el visor del mapa.
 
     - Note que cambiar el umbral _Consecutive Obs_ de 4 a 3 llevo a la detección correcta del cambio:   
-![alt_text](./images/CODED/img40.png "image_tooltip")  
-No es realístico determinar el conjunto perfecto de parámetros para un país entero. Sin embargo, este ejercicio se puede usar para determinar un conjunto de parámetros que funcione bien con los datos disponibles para su área de estudio. 
+    ![alt_text](./images/CODED/img40.png "image_tooltip")  
+    No es realístico determinar el conjunto perfecto de parámetros para un país entero. Sin embargo, este ejercicio se puede usar para determinar un conjunto de parámetros que funcione bien con los datos disponibles para su área de estudio. 
 
 7. Después de determinar un conjunto de parámetros, exporte los resultados seleccionando 'Stratification' por debajo de opciones 'Export'. Ya que vamos a exportar un país entero, la exportación puede fallar si intentamos hacer el análisis en una sola tarea. Por lo tanto, seleccione la opción de Export 'Use Grid'. Esta opción dividirá los datos resultantes en cuadriculas de 5x5, lo cual drásticamente reducirá el tiempo de procesamiento y creara mapas que se pueden combinar en el próximo paso. Después de hacerle clic a ‘Run’ debería de ver dos tareas de exportación para diferentes cuadriculas de grados 5x5 que forman la región de estudio.
 
-![alt_text](./images/CODED/img41.png "image_tooltip")
+    ![alt_text](./images/CODED/img41.png "image_tooltip")
 
 
 8. Una vez que se han procesado las dos tareas, las dos áreas de cuadricula se pueden combinar para crear una sola Estratificación para el país de Camboya. El código siguiente se puede encontrar en el script ‘Combine Grids’ en la carpeta  CODED. 
