@@ -9,8 +9,9 @@ Training materials for Monitoring, Reporting, and Verification related to forest
 2. Change Detection Methods
 3. Estimation of Area and Map Accuracy
 
-## 📢 Add this repo to Google Earth Engine 📢
-To add the code repository 💾 directly to your GEE account, use the following 🔗: https://code.earthengine.google.com/?accept_repo=users/openmrv/MRV.
+## 📢 Add this repo to [Google Earth Engine](https://code.earthengine.google.com/) 🌎 (GEE) 📢
+To add the code repository 💾 directly to your GEE account, use the following 🔗:
+https://code.earthengine.google.com/?accept_repo=users/openmrv/MRV.
 
 ## Additional information
 These materials have been integrated into the OpenMRV web platform; please visit: https://openmrv.org/home.
