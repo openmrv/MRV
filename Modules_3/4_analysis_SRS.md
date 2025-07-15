@@ -44,22 +44,22 @@ Now lets calculate a margin of error of the area estimate. The SRS variance esti
 
 ![](https://latex.codecogs.com/svg.latex?\Large&space;\hat{V}(\hat{y})=\frac{s^2}{n}&space;=&space;\frac{\sum&space;(y_i-\bar{y})^2}{n(n-1)})
 
-To apply the variance estimator in the spreadsheet, type in cell D3 "Variance", and in cell D4  "=sum(ArrayFormula((C4:C103-D24)^2))/(100 * 99)" to apply the variance estimator; it should return 0.001414. Now type "Standard error" in D5, and in D6: "=sqrt(C4)"; type "95% CI" in D7 and in D8: "=1.96*D6". Finally type "Margin of error" in D9 and in D10 and "=D8/D2":
+To apply the variance estimator in the spreadsheet, type in cell D3 "Variance", and in cell D4  "=sum(ArrayFormula((C2:C101-D4)^2))/(100 * 99)" to apply the variance estimator; it should return 0.00122. Now type "Standard error" in D5, and in D6: "=sqrt(C4)"; type "95% CI" in D7 and in D8: "=1.96*D6". Finally type "Margin of error" in D9 and in D10 and "=D8/D2":
 
 | | A             | B            | C     |D        |E   
 |-|:--------------|:-------------|:------|:--------|:---|
 |1| Map           | Ref.         | y_i   | Area FD |    |
 |2| 2             |  2           | 0     | 0.14    |    |
 |3| 2             |    2         | 0     |Variance	       |    |
-|4| 1             |    1         | 1     |  0.001414       |    |
+|4| 1             |    1         | 1     |  0.00122        |    |
 |5| 2             |    2         | 0     | Standard error  |    |
-|6| 2             |    2         | 0     |  0.0376         |    |
+|6| 2             |    2         | 0     |  0.03493        |    |
 |7| 2             |    2         | 0     | 95% CI          |    |
-|8| 1             |    1         | 1     | 0.0737          |    |
+|8| 1             |    1         | 1     | 0.06846         |    |
 |9| 2             |    1         | 1     | Margin of error |    |
-|10| 2             |    2         | 0    | 53%             |    |
+|10| 2            |    2         | 0     | 48.9%           |    |
 
-We have now estimated the area of forest disturbance using a sample of 100 units collected under SRS as 0.14 +- 0.074 corresponding to a margin of error of 53%. Note that the map information in column A was not used.  
+We have now estimated the area of forest disturbance using a sample of 100 units collected under SRS as 0.14 +- 0.068 corresponding to a margin of error of 48.9%. Note that the map information in column A was not used.  
 
 Finally, lets calculate the accuracy of the map, starting with the overall accuracy: type "Overall acc." in cell E1, and in E2 "=COUNTIF(A2:A101,B2:B101)/100" -- this expression will count number of instances where the map and reference labels agree and divide by the sample size. The overall accuracy is the overall proportion of area correctly classified.
 
@@ -73,13 +73,13 @@ Finally, in cell G1 type "Prod. acc. FD" and in G2 "=countifs(A1:A101,"1",B1:B10
 |1| Map           | Ref.         | y_i   | Area FD |Overall acc.|User's acc. FD|Prod. acc. FD|
 |2| 2             |    2         | 0     | 0.14    | 0.65  |0.80|0.86|
 |3| 2             |    2         | 0     |Variance         |    | |
-|4| 1             |    1         | 1     |  0.001414       |    | |
+|4| 1             |    1         | 1     |  0.00122        |    | |
 |5| 2             |    2         | 0     | Standard error  |    | |
-|6| 2             |    2         | 0     |  0.0376         |    | |
+|6| 2             |    2         | 0     |  0.03493        |    | |
 |7| 2             |    2         | 0     | 95% CI          |    | |
-|8| 1             |    1         | 1     | 0.0737          |    | |
+|8| 1             |    1         | 1     | 0.06846         |    | |
 |9| 2             |    1         | 1     | Margin of error |    | |
-|10| 2             |    2         | 0     | 53%            |    | |
+|10| 2            |    2         | 0     | 48.9%           |    | |
 
 
 
